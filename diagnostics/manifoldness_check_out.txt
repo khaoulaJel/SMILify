@@ -1,0 +1,28 @@
+=== Rest-pose template (sanity baseline) ===
+{'vertex_count': 10229, 'face_count': 20454, 'boundary_edges': 0, 'non_manifold_edges': 0, 'non_manifold_verts': 0, 'is_watertight': True, 'signed_volume': 0.0403}
+{'n_verts': 10229, 'n_edges': 30681, 'n_faces': 20454, 'n_zero_length_edges': 0, 'n_zero_area_faces': 0, 'n_duplicate_verts': 0, 'edge_length_percentiles': {0: 0.000771316175814718, 0.1: 0.0016954500460997224, 1: 0.0025798361748456955, 5: 0.004288892727345228, 50: 0.012638833373785019}}
+
+=== baseline / Acanthostichus_aff.brevicornis_CASENT0744328_processed.obj (fitted Stage_3) ===
+{'vertex_count': 10229, 'face_count': 20454, 'boundary_edges': 0, 'non_manifold_edges': 0, 'non_manifold_verts': 0, 'is_watertight': True, 'signed_volume': 0.0956}
+{'n_verts': 10229, 'n_edges': 30681, 'n_faces': 20454, 'n_zero_length_edges': 0, 'n_zero_area_faces': 0, 'n_duplicate_verts': 0, 'edge_length_percentiles': {0: 0.0004943610401824117, 0.1: 0.0008958710171282292, 1: 0.0016423881985247134, 5: 0.003276808187365532, 50: 0.014560545794665813}}
+
+=== baseline / Acromyrmex_coronatus_CASENT0744365_processed.obj (fitted Stage_3) ===
+{'vertex_count': 10229, 'face_count': 20454, 'boundary_edges': 0, 'non_manifold_edges': 0, 'non_manifold_verts': 0, 'is_watertight': True, 'signed_volume': 0.09}
+{'n_verts': 10229, 'n_edges': 30681, 'n_faces': 20454, 'n_zero_length_edges': 0, 'n_zero_area_faces': 0, 'n_duplicate_verts': 0, 'edge_length_percentiles': {0: 0.0004601026594173163, 0.1: 0.0009762307349592447, 1: 0.0017873435048386455, 5: 0.0033863638527691364, 50: 0.01579759083688259}}
+
+=== baseline / Solenopsis_invicta_CASENT0744384_processed.obj (fitted Stage_3) ===
+{'vertex_count': 10229, 'face_count': 20454, 'boundary_edges': 0, 'non_manifold_edges': 0, 'non_manifold_verts': 0, 'is_watertight': True, 'signed_volume': 0.1798}
+{'n_verts': 10229, 'n_edges': 30681, 'n_faces': 20454, 'n_zero_length_edges': 0, 'n_zero_area_faces': 0, 'n_duplicate_verts': 0, 'edge_length_percentiles': {0: 0.0005712423590011895, 0.1: 0.0009437214978970588, 1: 0.0017099452903494238, 5: 0.003460170468315482, 50: 0.020556379109621048}}
+
+=== gentle / Acanthostichus_aff.brevicornis_CASENT0744328_processed.obj (fitted Stage_3) ===
+{'vertex_count': 10229, 'face_count': 20454, 'boundary_edges': 0, 'non_manifold_edges': 0, 'non_manifold_verts': 0, 'is_watertight': True, 'signed_volume': 0.0916}
+{'n_verts': 10229, 'n_edges': 30681, 'n_faces': 20454, 'n_zero_length_edges': 0, 'n_zero_area_faces': 0, 'n_duplicate_verts': 0, 'edge_length_percentiles': {0: 0.00043375251698307693, 0.1: 0.0010191297391429544, 1: 0.001814837963320315, 5: 0.0034548945259302855, 50: 0.015060399658977985}}
+
+=== gentle / Acromyrmex_coronatus_CASENT0744365_processed.obj (fitted Stage_3) ===
+{'vertex_count': 10229, 'face_count': 20454, 'boundary_edges': 0, 'non_manifold_edges': 0, 'non_manifold_verts': 0, 'is_watertight': True, 'signed_volume': 0.0672}
+{'n_verts': 10229, 'n_edges': 30681, 'n_faces': 20454, 'n_zero_length_edges': 0, 'n_zero_area_faces': 0, 'n_duplicate_verts': 0, 'edge_length_percentiles': {0: 0.0003533753042574972, 0.1: 0.0008704727422446012, 1: 0.0015426633646711708, 5: 0.003021810669451952, 50: 0.015829529613256454}}
+
+=== gentle / Solenopsis_invicta_CASENT0744384_processed.obj (fitted Stage_3) ===
+{'vertex_count': 10229, 'face_count': 20454, 'boundary_edges': 0, 'non_manifold_edges': 0, 'non_manifold_verts': 0, 'is_watertight': True, 'signed_volume': 0.1838}
+{'n_verts': 10229, 'n_edges': 30681, 'n_faces': 20454, 'n_zero_length_edges': 0, 'n_zero_area_faces': 0, 'n_duplicate_verts': 0, 'edge_length_percentiles': {0: 0.0005789512651972473, 0.1: 0.0009812860935926437, 1: 0.0019312713760882617, 5: 0.0038151137996464968, 50: 0.02118576318025589}}
+

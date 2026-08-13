@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/p/home/jusers/jellal1/jureca/SMILify/fitter_3d/optimise.py", line 230, in main
+    with open(args.yaml_src) as infile:
+FileNotFoundError: [Errno 2] No such file or directory: 'configs/gentle.yaml'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/p/scratch/cias-7/jellal1/conda_envs/pytorch3d/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/p/scratch/cias-7/jellal1/conda_envs/pytorch3d/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/p/home/jusers/jellal1/jureca/SMILify/fitter_3d/optimise.py", line 377, in <module>
+    main(args)
+  File "/p/home/jusers/jellal1/jureca/SMILify/fitter_3d/optimise.py", line 233, in main
+    raise FileNotFoundError(
+FileNotFoundError: No YAML file found at {args.yaml_src}. Make sure this is relative to the SMALify directory.

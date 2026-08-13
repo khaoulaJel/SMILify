@@ -21,11 +21,59 @@ import pickle as pkl
 from smal_model.smal_torch import SMAL
 from smal_fitter.utils import eul_to_axis
 from smal_fitter.priors.joint_limits_prior import _ranges_from_joint_limits
+from fitter_3d.joint_limits import scale_barrier, trans_barrier
+from fitter_3d.penetration_loss import penetration_loss_batched, _build_part_faces
+from fitter_3d.gwn_penetration_loss import precompute_capped_topology, gwn_penetration_loss_batched
+from fitter_3d.part_groups import get_part_vertex_indices, get_non_adjacent_pairs, PART_GROUPS_COARSE
+from fitter_3d.eval_metrics import f_score
+from fitter_3d.eval_metrics_part_precision import per_part_precision
+from fitter_3d.local_smoothness import (
+    build_vertex_adjacency,
+    khop_expand_mask,
+    random_touched_mask,
+    weighted_edge_loss,
+    weighted_laplacian_loss,
+)
+import csv
 
 nn = torch.nn
 
 default_weights = dict(
-    w_chamfer=1.0, w_edge=1.0, w_normal=0.01, w_laplacian=0.1, w_sdf=0.5, w_limit=0.0
+    w_chamfer=1.0, w_edge=1.0, w_normal=0.01, w_laplacian=0.1, w_sdf=0.5, w_limit=0.0,
+    w_penetration=0.0,  # off by default; set >0 per-stage in yaml (deform stages only -- see
+    # ants_cfg_penetration_gentle.yaml)
+    # penetration_loss_batched hyperparameters -- these defaults are numerically a
+    # no-op when left unset in a stage's yaml loss_weights.
+    penetration_tau_fraction=0.03,
+    penetration_max_depth_fraction=0.08,
+    penetration_ramp_iters=200,
+    w_penetration_gwn=0.0,  # off by default -- see fitter_3d/gwn_penetration_loss.py. Additive
+    # alternative to w_penetration, not a replacement: both can be active at once (not
+    # recommended together untested), or w_penetration_gwn alone to test the GWN-based
+    # signal in isolation. Only has an effect if Stage was constructed with
+    # gwn_penetration_pairs set (see Stage.__init__) -- otherwise silently a no-op even
+    # if this weight is > 0, since there's no capped topology to evaluate it against.
+    penetration_gwn_ramp_iters=0,  # 0 = no ramp (matches the first, miscalibrated run's
+    # behavior -- flagged as a real gap, not an oversight, in the post-mortem of that run).
+    # Set >0 per-stage in yaml for the same reason penetration_ramp_iters exists: an
+    # undertrained pose can be badly self-intersecting purely from initialisation.
+    w_offset=0.0,  # off by default; L2 penalty on ||deform_verts||, ported from
+    # trainer_moonshot.py (its only prior home) so it can run alongside this trainer's
+    # penetration/limit machinery -- see the penetration-joint-study TASK 2 structural-
+    # constraint arm. D1 setting validated on the moonshot pipeline: 5.0 (coarse stage) /
+    # 2.0 (fine stage) -- diagnostics/moonshot/cfg/D1_low.yaml.
+    w_scale=0.0,  # off by default; scale_barrier (fitter_3d/joint_limits.py) on
+    # log_beta_scales, same name/semantics as trainer_moonshot.py's w_scale so a weight
+    # tuned there means the same here. Calibrated value 0.052 (T0.4, full-corpus A/B,
+    # diagnostics/EXECUTION_PLAN.md sec 5) -- validated on the moonshot/hierarchical
+    # genus-classification pipeline, never before run on this (fitter_3d/trainer.py)
+    # penetration-study pipeline.
+    w_trans=0.0,  # off by default; trans_barrier on betas_trans, same name/semantics as
+    # trainer_moonshot.py's w_trans. UNCALIBRATED -- no validated value exists anywhere in
+    # the branch (diagnostics/SHIPPED_RECIPE.md, diagnostics/INVENTORY_V2.md T0.4b): the
+    # only value ever tried (1.0) left the barrier loss ~0 throughout, not meaningfully
+    # engaged under D1's other regularizers. Deprioritized, not shipped -- included here
+    # for completeness, not as a validated lever.
 )  # Added SDF distance weight; w_limit off by default (issue #97)
 # Want to vary learning ratios between parameters,
 default_lr_ratios = []
@@ -367,6 +415,9 @@ class Stage:
         source_sdf_values=None,
         visualize_sdf_loss=False,
         sdf_vis_frequency=10,
+        local_downweight=None,
+        gwn_penetration_pairs=None,
+        penetration_train_pairs=None,
     ):
         """
         nits = integer, number of iterations in stage
@@ -375,6 +426,49 @@ class Stage:
         name = name of stage
         visualize_sdf_loss = whether to visualize SDF loss contribution
         sdf_vis_frequency = how often to visualize SDF loss (every N iterations)
+        local_downweight = optional dict enabling the neighbor-drag diagnostic
+            experiment (fitter_3d/local_smoothness.py). None (default) leaves
+            edge/laplacian loss exactly as before -- every existing yaml config
+            is unaffected. When set:
+                "mode": "local" or "global"
+                "k": int, hop radius for "local" mode (primary k; see also
+                    "log_extra_k" below)
+                "factor": float in [0, 1], down-weight multiplier applied to
+                    touched vertices/edges (1.0 = untouched, e.g. 0.1 = 90%
+                    reduction)
+                "log_extra_k": list of additional k values to LOG coverage for
+                    (not used for the actual down-weighting, "local" mode only)
+                "global_schedule": required for mode="global" -- (n_iterations, B)
+                    int array/tensor of the exact n_touched vertex COUNT to
+                    replicate each iteration, normally the recorded counts from
+                    a prior "local" run on the SAME specimens in the SAME
+                    order. "global" mode draws a FRESH random subset of that
+                    exact size every iteration and applies "factor" there (rest
+                    at 1.0) -- matched to "local" on count and per-vertex
+                    weight, differing only in WHERE the down-weighted vertices
+                    sit (scattered vs. clustered around penetration). Also
+                    reads "factor" (same key as "local" mode).
+                "seed": int, default 0 -- seeds the "global" mode random draws
+                    for reproducibility.
+        gwn_penetration_pairs = optional list of (part_a, part_b) tuples enabling
+            fitter_3d/gwn_penetration_loss.py's differentiable winding-number-based
+            penetration test (see Step 6 of scripts/penetration_joint_study/FINDINGS.md
+            for why: the proximity test's inside/outside verdict was confirmed to
+            disagree with a true GWN signal specifically in whichever direction of a
+            pair fails to improve under training). None (default) does no capped-
+            topology precompute and w_penetration_gwn is silently a no-op even if
+            set > 0. Deliberately an explicit pair list, not "every non-adjacent
+            pair" -- this is a targeted test of the one pair already validated
+            (gaster, legs), not a full rollout.
+        penetration_train_pairs = optional list of (part_a, part_b) tuples
+            restricting which pairs the w_penetration LOSS (the proximity
+            test, not the GWN one above) actually trains on. None (default)
+            trains on every anatomically non-adjacent pair, unchanged from
+            prior behaviour. Evaluation/diagnostics (compute_eval_metrics's
+            per-pair CSV) are UNAFFECTED by this and always cover the full
+            pair set regardless -- this only narrows what the optimizer sees
+            a gradient for, so collateral effects on untrained pairs remain
+            visible for scoring.
 
         lr_decay = factor by which lr decreases at each it"""
 
@@ -418,6 +512,44 @@ class Stage:
         self.src_mesh = get_meshes(self.src_verts, self.faces, device=device)
         self.n_verts = self.src_verts.shape[1]
 
+        # Precomputed once for the penetration loss: template topology (both
+        # vertex-to-part labels and part-to-part face subsets) never changes
+        # between iterations or specimens, only vertex positions do.
+        self.part_vertex_indices = get_part_vertex_indices(PART_GROUPS_COARSE)
+        self.non_adjacent_pairs = get_non_adjacent_pairs(PART_GROUPS_COARSE)
+        faces_np = self.faces[0].cpu().numpy()  # shared template topology, same for every specimen
+        self.part_faces = _build_part_faces(faces_np, self.part_vertex_indices)
+        # Pairs the w_penetration LOSS trains on -- defaults to the full
+        # self.non_adjacent_pairs (unchanged prior behaviour). compute_eval_metrics
+        # always scores the full pair set regardless (see its docstring), so
+        # narrowing this is purely a training-scope change, not a scoring change.
+        self.penetration_train_pairs = (
+            penetration_train_pairs if penetration_train_pairs is not None else self.non_adjacent_pairs
+        )
+
+        # Neighbor-drag diagnostic experiment (see local_smoothness.py docstring).
+        # None (the default) means edge/laplacian below behave exactly as before.
+        self.local_downweight = local_downweight
+        self.local_downweight_log = []  # one row per (iteration, specimen), coverage fractions at every logged k
+        self._current_penetrating_vertex_mask = None  # (B, n_verts) bool, refreshed each forward() call
+        if self.local_downweight is not None:
+            self.vertex_adjacency = build_vertex_adjacency(faces_np, self.n_verts, device)
+            # Seeded so the "global" control's per-iteration random subset draws are
+            # reproducible across reruns -- explicit, not left to whatever the ambient
+            # torch RNG state happened to be.
+            self._local_downweight_rng = torch.Generator(device=device).manual_seed(
+                self.local_downweight.get("seed", 0)
+            )
+
+        # GWN-based penetration test (see fitter_3d/gwn_penetration_loss.py). Capped
+        # topology (boundary loops + oriented cap faces) is derived ONCE from the
+        # REST-POSE template -- fixed for all specimens/iterations, since SMIL's
+        # topology never changes under deformation (see Step 6 of FINDINGS.md).
+        self.gwn_penetration_pairs = gwn_penetration_pairs
+        if self.gwn_penetration_pairs is not None:
+            v_template = smal_3d_fitter.smal_model.v_template.detach().cpu().numpy()
+            self.gwn_capped_topology = precompute_capped_topology(v_template, self.part_faces)
+
         self.consider_loss = lambda loss_name: (
             self.loss_weights[f"w_{loss_name}"] > 0
         )  # function to check if loss is non-zero
@@ -434,8 +566,58 @@ class Stage:
             loss_components["chamfer"] = loss_chamfer
             loss += self.loss_weights["w_chamfer"] * loss_chamfer
 
+        # Penetration is computed here -- ahead of its old position further down --
+        # whenever local_downweight needs this iteration's penetrating-vertex mask to
+        # build the edge/laplacian down-weighting below. Loss accumulation via `loss +=`
+        # is order-independent, so this changes nothing for every existing config where
+        # local_downweight is None (the mask is simply never requested/used).
+        if self.consider_loss("penetration"):
+            need_mask = self.local_downweight is not None
+            penetration_out = penetration_loss_batched(
+                verts_padded=src_mesh.verts_padded(),
+                part_vertex_indices=self.part_vertex_indices,
+                part_faces=self.part_faces,
+                non_adjacent_pairs=self.penetration_train_pairs,
+                proximity_tau_fraction=self.loss_weights.get("penetration_tau_fraction", 0.03),
+                max_depth_fraction=self.loss_weights.get("penetration_max_depth_fraction", 0.08),
+                iteration=iteration,
+                n_ramp_iters=self.loss_weights.get("penetration_ramp_iters", 200),
+                return_diagnostics=need_mask,
+            )
+            if need_mask:
+                loss_penetration_per_specimen, penetration_diag = penetration_out
+                self._current_penetrating_vertex_mask = penetration_diag["penetrating_vertex_mask"]
+            else:
+                loss_penetration_per_specimen = penetration_out
+            loss_penetration = loss_penetration_per_specimen.mean()
+            loss_components["penetration"] = loss_penetration
+            loss += self.loss_weights["w_penetration"] * loss_penetration
+        else:
+            self._current_penetrating_vertex_mask = None
+
+        if self.gwn_penetration_pairs is not None and self.consider_loss("penetration_gwn"):
+            loss_penetration_gwn_per_specimen = gwn_penetration_loss_batched(
+                verts_padded=src_mesh.verts_padded(),
+                part_vertex_indices=self.part_vertex_indices,
+                capped_topology=self.gwn_capped_topology,
+                pairs=self.gwn_penetration_pairs,
+                iteration=iteration,
+                n_ramp_iters=self.loss_weights.get("penetration_gwn_ramp_iters", 0),
+                return_diagnostics=False,
+            )
+            loss_penetration_gwn = loss_penetration_gwn_per_specimen.mean()
+            loss_components["penetration_gwn"] = loss_penetration_gwn
+            loss += self.loss_weights["w_penetration_gwn"] * loss_penetration_gwn
+
+        vertex_weight = None
+        if self.local_downweight is not None:
+            vertex_weight = self._compute_local_downweight_vertex_weight(iteration)
+
         if self.consider_loss("edge"):
-            loss_edge = mesh_edge_loss(src_mesh)  # and (b) the edge length of the predicted mesh
+            if vertex_weight is not None:
+                loss_edge = weighted_edge_loss(src_mesh, vertex_weight)
+            else:
+                loss_edge = mesh_edge_loss(src_mesh)  # and (b) the edge length of the predicted mesh
             loss_components["edge"] = loss_edge
             loss += self.loss_weights["w_edge"] * loss_edge
 
@@ -445,7 +627,10 @@ class Stage:
             loss += self.loss_weights["w_normal"] * loss_normal
 
         if self.consider_loss("laplacian"):
-            loss_laplacian = mesh_laplacian_smoothing(src_mesh, method="uniform")  # mesh laplacian smoothing
+            if vertex_weight is not None:
+                loss_laplacian = weighted_laplacian_loss(src_mesh, vertex_weight, self.vertex_adjacency)
+            else:
+                loss_laplacian = mesh_laplacian_smoothing(src_mesh, method="uniform")  # mesh laplacian smoothing
             loss_components["laplacian"] = loss_laplacian
             loss += self.loss_weights["w_laplacian"] * loss_laplacian
 
@@ -505,7 +690,118 @@ class Stage:
             loss_components["limit"] = loss_limit
             loss += self.loss_weights["w_limit"] * loss_limit
 
+        if self.consider_loss("offset"):
+            # L2 on the free-form vertex offsets -- ported verbatim from
+            # trainer_moonshot.py:488-491 (the only place this was validated: E8,
+            # correctness 4.81% -> 6.69% on the ground-truth corpus at 5.0/2.0).
+            loss_offset = self.smal_3d_fitter.deform_verts.pow(2).sum(-1).mean()
+            loss_components["offset"] = loss_offset
+            loss += self.loss_weights["w_offset"] * loss_offset
+
+        if self.consider_loss("scale"):
+            # ported verbatim from trainer_moonshot.py:513-516 -- same call, same
+            # raw (uncomposed) log_beta_scales, so a weight tuned there means the
+            # same here (see w_scale's default_weights comment for the calibrated value).
+            loss_scale = scale_barrier(self.smal_3d_fitter.log_beta_scales)
+            loss_components["scale_barrier"] = loss_scale
+            loss += self.loss_weights["w_scale"] * loss_scale
+
+        if self.consider_loss("trans"):
+            # ported verbatim from trainer_moonshot.py:518-521 -- see w_trans's
+            # default_weights comment: uncalibrated, included for completeness.
+            loss_trans = trans_barrier(self.smal_3d_fitter.betas_trans)
+            loss_components["trans_barrier"] = loss_trans
+            loss += self.loss_weights["w_trans"] * loss_trans
+
         return loss, loss_components
+
+    def _compute_local_downweight_vertex_weight(self, iteration):
+        """
+        Returns (B, n_verts) float32 vertex_weight for the current iteration,
+        per self.local_downweight["mode"]:
+          "local":  1.0 (untouched) or "factor" (touched -- within k mesh-hops
+                    of a currently-penetrating vertex, from
+                    self._current_penetrating_vertex_mask). Also logs coverage
+                    at k and every self.local_downweight["log_extra_k"] value.
+          "global": the count-matched, spatially-scattered control. A FRESH
+                    random subset of vertices is drawn EVERY iteration (not a
+                    fixed subset chosen once) -- same size, same "factor"
+                    weight, same 1.0 elsewhere as "local" mode used AT THIS
+                    EXACT ITERATION (from self.local_downweight["global_schedule"],
+                    normally the n_touched counts recorded from a prior "local"
+                    run on the same specimens). This isolates spatial
+                    clustering vs. scattering while holding count and per-
+                    vertex weight identical -- deliberately at the cost of
+                    giving the control NO temporal persistence at any one
+                    location (a fixed-once random subset would instead test a
+                    different question: consistently-scattered vs.
+                    consistently-local).
+        """
+        cfg = self.local_downweight
+        mode = cfg["mode"]
+        device = self.device
+        B = self.src_verts.shape[0]
+        V = self.n_verts
+
+        if mode == "global":
+            counts = cfg["global_schedule"][iteration]  # (B,) int -- n_touched to replicate, per specimen
+            factor = cfg["factor"]
+            masks = [
+                random_touched_mask(int(counts[b]), V, device, generator=self._local_downweight_rng)
+                for b in range(B)
+            ]
+            mask = torch.stack(masks, dim=0)  # (B, V)
+            return torch.where(mask, torch.full((B, V), factor, device=device), torch.ones(B, V, device=device))
+
+        # mode == "local"
+        factor = cfg["factor"]
+        k_primary = cfg["k"]
+        mask = self._current_penetrating_vertex_mask
+        if mask is None:
+            # No penetration this iteration (or w_penetration == 0) -- nothing to
+            # down-weight, behave exactly like local_downweight=None would.
+            return torch.ones(B, V, device=device)
+
+        seed = mask.float().t()  # (V, B)
+        khop = khop_expand_mask(seed, self.vertex_adjacency, k_primary).t().bool()  # (B, V)
+        self._log_coverage(iteration, khop, k_primary)
+
+        for k_alt in cfg.get("log_extra_k", []):
+            khop_alt = khop_expand_mask(seed, self.vertex_adjacency, k_alt).t().bool()
+            self._log_coverage(iteration, khop_alt, k_alt)
+
+        return torch.where(khop, torch.full((B, V), factor, device=device), torch.ones(B, V, device=device))
+
+    def _log_coverage(self, iteration, khop_mask, k):
+        """Appends one row per specimen to self.local_downweight_log: how many
+        vertices (and what fraction of the mesh) are currently down-weighted at
+        hop radius k. n_touched is what the "global" control replays (see
+        _compute_local_downweight_vertex_weight) -- logged as an exact integer
+        count, not reconstructed from coverage_fraction, so the control's
+        random subset is sized identically to what "local" actually did, no
+        rounding drift. k == the primary k drove this iteration's actual
+        down-weighting; other logged k values are for reference only (see
+        local_downweight["log_extra_k"])."""
+        n_touched = khop_mask.sum(dim=1)  # (B,)
+        coverage = khop_mask.float().mean(dim=1)  # (B,)
+        for spec_idx, (n_t, cov) in enumerate(zip(n_touched.tolist(), coverage.tolist())):
+            specimen_name = self.mesh_names[spec_idx] if spec_idx < len(self.mesh_names) else f"specimen_{spec_idx}"
+            self.local_downweight_log.append(
+                {"iteration": iteration, "specimen": specimen_name, "k": k, "n_touched": n_t, "coverage_fraction": cov}
+            )
+
+    def save_local_downweight_log(self):
+        """Writes the per-iteration, per-specimen, per-k coverage log collected
+        during run() (see _log_coverage) to a CSV file. No-op if local_downweight
+        was never enabled for this stage."""
+        if not self.local_downweight_log:
+            return
+        out_path = os.path.join(self.out_dir, f"{self.name}_local_downweight_log.csv")
+        fieldnames = list(self.local_downweight_log[0].keys())
+        with open(out_path, "w", newline="") as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(self.local_downweight_log)
 
     def step(self, epoch):
         """Runs step of Stage, calculating loss, and running the optimiser"""
@@ -580,6 +876,146 @@ class Stage:
         out_title = f"{self.name}.npz"
         np.savez(os.path.join(self.out_dir, out_title), **out)
 
+    def compute_eval_metrics(self, tau_fractions=[0.01, 0.02, 0.05], n_samples=10000):
+        """Computes post-hoc F-score metrics (precision/recall/F at multiple
+        thresholds) between the current fitted mesh and the target meshes,
+        and writes a per-specimen CSV breakdown.
+
+        Penetration diagnostics are computed unconditionally (even when
+        w_penetration=0, e.g. the baseline arm of an ablation) so
+        baseline-vs-penetration-loss comparisons have the same columns
+        available on both sides -- an unramped (n_ramp_iters=0), read-only
+        measurement of the final geometry, not a training-time quantity.
+        """
+
+        new_src_verts = self.smal_3d_fitter()
+        offsets = new_src_verts - self.src_verts
+        new_src_mesh = self.src_mesh.offset_verts(offsets.view(-1, 3))
+
+        metrics = f_score(new_src_mesh, self.target_meshes, tau_fractions=tau_fractions, n_samples=n_samples)
+
+        penetration_mean_depth_per_specimen, penetration_diagnostics = penetration_loss_batched(
+            verts_padded=new_src_mesh.verts_padded(),
+            part_vertex_indices=self.part_vertex_indices,
+            part_faces=self.part_faces,
+            non_adjacent_pairs=self.non_adjacent_pairs,
+            proximity_tau_fraction=self.loss_weights.get("penetration_tau_fraction", 0.03),
+            max_depth_fraction=self.loss_weights.get("penetration_max_depth_fraction", 0.08),
+            iteration=0,
+            n_ramp_iters=0,  # unramped: report the true final-geometry depth, not a training-time ramp artifact
+            return_diagnostics=True,
+            return_per_pair=True,
+        )
+
+        n_meshes = metrics["f_score"].shape[0]
+        rows = []
+        for spec_idx in range(n_meshes):
+            specimen_name = self.mesh_names[spec_idx] if spec_idx < len(self.mesh_names) else f"specimen_{spec_idx}"
+            row = {"stage": self.name, "specimen": specimen_name, "bbox_diag": metrics["bbox_diag"][spec_idx].item()}
+            for t_idx, tau_frac in enumerate(metrics["thresholds_used"]):
+                row[f"precision@{tau_frac}"] = metrics["precision"][spec_idx, t_idx].item()
+                row[f"recall@{tau_frac}"] = metrics["recall"][spec_idx, t_idx].item()
+                row[f"f_score@{tau_frac}"] = metrics["f_score"][spec_idx, t_idx].item()
+            # diluted: averaged over every checked vertex, penetrating or not -- washes
+            # out severity when few vertices penetrate. Kept for backward compatibility.
+            row["penetration_mean_depth"] = penetration_mean_depth_per_specimen[spec_idx].item()
+            row["penetration_max_depth"] = penetration_diagnostics["max_depth"][spec_idx].item()
+            row["penetration_num_penetrating"] = penetration_diagnostics["num_penetrating"][spec_idx].item()
+            row["penetration_fraction_penetrating"] = penetration_diagnostics["fraction_penetrating"][spec_idx].item()
+            # undiluted severity: mean depth over penetrating (vertex, pair-direction)
+            # instances only. 0 (not NaN) for zero-collision specimens -- penetration_loss_batched
+            # clamps the denominator to >=1. Use this, not penetration_mean_depth, to judge
+            # whether collisions got shallower/deeper, independent of how many there are.
+            row["penetration_mean_depth_among_penetrating"] = penetration_diagnostics["mean_depth_among_penetrating"][
+                spec_idx
+            ].item()
+            rows.append(row)
+
+        out_path = os.path.join(self.out_dir, f"{self.name}_eval_metrics.csv")
+        fieldnames = list(rows[0].keys())
+        with open(out_path, "w", newline="") as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(rows)
+
+        self._write_endpoint_per_pair_penetration(penetration_diagnostics, n_meshes)
+        self.compute_per_part_precision(new_src_verts, tau_fractions=tau_fractions)
+
+        return metrics
+
+    def _write_endpoint_per_pair_penetration(self, penetration_diagnostics, n_meshes):
+        """Writes the converged per-part-pair penetration breakdown (one row per
+        specimen x pair x direction), measured on the final fitted geometry."""
+        per_pair = penetration_diagnostics.get("per_pair")
+        if not per_pair:
+            return
+
+        rows = []
+        for spec_idx in range(n_meshes):
+            specimen_name = self.mesh_names[spec_idx] if spec_idx < len(self.mesh_names) else f"specimen_{spec_idx}"
+            for pair_key, directions in per_pair.items():
+                part_a, part_b = pair_key.split("__")
+                for direction, values in directions.items():
+                    rows.append({
+                        "stage": self.name,
+                        "specimen": specimen_name,
+                        "part_a": part_a,
+                        "part_b": part_b,
+                        "direction": direction,
+                        "n_query_vertices": values["n_query"],
+                        "num_penetrating": values["num_penetrating"][spec_idx].item(),
+                        "max_depth": values["max_depth"][spec_idx].item(),
+                        "mean_depth_among_penetrating": values["mean_depth_among_penetrating"][spec_idx].item(),
+                    })
+
+        out_path = os.path.join(self.out_dir, f"{self.name}_per_pair_penetration.csv")
+        with open(out_path, "w", newline="") as f:
+            writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
+            writer.writeheader()
+            writer.writerows(rows)
+
+    def compute_per_part_precision(self, fitted_verts, tau_fractions=[0.01, 0.02, 0.05]):
+        """Computes per-anatomical-part precision (fitted part -> scan, see
+        fitter_3d/eval_metrics_part_precision.py) and writes a per-specimen,
+        per-part CSV breakdown. One-directional: the scan has no part labels,
+        so only precision (not recall/F-score) is available per part.
+        """
+        results = per_part_precision(
+            fitted_verts=fitted_verts,
+            target_meshes=self.target_meshes,
+            part_vertex_indices=self.part_vertex_indices,
+            tau_fractions=tau_fractions,
+        )
+
+        n_meshes = fitted_verts.shape[0]
+        rows = []
+        for spec_idx in range(n_meshes):
+            specimen_name = self.mesh_names[spec_idx] if spec_idx < len(self.mesh_names) else f"specimen_{spec_idx}"
+            for part_name, part_result in results.items():
+                if part_name in ("bbox_diag", "thresholds_used"):
+                    continue
+                row = {
+                    "stage": self.name,
+                    "specimen": specimen_name,
+                    "part": part_name,
+                    "n_vertices": part_result["n_vertices"],
+                }
+                for t_idx, tau_frac in enumerate(results["thresholds_used"]):
+                    row[f"precision@{tau_frac}"] = part_result["precision"][spec_idx, t_idx].item()
+                rows.append(row)
+
+        if not rows:
+            return results
+
+        out_path = os.path.join(self.out_dir, f"{self.name}_per_part_precision.csv")
+        fieldnames = list(rows[0].keys())
+        with open(out_path, "w", newline="") as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(rows)
+
+        return results
+
 
 class StageManager:
     """Container for multiple stages of optimisation"""
@@ -595,6 +1031,14 @@ class StageManager:
         for n, stage in enumerate(self.stages):
             stage.run(plot=config.PLOT_RESULTS)
             stage.save_npz(labels=self.labels)
+            if stage.local_downweight is not None:
+                stage.save_local_downweight_log()
+
+        # Post-hoc eval panel (F-score, penetration count/depth, per-part
+        # precision) on the final stage's converged geometry -- computed
+        # unconditionally, so a w_penetration=0 baseline run still gets a
+        # penetration reading to compare against a w_penetration>0 run.
+        self.stages[-1].compute_eval_metrics()
 
         # plot loss components, total loss is plotted in the run method
         self.plot_loss_components()

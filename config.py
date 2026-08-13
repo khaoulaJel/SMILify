@@ -46,6 +46,11 @@ SMAL_MODEL_PATH = join(data_path, "SMALST", "smpl_models")
 # custom elements added:
 # SMAL_FILE = join("3D_model_prep", 'smpl_ATTA.pkl') #  BASE ANT MODEL
 SMAL_FILE = join("3D_model_prep", "SMIL_OmniAnt.pkl")  # LATEST TEXTURED ANT MODEL WITH ALL VARIATION
+# Optional override, used by the registration experiments in diagnostics/moonshot/ to fit
+# with an alternative model (e.g. a shape space augmented from prior registrations) without
+# editing this file. Everything downstream -- N_POSE, N_BETAS, joint names -- is derived
+# from whichever file this resolves to, so the override must be applied before import.
+SMAL_FILE = os.environ.get("SMILIFY_SMAL_FILE", SMAL_FILE)
 # SMAL_FILE = join("3D_model_prep", 'SMILy_STICK.pkl') # LATEST STICK INSECT MODEL
 # SMAL_FILE = join("3D_model_prep", 'SMILy_Mouse_static_joints_Falkner_conv_repose_hind_legs_fix_eyes.pkl') # LATEST MOUSE MODEL
 
@@ -53,6 +58,31 @@ ignore_sym = True  # ignore provided symmetry file, when using custom models
 ignore_hardcoded_body = True  # ignore model joints in config file and use what's contained in the SMPL file
 PLOT_RESULTS = True  # only applies to 3D fitting (fitter_3d/optimise.py)
 DEBUG = False  # use to get A LOT of "useful" messages
+
+# Drive per-joint scale/translation from the betas via the model's own `scaledirs`/`transdirs`
+# blendshapes, keeping the free `log_beta_scales`/`betas_trans` as a residual on top.
+# OFF by default so every previously-scored experiment stays byte-comparable; see
+# diagnostics/moonshot/REPORT.md §6.6 for why it should probably be ON.
+COUPLE_JOINT_BLENDSHAPES = os.environ.get("SMILIFY_COUPLE_JOINT_BLENDSHAPES", "0") == "1"
+# Constants of the canonical entangled transform (scale = 1 + scaledirs.beta, then log).
+# The FORM matches smal_fitter/neuralSMIL/smil_image_regressor.py and
+# smal_fitter/Unreal2Pytorch3D.py; the translation FACTOR deliberately does not.
+#
+# Those two paths use 0.01, which is a centimetre-to-metre conversion for Unreal Engine data
+# and is not a property of the model. Derived from the addon instead
+# (3D_model_prep/smil_importer/pca.py, apply_entangled_pca_and_create_shapekeys): it
+# concatenates [vertex_features (v*3), scale_data (j), translation_features (j*3)] and
+# EXPLICITLY SKIPS NORMALISATION ("feature magnitudes are similar", ratio 5.60), then splits
+# the unit-norm PCA components back apart. So transdirs comes out in the same units as
+# shapedirs -- i.e. model world units, the same units as v_template.
+#
+# Measured on the shipped models, rms(transdirs)/rms(shapedirs):
+#     OmniAnt_25PCs_joint_limited  1.07     SMIL_OmniAnt  0.83
+# At |beta| = 1 both move ~0.3% of specimen extent. At 0.01 the joint translation would move
+# 0.0035% -- three orders of magnitude below the vertex motion it accompanies, i.e. the
+# translation coupling silently disabled. The correct factor for .pkl-native data is 1.0.
+COUPLE_TRANSLATION_FACTOR = float(os.environ.get("SMILIFY_COUPLE_TRANS_FACTOR", "1.0"))
+COUPLE_MIN_SCALE = 1e-4
 
 # DATALOADER
 IMG_RES = 512

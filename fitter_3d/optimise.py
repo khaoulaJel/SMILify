@@ -21,9 +21,21 @@ parent_dir = os.path.dirname(current_dir)
 if os.getcwd().endswith("fitter_3d"):  # if starting in fitter_3d dir
     os.chdir("../")
 
+import config
+
+if os.environ.get("SMIL_DISABLE_PLOTTING"):
+    # plot_meshes()'s multiprocessing.Pool workers each reimport torch/numpy/
+    # matplotlib via 'spawn'. Under concurrent load (multiple SLURM jobs sharing
+    # this networked conda env at once), that reimport can race on the shared
+    # filesystem and corrupt partially-initialized modules (seen in practice:
+    # "cannot import name 'X' from partially initialized module numpy/matplotlib"),
+    # hanging the whole run rather than erroring cleanly. Opt-in escape hatch for
+    # numerical-only reruns (e.g. multi-seed studies) that don't need the mesh
+    # render PNGs -- off by default, zero effect on normal single-job runs.
+    config.PLOT_RESULTS = False
+
 from fitter_3d.utils import load_meshes
 from fitter_3d.trainer import Stage, StageManager, SMALParamGroup, SMAL3DFitter
-import config
 
 parser = argparse.ArgumentParser()
 
@@ -62,6 +74,23 @@ parser.add_argument("--plot_normals", type=bool, default=False)
 parser.add_argument("--use_sdf", action="store_true", help="Use pre-computed SDF values for mesh registration")
 parser.add_argument(
     "--sdf_dir", type=str, default="sdf_batch_output/data", help="Directory containing pre-computed SDF values"
+)
+
+parser.add_argument(
+    "--seed",
+    type=int,
+    default=None,
+    help="If set, seeds all RNGs and requests deterministic CUDA algorithms (warn_only, since some "
+    "pytorch3d ops may lack a deterministic kernel) -- for multi-seed reruns where per-seed variance "
+    "needs to be distinguished from run-to-run GPU nondeterminism. Leave unset for normal runs; forcing "
+    "determinism can be slower and changes nothing about the optimisation schedule itself.",
+)
+parser.add_argument(
+    "--require_seed",
+    action="store_true",
+    help="Fail immediately if --seed was not given. For orchestrated multi-seed studies, where a run "
+    "that silently proceeded unseeded would be pooled into a per-seed variance estimate and quietly "
+    "corrupt it. Off by default so ordinary single fits are unaffected.",
 )
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -181,6 +210,19 @@ def get_mesh_files(mesh_dir, frame_step=1):
 
 
 def main(args):
+    # Seed accounting, asserted here (not only in __main__) so it also holds when
+    # main() is called as an imported function. The actual seeding happens in
+    # __main__ before any CUDA context exists; this only verifies and reports it,
+    # so a run cannot silently proceed unseeded and then be treated as one
+    # replicate of a seeded set.
+    seed = getattr(args, "seed", None)
+    if getattr(args, "require_seed", False) and seed is None:
+        raise SystemExit(
+            "--require_seed was given but --seed was not. Refusing to run: an unseeded run cannot be "
+            "counted as a seed replicate."
+        )
+    print(f"[seed] run seed = {seed}" + ("" if seed is not None else " (unseeded)"))
+
     # try to load yaml
     yaml_loaded = False
     if args.yaml_src is not None:
@@ -321,4 +363,15 @@ def main(args):
 
 if __name__ == "__main__":
     args = parser.parse_args()
+    if args.seed is not None:
+        # Must be set before any CUDA context/op -- nothing CUDA-touching has
+        # run yet at this point (imports and argparse only).
+        os.environ.setdefault("CUBLAS_WORKSPACE_CONFIG", ":4096:8")
+        torch.manual_seed(args.seed)
+        torch.cuda.manual_seed_all(args.seed)
+        np.random.seed(args.seed)
+        torch.backends.cudnn.deterministic = True
+        torch.backends.cudnn.benchmark = False
+        torch.use_deterministic_algorithms(True, warn_only=True)
+        print(f"[determinism] seeded RNGs with {args.seed}, deterministic algorithms requested (warn_only)")
     main(args)

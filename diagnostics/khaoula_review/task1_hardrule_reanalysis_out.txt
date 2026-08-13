@@ -1,0 +1,35 @@
+
+=== UNSEEDED (single run, matches FINDINGS.md step 1) (n=50 specimens) ===
+  gaster-legs count      baseline mean 414.66  gentle mean 328.54  delta -86.12 (-20.8%)
+  gaster-legs count      improved(gentle<baseline): 31/50  worse: 17/50  flat: 2/50
+  fscore@0.01 delta      mean -0.0048  median -0.0034  min -0.0596  max +0.0310
+  deform_mag delta       mean +0.00152 (+4.13%)
+  edge_logratio delta    mean +0.03070 (+5.63%)
+
+=== 3-SEED RERUN, POOLED (150 specimen-seeds) (n=150 specimens) ===
+  gaster-legs count      baseline mean 406.09  gentle mean 326.71  delta -79.38 (-19.5%)
+  gaster-legs count      improved(gentle<baseline): 88/150  worse: 60/150  flat: 2/150
+  fscore@0.01 delta      mean -0.0060  median -0.0041  min -0.0501  max +0.0194
+  deform_mag delta       mean +0.00173 (+4.75%)
+  edge_logratio delta    mean +0.03868 (+7.19%)
+
+--- gaster-legs count, per seed ---
+  seed 0: baseline mean 441.90  gentle mean 342.02  delta -22.60%
+  seed 1: baseline mean 389.02  gentle mean 317.18  delta -18.47%
+  seed 2: baseline mean 387.34  gentle mean 320.92  delta -17.15%
+
+  per-specimen seed-agreement (gaster-legs count only): 18/50 unanimous-improved, 10/50 unanimous-worse, 22/50 flip sign across seeds
+
+=== OUTLIER FLAGS (largest |delta gaster-legs count| and |delta fscore@0.01|, unseeded arm) ===
+  top 5 by |delta gaster-legs count|:
+    Strumigenys_crassicornis_CASENT0744273_processed.obj    d_count=  -695.0  d_fscore01=+0.0012
+    Polyrhachis_dives_CASENT0878093_processed.obj           d_count=  -506.0  d_fscore01=+0.0098
+    Ectatomma_brunneum_CASENT0744575_processed.obj          d_count=  -472.0  d_fscore01=+0.0207
+    Temnothorax_sp._OKENT0105336_processed.obj              d_count=  -418.0  d_fscore01=-0.0100
+    Lasius_nr._fuliginosus_CASENT0878037_processed.obj      d_count=  -402.0  d_fscore01=+0.0002
+  top 5 by |delta fscore@0.01|:
+    Heteroponera_panamensis_CASENT0744055_processed.obj     d_count=  +173.0  d_fscore01=-0.0596
+    Anochetus_risii_CASENT0877608_processed.obj             d_count=    +0.0  d_fscore01=-0.0352
+    Acanthostichus_aff.brevicornis_CASENT0744328_processed.obj d_count=  -191.0  d_fscore01=+0.0310
+    Oxyopomyrmex_saulcyi_CASENT0745218_processed.obj        d_count=  +118.0  d_fscore01=-0.0282
+    Pseudomyrmex_cf.solis_CASENT0744065_processed.obj       d_count=   -68.0  d_fscore01=-0.0281

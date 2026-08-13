@@ -1,0 +1,89 @@
+# TASK 5 (per user instruction: "scoped gaster-legs + w_offset + scale/trans barriers").
+# Not a new experiment design -- adds Fabian's still-untested-on-this-stack scale_cap
+# (w_scale=0.052) and trans_cap (w_trans=1.0) to TASK4's pair-scoped gentle+offset arm,
+# via the new `fitter_3d/joint_limits.py` scale_barrier/trans_barrier wiring in
+# fitter_3d/trainer.py (ported verbatim from trainer_moonshot.py -- see trainer.py's
+# w_scale/w_trans default_weights comments).
+#
+# w_scale=0.052: the ONE validated value in the branch (T0.4, full-corpus A/B on 838
+# specimens, diagnostics/EXECUTION_PLAN.md sec 5 -- ADOPTED into production D1_PROD.yaml
+# for the moonshot/hierarchical genus-classification pipeline). Never before run on THIS
+# (fitter_3d/trainer.py) penetration-study pipeline -- that is the open question here.
+# w_trans=1.0: the ONLY value ever tried anywhere in the branch (T0.4b), explicitly
+# uncalibrated -- prior finding was the barrier stayed ~0 throughout (not meaningfully
+# engaged under D1's other regularizers). Included per the request's "scale/trans
+# barriers" framing, not because it is expected to move anything on its own.
+#
+# Everything else identical to TASK4's ants_cfg_all_offset_gentle_pairscoped.yaml
+# (scheme:'all', gentle w_penetration 0.02/0.05, penetration_train_pairs: gaster-legs
+# only, w_offset 5.0/2.0, w_limit 100.0 in all stages).
+#
+# Pre-registered success criteria (same panel as TASK4):
+#   all-pairs aggregate <= 0% (keep the net win)
+#   gaster-legs count <= -15% (accept slightly softer than TASK2's -20.2%)
+#   mean F-score@0.01 delta >= -0.01
+#   worst-specimen F-score@0.01 delta >= -0.08
+#   no collapse on outlier renders
+
+stages:
+  Stage_0_init:
+    scheme: 'init_rot_lock'
+    nits: 100
+    lr: 0.05
+
+  Stage_1_default:
+      scheme: 'default'
+      nits: 300
+      lr: 0.02
+
+      loss_weights:
+          w_chamfer: 1.
+          w_edge: 0.8
+          w_normal: 0.02
+          w_laplacian: 0.01
+          w_limit: 100.0
+
+      custom_lrs:
+        joint_rot: 0.002
+
+  Stage_2_deform_coarse:
+    scheme: 'all'
+    nits: 1000
+    lr: 0.002
+
+    penetration_train_pairs: [[gaster, legs]]
+
+    loss_weights:
+      w_chamfer: 1.
+      w_edge: 0.8
+      w_normal: 0.005
+      w_laplacian: 0.01
+      w_penetration: 0.02
+      penetration_ramp_iters: 200
+      w_limit: 100.0
+      w_offset: 5.0
+      w_scale: 0.052
+      w_trans: 1.0
+
+  Stage_3_deform_fine:
+    scheme: 'all'
+    nits: 1000
+    lr: 0.0005
+
+    penetration_train_pairs: [[gaster, legs]]
+
+    loss_weights:
+      w_chamfer: 0.5
+      w_edge: 0.2
+      w_normal: 0.002
+      w_laplacian: 0.001
+      w_penetration: 0.05
+      penetration_ramp_iters: 0
+      w_limit: 100.0
+      w_offset: 2.0
+      w_scale: 0.052
+      w_trans: 1.0
+
+args:
+  mesh_dir: diagnostics/moonshot/bench50_clean
+  shape_family_id: -1

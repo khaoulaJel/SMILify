@@ -1,0 +1,41 @@
+Capping part meshes (gaster, legs)...
+
+=== Acanthostichus_aff.brevicornis_CASENT0744328_processed.obj ===
+  gaster capped: 1 loop(s) filled, remaining bad edges: 0
+  legs capped:   5 loop(s) filled, remaining bad edges: 0
+  [A_into_B (gaster verts vs legs surface)]
+    n_query=1231  trustworthy=1231 (100.0%)  ambiguous=0 (0.0%)
+    proximity-flagged-penetrating: 119 (of which trustworthy: 119)
+    disagreement among TRUSTWORTHY: 91 (7.39% of trustworthy)
+  [B_into_A (legs verts vs gaster surface)]
+    n_query=4705  trustworthy=4705 (100.0%)  ambiguous=0 (0.0%)
+    proximity-flagged-penetrating: 194 (of which trustworthy: 194)
+    disagreement among TRUSTWORTHY: 20 (0.43% of trustworthy)
+
+=== Acromyrmex_coronatus_CASENT0744365_processed.obj ===
+  gaster capped: 1 loop(s) filled, remaining bad edges: 0
+  legs capped:   5 loop(s) filled, remaining bad edges: 0
+  [A_into_B (gaster verts vs legs surface)]
+    n_query=1231  trustworthy=1231 (100.0%)  ambiguous=0 (0.0%)
+    proximity-flagged-penetrating: 257 (of which trustworthy: 257)
+    disagreement among TRUSTWORTHY: 251 (20.39% of trustworthy)
+  [B_into_A (legs verts vs gaster surface)]
+    n_query=4705  trustworthy=4699 (99.9%)  ambiguous=6 (0.1%)
+    proximity-flagged-penetrating: 255 (of which trustworthy: 254)
+    disagreement among TRUSTWORTHY: 125 (2.66% of trustworthy)
+
+=== Solenopsis_invicta_CASENT0744384_processed.obj ===
+  gaster capped: 1 loop(s) filled, remaining bad edges: 0
+  legs capped:   5 loop(s) filled, remaining bad edges: 0
+  [A_into_B (gaster verts vs legs surface)]
+    n_query=1231  trustworthy=1230 (99.9%)  ambiguous=1 (0.1%)
+    proximity-flagged-penetrating: 10 (of which trustworthy: 10)
+    disagreement among TRUSTWORTHY: 9 (0.73% of trustworthy)
+  [B_into_A (legs verts vs gaster surface)]
+    n_query=4705  trustworthy=4705 (100.0%)  ambiguous=0 (0.0%)
+    proximity-flagged-penetrating: 281 (of which trustworthy: 281)
+    disagreement among TRUSTWORTHY: 144 (3.06% of trustworthy)
+
+=== OVERALL (pooled across specimens/directions) ===
+trustworthy fraction: 17801/17808 = 100.0%
+disagreement fraction (of trustworthy): 640/17801 = 3.60%

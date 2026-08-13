@@ -1,0 +1,10 @@
+STEP1
+STEP2
+STEP3
+STEP4
+STEP5
+IMPORT_OK
+has report_bad_edges: True
+Blender 4.3.2 (hash 32f5fdce0a0a built 2024-12-17 01:31:14)
+
+Blender quit

@@ -18,6 +18,7 @@ SKIP_TESTS=0
 
 for arg in "$@"; do
     case "$arg" in
+    
         --skip-tests) SKIP_TESTS=1 ;;
         -h|--help)
             sed -n '2,9p' "$0"

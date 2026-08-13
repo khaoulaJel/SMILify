@@ -1,0 +1,74 @@
+# Penetration x unfrozen-pose joint experiment -- BASELINE arm.
+#
+# Same as ants_cfg.yaml, except Stage_2/Stage_3 use scheme: 'all' instead
+# of 'deform', so joint_rot stays available to the optimizer throughout
+# the deform stages (rather than frozen at whatever Stage_1 converged to).
+# w_penetration is left at 0 (not trained on) -- penetration is still
+# measured post-hoc via Stage.compute_eval_metrics()'s unconditional,
+# unramped read-only pass, so this arm gets the same penetration
+# count/depth columns as the gentle arm for comparison, without ever
+# training against them.
+#
+# Pre-registered prediction this ablation tests (see ants_cfg_all_
+# penetration_gentle.yaml for the gentle arm and the full writeup): if
+# pose being frozen during the deform stages is really why penetration
+# loss reduces depth but not count, unfreezing pose here should let the
+# gentle arm's count/frequency actually shrink, not just its depth.
+# Compare this baseline's numbers against the frozen-pose baseline you
+# already have, and against ants_cfg_all_penetration_gentle.yaml's numbers.
+
+stages:
+  Stage_0_init:
+    scheme: 'init_rot_lock'
+    nits: 100
+    lr: 0.05
+
+  Stage_1_default:
+      scheme: 'default'
+      nits: 300
+      lr: 0.02
+
+      loss_weights:
+          w_chamfer: 1.
+          w_edge: 0.8
+          w_normal: 0.02
+          w_laplacian: 0.01
+          w_limit: 100.0
+
+      custom_lrs:
+        joint_rot: 0.002
+
+  Stage_2_deform_coarse:
+    scheme: 'all'   # <-- unfrozen pose (was 'deform')
+    nits: 1000
+    lr: 0.002
+
+    loss_weights:
+      w_chamfer: 1.
+      w_edge: 0.8
+      w_normal: 0.005
+      w_laplacian: 0.01
+      w_limit: 100.0   # was missing here -- see FINDINGS.md's "Correction" note on step 1.
+                        # No-op under scheme:'deform' (joint_rot isn't trainable there), but
+                        # scheme:'all' DOES train joint_rot in this stage, so this omission
+                        # let rotation go biomechanically unconstrained. Matches Stage_1's weight.
+
+  Stage_3_deform_fine:
+    scheme: 'all'   # <-- unfrozen pose (was 'deform')
+    nits: 1000
+    lr: 0.0005
+
+    loss_weights:
+      w_chamfer: 0.5
+      w_edge: 0.2
+      w_normal: 0.002
+      w_laplacian: 0.001
+      w_limit: 100.0   # see note in Stage_2 above
+
+args:
+  # results_dir intentionally NOT set here -- pass --results_dir on the CLI so it can
+  # vary per seed without needing a separate yaml per seed (yaml args always override
+  # CLI args for keys present here, so a hardcoded results_dir would make every seed
+  # overwrite the same directory).
+  mesh_dir: diagnostics/moonshot/bench50_clean
+  shape_family_id: -1

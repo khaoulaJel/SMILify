@@ -1,0 +1,57 @@
+# D1_PROD_SCALECAP — the candidate recipe for arm B of the §4 unbiased scale_cap A/B
+# (tag MORPH_CAND_SCALE_CAP in diagnostics/INVENTORY_V2.md). Identical to D1_PROD.yaml plus
+# w_scale: 0.052 on both stages — the one Tier-0 addition with a validated (if underpowered)
+# upside: null on E6 correctness (6.70%/3.28% vs 6.69%/3.21% baseline, within noise), engaged
+# (log_beta_scales max 0.77, past the 0.69 free band), negligible cost (+2.1% wall-clock,
+# <2% shift on every core loss term), and a real anterior joint-scale compression on real
+# scans (bench50_clean: head -49%, mandible -61%, antenna -83%, both full-range and p1-p99
+# robust statistics). Directional (not powered) genus-classification lift: 2.66x -> 3.27x,
+# driven by 1 specimen out of 22 flipping correct, 0 flipping the other way.
+#
+# DO NOT run this as the production default. It is arm B of diagnostics/morphometrics/
+# ab_scale_cap/SCHEMA.md, to be compared against D1_PROD.yaml (arm A) on the full 757+81
+# corpus per the pre-registered decision rule (execution plan §4.4). Only promote
+# w_scale: 0.052 into D1_PROD.yaml itself if that A/B passes.
+stages:
+  Stage_2_deform_coarse:
+    scheme: all
+    nits: 1000
+    lr: 0.002
+    n_sample: 6000
+    edge_mode: shrink
+    lr_decay: false
+    loss_weights:
+      w_chamfer: 1.0
+      w_edge: 0.8
+      w_normal: 0.005
+      w_laplacian: 0.01
+      w_offset: 5.0
+      w_sym: 0.5
+      w_beta_prior: 0.0
+      w_midline: 2.0
+      w_limit: 0.006
+      w_scale: 0.052
+    custom_lrs:
+      joint_rot: 0.002
+  Stage_3_deform_fine:
+    scheme: all
+    nits: 1000
+    lr: 0.0005
+    n_sample: 6000
+    edge_mode: shrink
+    lr_decay: false
+    loss_weights:
+      w_chamfer: 0.5
+      w_edge: 0.2
+      w_normal: 0.002
+      w_laplacian: 0.001
+      w_offset: 2.0
+      w_sym: 0.5
+      w_beta_prior: 0.0
+      w_midline: 2.0
+      w_limit: 0.006
+      w_scale: 0.052
+    custom_lrs:
+      joint_rot: 0.002
+args:
+  results_dir: diagnostics/moonshot/runs/PROD_SCALECAP

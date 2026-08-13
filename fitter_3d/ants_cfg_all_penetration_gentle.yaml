@@ -1,0 +1,78 @@
+# Penetration x unfrozen-pose joint experiment -- GENTLE-WEIGHT arm.
+#
+# Identical to ants_cfg_all_baseline.yaml (scheme: 'all' in Stage_2/
+# Stage_3, so joint_rot stays available to the optimizer), except
+# w_penetration is trained on here at the same gentle weights as
+# ants_cfg_penetration_gentle.yaml (0.02 / 0.05), with its ramp actively
+# used (penetration_ramp_iters: 200 in Stage_2, 0 in Stage_3 -- a
+# training-schedule choice, not the read-only measurement mode
+# Stage.compute_eval_metrics() always uses regardless of this setting).
+#
+# Pre-registered, falsifiable prediction: if collisions in the
+# frozen-pose ablation were being resolved by denting the mesh because
+# rotation was unavailable, then with rotation available here the count
+# of colliding specimens/instances should shrink or invert relative to
+# this file's own baseline (ants_cfg_all_baseline.yaml) -- not just the
+# depth, the way the frozen-pose ablation showed. If the count/severity
+# split persists even with pose unfrozen, that falsifies the current
+# explanation.
+
+stages:
+  Stage_0_init:
+    scheme: 'init_rot_lock'
+    nits: 100
+    lr: 0.05
+
+  Stage_1_default:
+      scheme: 'default'
+      nits: 300
+      lr: 0.02
+
+      loss_weights:
+          w_chamfer: 1.
+          w_edge: 0.8
+          w_normal: 0.02
+          w_laplacian: 0.01
+          w_limit: 100.0
+
+      custom_lrs:
+        joint_rot: 0.002
+
+  Stage_2_deform_coarse:
+    scheme: 'all'   # <-- unfrozen pose (was 'deform')
+    nits: 1000
+    lr: 0.002
+
+    loss_weights:
+      w_chamfer: 1.
+      w_edge: 0.8
+      w_normal: 0.005
+      w_laplacian: 0.01
+      w_penetration: 0.02
+      penetration_ramp_iters: 200
+      w_limit: 100.0   # was missing here -- see FINDINGS.md's "Correction" note on step 1.
+                        # No-op under scheme:'deform' (joint_rot isn't trainable there), but
+                        # scheme:'all' DOES train joint_rot in this stage, so this omission
+                        # let rotation go biomechanically unconstrained. Matches Stage_1's weight.
+
+  Stage_3_deform_fine:
+    scheme: 'all'   # <-- unfrozen pose (was 'deform')
+    nits: 1000
+    lr: 0.0005
+
+    loss_weights:
+      w_chamfer: 0.5
+      w_edge: 0.2
+      w_normal: 0.002
+      w_laplacian: 0.001
+      w_penetration: 0.05
+      penetration_ramp_iters: 0 # Stage 3 refines an already-reasonable solution; no ramp-in needed
+      w_limit: 100.0   # see note in Stage_2 above
+
+args:
+  # results_dir intentionally NOT set here -- pass --results_dir on the CLI so it can
+  # vary per seed without needing a separate yaml per seed (yaml args always override
+  # CLI args for keys present here, so a hardcoded results_dir would make every seed
+  # overwrite the same directory).
+  mesh_dir: diagnostics/moonshot/bench50_clean
+  shape_family_id: -1

@@ -15,7 +15,16 @@ __pycache__/
 # Temp results
 Fitter_RESULTS/
 fit3d_results
+fit3d_results_*/
 output/
+
+# third-party tool cloned as a subdirectory with its own .git — not a submodule,
+# must never be swept into this repo's index (git warns "adding embedded git
+# repository" if it is)
+custom_processing/external/Manifold/
+# vendored Blender site-packages (numpy/scipy/pillow/trimesh/... bundled for Blender's
+# own Python) — 364M of third-party code, not project code
+custom_processing/external/blender_python_packages/
 3D_model_prep/morph_anim/
 3D_model_prep/measurements/
 3D_model_prep/VIDEOS/
@@ -246,3 +255,29 @@ benchmark_singleview_*/
 
 # Claude Code: project CLAUDE.md is tracked; machine-local settings are not.
 .claude/settings.local.json
+
+# ============================================================
+# diagnostics/ investigation: large regenerable fit output + local dataset
+# mirrors (2026-08-13). Fit runs are multi-GB of regenerable .npz per
+# specimen (same reasoning as fit3d_results/ above); dataset mirror dirs are
+# symlinks into machine-local paths (/media/fabi/Data/... or this cluster's
+# /p/scratch/...) that are not portable and would just be broken links in
+# anyone else's checkout. Small result artifacts (out/ dirs: JSON/CSV/PNG)
+# are NOT covered here and remain tracked.
+# ============================================================
+diagnostics/moonshot/runs/
+diagnostics/khaoula_v2/runs/
+diagnostics/khaoula_v2/out/
+diagnostics/moonshot/clean81/
+diagnostics/moonshot/coreg_train/
+diagnostics/moonshot/coreg_test/
+diagnostics/moonshot/heldout_rand/
+diagnostics/moonshot/heldout_easy/
+diagnostics/moonshot/heldout_easy2/
+diagnostics/khaoula_review/smoke_mesh_dir/
+diagnostics/khaoula_review/smoke_offset/
+diagnostics/morphometrics/ab_scale_cap/smoke_D1_PROD_mesh/
+diagnostics/morphometrics/ab_scale_cap/smoke_D1_PROD_out/
+diagnostics/morphometrics/ab_scale_cap/stage_A/
+diagnostics/morphometrics/ab_scale_cap/stage_B/
+diagnostics/morphometrics/stage/

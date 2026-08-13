@@ -1,0 +1,8 @@
+usage: optimise.py [-h] [--results_dir RESULTS_DIR] [--mesh_dir MESH_DIR]
+                   [--frame_step FRAME_STEP]
+                   [--shape_family_id SHAPE_FAMILY_ID] [--yaml_src YAML_SRC]
+                   [--scheme {init,init_rot_lock,init_rot_lock_trans,init_rot_lock_trans_scale,default,default_with_betas_trans,shape,pose,deform,all}]
+                   [--lr LR] [--nits NITS] [--plot_normals PLOT_NORMALS]
+                   [--use_sdf] [--sdf_dir SDF_DIR] [--seed SEED]
+                   [--require_seed]
+optimise.py: error: unrecognized arguments: --out_dir fit3d_results_full_gentle --config configs/gentle.yaml

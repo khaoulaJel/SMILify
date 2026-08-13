@@ -1,0 +1,57 @@
+# Gentle-weight variant of ants_cfg.yaml for the penetration-loss weight test.
+# Penetration loss (fitter_3d/penetration_loss.py) is only added to the deform
+# stages (Stage_2/Stage_3), at a low weight -- everything else matches
+# ants_cfg.yaml exactly. Question being tested: does a gentle weight reduce
+# inter-part penetration without materially disturbing the rest of the fit?
+
+stages:
+  Stage_0_init: # Initialisation stage (see next stage for comments)
+    scheme: 'init_rot_lock'
+    nits: 100
+    lr: 0.05
+
+  Stage_1_default:
+      scheme: 'default'
+      nits: 300
+      lr: 0.02
+
+      loss_weights:
+          w_chamfer: 1.
+          w_edge: 0.8
+          w_normal: 0.02
+          w_laplacian: 0.01
+          w_limit: 100.0
+
+      custom_lrs:
+        joint_rot: 0.002
+
+  Stage_2_deform_coarse:
+    scheme: 'deform'
+    nits: 1000
+    lr: 0.002
+
+    loss_weights:
+      w_chamfer: 1.
+      w_edge: 0.8
+      w_normal: 0.005
+      w_laplacian: 0.01
+      w_penetration: 0.02
+      penetration_ramp_iters: 200
+
+  Stage_3_deform_fine:
+    scheme: 'deform'
+    nits: 1000
+    lr: 0.0005
+
+    loss_weights:
+      w_chamfer: 0.5
+      w_edge: 0.2
+      w_normal: 0.002
+      w_laplacian: 0.001
+      w_penetration: 0.05
+      penetration_ramp_iters: 0 # Stage 3 refines an already-reasonable solution; no ramp-in needed
+
+# Custom arguments. These will *overwrite* any command line arguments passed into the script
+args:
+  results_dir: fit3d_results
+  shape_family_id: -1

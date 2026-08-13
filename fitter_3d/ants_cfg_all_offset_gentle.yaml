@@ -1,0 +1,71 @@
+# TASK 2 (penetration-joint-study, structural-constraint arm) -- GENTLE+OFFSET.
+#
+# Identical to ants_cfg_all_penetration_gentle.yaml (scheme: 'all', gentle
+# w_penetration 0.02/0.05, ramp 200/0), plus Fabian's validated free-form-offset
+# penalty w_offset: 5.0 (coarse) / 2.0 (fine) -- see ants_cfg_all_offset_baseline
+# .yaml's header for the full rationale and provenance of the w_offset port.
+#
+# Pre-registered comparison: TASK 1 (this study, scheme:'all' + gentle
+# penetration alone) found gaster-legs count improves ~20% but every other
+# checked pair worsens, net aggregate +16.8%. This arm tests whether
+# structurally bounding free-form deformation changes that trade -- e.g. if
+# some of the "other pairs get worse" effect was denting finding an easier
+# escape through unconstrained deform_verts rather than through pose, bounding
+# offsets might push more of the resolution through pose/shape instead.
+# Compare against ants_cfg_all_offset_baseline.yaml (same offset penalty,
+# w_penetration=0) exactly as TASK 1 compared its own baseline/gentle pair.
+
+stages:
+  Stage_0_init:
+    scheme: 'init_rot_lock'
+    nits: 100
+    lr: 0.05
+
+  Stage_1_default:
+      scheme: 'default'
+      nits: 300
+      lr: 0.02
+
+      loss_weights:
+          w_chamfer: 1.
+          w_edge: 0.8
+          w_normal: 0.02
+          w_laplacian: 0.01
+          w_limit: 100.0
+
+      custom_lrs:
+        joint_rot: 0.002
+
+  Stage_2_deform_coarse:
+    scheme: 'all'
+    nits: 1000
+    lr: 0.002
+
+    loss_weights:
+      w_chamfer: 1.
+      w_edge: 0.8
+      w_normal: 0.005
+      w_laplacian: 0.01
+      w_penetration: 0.02
+      penetration_ramp_iters: 200
+      w_limit: 100.0
+      w_offset: 5.0
+
+  Stage_3_deform_fine:
+    scheme: 'all'
+    nits: 1000
+    lr: 0.0005
+
+    loss_weights:
+      w_chamfer: 0.5
+      w_edge: 0.2
+      w_normal: 0.002
+      w_laplacian: 0.001
+      w_penetration: 0.05
+      penetration_ramp_iters: 0
+      w_limit: 100.0
+      w_offset: 2.0
+
+args:
+  mesh_dir: diagnostics/moonshot/bench50_clean
+  shape_family_id: -1

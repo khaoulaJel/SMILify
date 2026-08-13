@@ -1,0 +1,90 @@
+=== TASK4 primary: baseline vs pairscoped-gentle (unseeded) (n=50) ===
+gaster-legs count   baseline 418.94  gentle 348.54  delta -70.40 (-16.8%)
+all-pairs count     baseline 560.88  gentle 484.46  delta -76.42 (-13.6%)
+fscore@0.01 delta   mean -0.0170  median -0.0188  min -0.0925  max +0.0548
+deform_mag delta    mean +0.00102 (+21.56%)
+edge_logratio delta mean +0.03947 (+21.08%)
+
+--- pre-registered success criteria check (vs TASK2's +5.4% aggregate / -20.2% gaster-legs) ---
+  gaster-legs count <= TASK2 level (~-20%)?      -16.8%  CHECK
+  all-pairs aggregate <= 0% (or < TASK2's +5.4%)? -13.6%  PASS
+  mean fscore delta >= -0.01?                    -0.0170  FAIL
+  worst specimen fscore delta >= -0.08?           -0.0925  FAIL
+
+--- top 5 outliers by |delta gaster-legs count| and |delta fscore@0.01| ---
+  top 5 by |delta count|:
+    Temnothorax_congruus_OKENT0105443_processed.obj         d_count=  -775.0  d_fscore01=+0.0548
+    Strumigenys_crassicornis_CASENT0744273_processed.obj    d_count=  -676.0  d_fscore01=-0.0457
+    Aphaenogaster_pallida_CASENT0745235_processed.obj       d_count=  -604.0  d_fscore01=-0.0213
+    Acromyrmex_coronatus_CASENT0744365_processed.obj        d_count=  +547.0  d_fscore01=-0.0525
+    Eciton_hamatum_CASENT0744580_processed.obj              d_count=  +530.0  d_fscore01=+0.0022
+  top 5 by |delta fscore|:
+    Myrmecina_sp._CASENT0745613_processed.obj               d_count=   +43.0  d_fscore01=-0.0925
+    Dilobocondyla_fouqueti_CASENT0745576_processed.obj      d_count=  -327.0  d_fscore01=-0.0661
+    Oxyopomyrmex_saulcyi_CASENT0745218_processed.obj        d_count=  +224.0  d_fscore01=-0.0576
+    Ponera_tamon_OKENT0105154_processed.obj                 d_count=  +150.0  d_fscore01=-0.0557
+    Temnothorax_congruus_OKENT0105443_processed.obj         d_count=  -775.0  d_fscore01=+0.0548
+
+=== context: TASK2 all-10-pairs gentle (for reference, same baseline) ===
+=== baseline vs gentle_all10 (TASK2, unseeded) (n=50) ===
+gaster-legs count   baseline 418.94  gentle 334.46  delta -84.48 (-20.2%)
+all-pairs count     baseline 560.88  gentle 591.08  delta +30.20 (+5.4%)
+fscore@0.01 delta   mean -0.0032  median -0.0009  min -0.1125  max +0.0640
+deform_mag delta    mean +0.00027 (+5.72%)
+edge_logratio delta mean +0.01206 (+6.44%)
+
+--- top 5 outliers by |delta gaster-legs count| and |delta fscore@0.01| ---
+  top 5 by |delta count|:
+    Lasius_nr._fuliginosus_CASENT0878037_processed.obj      d_count=  -636.0  d_fscore01=-0.0148
+    Temnothorax_congruus_OKENT0105443_processed.obj         d_count=  -571.0  d_fscore01=+0.0464
+    Eciton_hamatum_CASENT0744580_processed.obj              d_count=  +528.0  d_fscore01=+0.0002
+    Mayriella_sp._CASENT0745610_processed.obj               d_count=  -520.0  d_fscore01=-0.0151
+    Aphaenogaster_pallida_CASENT0745235_processed.obj       d_count=  -447.0  d_fscore01=+0.0283
+  top 5 by |delta fscore|:
+    Ectatomma_brunneum_CASENT0744575_processed.obj          d_count=  +143.0  d_fscore01=-0.1125
+    Myrmecina_sp._CASENT0745613_processed.obj               d_count=  -137.0  d_fscore01=-0.0687
+    Strumigenys_canina_OKENT0105288_processed.obj           d_count=  -153.0  d_fscore01=+0.0640
+    Temnothorax_congruus_OKENT0105443_processed.obj         d_count=  -571.0  d_fscore01=+0.0464
+    Tetramorium_kraepelini_CASENT0744084_processed.obj      d_count=  -376.0  d_fscore01=+0.0398
+
+=== full per-pair table, unseeded (why restricting scope changes the aggregate) ===
+pair                   baseline   gentle_all10  gentle_pairscoped
+('antenna', 'gaster')       0.00           0.00               0.00
+('antenna', 'legs')        4.73          10.39               5.01
+('antenna', 'thorax')       0.93           3.02               1.05
+('gaster', 'legs')       209.47         167.23             174.27
+('head', 'gaster')         0.00           0.00               0.00
+('head', 'legs')          40.12          54.62              31.86
+('mandible', 'antenna')      20.74          46.10              23.08
+('mandible', 'gaster')       0.00           0.00               0.00
+('mandible', 'legs')       2.55           8.39               5.23
+('mandible', 'thorax')       1.90           5.79               1.73
+
+=== SEED CHECK: seed1 pairscoped-gentle vs unseeded offset-baseline ===
+CAVEAT: no seed-matched baseline was run for this cheap check -- this delta
+mixes a seed1-treatment arm against an unseeded baseline, so treat as approximate.
+=== baseline (unseeded) vs pairscoped-gentle (seed1) (n=50) ===
+gaster-legs count   baseline 418.94  gentle 390.14  delta -28.80 (-6.9%)
+all-pairs count     baseline 560.88  gentle 514.10  delta -46.78 (-8.3%)
+fscore@0.01 delta   mean -0.0149  median -0.0138  min -0.0912  max +0.0581
+deform_mag delta    mean +0.00105 (+22.19%)
+edge_logratio delta mean +0.03873 (+20.69%)
+
+--- top 5 outliers by |delta gaster-legs count| and |delta fscore@0.01| ---
+  top 5 by |delta count|:
+    Labidus_praedator_CASENT0744236_processed.obj           d_count=  +870.0  d_fscore01=-0.0410
+    Cyphoidris_afrc-tz01_CASENT0744810_processed.obj        d_count=  +797.0  d_fscore01=-0.0097
+    Strumigenys_crassicornis_CASENT0744273_processed.obj    d_count=  -778.0  d_fscore01=-0.0141
+    Aphaenogaster_pallida_CASENT0745235_processed.obj       d_count=  -723.0  d_fscore01=-0.0422
+    Temnothorax_congruus_OKENT0105443_processed.obj         d_count=  -722.0  d_fscore01=+0.0395
+  top 5 by |delta fscore|:
+    Ectatomma_brunneum_CASENT0744575_processed.obj          d_count=  -210.0  d_fscore01=-0.0912
+    Carebara_trechideros_CASENT0877591_processed.obj        d_count=  +518.0  d_fscore01=-0.0674
+    Tetramorium_kraepelini_CASENT0744084_processed.obj      d_count=  -572.0  d_fscore01=+0.0581
+    Acromyrmex_coronatus_CASENT0744365_processed.obj        d_count=  +446.0  d_fscore01=-0.0478
+    Ponera_kohmoku_OKENT0105440_processed.obj               d_count=   +81.0  d_fscore01=-0.0463
+
+=== same-arm cross-seed stability: unseeded vs seed1 pairscoped-gentle (no baseline diff) ===
+n=50
+gaster-legs count: unseeded mean 348.54  seed1 mean 390.14  mean |delta| across specimens 170.20
+all-pairs count:   unseeded mean 484.46  seed1 mean 514.10  mean |delta| across specimens 181.04

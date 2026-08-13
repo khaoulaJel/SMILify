@@ -1,0 +1,83 @@
+# Pair-scoped gentle+offset arm -- restricts the w_penetration LOSS to
+# gaster-legs only, instead of all 10 anatomically non-adjacent pairs.
+#
+# Identical to ants_cfg_all_offset_gentle.yaml (scheme: 'all', gentle
+# w_penetration 0.02/0.05, w_offset 5.0/2.0, w_limit 100.0 in all stages) with
+# one change: `penetration_train_pairs: [[gaster, legs]]` added to both deform
+# stages. This uses fitter_3d/trainer.py's `penetration_train_pairs` Stage
+# kwarg (added for this run) which narrows what the loss trains on WITHOUT
+# touching evaluation -- compute_eval_metrics still scores and reports all 10
+# pairs unconditionally (see its docstring / Stage.__init__ docstring), so any
+# collateral damage on untrained pairs remains fully visible in the per-pair
+# CSV, same as every prior arm in this study.
+#
+# Rationale (see TASK1/TASK2 writeups in diagnostics/khaoula_review/): the
+# only pair the gentle-penetration loss reliably wins on is gaster-legs; every
+# other pair it also trains on regresses, net aggregate worse. This restricts
+# training to the one pair with a documented win, so a proximity-test gradient
+# is never computed for pairs it was never validated to help.
+#
+# Compare against ants_cfg_all_offset_baseline.yaml (already run,
+# fit3d_results_all_offset_baseline/ -- w_penetration=0, same w_offset/w_limit,
+# unaffected by this change since baseline never has the penetration loss on)
+# and ants_cfg_all_offset_gentle.yaml / fit3d_results_all_offset_gentle/
+# (TASK2, all-10-pairs gentle+offset) as the two comparison points.
+
+stages:
+  Stage_0_init:
+    scheme: 'init_rot_lock'
+    nits: 100
+    lr: 0.05
+
+  Stage_1_default:
+      scheme: 'default'
+      nits: 300
+      lr: 0.02
+
+      loss_weights:
+          w_chamfer: 1.
+          w_edge: 0.8
+          w_normal: 0.02
+          w_laplacian: 0.01
+          w_limit: 100.0
+
+      custom_lrs:
+        joint_rot: 0.002
+
+  Stage_2_deform_coarse:
+    scheme: 'all'
+    nits: 1000
+    lr: 0.002
+
+    penetration_train_pairs: [[gaster, legs]]
+
+    loss_weights:
+      w_chamfer: 1.
+      w_edge: 0.8
+      w_normal: 0.005
+      w_laplacian: 0.01
+      w_penetration: 0.02
+      penetration_ramp_iters: 200
+      w_limit: 100.0
+      w_offset: 5.0
+
+  Stage_3_deform_fine:
+    scheme: 'all'
+    nits: 1000
+    lr: 0.0005
+
+    penetration_train_pairs: [[gaster, legs]]
+
+    loss_weights:
+      w_chamfer: 0.5
+      w_edge: 0.2
+      w_normal: 0.002
+      w_laplacian: 0.001
+      w_penetration: 0.05
+      penetration_ramp_iters: 0
+      w_limit: 100.0
+      w_offset: 2.0
+
+args:
+  mesh_dir: diagnostics/moonshot/bench50_clean
+  shape_family_id: -1

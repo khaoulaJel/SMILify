@@ -1,0 +1,5 @@
+Blender 4.3.2 (hash 32f5fdce0a0a built 2024-12-17 01:31:14)
+STL Importer: 1704 duplicate triangles were removed
+TBB Warning: The number of workers is currently limited to 3. The request for 7 workers is ignored. Further requests for more workers will be silently ignored until the limit changes.
+
+Timer 'STL Import' took 2842.79 ms

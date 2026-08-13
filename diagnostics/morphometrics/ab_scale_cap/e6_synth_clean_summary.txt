@@ -1,0 +1,28 @@
+
+=== AB_A_SYN (12 specimens) ===
+  CORRECT correspondence : 6.65%  of vertices
+  per-vertex error       : median 3.28%  p90 19.92% of extent
+  part          correct %  median err %
+  thorax            10.7%         2.42%
+  gaster             1.8%        12.24%
+  head               6.2%         3.33%
+  mandible           6.3%         5.59%
+  antenna            6.3%         3.84%
+  leg prox           7.7%         2.68%
+  leg distal         3.4%         3.80%
+
+=== AB_B_SYN (12 specimens) ===
+  CORRECT correspondence : 6.50%  of vertices
+  per-vertex error       : median 3.28%  p90 19.87% of extent
+  part          correct %  median err %
+  thorax            11.1%         2.39%
+  gaster             2.0%        12.12%
+  head               6.0%         3.38%
+  mandible           6.2%         5.64%
+  antenna            5.2%         3.83%
+  leg prox           7.4%         2.70%
+  leg distal         3.2%         3.66%
+
+wrote /p/home/jusers/jellal1/jureca/SMILify/diagnostics/moonshot/out/synth_correspondence.png
+wrote /p/home/jusers/jellal1/jureca/SMILify/diagnostics/moonshot/out/synth_render_AB_A_SYN.png
+wrote /p/home/jusers/jellal1/jureca/SMILify/diagnostics/moonshot/out/synth_render_AB_B_SYN.png

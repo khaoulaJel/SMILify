@@ -1,0 +1,60 @@
+[1/50] Acanthostichus_aff.brevicornis_CASENT0744328_processed.obj: rate_AtoB=0.07392363931762795 rate_BtoA=0.004250797024442083 delta_AtoB=+101 delta_BtoA=-292
+[2/50] Acromyrmex_coronatus_CASENT0744365_processed.obj: rate_AtoB=0.20389926888708368 rate_BtoA=0.02660140455416046 delta_AtoB=+230 delta_BtoA=-541
+[3/50] Acromyrmex_lobicornis_CASENT0878007_processed.obj: rate_AtoB=0.08285946385052803 rate_BtoA=0.011689691817215728 delta_AtoB=+59 delta_BtoA=-8
+[4/50] Anochetus_risii_CASENT0877608_processed.obj: rate_AtoB=0.0 rate_BtoA=0.0 delta_AtoB=+0 delta_BtoA=+0
+[5/50] Anochetus_risii_CASENT0877609_processed.obj: rate_AtoB=0.0 rate_BtoA=0.005118362124120281 delta_AtoB=-16 delta_BtoA=+44
+[6/50] Aphaenogaster_pallida_CASENT0745235_processed.obj: rate_AtoB=0.12428919577579203 rate_BtoA=0.0004250797024442083 delta_AtoB=+118 delta_BtoA=-496
+[7/50] Atopomyrmex_mocquerysi_CASENT0744784_processed.obj: rate_AtoB=0.22258326563769293 rate_BtoA=0.004675876726886291 delta_AtoB=+238 delta_BtoA=+145
+[8/50] Carebara_trechideros_CASENT0877591_processed.obj: rate_AtoB=0.10641754670999187 rate_BtoA=0.01849096705632306 delta_AtoB=+124 delta_BtoA=+13
+[9/50] Centromyrmex_brachycola_CASENT0744052_processed.obj: rate_AtoB=0.14703493095044678 rate_BtoA=0.0006376195536663124 delta_AtoB=+138 delta_BtoA=-298
+[10/50] Cephalotes_minutus_CASENT0709253_processed.obj: rate_AtoB=0.11372867587327376 rate_BtoA=0.0006377551020408163 delta_AtoB=+134 delta_BtoA=-25
+[11/50] Cephalotes_simillimus_CASENT0744408_processed.obj: rate_AtoB=0.043866774979691305 rate_BtoA=0.004250797024442083 delta_AtoB=+28 delta_BtoA=-322
+[12/50] Cephalotes_spinosus_CASENT0744158_processed.obj: rate_AtoB=0.09179528838342811 rate_BtoA=0.0006376195536663124 delta_AtoB=+75 delta_BtoA=-173
+[13/50] Crematogaster_nawai_OKENT0105046_processed.obj: rate_AtoB=0.08935824532900082 rate_BtoA=0.020625132893897512 delta_AtoB=+77 delta_BtoA=-129
+[14/50] Cryptopone_sauteri_CASENT0743771_processed.obj: rate_AtoB=0.1454102355808286 rate_BtoA=0.0006376195536663124 delta_AtoB=+121 delta_BtoA=-243
+[15/50] Cyphoidris_afrc-tz01_CASENT0744810_processed.obj: rate_AtoB=0.05777054515866558 rate_BtoA=0.008290816326530613 delta_AtoB=+47 delta_BtoA=-158
+[16/50] Cyphomyrmex_cf.minutus_CASENT0744280_processed.obj: rate_AtoB=0.008123476848090982 rate_BtoA=0.0 delta_AtoB=+6 delta_BtoA=-6
+[17/50] Dilobocondyla_fouqueti_CASENT0745576_processed.obj: rate_AtoB=0.1462225832656377 rate_BtoA=0.001488411652136934 delta_AtoB=+100 delta_BtoA=-189
+[18/50] Dorylus_fulvus_CASENT0745678_processed.obj: rate_AtoB=0.0008123476848090983 rate_BtoA=0.0012755102040816326 delta_AtoB=+1 delta_BtoA=+6
+[19/50] Eciton_hamatum_CASENT0744580_processed.obj: rate_AtoB=0.13739837398373983 rate_BtoA=0.03914060838119549 delta_AtoB=+51 delta_BtoA=+169
+[20/50] Ectatomma_brunneum_CASENT0744575_processed.obj: rate_AtoB=0.002437043054427295 rate_BtoA=0.0021258503401360546 delta_AtoB=+3 delta_BtoA=-475
+[21/50] Eurhopalothrix_procera_CASENT0745605_processed.obj: rate_AtoB=0.01462225832656377 rate_BtoA=0.0010626992561105207 delta_AtoB=-28 delta_BtoA=-182
+[22/50] Heteroponera_panamensis_CASENT0744055_processed.obj: rate_AtoB=0.03983739837398374 rate_BtoA=0.022321428571428572 delta_AtoB=+48 delta_BtoA=+125
+[23/50] Labidus_praedator_CASENT0744236_processed.obj: rate_AtoB=0.003257328990228013 rate_BtoA=0.027842720510095644 delta_AtoB=+10 delta_BtoA=+101
+[24/50] Labidus_praedator_CASENT0744237_processed.obj: rate_AtoB=0.14703493095044678 rate_BtoA=0.008943781942078365 delta_AtoB=+128 delta_BtoA=-333
+[25/50] Lasius_nr._fuliginosus_CASENT0878037_processed.obj: rate_AtoB=0.06590724165988608 rate_BtoA=0.014240170031880977 delta_AtoB=+43 delta_BtoA=-445
+[26/50] Lioponera_daikoku_OKENT0105067_processed.obj: rate_AtoB=0.03349673202614379 rate_BtoA=0.015515409139213603 delta_AtoB=+38 delta_BtoA=-93
+[27/50] Mayriella_sp._CASENT0745610_processed.obj: rate_AtoB=0.07323026851098453 rate_BtoA=0.04973432518597237 delta_AtoB=+75 delta_BtoA=-222
+[28/50] Mesoponera_ambigua_CASENT0745584_processed.obj: rate_AtoB=0.050365556458164096 rate_BtoA=0.001487778958554729 delta_AtoB=+12 delta_BtoA=-379
+[29/50] Myrmecina_ryukyuensis_OKENT0105085_processed.obj: rate_AtoB=0.22908204711616573 rate_BtoA=0.0006376195536663124 delta_AtoB=+277 delta_BtoA=+56
+[30/50] Myrmecina_sp._CASENT0745613_processed.obj: rate_AtoB=0.03736799350121852 rate_BtoA=0.007013815090329437 delta_AtoB=+42 delta_BtoA=-104
+[31/50] Nesomyrmex_angulatus_CASENT0744820_processed.obj: rate_AtoB=0.011372867587327376 rate_BtoA=0.059723698193411265 delta_AtoB=+20 delta_BtoA=-267
+[32/50] Odontomachus_troglodytes_CASENT0744970_processed.obj: rate_AtoB=0.06011372867587327 rate_BtoA=0.007226354941551541 delta_AtoB=+70 delta_BtoA=-155
+[33/50] Oxyopomyrmex_saulcyi_CASENT0745218_processed.obj: rate_AtoB=0.01951219512195122 rate_BtoA=0.002553191489361702 delta_AtoB=+12 delta_BtoA=+106
+[34/50] Polyrhachis_decemdentata_CASENT0744779_processed.obj: rate_AtoB=0.07235772357723577 rate_BtoA=0.017640807651434644 delta_AtoB=+84 delta_BtoA=-215
+[35/50] Polyrhachis_dives_CASENT0878093_processed.obj: rate_AtoB=0.05280259951259139 rate_BtoA=0.002552105487026797 delta_AtoB=+27 delta_BtoA=-533
+[36/50] Ponera_kohmoku_OKENT0105440_processed.obj: rate_AtoB=0.01949634443541836 rate_BtoA=0.006166276844567297 delta_AtoB=+11 delta_BtoA=-228
+[37/50] Ponera_tamon_OKENT0105154_processed.obj: rate_AtoB=0.17871649065800163 rate_BtoA=0.014665249734325186 delta_AtoB=+199 delta_BtoA=-94
+[38/50] Pseudolasius_sp._CASENT0878065_processed.obj: rate_AtoB=0.18115353371242893 rate_BtoA=0.0034006376195536664 delta_AtoB=+185 delta_BtoA=+126
+[39/50] Pseudomyrmex_cf.solis_CASENT0744065_processed.obj: rate_AtoB=0.21527213647441104 rate_BtoA=0.004039974484371677 delta_AtoB=+225 delta_BtoA=-293
+[40/50] Solenopsis_invicta_CASENT0744384_processed.obj: rate_AtoB=0.007317073170731708 rate_BtoA=0.030605738575982998 delta_AtoB=-6 delta_BtoA=-238
+[41/50] Stigmatomma_FHG02_CASENT0745561_processed.obj: rate_AtoB=0.025182778229082048 rate_BtoA=0.041498191104490316 delta_AtoB=-12 delta_BtoA=-96
+[42/50] Strumigenys_alberti_CASENT0878103_processed.obj: rate_AtoB=0.021121039805036556 rate_BtoA=0.01997874601487779 delta_AtoB=+40 delta_BtoA=+182
+[43/50] Strumigenys_canina_OKENT0105288_processed.obj: rate_AtoB=0.015434606011372868 rate_BtoA=0.05041480536056158 delta_AtoB=+8 delta_BtoA=-188
+[44/50] Strumigenys_crassicornis_CASENT0744273_processed.obj: rate_AtoB=0.07229894394800974 rate_BtoA=0.01701041888156496 delta_AtoB=+67 delta_BtoA=-762
+[45/50] Strumigenys_sp._appretiata_group_CASENT0744156_processed.obj: rate_AtoB=0.21039805036555645 rate_BtoA=0.012539851222104145 delta_AtoB=+231 delta_BtoA=-86
+[46/50] Strumigenys_stenorhina_OKENT0105268_processed.obj: rate_AtoB=0.0 rate_BtoA=0.010839532412327312 delta_AtoB=+0 delta_BtoA=+39
+[47/50] Syllophopsis_sechellensis_OKENT0105212_processed.obj: rate_AtoB=0.23395613322502032 rate_BtoA=0.0025504782146652497 delta_AtoB=+261 delta_BtoA=-196
+[48/50] Temnothorax_congruus_OKENT0105443_processed.obj: rate_AtoB=0.11697806661251016 rate_BtoA=0.0021253985122210413 delta_AtoB=+114 delta_BtoA=-150
+[49/50] Temnothorax_sp._OKENT0105336_processed.obj: rate_AtoB=0.06255077173030058 rate_BtoA=0.01997874601487779 delta_AtoB=+67 delta_BtoA=-485
+[50/50] Tetramorium_kraepelini_CASENT0744084_processed.obj: rate_AtoB=0.1510966693744923 rate_BtoA=0.009564293304994687 delta_AtoB=+147 delta_BtoA=-349
+
+=== SUMMARY across 50 specimens ===
+n specimens with valid asymmetry: 50/50
+asymmetry vs delta_AtoB: Pearson r=0.947 (p=0.0000)  Spearman rho=0.935 (p=0.0000)
+
+specimens where A_into_B WORSENED (n=44): mean asymmetry = 0.0824
+specimens where A_into_B did NOT worsen (n=6): mean asymmetry = -0.0070
+mean rate_AtoB in worsened group: 0.0948  vs not-worsened: 0.0079
+mean rate_BtoA in worsened group: 0.0124  vs not-worsened: 0.0149
+Mann-Whitney U test (asymmetry, worsened vs not): U=240.0 p=0.0004

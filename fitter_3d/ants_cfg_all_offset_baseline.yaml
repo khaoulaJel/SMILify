@@ -1,0 +1,70 @@
+# TASK 2 (penetration-joint-study, structural-constraint arm) -- BASELINE+OFFSET.
+#
+# Identical to ants_cfg_all_baseline.yaml (scheme: 'all', w_penetration=0), plus
+# Fabian's validated free-form-offset penalty w_offset: 5.0 (coarse) / 2.0 (fine)
+# -- the D1 recipe setting (diagnostics/moonshot/cfg/D1_low.yaml), which on the
+# moonshot pipeline (trainer_moonshot.py) improved ground-truth correspondence
+# 4.81% -> 6.69% and cut edge distortion 0.35 -> 0.14. w_offset did not exist in
+# this trainer (fitter_3d/trainer.py) before this study -- ported from
+# trainer_moonshot.py:488-491 verbatim (same L2-on-deform_verts formula), smoke-
+# tested on 3 specimens (diagnostics/khaoula_review/smoke_offset_gentle.yaml)
+# before this run.
+#
+# Purpose: TASK 1 found gentle proximity penetration + scheme:'all' trades a
+# real gaster-legs improvement for worse penetration everywhere else, at a
+# modest surface-fit/integrity cost. This arm (+ its gentle-penetration sibling,
+# ants_cfg_all_offset_gentle.yaml) tests whether adding the offset penalty --
+# which structurally constrains how much free-form deformation can do the work
+# pose/shape should -- changes that trade, not just penalizes penetration
+# directly. This is the BASELINE (w_penetration=0) half of that comparison.
+
+stages:
+  Stage_0_init:
+    scheme: 'init_rot_lock'
+    nits: 100
+    lr: 0.05
+
+  Stage_1_default:
+      scheme: 'default'
+      nits: 300
+      lr: 0.02
+
+      loss_weights:
+          w_chamfer: 1.
+          w_edge: 0.8
+          w_normal: 0.02
+          w_laplacian: 0.01
+          w_limit: 100.0
+
+      custom_lrs:
+        joint_rot: 0.002
+
+  Stage_2_deform_coarse:
+    scheme: 'all'
+    nits: 1000
+    lr: 0.002
+
+    loss_weights:
+      w_chamfer: 1.
+      w_edge: 0.8
+      w_normal: 0.005
+      w_laplacian: 0.01
+      w_limit: 100.0
+      w_offset: 5.0
+
+  Stage_3_deform_fine:
+    scheme: 'all'
+    nits: 1000
+    lr: 0.0005
+
+    loss_weights:
+      w_chamfer: 0.5
+      w_edge: 0.2
+      w_normal: 0.002
+      w_laplacian: 0.001
+      w_limit: 100.0
+      w_offset: 2.0
+
+args:
+  mesh_dir: diagnostics/moonshot/bench50_clean
+  shape_family_id: -1

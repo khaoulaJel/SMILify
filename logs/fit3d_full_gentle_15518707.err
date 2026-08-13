@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/p/home/jusers/jellal1/jureca/SMILify/fitter_3d/optimise.py", line 24, in <module>
+    import config
+ModuleNotFoundError: No module named 'config'
