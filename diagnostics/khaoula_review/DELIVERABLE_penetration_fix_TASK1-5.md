@@ -1,7 +1,7 @@
-# Penetration/registration fix — TASK 1-4 deliverable
+# Penetration/registration fix — TASK 1-5 deliverable
 
 bench50_clean (50 specimens), gentle proximity penetration loss (0.02/0.05) + `scheme:'all'`
-vs `w_penetration=0` baseline. Full detail in the four linked docs; this is the summary.
+vs `w_penetration=0` baseline. Full detail in the five linked docs; this is the summary.
 
 ## TASK 1 — does gentle + scheme:'all' help? (`TASK1_gentle_penetration_scheme_all_bench50.md`)
 
@@ -46,6 +46,19 @@ collapse in outlier renders. Reads as a squeezed-balloon effect: removing gradie
 from the other 9 pairs does eliminate their collateral damage, but concentrates deformation
 (and its cost) onto gaster-legs rather than genuinely resolving more of it.
 
+## TASK 5 — add Fabian's scale/trans barriers on top of TASK 4 (`TASK5_pairscoped_offset_scalecap.md`)
+
+One pre-registered bench50 arm: TASK4's pair-scoped config plus `w_scale=0.052` (the one
+validated value in the branch, T0.4, previously shipped only on the moonshot/hierarchical
+pipeline, never run on this one) and `w_trans=1.0` (the only value ever tried anywhere,
+explicitly uncalibrated). Newly wired into `fitter_3d/trainer.py`, ported verbatim from
+`trainer_moonshot.py`. Result: **2 of 4 pre-registered criteria still fail** (mean F-score
+−0.0195, worst −0.0890, both worse than the −0.01/−0.08 bar) — same two criteria TASK4
+failed. The barriers did help on two axes that weren't required to pass: all-pairs aggregate
+strengthened further (−13.6% → **−16.9%**, the best net win yet) and edge-distortion
+integrity improved sharply (+21.1% → **+4.9%**, a 4.3x reduction) — but did not fix
+mean/worst F-score, which is the criterion every arm across TASK1-5 has failed. No collapse.
+
 ## Verdict
 
 No arm produces an unconditional win. Gentle + scheme:'all' alone trades one pair's
@@ -53,10 +66,15 @@ improvement for broader, GWN-confirmed degradation elsewhere (TASK1, TASK3). Add
 w_offset (TASK2) is a real, partial fix: keeps the gaster-legs win, cuts the aggregate
 cost by more than half, but does not eliminate it and worsens the worst-case single-specimen
 F-score. Restricting training scope further (TASK4) turns the aggregate net-positive but at
-a larger, not smaller, per-pair fit/integrity cost and a weaker own-pair win — a different
-trade-off, not a strictly better one. **Standing recommendation from
+a larger, not smaller, per-pair fit/integrity cost and a weaker own-pair win. Adding the
+scale/trans barriers on top (TASK5) improves the aggregate and edge-distortion further but
+still does not clear the F-score bar. **Standing recommendation from
 `REVIEW_penetration_update.md` — ship as an available config option, not a default, gated by
-a required per-specimen check — holds.** No arm across TASK 1-4 clears all four Hard-Rule-style
-criteria at once. TASK 4's spec original (torch-mesh-isect) remains a live, untried next step;
-if pursued, a proper 3-seed rerun of TASK 4's pairscoped arm should come first, since the
-single seed-check here already shows the effect size isn't well-pinned.
+a required per-specimen check — holds.** No arm across TASK 1-5 clears all Hard-Rule-style
+criteria at once; the mean/worst F-score bar in particular has failed on every soft-loss arm
+tried. Per the pre-registered decision tree for TASK 5: treat soft proximity as optional and
+gated, not the solution; default stays D1/no-penetration; the product bar ("net aggregate ≤0
+and mean F within −0.01, simultaneously") has not been met. Part-filtered conical/BVH loss
+(the original spec's TASK 4, and TASK5's own step 3) remains untried and is explicitly gated
+behind a product decision on whether lower residual contact is still required — not something
+decided in this task.

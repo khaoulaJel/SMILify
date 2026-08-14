@@ -1,0 +1,68 @@
+=== TASK5 primary: baseline vs pairscoped-gentle+scalecap (unseeded) (n=50) ===
+gaster-legs count   baseline 418.94  gentle 355.92  delta -63.02 (-15.0%)
+all-pairs count     baseline 560.88  gentle 466.04  delta -94.84 (-16.9%)
+fscore@0.01 delta   mean -0.0195  median -0.0238  min -0.0890  max +0.0662
+deform_mag delta    mean +0.00128 (+27.00%)
+edge_logratio delta mean +0.00917 (+4.90%)
+
+--- pre-registered success criteria check (pre-registered TASK5 panel) ---
+  gaster-legs count <= -15%?                      -15.0%  PASS
+  all-pairs aggregate <= 0%?                      -16.9%  PASS
+  mean fscore delta >= -0.01?                    -0.0195  FAIL
+  worst specimen fscore delta >= -0.08?           -0.0890  FAIL
+
+--- top 5 outliers by |delta gaster-legs count| and |delta fscore@0.01| ---
+  top 5 by |delta count|:
+    Strumigenys_crassicornis_CASENT0744273_processed.obj    d_count=  -826.0  d_fscore01=-0.0231
+    Aphaenogaster_pallida_CASENT0745235_processed.obj       d_count=  -714.0  d_fscore01=+0.0225
+    Temnothorax_congruus_OKENT0105443_processed.obj         d_count=  -700.0  d_fscore01=+0.0280
+    Dilobocondyla_fouqueti_CASENT0745576_processed.obj      d_count=  -658.0  d_fscore01=-0.0350
+    Acromyrmex_lobicornis_CASENT0878007_processed.obj       d_count=  +657.0  d_fscore01=-0.0264
+  top 5 by |delta fscore|:
+    Atopomyrmex_mocquerysi_CASENT0744784_processed.obj      d_count=  +263.0  d_fscore01=-0.0890
+    Mesoponera_ambigua_CASENT0745584_processed.obj          d_count=  +324.0  d_fscore01=-0.0698
+    Strumigenys_stenorhina_OKENT0105268_processed.obj       d_count=    +0.0  d_fscore01=+0.0662
+    Labidus_praedator_CASENT0744236_processed.obj           d_count=  +400.0  d_fscore01=-0.0658
+    Temnothorax_sp._OKENT0105336_processed.obj              d_count=  -138.0  d_fscore01=-0.0621
+
+=== context: TASK4 pairscoped-gentle, no scalecap (for reference, same baseline) ===
+=== baseline vs pairscoped-gentle (TASK4, unseeded) (n=50) ===
+gaster-legs count   baseline 418.94  gentle 348.54  delta -70.40 (-16.8%)
+all-pairs count     baseline 560.88  gentle 484.46  delta -76.42 (-13.6%)
+fscore@0.01 delta   mean -0.0170  median -0.0188  min -0.0925  max +0.0548
+deform_mag delta    mean +0.00102 (+21.56%)
+edge_logratio delta mean +0.03947 (+21.08%)
+
+--- top 5 outliers by |delta gaster-legs count| and |delta fscore@0.01| ---
+  top 5 by |delta count|:
+    Temnothorax_congruus_OKENT0105443_processed.obj         d_count=  -775.0  d_fscore01=+0.0548
+    Strumigenys_crassicornis_CASENT0744273_processed.obj    d_count=  -676.0  d_fscore01=-0.0457
+    Aphaenogaster_pallida_CASENT0745235_processed.obj       d_count=  -604.0  d_fscore01=-0.0213
+    Acromyrmex_coronatus_CASENT0744365_processed.obj        d_count=  +547.0  d_fscore01=-0.0525
+    Eciton_hamatum_CASENT0744580_processed.obj              d_count=  +530.0  d_fscore01=+0.0022
+  top 5 by |delta fscore|:
+    Myrmecina_sp._CASENT0745613_processed.obj               d_count=   +43.0  d_fscore01=-0.0925
+    Dilobocondyla_fouqueti_CASENT0745576_processed.obj      d_count=  -327.0  d_fscore01=-0.0661
+    Oxyopomyrmex_saulcyi_CASENT0745218_processed.obj        d_count=  +224.0  d_fscore01=-0.0576
+    Ponera_tamon_OKENT0105154_processed.obj                 d_count=  +150.0  d_fscore01=-0.0557
+    Temnothorax_congruus_OKENT0105443_processed.obj         d_count=  -775.0  d_fscore01=+0.0548
+
+=== does scalecap change TASK4's own result? pairscoped-gentle vs pairscoped-gentle+scalecap ===
+gaster-legs count delta (scalecap - no scalecap): +7.38
+all-pairs count delta:                            -18.42
+fscore@0.01 delta:                                -0.0026
+deform_mag delta:                                 +0.00026
+edge_logratio delta:                              -0.03030
+
+=== full per-pair table, unseeded ===
+pair                   baseline     pairscoped  pairscoped_scalecap
+('antenna', 'gaster')       0.00           0.00                 0.00
+('antenna', 'legs')        4.73           5.01                 5.65
+('antenna', 'thorax')       0.93           1.05                 0.10
+('gaster', 'legs')       209.47         174.27               177.96
+('head', 'gaster')         0.00           0.00                 0.00
+('head', 'legs')          40.12          31.86                32.65
+('mandible', 'antenna')      20.74          23.08                14.52
+('mandible', 'gaster')       0.00           0.00                 0.00
+('mandible', 'legs')       2.55           5.23                 2.14
+('mandible', 'thorax')       1.90           1.73                 0.00
