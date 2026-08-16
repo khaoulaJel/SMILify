@@ -37,6 +37,30 @@ def get_meshes(verts, faces, device="cuda"):
     return meshes
 
 
+def rest_edge_loss(pred_verts, rest_verts, faces):
+    """Penalise edge-length distortion introduced by FREE-FORM OFFSETS only.
+
+    Replaces pytorch3d.mesh_edge_loss(target_length=0), which penalises edge length
+    itself and therefore shrinks the mesh.
+
+    `rest_verts` must be the model's own posed-and-shaped geometry with deform_verts
+    zeroed, recomputed at the CURRENT parameters -- NOT the original template. Comparing
+    against the original template penalises legitimate pose and shape change instead of
+    just the free-form offsets.
+
+    With the corrected reference an articulated, shaped, but undeformed mesh scores
+    exactly zero, so the term measures only what free-form deformation did to the
+    surface.
+
+    Uses the relative (log-free) form ((l/l0) - 1)^2 so that thin structures -- legs,
+    antennae, which have short edges -- are not under-weighted relative to the body.
+    """
+    e = torch.cat([faces[:, [0, 1]], faces[:, [1, 2]], faces[:, [2, 0]]], dim=0)
+    l0 = (rest_verts[:, e[:, 0]] - rest_verts[:, e[:, 1]]).norm(dim=-1)
+    l1 = (pred_verts[:, e[:, 0]] - pred_verts[:, e[:, 1]]).norm(dim=-1)
+    return ((l1 / (l0 + 1e-9)) - 1.0).pow(2).mean()
+
+
 def _joint_limit_tensors_from_dd(dd, device):
     """Build (min_limits, max_limits, error) tensors of shape (N_POSE, 3) from an
     already-loaded SMAL .pkl dict. `error` is the deferred ValueError/TypeError (or
@@ -366,6 +390,7 @@ class Stage:
         device="cuda",
         plot_normals=False,
         sample_size=3000,  # matches the target-mesh sample count forward() always used before this was wired up
+        edge_mode="shrink",  # 'shrink' (default, stock behaviour) or 'rest' (see rest_edge_loss)
         sdf_values=None,
         source_sdf_values=None,
         visualize_sdf_loss=False,
@@ -396,6 +421,9 @@ class Stage:
 
         # Parameter for vertex sampling
         self.sample_size = sample_size
+
+        assert edge_mode in ("shrink", "rest"), f"edge_mode must be 'shrink' or 'rest', got {edge_mode!r}"
+        self.edge_mode = edge_mode
 
         # Store SDF values if provided
         self.sdf_values = sdf_values
@@ -441,7 +469,18 @@ class Stage:
             loss += self.loss_weights["w_chamfer"] * loss_chamfer
 
         if self.consider_loss("edge"):
-            loss_edge = mesh_edge_loss(src_mesh)  # and (b) the edge length of the predicted mesh
+            if self.edge_mode == "shrink":
+                # Baseline behaviour. mesh_edge_loss(target_length=0) penalises edge
+                # length itself, i.e. it's an active shrinkage force.
+                loss_edge = mesh_edge_loss(src_mesh)
+            else:
+                # reference = the CURRENT pose/shape with free-form offsets removed, so
+                # legitimate articulation and shape change cost nothing (see rest_edge_loss)
+                with torch.no_grad():
+                    rest_now = self.smal_3d_fitter(
+                        deform_verts=torch.zeros_like(self.smal_3d_fitter.deform_verts)
+                    ).detach()
+                loss_edge = rest_edge_loss(src_mesh.verts_padded(), rest_now, self.faces[0])
             loss_components["edge"] = loss_edge
             loss += self.loss_weights["w_edge"] * loss_edge
 
