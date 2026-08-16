@@ -1,0 +1,11 @@
+--- sanity: rigid rotation preserves edge length ---
+mean edge length  template=0.012592  posed=0.012593
+max abs relative change: 0.668681
+
+--- check 1: perfect fit (correct pose, zero deform_verts) ---
+shrink (mesh_edge_loss, target_length=0): 0.000179  (expected: large, nonzero)
+rest   (rest_edge_loss):                  1.496329e-14  (expected: ~0)
+
+--- check 2: same pose + a small known deform_verts perturbation ---
+shrink: 0.000179 -> 0.000781  (x4.361)
+rest:   1.496329e-14 -> 5.596295  (rest was ~0, now tracks the perturbation directly)
