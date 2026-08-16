@@ -1,0 +1,27 @@
+=== command 1: hierarchical (reduced iters for smoke test) ===
+python -m fitter_3d.optimise_hierarchical --mesh_dir fitter_3d/ATTA_BOI --results_dir /tmp/smoke_hier_out --body_its 20 --leg_its 20 --joint_its 20 --deform_its 10 --midline 2.0 --beta_prior 0.0 --limit 0.273 --offset 5.0
+[hier] 1 meshes
+1 target meshes loaded.
+[hier] anatomical groups (template vertices): {'body': 5526, 'l1_l': 753, 'l1_r': 756, 'l2_l': 669, 'l2_r': 669, 'l3_l': 931, 'l3_r': 931}
+[hier] 7 groups: ['body', 'l1_l', 'l1_r', 'l2_l', 'l2_r', 'l3_l', 'l3_r']
+[hier] body stage moves ['body'], leg stage moves 6 leg groups
+    [H0_body]    0/20 loss=0.004719  chamfer=0.00471  edge=0.00000  lap=0.00142  sym=0.00000  limit=0.00000  mid=0.00000
+    [H0_body]   19/20 loss=0.001635  chamfer=0.00125  edge=0.00701  lap=0.00151  sym=0.00003  limit=0.00000  mid=0.00000
+    [H1_legs]    0/20 loss=0.002836  chamfer=0.00245  edge=0.00701  lap=0.00151  sym=0.00003  limit=0.00000  mid=0.00000
+    [H1_legs]   19/20 loss=0.001222  chamfer=0.00096  edge=0.00458  lap=0.00149  sym=0.00003  limit=0.00000  mid=0.00000
+    [H2_joint]    0/20 loss=0.001180  chamfer=0.00092  edge=0.00457  lap=0.00149  sym=0.00003  limit=0.00000  mid=0.00000
+    [H2_joint]   19/20 loss=0.000847  chamfer=0.00066  edge=0.00326  lap=0.00147  sym=0.00002  limit=0.00000  mid=0.00000
+    [H3_deform]    0/10 loss=0.000853  chamfer=0.00067  edge=0.00326  lap=0.00147  sym=0.00002  mid=0.00000  off=0.00000
+    [H3_deform]    9/10 loss=0.000680  chamfer=0.00058  edge=0.00154  lap=0.00152  sym=0.00002  mid=0.00000  off=0.00000
+[hier] done
+
+=== command 2: moonshot handoff, chained off H2_joint.npz (nits/n_sample reduced for smoke test) ===
+python -m fitter_3d.optimise_moonshot --mesh_dir fitter_3d/ATTA_BOI --yaml_src diagnostics/moonshot/cfg/D1_low.yaml --init_from /tmp/smoke_hier_out/H2_joint.npz  (nits:15, n_sample:1500 for this smoke run only)
+[moonshot] 1 meshes from fitter_3d/ATTA_BOI
+1 target meshes loaded.
+[moonshot] initialised pose/shape from /tmp/smoke_hier_out/H2_joint.npz
+[moonshot] running 2 stages
+    [Stage_2_deform_coarse] it    0/15  loss=0.001848   chamfer=0.00138  edge=0.00020  normal=0.05727  laplacian=0.00147  offset=0.00000  sym=0.00002  mid=0.00000  limit=0.00000
+    [Stage_2_deform_coarse] it   14/15  loss=0.001605   chamfer=0.00079  edge=0.00021  normal=0.08568  laplacian=0.00338  offset=0.00003  sym=0.00003  mid=0.00000  limit=0.00000
+    [Stage_3_deform_fine] it    0/15  loss=0.000704   chamfer=0.00081  edge=0.00021  normal=0.08320  laplacian=0.00334  offset=0.00003  sym=0.00003  mid=0.00000  limit=0.00000
+    [Stage_3_deform_fine] it   14/15  loss=0.000585   chamfer=0.00076  edge=0.00019  normal=0.05817  laplacian=0.00244  offset=0.00002  sym=0.00001  mid=0.00000  limit=0.00000

@@ -46,6 +46,11 @@ SMAL_MODEL_PATH = join(data_path, "SMALST", "smpl_models")
 # custom elements added:
 # SMAL_FILE = join("3D_model_prep", 'smpl_ATTA.pkl') #  BASE ANT MODEL
 SMAL_FILE = join("3D_model_prep", "SMIL_OmniAnt.pkl")  # LATEST TEXTURED ANT MODEL WITH ALL VARIATION
+# Optional override so the hierarchical/moonshot registration chain (fitter_3d/optimise_hierarchical.py,
+# fitter_3d/optimise_moonshot.py) can select a model file without editing this one. Must be
+# set before these modules are imported, since N_POSE/N_BETAS/joint names are all derived
+# from whichever file this resolves to.
+SMAL_FILE = os.environ.get("SMILIFY_SMAL_FILE", SMAL_FILE)
 # SMAL_FILE = join("3D_model_prep", 'SMILy_STICK.pkl') # LATEST STICK INSECT MODEL
 # SMAL_FILE = join("3D_model_prep", 'SMILy_Mouse_static_joints_Falkner_conv_repose_hind_legs_fix_eyes.pkl') # LATEST MOUSE MODEL
 
