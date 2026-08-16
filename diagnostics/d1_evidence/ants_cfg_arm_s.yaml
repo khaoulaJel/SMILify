@@ -1,0 +1,62 @@
+# Verbatim copy of fitter_3d/ants_cfg.yaml (to-ship, stock Arm S config) with only
+# `args.results_dir` changed so this run doesn't collide with fitter_3d/fit3d_results/
+# from other work. No loss weights, schemes, or iteration counts touched.
+# See diagnostics/d1_evidence/scorecard.md.
+
+stages:
+  Stage_0_init: # Initialisation stage (see next stage for comments)
+    # init_rot_lock locks the rotation of the body which can be useful if you know the root mesh rotations are correct
+    # default scheme: 'init'
+    scheme: 'init_rot_lock'
+    nits: 100 # number of iterations for this stage
+    lr: 0.05 # Adam optimiser learning rate
+
+  Stage_1_default: # chosen name of stage
+      scheme: 'default' # one of 'init', 'default', 'shape', 'pose', 'deform'. See README for explanation
+      nits: 300 # number of iterations for this stage
+      lr: 0.02 # Adam optimiser learning rate
+
+      loss_weights: # optional, any not provided will revert to default
+          w_chamfer: 1.
+          w_edge: 0.8
+          w_normal: 0.02
+          w_laplacian: 0.01
+          w_limit: 100.0   # joint rotation limit prior, enabled - requires 'joint_limits' in the model .pkl (see docs/joint_limits_user_guide.md)
+
+      custom_lrs: # optional, used to provide different learning rates to certain parameters
+        joint_rot: 0.002
+
+  Stage_2_deform_coarse:
+    scheme: 'all' # was 'deform', which froze joint_rot for this stage (issue: pose never updates after Stage_1)
+    nits: 1000
+    lr: 0.002
+    sample_size: 6000 # both meshes are now sampled symmetrically at this density (see trainer.py forward())
+
+    loss_weights: # optional, any not provided will revert to default
+      w_chamfer: 1.
+      w_edge: 0.8
+      w_normal: 0.005
+      w_laplacian: 0.01
+      w_limit: 100.0   # joint_rot is optimised again under scheme 'all'; keep the limit prior active, same weight as Stage_1
+      w_offset: 5.0   # L2 penalty on deform_verts; nothing else bounds free-form vertex offsets
+      w_midline: 2.0   # keeps midsagittal vertices ('sym_verts' in the model .pkl) on the y=0 plane
+
+  Stage_3_deform_fine:
+    scheme: 'all' # was 'deform', which froze joint_rot for this stage (issue: pose never updates after Stage_1)
+    nits: 1000
+    lr: 0.0005
+    sample_size: 6000 # both meshes are now sampled symmetrically at this density (see trainer.py forward())
+
+    loss_weights: # optional, any not provided will revert to default
+      w_chamfer: 0.5
+      w_edge: 0.2
+      w_normal: 0.002
+      w_laplacian: 0.001 # enforce smoothness less, which reduces shrinkage.
+      w_limit: 100.0   # joint_rot is optimised again under scheme 'all'; keep the limit prior active, same weight as Stage_1
+      w_offset: 2.0   # L2 penalty on deform_verts; nothing else bounds free-form vertex offsets
+      w_midline: 2.0   # keeps midsagittal vertices ('sym_verts' in the model .pkl) on the y=0 plane
+
+# Custom arguments. These will *overwrite* any command line arguments passed into the script
+args:
+  results_dir: diagnostics/d1_evidence/runs/stock
+  shape_family_id: -1

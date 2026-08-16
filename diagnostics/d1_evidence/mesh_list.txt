@@ -1,0 +1,20 @@
+# N=10 fixed mesh set for D1 vs stock scorecard.
+# Source: feature/registration_moonshot:diagnostics/moonshot/bench50_clean/*.obj
+#         (bench50_clean does not exist as raw .obj on to-ship; comparison_output/bench50_clean_*
+#         on to-ship only retains logs, not meshes -- see scorecard.md for detail).
+# Selection: first 10 of 50 in sorted (alphabetical) order, for reproducibility.
+# Materialized read-only via `git show feature/registration_moonshot:<path>` (branch not checked out)
+# into a local working copy at diagnostics/d1_evidence/mesh_set/ for the actual optimiser runs
+# (not committed to the to-ship branch -- raw scan .obj binaries, ~3.5MB each).
+#
+# local_filename	source_path_in_feature/registration_moonshot
+Acanthostichus_aff.brevicornis_CASENT0744328_processed.obj	diagnostics/moonshot/bench50_clean/Acanthostichus_aff.brevicornis_CASENT0744328_processed.obj
+Acromyrmex_coronatus_CASENT0744365_processed.obj	diagnostics/moonshot/bench50_clean/Acromyrmex_coronatus_CASENT0744365_processed.obj
+Acromyrmex_lobicornis_CASENT0878007_processed.obj	diagnostics/moonshot/bench50_clean/Acromyrmex_lobicornis_CASENT0878007_processed.obj
+Anochetus_risii_CASENT0877608_processed.obj	diagnostics/moonshot/bench50_clean/Anochetus_risii_CASENT0877608_processed.obj
+Anochetus_risii_CASENT0877609_processed.obj	diagnostics/moonshot/bench50_clean/Anochetus_risii_CASENT0877609_processed.obj
+Aphaenogaster_pallida_CASENT0745235_processed.obj	diagnostics/moonshot/bench50_clean/Aphaenogaster_pallida_CASENT0745235_processed.obj
+Atopomyrmex_mocquerysi_CASENT0744784_processed.obj	diagnostics/moonshot/bench50_clean/Atopomyrmex_mocquerysi_CASENT0744784_processed.obj
+Carebara_trechideros_CASENT0877591_processed.obj	diagnostics/moonshot/bench50_clean/Carebara_trechideros_CASENT0877591_processed.obj
+Centromyrmex_brachycola_CASENT0744052_processed.obj	diagnostics/moonshot/bench50_clean/Centromyrmex_brachycola_CASENT0744052_processed.obj
+Cephalotes_minutus_CASENT0709253_processed.obj	diagnostics/moonshot/bench50_clean/Cephalotes_minutus_CASENT0709253_processed.obj

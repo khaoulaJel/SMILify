@@ -1,0 +1,74 @@
+Sun Aug 16 11:50:17 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.178.04             Driver Version: 580.178.04     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA H100                    On  |   00000000:9D:00.0 Off |                    0 |
+| N/A   42C    P0             74W /  600W |       0MiB /  95830MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+=== smoke Arm D hier (real 10-mesh set, tiny its, timed) ===
+[hier] 0 meshes
+0 target meshes loaded.
+[hier] anatomical groups (template vertices): {'body': 5526, 'l1_l': 753, 'l1_r': 756, 'l2_l': 669, 'l2_r': 669, 'l3_l': 931, 'l3_r': 931}
+[hier] 7 groups: ['body', 'l1_l', 'l1_r', 'l2_l', 'l2_r', 'l3_l', 'l3_r']
+[hier] body stage moves ['body'], leg stage moves 6 leg groups
+Traceback (most recent call last):
+  File "/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/rwthfs/rz/cluster/home/nao48500/SMILify/fitter_3d/optimise_hierarchical.py", line 560, in <module>
+    main()
+  File "/rwthfs/rz/cluster/home/nao48500/SMILify/fitter_3d/optimise_hierarchical.py", line 415, in main
+    HierarchicalStage(
+  File "/rwthfs/rz/cluster/home/nao48500/SMILify/fitter_3d/trainer_hierarchical.py", line 397, in __init__
+    self.src_verts = smal().detach()
+  File "/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/rwthfs/rz/cluster/home/nao48500/SMILify/fitter_3d/trainer.py", line 335, in forward
+    verts, joints, Rs, v_shaped = self.smal_model(
+  File "/rwthfs/rz/cluster/home/nao48500/SMILify/smal_model/smal_torch.py", line 307, in __call__
+    self.J_transformed, A = batch_global_rigid_transformation(
+  File "/rwthfs/rz/cluster/home/nao48500/SMILify/smal_model/batch_lbs.py", line 151, in batch_global_rigid_transformation
+    A0 = make_A(root_rotation, Js[:, 0])
+  File "/rwthfs/rz/cluster/home/nao48500/SMILify/smal_model/batch_lbs.py", line 139, in make_A
+    R_homo = torch.nn.functional.pad(R, (0, 0, 0, 1, 0, 0))
+  File "/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/torch/nn/functional.py", line 4522, in pad
+    return torch._C._nn.pad(input, pad, mode, value)
+RuntimeError: The input size 0, plus negative padding 0 and 0 resulted in a negative output size, which is invalid. Check dimension 0 of your input.
+
+real	0m33.334s
+user	0m4.129s
+sys	0m2.826s
+=== smoke Arm D moonshot (tiny its via yaml override not available -- use full D1_low but check it runs) ===
+[moonshot] 0 meshes from /w0/tmp/nao48500/login23-1_478893/claude-54434/-rwthfs-rz-cluster-home-nao48500-SMILify/2bd09ad9-8997-46b2-b06e-54606cc1e768/scratchpad/d1_mesh_set
+0 target meshes loaded.
+Traceback (most recent call last):
+  File "/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/rwthfs/rz/cluster/home/nao48500/SMILify/fitter_3d/optimise_moonshot.py", line 195, in <module>
+    main(build_parser().parse_args())
+  File "/rwthfs/rz/cluster/home/nao48500/SMILify/fitter_3d/optimise_moonshot.py", line 88, in main
+    d = np.load(args.init_from, allow_pickle=True)
+  File "/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/numpy/lib/_npyio_impl.py", line 451, in load
+    fid = stack.enter_context(open(os.fspath(file), "rb"))
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/d1_smoke_out/hier/H2_joint.npz'
+(moonshot killed after 90s -- just checking it starts cleanly and logs a few its)
+=== smoke Arm S stock (real 10-mesh set, full ants_cfg.yaml -- just time it briefly) ===
+SMOKE DONE
