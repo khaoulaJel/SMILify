@@ -24,7 +24,7 @@ stages:
         joint_rot: 0.002
 
   Stage_2_deform_coarse:
-    scheme: 'deform'
+    scheme: 'all' # was 'deform', which froze joint_rot for this stage (issue: pose never updates after Stage_1)
     nits: 1000
     lr: 0.002
 
@@ -33,9 +33,10 @@ stages:
       w_edge: 0.8
       w_normal: 0.005
       w_laplacian: 0.01
+      w_limit: 100.0   # joint_rot is optimised again under scheme 'all'; keep the limit prior active, same weight as Stage_1
 
   Stage_3_deform_fine:
-    scheme: 'deform'
+    scheme: 'all' # was 'deform', which froze joint_rot for this stage (issue: pose never updates after Stage_1)
     nits: 1000
     lr: 0.0005
 
@@ -44,6 +45,7 @@ stages:
       w_edge: 0.2
       w_normal: 0.002
       w_laplacian: 0.001 # enforce smoothness less, which reduces shrinkage.
+      w_limit: 100.0   # joint_rot is optimised again under scheme 'all'; keep the limit prior active, same weight as Stage_1
 
 # Custom arguments. These will *overwrite* any command line arguments passed into the script
 args:

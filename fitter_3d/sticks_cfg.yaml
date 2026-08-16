@@ -28,7 +28,7 @@ stages:
         betas_trans: 0.0005
 
   Stage_2_deform_coarse:
-    scheme: 'deform'
+    scheme: 'all' # was 'deform', which froze joint_rot for this stage (issue: pose never updates after Stage_1)
     nits: 1000
     lr: 0.002
 
@@ -39,7 +39,7 @@ stages:
       w_laplacian: 0.01
 
   Stage_3_deform_fine:
-    scheme: 'deform'
+    scheme: 'all' # was 'deform', which froze joint_rot for this stage (issue: pose never updates after Stage_1)
     nits: 500
     lr: 0.0005
 
@@ -51,7 +51,7 @@ stages:
 
   # OPTIONAL
   Stage_4_high_freq_detail:
-    scheme: 'deform'
+    scheme: 'all' # was 'deform', which froze joint_rot for this stage (issue: pose never updates after Stage_1)
     nits: 500
     lr: 0.0005
 
