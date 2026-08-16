@@ -365,7 +365,7 @@ class Stage:
         custom_lrs=None,
         device="cuda",
         plot_normals=False,
-        sample_size=1000,
+        sample_size=3000,  # matches the target-mesh sample count forward() always used before this was wired up
         sdf_values=None,
         source_sdf_values=None,
         visualize_sdf_loss=False,
@@ -429,11 +429,14 @@ class Stage:
         loss = 0
         loss_components = {}
 
-        # Sample from target meshes
-        target_verts = sample_points_from_meshes(self.target_meshes, 3000)
+        # Sample both meshes at the same density. Comparing a sampled target against
+        # the source's full (unsampled) vertex set biases chamfer toward wherever the
+        # source mesh happens to have more vertices, independent of actual fit quality.
+        target_verts = sample_points_from_meshes(self.target_meshes, self.sample_size)
+        source_verts = sample_points_from_meshes(src_mesh, self.sample_size)
 
         if self.consider_loss("chamfer"):
-            loss_chamfer, _ = chamfer_distance(target_verts, src_mesh.verts_padded())
+            loss_chamfer, _ = chamfer_distance(target_verts, source_verts)
             loss_components["chamfer"] = loss_chamfer
             loss += self.loss_weights["w_chamfer"] * loss_chamfer
 

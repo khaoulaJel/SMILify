@@ -27,6 +27,7 @@ stages:
     scheme: 'all' # was 'deform', which froze joint_rot for this stage (issue: pose never updates after Stage_1)
     nits: 1000
     lr: 0.002
+    sample_size: 6000 # both meshes are now sampled symmetrically at this density (see trainer.py forward())
 
     loss_weights: # optional, any not provided will revert to default
       w_chamfer: 1.
@@ -40,6 +41,7 @@ stages:
     scheme: 'all' # was 'deform', which froze joint_rot for this stage (issue: pose never updates after Stage_1)
     nits: 1000
     lr: 0.0005
+    sample_size: 6000 # both meshes are now sampled symmetrically at this density (see trainer.py forward())
 
     loss_weights: # optional, any not provided will revert to default
       w_chamfer: 0.5
