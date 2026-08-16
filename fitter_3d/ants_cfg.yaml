@@ -36,6 +36,7 @@ stages:
       w_laplacian: 0.01
       w_limit: 100.0   # joint_rot is optimised again under scheme 'all'; keep the limit prior active, same weight as Stage_1
       w_offset: 5.0   # L2 penalty on deform_verts; nothing else bounds free-form vertex offsets
+      w_midline: 2.0   # keeps midsagittal vertices ('sym_verts' in the model .pkl) on the y=0 plane
 
   Stage_3_deform_fine:
     scheme: 'all' # was 'deform', which froze joint_rot for this stage (issue: pose never updates after Stage_1)
@@ -50,6 +51,7 @@ stages:
       w_laplacian: 0.001 # enforce smoothness less, which reduces shrinkage.
       w_limit: 100.0   # joint_rot is optimised again under scheme 'all'; keep the limit prior active, same weight as Stage_1
       w_offset: 2.0   # L2 penalty on deform_verts; nothing else bounds free-form vertex offsets
+      w_midline: 2.0   # keeps midsagittal vertices ('sym_verts' in the model .pkl) on the y=0 plane
 
 # Custom arguments. These will *overwrite* any command line arguments passed into the script
 args:

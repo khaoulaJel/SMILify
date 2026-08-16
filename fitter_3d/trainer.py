@@ -25,8 +25,15 @@ from smal_fitter.priors.joint_limits_prior import _ranges_from_joint_limits
 nn = torch.nn
 
 default_weights = dict(
-    w_chamfer=1.0, w_edge=1.0, w_normal=0.01, w_laplacian=0.1, w_sdf=0.5, w_limit=0.0, w_offset=0.0
-)  # Added SDF distance weight; w_limit off by default (issue #97); w_offset off by default
+    w_chamfer=1.0,
+    w_edge=1.0,
+    w_normal=0.01,
+    w_laplacian=0.1,
+    w_sdf=0.5,
+    w_limit=0.0,
+    w_offset=0.0,
+    w_midline=0.0,
+)  # Added SDF distance weight; w_limit off by default (issue #97); w_offset, w_midline off by default
 # Want to vary learning ratios between parameters,
 default_lr_ratios = []
 
@@ -35,6 +42,20 @@ def get_meshes(verts, faces, device="cuda"):
     """Returns Meshes object of all SMAL meshes."""
     meshes = Meshes(verts=verts, faces=faces).to(device)
     return meshes
+
+
+def midline_penalty(verts, sym_verts):
+    """Keep the template's midsagittal vertices on the y = 0 plane.
+
+    Penalises the VARIANCE of the midline y, not its absolute value, so a legitimate
+    global y-translation costs nothing and only non-planarity is charged. `sym_verts`
+    is the model's shipped set of midsagittal vertex indices (y-mean 0, y-std 0 on the
+    template) -- an out-of-plane rotation of a body joint moves these off y=0 even
+    though nothing about left/right joint scale/translation symmetry changed, which is
+    why this is a separate term from any left/right symmetry penalty.
+    """
+    y = verts[:, sym_verts.long(), 1]
+    return (y - y.mean(dim=1, keepdim=True)).pow(2).mean()
 
 
 def rest_edge_loss(pred_verts, rest_verts, faces):
@@ -197,6 +218,15 @@ class SMAL3DFitter(nn.Module):
             self._joint_limits_error = None
             self.max_limits = None
             self.min_limits = None
+
+        # Midsagittal vertex indices for the midline prior (w_midline), if the model
+        # file ships them. None if absent, mirroring the joint-limits fallback above --
+        # w_midline > 0 without them raises a clear error at first use (Stage.forward()).
+        self.sym_verts = (
+            torch.tensor(np.asarray(dd["sym_verts"]).astype(np.int64), device=device)
+            if "sym_verts" in dd
+            else None
+        )
 
         # Use this to restrict global rotation if necessary
         self.global_mask = torch.ones(1, 3).to(device)
@@ -500,6 +530,16 @@ class Stage:
             loss_offset = self.smal_3d_fitter.deform_verts.pow(2).sum(-1).mean()
             loss_components["offset"] = loss_offset
             loss += self.loss_weights["w_offset"] * loss_offset
+
+        if self.consider_loss("midline"):
+            if self.smal_3d_fitter.sym_verts is None:
+                raise ValueError(
+                    "Midline loss is enabled (w_midline > 0) but the model's 'sym_verts' "
+                    "is not available for this model (not present in the model .pkl)."
+                )
+            loss_midline = midline_penalty(src_mesh.verts_padded(), self.smal_3d_fitter.sym_verts)
+            loss_components["midline"] = loss_midline
+            loss += self.loss_weights["w_midline"] * loss_midline
 
         # Add SDF distance loss if SDF values are provided
         if self.consider_loss("sdf") and self.sdf_values is not None and self.source_sdf_values is not None:
