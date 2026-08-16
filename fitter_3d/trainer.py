@@ -115,6 +115,9 @@ class SMAL3DFitter(nn.Module):
         invcov = np.linalg.inv(model_covs + 1e-5 * np.eye(model_covs.shape[0]))
         prec = np.linalg.cholesky(invcov)
 
+        # Not dead code: unused by this trainer's loss (no w_beta_prior term here), but
+        # read by the experimental hierarchical/moonshot trainers as the Cholesky factor
+        # of the shape prior's inverse covariance. Do not delete.
         self.betas_prec = torch.FloatTensor(prec)[: config.N_BETAS, : config.N_BETAS].to(device)
 
         if config.DEBUG:
