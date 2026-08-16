@@ -25,8 +25,8 @@ from smal_fitter.priors.joint_limits_prior import _ranges_from_joint_limits
 nn = torch.nn
 
 default_weights = dict(
-    w_chamfer=1.0, w_edge=1.0, w_normal=0.01, w_laplacian=0.1, w_sdf=0.5, w_limit=0.0
-)  # Added SDF distance weight; w_limit off by default (issue #97)
+    w_chamfer=1.0, w_edge=1.0, w_normal=0.01, w_laplacian=0.1, w_sdf=0.5, w_limit=0.0, w_offset=0.0
+)  # Added SDF distance weight; w_limit off by default (issue #97); w_offset off by default
 # Want to vary learning ratios between parameters,
 default_lr_ratios = []
 
@@ -451,6 +451,13 @@ class Stage:
             loss_laplacian = mesh_laplacian_smoothing(src_mesh, method="uniform")  # mesh laplacian smoothing
             loss_components["laplacian"] = loss_laplacian
             loss += self.loss_weights["w_laplacian"] * loss_laplacian
+
+        if self.consider_loss("offset"):
+            # L2 penalty on deform_verts: nothing else bounds the free-form vertex
+            # offsets, so they're otherwise free to explain away arbitrary error.
+            loss_offset = self.smal_3d_fitter.deform_verts.pow(2).sum(-1).mean()
+            loss_components["offset"] = loss_offset
+            loss += self.loss_weights["w_offset"] * loss_offset
 
         # Add SDF distance loss if SDF values are provided
         if self.consider_loss("sdf") and self.sdf_values is not None and self.source_sdf_values is not None:
