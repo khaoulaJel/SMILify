@@ -1,0 +1,137 @@
+=== task 4: corpus=noisy label=w2_5 yaml=D1_offset_half.yaml ===
+Mon Aug 17 22:01:25 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.178.04             Driver Version: 580.178.04     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA H100                    On  |   00000000:2C:00.0 Off |                    0 |
+| N/A   48C    P0             73W /  600W |       0MiB /  95830MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+=== hierarchical placement (full budget) ===
+[hier] 12 meshes
+12 target meshes loaded.
+[hier] anatomical groups (template vertices): {'body': 5526, 'l1_l': 753, 'l1_r': 756, 'l2_l': 669, 'l2_r': 669, 'l3_l': 931, 'l3_r': 931}
+[hier] 7 groups: ['body', 'l1_l', 'l1_r', 'l2_l', 'l2_r', 'l3_l', 'l3_r']
+[hier] body stage moves ['body'], leg stage moves 6 leg groups
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/pytorch3d/ops/laplacian_matrices.py:51: UserWarning: torch.sparse.SparseTensor(indices, values, shape, *, device=) is deprecated.  Please use torch.sparse_coo_tensor(indices, values, shape, dtype=, device=). (Triggered internally at /opt/conda/conda-bld/pytorch_1716905971132/work/torch/csrc/utils/tensor_new.cpp:621.)
+  A = torch.sparse.FloatTensor(idx, ones, (V, V))
+    [H0_body]    0/900 loss=0.010969  chamfer=0.01096  edge=0.00000  lap=0.00142  sym=0.00000  limit=0.00000  mid=0.00000
+    [H0_body]  100/900 loss=0.005047  chamfer=0.00384  edge=0.01769  lap=0.00160  sym=0.00024  limit=0.00000  mid=0.00010
+    [H0_body]  200/900 loss=0.004927  chamfer=0.00367  edge=0.01860  lap=0.00160  sym=0.00023  limit=0.00000  mid=0.00010
+    [H0_body]  300/900 loss=0.004864  chamfer=0.00360  edge=0.01895  lap=0.00160  sym=0.00023  limit=0.00000  mid=0.00010
+    [H0_body]  400/900 loss=0.004839  chamfer=0.00357  edge=0.01891  lap=0.00160  sym=0.00023  limit=0.00000  mid=0.00010
+    [H0_body]  500/900 loss=0.004835  chamfer=0.00357  edge=0.01893  lap=0.00159  sym=0.00023  limit=0.00000  mid=0.00010
+    [H0_body]  600/900 loss=0.004827  chamfer=0.00356  edge=0.01901  lap=0.00159  sym=0.00023  limit=0.00000  mid=0.00010
+    [H0_body]  700/900 loss=0.004825  chamfer=0.00356  edge=0.01896  lap=0.00159  sym=0.00023  limit=0.00000  mid=0.00010
+    [H0_body]  800/900 loss=0.004821  chamfer=0.00355  edge=0.01898  lap=0.00159  sym=0.00023  limit=0.00000  mid=0.00010
+    [H0_body]  899/900 loss=0.004831  chamfer=0.00356  edge=0.01899  lap=0.00159  sym=0.00023  limit=0.00000  mid=0.00010
+    [H1_legs]    0/1200 loss=0.010566  chamfer=0.00930  edge=0.01899  lap=0.00159  sym=0.00023  limit=0.00000  mid=0.00010
+    [H1_legs]  100/1200 loss=0.002859  chamfer=0.00220  edge=0.01083  lap=0.00154  sym=0.00004  limit=0.00000  mid=0.00005  churn=0.028
+    [H1_legs]  200/1200 loss=0.002506  chamfer=0.00195  edge=0.00892  lap=0.00154  sym=0.00003  limit=0.00000  mid=0.00005  churn=0.012
+    [H1_legs]  300/1200 loss=0.002376  chamfer=0.00185  edge=0.00829  lap=0.00154  sym=0.00003  limit=0.00000  mid=0.00005  churn=0.007
+    [H1_legs]  400/1200 loss=0.002326  chamfer=0.00182  edge=0.00786  lap=0.00154  sym=0.00002  limit=0.00000  mid=0.00005  churn=0.006
+    [H1_legs]  500/1200 loss=0.002290  chamfer=0.00179  edge=0.00771  lap=0.00154  sym=0.00002  limit=0.00000  mid=0.00005  churn=0.005
+    [H1_legs]  600/1200 loss=0.002283  chamfer=0.00179  edge=0.00756  lap=0.00154  sym=0.00002  limit=0.00000  mid=0.00005  churn=0.005
+    [H1_legs]  700/1200 loss=0.002269  chamfer=0.00178  edge=0.00763  lap=0.00154  sym=0.00002  limit=0.00000  mid=0.00005  churn=0.005
+    [H1_legs]  800/1200 loss=0.002261  chamfer=0.00177  edge=0.00763  lap=0.00154  sym=0.00002  limit=0.00000  mid=0.00005  churn=0.005
+    [H1_legs]  900/1200 loss=0.002270  chamfer=0.00178  edge=0.00755  lap=0.00154  sym=0.00002  limit=0.00000  mid=0.00005  churn=0.004
+    [H1_legs] 1000/1200 loss=0.002264  chamfer=0.00177  edge=0.00766  lap=0.00154  sym=0.00002  limit=0.00000  mid=0.00005  churn=0.004
+    [H1_legs] 1100/1200 loss=0.002241  chamfer=0.00175  edge=0.00765  lap=0.00154  sym=0.00002  limit=0.00000  mid=0.00005  churn=0.004
+    [H1_legs] 1199/1200 loss=0.002276  chamfer=0.00178  edge=0.00763  lap=0.00154  sym=0.00002  limit=0.00000  mid=0.00005  churn=0.003
+    [H1_legs] partition churn: first 0.052 last 0.003 mean 0.009   (falling churn => the data term is settling)
+    [H2_joint]    0/900 loss=0.002232  chamfer=0.00174  edge=0.00763  lap=0.00154  sym=0.00002  limit=0.00000  mid=0.00005
+    [H2_joint]  100/900 loss=0.002090  chamfer=0.00172  edge=0.00690  lap=0.00153  sym=0.00002  limit=0.00000  mid=0.00000  churn=0.007
+    [H2_joint]  200/900 loss=0.002112  chamfer=0.00174  edge=0.00686  lap=0.00153  sym=0.00002  limit=0.00000  mid=0.00000  churn=0.007
+    [H2_joint]  300/900 loss=0.002053  chamfer=0.00169  edge=0.00674  lap=0.00153  sym=0.00002  limit=0.00000  mid=0.00000  churn=0.006
+    [H2_joint]  400/900 loss=0.002122  chamfer=0.00176  edge=0.00672  lap=0.00153  sym=0.00002  limit=0.00000  mid=0.00000  churn=0.007
+    [H2_joint]  500/900 loss=0.002105  chamfer=0.00174  edge=0.00674  lap=0.00153  sym=0.00002  limit=0.00000  mid=0.00000  churn=0.007
+    [H2_joint]  600/900 loss=0.002110  chamfer=0.00175  edge=0.00678  lap=0.00153  sym=0.00002  limit=0.00000  mid=0.00000  churn=0.006
+    [H2_joint]  700/900 loss=0.002068  chamfer=0.00169  edge=0.00697  lap=0.00153  sym=0.00002  limit=0.00000  mid=0.00000  churn=0.005
+    [H2_joint]  800/900 loss=0.002096  chamfer=0.00173  edge=0.00690  lap=0.00153  sym=0.00002  limit=0.00000  mid=0.00000  churn=0.004
+    [H2_joint]  899/900 loss=0.002105  chamfer=0.00174  edge=0.00690  lap=0.00153  sym=0.00002  limit=0.00000  mid=0.00000  churn=0.004
+    [H2_joint] partition churn: first 0.009 last 0.004 mean 0.006   (falling churn => the data term is settling)
+    [H3_deform]    0/600 loss=0.002105  chamfer=0.00174  edge=0.00690  lap=0.00153  sym=0.00002  mid=0.00000  off=0.00000
+    [H3_deform]  100/600 loss=0.001712  chamfer=0.00139  edge=0.00401  lap=0.00166  sym=0.00003  mid=0.00000  off=0.00000  churn=0.013
+    [H3_deform]  200/600 loss=0.001699  chamfer=0.00135  edge=0.00425  lap=0.00167  sym=0.00003  mid=0.00000  off=0.00000  churn=0.007
+    [H3_deform]  300/600 loss=0.001710  chamfer=0.00136  edge=0.00429  lap=0.00167  sym=0.00002  mid=0.00000  off=0.00000  churn=0.006
+    [H3_deform]  400/600 loss=0.001686  chamfer=0.00133  edge=0.00436  lap=0.00167  sym=0.00002  mid=0.00000  off=0.00000  churn=0.006
+    [H3_deform]  500/600 loss=0.001700  chamfer=0.00135  edge=0.00430  lap=0.00168  sym=0.00002  mid=0.00000  off=0.00000  churn=0.006
+    [H3_deform]  599/600 loss=0.001675  chamfer=0.00133  edge=0.00430  lap=0.00167  sym=0.00002  mid=0.00000  off=0.00000  churn=0.006
+    [H3_deform] partition churn: first 0.013 last 0.006 mean 0.008   (falling churn => the data term is settling)
+[hier] done
+=== moonshot handoff, yaml=D1_offset_half.yaml (full budget) ===
+[moonshot] 12 meshes from /rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/moonshot/synth_noisy
+12 target meshes loaded.
+[moonshot] initialised pose/shape from diagnostics/offset_sweep_evidence/runs/hier_SYN_noisy_w2_5/H2_joint.npz
+[moonshot] running 2 stages
+    [Stage_2_deform_coarse] it    0/1000  loss=0.003429   chamfer=0.00294  edge=0.00021  normal=0.05868  laplacian=0.00153  offset=0.00000  sym=0.00002  mid=0.00000  limit=0.00000
+    [Stage_2_deform_coarse] it   50/1000  loss=0.001688   chamfer=0.00077  edge=0.00028  normal=0.06386  laplacian=0.00307  offset=0.00013  sym=0.00002  mid=0.00000  limit=0.00033
+    [Stage_2_deform_coarse] it  100/1000  loss=0.001498   chamfer=0.00065  edge=0.00029  normal=0.06159  laplacian=0.00295  offset=0.00011  sym=0.00001  mid=0.00000  limit=0.00024
+    [Stage_2_deform_coarse] it  150/1000  loss=0.001432   chamfer=0.00060  edge=0.00029  normal=0.06265  laplacian=0.00297  offset=0.00010  sym=0.00001  mid=0.00000  limit=0.00022
+    [Stage_2_deform_coarse] it  200/1000  loss=0.001396   chamfer=0.00057  edge=0.00029  normal=0.06434  laplacian=0.00301  offset=0.00009  sym=0.00001  mid=0.00000  limit=0.00018
+    [Stage_2_deform_coarse] it  250/1000  loss=0.001400   chamfer=0.00057  edge=0.00030  normal=0.06617  laplacian=0.00308  offset=0.00009  sym=0.00001  mid=0.00000  limit=0.00017
+    [Stage_2_deform_coarse] it  300/1000  loss=0.001380   chamfer=0.00055  edge=0.00030  normal=0.06706  laplacian=0.00311  offset=0.00009  sym=0.00001  mid=0.00000  limit=0.00017
+    [Stage_2_deform_coarse] it  350/1000  loss=0.001378   chamfer=0.00054  edge=0.00030  normal=0.06833  laplacian=0.00315  offset=0.00009  sym=0.00001  mid=0.00000  limit=0.00017
+    [Stage_2_deform_coarse] it  400/1000  loss=0.001359   chamfer=0.00053  edge=0.00030  normal=0.06810  laplacian=0.00314  offset=0.00008  sym=0.00001  mid=0.00000  limit=0.00017
+    [Stage_2_deform_coarse] it  450/1000  loss=0.001347   chamfer=0.00052  edge=0.00030  normal=0.06827  laplacian=0.00315  offset=0.00008  sym=0.00001  mid=0.00000  limit=0.00016
+    [Stage_2_deform_coarse] it  500/1000  loss=0.001339   chamfer=0.00051  edge=0.00031  normal=0.06842  laplacian=0.00316  offset=0.00008  sym=0.00001  mid=0.00000  limit=0.00016
+    [Stage_2_deform_coarse] it  550/1000  loss=0.001339   chamfer=0.00051  edge=0.00031  normal=0.06851  laplacian=0.00317  offset=0.00008  sym=0.00001  mid=0.00000  limit=0.00016
+    [Stage_2_deform_coarse] it  600/1000  loss=0.001347   chamfer=0.00051  edge=0.00031  normal=0.06984  laplacian=0.00320  offset=0.00008  sym=0.00001  mid=0.00000  limit=0.00017
+    [Stage_2_deform_coarse] it  650/1000  loss=0.001340   chamfer=0.00051  edge=0.00031  normal=0.06922  laplacian=0.00319  offset=0.00008  sym=0.00001  mid=0.00000  limit=0.00017
+    [Stage_2_deform_coarse] it  700/1000  loss=0.001334   chamfer=0.00050  edge=0.00031  normal=0.06953  laplacian=0.00320  offset=0.00008  sym=0.00001  mid=0.00000  limit=0.00017
+    [Stage_2_deform_coarse] it  750/1000  loss=0.001323   chamfer=0.00049  edge=0.00031  normal=0.06937  laplacian=0.00320  offset=0.00008  sym=0.00001  mid=0.00000  limit=0.00016
+    [Stage_2_deform_coarse] it  800/1000  loss=0.001326   chamfer=0.00050  edge=0.00031  normal=0.06815  laplacian=0.00317  offset=0.00008  sym=0.00001  mid=0.00000  limit=0.00016
+    [Stage_2_deform_coarse] it  850/1000  loss=0.001326   chamfer=0.00050  edge=0.00031  normal=0.06929  laplacian=0.00319  offset=0.00008  sym=0.00001  mid=0.00000  limit=0.00017
+    [Stage_2_deform_coarse] it  900/1000  loss=0.001319   chamfer=0.00049  edge=0.00031  normal=0.06923  laplacian=0.00319  offset=0.00008  sym=0.00001  mid=0.00000  limit=0.00017
+    [Stage_2_deform_coarse] it  950/1000  loss=0.001331   chamfer=0.00050  edge=0.00031  normal=0.06962  laplacian=0.00322  offset=0.00008  sym=0.00001  mid=0.00000  limit=0.00018
+    [Stage_2_deform_coarse] it  999/1000  loss=0.001325   chamfer=0.00049  edge=0.00031  normal=0.07023  laplacian=0.00322  offset=0.00008  sym=0.00001  mid=0.00000  limit=0.00018
+    [Stage_3_deform_fine] it    0/1000  loss=0.000539   chamfer=0.00049  edge=0.00031  normal=0.07043  laplacian=0.00322  offset=0.00008  sym=0.00001  mid=0.00000  limit=0.00018
+    [Stage_3_deform_fine] it   50/1000  loss=0.000485   chamfer=0.00046  edge=0.00032  normal=0.05364  laplacian=0.00312  offset=0.00008  sym=0.00000  mid=0.00000  limit=0.00015
+    [Stage_3_deform_fine] it  100/1000  loss=0.000483   chamfer=0.00046  edge=0.00032  normal=0.05215  laplacian=0.00310  offset=0.00008  sym=0.00000  mid=0.00000  limit=0.00014
+    [Stage_3_deform_fine] it  150/1000  loss=0.000481   chamfer=0.00046  edge=0.00033  normal=0.05201  laplacian=0.00312  offset=0.00008  sym=0.00000  mid=0.00000  limit=0.00014
+    [Stage_3_deform_fine] it  200/1000  loss=0.000478   chamfer=0.00045  edge=0.00033  normal=0.05188  laplacian=0.00313  offset=0.00008  sym=0.00000  mid=0.00000  limit=0.00013
+    [Stage_3_deform_fine] it  250/1000  loss=0.000478   chamfer=0.00045  edge=0.00033  normal=0.05183  laplacian=0.00314  offset=0.00008  sym=0.00000  mid=0.00000  limit=0.00012
+    [Stage_3_deform_fine] it  300/1000  loss=0.000478   chamfer=0.00045  edge=0.00033  normal=0.05203  laplacian=0.00315  offset=0.00008  sym=0.00000  mid=0.00000  limit=0.00012
+    [Stage_3_deform_fine] it  350/1000  loss=0.000474   chamfer=0.00044  edge=0.00033  normal=0.05206  laplacian=0.00316  offset=0.00008  sym=0.00000  mid=0.00000  limit=0.00011
+    [Stage_3_deform_fine] it  400/1000  loss=0.000476   chamfer=0.00045  edge=0.00033  normal=0.05240  laplacian=0.00317  offset=0.00008  sym=0.00000  mid=0.00000  limit=0.00011
+    [Stage_3_deform_fine] it  450/1000  loss=0.000480   chamfer=0.00045  edge=0.00033  normal=0.05231  laplacian=0.00317  offset=0.00008  sym=0.00000  mid=0.00000  limit=0.00010
+    [Stage_3_deform_fine] it  500/1000  loss=0.000476   chamfer=0.00045  edge=0.00033  normal=0.05256  laplacian=0.00319  offset=0.00008  sym=0.00000  mid=0.00000  limit=0.00010
+    [Stage_3_deform_fine] it  550/1000  loss=0.000477   chamfer=0.00045  edge=0.00033  normal=0.05231  laplacian=0.00318  offset=0.00008  sym=0.00000  mid=0.00000  limit=0.00009
+    [Stage_3_deform_fine] it  600/1000  loss=0.000474   chamfer=0.00044  edge=0.00033  normal=0.05229  laplacian=0.00319  offset=0.00008  sym=0.00000  mid=0.00000  limit=0.00009
+    [Stage_3_deform_fine] it  650/1000  loss=0.000475   chamfer=0.00044  edge=0.00033  normal=0.05238  laplacian=0.00319  offset=0.00008  sym=0.00000  mid=0.00000  limit=0.00009
+    [Stage_3_deform_fine] it  700/1000  loss=0.000471   chamfer=0.00044  edge=0.00033  normal=0.05236  laplacian=0.00320  offset=0.00008  sym=0.00000  mid=0.00000  limit=0.00009
+    [Stage_3_deform_fine] it  750/1000  loss=0.000473   chamfer=0.00044  edge=0.00033  normal=0.05238  laplacian=0.00320  offset=0.00008  sym=0.00000  mid=0.00000  limit=0.00008
+    [Stage_3_deform_fine] it  800/1000  loss=0.000472   chamfer=0.00044  edge=0.00033  normal=0.05255  laplacian=0.00320  offset=0.00008  sym=0.00000  mid=0.00000  limit=0.00008
+    [Stage_3_deform_fine] it  850/1000  loss=0.000472   chamfer=0.00044  edge=0.00033  normal=0.05220  laplacian=0.00320  offset=0.00008  sym=0.00000  mid=0.00000  limit=0.00007
+    [Stage_3_deform_fine] it  900/1000  loss=0.000476   chamfer=0.00045  edge=0.00033  normal=0.05258  laplacian=0.00320  offset=0.00008  sym=0.00000  mid=0.00000  limit=0.00007
+    [Stage_3_deform_fine] it  950/1000  loss=0.000477   chamfer=0.00045  edge=0.00033  normal=0.05271  laplacian=0.00320  offset=0.00007  sym=0.00000  mid=0.00000  limit=0.00007
+    [Stage_3_deform_fine] it  999/1000  loss=0.000479   chamfer=0.00045  edge=0.00034  normal=0.05268  laplacian=0.00321  offset=0.00007  sym=0.00000  mid=0.00000  limit=0.00007
+  eval 10/12
+[moonshot] wrote diagnostics/moonshot/runs/SYN_noisy_w2_5/metrics.csv
+
+  ---- summary ----
+    chamfer_l2                       0.000229
+    fscore@0.01                      0.716652
+    fscore@0.02                      0.953600
+    hausdorff_95                     0.021136
+    normal_consistency               0.732276
+    edge_logratio_absmean            0.211902
+    tri_quality_mean                 0.728184
+    deform_mag_mean                  0.005438
+    midline_dev_mean                 0.017829
+    part_leg_distal_dist_mean        0.007293
+    part_leg_dist_mean               0.007016
+    part_body_dist_mean              0.007639
+=== task 4 DONE ===

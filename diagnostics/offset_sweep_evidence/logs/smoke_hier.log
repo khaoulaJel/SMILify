@@ -1,0 +1,16 @@
+[hier] 12 meshes
+12 target meshes loaded.
+[hier] anatomical groups (template vertices): {'body': 5526, 'l1_l': 753, 'l1_r': 756, 'l2_l': 669, 'l2_r': 669, 'l3_l': 931, 'l3_r': 931}
+[hier] 7 groups: ['body', 'l1_l', 'l1_r', 'l2_l', 'l2_r', 'l3_l', 'l3_r']
+[hier] body stage moves ['body'], leg stage moves 6 leg groups
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/pytorch3d/ops/laplacian_matrices.py:51: UserWarning: torch.sparse.SparseTensor(indices, values, shape, *, device=) is deprecated.  Please use torch.sparse_coo_tensor(indices, values, shape, dtype=, device=). (Triggered internally at /opt/conda/conda-bld/pytorch_1716905971132/work/torch/csrc/utils/tensor_new.cpp:621.)
+  A = torch.sparse.FloatTensor(idx, ones, (V, V))
+    [H0_body]    0/20 loss=0.010913  chamfer=0.01091  edge=0.00000  lap=0.00142  sym=0.00000  limit=0.00000  mid=0.00000
+    [H0_body]   19/20 loss=0.006540  chamfer=0.00536  edge=0.01805  lap=0.00161  sym=0.00029  limit=0.00000  mid=0.00006
+    [H1_legs]    0/20 loss=0.016764  chamfer=0.01559  edge=0.01804  lap=0.00161  sym=0.00029  limit=0.00000  mid=0.00006
+    [H1_legs]   19/20 loss=0.006507  chamfer=0.00513  edge=0.02206  lap=0.00161  sym=0.00034  limit=0.00000  mid=0.00005
+    [H2_joint]    0/20 loss=0.006088  chamfer=0.00471  edge=0.02204  lap=0.00161  sym=0.00034  limit=0.00000  mid=0.00005
+    [H2_joint]   19/20 loss=0.004323  chamfer=0.00360  edge=0.01145  lap=0.00156  sym=0.00017  limit=0.00000  mid=0.00003
+    [H3_deform]    0/10 loss=0.004218  chamfer=0.00349  edge=0.01144  lap=0.00156  sym=0.00017  mid=0.00003  off=0.00000
+    [H3_deform]    9/10 loss=0.003641  chamfer=0.00317  edge=0.00631  lap=0.00160  sym=0.00016  mid=0.00002  off=0.00000
+[hier] done

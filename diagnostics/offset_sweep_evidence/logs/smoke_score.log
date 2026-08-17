@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/moonshot/score_synth_roundtrip.py", line 232, in <module>
+    main()
+  File "/rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/moonshot/score_synth_roundtrip.py", line 127, in main
+    r = score(run, corpus)
+  File "/rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/moonshot/score_synth_roundtrip.py", line 77, in score
+    cand = sorted(f for f in os.listdir(os.path.join(HERE, "runs", run)) if f.endswith(".npz"))
+FileNotFoundError: [Errno 2] No such file or directory: '/rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/moonshot/runs/SYN_clean_w5'

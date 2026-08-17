@@ -1,0 +1,107 @@
+
+=== SYN_clean_w2_5 (12 specimens) ===
+  CORRECT correspondence : 6.91%  of vertices
+  per-vertex error       : median 3.10%  p90 20.04% of extent
+  part          correct %  median err %
+  thorax            10.9%         2.27%
+  gaster             1.8%        12.24%
+  head               6.4%         3.17%
+  mandible           6.6%         5.25%
+  antenna            5.2%         3.86%
+  leg prox           8.4%         2.55%
+  leg distal         3.2%         3.33%
+
+=== SYN_clean_w5 (12 specimens) ===
+  CORRECT correspondence : 6.69%  of vertices
+  per-vertex error       : median 3.21%  p90 20.06% of extent
+  part          correct %  median err %
+  thorax            10.9%         2.38%
+  gaster             1.9%        12.36%
+  head               6.4%         3.26%
+  mandible           6.1%         5.60%
+  antenna            6.1%         3.83%
+  leg prox           7.7%         2.66%
+  leg distal         3.3%         3.56%
+
+=== SYN_clean_w10 (12 specimens) ===
+  CORRECT correspondence : 6.26%  of vertices
+  per-vertex error       : median 3.43%  p90 20.39% of extent
+  part          correct %  median err %
+  thorax            10.3%         2.54%
+  gaster             1.9%        12.65%
+  head               5.8%         3.55%
+  mandible           6.3%         5.85%
+  antenna            6.3%         3.77%
+  leg prox           7.2%         2.83%
+  leg distal         2.9%         3.83%
+
+=== SYN_clean_w20 (12 specimens) ===
+  CORRECT correspondence : 6.31%  of vertices
+  per-vertex error       : median 3.65%  p90 20.73% of extent
+  part          correct %  median err %
+  thorax            13.4%         2.40%
+  gaster             1.8%        13.21%
+  head               4.7%         3.91%
+  mandible           6.1%         5.42%
+  antenna            6.0%         3.97%
+  leg prox           6.9%         3.04%
+  leg distal         2.9%         4.18%
+
+=== SYN_noisy_w2_5 (12 specimens) ===
+  CORRECT correspondence : 6.51%  of vertices
+  per-vertex error       : median 3.21%  p90 22.76% of extent
+  part          correct %  median err %
+  thorax            10.3%         2.33%
+  gaster             1.8%        11.82%
+  head               6.0%         3.05%
+  mandible           5.3%         5.63%
+  antenna            4.1%         4.81%
+  leg prox           8.0%         2.70%
+  leg distal         3.0%         3.69%
+
+=== SYN_noisy_w5 (12 specimens) ===
+  CORRECT correspondence : 6.43%  of vertices
+  per-vertex error       : median 3.30%  p90 22.87% of extent
+  part          correct %  median err %
+  thorax            10.9%         2.32%
+  gaster             1.7%        12.20%
+  head               5.7%         3.25%
+  mandible           5.6%         6.01%
+  antenna            5.1%         4.66%
+  leg prox           7.6%         2.78%
+  leg distal         3.1%         3.54%
+
+=== SYN_noisy_w10 (12 specimens) ===
+  CORRECT correspondence : 6.04%  of vertices
+  per-vertex error       : median 3.60%  p90 22.76% of extent
+  part          correct %  median err %
+  thorax            10.8%         2.45%
+  gaster             1.8%        12.39%
+  head               5.1%         3.63%
+  mandible           5.4%         6.06%
+  antenna            4.3%         4.74%
+  leg prox           7.2%         3.05%
+  leg distal         2.7%         4.17%
+
+=== SYN_noisy_w20 (12 specimens) ===
+  CORRECT correspondence : 5.15%  of vertices
+  per-vertex error       : median 3.86%  p90 23.40% of extent
+  part          correct %  median err %
+  thorax             9.8%         2.65%
+  gaster             1.3%        13.20%
+  head               3.2%         3.95%
+  mandible           4.9%         6.11%
+  antenna            4.9%         4.72%
+  leg prox           6.4%         3.26%
+  leg distal         2.8%         4.31%
+
+wrote /rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/moonshot/out/synth_correspondence.png
+wrote /rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/moonshot/out/synth_render_SYN_clean_w2_5.png
+wrote /rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/moonshot/out/synth_render_SYN_clean_w5.png
+wrote /rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/moonshot/out/synth_render_SYN_clean_w10.png
+wrote /rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/moonshot/out/synth_render_SYN_clean_w20.png
+wrote /rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/moonshot/out/synth_render_SYN_noisy_w2_5.png
+wrote /rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/moonshot/out/synth_render_SYN_noisy_w5.png
+wrote /rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/moonshot/out/synth_render_SYN_noisy_w10.png
+wrote /rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/moonshot/out/synth_render_SYN_noisy_w20.png
+SCORE DONE

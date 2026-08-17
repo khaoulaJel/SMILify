@@ -1,0 +1,75 @@
+Mon Aug 17 21:08:04 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.178.04             Driver Version: 580.178.04     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA H100                    On  |   00000000:AD:00.0 Off |                    0 |
+| N/A   47C    P0             72W /  600W |       0MiB /  95830MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+=== smoke hier (real synth_clean set, tiny its, timed) ===
+[hier] 12 meshes
+12 target meshes loaded.
+[hier] anatomical groups (template vertices): {'body': 5526, 'l1_l': 753, 'l1_r': 756, 'l2_l': 669, 'l2_r': 669, 'l3_l': 931, 'l3_r': 931}
+[hier] 7 groups: ['body', 'l1_l', 'l1_r', 'l2_l', 'l2_r', 'l3_l', 'l3_r']
+[hier] body stage moves ['body'], leg stage moves 6 leg groups
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/pytorch3d/ops/laplacian_matrices.py:51: UserWarning: torch.sparse.SparseTensor(indices, values, shape, *, device=) is deprecated.  Please use torch.sparse_coo_tensor(indices, values, shape, dtype=, device=). (Triggered internally at /opt/conda/conda-bld/pytorch_1716905971132/work/torch/csrc/utils/tensor_new.cpp:621.)
+  A = torch.sparse.FloatTensor(idx, ones, (V, V))
+    [H0_body]    0/20 loss=0.010913  chamfer=0.01091  edge=0.00000  lap=0.00142  sym=0.00000  limit=0.00000  mid=0.00000
+    [H0_body]   19/20 loss=0.006540  chamfer=0.00536  edge=0.01805  lap=0.00161  sym=0.00029  limit=0.00000  mid=0.00006
+    [H1_legs]    0/20 loss=0.016764  chamfer=0.01559  edge=0.01804  lap=0.00161  sym=0.00029  limit=0.00000  mid=0.00006
+    [H1_legs]   19/20 loss=0.006507  chamfer=0.00513  edge=0.02206  lap=0.00161  sym=0.00034  limit=0.00000  mid=0.00005
+    [H2_joint]    0/20 loss=0.006088  chamfer=0.00471  edge=0.02204  lap=0.00161  sym=0.00034  limit=0.00000  mid=0.00005
+    [H2_joint]   19/20 loss=0.004323  chamfer=0.00360  edge=0.01145  lap=0.00156  sym=0.00017  limit=0.00000  mid=0.00003
+    [H3_deform]    0/10 loss=0.004218  chamfer=0.00349  edge=0.01144  lap=0.00156  sym=0.00017  mid=0.00003  off=0.00000
+    [H3_deform]    9/10 loss=0.003641  chamfer=0.00317  edge=0.00631  lap=0.00160  sym=0.00016  mid=0.00002  off=0.00000
+[hier] done
+
+real	1m13.293s
+user	0m38.871s
+sys	0m35.955s
+=== smoke moonshot D1_low (real synth_clean set, check it starts + writes npz) ===
+[moonshot] 12 meshes from /rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/moonshot/synth_clean
+12 target meshes loaded.
+[moonshot] initialised pose/shape from /tmp/offset_smoke_out/hier/H2_joint.npz
+[moonshot] running 2 stages
+    [Stage_2_deform_coarse] it    0/1000  loss=0.005284   chamfer=0.00464  edge=0.00020  normal=0.06495  laplacian=0.00156  offset=0.00000  sym=0.00017  mid=0.00003  limit=0.00000
+    [Stage_2_deform_coarse] it   50/1000  loss=0.002099   chamfer=0.00101  edge=0.00028  normal=0.06833  laplacian=0.00306  offset=0.00009  sym=0.00009  mid=0.00000  limit=0.00002
+    [Stage_2_deform_coarse] it  100/1000  loss=0.001768   chamfer=0.00081  edge=0.00029  normal=0.06575  laplacian=0.00294  offset=0.00007  sym=0.00005  mid=0.00000  limit=0.00002
+    [Stage_2_deform_coarse] it  150/1000  loss=0.001638   chamfer=0.00071  edge=0.00029  normal=0.06654  laplacian=0.00296  offset=0.00006  sym=0.00004  mid=0.00000  limit=0.00002
+    [Stage_2_deform_coarse] it  200/1000  loss=0.001578   chamfer=0.00066  edge=0.00030  normal=0.06725  laplacian=0.00300  offset=0.00006  sym=0.00003  mid=0.00000  limit=0.00001
+    [Stage_2_deform_coarse] it  250/1000  loss=0.001540   chamfer=0.00063  edge=0.00030  normal=0.06811  laplacian=0.00302  offset=0.00006  sym=0.00003  mid=0.00000  limit=0.00000
+    [Stage_2_deform_coarse] it  300/1000  loss=0.001523   chamfer=0.00061  edge=0.00031  normal=0.06858  laplacian=0.00306  offset=0.00005  sym=0.00003  mid=0.00000  limit=0.00000
+    [Stage_2_deform_coarse] it  350/1000  loss=0.001514   chamfer=0.00060  edge=0.00031  normal=0.07002  laplacian=0.00310  offset=0.00005  sym=0.00002  mid=0.00000  limit=0.00000
+    [Stage_2_deform_coarse] it  400/1000  loss=0.001495   chamfer=0.00058  edge=0.00031  normal=0.07107  laplacian=0.00312  offset=0.00005  sym=0.00002  mid=0.00000  limit=0.00000
+    [Stage_2_deform_coarse] it  450/1000  loss=0.001484   chamfer=0.00056  edge=0.00031  normal=0.07122  laplacian=0.00315  offset=0.00005  sym=0.00002  mid=0.00000  limit=0.00000
+    [Stage_2_deform_coarse] it  500/1000  loss=0.001474   chamfer=0.00056  edge=0.00032  normal=0.07138  laplacian=0.00315  offset=0.00005  sym=0.00002  mid=0.00000  limit=0.00000
+    [Stage_2_deform_coarse] it  550/1000  loss=0.001481   chamfer=0.00057  edge=0.00032  normal=0.07195  laplacian=0.00317  offset=0.00005  sym=0.00002  mid=0.00000  limit=0.00000
+    [Stage_2_deform_coarse] it  600/1000  loss=0.001458   chamfer=0.00054  edge=0.00032  normal=0.07242  laplacian=0.00318  offset=0.00005  sym=0.00002  mid=0.00000  limit=0.00000
+    [Stage_2_deform_coarse] it  650/1000  loss=0.001454   chamfer=0.00054  edge=0.00032  normal=0.07195  laplacian=0.00318  offset=0.00005  sym=0.00002  mid=0.00000  limit=0.00000
+    [Stage_2_deform_coarse] it  700/1000  loss=0.001447   chamfer=0.00053  edge=0.00032  normal=0.07269  laplacian=0.00319  offset=0.00005  sym=0.00002  mid=0.00000  limit=0.00000
+    [Stage_2_deform_coarse] it  750/1000  loss=0.001436   chamfer=0.00053  edge=0.00032  normal=0.07173  laplacian=0.00318  offset=0.00005  sym=0.00002  mid=0.00000  limit=0.00000
+    [Stage_2_deform_coarse] it  800/1000  loss=0.001434   chamfer=0.00053  edge=0.00032  normal=0.07194  laplacian=0.00317  offset=0.00005  sym=0.00001  mid=0.00000  limit=0.00000
+    [Stage_2_deform_coarse] it  850/1000  loss=0.001432   chamfer=0.00053  edge=0.00032  normal=0.07129  laplacian=0.00317  offset=0.00005  sym=0.00001  mid=0.00000  limit=0.00000
+(moonshot killed after 90s -- just checking it starts cleanly and logs a few its)
+=== smoke score_synth_roundtrip import/CLI sanity (no runs on disk yet, expect [skip] lines) ===
+Traceback (most recent call last):
+  File "/rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/moonshot/score_synth_roundtrip.py", line 232, in <module>
+    main()
+  File "/rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/moonshot/score_synth_roundtrip.py", line 127, in main
+    r = score(run, corpus)
+  File "/rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/moonshot/score_synth_roundtrip.py", line 77, in score
+    cand = sorted(f for f in os.listdir(os.path.join(HERE, "runs", run)) if f.endswith(".npz"))
+FileNotFoundError: [Errno 2] No such file or directory: '/rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/moonshot/runs/SYN_clean_w5'
+SMOKE DONE

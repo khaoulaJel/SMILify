@@ -258,5 +258,6 @@ diagnostics/moonshot/render_3d.py
 diagnostics/moonshot/synth_clean/
 diagnostics/moonshot/synth_noisy/
 diagnostics/moonshot/runs/
+diagnostics/moonshot/out/
 diagnostics/rest_edge_evidence/runs/
 diagnostics/offset_sweep_evidence/runs/
