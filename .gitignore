@@ -248,3 +248,15 @@ benchmark_singleview_*/
 .claude/settings.local.json
 diagnostics/d1_evidence/mesh_set/
 diagnostics/d1_evidence/runs/
+
+# Materialized read-only from feature/registration_moonshot for Task 2/3 evidence runs
+# (git show, branch not checked out) -- reference material, not ported to to-ship.
+diagnostics/FINAL_REPORT.md
+diagnostics/moonshot/make_synth_corpus.py
+diagnostics/moonshot/score_synth_roundtrip.py
+diagnostics/moonshot/render_3d.py
+diagnostics/moonshot/synth_clean/
+diagnostics/moonshot/synth_noisy/
+diagnostics/moonshot/runs/
+diagnostics/rest_edge_evidence/runs/
+diagnostics/offset_sweep_evidence/runs/
