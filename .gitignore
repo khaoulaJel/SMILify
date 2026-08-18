@@ -250,6 +250,8 @@ diagnostics/d1_evidence/mesh_set/
 diagnostics/d1_evidence/runs/
 diagnostics/d1_n50_evidence/mesh_set/
 diagnostics/d1_n50_evidence/runs/
+diagnostics/d1_n50_evidence/all_ants_clean_holdout/
+diagnostics/d1_n50_evidence/runs_holdout/
 
 # Materialized read-only from feature/registration_moonshot for Task 2/3 evidence runs
 # (git show, branch not checked out) -- reference material, not ported to to-ship.

@@ -195,3 +195,63 @@ Bars 1-2 (no catastrophic failures, ~3% cross-seed CV) were never in question an
 not just administrative promotion status. Regardless of where the promote/hold documentation
 lands, `D1_low_scalecap.yaml` was already safe to use for real morphometrics work throughout
 this analysis.
+
+## Second follow-up: genuine held-out corpus (ALL_ANTS_CLEAN, 80 specimens, 3 seeds)
+
+Per the earlier correction, bars 3-4 need a reference not carved from the N=50 pool. Pulled
+`ALL_ANTS_CLEAN` (80 unique specimens after de-duplicating one identical file, `feature/
+investigation`'s independent 838-specimen scale_cap A/B corpus) from `gdrive:UM6P_2026/DATA/
+mesh_registration/ALL_ANTS_CLEAN` (the corpus was previously unreachable -- only present as git
+symlinks to `/media/fabi/Data/...` or an unreachable Julich `/p/scratch` mount; a working
+`gdrive:` rclone remote made it reachable). Ran the identical `D1_low_scalecap.yaml` recipe,
+full budget, 3 seeds (0/1/2), on all 80 specimens (`diagnostics/d1_n50_evidence/
+all_ants_clean_holdout/`, gitignored, not committed -- same treatment as other raw mesh sets in
+this repo). This is a genuinely independent reference: different files, different source,
+never touched by any config/tuning decision in this investigation.
+
+### Result: bars 3-4 FAIL again, but for a different, more informative reason
+
+The holdout corpus fits **dramatically better** than `bench50_clean`, not worse:
+
+| metric | N=50 (bench50_clean) mean | ALL_ANTS_CLEAN holdout mean | direction |
+|---|---|---|---|
+| fscore@0.01 | ~0.500 | ~0.896 | holdout 79% higher |
+| chamfer_l2 | ~0.00064 | ~0.00010 | holdout 6.3x lower (better) |
+| edge_logratio_absmean | ~0.152 | ~0.108 | holdout 29% lower (better) |
+| deform_mag_mean | ~0.0048 | ~0.0018 | holdout 62% lower (better) |
+| folded_face_frac | ~0.0051 | ~0.0026 | holdout ~50% lower (better) |
+
+(all consistent within <1% across seeds 0/1/2 on both corpora)
+
+**This is not evidence of a recipe problem -- the two named corpora have very different
+intrinsic registration difficulty**, most likely because `ALL_ANTS_CLEAN` (curated
+genus-representative meshes) is a cleaner/easier target class than `bench50_clean`'s raw
+museum/field scans, independent of anything D1 does. Bars 3-4 as designed (mean must not
+regress vs. an external reference by more than a fixed threshold) implicitly assume the
+reference and test set are drawn from populations of comparable difficulty. We have now shown
+this assumption fails in **both directions**: the N=10 bench50_clean subset was biased easy
+relative to its own N=50 (first correction), and the ALL_ANTS_CLEAN corpus is far easier than
+either (this correction). **No single external reference, however independent, can validly
+gate an absolute-accuracy bar this way** -- accuracy is corpus-dependent, and independence of
+the reference does not imply comparable difficulty.
+
+### What this run does validly establish
+
+- **Bar 1, cross-corpus**: 0 catastrophic failures across bench50_clean (150 seed x specimen
+  runs) AND ALL_ANTS_CLEAN (240 seed x specimen runs) -- 390 total runs, two independently
+  sourced real ant-mesh corpora, zero NaN/collapse/folding blowups.
+- **Bar 2, cross-corpus**: cross-seed CV ~3% on bench50_clean, ~1% on ALL_ANTS_CLEAN (even
+  tighter) -- D1 is stable across seeds on both corpora independently, not just one.
+
+### Revised verdict (final for this evidence)
+
+**HOLD**, unchanged -- but the reason has moved. Bars 1-2 are now validated across two
+independent corpora (stronger evidence than the original single-corpus design), which is a
+genuinely stronger basis for treating `D1_low_scalecap.yaml` as safe to use. Bars 3-4, as
+literally specified in `PROMOTION_CRITERIA.md`, are not a well-posed test: they cannot be
+satisfied by any external reference without first establishing that reference is
+difficulty-matched to the target corpus, which no readily available corpus was shown to be.
+**Recommendation for any future promotion decision: replace bars 3-4 with corpus-relative
+checks (e.g. cross-seed CV per corpus, as bar 2 already does) rather than an absolute mean
+comparison against an external reference corpus**, and drop the implicit assumption that
+"independent" and "comparable difficulty" are the same property.

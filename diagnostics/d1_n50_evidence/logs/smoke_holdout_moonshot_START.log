@@ -1,0 +1,8 @@
+[moonshot] 80 meshes from /rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/d1_n50_evidence/all_ants_clean_holdout
+80 target meshes loaded.
+[moonshot] initialised pose/shape from /tmp/d1_holdout_smoke_out/hier/H2_joint.npz
+[moonshot] running 2 stages
+    [Stage_2_deform_coarse] it    0/1000  loss=0.002196   chamfer=0.00173  edge=0.00021  normal=0.05701  laplacian=0.00150  offset=0.00000  sym=0.00000  mid=0.00000  scale=0.00000  limit=0.00000
+    [Stage_2_deform_coarse] it   50/1000  loss=0.000992   chamfer=0.00039  edge=0.00022  normal=0.05722  laplacian=0.00219  offset=0.00002  sym=0.00000  mid=0.00000  scale=0.00000  limit=0.00000
+    [Stage_2_deform_coarse] it  100/1000  loss=0.000902   chamfer=0.00034  edge=0.00022  normal=0.05549  laplacian=0.00215  offset=0.00002  sym=0.00000  mid=0.00000  scale=0.00000  limit=0.00000
+    [Stage_2_deform_coarse] it  150/1000  loss=0.000881   chamfer=0.00032  edge=0.00023  normal=0.05664  laplacian=0.00219  offset=0.00001  sym=0.00000  mid=0.00000  scale=0.00000  limit=0.00000
