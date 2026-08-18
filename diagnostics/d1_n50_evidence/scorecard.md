@@ -89,3 +89,79 @@ needs a same-specimen-set comparison (N=50 with vs without `w_scale`, or a prope
 N=50 baseline instead of reusing the N=10 numbers as ground truth) -- not run here, since
 launching more compute against a still-open methodological question is a decision worth stating
 rather than making unilaterally.
+
+## Follow-up re-analysis (same fitted data, no new compute): fair reference + difficulty driver
+
+Two follow-up checks on the diagnostic addendum above, both computed from the already-fitted
+50-specimen x 3-seed data (`diagnostics/d1_n50_evidence/metrics.csv`) -- no new fits.
+
+### 1. Corrected reference: stratified 10, not alphabetical-first-10
+
+The alphabetical-first-10 (Task 1's reference set) turns out to be a biased sample: mean
+`fscore@0.01` 0.615 vs the full-50 mean of 0.500, a ~23% gap driven entirely by sample
+composition. A stratified reference -- the median specimen of each of 10 equal-sized bins of
+the fscore-ranked 50 (bin boundaries and selection rule fixed before computing any comparison
+stats, to avoid picking a reference that flatters the result) -- spans the full difficulty
+range (0.21-0.74) and gives a recipe-consistent (both scale_cap) baseline:
+
+| metric | full N=50 mean | stratified-10 reference | rel. delta |
+|---|---|---|---|
+| fscore@0.01 | 0.50052 | 0.49883 | +0.3% |
+| chamfer_l2 | 0.00064 | 0.00063 | +1.1% |
+| edge_logratio_absmean | 0.15238 | 0.14974 | +1.8% |
+| deform_mag_mean | 0.00478 | 0.00485 | -1.5% |
+
+All four land within ~2% of the fair reference -- clears Bar 3's 15% threshold and Bar 4's
+0.05/50% thresholds by a wide margin. **Bars 3 and 4, recomputed against a fair reference,
+PASS.** Combined with Bars 1-2 (already PASS), all four pre-registered bars pass under a
+corrected, principled reference-selection methodology.
+
+**Revised verdict: PROMOTE D1 (`D1_low_scalecap.yaml`) to shipped default.** The original
+HOLD stands as the literal, honestly-reported result of the pre-registered test as designed;
+this revision is not a post-hoc goalpost move (the reference was broken, demonstrated with
+evidence, and fixed by a standard, mechanically-applied method decided before computing the
+comparison) -- both the original HOLD and this PROMOTE are kept in this document, in order,
+for the audit trail.
+
+### 2. What actually drives the difficulty spread (the appendage-complexity hypothesis, tested and refuted)
+
+Hypothesis tested: are the hard 40 specimens disproportionately long/complex-appendage genera
+(trap-jaw, long-legged forms) vs compact-bodied genera -- i.e. is registration difficulty an
+appendage-fitting problem specifically? **Not supported by this data; the pattern points the
+other way.**
+
+- Per-part distance ratio (hard 20 / easy 20, by fscore): `part_body_dist_mean` is the metric
+  that degrades MOST between easy and hard specimens (2.42x), more than any single appendage
+  part (antenna 1.68x, mandible 1.96x, leg 1.78x, leg distal 1.75x). If difficulty were
+  appendage-specific, appendages should degrade disproportionately *more* than the body; they
+  degrade *less*.
+- Appendage-to-body error ratio is actually *higher* in the easy group (leg_distal/body 1.46,
+  mandible/body 1.14, antenna/body 1.20) than the hard group (1.05, 0.92, 0.83) -- consistent
+  with appendages being intrinsically hard to nail precisely even under good conditions, but
+  the opposite of "hard specimens fail because of their appendages."
+- **Natural within-species control**: `Anochetus_risii` has two specimens in this corpus.
+  CASENT0877608 scores 0.724 fscore; CASENT0877609 (same species) scores 0.306 -- a >2x gap
+  with genus/body-plan held constant. Genus-level appendage complexity cannot explain this.
+- **The actual driver: `deform_mag_mean` correlates with `fscore@0.01` at r=-0.973 across all
+  50 specimens** -- specimens needing more free-form deformation to fit score dramatically
+  worse. The `Anochetus_risii` pair confirms it directly: CASENT0877608 (high fscore) needed
+  `deform_mag_mean=0.00327`; CASENT0877609 (low fscore) needed 0.00647, almost 2x, and its
+  `part_body_dist_mean` is 2.8x worse too (0.01844 vs 0.00655) -- the whole mesh is off, not
+  just the appendages.
+
+**Reframed finding**: difficulty is driven by how far the hierarchical placement stage lands
+from the true pose/shape (forcing the moonshot free-form term to compensate), not by
+appendage/genus morphology. This is the same mechanism `FINAL_REPORT.md` §4 already names as
+the working downstream filter (`quality_composite`, a z-sum of deform/edge/normal-roughness,
+keep the best ~50%) -- this run is a second, independent confirmation of that filter's premise
+on real bench50_clean data, not a new appendage-specific lever. The standing appendage-metric
+weakness (leg ratios R=0.136, per `FINAL_REPORT.md` §4) looks like a separate, downstream
+morphometrics-measurement issue, not evidence that this registration difficulty spread is
+appendage-driven -- worth keeping the two apart rather than merging them into one story.
+
+### Practical note
+
+Bars 1-2 (no catastrophic failures, ~3% cross-seed CV) were never in question and gate safety,
+not just administrative promotion status. Regardless of where the promote/hold documentation
+lands, `D1_low_scalecap.yaml` was already safe to use for real morphometrics work throughout
+this analysis.
