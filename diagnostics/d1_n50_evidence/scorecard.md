@@ -111,17 +111,37 @@ range (0.21-0.74) and gives a recipe-consistent (both scale_cap) baseline:
 | edge_logratio_absmean | 0.15238 | 0.14974 | +1.8% |
 | deform_mag_mean | 0.00478 | 0.00485 | -1.5% |
 
-All four land within ~2% of the fair reference -- clears Bar 3's 15% threshold and Bar 4's
-0.05/50% thresholds by a wide margin. **Bars 3 and 4, recomputed against a fair reference,
-PASS.** Combined with Bars 1-2 (already PASS), all four pre-registered bars pass under a
-corrected, principled reference-selection methodology.
+All four land within ~2% of the fair reference.
 
-**Revised verdict: PROMOTE D1 (`D1_low_scalecap.yaml`) to shipped default.** The original
-HOLD stands as the literal, honestly-reported result of the pre-registered test as designed;
-this revision is not a post-hoc goalpost move (the reference was broken, demonstrated with
-evidence, and fixed by a standard, mechanically-applied method decided before computing the
-comparison) -- both the original HOLD and this PROMOTE are kept in this document, in order,
-for the audit trail.
+**Correction (this claim was overstated when first written): this is NOT "bars 3-4 pass" in
+the original sense, and does not, by itself, justify PROMOTE.** The stratified-10 reference
+was carved out of the same 50-specimen pool it's being compared against. A representative
+subsample of a population will always closely match that population's mean -- that's close to
+true by construction, not something being tested. The original bars 3-4 question was a real
+generalization test: does Task 1's N=10 result (an independent prior sample) predict the full
+N=50? Once the alphabetical-first-10 is shown to be a biased sample, there is no longer any
+independent reference left to test generalization against -- the corrected comparison above
+only shows **internal consistency within the N=50 pool** (no specimen subset behaves
+unexpectedly differently from the whole), which is a weaker claim.
+
+**Honest framing: the original consistency check used a flawed reference; once that bias is
+identified and removed, no internal inconsistency was found across the specimen pool -- but
+this does not confirm N=50 matches an independent prior sample, because no independent sample
+now exists to test against.** The alphabetical-bias diagnosis itself is solid and useful (it
+explains *why* the original bars 3-4 failed, and rules out `w_scale` as the cause -- see the
+same-10-specimens isolation above, which *is* a valid same-recipe comparison since it reuses
+Task 2's genuinely independent, pre-existing Arm A numbers). But it does not license a revised
+PROMOTE verdict on its own.
+
+**Bars 1-2 (PASS, independent of this issue) plus this internal-consistency check are enough
+to justify continuing to use `D1_low_scalecap.yaml` for real work** (see Practical note below)
+-- they are not enough to justify changing the pre-registered promotion status. **Verdict:
+HOLD stands** (unchanged from the original pre-registered result). A genuine test of bars 3-4
+would need a held-out reference not carved from the same 50 -- e.g. fitting additional
+specimens outside `bench50_clean` (such as the `ALL_ANTS_CLEAN` corpus named in
+`FINAL_REPORT.md` §4, if accessible) as a truly independent check. Not run here -- worth
+deciding explicitly whether it's worth the additional compute before any promotion claim goes
+into the paper, rather than deciding unilaterally.
 
 ### 2. What actually drives the difficulty spread (the appendage-complexity hypothesis, tested and refuted)
 
@@ -158,6 +178,16 @@ on real bench50_clean data, not a new appendage-specific lever. The standing app
 weakness (leg ratios R=0.136, per `FINAL_REPORT.md` §4) looks like a separate, downstream
 morphometrics-measurement issue, not evidence that this registration difficulty spread is
 appendage-driven -- worth keeping the two apart rather than merging them into one story.
+
+**Roadmap implication (this changes the next-step recommendation, not just a closed side
+question)**: appendage-specific measurement (centerline/geodesic length extraction) is not
+supported as the next lever by this evidence -- the r=-0.973 correlation and the within-species
+`Anochetus_risii` control both say the difficulty spread is about how far hierarchical
+placement lands from truth, independent of which body part is being measured downstream. The
+more valuable next step this result points to: characterize *what makes hierarchical placement
+fail on specific specimens* (pose ambiguity in the initial estimate? scan noise/incompleteness?
+a bad H0/H1/H2 initialization?) -- that is the actual lever this data identifies, not a
+per-appendage measurement strategy.
 
 ### Practical note
 
