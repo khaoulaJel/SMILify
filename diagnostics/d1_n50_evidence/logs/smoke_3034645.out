@@ -1,0 +1,58 @@
+Tue Aug 18 07:22:25 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.178.04             Driver Version: 580.178.04     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA H100                    On  |   00000000:1B:00.0 Off |                    0 |
+| N/A   41C    P0             71W /  600W |       0MiB /  95830MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+=== smoke hier N=50 (tiny its, timed, watch peak memory) ===
+[hier] 50 meshes
+50 target meshes loaded.
+[hier] anatomical groups (template vertices): {'body': 5526, 'l1_l': 753, 'l1_r': 756, 'l2_l': 669, 'l2_r': 669, 'l3_l': 931, 'l3_r': 931}
+[hier] 7 groups: ['body', 'l1_l', 'l1_r', 'l2_l', 'l2_r', 'l3_l', 'l3_r']
+[hier] body stage moves ['body'], leg stage moves 6 leg groups
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/pytorch3d/ops/laplacian_matrices.py:51: UserWarning: torch.sparse.SparseTensor(indices, values, shape, *, device=) is deprecated.  Please use torch.sparse_coo_tensor(indices, values, shape, dtype=, device=). (Triggered internally at /opt/conda/conda-bld/pytorch_1716905971132/work/torch/csrc/utils/tensor_new.cpp:621.)
+  A = torch.sparse.FloatTensor(idx, ones, (V, V))
+    [H0_body]    0/20 loss=0.021458  chamfer=0.02145  edge=0.00000  lap=0.00142  sym=0.00000  limit=0.00000  mid=0.00000
+    [H0_body]   19/20 loss=0.014623  chamfer=0.01288  edge=0.03126  lap=0.00170  sym=0.00016  limit=0.00000  mid=0.00004
+    [H1_legs]    0/20 loss=0.044975  chamfer=0.04324  edge=0.03124  lap=0.00170  sym=0.00016  limit=0.00000  mid=0.00004
+    [H1_legs]   19/20 loss=0.024953  chamfer=0.02181  edge=0.05731  lap=0.00177  sym=0.00033  limit=0.00000  mid=0.00005
+    [H2_joint]    0/20 loss=0.024886  chamfer=0.02175  edge=0.05729  lap=0.00177  sym=0.00033  limit=0.00000  mid=0.00005
+    [H2_joint]   19/20 loss=0.019669  chamfer=0.01700  edge=0.04817  lap=0.00173  sym=0.00033  limit=0.00000  mid=0.00004
+    [H3_deform]    0/10 loss=0.019343  chamfer=0.01667  edge=0.04817  lap=0.00173  sym=0.00033  mid=0.00004  off=0.00000
+    [H3_deform]    9/10 loss=0.017470  chamfer=0.01557  edge=0.03221  lap=0.00173  sym=0.00034  mid=0.00004  off=0.00000
+[hier] done
+
+real	0m49.088s
+user	2m3.056s
+sys	1m1.908s
+=== peak GPU mem during hier smoke ===
+2849 MiB
+=== smoke moonshot D1_low N=50 (check it starts, 60s) ===
+[moonshot] 50 meshes from /rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/d1_n50_evidence/mesh_set
+50 target meshes loaded.
+[moonshot] initialised pose/shape from /tmp/d1_n50_smoke_out/hier/H2_joint.npz
+[moonshot] running 2 stages
+    [Stage_2_deform_coarse] it    0/1000  loss=0.017291   chamfer=0.01648  edge=0.00022  normal=0.07280  laplacian=0.00173  offset=0.00000  sym=0.00033  mid=0.00004  scale=0.00000  limit=0.00000
+    [Stage_2_deform_coarse] it   50/1000  loss=0.005343   chamfer=0.00307  edge=0.00053  normal=0.08286  laplacian=0.00477  offset=0.00024  sym=0.00037  mid=0.00000  scale=0.00000  limit=0.00007
+    [Stage_2_deform_coarse] it  100/1000  loss=0.004103   chamfer=0.00212  edge=0.00060  normal=0.07689  laplacian=0.00461  offset=0.00020  sym=0.00016  mid=0.00000  scale=0.00000  limit=0.00009
+    [Stage_2_deform_coarse] it  150/1000  loss=0.003699   chamfer=0.00188  edge=0.00061  normal=0.07513  laplacian=0.00452  offset=0.00017  sym=0.00011  mid=0.00000  scale=0.00000  limit=0.00016
+    [Stage_2_deform_coarse] it  200/1000  loss=0.003479   chamfer=0.00174  edge=0.00062  normal=0.07426  laplacian=0.00450  offset=0.00015  sym=0.00009  mid=0.00000  scale=0.00000  limit=0.00021
+    [Stage_2_deform_coarse] it  250/1000  loss=0.003331   chamfer=0.00165  edge=0.00063  normal=0.07414  laplacian=0.00449  offset=0.00014  sym=0.00007  mid=0.00000  scale=0.00000  limit=0.00025
+    [Stage_2_deform_coarse] it  300/1000  loss=0.003234   chamfer=0.00158  edge=0.00064  normal=0.07446  laplacian=0.00450  offset=0.00014  sym=0.00007  mid=0.00000  scale=0.00000  limit=0.00028
+    [Stage_2_deform_coarse] it  350/1000  loss=0.003158   chamfer=0.00154  edge=0.00065  normal=0.07428  laplacian=0.00450  offset=0.00013  sym=0.00006  mid=0.00000  scale=0.00000  limit=0.00030
+    [Stage_2_deform_coarse] it  400/1000  loss=0.003097   chamfer=0.00150  edge=0.00065  normal=0.07479  laplacian=0.00451  offset=0.00012  sym=0.00006  mid=0.00000  scale=0.00000  limit=0.00032
+SMOKE DONE

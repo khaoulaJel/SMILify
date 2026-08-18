@@ -248,6 +248,8 @@ benchmark_singleview_*/
 .claude/settings.local.json
 diagnostics/d1_evidence/mesh_set/
 diagnostics/d1_evidence/runs/
+diagnostics/d1_n50_evidence/mesh_set/
+diagnostics/d1_n50_evidence/runs/
 
 # Materialized read-only from feature/registration_moonshot for Task 2/3 evidence runs
 # (git show, branch not checked out) -- reference material, not ported to to-ship.

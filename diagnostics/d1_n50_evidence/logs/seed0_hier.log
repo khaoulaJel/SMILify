@@ -1,0 +1,51 @@
+[hier] 50 meshes
+50 target meshes loaded.
+[hier] anatomical groups (template vertices): {'body': 5526, 'l1_l': 753, 'l1_r': 756, 'l2_l': 669, 'l2_r': 669, 'l3_l': 931, 'l3_r': 931}
+[hier] 7 groups: ['body', 'l1_l', 'l1_r', 'l2_l', 'l2_r', 'l3_l', 'l3_r']
+[hier] body stage moves ['body'], leg stage moves 6 leg groups
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/pytorch3d/ops/laplacian_matrices.py:51: UserWarning: torch.sparse.SparseTensor(indices, values, shape, *, device=) is deprecated.  Please use torch.sparse_coo_tensor(indices, values, shape, dtype=, device=). (Triggered internally at /opt/conda/conda-bld/pytorch_1716905971132/work/torch/csrc/utils/tensor_new.cpp:621.)
+  A = torch.sparse.FloatTensor(idx, ones, (V, V))
+    [H0_body]    0/900 loss=0.021458  chamfer=0.02145  edge=0.00000  lap=0.00142  sym=0.00000  limit=0.00000  mid=0.00000
+    [H0_body]  100/900 loss=0.010757  chamfer=0.00875  edge=0.03630  lap=0.00162  sym=0.00011  limit=0.00000  mid=0.00006
+    [H0_body]  200/900 loss=0.010233  chamfer=0.00814  edge=0.03815  lap=0.00160  sym=0.00011  limit=0.00000  mid=0.00006
+    [H0_body]  300/900 loss=0.010073  chamfer=0.00794  edge=0.03900  lap=0.00159  sym=0.00010  limit=0.00000  mid=0.00006
+    [H0_body]  400/900 loss=0.009993  chamfer=0.00784  edge=0.03959  lap=0.00159  sym=0.00010  limit=0.00000  mid=0.00006
+    [H0_body]  500/900 loss=0.009953  chamfer=0.00779  edge=0.03982  lap=0.00159  sym=0.00010  limit=0.00000  mid=0.00006
+    [H0_body]  600/900 loss=0.009929  chamfer=0.00776  edge=0.04001  lap=0.00159  sym=0.00010  limit=0.00000  mid=0.00006
+    [H0_body]  700/900 loss=0.009910  chamfer=0.00774  edge=0.04005  lap=0.00159  sym=0.00010  limit=0.00000  mid=0.00006
+    [H0_body]  800/900 loss=0.009908  chamfer=0.00773  edge=0.04006  lap=0.00159  sym=0.00010  limit=0.00000  mid=0.00006
+    [H0_body]  899/900 loss=0.009908  chamfer=0.00773  edge=0.04006  lap=0.00159  sym=0.00010  limit=0.00000  mid=0.00006
+    [H1_legs]    0/1200 loss=0.020942  chamfer=0.01877  edge=0.04006  lap=0.00159  sym=0.00010  limit=0.00000  mid=0.00006
+    [H1_legs]  100/1200 loss=0.009896  chamfer=0.00783  edge=0.03843  lap=0.00160  sym=0.00010  limit=0.00001  mid=0.00004  churn=0.036
+    [H1_legs]  200/1200 loss=0.009172  chamfer=0.00716  edge=0.03763  lap=0.00161  sym=0.00009  limit=0.00001  mid=0.00004  churn=0.024
+    [H1_legs]  300/1200 loss=0.008840  chamfer=0.00688  edge=0.03659  lap=0.00162  sym=0.00008  limit=0.00001  mid=0.00004  churn=0.017
+    [H1_legs]  400/1200 loss=0.008616  chamfer=0.00670  edge=0.03571  lap=0.00162  sym=0.00008  limit=0.00003  mid=0.00004  churn=0.014
+    [H1_legs]  500/1200 loss=0.008476  chamfer=0.00661  edge=0.03494  lap=0.00162  sym=0.00007  limit=0.00001  mid=0.00004  churn=0.012
+    [H1_legs]  600/1200 loss=0.008441  chamfer=0.00659  edge=0.03463  lap=0.00162  sym=0.00007  limit=0.00000  mid=0.00004  churn=0.010
+    [H1_legs]  700/1200 loss=0.008382  chamfer=0.00654  edge=0.03465  lap=0.00162  sym=0.00007  limit=0.00000  mid=0.00004  churn=0.010
+    [H1_legs]  800/1200 loss=0.008368  chamfer=0.00653  edge=0.03446  lap=0.00163  sym=0.00007  limit=0.00000  mid=0.00004  churn=0.008
+    [H1_legs]  900/1200 loss=0.008350  chamfer=0.00650  edge=0.03472  lap=0.00163  sym=0.00007  limit=0.00002  mid=0.00004  churn=0.008
+    [H1_legs] 1000/1200 loss=0.008325  chamfer=0.00649  edge=0.03442  lap=0.00163  sym=0.00007  limit=0.00002  mid=0.00004  churn=0.007
+    [H1_legs] 1100/1200 loss=0.008326  chamfer=0.00649  edge=0.03443  lap=0.00163  sym=0.00007  limit=0.00002  mid=0.00004  churn=0.005
+    [H1_legs] 1199/1200 loss=0.008288  chamfer=0.00645  edge=0.03446  lap=0.00163  sym=0.00007  limit=0.00002  mid=0.00004  churn=0.005
+    [H1_legs] partition churn: first 0.062 last 0.005 mean 0.015   (falling churn => the data term is settling)
+    [H2_joint]    0/900 loss=0.008281  chamfer=0.00644  edge=0.03446  lap=0.00163  sym=0.00007  limit=0.00002  mid=0.00004
+    [H2_joint]  100/900 loss=0.008089  chamfer=0.00638  edge=0.03297  lap=0.00162  sym=0.00007  limit=0.00000  mid=0.00001  churn=0.011
+    [H2_joint]  200/900 loss=0.007981  chamfer=0.00630  edge=0.03247  lap=0.00161  sym=0.00007  limit=0.00001  mid=0.00001  churn=0.010
+    [H2_joint]  300/900 loss=0.007972  chamfer=0.00632  edge=0.03206  lap=0.00161  sym=0.00007  limit=0.00000  mid=0.00001  churn=0.009
+    [H2_joint]  400/900 loss=0.007967  chamfer=0.00630  edge=0.03230  lap=0.00161  sym=0.00007  limit=0.00000  mid=0.00001  churn=0.009
+    [H2_joint]  500/900 loss=0.007952  chamfer=0.00630  edge=0.03205  lap=0.00161  sym=0.00007  limit=0.00000  mid=0.00001  churn=0.008
+    [H2_joint]  600/900 loss=0.007942  chamfer=0.00629  edge=0.03192  lap=0.00161  sym=0.00007  limit=0.00000  mid=0.00001  churn=0.007
+    [H2_joint]  700/900 loss=0.007923  chamfer=0.00626  edge=0.03218  lap=0.00161  sym=0.00007  limit=0.00000  mid=0.00001  churn=0.007
+    [H2_joint]  800/900 loss=0.007911  chamfer=0.00625  edge=0.03205  lap=0.00161  sym=0.00007  limit=0.00000  mid=0.00001  churn=0.006
+    [H2_joint]  899/900 loss=0.007917  chamfer=0.00626  edge=0.03200  lap=0.00161  sym=0.00007  limit=0.00000  mid=0.00001  churn=0.005
+    [H2_joint] partition churn: first 0.012 last 0.005 mean 0.008   (falling churn => the data term is settling)
+    [H3_deform]    0/600 loss=0.007924  chamfer=0.00627  edge=0.03200  lap=0.00161  sym=0.00007  mid=0.00001  off=0.00000
+    [H3_deform]  100/600 loss=0.006734  chamfer=0.00520  edge=0.02423  lap=0.00167  sym=0.00009  mid=0.00000  off=0.00001  churn=0.016
+    [H3_deform]  200/600 loss=0.006670  chamfer=0.00506  edge=0.02499  lap=0.00168  sym=0.00009  mid=0.00000  off=0.00001  churn=0.011
+    [H3_deform]  300/600 loss=0.006630  chamfer=0.00501  edge=0.02516  lap=0.00168  sym=0.00009  mid=0.00000  off=0.00001  churn=0.010
+    [H3_deform]  400/600 loss=0.006608  chamfer=0.00497  edge=0.02526  lap=0.00168  sym=0.00009  mid=0.00000  off=0.00001  churn=0.008
+    [H3_deform]  500/600 loss=0.006616  chamfer=0.00498  edge=0.02525  lap=0.00168  sym=0.00009  mid=0.00000  off=0.00001  churn=0.007
+    [H3_deform]  599/600 loss=0.006556  chamfer=0.00493  edge=0.02519  lap=0.00168  sym=0.00009  mid=0.00000  off=0.00001  churn=0.007
+    [H3_deform] partition churn: first 0.016 last 0.007 mean 0.010   (falling churn => the data term is settling)
+[hier] done
