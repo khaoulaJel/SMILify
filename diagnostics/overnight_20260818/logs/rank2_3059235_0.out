@@ -1,0 +1,70 @@
+=== task 0: corpus=synth_clean label=pose25 ===
+Wed Aug 19 01:05:18 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.178.04             Driver Version: 580.178.04     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA H100                    On  |   00000000:2C:00.0 Off |                    0 |
+| N/A   46C    P0             74W /  600W |       0MiB /  95830MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+=== building GT joint_rot init npz ===
+wrote diagnostics/overnight_20260818/runs/CEILING_pose25_gtinit.npz: 12 specimens, joint_rot only, from GT (/rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/moonshot/synth_clean/ground_truth.npz). All other params left at SMAL3DFitter's own constructor default when loaded via --init_from.
+=== ceiling fit: GT pose fixed, scheme=shape (log_beta_scales free, no deform) ===
+[moonshot] 12 meshes from /rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/moonshot/synth_clean
+12 target meshes loaded.
+[moonshot] initialised pose/shape from diagnostics/overnight_20260818/runs/CEILING_pose25_gtinit.npz
+[moonshot] running 1 stages
+    [Stage_0_ceiling] it    0/1200  loss=0.016732   chamfer=0.00538  sym=0.00000  mid=0.00568
+    [Stage_0_ceiling] it   50/1200  loss=0.002841   chamfer=0.00174  sym=0.00023  mid=0.00049
+    [Stage_0_ceiling] it  100/1200  loss=0.002246   chamfer=0.00150  sym=0.00019  mid=0.00032
+    [Stage_0_ceiling] it  150/1200  loss=0.001938   chamfer=0.00132  sym=0.00020  mid=0.00026
+    [Stage_0_ceiling] it  200/1200  loss=0.001772   chamfer=0.00124  sym=0.00018  mid=0.00022
+    [Stage_0_ceiling] it  250/1200  loss=0.001670   chamfer=0.00121  sym=0.00017  mid=0.00019
+    [Stage_0_ceiling] it  300/1200  loss=0.001575   chamfer=0.00115  sym=0.00016  mid=0.00017
+    [Stage_0_ceiling] it  350/1200  loss=0.001498   chamfer=0.00111  sym=0.00015  mid=0.00016
+    [Stage_0_ceiling] it  400/1200  loss=0.001429   chamfer=0.00107  sym=0.00014  mid=0.00014
+    [Stage_0_ceiling] it  450/1200  loss=0.001386   chamfer=0.00105  sym=0.00014  mid=0.00013
+    [Stage_0_ceiling] it  500/1200  loss=0.001357   chamfer=0.00104  sym=0.00013  mid=0.00013
+    [Stage_0_ceiling] it  550/1200  loss=0.001313   chamfer=0.00102  sym=0.00013  mid=0.00012
+    [Stage_0_ceiling] it  600/1200  loss=0.001288   chamfer=0.00101  sym=0.00013  mid=0.00011
+    [Stage_0_ceiling] it  650/1200  loss=0.001277   chamfer=0.00101  sym=0.00013  mid=0.00010
+    [Stage_0_ceiling] it  700/1200  loss=0.001242   chamfer=0.00098  sym=0.00012  mid=0.00010
+    [Stage_0_ceiling] it  750/1200  loss=0.001226   chamfer=0.00098  sym=0.00012  mid=0.00010
+    [Stage_0_ceiling] it  800/1200  loss=0.001217   chamfer=0.00098  sym=0.00012  mid=0.00009
+    [Stage_0_ceiling] it  850/1200  loss=0.001202   chamfer=0.00097  sym=0.00012  mid=0.00009
+    [Stage_0_ceiling] it  900/1200  loss=0.001189   chamfer=0.00096  sym=0.00012  mid=0.00009
+    [Stage_0_ceiling] it  950/1200  loss=0.001178   chamfer=0.00095  sym=0.00012  mid=0.00008
+    [Stage_0_ceiling] it 1000/1200  loss=0.001173   chamfer=0.00096  sym=0.00011  mid=0.00008
+    [Stage_0_ceiling] it 1050/1200  loss=0.001153   chamfer=0.00094  sym=0.00011  mid=0.00008
+    [Stage_0_ceiling] it 1100/1200  loss=0.001142   chamfer=0.00093  sym=0.00010  mid=0.00008
+    [Stage_0_ceiling] it 1150/1200  loss=0.001140   chamfer=0.00093  sym=0.00011  mid=0.00008
+    [Stage_0_ceiling] it 1199/1200  loss=0.001131   chamfer=0.00093  sym=0.00010  mid=0.00008
+  eval 10/12
+[moonshot] wrote diagnostics/overnight_20260818/runs/CEILING_pose25/metrics.csv
+
+  ---- summary ----
+    chamfer_l2                       0.000703
+    fscore@0.01                      0.513813
+    fscore@0.02                      0.807567
+    hausdorff_95                     0.039352
+    normal_consistency               0.690582
+    edge_logratio_absmean            0.000000
+    tri_quality_mean                 0.683796
+    deform_mag_mean                  0.000000
+    midline_dev_mean                 0.023444
+    part_leg_distal_dist_mean        0.011404
+    part_leg_dist_mean               0.011029
+    part_body_dist_mean              0.015837
+=== task 0 DONE ===

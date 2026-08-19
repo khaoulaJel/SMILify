@@ -117,7 +117,7 @@ def _joint_limit_tensors_from_dd(dd, device):
 
 
 class SMAL3DFitter(nn.Module):
-    def __init__(self, batch_size=1, device="cuda", shape_family=-1):
+    def __init__(self, batch_size=1, device="cuda", shape_family=-1, init_joint_rot=None):
         super(SMAL3DFitter, self).__init__()
 
         self.device = device
@@ -193,7 +193,18 @@ class SMAL3DFitter(nn.Module):
         trans = torch.FloatTensor([0.0, 0.0, 0.0])[None, :].to(device).repeat(batch_size, 1)  # Trans Init
         self.trans = nn.Parameter(trans)
 
-        default_joints = torch.zeros(batch_size, config.N_POSE, 3).to(device)
+        # `init_joint_rot` is a diagnostic-only override (Task 6, registration-failure D5 probe:
+        # does refitting from the KNOWN ground-truth pose stay near truth, or drift away under
+        # the same loss?). None (the only value any existing caller passes) preserves today's
+        # exact zero-init behavior unchanged.
+        if init_joint_rot is None:
+            default_joints = torch.zeros(batch_size, config.N_POSE, 3).to(device)
+        else:
+            default_joints = torch.as_tensor(init_joint_rot, dtype=torch.float32, device=device)
+            assert default_joints.shape == (batch_size, config.N_POSE, 3), (
+                f"init_joint_rot must be (batch_size={batch_size}, N_POSE={config.N_POSE}, 3), "
+                f"got {tuple(default_joints.shape)}"
+            )
         self.joint_rot = nn.Parameter(default_joints)
 
         # Joint rotation limits (issue #97): read authored 'joint_limits' from the

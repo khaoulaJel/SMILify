@@ -1,0 +1,56 @@
+{
+ "n": 493,
+ "n_genus": 54,
+ "n_subfamily": 9,
+ "n_singleton_genus_subfamilies": 2,
+ "flat_genus": {
+  "acc": 0.1724137931034483,
+  "null": 0.030953346855983773,
+  "p": 0.0,
+  "lift": 5.5701179554390565
+ },
+ "subfamily": {
+  "acc": 0.4766734279918864,
+  "null": 0.28296653144016226,
+  "p": 0.0,
+  "lift": 1.684557624415333
+ },
+ "genus_given_true_subfamily": {
+  "acc": 0.3103448275862069,
+  "null": 0.16993914807302232,
+  "p": 0.0,
+  "lift": 1.8262115063260922
+ },
+ "genus_end_to_end_nn_routed": {
+  "acc": 0.1724137931034483,
+  "null": 0.0670081135902637,
+  "p": 0.0,
+  "lift": 2.573028606023914,
+  "n_routed": 493
+ },
+ "subfamily_centroid": {
+  "acc": 0.21703853955375255,
+  "null": 0.06977180527383367,
+  "p": 0.0,
+  "lift": 3.1106911839523224
+ },
+ "genus_end_to_end_centroid_routed": {
+  "acc": 0.056795131845841784,
+  "null": 0.042363083164300194,
+  "p": 0.045,
+  "lift": 1.3406751256882934,
+  "n_routed": 493
+ },
+ "end_to_end_nn_routed_vs_flat": {
+  "mean_diff": 0.0,
+  "ci_lo": 0.0,
+  "ci_hi": 0.0,
+  "verdict": "NO DISTINGUISHABLE DIFFERENCE"
+ },
+ "end_to_end_centroid_routed_vs_flat": {
+  "mean_diff": -0.11526100752632547,
+  "ci_lo": -0.1490069471497208,
+  "ci_hi": -0.08352630951375467,
+  "verdict": "REGRESSION"
+ }
+}

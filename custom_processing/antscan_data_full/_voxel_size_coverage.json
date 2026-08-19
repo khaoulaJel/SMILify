@@ -1,0 +1,23 @@
+{
+  "total_specimens_in_drive": 685,
+  "note": "Drive folder actually contains 685 specimen subfolders, not ~785 as estimated in the task brief.",
+  "json_downloaded_count": 8,
+  "json_downloaded_specimens": [
+    "Mayriella_sp._CASENT0745610",
+    "Solenopsis_tipuna_OKENT0105177",
+    "Diplomorium_longipenne_CASENT0744813",
+    "Probolomyrmex_sp._CASENT0744993",
+    "Carebara_afrc-gh04_CASENT0744798",
+    "Prionopelta_sp.n_CASENT0744401",
+    "Nylanderia_boltoni_CASENT0744759",
+    "Wasmannia_sulcaticeps_CASENT0744311"
+  ],
+  "voxel_size_histogram_of_downloaded_sample": {
+    "2.44 \u00b5m": 8
+  },
+  "with_voxel_size": 8,
+  "missing_voxel_size": [],
+  "coverage_caveat": "Only 8 of 685 JSON metadata files were actually downloaded and parsed in this session (plus 1 additional JSON read during reliability testing, Aphaenogaster_lepida_CASENT0743786, also voxel_size=2.44 \u00b5m, not included in the 8 above). The download_file_content MCP tool only accepts one fileId per call with no batch/bulk mode, so downloading and decoding all 685 JSONs individually was impractical within this session's context/turn budget. All 8 (9 including the test file) sampled JSONs report the identical voxel_size value \"2.44 \u00b5m\", consistent with a single fixed scanner calibration setting across the corpus, but this is NOT confirmed for all 685 specimens.",
+  "specimen_folder_ids_and_file_ids_available_for_all_685": true,
+  "manifest_file": "_manifest_all685_specimen_file_ids.json"
+}

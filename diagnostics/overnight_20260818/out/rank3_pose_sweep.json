@@ -1,0 +1,143 @@
+{
+  "conditions": [
+    {
+      "run": "SYN_clean_pose0_w5",
+      "corpus": "synth_clean_pose0",
+      "pose_scale": 0.0,
+      "leg_distal_R": 0.8518610845754759,
+      "n_bone_obs": 144,
+      "cross_leg_confusion": {
+        "ti": 0.0,
+        "ta": 0.0,
+        "pt": 0.0
+      },
+      "within_leg_mismatch": {
+        "ti": 0.2528965291422972,
+        "ta": 0.48851209414362246,
+        "pt": 0.840764288171409
+      },
+      "n_specimens_in_audit": 12
+    },
+    {
+      "run": "SYN_clean_pose05_w5",
+      "corpus": "synth_clean_pose05",
+      "pose_scale": 0.05,
+      "leg_distal_R": 0.9358391874356176,
+      "n_bone_obs": 144,
+      "cross_leg_confusion": {
+        "ti": 0.0,
+        "ta": 0.0,
+        "pt": 0.0
+      },
+      "within_leg_mismatch": {
+        "ti": 0.22512175605573317,
+        "ta": 0.3655880433305672,
+        "pt": 0.8255923397590065
+      },
+      "n_specimens_in_audit": 12
+    },
+    {
+      "run": "SYN_clean_pose10_w5",
+      "corpus": "synth_clean_pose10",
+      "pose_scale": 0.1,
+      "leg_distal_R": 0.9492467269843672,
+      "n_bone_obs": 144,
+      "cross_leg_confusion": {
+        "ti": 0.0,
+        "ta": 0.0,
+        "pt": 0.0
+      },
+      "within_leg_mismatch": {
+        "ti": 0.25616427374730094,
+        "ta": 0.33753436070522463,
+        "pt": 0.7991081630787512
+      },
+      "n_specimens_in_audit": 12
+    },
+    {
+      "run": "SYN_clean_pose15_w5",
+      "corpus": "synth_clean_pose15",
+      "pose_scale": 0.15,
+      "leg_distal_R": 0.9126987369841784,
+      "n_bone_obs": 144,
+      "cross_leg_confusion": {
+        "ti": 0.026293208189052914,
+        "ta": 0.039083107497741645,
+        "pt": 0.049422799422799424
+      },
+      "within_leg_mismatch": {
+        "ti": 0.2877754111126922,
+        "ta": 0.32417801249111433,
+        "pt": 0.7843749999999999
+      },
+      "n_specimens_in_audit": 12
+    },
+    {
+      "run": "SYN_clean_pose20_w5",
+      "corpus": "synth_clean_pose20",
+      "pose_scale": 0.2,
+      "leg_distal_R": 0.707893385001946,
+      "n_bone_obs": 144,
+      "cross_leg_confusion": {
+        "ti": 0.1000882662093515,
+        "ta": 0.09507795155292471,
+        "pt": 0.08744755911517925
+      },
+      "within_leg_mismatch": {
+        "ti": 0.406662794972762,
+        "ta": 0.35950963638859385,
+        "pt": 0.6827960982372748
+      },
+      "n_specimens_in_audit": 12
+    },
+    {
+      "run": "SYN_clean_w5",
+      "corpus": "synth_clean",
+      "pose_scale": 0.25,
+      "leg_distal_R": 0.6536973094324285,
+      "n_bone_obs": 144,
+      "cross_leg_confusion": {
+        "ti": 0.21261582193497888,
+        "ta": 0.23668640692947743,
+        "pt": 0.2091204166204166
+      },
+      "within_leg_mismatch": {
+        "ti": 0.35229558800976374,
+        "ta": 0.4154701933534161,
+        "pt": 0.8289351851851853
+      },
+      "n_specimens_in_audit": 12
+    },
+    {
+      "run": "SYN_clean_pose35_w5",
+      "corpus": "synth_clean_pose35",
+      "pose_scale": 0.35,
+      "leg_distal_R": 0.5186279147774014,
+      "n_bone_obs": 144,
+      "cross_leg_confusion": {
+        "ti": 0.2857382803295684,
+        "ta": 0.28087277405596894,
+        "pt": 0.31901142099351815
+      },
+      "within_leg_mismatch": {
+        "ti": 0.4947270355471655,
+        "ta": 0.4315401852617429,
+        "pt": 0.6945436507936508
+      },
+      "n_specimens_in_audit": 12
+    }
+  ],
+  "spearman_pose_vs_cross_leg_pt": {
+    "rho": 0.9636241116594316,
+    "p": 0.0004753043398840463
+  },
+  "spearman_pose_vs_within_leg_pt": {
+    "rho": -0.5714285714285715,
+    "p": 0.1802019889115274
+  },
+  "spearman_pose_vs_leg_distal_R": {
+    "rho": -0.7500000000000002,
+    "p": 0.05218140045705776
+  },
+  "interpretation": "H4 (pose-dependent cross-leg confusion): SUPPORTED (rho=0.9636241116594316, p=0.0004753043398840463). H2 (pose-independent within-leg mismatch): NOT CLEARLY SUPPORTED (rho=-0.5714285714285715, p=0.1802019889115274). Mechanism separation is NOT cleanly confirmed by this sweep -- see per-condition numbers above; do not assert the H2/H4 split as settled on this evidence alone."
+}

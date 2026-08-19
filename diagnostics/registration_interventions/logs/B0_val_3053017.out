@@ -1,0 +1,212 @@
+
+===== pose0 (synth_clean_pose0) =====
+12 target meshes loaded.
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/pytorch3d/ops/laplacian_matrices.py:51: UserWarning: torch.sparse.SparseTensor(indices, values, shape, *, device=) is deprecated.  Please use torch.sparse_coo_tensor(indices, values, shape, dtype=, device=). (Triggered internally at /opt/conda/conda-bld/pytorch_1716905971132/work/torch/csrc/utils/tensor_new.cpp:621.)
+  A = torch.sparse.FloatTensor(idx, ones, (V, V))
+    [H0_body]    0/900 loss=0.002956  chamfer=0.00295  edge=0.00000  lap=0.00142  sym=0.00000  limit=0.00000  mid=0.00000
+    [H0_body]  100/900 loss=0.001669  chamfer=0.00140  edge=0.00512  lap=0.00149  sym=0.00002  limit=0.00000  mid=0.00000
+    [H0_body]  200/900 loss=0.001660  chamfer=0.00138  edge=0.00525  lap=0.00149  sym=0.00002  limit=0.00000  mid=0.00000
+    [H0_body]  300/900 loss=0.001649  chamfer=0.00137  edge=0.00530  lap=0.00149  sym=0.00002  limit=0.00000  mid=0.00000
+    [H0_body]  400/900 loss=0.001651  chamfer=0.00137  edge=0.00533  lap=0.00149  sym=0.00002  limit=0.00000  mid=0.00000
+    [H0_body]  500/900 loss=0.001648  chamfer=0.00136  edge=0.00532  lap=0.00149  sym=0.00002  limit=0.00000  mid=0.00000
+    [H0_body]  600/900 loss=0.001651  chamfer=0.00137  edge=0.00532  lap=0.00149  sym=0.00002  limit=0.00000  mid=0.00000
+    [H0_body]  700/900 loss=0.001642  chamfer=0.00136  edge=0.00531  lap=0.00149  sym=0.00002  limit=0.00000  mid=0.00000
+    [H0_body]  800/900 loss=0.001646  chamfer=0.00136  edge=0.00532  lap=0.00149  sym=0.00002  limit=0.00000  mid=0.00000
+    [H0_body]  899/900 loss=0.001647  chamfer=0.00136  edge=0.00532  lap=0.00149  sym=0.00002  limit=0.00000  mid=0.00000
+joint       group          zero-init   geom-init     delta
+l_1_co_r    leg_prox         0.01808     0.01732  -0.00076
+l_1_tr_r    leg_prox         0.01522     0.22123   0.20602
+l_1_fe_r    leg_prox         0.02184     0.23403   0.21219
+l_1_ti_r    leg_distal       0.02989     0.38807   0.35818
+l_1_ta_r    leg_distal       0.02994     0.47152   0.44157
+l_1_pt_r    leg_distal       0.02669     0.49277   0.46608
+l_2_co_r    leg_prox         0.00923     0.00946   0.00024
+l_2_tr_r    leg_prox         0.01398     0.06596   0.05198
+l_2_fe_r    leg_prox         0.01481     0.23905   0.22425
+l_2_ti_r    leg_distal       0.02033     0.42837   0.40803
+l_2_ta_r    leg_distal       0.02437     0.59326   0.56888
+l_2_pt_r    leg_distal       0.02370     0.69534   0.67164
+l_3_co_r    leg_prox         0.01869     0.01893   0.00024
+l_3_tr_r    leg_prox         0.01523     0.06319   0.04796
+l_3_fe_r    leg_prox         0.02741     0.21388   0.18647
+l_3_ti_r    leg_distal       0.02053     0.30595   0.28542
+l_3_ta_r    leg_distal       0.02558     0.32383   0.29824
+l_3_pt_r    leg_distal       0.02162     0.28614   0.26453
+l_1_co_l    leg_prox         0.02191     0.02159  -0.00032
+l_1_tr_l    leg_prox         0.01336     0.20558   0.19222
+l_1_fe_l    leg_prox         0.03190     0.23339   0.20149
+l_1_ti_l    leg_distal       0.02886     0.36372   0.33486
+l_1_ta_l    leg_distal       0.03394     0.43204   0.39810
+l_1_pt_l    leg_distal       0.02935     0.42104   0.39169
+l_2_co_l    leg_prox         0.00918     0.00910  -0.00007
+l_2_tr_l    leg_prox         0.01054     0.08365   0.07311
+l_2_fe_l    leg_prox         0.02363     0.27594   0.25232
+l_2_ti_l    leg_distal       0.03202     0.44743   0.41541
+l_2_ta_l    leg_distal       0.02996     0.61869   0.58873
+l_2_pt_l    leg_distal       0.02461     0.73160   0.70699
+l_3_co_l    leg_prox         0.01700     0.01707   0.00007
+l_3_tr_l    leg_prox         0.01480     0.07244   0.05764
+l_3_fe_l    leg_prox         0.03044     0.18907   0.15863
+l_3_ti_l    leg_distal       0.02488     0.28104   0.25616
+l_3_ta_l    leg_distal       0.02157     0.34492   0.32335
+l_3_pt_l    leg_distal       0.02239     0.29570   0.27331
+
+pose0 summary: leg_prox zero=0.01611 geom=0.07804 | leg_distal zero=0.02523 geom=0.42470
+
+===== pose25 (synth_clean) =====
+12 target meshes loaded.
+    [H0_body]    0/900 loss=0.011004  chamfer=0.01100  edge=0.00000  lap=0.00142  sym=0.00000  limit=0.00000  mid=0.00000
+    [H0_body]  100/900 loss=0.004995  chamfer=0.00383  edge=0.01753  lap=0.00160  sym=0.00022  limit=0.00000  mid=0.00009
+    [H0_body]  200/900 loss=0.004858  chamfer=0.00365  edge=0.01837  lap=0.00160  sym=0.00021  limit=0.00000  mid=0.00009
+    [H0_body]  300/900 loss=0.004800  chamfer=0.00359  edge=0.01839  lap=0.00160  sym=0.00021  limit=0.00000  mid=0.00009
+    [H0_body]  400/900 loss=0.004783  chamfer=0.00357  edge=0.01850  lap=0.00160  sym=0.00021  limit=0.00000  mid=0.00009
+    [H0_body]  500/900 loss=0.004766  chamfer=0.00355  edge=0.01845  lap=0.00160  sym=0.00021  limit=0.00000  mid=0.00009
+    [H0_body]  600/900 loss=0.004765  chamfer=0.00355  edge=0.01852  lap=0.00160  sym=0.00021  limit=0.00000  mid=0.00009
+    [H0_body]  700/900 loss=0.004761  chamfer=0.00355  edge=0.01849  lap=0.00160  sym=0.00021  limit=0.00000  mid=0.00009
+    [H0_body]  800/900 loss=0.004759  chamfer=0.00355  edge=0.01851  lap=0.00160  sym=0.00021  limit=0.00000  mid=0.00009
+    [H0_body]  899/900 loss=0.004766  chamfer=0.00355  edge=0.01849  lap=0.00160  sym=0.00021  limit=0.00000  mid=0.00009
+joint       group          zero-init   geom-init     delta
+l_1_co_r    leg_prox         0.03556     0.03626   0.00070
+l_1_tr_r    leg_prox         0.06769     0.20378   0.13609
+l_1_fe_r    leg_prox         0.10220     0.28141   0.17920
+l_1_ti_r    leg_distal       0.11022     0.38464   0.27442
+l_1_ta_r    leg_distal       0.13477     0.40389   0.26913
+l_1_pt_r    leg_distal       0.15556     0.45486   0.29930
+l_2_co_r    leg_prox         0.03749     0.03837   0.00088
+l_2_tr_r    leg_prox         0.05087     0.11709   0.06622
+l_2_fe_r    leg_prox         0.15030     0.40262   0.25232
+l_2_ti_r    leg_distal       0.16646     0.54764   0.38118
+l_2_ta_r    leg_distal       0.19659     0.74694   0.55035
+l_2_pt_r    leg_distal       0.22133     0.79722   0.57589
+l_3_co_r    leg_prox         0.04788     0.04749  -0.00039
+l_3_tr_r    leg_prox         0.05528     0.08598   0.03070
+l_3_fe_r    leg_prox         0.05756     0.15908   0.10151
+l_3_ti_r    leg_distal       0.10189     0.32185   0.21996
+l_3_ta_r    leg_distal       0.18166     0.36279   0.18113
+l_3_pt_r    leg_distal       0.23235     0.36215   0.12979
+l_1_co_l    leg_prox         0.03933     0.03907  -0.00026
+l_1_tr_l    leg_prox         0.05780     0.17723   0.11943
+l_1_fe_l    leg_prox         0.07771     0.23243   0.15472
+l_1_ti_l    leg_distal       0.11106     0.41505   0.30399
+l_1_ta_l    leg_distal       0.16309     0.52419   0.36110
+l_1_pt_l    leg_distal       0.18389     0.48552   0.30162
+l_2_co_l    leg_prox         0.03856     0.03958   0.00103
+l_2_tr_l    leg_prox         0.05154     0.12122   0.06968
+l_2_fe_l    leg_prox         0.10967     0.45242   0.34275
+l_2_ti_l    leg_distal       0.14077     0.62534   0.48456
+l_2_ta_l    leg_distal       0.20686     0.79023   0.58338
+l_2_pt_l    leg_distal       0.24290     0.84087   0.59797
+l_3_co_l    leg_prox         0.03695     0.03615  -0.00079
+l_3_tr_l    leg_prox         0.06073     0.09023   0.02950
+l_3_fe_l    leg_prox         0.11699     0.18787   0.07088
+l_3_ti_l    leg_distal       0.11498     0.35278   0.23780
+l_3_ta_l    leg_distal       0.13860     0.42067   0.28207
+l_3_pt_l    leg_distal       0.15054     0.38953   0.23899
+
+pose25 summary: leg_prox zero=0.05642 geom=0.11915 | leg_distal zero=0.15933 geom=0.43777
+
+===== drop30 (synth_clean_drop30) =====
+12 target meshes loaded.
+    [H0_body]    0/900 loss=0.011041  chamfer=0.01103  edge=0.00000  lap=0.00142  sym=0.00000  limit=0.00000  mid=0.00000
+    [H0_body]  100/900 loss=0.005076  chamfer=0.00390  edge=0.01793  lap=0.00161  sym=0.00020  limit=0.00000  mid=0.00008
+    [H0_body]  200/900 loss=0.004874  chamfer=0.00365  edge=0.01884  lap=0.00160  sym=0.00020  limit=0.00000  mid=0.00008
+    [H0_body]  300/900 loss=0.004824  chamfer=0.00360  edge=0.01910  lap=0.00160  sym=0.00020  limit=0.00000  mid=0.00008
+    [H0_body]  400/900 loss=0.004820  chamfer=0.00359  edge=0.01922  lap=0.00160  sym=0.00020  limit=0.00000  mid=0.00008
+    [H0_body]  500/900 loss=0.004806  chamfer=0.00357  edge=0.01929  lap=0.00160  sym=0.00020  limit=0.00000  mid=0.00008
+    [H0_body]  600/900 loss=0.004805  chamfer=0.00358  edge=0.01927  lap=0.00160  sym=0.00020  limit=0.00000  mid=0.00008
+    [H0_body]  700/900 loss=0.004787  chamfer=0.00355  edge=0.01930  lap=0.00160  sym=0.00020  limit=0.00000  mid=0.00008
+    [H0_body]  800/900 loss=0.004788  chamfer=0.00356  edge=0.01931  lap=0.00160  sym=0.00020  limit=0.00000  mid=0.00008
+    [H0_body]  899/900 loss=0.004789  chamfer=0.00355  edge=0.01933  lap=0.00160  sym=0.00020  limit=0.00000  mid=0.00008
+joint       group          zero-init   geom-init     delta
+l_1_co_r    leg_prox         0.03727     0.03792   0.00065
+l_1_tr_r    leg_prox         0.07124     0.20511   0.13387
+l_1_fe_r    leg_prox         0.10611     0.27262   0.16651
+l_1_ti_r    leg_distal       0.13395     0.38155   0.24759
+l_1_ta_r    leg_distal       0.16346     0.36585   0.20238
+l_1_pt_r    leg_distal       0.21204     0.40852   0.19648
+l_2_co_r    leg_prox         0.04455     0.04459   0.00004
+l_2_tr_r    leg_prox         0.05292     0.13298   0.08006
+l_2_fe_r    leg_prox         0.14496     0.42467   0.27971
+l_2_ti_r    leg_distal       0.17388     0.61182   0.43794
+l_2_ta_r    leg_distal       0.24003     0.69732   0.45729
+l_2_pt_r    leg_distal       0.30142     0.78350   0.48208
+l_3_co_r    leg_prox         0.05427     0.05439   0.00012
+l_3_tr_r    leg_prox         0.06125     0.09018   0.02893
+l_3_fe_r    leg_prox         0.06409     0.17694   0.11285
+l_3_ti_r    leg_distal       0.13037     0.33927   0.20889
+l_3_ta_r    leg_distal       0.20806     0.37755   0.16950
+l_3_pt_r    leg_distal       0.21606     0.36487   0.14880
+l_1_co_l    leg_prox         0.04188     0.04185  -0.00004
+l_1_tr_l    leg_prox         0.06676     0.18831   0.12155
+l_1_fe_l    leg_prox         0.08172     0.24655   0.16484
+l_1_ti_l    leg_distal       0.15355     0.46952   0.31596
+l_1_ta_l    leg_distal       0.21706     0.46167   0.24461
+l_1_pt_l    leg_distal       0.22748     0.55476   0.32728
+l_2_co_l    leg_prox         0.04529     0.04570   0.00042
+l_2_tr_l    leg_prox         0.06218     0.12888   0.06670
+l_2_fe_l    leg_prox         0.12930     0.48189   0.35259
+l_2_ti_l    leg_distal       0.15907     0.62996   0.47089
+l_2_ta_l    leg_distal       0.22336     0.75126   0.52790
+l_2_pt_l    leg_distal       0.27922     0.81180   0.53258
+l_3_co_l    leg_prox         0.04686     0.04772   0.00086
+l_3_tr_l    leg_prox         0.07028     0.10218   0.03190
+l_3_fe_l    leg_prox         0.11486     0.20922   0.09436
+l_3_ti_l    leg_distal       0.14379     0.31607   0.17227
+l_3_ta_l    leg_distal       0.20402     0.39596   0.19195
+l_3_pt_l    leg_distal       0.21990     0.40385   0.18395
+
+drop30 summary: leg_prox zero=0.06314 geom=0.13093 | leg_distal zero=0.21005 geom=0.43510
+
+===== drop60 (synth_clean_drop60) =====
+12 target meshes loaded.
+    [H0_body]    0/900 loss=0.011250  chamfer=0.01124  edge=0.00000  lap=0.00142  sym=0.00000  limit=0.00000  mid=0.00000
+    [H0_body]  100/900 loss=0.005256  chamfer=0.00408  edge=0.01845  lap=0.00161  sym=0.00020  limit=0.00000  mid=0.00007
+    [H0_body]  200/900 loss=0.005113  chamfer=0.00388  edge=0.01950  lap=0.00161  sym=0.00019  limit=0.00000  mid=0.00008
+    [H0_body]  300/900 loss=0.005069  chamfer=0.00383  edge=0.01972  lap=0.00160  sym=0.00019  limit=0.00000  mid=0.00008
+    [H0_body]  400/900 loss=0.005067  chamfer=0.00382  edge=0.01986  lap=0.00160  sym=0.00019  limit=0.00000  mid=0.00007
+    [H0_body]  500/900 loss=0.005048  chamfer=0.00380  edge=0.01992  lap=0.00160  sym=0.00019  limit=0.00000  mid=0.00008
+    [H0_body]  600/900 loss=0.005048  chamfer=0.00380  edge=0.01990  lap=0.00160  sym=0.00019  limit=0.00000  mid=0.00007
+    [H0_body]  700/900 loss=0.005035  chamfer=0.00379  edge=0.01991  lap=0.00160  sym=0.00019  limit=0.00000  mid=0.00007
+    [H0_body]  800/900 loss=0.005053  chamfer=0.00381  edge=0.01992  lap=0.00160  sym=0.00019  limit=0.00000  mid=0.00007
+    [H0_body]  899/900 loss=0.005045  chamfer=0.00380  edge=0.01990  lap=0.00160  sym=0.00019  limit=0.00000  mid=0.00007
+joint       group          zero-init   geom-init     delta
+l_1_co_r    leg_prox         0.04180     0.04199   0.00019
+l_1_tr_r    leg_prox         0.06883     0.19014   0.12131
+l_1_fe_r    leg_prox         0.11977     0.27862   0.15885
+l_1_ti_r    leg_distal       0.18150     0.44003   0.25854
+l_1_ta_r    leg_distal       0.23438     0.47001   0.23563
+l_1_pt_r    leg_distal       0.28901     0.47236   0.18335
+l_2_co_r    leg_prox         0.04796     0.04831   0.00036
+l_2_tr_r    leg_prox         0.05824     0.14254   0.08429
+l_2_fe_r    leg_prox         0.15411     0.42181   0.26769
+l_2_ti_r    leg_distal       0.19195     0.69654   0.50460
+l_2_ta_r    leg_distal       0.27464     0.83276   0.55812
+l_2_pt_r    leg_distal       0.33896     0.85717   0.51821
+l_3_co_r    leg_prox         0.06118     0.06132   0.00014
+l_3_tr_r    leg_prox         0.06653     0.10109   0.03456
+l_3_fe_r    leg_prox         0.06345     0.20530   0.14185
+l_3_ti_r    leg_distal       0.17081     0.36177   0.19095
+l_3_ta_r    leg_distal       0.25548     0.38685   0.13136
+l_3_pt_r    leg_distal       0.26719     0.35838   0.09118
+l_1_co_l    leg_prox         0.04654     0.04658   0.00004
+l_1_tr_l    leg_prox         0.06779     0.19637   0.12857
+l_1_fe_l    leg_prox         0.09544     0.24794   0.15250
+l_1_ti_l    leg_distal       0.19906     0.45371   0.25464
+l_1_ta_l    leg_distal       0.27885     0.45405   0.17519
+l_1_pt_l    leg_distal       0.29780     0.55441   0.25660
+l_2_co_l    leg_prox         0.04972     0.04947  -0.00025
+l_2_tr_l    leg_prox         0.05932     0.14507   0.08574
+l_2_fe_l    leg_prox         0.11314     0.51928   0.40614
+l_2_ti_l    leg_distal       0.20838     0.65041   0.44203
+l_2_ta_l    leg_distal       0.25969     0.87890   0.61921
+l_2_pt_l    leg_distal       0.31667     0.94919   0.63252
+l_3_co_l    leg_prox         0.05174     0.05157  -0.00017
+l_3_tr_l    leg_prox         0.06914     0.11566   0.04652
+l_3_fe_l    leg_prox         0.14080     0.21236   0.07156
+l_3_ti_l    leg_distal       0.20770     0.34753   0.13983
+l_3_ta_l    leg_distal       0.25197     0.48034   0.22837
+l_3_pt_l    leg_distal       0.27364     0.50386   0.23023
+
+drop60 summary: leg_prox zero=0.06499 geom=0.14380 | leg_distal zero=0.25759 geom=0.47635
+
+wrote /rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/registration_interventions/out/B0_geom_init_validation.json

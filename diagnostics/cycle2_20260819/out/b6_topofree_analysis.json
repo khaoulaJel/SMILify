@@ -1,0 +1,102 @@
+{
+  "drop30": {
+    "SYN_clean_drop30_w5": {
+      "leg_distal_R": 0.6024644621260018,
+      "n_bone_obs": 144,
+      "part_leg_distal_dist_mean": 0.008977090124972165,
+      "part_antenna_dist_mean": 0.010588228818960488,
+      "degenerate_tri_frac": 0.0,
+      "folded_face_frac": 0.0035587476450018585
+    },
+    "SYN_clean_drop30_gncmedium_w5": {
+      "leg_distal_R": 0.7784198170413477,
+      "n_bone_obs": 144,
+      "part_leg_distal_dist_mean": 0.009689464000985026,
+      "part_antenna_dist_mean": 0.011670305277220905,
+      "degenerate_tri_frac": 0.0,
+      "folded_face_frac": 0.0028719717908340194
+    },
+    "SYN_clean_drop30_gnclegonlytopofree_w5": {
+      "leg_distal_R": 0.7970715604404135,
+      "n_bone_obs": 144,
+      "part_leg_distal_dist_mean": 0.009247452990772823,
+      "part_antenna_dist_mean": 0.01029249521282812,
+      "degenerate_tri_frac": 0.0,
+      "folded_face_frac": 0.003537031433855494
+    },
+    "delta_R_topofree_vs_baseline": 0.1946070983144117,
+    "pct_antenna_cost_topofree": -2.7930413215361707,
+    "delta_R_topofree_vs_gnc_medium": 0.018651743399065834,
+    "topofree_beats_gnc_medium": true
+  },
+  "drop60": {
+    "SYN_clean_drop60_w5": {
+      "leg_distal_R": 0.411432235032235,
+      "n_bone_obs": 144,
+      "part_leg_distal_dist_mean": 0.010577308246865869,
+      "part_antenna_dist_mean": 0.011247047844032446,
+      "degenerate_tri_frac": 0.0,
+      "folded_face_frac": 0.003751479283285638
+    },
+    "SYN_clean_drop60_gncmedium_w5": {
+      "leg_distal_R": 0.609400898420235,
+      "n_bone_obs": 144,
+      "part_leg_distal_dist_mean": 0.01310158206615597,
+      "part_antenna_dist_mean": 0.012612849629173676,
+      "degenerate_tri_frac": 0.0,
+      "folded_face_frac": 0.002752532532516246
+    },
+    "SYN_clean_drop60_gnclegonlytopofree_w5": {
+      "leg_distal_R": 0.6072731664127862,
+      "n_bone_obs": 144,
+      "part_leg_distal_dist_mean": 0.011257509351707995,
+      "part_antenna_dist_mean": 0.011189901774438718,
+      "degenerate_tri_frac": 0.0,
+      "folded_face_frac": 0.0035234588043143353
+    },
+    "delta_R_topofree_vs_baseline": 0.19584093138055114,
+    "pct_antenna_cost_topofree": -0.508098395118401,
+    "delta_R_topofree_vs_gnc_medium": -0.002127732007448868,
+    "topofree_beats_gnc_medium": false
+  },
+  "n50_control": {
+    "N50_baseline": {
+      "seed_R": [
+        0.7175396065370103,
+        0.6656832107948256
+      ],
+      "mean_R": 0.691611408665918,
+      "seed_antenna": [
+        0.009423570139333606,
+        0.009488329561427235
+      ],
+      "mean_antenna": 0.00945594985038042
+    },
+    "N50_gnc_legonly": {
+      "seed_R": [
+        0.8314262935223814,
+        0.8257460472971423
+      ],
+      "mean_R": 0.8285861704097619,
+      "seed_antenna": [
+        0.00838896218687296,
+        0.008888188591226935
+      ],
+      "mean_antenna": 0.008638575389049948
+    },
+    "N50_gnc_legonly_topofree": {
+      "seed_R": [
+        0.829980583793466,
+        0.8082672310587637
+      ],
+      "mean_R": 0.8191239074261149,
+      "seed_antenna": [
+        0.009455781765282154,
+        0.00936713264323771
+      ],
+      "mean_antenna": 0.009411457204259932
+    },
+    "delta_R_topofree_vs_exact_legonly": -0.009462262983647052,
+    "delta_R_topofree_vs_baseline": 0.12751249876019688
+  }
+}

@@ -1,0 +1,40 @@
+=== task 0: corpus=synth_clean label=pose25 ===
+Wed Aug 19 06:32:40 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.178.04             Driver Version: 580.178.04     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA H100                    On  |   00000000:AD:00.0 Off |                    0 |
+| N/A   43C    P0             72W /  600W |       0MiB /  95830MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+12 target meshes loaded.
+/rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/cycle2_20260819/b3_ceiling_isolated.py:67: DeprecationWarning: numpy.core.numeric is deprecated and has been renamed to numpy._core.numeric. The numpy._core namespace contains private NumPy internals and its use is discouraged, as NumPy internals can change without warning in any release. In practice, most real-world usage of numpy.core is to access functionality in the public NumPy API. If that is the case, use the public NumPy API. If not, you are using NumPy internals. If you would still like to access an internal attribute, use numpy._core.numeric._frombuffer.
+  dd = pickle.load(f, encoding="latin1")
+    [B3_ceiling_protected]    0/1200 loss=0.017022  chamfer=0.00567  sym=0.00000  mid=0.00568
+    [B3_ceiling_protected]  100/1200 loss=0.003153  chamfer=0.00188  sym=0.00025  mid=0.00057
+    [B3_ceiling_protected]  200/1200 loss=0.002248  chamfer=0.00144  sym=0.00021  mid=0.00035
+    [B3_ceiling_protected]  300/1200 loss=0.001944  chamfer=0.00129  sym=0.00020  mid=0.00028
+    [B3_ceiling_protected]  400/1200 loss=0.001790  chamfer=0.00122  sym=0.00019  mid=0.00024
+    [B3_ceiling_protected]  500/1200 loss=0.001692  chamfer=0.00117  sym=0.00017  mid=0.00022
+    [B3_ceiling_protected]  600/1200 loss=0.001617  chamfer=0.00114  sym=0.00016  mid=0.00020
+    [B3_ceiling_protected]  700/1200 loss=0.001574  chamfer=0.00112  sym=0.00016  mid=0.00019
+    [B3_ceiling_protected]  800/1200 loss=0.001546  chamfer=0.00110  sym=0.00015  mid=0.00018
+    [B3_ceiling_protected]  900/1200 loss=0.001527  chamfer=0.00110  sym=0.00015  mid=0.00018
+    [B3_ceiling_protected] 1000/1200 loss=0.001524  chamfer=0.00110  sym=0.00015  mid=0.00018
+    [B3_ceiling_protected] 1100/1200 loss=0.001518  chamfer=0.00110  sym=0.00015  mid=0.00017
+    [B3_ceiling_protected] 1199/1200 loss=0.001521  chamfer=0.00110  sym=0.00015  mid=0.00017
+[b3] max abs joint_rot drift from GT init after 1200 its: 0.0
+[b3] wrote diagnostics/cycle2_20260819/runs/B3_CEILING_PROTECTED_pose25/B3_ceiling_protected.npz
+=== task 0 DONE ===

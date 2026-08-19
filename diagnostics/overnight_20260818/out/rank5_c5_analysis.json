@@ -1,0 +1,36 @@
+{
+  "pose25": {
+    "SYN_clean_w5": {
+      "part_leg_distal_dist_mean": 0.009092146530747414,
+      "part_antenna_dist_mean": 0.009964715922251344,
+      "leg_distal_R": 0.6536973094324285
+    },
+    "SYN_clean_pose25_splitdistal_w5": {
+      "part_leg_distal_dist_mean": 0.007356351551910241,
+      "part_antenna_dist_mean": 0.010175847176772853,
+      "leg_distal_R": 0.8097376169283866
+    },
+    "SYN_clean_pose25_c5protected_w5": {
+      "part_leg_distal_dist_mean": 0.007651483562464516,
+      "part_antenna_dist_mean": 0.010374154856738945,
+      "leg_distal_R": 0.8092687233575941
+    }
+  },
+  "pose0": {
+    "SYN_clean_pose0_w5": {
+      "part_leg_distal_dist_mean": 0.005333727885348101,
+      "part_antenna_dist_mean": 0.0072518662782385945,
+      "leg_distal_R": 0.8518610845754759
+    },
+    "SYN_clean_pose0_splitdistal_w5": {
+      "part_leg_distal_dist_mean": 0.005256122288604577,
+      "part_antenna_dist_mean": 0.007242147519718856,
+      "leg_distal_R": 0.8977546416804654
+    },
+    "SYN_clean_pose0_c5protected_w5": {
+      "part_leg_distal_dist_mean": 0.00522872192474703,
+      "part_antenna_dist_mean": 0.007174942429022242,
+      "leg_distal_R": 0.9064713106839761
+    }
+  }
+}

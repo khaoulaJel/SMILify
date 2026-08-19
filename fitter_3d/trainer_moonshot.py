@@ -253,6 +253,69 @@ def robust_chamfer(
     return loss, align_loss, info
 
 
+def robust_chamfer_leg_split_topofree(src_leg, src_nonleg, tgt_pts, kernel="gm", scale=1.0, trim_frac=0.0):
+    """Topology-free version of the `robust_leg_only` leg/non-leg kernel split (B4's
+    `gnc_legonly` arm on drop30/drop60 crashed because `sample_leg_nonleg_split` assumes the
+    TARGET mesh shares the template's face indexing, which damaged/decimated corpora violate --
+    see manifest.json's b4_gnc_legonly_damage FAILED entry).
+
+    Only the SOURCE side needs template topology (always true: `src_mesh` is the fitted SMAL
+    output, never damaged), so `src_leg`/`src_nonleg` are still drawn via the existing
+    face-pool sampler. `tgt_pts` must instead come from plain uniform-area sampling on the
+    (possibly arbitrary-topology) target mesh -- no face-index assumption on it at all.
+
+    Direction src->tgt: each src point's group is already known (which pool it was drawn from).
+    Direction tgt->src: each target point's nearest neighbour is a SOURCE point, whose group is
+    known -- the label transfers via nearest-neighbour correspondence, standard label transfer,
+    not a topology assumption.
+    """
+    n_leg, n_nonleg = src_leg.shape[1], src_nonleg.shape[1]
+    frac_leg = n_leg / max(n_leg + n_nonleg, 1)
+    src_all = torch.cat([src_leg, src_nonleg], dim=1)
+
+    d_fwd_leg = knn_points(src_leg, tgt_pts, K=1).dists[..., 0]
+    d_fwd_nonleg = knn_points(src_nonleg, tgt_pts, K=1).dists[..., 0]
+    bwd = knn_points(tgt_pts, src_all, K=1)
+    d_bwd = bwd.dists[..., 0]
+    is_leg_bwd = bwd.idx[..., 0] < n_leg
+
+    def reduce_full(d, kind, sc):
+        r = robust_kernel(d, kind, sc)
+        if trim_frac > 0.0:
+            k = max(1, int(round(r.shape[1] * (1.0 - trim_frac))))
+            r, _ = torch.sort(r, dim=1)
+            r = r[:, :k]
+        return r.mean()
+
+    def reduce_masked(d, kind, sc, mask):
+        r = robust_kernel(d, kind, sc)
+        if trim_frac <= 0.0:
+            mask_f = mask.float()
+            denom = mask_f.sum(dim=1).clamp_min(1.0)
+            return ((r * mask_f).sum(dim=1) / denom).mean()
+        # small batches in practice -- per-row loop is fine; unused by any current recipe since
+        # every gnc_* config here has trim_frac unset (0.0)
+        out = []
+        for b in range(r.shape[0]):
+            vals = r[b][mask[b]]
+            if vals.numel() == 0:
+                continue
+            k = max(1, int(round(vals.numel() * (1.0 - trim_frac))))
+            vals_sorted, _ = torch.sort(vals)
+            out.append(vals_sorted[:k].mean())
+        return torch.stack(out).mean() if out else d.new_tensor(0.0)
+
+    l_leg = reduce_full(d_fwd_leg, kernel, scale) + reduce_masked(d_bwd, kernel, scale, is_leg_bwd)
+    l_nonleg = reduce_full(d_fwd_nonleg, "l2", 1.0) + reduce_masked(d_bwd, "l2", 1.0, ~is_leg_bwd)
+    loss = frac_leg * l_leg + (1.0 - frac_leg) * l_nonleg
+    info = {
+        "chamfer_raw": float((d_fwd_leg.mean() + d_fwd_nonleg.mean() + d_bwd.mean()).item()),
+        "frac_beyond_scale": float((d_fwd_leg.sqrt() > scale).float().mean().item()),
+        "frac_tgt_matched_leg": float(is_leg_bwd.float().mean().item()),
+    }
+    return loss, info
+
+
 def rest_edge_loss(pred_verts, rest_verts, faces):
     """Penalise edge-length distortion introduced by FREE-FORM OFFSETS only.
 
@@ -313,6 +376,11 @@ class MoonshotStage:
         corr_ratio=0.9,
         corr_blur=0.05,
         corr_blur_end=None,
+        robust_leg_only=False,
+        robust_leg_only_topofree=False,
+        leg_face_mask=None,
+        template_faces=None,
+        template_verts=None,
     ):
         self.n_it = nits
         self.name = name
@@ -329,6 +397,24 @@ class MoonshotStage:
         # the loss starts near-convex (wide basin) and progressively rejects outliers.
         self.robust_scale_end = robust_scale if robust_scale_end is None else robust_scale_end
         self.trim_frac = trim_frac
+        # cycle2_20260819 B1 extra arm: opt-in, default-off. Tests whether the antenna
+        # regression under global GNC (see overnight_20260818/OVERNIGHT_REPORT.md Rank 4) is a
+        # leg-specific effect leaking outward, or a consequence of narrowing the kernel
+        # globally -- anneal the GM scale ONLY on leg-derived residuals; non-leg residuals
+        # (antenna/head/body) get plain L2, exactly matching D1_low.yaml's baseline treatment
+        # of those points, so their loss landscape is untouched by this flag by construction.
+        self.robust_leg_only = robust_leg_only
+        # topology-free variant (see robust_chamfer_leg_split_topofree docstring): only assumes
+        # the SOURCE mesh has template topology, so this one also runs on damage/decimated
+        # target corpora where robust_leg_only's face-index target split crashes (B4 FAILED).
+        self.robust_leg_only_topofree = robust_leg_only_topofree
+        self.leg_face_mask = leg_face_mask
+        self.template_faces = template_faces
+        self.template_verts = template_verts
+        assert not (robust_leg_only and robust_leg_only_topofree), "mutually exclusive"
+        if robust_leg_only or robust_leg_only_topofree:
+            assert leg_face_mask is not None and template_faces is not None and template_verts is not None
+            assert robust_kernel != "l2", "robust_leg_only(_topofree) requires a non-l2 robust_kernel to be meaningful"
         self.lr_decay = lr_decay
         self.log_every = log_every
         # 'rest' = deviation from template rest edge lengths (the fix).
@@ -424,7 +510,44 @@ class MoonshotStage:
             src_nrm = tgt_nrm = None
 
         if lw["w_chamfer"] > 0:
-            if self.corr_mode == "chamfer":
+            if self.robust_leg_only and self.corr_mode == "chamfer":
+                # split into leg / non-leg point pools (fixed sizes, template-derived, see
+                # sample_leg_nonleg_split) INSTEAD of the plain global src_pts/tgt_pts drawn
+                # above -- leg residuals get the annealed kernel, non-leg get plain L2
+                # (identical to D1_low.yaml's baseline treatment of those points).
+                from fitter_3d.stratified_sampling import sample_leg_nonleg_split
+
+                src_leg, src_nonleg = sample_leg_nonleg_split(
+                    src_mesh, self.template_faces, self.n_sample, self.leg_face_mask, self.template_verts
+                )
+                tgt_leg, tgt_nonleg = sample_leg_nonleg_split(
+                    self.target_meshes, self.template_faces, self.n_sample, self.leg_face_mask, self.template_verts
+                )
+                n_leg, n_nonleg = src_leg.shape[1], src_nonleg.shape[1]
+                l_ch_leg, _, info_leg = robust_chamfer(
+                    src_leg, tgt_leg, kernel=self.robust_kernel_kind, scale=self._current_scale(it),
+                    trim_frac=self.trim_frac,
+                )
+                l_ch_nonleg, _, info_nonleg = robust_chamfer(src_nonleg, tgt_nonleg, kernel="l2", scale=1.0)
+                frac_leg = n_leg / max(n_leg + n_nonleg, 1)
+                l_ch = frac_leg * l_ch_leg + (1.0 - frac_leg) * l_ch_nonleg
+                l_align = None
+                info = dict(info_nonleg, **{f"leg_{k}": v for k, v in info_leg.items()})
+            elif self.robust_leg_only_topofree and self.corr_mode == "chamfer":
+                # source-side split only (always template topology); tgt_pts is the plain
+                # uniform sample drawn above, valid on any target topology including damage
+                # corpora -- see robust_chamfer_leg_split_topofree's docstring.
+                from fitter_3d.stratified_sampling import sample_leg_nonleg_split
+
+                src_leg, src_nonleg = sample_leg_nonleg_split(
+                    src_mesh, self.template_faces, self.n_sample, self.leg_face_mask, self.template_verts
+                )
+                l_ch, info = robust_chamfer_leg_split_topofree(
+                    src_leg, src_nonleg, tgt_pts, kernel=self.robust_kernel_kind,
+                    scale=self._current_scale(it), trim_frac=self.trim_frac,
+                )
+                l_align = None
+            elif self.corr_mode == "chamfer":
                 l_ch, l_align, info = robust_chamfer(
                     src_pts,
                     tgt_pts,

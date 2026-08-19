@@ -1,0 +1,127 @@
+{
+  "n_calibrated_total": 276,
+  "n_after_min_n_filter": 149,
+  "n_genera": 29,
+  "n_lots": 27,
+  "min_n_genus": 3,
+  "three_arm": {
+    "A_proportions_only": {
+      "n": 149,
+      "n_genus": 29,
+      "n_lots": 27,
+      "accuracy": 0.14093959731543623,
+      "null_mean": 0.044882550335570474,
+      "null_std": 0.01982973757794721,
+      "p_value": 0.0,
+      "lift": 3.14018691588785,
+      "ci95_lo": 0.04377831613390385,
+      "ci95_hi": 0.19673958442100864
+    },
+    "B_absolute_only": {
+      "n": 149,
+      "n_genus": 29,
+      "n_lots": 27,
+      "accuracy": 0.10738255033557047,
+      "null_mean": 0.04605704697986576,
+      "null_std": 0.02043245989408872,
+      "p_value": 0.0075,
+      "lift": 2.3315118397085612,
+      "ci95_lo": 0.0349604743083004,
+      "ci95_hi": 0.18868254387122313
+    },
+    "C_proportions_plus_absolute": {
+      "n": 149,
+      "n_genus": 29,
+      "n_lots": 27,
+      "accuracy": 0.1476510067114094,
+      "null_mean": 0.044060402684563765,
+      "null_std": 0.020207668076893393,
+      "p_value": 0.0,
+      "lift": 3.3511043412033508,
+      "ci95_lo": 0.057838079696794234,
+      "ci95_hi": 0.21328902714932121
+    }
+  },
+  "size_predicts_lot": {
+    "accuracy": 0.08053691275167785,
+    "null_mean": 0.04167785234899329,
+    "null_std": 0.018936286508027703,
+    "p_value": 0.0375,
+    "lift": 1.932367149758454
+  },
+  "size_lot_confound_flag": true,
+  "distribution": {
+    "size_mm_min": 0.13331017890336522,
+    "size_mm_max": 5.006683105937099,
+    "size_mm_median": 0.4546908215645876,
+    "top_genus": "strumigenys",
+    "top_genus_frac": 0.05434782608695652,
+    "top_lot": "CASENT7442",
+    "top_lot_frac": 0.08333333333333333,
+    "n_genera_total": 127,
+    "n_lots_total": 32
+  },
+  "pc_vs_size_correlation": {
+    "PC1": {
+      "r": -0.061930656027025584,
+      "p": 0.4530655754683775,
+      "regression_slope": -0.217312863859771,
+      "regression_r2": 0.0038354061559377583
+    },
+    "PC2": {
+      "r": 0.12880330184616443,
+      "p": 0.1174582185195661,
+      "regression_slope": 0.32412487209468305,
+      "regression_r2": 0.016590290566474142
+    },
+    "PC3": {
+      "r": -0.00822645146188029,
+      "p": 0.9206836256500014,
+      "regression_slope": -0.016147343277338574,
+      "regression_r2": 6.76745036546722e-05
+    }
+  },
+  "pc1_shape_vs_combined_correlation": 0.08122771178625303,
+  "ecology": {
+    "n_labeled": 53,
+    "guild_counts": {
+      "arboreal": 9,
+      "trap-jaw": 20,
+      "army ant": 20,
+      "leafcutter/fungus-grower": 4
+    },
+    "guild_classification": {
+      "A_proportions_only": {
+        "n": 53,
+        "n_guild": 4,
+        "accuracy": 0.5471698113207547,
+        "null_mean": 0.3120283018867925,
+        "p_value": 0.0,
+        "lift": 1.7535903250188962
+      },
+      "B_absolute_only": {
+        "n": 53,
+        "n_guild": 4,
+        "accuracy": 0.5471698113207547,
+        "null_mean": 0.3197641509433963,
+        "p_value": 0.0025,
+        "lift": 1.7111668387667796
+      },
+      "C_proportions_plus_absolute": {
+        "n": 53,
+        "n_guild": 4,
+        "accuracy": 0.6037735849056604,
+        "null_mean": 0.3175,
+        "p_value": 0.0,
+        "lift": 1.9016490863170405
+      }
+    },
+    "pc1_guild_eta2_shape": 0.2171695375874684,
+    "pc1_guild_eta2_combined": 0.25797784761295073,
+    "size_alone_predicts_guild": {
+      "accuracy": 0.5471698113207547,
+      "null_mean": 0.3197641509433963,
+      "p_value": 0.0025
+    }
+  }
+}

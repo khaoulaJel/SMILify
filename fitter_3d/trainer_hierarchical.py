@@ -322,6 +322,12 @@ class HierarchicalStage:
         partition=None,
         chamfer_groups=None,
         soft_partition=0.0,
+        distal_quota=None,
+        distal_face_mask=None,
+        template_faces=None,
+        distal_quota_protected=None,
+        leg_face_mask=None,
+        template_verts=None,
     ):
         self.name = name
         self.n_it = nits
@@ -330,6 +336,27 @@ class HierarchicalStage:
         self.device = device
         self.out_dir = out_dir
         self.n_sample = n_sample
+        # Intervention C (Task 7): opt-in, default-off stratified TARGET sampling. None (every
+        # existing caller) preserves today's exact `sample_points_from_meshes` behaviour -- see
+        # `run()` and diagnostics/registration_interventions/MECHANISM_C.md.
+        self.distal_quota = distal_quota
+        self.distal_face_mask = distal_face_mask
+        self.template_faces = template_faces
+        if distal_quota is not None:
+            assert distal_face_mask is not None and template_faces is not None, (
+                "distal_quota requires distal_face_mask and template_faces (topology-preserving "
+                "corpora only -- see MECHANISM_C.md)"
+            )
+        # Rank 5 (overnight_20260818, master prompt Section 11 C5): opt-in, default-off,
+        # MUTUALLY EXCLUSIVE with distal_quota (a different sampler, not a modifier of it -- see
+        # fitter_3d/stratified_sampling.py:sample_target_distal_protected). None preserves
+        # today's exact behaviour for every existing caller.
+        self.distal_quota_protected = distal_quota_protected
+        self.leg_face_mask = leg_face_mask
+        self.template_verts = template_verts
+        if distal_quota_protected is not None:
+            assert distal_quota is None, "distal_quota and distal_quota_protected are separate arms, do not combine"
+            assert distal_face_mask is not None and template_faces is not None and leg_face_mask is not None and template_verts is not None
         self.reassign_every = reassign_every
         self.log_every = log_every
         self.partitioned = partitioned
@@ -563,8 +590,26 @@ class HierarchicalStage:
 
         return loss, comp
 
+    def _sample_targets(self, n):
+        """TARGET sampling only -- SOURCE sampling (line ~487, `mesh`) is untouched by either
+        `distal_quota` or `distal_quota_protected`, see MECHANISM_C.md."""
+        if self.distal_quota_protected is not None:
+            from fitter_3d.stratified_sampling import sample_target_distal_protected
+
+            return sample_target_distal_protected(
+                self.targets, self.template_faces, n, self.leg_face_mask, self.distal_face_mask,
+                self.distal_quota_protected, self.template_verts,
+            )
+        if self.distal_quota is None:
+            return sample_points_from_meshes(self.targets, n)
+        from fitter_3d.stratified_sampling import sample_target_stratified
+
+        return sample_target_stratified(
+            self.targets, self.template_faces, n, self.distal_face_mask, self.distal_quota
+        )
+
     def run(self):
-        tgt_pts = sample_points_from_meshes(self.targets, self.n_sample)
+        tgt_pts = self._sample_targets(self.n_sample)
         # frozen probe set for an honest churn measurement (see TargetPartition.set_probes)
         self.part.set_probes(sample_points_from_meshes(self.targets, 3000).detach())
         for i in range(self.n_it):
@@ -575,7 +620,7 @@ class HierarchicalStage:
             if self.partitioned and (i % self.reassign_every == 0):
                 # resample the target periodically too, so the partition is not fitted to
                 # one fixed point sample
-                tgt_pts = sample_points_from_meshes(self.targets, self.n_sample)
+                tgt_pts = self._sample_targets(self.n_sample)
                 churn = self.part.update(fitted.detach(), tgt_pts)
                 if churn is not None:
                     self.churn_history.append(churn)

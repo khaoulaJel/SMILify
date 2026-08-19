@@ -1,0 +1,26 @@
+{
+  "SYN_clean_w5": {
+    "chamfer_l2": 0.00026446660558576696,
+    "part_leg_distal_dist_mean": 0.009092146530747414,
+    "part_antenna_dist_mean": 0.009964715922251344,
+    "leg_distal_R": 0.6536973094324285
+  },
+  "GNC_fast": {
+    "chamfer_l2": 0.0030177272856235504,
+    "part_leg_distal_dist_mean": 0.008503904372143248,
+    "part_antenna_dist_mean": 0.014758436164508263,
+    "leg_distal_R": 0.8568392417006214
+  },
+  "GNC_medium": {
+    "chamfer_l2": 0.0015366188939272736,
+    "part_leg_distal_dist_mean": 0.008121914463117719,
+    "part_antenna_dist_mean": 0.011429476008440057,
+    "leg_distal_R": 0.8285749567692055
+  },
+  "GNC_slow": {
+    "chamfer_l2": 0.0008814272781213125,
+    "part_leg_distal_dist_mean": 0.008931107314613959,
+    "part_antenna_dist_mean": 0.010192759218625724,
+    "leg_distal_R": 0.7579648446382239
+  }
+}

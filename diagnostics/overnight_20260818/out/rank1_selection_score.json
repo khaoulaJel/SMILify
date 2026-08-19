@@ -1,0 +1,183 @@
+{
+  "n_runs_found": 29,
+  "n_pooled_observations": 336,
+  "skipped_runs": [
+    [
+      "D1_N50_SEED0",
+      "synth_D1_N50_SEED0",
+      "no matching corpus/ground_truth.npz"
+    ]
+  ],
+  "analysis_A_pooled_spearman": {
+    "chamfer_l2": {
+      "rho": 0.6245885873725903,
+      "p": 9.52894824096966e-38,
+      "direction": "higher=worse"
+    },
+    "deform_mag_mean": {
+      "rho": 0.39745591668617497,
+      "p": 3.659443685538377e-14,
+      "direction": "higher=worse"
+    },
+    "deform_mag_p95": {
+      "rho": 0.413513188613946,
+      "p": 2.6085625643559498e-15,
+      "direction": "higher=worse"
+    },
+    "edge_logratio_absmean": {
+      "rho": 0.20997703302056905,
+      "p": 0.00010535439656292863,
+      "direction": "higher=worse"
+    },
+    "midline_dev_excess": {
+      "rho": -0.03186241324112798,
+      "p": 0.5605539134210613,
+      "direction": "higher=worse"
+    },
+    "part_leg_distal_dist_mean": {
+      "rho": 0.7917597261678044,
+      "p": 1.731463574379877e-73,
+      "direction": "higher=worse"
+    },
+    "part_leg_distal_dist_p95": {
+      "rho": 0.7631224968839566,
+      "p": 2.6969822288058703e-65,
+      "direction": "higher=worse"
+    },
+    "part_leg_distal_within_tau": {
+      "rho": 0.7122912033949446,
+      "p": 2.744580301967836e-53,
+      "direction": "flipped (raw score higher=better)"
+    }
+  },
+  "analysis_B_oracle_gap": {
+    "pose25": {
+      "status": "OK",
+      "n_hypotheses": 6,
+      "hypothesis_runs": [
+        "SYN_clean_w5",
+        "SYN_clean_pose25_splitdistal_w5",
+        "SYN_clean_pose25_stratq05_w5",
+        "SYN_clean_pose25_stratq10_w5",
+        "SYN_clean_pose25_stratq20_w5",
+        "SYN_clean_pose25_gtinit_w5"
+      ],
+      "missing_runs": [],
+      "n_specimens_scored": 12,
+      "recovered_frac_mean": {
+        "chamfer_l2": 0.21558758788421506,
+        "deform_mag_mean": 0.5637249775570924,
+        "deform_mag_p95": 0.6303577077742278,
+        "edge_logratio_absmean": 0.5471265459058017,
+        "midline_dev_excess": 0.10519418488911625,
+        "part_leg_distal_dist_mean": 0.44662809511056883,
+        "part_leg_distal_dist_p95": 0.7573513576503289,
+        "part_leg_distal_within_tau": 0.640662612438322
+      },
+      "recovered_frac_median": {
+        "chamfer_l2": 1.0,
+        "deform_mag_mean": 0.9405611671503669,
+        "deform_mag_p95": 1.0,
+        "edge_logratio_absmean": 0.5453260302326629,
+        "midline_dev_excess": 0.5286434116701163,
+        "part_leg_distal_dist_mean": 0.8747011167320569,
+        "part_leg_distal_dist_p95": 0.8747011167320569,
+        "part_leg_distal_within_tau": 0.9493764833550281
+      }
+    },
+    "pose0": {
+      "status": "OK",
+      "n_hypotheses": 5,
+      "hypothesis_runs": [
+        "SYN_clean_pose0_w5",
+        "SYN_clean_pose0_splitdistal_w5",
+        "SYN_clean_pose0_stratq05_w5",
+        "SYN_clean_pose0_stratq10_w5",
+        "SYN_clean_pose0_stratq20_w5"
+      ],
+      "missing_runs": [],
+      "n_specimens_scored": 11,
+      "recovered_frac_mean": {
+        "chamfer_l2": -1.832630210072396,
+        "deform_mag_mean": -2.7124524055533636,
+        "deform_mag_p95": -0.39805517106763594,
+        "edge_logratio_absmean": -0.008310211852640288,
+        "midline_dev_excess": -4.259694101109307,
+        "part_leg_distal_dist_mean": -3.3321783434162806,
+        "part_leg_distal_dist_p95": -3.441335193927867,
+        "part_leg_distal_within_tau": -1.5084527276548594
+      },
+      "recovered_frac_median": {
+        "chamfer_l2": 0.5205349189898449,
+        "deform_mag_mean": 0.4043622780071365,
+        "deform_mag_p95": 0.4133419488942217,
+        "edge_logratio_absmean": 0.6430036167155737,
+        "midline_dev_excess": 0.2251529722424718,
+        "part_leg_distal_dist_mean": 0.0,
+        "part_leg_distal_dist_p95": -0.06987770137073036,
+        "part_leg_distal_within_tau": 0.0
+      }
+    }
+  },
+  "analysis_B_combined_across_sets": {
+    "chamfer_l2": {
+      "weighted_mean": -0.7639948372254686,
+      "per_set": {
+        "pose25": 0.21558758788421506,
+        "pose0": -1.832630210072396
+      }
+    },
+    "deform_mag_mean": {
+      "weighted_mean": -1.0031424665392128,
+      "per_set": {
+        "pose25": 0.5637249775570924,
+        "pose0": -2.7124524055533636
+      }
+    },
+    "deform_mag_p95": {
+      "weighted_mean": 0.13850807006724952,
+      "per_set": {
+        "pose25": 0.6303577077742278,
+        "pose0": -0.39805517106763594
+      }
+    },
+    "edge_logratio_absmean": {
+      "weighted_mean": 0.28148287915176423,
+      "per_set": {
+        "pose25": 0.5471265459058017,
+        "pose0": -0.008310211852640288
+      }
+    },
+    "midline_dev_excess": {
+      "weighted_mean": -1.982361082327521,
+      "per_set": {
+        "pose25": 0.10519418488911625,
+        "pose0": -4.259694101109307
+      }
+    },
+    "part_leg_distal_dist_mean": {
+      "weighted_mean": -1.3606271580979243,
+      "per_set": {
+        "pose25": 0.44662809511056883,
+        "pose0": -3.3321783434162806
+      }
+    },
+    "part_leg_distal_dist_p95": {
+      "weighted_mean": -1.2507161235392432,
+      "per_set": {
+        "pose25": 0.7573513576503289,
+        "pose0": -3.441335193927867
+      }
+    },
+    "part_leg_distal_within_tau": {
+      "weighted_mean": -0.3871751589105909,
+      "per_set": {
+        "pose25": 0.640662612438322,
+        "pose0": -1.5084527276548594
+      }
+    }
+  },
+  "best_blind_score": "edge_logratio_absmean",
+  "best_recovered_frac": 0.28148287915176423,
+  "gating_verdict": "MIXED / DO NOT PROMOTE: best combined recovered_frac=0.281 (score=edge_logratio_absmean) does not clear the 60% threshold. Additionally, this figure is an artifact of averaging positive recovered_frac at one pose severity against strongly NEGATIVE recovered_frac (worse than picking baseline blind) at another -- no score tested is sign-consistent across regimes. Per the master prompt's decision rule this does not license promoting family D; treat multi-start evidence (Rank/family D) as a diagnostic result about the optimization landscape only (Section 6/H1), not a deployable selector, until a selector clears 60% with a consistent sign across regimes."
+}

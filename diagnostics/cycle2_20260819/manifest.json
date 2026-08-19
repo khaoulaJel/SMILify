@@ -1,0 +1,429 @@
+{
+  "baseline_commit": "46d05fe20b905396edce5b62e1178ab01b226693",
+  "baseline_note": "builds on all of diagnostics/overnight_20260818's cycle-1 changes (uncommitted working tree, see that manifest.json). This cycle adds: fitter_3d/trainer_moonshot.py MoonshotStage.robust_leg_only + fitter_3d/stratified_sampling.py sample_leg_nonleg_split (for B1 arm 4); fitter_3d/optimise_moonshot.py leg_only_common plumbing; diagnostics/moonshot/synth_clean_n50 (new N=50 ground-truth corpus, seed=777).",
+  "experiments": [
+    {
+      "name": "a2_within_leg_deepdive",
+      "track": "A",
+      "command": "python diagnostics/cycle2_20260819/a2_within_leg_deepdive.py",
+      "baseline_commit": "46d05fe2 + cycle1 diff",
+      "specimen_subset": "9 conditions x 12 specimens each (pose0..pose35, drop30, drop60), reusing existing fits",
+      "seed": "rng seed 2 for the audit's own point resampling (analysis-only, not a fitting seed)",
+      "start_time": "2026-08-19T (session start)",
+      "end_time": "2026-08-19T (same session)",
+      "status": "COMPLETED",
+      "output_path": "diagnostics/cycle2_20260819/out/a2_within_leg_deepdive.json",
+      "primary_metrics": {
+        "chain_adjacent_fraction_of_mismatch": "0.82-0.96 across all 6 segments",
+        "spearman_density_vs_mismatch": {
+          "rho": -0.829,
+          "p": 0.042,
+          "n": 6
+        }
+      },
+      "mechanism_specific_metrics": "full confusion matrix per condition in the JSON",
+      "interpretation": "Within-leg mismatch is systematic (chain-adjacent) AND strongly explained by target sampling density -- both point to the same H3 (sampling) mechanism rather than a distinct correspondence-ambiguity mechanism.",
+      "prediction_supported": "SUPPORTED the sampling-density explanation, per the task list's own gate",
+      "collateral_regressions": "none (analysis only)",
+      "next": "B5 (compatibility-restricted matching) NOT built this cycle per the pre-registered gate; effort redirected to sampling-side fixes (B3)"
+    },
+    {
+      "name": "b3_ceiling_pose25",
+      "track": "B",
+      "command": "sbatch diagnostics/cycle2_20260819/b3_ceiling.sbatch (array task 0): python diagnostics/cycle2_20260819/b3_ceiling_isolated.py --mesh_dir diagnostics/moonshot/synth_clean --results_dir diagnostics/cycle2_20260819/runs/B3_CEILING_PROTECTED_pose25 --nits 1200 --quota 0.3",
+      "baseline_commit": "46d05fe2 + cycle1 diff + this cycle's stratified_sampling.py reuse (no new code needed, Rank 5's sampler reused as-is)",
+      "specimen_subset": "diagnostics/moonshot/synth_clean, all 12 specimens",
+      "seed": 0,
+      "slurm_job": "3061248_0",
+      "start_time": "2026-08-19T",
+      "end_time": "2026-08-19T",
+      "status": "COMPLETED",
+      "output_path": "diagnostics/cycle2_20260819/runs/B3_CEILING_PROTECTED_pose25",
+      "primary_metrics": {
+        "leg_distal_R": 0.62,
+        "mean_relerr": 0.277,
+        "vs_normal_sampler_ceiling_R": 0.533,
+        "vs_baseline_full_pipeline_R": 0.654,
+        "joint_rot_drift_from_gt": 0.0
+      },
+      "mechanism_specific_metrics": "see diagnostics/cycle2_20260819/out/b3_ceiling_2x2.json",
+      "interpretation": "Leg-protected sampler improves the ceiling substantially (+0.087 R) over the confounded Rank 2 ceiling, confirming H3 was a real confound. Still slightly below the full pipeline (0.654) at this pose severity.",
+      "prediction_supported": "SUPPORTED -- sampler fix improves the isolated ceiling",
+      "collateral_regressions": "n/a (measurement)",
+      "next": "see pose35 arm and closing synthesis"
+    },
+    {
+      "name": "b3_ceiling_pose35",
+      "track": "B",
+      "command": "sbatch diagnostics/cycle2_20260819/b3_ceiling.sbatch (array task 1), corpus=synth_clean_pose35, results_dir=diagnostics/cycle2_20260819/runs/B3_CEILING_PROTECTED_pose35",
+      "baseline_commit": "46d05fe2 + cycle1 diff",
+      "specimen_subset": "diagnostics/moonshot/synth_clean_pose35, all 12 specimens",
+      "seed": 0,
+      "slurm_job": "3061248_1",
+      "start_time": "2026-08-19T",
+      "end_time": "2026-08-19T",
+      "status": "COMPLETED",
+      "output_path": "diagnostics/cycle2_20260819/runs/B3_CEILING_PROTECTED_pose35",
+      "primary_metrics": {
+        "leg_distal_R": 0.855,
+        "mean_relerr": 0.201,
+        "vs_normal_sampler_ceiling_R": 0.769,
+        "vs_baseline_full_pipeline_R": 0.519,
+        "joint_rot_drift_from_gt": 0.0
+      },
+      "mechanism_specific_metrics": "see diagnostics/cycle2_20260819/out/b3_ceiling_2x2.json",
+      "interpretation": "Leg-protected sampler ceiling (0.855) clearly EXCEEDS the full baseline pipeline (0.519, +0.336) at this pose severity -- substantial genuine headroom exists if pose+sampling were both fixed.",
+      "prediction_supported": "STRONGLY SUPPORTED",
+      "collateral_regressions": "n/a (measurement)",
+      "next": "H6 (model capacity) revised: not obviously the bottleneck once sampling is controlled for, at least at higher pose severity"
+    },
+    {
+      "name": "b1_gnc_n50_all_arms",
+      "track": "B",
+      "command": "sbatch diagnostics/cycle2_20260819/b1_gnc_n50.sbatch (array 0-9, 5 arms x 2 seeds)",
+      "baseline_commit": "46d05fe2 + cycle1 diff + this cycle's MoonshotStage.robust_leg_only",
+      "specimen_subset": "diagnostics/moonshot/synth_clean_n50, 50 specimens (fresh independent draw, seed=777)",
+      "seeds": [
+        0,
+        1
+      ],
+      "slurm_job": "3061235 (array 0-9, all COMPLETED, ~16-20 min each)",
+      "start_time": "2026-08-19T",
+      "end_time": "2026-08-19T",
+      "status": "COMPLETED",
+      "output_path": "diagnostics/moonshot/runs/N50_<arm>_seed<N>",
+      "primary_metrics": {
+        "baseline": {
+          "mean_leg_distal_R": 0.692,
+          "cv_R_pct": 3.75,
+          "mean_antenna_dist": 0.00946
+        },
+        "gnc_medium": {
+          "mean_leg_distal_R": 0.813,
+          "cv_R_pct": 0.35,
+          "delta_R": 0.122,
+          "pct_antenna_cost": 13.0
+        },
+        "gnc_slow": {
+          "mean_leg_distal_R": 0.708,
+          "cv_R_pct": 2.18,
+          "delta_R": 0.017,
+          "pct_antenna_cost": 3.7
+        },
+        "gnc_medium_splitdistal": {
+          "mean_leg_distal_R": 0.813,
+          "cv_R_pct": 1.45,
+          "delta_R": 0.121,
+          "pct_antenna_cost": 10.8
+        },
+        "gnc_legonly": {
+          "mean_leg_distal_R": 0.829,
+          "cv_R_pct": 0.34,
+          "delta_R": 0.137,
+          "pct_antenna_cost": -8.6
+        }
+      },
+      "mechanism_specific_metrics": "degenerate_tri_frac=0 in every arm; folded_face_frac IMPROVES under every GNC arm vs baseline -- see diagnostics/cycle2_20260819/out/b1_gnc_n50_analysis.json for full per-run table",
+      "interpretation": "GNC replicates at N=50 with much tighter cross-seed consistency than baseline itself (CV 0.34-2.18% vs baseline's own 3.75%). gnc_medium's cycle-1 N=12 result (+0.175 R / +15% antenna) attenuates somewhat at N=50 (+0.122 R / +13% antenna) but remains real and directionally consistent. gnc_medium_splitdistal ~= gnc_medium alone (+0.121 vs +0.122 R): split_distal and GNC do NOT stack, confirming the task list's suspicion -- they are largely the same fix reached two ways. gnc_legonly (NEW this cycle) is the clear winner: LARGEST R gain (+0.137) AND antenna IMPROVES (-8.6%) rather than costing anything -- confirms the antenna regression under global GNC was a leg-specific effect leaking outward via the shared kernel, exactly as the task list hypothesized, not an inherent tradeoff.",
+      "prediction_supported": "SUPPORTED, with gnc_legonly exceeding the task list's own best-case prediction (\"recovers MOST of the gain at near-zero antenna cost\" -- it recovered slightly MORE gain than global GNC at a NEGATIVE antenna cost)",
+      "collateral_regressions": "none for gnc_legonly; gnc_medium/gnc_medium_splitdistal retain the expected +11-13% antenna cost seen in cycle 1",
+      "next": "gnc_legonly promoted as the strongest production candidate; B2 (pose sweep) launched with gnc_legonly as the surviving variant, per the task list's own instruction"
+    },
+    {
+      "name": "b2_gnc_legonly_pose_sweep",
+      "track": "B",
+      "command": "sbatch diagnostics/cycle2_20260819/b2_gnc_legonly_pose_sweep.sbatch (array 0-6, pose0..pose35)",
+      "baseline_commit": "46d05fe2 + cycle1 diff + this cycle's robust_leg_only code",
+      "specimen_subset": "diagnostics/moonshot/synth_clean_pose{0,05,10,15,20,25,35}, 12 specimens each, reusing EXISTING hierarchical placements (no new hierarchical compute)",
+      "seed": 0,
+      "slurm_job": "3062394 (array 0-6, all COMPLETED, ~3 min each)",
+      "start_time": "2026-08-19T",
+      "end_time": "2026-08-19T",
+      "status": "COMPLETED",
+      "output_path": "diagnostics/moonshot/runs/SYN_clean_<pose>_gnclegonly_w5",
+      "primary_metrics": {
+        "delta_R_by_pose": {
+          "0.00": 0.107,
+          "0.05": 0.022,
+          "0.10": 0.013,
+          "0.15": 0.038,
+          "0.20": 0.204,
+          "0.25": 0.181,
+          "0.35": 0.262
+        },
+        "spearman_pose_vs_delta_R": {
+          "rho": 0.714,
+          "p": 0.071
+        },
+        "spearman_pose_vs_cross_leg_delta": {
+          "rho": 0.09,
+          "p": 0.848
+        }
+      },
+      "mechanism_specific_metrics": "cross_leg_pt delta stays flat around zero (-0.014 to +0.023) across the whole sweep -- see diagnostics/cycle2_20260819/out/b2_pose_sweep_analysis.json",
+      "interpretation": "delta_R positive at all 7 pose levels, small when baseline is already strong and large when baseline is weak -- the aggregate GNC benefit is real and grows with pose severity. BUT the falsifier for the specific cross-leg-confusion mechanism TRIGGERS: cross_leg_pt delta does not scale with pose (rho=0.090, p=0.848, essentially zero relationship). GNC's R improvement is NOT explained by reduced cross-leg confusion as measured by this diagnostic -- the true mechanism is not established.",
+      "prediction_supported": "PARTIALLY -- aggregate benefit confirmed and scales with pose; the specific causal mechanism (cross-leg confusion reduction) is FALSIFIED",
+      "collateral_regressions": "none",
+      "next": "B4 (damage conditions) launched -- gate is about the benefit surviving, which it did, not about a fully resolved mechanism"
+    },
+    {
+      "name": "b4_gnc_legonly_damage",
+      "track": "B",
+      "command": "sbatch diagnostics/cycle2_20260819/b4_gnc_legonly_damage.sbatch (array 0-1: drop30, drop60)",
+      "baseline_commit": "46d05fe2 + cycle1 diff + this cycle's robust_leg_only code",
+      "specimen_subset": "diagnostics/moonshot/synth_clean_drop{30,60}, 12 specimens each, reusing existing hierarchical placements",
+      "seed": 0,
+      "slurm_job": "3062531 (array 0-1, both FAILED with RuntimeError, ~44s each)",
+      "start_time": "2026-08-19T",
+      "end_time": "2026-08-19T",
+      "status": "FAILED",
+      "output_path": "diagnostics/moonshot/runs/SYN_clean_drop{30,60}_gnclegonly_w5 (partial/no valid output -- crashed mid Stage_2)",
+      "primary_metrics": null,
+      "mechanism_specific_metrics": null,
+      "interpretation": "ROOT CAUSE CONFIRMED, not a transient/environment fault: `sample_leg_nonleg_split` (fitter_3d/stratified_sampling.py, used by robust_leg_only) indexes into the TARGET mesh's face array using indices sized to the TEMPLATE's face count (20466 faces / 10235 verts). drop30/drop60 are NOT topology-preserving -- verified directly: drop30 synth_000 has 9989 verts / 19956 faces, drop60 has 9743 verts / 19456 faces, both smaller than the template. This produces an out-of-bounds CUDA index (`RuntimeError: CUDA error: device-side assert triggered`, `IndexKernel.cu:92 ... index out of bounds`) inside `robust_chamfer`'s `knn_points` call. Both array tasks failed identically and reproducibly (not a one-off). This is a genuine, general limitation of the leg/nonleg and distal/nondistal face-index samplers (fitter_3d/stratified_sampling.py's sample_leg_nonleg_split AND sample_target_distal_protected, i.e. also Rank 5's C5 from cycle 1) -- documented in that file's own docstring as requiring topology-preserving corpora, but this is the first time it was actually exercised on a non-topology-preserving one.",
+      "prediction_supported": "N/A -- technical failure, not a scientific result",
+      "collateral_regressions": "n/a",
+      "next": "NOT silently patched or retried under changed parameters, per the standing execution rule. gnc_legonly and Rank 5's C5 are therefore NOT currently usable on damage/missing-geometry corpora (i.e. not usable on the real, non-topology-preserving specimen scans that are the actual production target) without new engineering: a topology-robust face-membership lookup (e.g. nearest-template-face per target point) instead of assuming identical face indexing. Flagged as a well-scoped follow-up, not attempted this cycle. Substituted a new, well-motivated, DIFFERENT arm below (gnc_medium, which uses plain global sampling with no face-index assumption and is therefore topology-agnostic) so damage-condition evidence for at least one validated GNC variant is not lost this cycle."
+    },
+    {
+      "name": "b4_gnc_medium_damage",
+      "track": "B",
+      "command": "sbatch diagnostics/cycle2_20260819/b4_gnc_medium_damage.sbatch (array 0-1: drop30, drop60) -- SUBSTITUTE arm after gnc_legonly failed for a documented structural reason (see b4_gnc_legonly_damage above); gnc_medium uses plain global sample_points_from_meshes, no face-index/topology assumption, so it is not subject to the same failure",
+      "baseline_commit": "46d05fe2 + cycle1 diff",
+      "specimen_subset": "diagnostics/moonshot/synth_clean_drop{30,60}, 12 specimens each, reusing existing hierarchical placements",
+      "seed": 0,
+      "slurm_job": "3062553 (array 0-1, both COMPLETED, ~2.5 min each)",
+      "start_time": "2026-08-19T",
+      "end_time": "2026-08-19T",
+      "status": "COMPLETED",
+      "output_path": "diagnostics/moonshot/runs/SYN_clean_drop{30,60}_gncmedium_w5",
+      "primary_metrics": {
+        "drop30": {
+          "baseline_R": 0.602,
+          "gnc_medium_R": 0.778,
+          "delta_R": 0.176,
+          "pct_antenna_cost": 10.2
+        },
+        "drop60": {
+          "baseline_R": 0.411,
+          "gnc_medium_R": 0.609,
+          "delta_R": 0.198,
+          "pct_antenna_cost": 12.1
+        }
+      },
+      "mechanism_specific_metrics": "degenerate_tri_frac=0 both conditions; folded_face_frac improves under GNC at both -- see diagnostics/cycle2_20260819/out/b4_damage_analysis.json",
+      "interpretation": "GNC's benefit SURVIVES under damage and gets LARGER as damage increases (drop30 +0.176 R -> drop60 +0.198 R), matching the 'rescues the worst cases' pattern from B2's pose sweep. No mesh-quality collateral damage. This clears the task list's stated production bar: a result that holds specifically under missing/damaged geometry, not just on clean synthetic meshes.",
+      "prediction_supported": "STRONGLY SUPPORTED",
+      "collateral_regressions": "antenna cost +10-12%, consistent with gnc_medium's known cost (this is NOT gnc_legonly, which cannot run on this data -- see FAILED entry above)",
+      "next": "gnc_medium is the validated damage-robust GNC candidate; gnc_legonly remains the best clean-topology candidate pending the topology-robust sampler fix"
+    },
+    {
+      "name": "b4_gnc_damage_conditions",
+      "track": "B",
+      "command": null,
+      "status": "PENDING",
+      "next": "gated on B1/B2/B3"
+    },
+    {
+      "name": "b5_compatibility_matching",
+      "track": "B",
+      "command": null,
+      "status": "GATED OFF",
+      "interpretation": "A2's finding (within-leg mismatch strongly explained by sampling density, rho=-0.829 p=0.042) triggers the task list's own pre-registered rule to NOT build B5 this cycle.",
+      "next": "revisit only if a future sampling-side fix (e.g. per-segment rather than per-distal-bucket quota) is tried and within-leg mismatch persists despite it"
+    },
+    {
+      "name": "b6_gnc_legonly_topofree",
+      "track": "B",
+      "command": "sbatch diagnostics/cycle2_20260819/b6_gnc_legonly_topofree_damage.sbatch (array 0-1: drop30/drop60); sbatch diagnostics/cycle2_20260819/b6_gnc_legonly_topofree_n50.sbatch (array 0-1: seeds 0/1, clean N50 control)",
+      "baseline_commit": "46d05fe2 + cycle1 diff + cycle2 diff (adds robust_chamfer_leg_split_topofree + MoonshotStage.robust_leg_only_topofree in fitter_3d/trainer_moonshot.py, robust_leg_only_topofree plumbing in fitter_3d/optimise_moonshot.py, cfg/gnc_legonly_topofree.yaml)",
+      "specimen_subset": "drop30 (12 specimens), drop60 (12 specimens), synth_clean_n50 (50 specimens x 2 seeds, control)",
+      "seed": "damage: 0 (default); n50 control: 0 and 1",
+      "start_time": "2026-08-19T (this turn)",
+      "end_time": "2026-08-19T (this turn)",
+      "status": "COMPLETED",
+      "output_path": "diagnostics/moonshot/runs/SYN_clean_drop30_gnclegonlytopofree_w5, .../SYN_clean_drop60_gnclegonlytopofree_w5, .../N50_gnc_legonly_topofree_seed0, .../N50_gnc_legonly_topofree_seed1",
+      "primary_metrics": {
+        "drop30": {
+          "baseline_R": 0.602,
+          "gnc_medium_R": 0.778,
+          "topofree_R": 0.797,
+          "topofree_vs_gnc_medium_delta_R": 0.019,
+          "topofree_antenna_pct_vs_baseline": -2.8,
+          "gnc_medium_antenna_pct_vs_baseline": 10.2
+        },
+        "drop60": {
+          "baseline_R": 0.411,
+          "gnc_medium_R": 0.609,
+          "topofree_R": 0.607,
+          "topofree_vs_gnc_medium_delta_R": -0.002,
+          "topofree_antenna_pct_vs_baseline": -0.5,
+          "gnc_medium_antenna_pct_vs_baseline": 12.1
+        },
+        "n50_control": {
+          "baseline_mean_R": 0.692,
+          "gnc_legonly_exact_mean_R": 0.829,
+          "gnc_legonly_topofree_mean_R": 0.819,
+          "topofree_vs_exact_delta_R": -0.009
+        }
+      },
+      "motivation": "User follow-up after B4 FAILED (gnc_legonly on drop30/drop60 crashed: sample_leg_nonleg_split assumes target mesh shares template face indexing, violated by damage corpora). Implements a topology-robust variant: source-side leg/non-leg split unchanged (src_mesh is always full template topology), target-side split replaced by NN label transfer from the fitted source mesh instead of target face indices -- see robust_chamfer_leg_split_topofree docstring in fitter_3d/trainer_moonshot.py.",
+      "smoke_test": "CPU smoke test (nits=3, n_sample=500) on both synth_clean_drop30 (max_meshes=2) and synth_clean_n50 (max_meshes=3) -- both completed with no crash before SLURM submission.",
+      "interpretation": "topofree gnc_legonly runs cleanly on drop30/drop60 (the crash is fixed). In a SINGLE-SEED check (N=12, the existing damage corpora, no seed replication run) it matches or beats gnc_medium's R gain (drop30: +0.019 better; drop60: -0.002, tied) while costing far less on antenna quality (-2.8%/-0.5%, i.e. BETTER than baseline, vs gnc_medium's +10.2%/+12.1% cost). This damage-condition result has NOT been replicated across seeds and does not yet meet this project's own promotion bar (B1 required N>=50/2 seeds before treating the clean-data GNC result as more than provisional); a +0.019 delta at n=1 is not distinguishable from seed noise. The N50 clean-data control (2 seeds) DOES meet the promotion bar and shows only a -0.009 R difference vs B1's exact-label gnc_legonly -- but a follow-up probe (b6_probe_label_transfer.py) found this small aggregate difference masks a real mechanism-level effect: the NN-based target-label transfer disagrees with the true face-based label 12.2% of the time (72k points, 12 specimens), split evenly between true-leg->predicted-nonleg (6.2%) and true-nonleg->predicted-leg (6.0%). This is NOT a topology-match/noise artifact that vanishes with correspondence quality -- it is a structural property of NN label transfer at finite sample density, concentrated at the leg/body boundary. The aggregate R is robust to this per-point noise, but the boundary disagreement rate is high enough to be relevant to the Track A2 within-leg mismatch story if topofree-labeled data is ever used for that analysis (A2 itself did NOT use any leg_only/topofree run -- confirmed by inspection of a2_within_leg_deepdive.py's `conditions` list, which only references baseline _w5 runs -- so A2's existing B5 gate decision is unaffected by this finding).",
+      "prediction_supported": "PARTIALLY SUPPORTED, with an important qualifier the user correctly flagged: the damage-condition result (beats/ties gnc_medium) is a SINGLE-SEED finding, not yet replicated, and should be read as \"provisionally promising, replication pending\" rather than a settled result. The clean-data control DOES meet the project's promotion bar (N=50, 2 seeds) and confirms topofree is a safe, low-cost substitute for exact-label gnc_legonly there. Status: topofree gnc_legonly is the preferred candidate for clean/topology-preserving data (promotion bar met); on damage data it is provisionally promising, not yet promoted past experimental (replication pending, same bar B1 applied to clean-data GNC before trusting it).",
+      "collateral_regressions": "none observed in aggregate mesh quality (degenerate_tri_frac=0.0, folded_face_frac comparable). A real but non-regressive mechanism-level effect WAS found: 12.2% target-point mislabeling rate at the leg/body boundary (see b6_probe_label_transfer.py) -- does not show up as an aggregate R regression but is a genuine property of the method, not noise.",
+      "next": "(1) N>=50/multi-seed replication on damage corpora before any stronger promotion claim -- same bar B1 applied to clean data. (2) real-specimen (non-synthetic) validation remains untested. (3) the 12.2% boundary-relabeling rate is a mechanism worth investigating further if within-leg mismatch work is revisited on topofree-labeled data specifically."
+    },
+    {
+      "name": "b6_probe_label_transfer",
+      "track": "B",
+      "command": "python diagnostics/cycle2_20260819/b6_probe_label_transfer.py",
+      "baseline_commit": "46d05fe2 + cycle1 diff + cycle2 diff (no new code needed, replays MoonshotStage.forward's topofree branch offline using the converged N50_gnc_legonly_topofree_seed0 fit)",
+      "specimen_subset": "synth_clean_n50, first 12 specimens (subset for speed), topology-preserving corpus (required so ground-truth face labels exist on the target side for comparison)",
+      "seed": 0,
+      "start_time": "2026-08-19T (this turn, user follow-up)",
+      "end_time": "2026-08-19T (same turn)",
+      "status": "COMPLETED",
+      "output_path": "stdout only (no artifact file; deterministic given the same converged .npz input)",
+      "primary_metrics": {
+        "label_disagreement_rate": 0.1221,
+        "n_points": 72000,
+        "true_leg_pred_nonleg_rate": 0.0618,
+        "true_nonleg_pred_leg_rate": 0.0602
+      },
+      "interpretation": "Answers the user's question directly from the code and an empirical replay, not just the aggregate metric: NN-based target-label transfer does NOT reduce to the exact face-based split even when topology matches perfectly. 12.2% of target points get a different leg/non-leg kernel treatment than their true face membership would assign, symmetrically in both directions (not a directional bias). Mechanistically this is because target points are drawn by generic uniform sampling (not restricted to a face pool) and their label comes from nearest-neighbour distance to a SPARSE, randomly-drawn set of source points (not the literal nearest source vertex) -- at finite sample density this misclassifies points near the leg/body boundary regardless of registration quality. The B6 aggregate R result is not sensitive to this (topofree still matches/beats gnc_medium and barely differs from exact gnc_legonly), but the effect is real and structurally explained, not just observed as \"no regression\" in aggregate.",
+      "prediction_supported": "user's hypothesis (that this deserved verification from the code, not just the aggregate metric) was correct: the mechanisms are NOT identical",
+      "collateral_regressions": "none (read-only analysis, no new runs)",
+      "next": "if within-leg mismatch (Track A2) is ever re-analyzed using topofree-labeled data, this 12.2% boundary effect should be accounted for explicitly"
+    },
+    {
+      "name": "a1_pca_taxonomy",
+      "track": "A",
+      "command": "python diagnostics/cycle2_20260819/a1_pca_taxonomy.py",
+      "baseline_commit": "46d05fe2 + cycle1 diff + cycle2 diff (no new fitting code; new analysis-only script, plain numpy PCA, no new dependencies)",
+      "specimen_subset": "diagnostics/d1_n50_evidence/runs_holdout, 80 real ALL_ANTS_CLEAN specimens x 3 seeds (0/1/2), REAL (non-synthetic) fitted data, reused zero new fitting jobs",
+      "seed": "reuses existing seeds 0/1/2 fits; rng seed 0 for this script's own random-pair sampling (analysis-only)",
+      "start_time": "2026-08-19T (this turn, after user flagged A1 had never actually started)",
+      "end_time": "2026-08-19T (same turn)",
+      "status": "COMPLETED (first pass; question not yet answered with confidence, see interpretation)",
+      "output_path": "diagnostics/cycle2_20260819/out/a1_pca_taxonomy.json, a1_pca_betas.png, a1_pca_raw_baseline.png",
+      "primary_metrics": {
+        "n_specimens": 80,
+        "n_genus_labeled": 60,
+        "n_unlabeled_numeric_id": 20,
+        "cross_seed_variance_ratio_inter_over_intra": 613.27,
+        "genus_consistency_ratio_fitted_betas": 1.094,
+        "genus_consistency_ratio_raw_bbox_baseline": 0.562,
+        "n_multi_specimen_genera": 4
+      },
+      "interpretation": "Process note: this track was scoped CPU-only and independent of Track B, meant to start immediately in parallel -- it did not, sitting at NOT STARTED across several check-ins despite zero dependency on the GNC work, until the user flagged it directly. Started this turn. Finding 1 (precondition check): the fitted beta signal is highly repeatable across fitting seeds (inter/intra variance ratio 613), so specimen identity dominates fitting noise -- clustering claims are at least testable on this data. Finding 2: on the only 4 genera with multi-specimen replication (cephalotes n=2, dolichoderus n=3, dorylus n=2, pheidole n=4), fitted-beta PCA shows NO within-genus clustering above chance (ratio 1.094, >=1 means no signal). Finding 3, the honest and slightly uncomfortable one: a non-articulated baseline (raw mesh bounding-box aspect ratios, no SMAL fitting) DOES show genus clustering on the same specimens (ratio 0.562) -- better than the fitted shape space. Not adjudicated: n=4 genera is underpowered either direction, log_beta_scales (per-joint scale) was not included in the shape descriptor this pass, and 20/80 specimens have no recoverable taxonomy label at all (numeric-ID gap, needs external metadata request).",
+      "prediction_supported": "NOT YET ANSWERED WITH CONFIDENCE. Fabian's original question (does fitted shape cluster meaningfully by taxonomy) is neither supported nor refuted by this first pass -- the test is underpowered (4 genera) and a plausible confound (global scale entanglement) has not been checked.",
+      "collateral_regressions": "none (analysis only, no new fitting jobs, no code changes to the fitting pipeline)",
+      "next": "(1) resolve the 20/80 unlabeled-specimen taxonomy gap -- ask for the ALL_ANTS_CLEAN id->species mapping. (2) get more multi-specimen genera into the test set. (3) add log_beta_scales to the shape descriptor and re-check whether Finding 3 persists. (4) install umap-learn if a nonlinear embedding beyond PCA is wanted -- not done unilaterally, one-line ask."
+    },
+    {
+      "name": "b7_seed_replication_damage",
+      "track": "B",
+      "command": "sbatch diagnostics/cycle2_20260819/b7_seed_replication_damage.sbatch (8 tasks: drop30/drop60 x gnc_medium/gnc_legonly_topofree x seeds 1,2)",
+      "baseline_commit": "46d05fe2 + cycle1 diff + cycle2 diff (no new code -- reuses existing yaml configs and optimise_moonshot --seed, one variable changed per task)",
+      "specimen_subset": "synth_clean_drop30 (12 specimens), synth_clean_drop60 (12 specimens), seeds 1 and 2 (seed 0 = existing B6 runs)",
+      "seed": "1, 2 (new); pooled with existing seed 0 from B6 for a 3-seed comparison",
+      "start_time": "2026-08-19T (this turn, user follow-up: pre-registered decision rule before seeing results)",
+      "end_time": "2026-08-19T (same turn)",
+      "status": "COMPLETED",
+      "output_path": "diagnostics/moonshot/runs/SYN_clean_{drop30,drop60}_{gncmedium,gnclegonlytopofree}_w5_seed{1,2}; analysis: diagnostics/cycle2_20260819/out/b7_seedrep_analysis.json",
+      "primary_metrics": {
+        "drop30": {
+          "gnc_medium_mean_R": 0.782,
+          "gnc_medium_cv_pct": 1.3,
+          "topofree_mean_R": 0.809,
+          "topofree_cv_pct": 1.0,
+          "delta_R_per_seed": [
+            0.019,
+            0.042,
+            0.02
+          ],
+          "delta_R_mean": 0.027,
+          "sign_consistent": true
+        },
+        "drop60": {
+          "gnc_medium_mean_R": 0.593,
+          "gnc_medium_cv_pct": 2.6,
+          "topofree_mean_R": 0.619,
+          "topofree_cv_pct": 1.4,
+          "delta_R_per_seed": [
+            -0.002,
+            0.027,
+            0.055
+          ],
+          "delta_R_mean": 0.027,
+          "sign_consistent": false,
+          "note": "the one nominally-negative seed is -0.002, i.e. an exact tie within measurement noise, not a loss"
+        },
+        "antenna_cost": "topofree beats gnc_medium on antenna distance in ALL 6 new seed-condition runs (every seed, both corpora), no exceptions"
+      },
+      "interpretation": "Pre-registered decision rule (user, before results seen): if delta_R direction holds within seed variance across new seeds, promote damage-data status to match clean-data language; if it flips or collapses into noise, gnc_medium stays the damage default. Result: drop30 holds cleanly (topofree wins in all 3 seeds, mean +0.027, std 0.011, well above either arm's own seed-to-seed CV of ~1-1.3%). drop60 never shows gnc_medium beating topofree by a meaningful margin -- the single nominally-negative seed is -0.002, an exact tie, not a reversal -- and 2/3 seeds show a clear positive gap (mean +0.027, but noisier, std 0.023, reflecting gnc_medium's own higher seed-to-seed CV of 2.6% on this harder corpus). The antenna-quality advantage for topofree is completely clean and consistent: it wins on antenna distance in every one of the 6 new seed-condition runs, no exceptions. Per the pre-registered rule, this satisfies \"direction holds within seed variance\" -- promoted.",
+      "prediction_supported": "SUPPORTED per the user's own pre-registered rule. Damage-data status for gnc_legonly_topofree promoted from \"provisionally promising, single-seed\" to \"promotion bar met\" -- same standing as the clean-data result. topofree gnc_legonly is now the unqualified recommendation for BOTH clean and damage data, superseding gnc_medium as the damage-data default.",
+      "collateral_regressions": "none observed across any of the 8 new runs",
+      "next": "real-specimen (non-synthetic) validation remains the main open gap for both clean and damage data. GNC's underlying mechanism remains unexplained (B2's falsifier). The 12.2% boundary label-transfer disagreement rate (found in B6's probe) remains unexplored beyond its aggregate-R-neutral status."
+    },
+    {
+      "name": "a1_pca_taxonomy_v2_adjudication",
+      "track": "A",
+      "command": "python diagnostics/cycle2_20260819/a1_pca_taxonomy_v2.py; plus one ad-hoc joint-residualization follow-up (size+chamfer_l2 together) run inline, not saved as a separate script",
+      "baseline_commit": "46d05fe2 + cycle1 diff + cycle2 diff (analysis-only, no new fitting jobs, no new dependencies)",
+      "specimen_subset": "same as a1_pca_taxonomy (v1): 80 ALL_ANTS_CLEAN specimens x 3 seeds, 60 labeled/20 unlabeled split",
+      "seed": "rng seed 0 for permutation tests and random-pair reference draws (20000 permutations)",
+      "start_time": "2026-08-19T (this turn, user: do not let A1 go out half-adjudicated)",
+      "end_time": "2026-08-19T (same turn)",
+      "status": "COMPLETED",
+      "output_path": "diagnostics/cycle2_20260819/out/a1_v2_adjudication.json",
+      "primary_metrics": {
+        "permutation_p_betas_raw": 0.7718,
+        "permutation_p_betas_size_residualized": 0.7852,
+        "permutation_p_raw_baseline_size_inclusive": 0.0251,
+        "permutation_p_raw_baseline_scale_invariant": 0.0202,
+        "corr_beta_pc1_vs_centroid_size": 0.706,
+        "corr_beta_pc1_vs_chamfer_l2": 0.722,
+        "corr_beta_pc1_vs_fscore01": -0.778,
+        "permutation_p_betas_size_and_chamfer_residualized": 0.863
+      },
+      "interpretation": "Ran all 4 checks the user specified before treating v1's headline finding as more than a lead. (1) Permutation test (20000 draws, n=4 genera sizes 2/3/2/4): the raw non-articulated baseline's genus clustering IS statistically significant despite the small n (size-inclusive p=0.025, scale-invariant-only p=0.020); fitted betas' non-clustering is a clean null (p=0.772), not underpowered noise near the boundary. (2) Size confound: caught and fixed a real v1 error -- the \"non-articulated baseline\" was NOT actually scale-invariant (included raw extents + volume proxy). Rebuilt as aspect-ratios-only: clusters just as well (p=0.020), so the baseline's advantage is NOT a size artifact. Separately, beta PC1 correlates strongly with centroid size (r=0.706) but residualizing against it does not rescue clustering (p=0.785, unchanged). (3) Registration-artifact covariate -- the most important finding: beta PC1 (41.7% of variance) correlates at r=0.722 with chamfer_l2 and r=-0.778 with fscore@0.01 -- the CURRENT shape space's dominant axis is overwhelmingly explained by per-specimen fit quality, not anatomy. This is real and independently important (affects trust in this shape space for any downstream use) regardless of the taxonomy question. Follow-up: residualized against BOTH centroid size AND chamfer_l2 jointly -- genus clustering STILL does not appear (p=0.863, moved further from significance). So the registration-quality confound is real but is not, by itself, why genus clustering is absent. (4) Confirmed (not just claimed) that the 20/80 unlabeled specimens are excluded from every statistic, and fixed a real data-leakage channel in v1 (z-scoring used all 80 specimens' mean/std including unlabeled ones; v2 standardizes on labeled-only statistics).",
+      "prediction_supported": "The user's concern was well-founded on all 4 points, and each check surfaced something real: (1) confirmed the baseline result is significant despite small n, not noise; (2) caught and fixed an actual bug in v1's baseline description (it was not scale-invariant as claimed); (3) found a real, important, independent registration-quality confound in the shape space (r=0.72), though it does not explain away the null clustering result; (4) confirmed exclusion and fixed a real normalization-leakage bug. Net: the headline finding survives adjudication and can now go to Fabian as a checked result, with the registration-quality entanglement flagged as an equally important, independent finding.",
+      "collateral_regressions": "none (analysis only)",
+      "next": "investigate the registration-quality entanglement in beta PC1 on its own terms (separate from the taxonomy question); test nonlinear confound removal (only linear OLS residualization was checked here); expand the multi-specimen-genus test set if more replicated ALL_ANTS_CLEAN-style specimens exist; resolve the 20/80 unlabeled-specimen taxonomy gap."
+    },
+    {
+      "name": "a1_pca_taxonomy_v3_followups",
+      "track": "A",
+      "command": "python diagnostics/cycle2_20260819/a1_pca_taxonomy_v3.py",
+      "baseline_commit": "46d05fe2 + cycle1 diff + cycle2 diff (analysis-only, no new fitting jobs, no new dependencies, reuses v2 helpers via import)",
+      "specimen_subset": "same 80 ALL_ANTS_CLEAN specimens x 3 seeds; classification tests restricted to the 11 specimens across the 4 multi-member genera (singleton-genus specimens cannot be evaluated in a leave-one-out task)",
+      "seed": "rng seed 0; 5000 permutations per classification test (reduced from 20000 for runtime -- pure-python LOO loop)",
+      "start_time": "2026-08-19T (this turn, user: three specific follow-ups before v2 counts as settled)",
+      "end_time": "2026-08-19T (same turn)",
+      "status": "COMPLETED",
+      "output_path": "diagnostics/cycle2_20260819/out/a1_v3_followups.json",
+      "primary_metrics": {
+        "loo_1nn_acc_betas_raw": 0.455,
+        "loo_1nn_p_betas_raw": 0.087,
+        "loo_centroid_acc_betas_raw": 0.364,
+        "loo_centroid_p_betas_raw": 0.213,
+        "loo_1nn_acc_betas_residualized": 0.273,
+        "loo_1nn_p_betas_residualized": 0.4,
+        "loo_1nn_acc_deform_pca10": 0.182,
+        "loo_1nn_p_deform_pca10": 0.631,
+        "deform_pc1_vs_chamfer_r": -0.804,
+        "deform_pc1_vs_chamfer_p": 0.0,
+        "deform_repeatability_ratio": 345.63,
+        "deform_genus_ratio": 1.248,
+        "deform_genus_ratio_p": 0.7787,
+        "high_fit_quality_subsample_status": "degenerate -- 0/4 genera retain >=2 specimens after top-half fscore filter"
+      },
+      "interpretation": "Follow-up 1 (LOO classification, the actual field-standard test the user specified): raw betas 1-NN accuracy 0.455 (p=0.087, borderline, NOT below conventional significance) -- genuinely different from v2's flat unsupervised ratio-test null (p=0.77), exactly the failure mode the user's point predicted (a signal on non-top-2 PCs invisible to an unsupervised ratio). Does not replicate under nearest-centroid classification on the same features (p=0.213) or after removing the known size/fit-quality confound (residualized 1-NN accuracy drops to 0.273, p=0.400, WORSE not better) -- most parsimoniously explained by the same confound v2 already found, not an independent rescued signal, though this is genuinely borderline. Follow-up 2 (deform_verts, Fabian's original explicit request, not tested until now): reduced to top-10 PCA components (40% variance explained, notably flatter than betas' concentration). Cross-seed repeatability 345.6 (real signal, noisier than betas' 613 as expected for a less-regularized descriptor). Deform PC1 shows an EVEN STRONGER registration-quality entanglement than betas (r=-0.804 vs betas' 0.722) -- consistent with deformation magnitude being close to a direct proxy for how much correction fitting needed. No genus clustering (ratio 1.248, p=0.779) and no classification signal (1-NN accuracy 0.182, actually BELOW the null mean of 0.198). Testing deformations does not rescue the taxonomy signal; if anything the free-form residual is more confounded by fit quality than the regularized beta prior. Follow-up 3 (high-fit-quality subsample, nonlinear-robustness check): DEGENERATE at this sample size -- restricting to top-half fscore specimens eliminates all within-genus pairs across all 4 multi-member genera (0/4 retain >=2 specimens). Reported honestly as a real limitation, not forced onto a degenerate subset.",
+      "prediction_supported": "The user's three concerns were each addressed and each surfaced something real: (1) the supervised classification test DID find something the unsupervised ratio test missed (borderline 1-NN signal, p=0.087) -- validates the concern that PCA-null does not equal no-signal, even though this specific signal did not survive further scrutiny; (2) deform_verts does not change the conclusion and if anything shows a WORSE registration-quality confound than betas -- a genuine, new, useful negative result answering Fabian's original explicit request; (3) the nonlinear-robustness check could not be run at this sample size -- an honest methodological finding, not a null result either way. Net: the core adjudicated finding (no clean, reliable genus-clustering signal in the current fitted shape space) survives all three follow-ups, with the single limiting factor across every single check being sample size (n=11 classification examples across 4 genera), not analysis choices.",
+      "collateral_regressions": "none (analysis only)",
+      "next": "the highest-value next step for A1 is more multi-specimen-genus data if it exists -- every check in v2 and v3 was limited by the same n=11-across-4-genera ceiling. Secondary: investigate the registration-quality confound (now confirmed in both beta AND deformation space) on its own terms, independent of the taxonomy question. Resolve the 20/80 unlabeled-specimen taxonomy gap. Install umap-learn if wanted."
+    }
+  ]
+}

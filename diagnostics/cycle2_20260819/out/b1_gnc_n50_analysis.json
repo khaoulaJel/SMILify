@@ -1,0 +1,189 @@
+{
+  "per_run": {
+    "N50_baseline_seed0": {
+      "arm": "baseline",
+      "seed": 0,
+      "leg_distal_R": 0.7175396065370103,
+      "n_bone_obs": 600,
+      "part_leg_distal_dist_mean": 0.00805263202637434,
+      "part_antenna_dist_mean": 0.009423570139333606,
+      "degenerate_tri_frac": 0.0,
+      "folded_face_frac": 0.003945405189879239
+    },
+    "N50_baseline_seed1": {
+      "arm": "baseline",
+      "seed": 1,
+      "leg_distal_R": 0.6656832107948256,
+      "n_bone_obs": 600,
+      "part_leg_distal_dist_mean": 0.00828159373253584,
+      "part_antenna_dist_mean": 0.009488329561427235,
+      "degenerate_tri_frac": 0.0,
+      "folded_face_frac": 0.003876347579061985
+    },
+    "N50_gnc_medium_seed0": {
+      "arm": "gnc_medium",
+      "seed": 0,
+      "leg_distal_R": 0.8161862629857266,
+      "n_bone_obs": 600,
+      "part_leg_distal_dist_mean": 0.00817053923383355,
+      "part_antenna_dist_mean": 0.010652249269187451,
+      "degenerate_tri_frac": 0.0,
+      "folded_face_frac": 0.002792273231316358
+    },
+    "N50_gnc_medium_seed1": {
+      "arm": "gnc_medium",
+      "seed": 1,
+      "leg_distal_R": 0.8104821532386729,
+      "n_bone_obs": 600,
+      "part_leg_distal_dist_mean": 0.008734666286036372,
+      "part_antenna_dist_mean": 0.010722958687692881,
+      "degenerate_tri_frac": 0.0,
+      "folded_face_frac": 0.002779894983395934
+    },
+    "N50_gnc_slow_seed0": {
+      "arm": "gnc_slow",
+      "seed": 0,
+      "leg_distal_R": 0.723660327713304,
+      "n_bone_obs": 600,
+      "part_leg_distal_dist_mean": 0.008306705281138421,
+      "part_antenna_dist_mean": 0.009950192859396339,
+      "degenerate_tri_frac": 0.0,
+      "folded_face_frac": 0.0033675362495705487
+    },
+    "N50_gnc_slow_seed1": {
+      "arm": "gnc_slow",
+      "seed": 1,
+      "leg_distal_R": 0.6928318587938396,
+      "n_bone_obs": 600,
+      "part_leg_distal_dist_mean": 0.008566171815618872,
+      "part_antenna_dist_mean": 0.0096649279166013,
+      "degenerate_tri_frac": 0.0,
+      "folded_face_frac": 0.003278282550163567
+    },
+    "N50_gnc_medium_splitdistal_seed0": {
+      "arm": "gnc_medium_splitdistal",
+      "seed": 0,
+      "leg_distal_R": 0.8007629550783886,
+      "n_bone_obs": 600,
+      "part_leg_distal_dist_mean": 0.008786308309063316,
+      "part_antenna_dist_mean": 0.010312254251912236,
+      "degenerate_tri_frac": 0.0,
+      "folded_face_frac": 0.0027349423826672136
+    },
+    "N50_gnc_medium_splitdistal_seed1": {
+      "arm": "gnc_medium_splitdistal",
+      "seed": 1,
+      "leg_distal_R": 0.8242654942120317,
+      "n_bone_obs": 600,
+      "part_leg_distal_dist_mean": 0.008409208999946714,
+      "part_antenna_dist_mean": 0.010642039552330972,
+      "degenerate_tri_frac": 0.0,
+      "folded_face_frac": 0.0028756635752506554
+    },
+    "N50_gnc_legonly_seed0": {
+      "arm": "gnc_legonly",
+      "seed": 0,
+      "leg_distal_R": 0.8314262935223814,
+      "n_bone_obs": 600,
+      "part_leg_distal_dist_mean": 0.007689236756414175,
+      "part_antenna_dist_mean": 0.00838896218687296,
+      "degenerate_tri_frac": 0.0,
+      "folded_face_frac": 0.0037506105937063694
+    },
+    "N50_gnc_legonly_seed1": {
+      "arm": "gnc_legonly",
+      "seed": 1,
+      "leg_distal_R": 0.8257460472971423,
+      "n_bone_obs": 600,
+      "part_leg_distal_dist_mean": 0.007719965814612806,
+      "part_antenna_dist_mean": 0.008888188591226935,
+      "degenerate_tri_frac": 0.0,
+      "folded_face_frac": 0.003817062247544527
+    }
+  },
+  "per_arm": {
+    "baseline": {
+      "mean_leg_distal_R": 0.691611408665918,
+      "cv_R_pct": 3.748954621946807,
+      "mean_leg_distal_dist": 0.00816711287945509,
+      "mean_antenna_dist": 0.00945594985038042,
+      "cv_antenna_pct": 0.34242684827174247,
+      "seed_values_R": [
+        0.7175396065370103,
+        0.6656832107948256
+      ],
+      "seed_values_antenna": [
+        0.009423570139333606,
+        0.009488329561427235
+      ]
+    },
+    "gnc_medium": {
+      "mean_leg_distal_R": 0.8133342081121997,
+      "cv_R_pct": 0.3506621072961698,
+      "mean_leg_distal_dist": 0.008452602759934962,
+      "mean_antenna_dist": 0.010687603978440166,
+      "cv_antenna_pct": 0.330801078745389,
+      "seed_values_R": [
+        0.8161862629857266,
+        0.8104821532386729
+      ],
+      "seed_values_antenna": [
+        0.010652249269187451,
+        0.010722958687692881
+      ],
+      "delta_R_vs_baseline": 0.12172279944628173,
+      "pct_antenna_cost_vs_baseline": 13.025176185871956
+    },
+    "gnc_slow": {
+      "mean_leg_distal_R": 0.7082460932535718,
+      "cv_R_pct": 2.1763952680517646,
+      "mean_leg_distal_dist": 0.008436438548378646,
+      "mean_antenna_dist": 0.00980756038799882,
+      "cv_antenna_pct": 1.454311426642387,
+      "seed_values_R": [
+        0.723660327713304,
+        0.6928318587938396
+      ],
+      "seed_values_antenna": [
+        0.009950192859396339,
+        0.0096649279166013
+      ],
+      "delta_R_vs_baseline": 0.016634684587653825,
+      "pct_antenna_cost_vs_baseline": 3.718405270563637
+    },
+    "gnc_medium_splitdistal": {
+      "mean_leg_distal_R": 0.8125142246452102,
+      "cv_R_pct": 1.446284780054505,
+      "mean_leg_distal_dist": 0.008597758654505015,
+      "mean_antenna_dist": 0.010477146902121603,
+      "cv_antenna_pct": 1.5738316141771143,
+      "seed_values_R": [
+        0.8007629550783886,
+        0.8242654942120317
+      ],
+      "seed_values_antenna": [
+        0.010312254251912236,
+        0.010642039552330972
+      ],
+      "delta_R_vs_baseline": 0.1209028159792922,
+      "pct_antenna_cost_vs_baseline": 10.799518482007375
+    },
+    "gnc_legonly": {
+      "mean_leg_distal_R": 0.8285861704097619,
+      "cv_R_pct": 0.34276738063525997,
+      "mean_leg_distal_dist": 0.00770460128551349,
+      "mean_antenna_dist": 0.008638575389049948,
+      "cv_antenna_pct": 2.8895181315821086,
+      "seed_values_R": [
+        0.8314262935223814,
+        0.8257460472971423
+      ],
+      "seed_values_antenna": [
+        0.00838896218687296,
+        0.008888188591226935
+      ],
+      "delta_R_vs_baseline": 0.13697476174384393,
+      "pct_antenna_cost_vs_baseline": -8.644022803246882
+    }
+  }
+}

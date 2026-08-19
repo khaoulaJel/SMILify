@@ -1,0 +1,3908 @@
+{
+  "Acanthomyrmex_cf.ferox_CASENT0878067": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Acanthomyrmex_cf.ferox_CASENT0878067_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Acanthomyrmex_cf.ferox_CASENT0878067/Acanthomyrmex_cf.ferox_CASENT0878067.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 2710.9672163434016,
+    "raw_bbox_dims": [
+      4775.4149169921875,
+      4744.40283203125,
+      3482.26806640625
+    ],
+    "mm_per_model_unit": 6.6147600078779,
+    "raw_max_dim_mm": 11.652012397460936,
+    "status": "ok"
+  },
+  "Acanthostichus_aff.brevicornis_CASENT0744328": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Acanthostichus_aff.brevicornis_CASENT0744328_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Acanthostichus_aff.brevicornis_CASENT0744328/Acanthostichus_aff.brevicornis_CASENT0744328.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 2001.5424676487655,
+    "raw_bbox_dims": [
+      3929.5362548828125,
+      1527.8130493164062,
+      1998.3218994140625
+    ],
+    "mm_per_model_unit": 4.883763621062988,
+    "raw_max_dim_mm": 9.588068461914062,
+    "status": "ok"
+  },
+  "Acanthostichus_brevicornis_CASENT0744298": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Acanthostichus_brevicornis_CASENT0744298_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Acanthostichus_brevicornis_CASENT0744298/Acanthostichus_brevicornis_CASENT0744298.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 2693.889137621965,
+    "raw_bbox_dims": [
+      4784.859619140625,
+      3184.373046875,
+      3555.6131591796875
+    ],
+    "mm_per_model_unit": 6.5730894957975945,
+    "raw_max_dim_mm": 11.675057470703125,
+    "status": "ok"
+  },
+  "Acromyrmex_balzani_CASENT0744618": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Acromyrmex_balzani_CASENT0744618_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Acromyrmex_balzani_CASENT0744618/Acromyrmex_balzani_CASENT0744618.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 3895.991079915211,
+    "raw_bbox_dims": [
+      6568.38916015625,
+      5096.00927734375,
+      5429.087646484375
+    ],
+    "mm_per_model_unit": 9.506218234993113,
+    "raw_max_dim_mm": 16.02686955078125,
+    "status": "ok"
+  },
+  "Acromyrmex_cf.coronatus_CASENT0744044": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Acromyrmex_cf.coronatus_CASENT0744044_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Acromyrmex_cf.coronatus_CASENT0744044/Acromyrmex_cf.coronatus_CASENT0744044.json",
+    "voxel_size_mm": 0.006110000000000001,
+    "normalization_scale": 744.3828722949097,
+    "raw_bbox_dims": [
+      875.9232177734375,
+      1471.0960083007812,
+      805.3898010253906
+    ],
+    "mm_per_model_unit": 4.548179349721899,
+    "raw_max_dim_mm": 8.988396610717775,
+    "status": "ok"
+  },
+  "Acromyrmex_echinatior_CASENT0745011": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Acromyrmex_echinatior_CASENT0745011_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Acromyrmex_echinatior_CASENT0745011/Acromyrmex_echinatior_CASENT0745011.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 3441.871107611465,
+    "raw_bbox_dims": [
+      4632.590087890625,
+      5339.330322265625,
+      6180.212646484375
+    ],
+    "mm_per_model_unit": 8.398165502571974,
+    "raw_max_dim_mm": 15.079718857421874,
+    "status": "ok"
+  },
+  "Acromyrmex_octospinosus_CASENT0878014": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Acromyrmex_octospinosus_CASENT0878014_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Acromyrmex_octospinosus_CASENT0878014/Acromyrmex_octospinosus_CASENT0878014.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1733.7387883269705,
+    "raw_bbox_dims": [
+      2850.707763671875,
+      2272.255126953125,
+      1656.3349609375
+    ],
+    "mm_per_model_unit": 4.230322643517808,
+    "raw_max_dim_mm": 6.955726943359375,
+    "status": "ok"
+  },
+  "Acropyga_butteli_CASENT0878079": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Acropyga_butteli_CASENT0878079_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Acropyga_butteli_CASENT0878079/Acropyga_butteli_CASENT0878079.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1276.9262198594208,
+    "raw_bbox_dims": [
+      2184.9297485351562,
+      1395.5934448242188,
+      1069.1873779296875
+    ],
+    "mm_per_model_unit": 3.1156999764569866,
+    "raw_max_dim_mm": 5.331228586425781,
+    "status": "ok"
+  },
+  "Acropyga_goeldii_CASENT0744198": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Acropyga_goeldii_CASENT0744198_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Acropyga_goeldii_CASENT0744198/Acropyga_goeldii_CASENT0744198.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1129.854194239971,
+    "raw_bbox_dims": [
+      2176.7373657226562,
+      1764.7984008789062,
+      1106.2650756835938
+    ],
+    "mm_per_model_unit": 2.7568442339455292,
+    "raw_max_dim_mm": 5.311239172363281,
+    "status": "ok"
+  },
+  "Acropyga_goeldii_CASENT0744200": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Acropyga_goeldii_CASENT0744200_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Acropyga_goeldii_CASENT0744200/Acropyga_goeldii_CASENT0744200.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1136.8111872528063,
+    "raw_bbox_dims": [
+      2132.9251708984375,
+      1948.4880981445312,
+      1130.3392333984375
+    ],
+    "mm_per_model_unit": 2.7738192968968476,
+    "raw_max_dim_mm": 5.204337416992187,
+    "status": "ok"
+  },
+  "Acropyga_sauteri_CASENT0878082": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Acropyga_sauteri_CASENT0878082_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Acropyga_sauteri_CASENT0878082/Acropyga_sauteri_CASENT0878082.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1610.6183493342542,
+    "raw_bbox_dims": [
+      2291.5506591796875,
+      2735.721923828125,
+      1335.3672790527344
+    ],
+    "mm_per_model_unit": 3.92990877237558,
+    "raw_max_dim_mm": 6.6751614941406245,
+    "status": "ok"
+  },
+  "Aenictus_afrc-gh01_CASENT0744678": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Aenictus_afrc-gh01_CASENT0744678_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Aenictus_afrc-gh01_CASENT0744678/Aenictus_afrc-gh01_CASENT0744678.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1343.0927574976006,
+    "raw_bbox_dims": [
+      2002.3814697265625,
+      2671.52392578125,
+      1442.7471923828125
+    ],
+    "mm_per_model_unit": 3.2771463282941453,
+    "raw_max_dim_mm": 6.51851837890625,
+    "status": "ok"
+  },
+  "Aenictus_ceylonicus_CASENT0878084": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Aenictus_ceylonicus_CASENT0878084_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Aenictus_ceylonicus_CASENT0878084/Aenictus_ceylonicus_CASENT0878084.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 2519.0672983077893,
+    "raw_bbox_dims": [
+      4122.283447265625,
+      3189.325439453125,
+      2307.2944946289062
+    ],
+    "mm_per_model_unit": 6.146524207871006,
+    "raw_max_dim_mm": 10.058371611328125,
+    "status": "ok"
+  },
+  "Allomerus_decemarticulatus_CASENT0744512": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Allomerus_decemarticulatus_CASENT0744512_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Allomerus_decemarticulatus_CASENT0744512/Allomerus_decemarticulatus_CASENT0744512.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1203.2120472710678,
+    "raw_bbox_dims": [
+      1457.3826904296875,
+      1772.5818481445312,
+      1113.7979736328125
+    ],
+    "mm_per_model_unit": 2.935837395341405,
+    "raw_max_dim_mm": 4.325099709472656,
+    "status": "ok"
+  },
+  "Allomerus_decemarticulatus_CASENT0745025": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Allomerus_decemarticulatus_CASENT0745025_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Allomerus_decemarticulatus_CASENT0745025/Allomerus_decemarticulatus_CASENT0745025.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 814.2371709366889,
+    "raw_bbox_dims": [
+      1588.5191650390625,
+      1489.6702880859375,
+      985.8837585449219
+    ],
+    "mm_per_model_unit": 1.986738697085521,
+    "raw_max_dim_mm": 3.8759867626953124,
+    "status": "ok"
+  },
+  "Allomerus_octoarticulatus_CASENT0744406": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Allomerus_octoarticulatus_CASENT0744406_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Allomerus_octoarticulatus_CASENT0744406/Allomerus_octoarticulatus_CASENT0744406.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 755.273764032207,
+    "raw_bbox_dims": [
+      1466.6264038085938,
+      1336.6295166015625,
+      1273.6038818359375
+    ],
+    "mm_per_model_unit": 1.842867984238585,
+    "raw_max_dim_mm": 3.5785684252929686,
+    "status": "ok"
+  },
+  "Anochetus_horridus_CASENT0744281": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Anochetus_horridus_CASENT0744281_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Anochetus_horridus_CASENT0744281/Anochetus_horridus_CASENT0744281.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 3356.95498957913,
+    "raw_bbox_dims": [
+      6558.52880859375,
+      2816.7763671875,
+      3345.8048095703125
+    ],
+    "mm_per_model_unit": 8.190970174573078,
+    "raw_max_dim_mm": 16.00281029296875,
+    "status": "ok"
+  },
+  "Anochetus_katonae_CASENT0745578": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Anochetus_katonae_CASENT0745578_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Anochetus_katonae_CASENT0745578/Anochetus_katonae_CASENT0745578.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1833.9725339351705,
+    "raw_bbox_dims": [
+      3150.67626953125,
+      1944.798828125,
+      1530.4880981445312
+    ],
+    "mm_per_model_unit": 4.474892982801816,
+    "raw_max_dim_mm": 7.68765009765625,
+    "status": "ok"
+  },
+  "Aphaenogaster_cf.araneoides_CASENT0878078": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Aphaenogaster_cf.araneoides_CASENT0878078_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Aphaenogaster_cf.araneoides_CASENT0878078/Aphaenogaster_cf.araneoides_CASENT0878078.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 3714.088846386699,
+    "raw_bbox_dims": [
+      6278.92626953125,
+      5155.320556640625,
+      6346.12158203125
+    ],
+    "mm_per_model_unit": 9.062376785183545,
+    "raw_max_dim_mm": 15.48453666015625,
+    "status": "ok"
+  },
+  "Aphaenogaster_lepida_CASENT0743786": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Aphaenogaster_lepida_CASENT0743786_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Aphaenogaster_lepida_CASENT0743786/Aphaenogaster_lepida_CASENT0743786.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 2640.235174843294,
+    "raw_bbox_dims": [
+      4673.546875,
+      2195.3330078125,
+      3541.359130859375
+    ],
+    "mm_per_model_unit": 6.442173826617637,
+    "raw_max_dim_mm": 11.403454374999999,
+    "status": "ok"
+  },
+  "Aphaenogaster_pallida_CASENT0745235": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Aphaenogaster_pallida_CASENT0745235_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Aphaenogaster_pallida_CASENT0745235/Aphaenogaster_pallida_CASENT0745235.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 2352.42199107366,
+    "raw_bbox_dims": [
+      4159.5872802734375,
+      2446.529052734375,
+      2257.1064453125
+    ],
+    "mm_per_model_unit": 5.73990965821973,
+    "raw_max_dim_mm": 10.149392963867188,
+    "status": "ok"
+  },
+  "Aphaenogaster_sardoa_CASENT0745225": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Aphaenogaster_sardoa_CASENT0745225_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Aphaenogaster_sardoa_CASENT0745225/Aphaenogaster_sardoa_CASENT0745225.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 3394.3947281226024,
+    "raw_bbox_dims": [
+      5866.004150390625,
+      3449.831298828125,
+      4372.5333251953125
+    ],
+    "mm_per_model_unit": 8.28232313661915,
+    "raw_max_dim_mm": 14.313050126953124,
+    "status": "ok"
+  },
+  "Apomyrma_stygia_CASENT0744661": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Apomyrma_stygia_CASENT0744661_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Apomyrma_stygia_CASENT0744661/Apomyrma_stygia_CASENT0744661.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1291.8208331611786,
+    "raw_bbox_dims": [
+      2054.7814331054688,
+      796.0933532714844,
+      1250.3597412109375
+    ],
+    "mm_per_model_unit": 3.1520428329132755,
+    "raw_max_dim_mm": 5.013666696777343,
+    "status": "ok"
+  },
+  "Atta_sp._CASENT0744324": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Atta_sp._CASENT0744324_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Atta_sp._CASENT0744324/Atta_sp._CASENT0744324.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1320.7247510740199,
+    "raw_bbox_dims": [
+      1951.3900146484375,
+      2163.9946899414062,
+      2242.407958984375
+    ],
+    "mm_per_model_unit": 3.2225683926206083,
+    "raw_max_dim_mm": 5.471475419921875,
+    "status": "ok"
+  },
+  "Azteca_sp._CASENT0744102": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Azteca_sp._CASENT0744102_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Azteca_sp._CASENT0744102/Azteca_sp._CASENT0744102.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1581.352018227584,
+    "raw_bbox_dims": [
+      2860.200439453125,
+      2701.3271484375,
+      1587.9862060546875
+    ],
+    "mm_per_model_unit": 3.8584989244753047,
+    "raw_max_dim_mm": 6.978889072265624,
+    "status": "ok"
+  },
+  "Blepharidatta_brasiliensis_CASENT0744515": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Blepharidatta_brasiliensis_CASENT0744515_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Blepharidatta_brasiliensis_CASENT0744515/Blepharidatta_brasiliensis_CASENT0744515.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1277.8917094108272,
+    "raw_bbox_dims": [
+      1230.6253051757812,
+      1947.7330322265625,
+      1918.3673095703125
+    ],
+    "mm_per_model_unit": 3.118055770962418,
+    "raw_max_dim_mm": 4.752468598632812,
+    "status": "ok"
+  },
+  "Blepharidatta_brasiliensis_CASENT0745135": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Blepharidatta_brasiliensis_CASENT0745135_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Blepharidatta_brasiliensis_CASENT0745135/Blepharidatta_brasiliensis_CASENT0745135.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1249.1993456061869,
+    "raw_bbox_dims": [
+      1898.361572265625,
+      1709.7687377929688,
+      1224.26611328125
+    ],
+    "mm_per_model_unit": 3.0480464032790957,
+    "raw_max_dim_mm": 4.632002236328125,
+    "status": "ok"
+  },
+  "Blepharidatta_brasiliensis_CASENT0745136": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Blepharidatta_brasiliensis_CASENT0745136_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Blepharidatta_brasiliensis_CASENT0745136/Blepharidatta_brasiliensis_CASENT0745136.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 966.1704001481094,
+    "raw_bbox_dims": [
+      1664.5059814453125,
+      1419.2825317382812,
+      1347.209716796875
+    ],
+    "mm_per_model_unit": 2.3574557763613866,
+    "raw_max_dim_mm": 4.061394594726562,
+    "status": "ok"
+  },
+  "Bothriomyrmex_corsicus_CASENT0745216": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Bothriomyrmex_corsicus_CASENT0745216_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Bothriomyrmex_corsicus_CASENT0745216/Bothriomyrmex_corsicus_CASENT0745216.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1302.209688848143,
+    "raw_bbox_dims": [
+      2201.47265625,
+      1836.2554321289062,
+      1182.1686096191406
+    ],
+    "mm_per_model_unit": 3.177391640789469,
+    "raw_max_dim_mm": 5.37159328125,
+    "status": "ok"
+  },
+  "Bothriomyrmex_meridionalis_CASENT0745153": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Bothriomyrmex_meridionalis_CASENT0745153_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Bothriomyrmex_meridionalis_CASENT0745153/Bothriomyrmex_meridionalis_CASENT0745153.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1761.7303759762467,
+    "raw_bbox_dims": [
+      3318.73291015625,
+      2084.9918212890625,
+      1378.1439208984375
+    ],
+    "mm_per_model_unit": 4.298622117382042,
+    "raw_max_dim_mm": 8.09770830078125,
+    "status": "ok"
+  },
+  "Bothroponera_soror_CASENT0744928": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Bothroponera_soror_CASENT0744928_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Bothroponera_soror_CASENT0744928/Bothroponera_soror_CASENT0744928.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 4103.832831676409,
+    "raw_bbox_dims": [
+      6748.321044921875,
+      5782.397216796875,
+      4742.516357421875
+    ],
+    "mm_per_model_unit": 10.013352109290437,
+    "raw_max_dim_mm": 16.465903349609373,
+    "status": "ok"
+  },
+  "Bothroponera_talpa_CASENT0744929": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Bothroponera_talpa_CASENT0744929_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Bothroponera_talpa_CASENT0744929/Bothroponera_talpa_CASENT0744929.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 3901.4919125839033,
+    "raw_bbox_dims": [
+      7065.11669921875,
+      4582.7314453125,
+      5065.7103271484375
+    ],
+    "mm_per_model_unit": 9.519640266704723,
+    "raw_max_dim_mm": 17.23888474609375,
+    "status": "ok"
+  },
+  "Calyptomyrmex_brunneus_CASENT0745550": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Calyptomyrmex_brunneus_CASENT0745550_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Calyptomyrmex_brunneus_CASENT0745550/Calyptomyrmex_brunneus_CASENT0745550.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 941.1548952318357,
+    "raw_bbox_dims": [
+      1632.3604125976562,
+      919.0650634765625,
+      1058.0662231445312
+    ],
+    "mm_per_model_unit": 2.296417944365679,
+    "raw_max_dim_mm": 3.982959406738281,
+    "status": "ok"
+  },
+  "Camponotus_fulvopilosus_CASENT0744733": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Camponotus_fulvopilosus_CASENT0744733_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Camponotus_fulvopilosus_CASENT0744733/Camponotus_fulvopilosus_CASENT0744733.json",
+    "voxel_size_mm": 0.006110000000000001,
+    "normalization_scale": 1470.8370737059672,
+    "raw_bbox_dims": [
+      2456.757080078125,
+      847.2815246582031,
+      1129.0235595703125
+    ],
+    "mm_per_model_unit": 8.986814520343462,
+    "raw_max_dim_mm": 15.010785759277345,
+    "status": "ok"
+  },
+  "Camponotus_lateralis_CASENT0878124": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Camponotus_lateralis_CASENT0878124_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Camponotus_lateralis_CASENT0878124/Camponotus_lateralis_CASENT0878124.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 2114.3683765658398,
+    "raw_bbox_dims": [
+      4095.51513671875,
+      2248.8494873046875,
+      2231.6522216796875
+    ],
+    "mm_per_model_unit": 5.159058838820648,
+    "raw_max_dim_mm": 9.99305693359375,
+    "status": "ok"
+  },
+  "Camponotus_polyrhachioides_CASENT0744732": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Camponotus_polyrhachioides_CASENT0744732_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Camponotus_polyrhachioides_CASENT0744732/Camponotus_polyrhachioides_CASENT0744732.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 3397.256253712517,
+    "raw_bbox_dims": [
+      6440.761474609375,
+      3718.1407470703125,
+      4038.2413330078125
+    ],
+    "mm_per_model_unit": 8.28930525905854,
+    "raw_max_dim_mm": 15.715457998046874,
+    "status": "ok"
+  },
+  "Carebara_affinis_CASENT0741335": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Carebara_affinis_CASENT0741335_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Carebara_affinis_CASENT0741335/Carebara_affinis_CASENT0741335.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 340.9219578189787,
+    "raw_bbox_dims": [
+      624.3277740478516,
+      211.71385192871094,
+      302.0730438232422
+    ],
+    "mm_per_model_unit": 0.831849577078308,
+    "raw_max_dim_mm": 1.5233597686767577,
+    "status": "ok"
+  },
+  "Carebara_atoma_CASENT0741393": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Carebara_atoma_CASENT0741393_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Carebara_atoma_CASENT0741393/Carebara_atoma_CASENT0741393.json",
+    "voxel_size_mm": 0.00122,
+    "normalization_scale": 570.0702624696638,
+    "raw_bbox_dims": [
+      1053.4800720214844,
+      637.1052856445312,
+      399.0070037841797
+    ],
+    "mm_per_model_unit": 0.6954857202129898,
+    "raw_max_dim_mm": 1.2852456878662109,
+    "status": "ok"
+  },
+  "Carebara_atoma_CASENT0741394": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Carebara_atoma_CASENT0741394_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Carebara_atoma_CASENT0741394/Carebara_atoma_CASENT0741394.json",
+    "voxel_size_mm": 0.00122,
+    "normalization_scale": 539.6080920987397,
+    "raw_bbox_dims": [
+      963.3683776855469,
+      682.6051330566406,
+      457.41465759277344
+    ],
+    "mm_per_model_unit": 0.6583218723604624,
+    "raw_max_dim_mm": 1.1753094207763672,
+    "status": "ok"
+  },
+  "Carebara_trechideros_CASENT0877591": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Carebara_trechideros_CASENT0877591_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Carebara_trechideros_CASENT0877591/Carebara_trechideros_CASENT0877591.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1741.7684942147189,
+    "raw_bbox_dims": [
+      2298.2352905273438,
+      1749.4480590820312,
+      2970.77734375
+    ],
+    "mm_per_model_unit": 4.249915125883914,
+    "raw_max_dim_mm": 7.24869671875,
+    "status": "ok"
+  },
+  "Cataglyphis_iberica_CASENT0745158": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Cataglyphis_iberica_CASENT0745158_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Cataglyphis_iberica_CASENT0745158/Cataglyphis_iberica_CASENT0745158.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 798.1941491506944,
+    "raw_bbox_dims": [
+      1279.8624267578125,
+      954.0389404296875,
+      1111.6121826171875
+    ],
+    "mm_per_model_unit": 1.9475937239276944,
+    "raw_max_dim_mm": 3.1228643212890623,
+    "status": "ok"
+  },
+  "Cataulacus_sp._CASENT0745594": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Cataulacus_sp._CASENT0745594_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Cataulacus_sp._CASENT0745594/Cataulacus_sp._CASENT0745594.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 350.52829875275097,
+    "raw_bbox_dims": [
+      685.419677734375,
+      663.8130798339844,
+      627.5162963867188
+    ],
+    "mm_per_model_unit": 0.8552890489567123,
+    "raw_max_dim_mm": 1.6724240136718749,
+    "status": "ok"
+  },
+  "Centromyrmex_brachycola_CASENT0744052": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Centromyrmex_brachycola_CASENT0744052_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Centromyrmex_brachycola_CASENT0744052/Centromyrmex_brachycola_CASENT0744052.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 628.9406593728077,
+    "raw_bbox_dims": [
+      1238.529296875,
+      578.7734832763672,
+      590.1631774902344
+    ],
+    "mm_per_model_unit": 1.5346152088696505,
+    "raw_max_dim_mm": 3.0220114843749997,
+    "status": "ok"
+  },
+  "Cephalotes_atratus_CASENT0744612": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Cephalotes_atratus_CASENT0744612_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Cephalotes_atratus_CASENT0744612/Cephalotes_atratus_CASENT0744612.json",
+    "voxel_size_mm": 0.006110000000000001,
+    "normalization_scale": 654.9125183569272,
+    "raw_bbox_dims": [
+      1144.7694702148438,
+      1054.45458984375,
+      1129.9322509765625
+    ],
+    "mm_per_model_unit": 4.001515487160826,
+    "raw_max_dim_mm": 6.9945414630126965,
+    "status": "ok"
+  },
+  "Cephalotes_depressus_CASENT0744250": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Cephalotes_depressus_CASENT0744250_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Cephalotes_depressus_CASENT0744250/Cephalotes_depressus_CASENT0744250.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 392.37002612582603,
+    "raw_bbox_dims": [
+      674.9220275878906,
+      521.0583801269531,
+      482.27008056640625
+    ],
+    "mm_per_model_unit": 0.9573828637470154,
+    "raw_max_dim_mm": 1.646809747314453,
+    "status": "ok"
+  },
+  "Cephalotes_duckei_CASENT0744396": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Cephalotes_duckei_CASENT0744396_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Cephalotes_duckei_CASENT0744396/Cephalotes_duckei_CASENT0744396.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 445.4385981626865,
+    "raw_bbox_dims": [
+      796.453125,
+      407.1000518798828,
+      288.4183807373047
+    ],
+    "mm_per_model_unit": 1.086870179516955,
+    "raw_max_dim_mm": 1.9433456249999999,
+    "status": "ok"
+  },
+  "Cephalotes_maculatus_CASENT0744374": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Cephalotes_maculatus_CASENT0744374_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Cephalotes_maculatus_CASENT0744374/Cephalotes_maculatus_CASENT0744374.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 405.59729667318413,
+    "raw_bbox_dims": [
+      795.0773315429688,
+      292.40879821777344,
+      312.1807861328125
+    ],
+    "mm_per_model_unit": 0.9896574038825693,
+    "raw_max_dim_mm": 1.9399886889648437,
+    "status": "ok"
+  },
+  "Cephalotes_minutus_CASENT0709253": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Cephalotes_minutus_CASENT0709253_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Cephalotes_minutus_CASENT0709253/Cephalotes_minutus_CASENT0709253.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 473.19426528511184,
+    "raw_bbox_dims": [
+      797.3165893554688,
+      321.39039611816406,
+      250.94537353515625
+    ],
+    "mm_per_model_unit": 1.1545940072956729,
+    "raw_max_dim_mm": 1.9454524780273437,
+    "status": "ok"
+  },
+  "Cephalotes_pusillus_CASENT0744206": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Cephalotes_pusillus_CASENT0744206_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Cephalotes_pusillus_CASENT0744206/Cephalotes_pusillus_CASENT0744206.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 513.7488708674275,
+    "raw_bbox_dims": [
+      795.635986328125,
+      533.8890380859375,
+      421.08880615234375
+    ],
+    "mm_per_model_unit": 1.253547244916523,
+    "raw_max_dim_mm": 1.941351806640625,
+    "status": "ok"
+  },
+  "Cephalotes_pusillus_CASENT0744207": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Cephalotes_pusillus_CASENT0744207_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Cephalotes_pusillus_CASENT0744207/Cephalotes_pusillus_CASENT0744207.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 361.33778008897366,
+    "raw_bbox_dims": [
+      644.1895141601562,
+      395.3759460449219,
+      415.244140625
+    ],
+    "mm_per_model_unit": 0.8816641834170957,
+    "raw_max_dim_mm": 1.571822414550781,
+    "status": "ok"
+  },
+  "Cephalotes_pusillus_CASENT0744391": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Cephalotes_pusillus_CASENT0744391_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Cephalotes_pusillus_CASENT0744391/Cephalotes_pusillus_CASENT0744391.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 432.1956875450514,
+    "raw_bbox_dims": [
+      733.1538696289062,
+      454.88429260253906,
+      420.1062774658203
+    ],
+    "mm_per_model_unit": 1.0545574776099254,
+    "raw_max_dim_mm": 1.788895441894531,
+    "status": "ok"
+  },
+  "Cephalotes_simillimus_CASENT0744409": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Cephalotes_simillimus_CASENT0744409_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Cephalotes_simillimus_CASENT0744409/Cephalotes_simillimus_CASENT0744409.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 372.9040990217866,
+    "raw_bbox_dims": [
+      594.3485412597656,
+      320.58766174316406,
+      262.5531463623047
+    ],
+    "mm_per_model_unit": 0.9098860016131592,
+    "raw_max_dim_mm": 1.450210440673828,
+    "status": "ok"
+  },
+  "Cerapachys_sp._CASENT0745076": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Cerapachys_sp._CASENT0745076_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Cerapachys_sp._CASENT0745076/Cerapachys_sp._CASENT0745076.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 354.02609886071815,
+    "raw_bbox_dims": [
+      622.5583190917969,
+      288.9546356201172,
+      337.05029296875
+    ],
+    "mm_per_model_unit": 0.8638236812201523,
+    "raw_max_dim_mm": 1.5190422985839842,
+    "status": "ok"
+  },
+  "Cerapachys_sulcinodis_CASENT0745635": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Cerapachys_sulcinodis_CASENT0745635_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Cerapachys_sulcinodis_CASENT0745635/Cerapachys_sulcinodis_CASENT0745635.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 612.7207198737447,
+    "raw_bbox_dims": [
+      1054.2431030273438,
+      601.6996459960938,
+      552.5834655761719
+    ],
+    "mm_per_model_unit": 1.4950385564919368,
+    "raw_max_dim_mm": 2.5723531713867187,
+    "status": "ok"
+  },
+  "Cladomyrma_sp._CASENT0745080": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Cladomyrma_sp._CASENT0745080_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Cladomyrma_sp._CASENT0745080/Cladomyrma_sp._CASENT0745080.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 325.96444897310084,
+    "raw_bbox_dims": [
+      520.8148040771484,
+      279.3722457885742,
+      191.56075286865234
+    ],
+    "mm_per_model_unit": 0.795353255494366,
+    "raw_max_dim_mm": 1.2707881219482422,
+    "status": "ok"
+  },
+  "Colobopsis_sp._CASENT0877570": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Colobopsis_sp._CASENT0877570_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Colobopsis_sp._CASENT0877570/Colobopsis_sp._CASENT0877570.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 2517.9456947029676,
+    "raw_bbox_dims": [
+      4730.0614013671875,
+      2961.0399169921875,
+      1940.131103515625
+    ],
+    "mm_per_model_unit": 6.143787495075241,
+    "raw_max_dim_mm": 11.541349819335936,
+    "status": "ok"
+  },
+  "Colobopsis_truncata_CASENT0878134": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Colobopsis_truncata_CASENT0878134_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Colobopsis_truncata_CASENT0878134/Colobopsis_truncata_CASENT0878134.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 2045.3425334103256,
+    "raw_bbox_dims": [
+      3841.6722412109375,
+      1805.5882568359375,
+      1707.447265625
+    ],
+    "mm_per_model_unit": 4.990635781521195,
+    "raw_max_dim_mm": 9.373680268554686,
+    "status": "ok"
+  },
+  "Crematogaster_evallans_CASENT0744252": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Crematogaster_evallans_CASENT0744252_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Crematogaster_evallans_CASENT0744252/Crematogaster_evallans_CASENT0744252.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 469.9703116324127,
+    "raw_bbox_dims": [
+      884.1861267089844,
+      664.0161743164062,
+      296.1129455566406
+    ],
+    "mm_per_model_unit": 1.1467275603830869,
+    "raw_max_dim_mm": 2.157414149169922,
+    "status": "ok"
+  },
+  "Crematogaster_nawai_OKENT0105046": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Crematogaster_nawai_OKENT0105046_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Crematogaster_nawai_OKENT0105046/Crematogaster_nawai_OKENT0105046.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 317.842489034348,
+    "raw_bbox_dims": [
+      478.6009979248047,
+      400.25950622558594,
+      452.2551956176758
+    ],
+    "mm_per_model_unit": 0.775535673243809,
+    "raw_max_dim_mm": 1.1677864349365235,
+    "status": "ok"
+  },
+  "Cryptopone_sauteri_CASENT0743771": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Cryptopone_sauteri_CASENT0743771_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Cryptopone_sauteri_CASENT0743771/Cryptopone_sauteri_CASENT0743771.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 343.24792650733514,
+    "raw_bbox_dims": [
+      635.4358215332031,
+      441.71437072753906,
+      318.0558090209961
+    ],
+    "mm_per_model_unit": 0.8375249406778977,
+    "raw_max_dim_mm": 1.5504634045410155,
+    "status": "ok"
+  },
+  "Cryptopone_tengu_OKENT0105052": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Cryptopone_tengu_OKENT0105052_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Cryptopone_tengu_OKENT0105052/Cryptopone_tengu_OKENT0105052.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 302.3172749858481,
+    "raw_bbox_dims": [
+      592.6766052246094,
+      530.7122650146484,
+      406.2433166503906
+    ],
+    "mm_per_model_unit": 0.7376541509654693,
+    "raw_max_dim_mm": 1.4461309167480467,
+    "status": "ok"
+  },
+  "Cylindromyrmex_brasiliensis_CASENT0744218": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Cylindromyrmex_brasiliensis_CASENT0744218_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Cylindromyrmex_brasiliensis_CASENT0744218/Cylindromyrmex_brasiliensis_CASENT0744218.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 673.3218548708181,
+    "raw_bbox_dims": [
+      1101.2646484375,
+      935.0702514648438,
+      761.4169769287109
+    ],
+    "mm_per_model_unit": 1.642905325884796,
+    "raw_max_dim_mm": 2.6870857421875,
+    "status": "ok"
+  },
+  "Cylindromyrmex_striatus_CASENT0741379": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Cylindromyrmex_striatus_CASENT0741379_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Cylindromyrmex_striatus_CASENT0741379/Cylindromyrmex_striatus_CASENT0741379.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 508.86621964465803,
+    "raw_bbox_dims": [
+      893.8390502929688,
+      439.0111999511719,
+      716.4165954589844
+    ],
+    "mm_per_model_unit": 1.2416335759329655,
+    "raw_max_dim_mm": 2.180967282714844,
+    "status": "ok"
+  },
+  "Cyphoidris_afrc-tz02_CASENT0744812": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Cyphoidris_afrc-tz02_CASENT0744812_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Cyphoidris_afrc-tz02_CASENT0744812/Cyphoidris_afrc-tz02_CASENT0744812.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 269.2075052414616,
+    "raw_bbox_dims": [
+      436.73191833496094,
+      303.02984619140625,
+      291.05582427978516
+    ],
+    "mm_per_model_unit": 0.6568663127891663,
+    "raw_max_dim_mm": 1.0656258807373047,
+    "status": "ok"
+  },
+  "Cyphomyrmex_peltatus_CASENT0744330": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Cyphomyrmex_peltatus_CASENT0744330_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Cyphomyrmex_peltatus_CASENT0744330/Cyphomyrmex_peltatus_CASENT0744330.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 192.4251988052508,
+    "raw_bbox_dims": [
+      341.7252197265625,
+      335.9935607910156,
+      217.05665588378906
+    ],
+    "mm_per_model_unit": 0.46951748508481195,
+    "raw_max_dim_mm": 0.8338095361328125,
+    "status": "ok"
+  },
+  "Cyphomyrmex_salvini_CASENT0744339": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Cyphomyrmex_salvini_CASENT0744339_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Cyphomyrmex_salvini_CASENT0744339/Cyphomyrmex_salvini_CASENT0744339.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 208.51242565920325,
+    "raw_bbox_dims": [
+      362.1669616699219,
+      401.8265075683594,
+      245.62210083007812
+    ],
+    "mm_per_model_unit": 0.5087703186084559,
+    "raw_max_dim_mm": 0.9804566784667968,
+    "status": "ok"
+  },
+  "Discothyrea_patrizii_CASENT0744990": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Discothyrea_patrizii_CASENT0744990_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Discothyrea_patrizii_CASENT0744990/Discothyrea_patrizii_CASENT0744990.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 172.9052688655392,
+    "raw_bbox_dims": [
+      304.6749725341797,
+      247.1823959350586,
+      207.3255157470703
+    ],
+    "mm_per_model_unit": 0.4218888560319156,
+    "raw_max_dim_mm": 0.7434069329833984,
+    "status": "ok"
+  },
+  "Discothyrea_patrizii_CASENT0744991": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Discothyrea_patrizii_CASENT0744991_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Discothyrea_patrizii_CASENT0744991/Discothyrea_patrizii_CASENT0744991.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 152.50833091214525,
+    "raw_bbox_dims": [
+      291.77532958984375,
+      179.19276428222656,
+      174.97183990478516
+    ],
+    "mm_per_model_unit": 0.3721203274256344,
+    "raw_max_dim_mm": 0.7119318041992188,
+    "status": "ok"
+  },
+  "Dolichoderus_cf.bidens_CASENT0744033": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Dolichoderus_cf.bidens_CASENT0744033_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Dolichoderus_cf.bidens_CASENT0744033/Dolichoderus_cf.bidens_CASENT0744033.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 766.3963154308381,
+    "raw_bbox_dims": [
+      1479.4705810546875,
+      945.4388427734375,
+      825.7070007324219
+    ],
+    "mm_per_model_unit": 1.870007009651245,
+    "raw_max_dim_mm": 3.6099082177734374,
+    "status": "ok"
+  },
+  "Dolichoderus_sibiricus_OKENT0105315": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Dolichoderus_sibiricus_OKENT0105315_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Dolichoderus_sibiricus_OKENT0105315/Dolichoderus_sibiricus_OKENT0105315.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 412.3835792111615,
+    "raw_bbox_dims": [
+      764.8333129882812,
+      355.3013610839844,
+      577.4494171142578
+    ],
+    "mm_per_model_unit": 1.006215933275234,
+    "raw_max_dim_mm": 1.8661932836914061,
+    "status": "ok"
+  },
+  "Dorylus_afrc-gh01_CASENT0744689": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Dorylus_afrc-gh01_CASENT0744689_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Dorylus_afrc-gh01_CASENT0744689/Dorylus_afrc-gh01_CASENT0744689.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 635.6997841553183,
+    "raw_bbox_dims": [
+      792.0433349609375,
+      898.3961639404297,
+      854.4078674316406
+    ],
+    "mm_per_model_unit": 1.5511074733389765,
+    "raw_max_dim_mm": 2.192086640014648,
+    "status": "ok"
+  },
+  "Dorylus_fulvus_CASENT0745674": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Dorylus_fulvus_CASENT0745674_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Dorylus_fulvus_CASENT0745674/Dorylus_fulvus_CASENT0745674.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 820.3136955115419,
+    "raw_bbox_dims": [
+      1578.3629150390625,
+      617.0497436523438,
+      775.4352264404297
+    ],
+    "mm_per_model_unit": 2.001565417048162,
+    "raw_max_dim_mm": 3.851205512695312,
+    "status": "ok"
+  },
+  "Dorylus_fulvus_CASENT0745678": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Dorylus_fulvus_CASENT0745678_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Dorylus_fulvus_CASENT0745678/Dorylus_fulvus_CASENT0745678.json",
+    "voxel_size_mm": 0.006110000000000001,
+    "normalization_scale": 1013.1975198128237,
+    "raw_bbox_dims": [
+      1875.2774047851562,
+      812.3062133789062,
+      658.7982177734375
+    ],
+    "mm_per_model_unit": 6.1906368460563534,
+    "raw_max_dim_mm": 11.457944943237306,
+    "status": "ok"
+  },
+  "Dorylus_helvolus_pretoriae_CASENT0744691": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Dorylus_helvolus_pretoriae_CASENT0744691_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Dorylus_helvolus_pretoriae_CASENT0744691/Dorylus_helvolus_pretoriae_CASENT0744691.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 362.3299637605524,
+    "raw_bbox_dims": [
+      549.2835540771484,
+      581.9551696777344,
+      417.81858825683594
+    ],
+    "mm_per_model_unit": 0.8840851115757479,
+    "raw_max_dim_mm": 1.4199706140136719,
+    "status": "ok"
+  },
+  "Dorylus_nigricans_molestus_CASENT0744680": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Dorylus_nigricans_molestus_CASENT0744680_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Dorylus_nigricans_molestus_CASENT0744680/Dorylus_nigricans_molestus_CASENT0744680.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 333.7442798615543,
+    "raw_bbox_dims": [
+      603.2127380371094,
+      576.1617126464844,
+      423.2982635498047
+    ],
+    "mm_per_model_unit": 0.8143360428621924,
+    "raw_max_dim_mm": 1.4718390808105468,
+    "status": "ok"
+  },
+  "Dorylus_nigricans_molestus_CASENT0744684": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Dorylus_nigricans_molestus_CASENT0744684_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Dorylus_nigricans_molestus_CASENT0744684/Dorylus_nigricans_molestus_CASENT0744684.json",
+    "voxel_size_mm": 0.006110000000000001,
+    "normalization_scale": 1162.4602629351689,
+    "raw_bbox_dims": [
+      1893.1300659179688,
+      1048.9254760742188,
+      1301.1749877929688
+    ],
+    "mm_per_model_unit": 7.102632206533883,
+    "raw_max_dim_mm": 11.56702470275879,
+    "status": "ok"
+  },
+  "Dorylus_orientalis_CASENT0877642": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Dorylus_orientalis_CASENT0877642_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Dorylus_orientalis_CASENT0877642/Dorylus_orientalis_CASENT0877642.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1743.5477769955457,
+    "raw_bbox_dims": [
+      3140.5408935546875,
+      1169.0637817382812,
+      1819.6270751953125
+    ],
+    "mm_per_model_unit": 4.254256575869132,
+    "raw_max_dim_mm": 7.6629197802734375,
+    "status": "ok"
+  },
+  "Dorylus_sp._CASENT0744699": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Dorylus_sp._CASENT0744699_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Dorylus_sp._CASENT0744699/Dorylus_sp._CASENT0744699.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 533.9260316771938,
+    "raw_bbox_dims": [
+      891.08984375,
+      452.5754699707031,
+      567.6832427978516
+    ],
+    "mm_per_model_unit": 1.3027795172923529,
+    "raw_max_dim_mm": 2.17425921875,
+    "status": "ok"
+  },
+  "Eburopone_afrc-za02_CASENT0744705": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Eburopone_afrc-za02_CASENT0744705_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Eburopone_afrc-za02_CASENT0744705/Eburopone_afrc-za02_CASENT0744705.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 252.52746706960505,
+    "raw_bbox_dims": [
+      422.77439880371094,
+      218.1939239501953,
+      296.56993103027344
+    ],
+    "mm_per_model_unit": 0.6161670196498363,
+    "raw_max_dim_mm": 1.0315695330810546,
+    "status": "ok"
+  },
+  "Eciton_burchellii_CASENT0744556": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Eciton_burchellii_CASENT0744556_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Eciton_burchellii_CASENT0744556/Eciton_burchellii_CASENT0744556.json",
+    "voxel_size_mm": 0.006110000000000001,
+    "normalization_scale": 795.5761864919912,
+    "raw_bbox_dims": [
+      962.2732849121094,
+      1010.1758728027344,
+      1579.1001586914062
+    ],
+    "mm_per_model_unit": 4.860970499466067,
+    "raw_max_dim_mm": 9.648301969604493,
+    "status": "ok"
+  },
+  "Eciton_burchellii_CASENT0744558": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Eciton_burchellii_CASENT0744558_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Eciton_burchellii_CASENT0744558/Eciton_burchellii_CASENT0744558.json",
+    "voxel_size_mm": 0.006110000000000001,
+    "normalization_scale": 843.2739887594773,
+    "raw_bbox_dims": [
+      1261.4219970703125,
+      1533.8395385742188,
+      1619.6158447265625
+    ],
+    "mm_per_model_unit": 5.152404071320407,
+    "raw_max_dim_mm": 9.895852811279298,
+    "status": "ok"
+  },
+  "Eciton_rapax_CASENT0744622": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Eciton_rapax_CASENT0744622_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Eciton_rapax_CASENT0744622/Eciton_rapax_CASENT0744622.json",
+    "voxel_size_mm": 0.006110000000000001,
+    "normalization_scale": 977.6557867310063,
+    "raw_bbox_dims": [
+      1629.589599609375,
+      1106.2344665527344,
+      1061.3203125
+    ],
+    "mm_per_model_unit": 5.97347685692645,
+    "raw_max_dim_mm": 9.956792453613282,
+    "status": "ok"
+  },
+  "Ectatomma_brunneum_CASENT0744575": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Ectatomma_brunneum_CASENT0744575_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Ectatomma_brunneum_CASENT0744575/Ectatomma_brunneum_CASENT0744575.json",
+    "voxel_size_mm": 0.006110000000000001,
+    "normalization_scale": 663.126422368272,
+    "raw_bbox_dims": [
+      1310.5582885742188,
+      1122.619140625,
+      921.439208984375
+    ],
+    "mm_per_model_unit": 4.051702440670142,
+    "raw_max_dim_mm": 8.007511143188477,
+    "status": "ok"
+  },
+  "Ectomomyrmex_insulanus_CASENT0745603": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Ectomomyrmex_insulanus_CASENT0745603_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Ectomomyrmex_insulanus_CASENT0745603/Ectomomyrmex_insulanus_CASENT0745603.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 443.1875927770643,
+    "raw_bbox_dims": [
+      841.2878723144531,
+      802.1664428710938,
+      700.45263671875
+    ],
+    "mm_per_model_unit": 1.081377726376037,
+    "raw_max_dim_mm": 2.0527424084472656,
+    "status": "ok"
+  },
+  "Euponera_brunoi_CASENT0744943": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Euponera_brunoi_CASENT0744943_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Euponera_brunoi_CASENT0744943/Euponera_brunoi_CASENT0744943.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 484.9499186396846,
+    "raw_bbox_dims": [
+      856.2415771484375,
+      407.8289489746094,
+      390.4031982421875
+    ],
+    "mm_per_model_unit": 1.1832778014808303,
+    "raw_max_dim_mm": 2.0892294482421874,
+    "status": "ok"
+  },
+  "Eurhopalothrix_procera_CASENT0745605": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Eurhopalothrix_procera_CASENT0745605_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Eurhopalothrix_procera_CASENT0745605/Eurhopalothrix_procera_CASENT0745605.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 358.6155030469934,
+    "raw_bbox_dims": [
+      536.4873657226562,
+      499.7861633300781,
+      561.5593566894531
+    ],
+    "mm_per_model_unit": 0.8750218274346638,
+    "raw_max_dim_mm": 1.3702048303222656,
+    "status": "ok"
+  },
+  "Eurhopalothrix_sp._CASENT0745608": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Eurhopalothrix_sp._CASENT0745608_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Eurhopalothrix_sp._CASENT0745608/Eurhopalothrix_sp._CASENT0745608.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 166.18024635606807,
+    "raw_bbox_dims": [
+      317.1855163574219,
+      261.48089599609375,
+      282.84532928466797
+    ],
+    "mm_per_model_unit": 0.40547980110880605,
+    "raw_max_dim_mm": 0.7739326599121094,
+    "status": "ok"
+  },
+  "Formica_sanguinea_CASENT0878135": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Formica_sanguinea_CASENT0878135_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Formica_sanguinea_CASENT0878135/Formica_sanguinea_CASENT0878135.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 4764.355865354955,
+    "raw_bbox_dims": [
+      5864.09033203125,
+      7494.856201171875,
+      3768.667236328125
+    ],
+    "mm_per_model_unit": 11.62502831146609,
+    "raw_max_dim_mm": 18.287449130859375,
+    "status": "ok"
+  },
+  "Formica_sanguinea_CASENT0878137": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Formica_sanguinea_CASENT0878137_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Formica_sanguinea_CASENT0878137/Formica_sanguinea_CASENT0878137.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 4953.929876269081,
+    "raw_bbox_dims": [
+      9170.009765625,
+      4025.1424560546875,
+      5705.387939453125
+    ],
+    "mm_per_model_unit": 12.087588898096557,
+    "raw_max_dim_mm": 22.374823828125,
+    "status": "ok"
+  },
+  "Formica_sanguinea_OKENT0105421": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Formica_sanguinea_OKENT0105421_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Formica_sanguinea_OKENT0105421/Formica_sanguinea_OKENT0105421.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 671.3649407812745,
+    "raw_bbox_dims": [
+      869.0959777832031,
+      758.8877563476562,
+      934.0821075439453
+    ],
+    "mm_per_model_unit": 1.6381304555063099,
+    "raw_max_dim_mm": 2.2791603424072266,
+    "status": "ok"
+  },
+  "Formicoxenus_nitidulus_CASENT0745166": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Formicoxenus_nitidulus_CASENT0745166_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Formicoxenus_nitidulus_CASENT0745166/Formicoxenus_nitidulus_CASENT0745166.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 256.4999257866665,
+    "raw_bbox_dims": [
+      471.70384216308594,
+      226.94884490966797,
+      254.74664306640625
+    ],
+    "mm_per_model_unit": 0.6258598189194662,
+    "raw_max_dim_mm": 1.1509573748779296,
+    "status": "ok"
+  },
+  "Fulakora_armigera_CASENT0744228": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Fulakora_armigera_CASENT0744228_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Fulakora_armigera_CASENT0744228/Fulakora_armigera_CASENT0744228.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 359.67089227408115,
+    "raw_bbox_dims": [
+      623.7054443359375,
+      530.9109191894531,
+      586.3824005126953
+    ],
+    "mm_per_model_unit": 0.877596977148758,
+    "raw_max_dim_mm": 1.5218412841796873,
+    "status": "ok"
+  },
+  "Gigantiops_destructor_CASENT0745031": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Gigantiops_destructor_CASENT0745031_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Gigantiops_destructor_CASENT0745031/Gigantiops_destructor_CASENT0745031.json",
+    "voxel_size_mm": 0.006110000000000001,
+    "normalization_scale": 1422.0439673872058,
+    "raw_bbox_dims": [
+      2558.8843994140625,
+      722.3372192382812,
+      865.4713134765625
+    ],
+    "mm_per_model_unit": 8.68868864073583,
+    "raw_max_dim_mm": 15.634783680419924,
+    "status": "ok"
+  },
+  "Gigantiops_destructor_CASENT0745032": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Gigantiops_destructor_CASENT0745032_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Gigantiops_destructor_CASENT0745032/Gigantiops_destructor_CASENT0745032.json",
+    "voxel_size_mm": 0.006110000000000001,
+    "normalization_scale": 1126.6924704830885,
+    "raw_bbox_dims": [
+      1916.8511962890625,
+      804.7772216796875,
+      895.2716674804688
+    ],
+    "mm_per_model_unit": 6.884090994651672,
+    "raw_max_dim_mm": 11.711960809326174,
+    "status": "ok"
+  },
+  "Gnamptogenys_aff.relicta_CASENT0744357": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Gnamptogenys_aff.relicta_CASENT0744357_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Gnamptogenys_aff.relicta_CASENT0744357/Gnamptogenys_aff.relicta_CASENT0744357.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 265.31029598894867,
+    "raw_bbox_dims": [
+      431.391845703125,
+      395.5607452392578,
+      305.26426696777344
+    ],
+    "mm_per_model_unit": 0.6473571222130348,
+    "raw_max_dim_mm": 1.052596103515625,
+    "status": "ok"
+  },
+  "Gnamptogenys_horni_CASENT0744116": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Gnamptogenys_horni_CASENT0744116_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Gnamptogenys_horni_CASENT0744116/Gnamptogenys_horni_CASENT0744116.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 276.28199002730184,
+    "raw_bbox_dims": [
+      360.38890075683594,
+      430.4598388671875,
+      439.99688720703125
+    ],
+    "mm_per_model_unit": 0.6741280556666165,
+    "raw_max_dim_mm": 1.0735924047851562,
+    "status": "ok"
+  },
+  "Gnamptogenys_sp._CASENT0744342": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Gnamptogenys_sp._CASENT0744342_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Gnamptogenys_sp._CASENT0744342/Gnamptogenys_sp._CASENT0744342.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 416.02764392892203,
+    "raw_bbox_dims": [
+      680.235107421875,
+      771.0364074707031,
+      649.1851654052734
+    ],
+    "mm_per_model_unit": 1.0151074511865696,
+    "raw_max_dim_mm": 1.8813288342285155,
+    "status": "ok"
+  },
+  "Heteroponera_dolo_CASENT0744318": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Heteroponera_dolo_CASENT0744318_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Heteroponera_dolo_CASENT0744318/Heteroponera_dolo_CASENT0744318.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 608.1221958050685,
+    "raw_bbox_dims": [
+      1014.4946899414062,
+      616.9666748046875,
+      718.1964111328125
+    ],
+    "mm_per_model_unit": 1.483818157764367,
+    "raw_max_dim_mm": 2.475367043457031,
+    "status": "ok"
+  },
+  "Holcoponera_relicta_CASENT0744313": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Holcoponera_relicta_CASENT0744313_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Holcoponera_relicta_CASENT0744313/Holcoponera_relicta_CASENT0744313.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 194.1523583127669,
+    "raw_bbox_dims": [
+      375.1615905761719,
+      324.2764587402344,
+      222.3550262451172
+    ],
+    "mm_per_model_unit": 0.4737317542831512,
+    "raw_max_dim_mm": 0.9153942810058593,
+    "status": "ok"
+  },
+  "Hypoponera_coeca_CASENT0744951": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Hypoponera_coeca_CASENT0744951_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Hypoponera_coeca_CASENT0744951/Hypoponera_coeca_CASENT0744951.json",
+    "voxel_size_mm": 0.00122,
+    "normalization_scale": 889.5746339352287,
+    "raw_bbox_dims": [
+      1540.2241821289062,
+      973.6775817871094,
+      1174.5991516113281
+    ],
+    "mm_per_model_unit": 1.085281053400979,
+    "raw_max_dim_mm": 1.8790735021972655,
+    "status": "ok"
+  },
+  "Hypoponera_sp._CASENT0744274": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Hypoponera_sp._CASENT0744274_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Hypoponera_sp._CASENT0744274/Hypoponera_sp._CASENT0744274.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 179.31566296756225,
+    "raw_bbox_dims": [
+      350.28099060058594,
+      254.74755096435547,
+      187.91407775878906
+    ],
+    "mm_per_model_unit": 0.43753021764085187,
+    "raw_max_dim_mm": 0.8546856170654297,
+    "status": "ok"
+  },
+  "Hypoponera_sp._CASENT0744447": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Hypoponera_sp._CASENT0744447_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Hypoponera_sp._CASENT0744447/Hypoponera_sp._CASENT0744447.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 253.5334157753016,
+    "raw_bbox_dims": [
+      456.0077667236328,
+      375.5286865234375,
+      358.6807098388672
+    ],
+    "mm_per_model_unit": 0.6186215344917358,
+    "raw_max_dim_mm": 1.112658950805664,
+    "status": "ok"
+  },
+  "Hypoponera_sp._CASENT0744952": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Hypoponera_sp._CASENT0744952_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Hypoponera_sp._CASENT0744952/Hypoponera_sp._CASENT0744952.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 224.67865736428672,
+    "raw_bbox_dims": [
+      394.81785583496094,
+      274.5304412841797,
+      256.2124557495117
+    ],
+    "mm_per_model_unit": 0.5482159239688595,
+    "raw_max_dim_mm": 0.9633555682373046,
+    "status": "ok"
+  },
+  "Iridomyrmex_anceps_CASENT0878091": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Iridomyrmex_anceps_CASENT0878091_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Iridomyrmex_anceps_CASENT0878091/Iridomyrmex_anceps_CASENT0878091.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 2142.345303212291,
+    "raw_bbox_dims": [
+      3891.396728515625,
+      1387.2692260742188,
+      2471.8585205078125
+    ],
+    "mm_per_model_unit": 5.22732253983799,
+    "raw_max_dim_mm": 9.495008017578124,
+    "status": "ok"
+  },
+  "Kalathomyrmex_emeryi_CASENT0745118": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Kalathomyrmex_emeryi_CASENT0745118_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Kalathomyrmex_emeryi_CASENT0745118/Kalathomyrmex_emeryi_CASENT0745118.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 343.8622400321931,
+    "raw_bbox_dims": [
+      353.06590270996094,
+      601.8950805664062,
+      510.3676300048828
+    ],
+    "mm_per_model_unit": 0.8390238656785511,
+    "raw_max_dim_mm": 1.4686239965820311,
+    "status": "ok"
+  },
+  "Labidus_coecus_CASENT0744166": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Labidus_coecus_CASENT0744166_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Labidus_coecus_CASENT0744166/Labidus_coecus_CASENT0744166.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 535.9276678071299,
+    "raw_bbox_dims": [
+      561.5537109375,
+      840.7879943847656,
+      757.6070709228516
+    ],
+    "mm_per_model_unit": 1.307663509449397,
+    "raw_max_dim_mm": 2.051522706298828,
+    "status": "ok"
+  },
+  "Labidus_praedator_CASENT0744038": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Labidus_praedator_CASENT0744038_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Labidus_praedator_CASENT0744038/Labidus_praedator_CASENT0744038.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 547.4851796505006,
+    "raw_bbox_dims": [
+      676.7660827636719,
+      673.6406860351562,
+      847.0116577148438
+    ],
+    "mm_per_model_unit": 1.3358638383472214,
+    "raw_max_dim_mm": 2.0667084448242186,
+    "status": "ok"
+  },
+  "Labidus_praedator_CASENT0744223": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Labidus_praedator_CASENT0744223_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Labidus_praedator_CASENT0744223/Labidus_praedator_CASENT0744223.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 648.1659244576454,
+    "raw_bbox_dims": [
+      1004.7428588867188,
+      649.6142883300781,
+      923.021728515625
+    ],
+    "mm_per_model_unit": 1.5815248556766546,
+    "raw_max_dim_mm": 2.4515725756835938,
+    "status": "ok"
+  },
+  "Labidus_praedator_CASENT0744225": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Labidus_praedator_CASENT0744225_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Labidus_praedator_CASENT0744225/Labidus_praedator_CASENT0744225.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 332.35953073940436,
+    "raw_bbox_dims": [
+      531.5956268310547,
+      297.29595947265625,
+      510.1725158691406
+    ],
+    "mm_per_model_unit": 0.8109572550041466,
+    "raw_max_dim_mm": 1.2970933294677733,
+    "status": "ok"
+  },
+  "Labidus_praedator_CASENT0744237": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Labidus_praedator_CASENT0744237_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Labidus_praedator_CASENT0744237/Labidus_praedator_CASENT0744237.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 641.540039289437,
+    "raw_bbox_dims": [
+      1186.6001892089844,
+      537.7002105712891,
+      984.4454956054688
+    ],
+    "mm_per_model_unit": 1.5653576958662263,
+    "raw_max_dim_mm": 2.8953044616699217,
+    "status": "ok"
+  },
+  "Lasius_cf.flavus_CASENT0878010": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Lasius_cf.flavus_CASENT0878010_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Lasius_cf.flavus_CASENT0878010/Lasius_cf.flavus_CASENT0878010.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1757.2676653556362,
+    "raw_bbox_dims": [
+      3244.8109130859375,
+      2090.51123046875,
+      1700.6215209960938
+    ],
+    "mm_per_model_unit": 4.287733103467752,
+    "raw_max_dim_mm": 7.917338627929687,
+    "status": "ok"
+  },
+  "Lasius_orientalis_OKENT0105323": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Lasius_orientalis_OKENT0105323_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Lasius_orientalis_OKENT0105323/Lasius_orientalis_OKENT0105323.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 808.508333319619,
+    "raw_bbox_dims": [
+      1321.1331176757812,
+      707.5177154541016,
+      356.7729034423828
+    ],
+    "mm_per_model_unit": 1.9727603332998704,
+    "raw_max_dim_mm": 3.223564807128906,
+    "status": "ok"
+  },
+  "Leptogenys_cf.binghamii_CASENT0877639": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Leptogenys_cf.binghamii_CASENT0877639_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Leptogenys_cf.binghamii_CASENT0877639/Leptogenys_cf.binghamii_CASENT0877639.json",
+    "voxel_size_mm": 0.006110000000000001,
+    "normalization_scale": 4578.34695979133,
+    "raw_bbox_dims": [
+      7854.048095703125,
+      4055.0787353515625,
+      3646.0892333984375
+    ],
+    "mm_per_model_unit": 27.97369992432503,
+    "raw_max_dim_mm": 47.9882338647461,
+    "status": "implausible_size"
+  },
+  "Leptogenys_gaigei_CASENT0878114": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Leptogenys_gaigei_CASENT0878114_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Leptogenys_gaigei_CASENT0878114/Leptogenys_gaigei_CASENT0878114.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 3609.741267436605,
+    "raw_bbox_dims": [
+      6798.8388671875,
+      4012.597900390625,
+      4134.0611572265625
+    ],
+    "mm_per_model_unit": 8.807768692545316,
+    "raw_max_dim_mm": 16.589166835937498,
+    "status": "ok"
+  },
+  "Leptogenys_peuqueti_CASENT0741327": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Leptogenys_peuqueti_CASENT0741327_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Leptogenys_peuqueti_CASENT0741327/Leptogenys_peuqueti_CASENT0741327.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1171.2694608603172,
+    "raw_bbox_dims": [
+      2195.4273071289062,
+      281.8508605957031,
+      293.2254180908203
+    ],
+    "mm_per_model_unit": 2.8578974844991736,
+    "raw_max_dim_mm": 5.356842629394531,
+    "status": "ok"
+  },
+  "Leptothorax_acervorum_CASENT0745182": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Leptothorax_acervorum_CASENT0745182_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Leptothorax_acervorum_CASENT0745182/Leptothorax_acervorum_CASENT0745182.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 329.5151044719392,
+    "raw_bbox_dims": [
+      648.7767333984375,
+      243.4353790283203,
+      397.5882110595703
+    ],
+    "mm_per_model_unit": 0.8040168549115316,
+    "raw_max_dim_mm": 1.5830152294921875,
+    "status": "ok"
+  },
+  "Lioponera_daikoku_OKENT0105067": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Lioponera_daikoku_OKENT0105067_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Lioponera_daikoku_OKENT0105067/Lioponera_daikoku_OKENT0105067.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 200.7371250805993,
+    "raw_bbox_dims": [
+      392.37713623046875,
+      260.9683837890625,
+      329.05914306640625
+    ],
+    "mm_per_model_unit": 0.48979858519666225,
+    "raw_max_dim_mm": 0.9574002124023437,
+    "status": "ok"
+  },
+  "Lordomyrma_sp._CASENT0745618": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Lordomyrma_sp._CASENT0745618_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Lordomyrma_sp._CASENT0745618/Lordomyrma_sp._CASENT0745618.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 356.671754190444,
+    "raw_bbox_dims": [
+      624.3724060058594,
+      442.44073486328125,
+      333.49058532714844
+    ],
+    "mm_per_model_unit": 0.8702790802246834,
+    "raw_max_dim_mm": 1.5234686706542968,
+    "status": "ok"
+  },
+  "Mayaponera_arhuaca_CASENT0878102": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Mayaponera_arhuaca_CASENT0878102_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Mayaponera_arhuaca_CASENT0878102/Mayaponera_arhuaca_CASENT0878102.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 2677.9552593968797,
+    "raw_bbox_dims": [
+      4285.86474609375,
+      3235.4178466796875,
+      3435.953125
+    ],
+    "mm_per_model_unit": 6.534210832928387,
+    "raw_max_dim_mm": 10.45750998046875,
+    "status": "ok"
+  },
+  "Mayaponera_constricta_CASENT0744226": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Mayaponera_constricta_CASENT0744226_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Mayaponera_constricta_CASENT0744226/Mayaponera_constricta_CASENT0744226.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 658.4491713677533,
+    "raw_bbox_dims": [
+      931.8995056152344,
+      1100.0755004882812,
+      1059.0692138671875
+    ],
+    "mm_per_model_unit": 1.606615978137318,
+    "raw_max_dim_mm": 2.684184221191406,
+    "status": "ok"
+  },
+  "Mayriella_sp._CASENT0745610": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Mayriella_sp._CASENT0745610_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Mayriella_sp._CASENT0745610/Mayriella_sp._CASENT0745610.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 123.32380307962683,
+    "raw_bbox_dims": [
+      246.19705963134766,
+      135.34303665161133,
+      117.8427963256836
+    ],
+    "mm_per_model_unit": 0.30091007951428944,
+    "raw_max_dim_mm": 0.6007208255004882,
+    "status": "ok"
+  },
+  "Megalomyrmex_aff.goeldii_CASENT0744251": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Megalomyrmex_aff.goeldii_CASENT0744251_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Megalomyrmex_aff.goeldii_CASENT0744251/Megalomyrmex_aff.goeldii_CASENT0744251.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 471.007337229533,
+    "raw_bbox_dims": [
+      841.7906799316406,
+      660.4061889648438,
+      712.9895935058594
+    ],
+    "mm_per_model_unit": 1.1492579028400605,
+    "raw_max_dim_mm": 2.053969259033203,
+    "status": "ok"
+  },
+  "Megalomyrmex_drifti_CASENT0744171": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Megalomyrmex_drifti_CASENT0744171_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Megalomyrmex_drifti_CASENT0744171/Megalomyrmex_drifti_CASENT0744171.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 457.2307723800616,
+    "raw_bbox_dims": [
+      828.4781188964844,
+      688.3166198730469,
+      486.6426696777344
+    ],
+    "mm_per_model_unit": 1.1156430846073502,
+    "raw_max_dim_mm": 2.021486610107422,
+    "status": "ok"
+  },
+  "Megaponera_analis_CASENT0744961": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Megaponera_analis_CASENT0744961_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Megaponera_analis_CASENT0744961/Megaponera_analis_CASENT0744961.json",
+    "voxel_size_mm": 0.006110000000000001,
+    "normalization_scale": 1702.3820530652376,
+    "raw_bbox_dims": [
+      3099.9368896484375,
+      1067.3604125976562,
+      1074.6584167480469
+    ],
+    "mm_per_model_unit": 10.401554344228604,
+    "raw_max_dim_mm": 18.940614395751957,
+    "status": "ok"
+  },
+  "Megaponera_analis_CASENT0744964": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Megaponera_analis_CASENT0744964_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Megaponera_analis_CASENT0744964/Megaponera_analis_CASENT0744964.json",
+    "voxel_size_mm": 0.006110000000000001,
+    "normalization_scale": 812.6333873292253,
+    "raw_bbox_dims": [
+      1565.3045043945312,
+      1086.5684814453125,
+      1016.5597229003906
+    ],
+    "mm_per_model_unit": 4.965189996581567,
+    "raw_max_dim_mm": 9.564010521850587,
+    "status": "ok"
+  },
+  "Megaponera_analis_CASENT0745582": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Megaponera_analis_CASENT0745582_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Megaponera_analis_CASENT0745582/Megaponera_analis_CASENT0745582.json",
+    "voxel_size_mm": 0.006110000000000001,
+    "normalization_scale": 915.8650843492888,
+    "raw_bbox_dims": [
+      1640.8318481445312,
+      1031.6505737304688,
+      1291.9542236328125
+    ],
+    "mm_per_model_unit": 5.595935665374156,
+    "raw_max_dim_mm": 10.025482592163087,
+    "status": "ok"
+  },
+  "Melissotarsus_FHG02_CASENT0745206": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Melissotarsus_FHG02_CASENT0745206_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Melissotarsus_FHG02_CASENT0745206/Melissotarsus_FHG02_CASENT0745206.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 208.10706925746345,
+    "raw_bbox_dims": [
+      410.40965270996094,
+      327.6240997314453,
+      294.07503509521484
+    ],
+    "mm_per_model_unit": 0.5077812489882108,
+    "raw_max_dim_mm": 1.0013995526123047,
+    "status": "ok"
+  },
+  "Meranoplus_cf.bicolor_CASENT0877604": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Meranoplus_cf.bicolor_CASENT0877604_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Meranoplus_cf.bicolor_CASENT0877604/Meranoplus_cf.bicolor_CASENT0877604.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1811.8687872065464,
+    "raw_bbox_dims": [
+      3001.528076171875,
+      2544.1953125,
+      1731.9586181640625
+    ],
+    "mm_per_model_unit": 4.420959840783973,
+    "raw_max_dim_mm": 7.323728505859375,
+    "status": "ok"
+  },
+  "Meranoplus_inermis_CASENT0744999": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Meranoplus_inermis_CASENT0744999_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Meranoplus_inermis_CASENT0744999/Meranoplus_inermis_CASENT0744999.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 226.87789092652054,
+    "raw_bbox_dims": [
+      405.4645080566406,
+      348.3704376220703,
+      337.0545654296875
+    ],
+    "mm_per_model_unit": 0.5535820538607101,
+    "raw_max_dim_mm": 0.9893333996582031,
+    "status": "ok"
+  },
+  "Meranoplus_magrettii_CASENT0744818": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Meranoplus_magrettii_CASENT0744818_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Meranoplus_magrettii_CASENT0744818/Meranoplus_magrettii_CASENT0744818.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 249.75547236778613,
+    "raw_bbox_dims": [
+      411.4537048339844,
+      353.33404541015625,
+      435.68841552734375
+    ],
+    "mm_per_model_unit": 0.6094033525773981,
+    "raw_max_dim_mm": 1.0630797338867186,
+    "status": "ok"
+  },
+  "Mesoponera_subiridescens_CASENT0745588": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Mesoponera_subiridescens_CASENT0745588_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Mesoponera_subiridescens_CASENT0745588/Mesoponera_subiridescens_CASENT0745588.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 672.6385430587657,
+    "raw_bbox_dims": [
+      1251.6633911132812,
+      880.0895690917969,
+      1011.8555297851562
+    ],
+    "mm_per_model_unit": 1.641238045063388,
+    "raw_max_dim_mm": 3.054058674316406,
+    "status": "ok"
+  },
+  "Messor_decipiens_CASENT0744826": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Messor_decipiens_CASENT0744826_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Messor_decipiens_CASENT0744826/Messor_decipiens_CASENT0744826.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 637.1737474669451,
+    "raw_bbox_dims": [
+      1100.7767639160156,
+      817.3008117675781,
+      999.14794921875
+    ],
+    "mm_per_model_unit": 1.554703943819346,
+    "raw_max_dim_mm": 2.685895303955078,
+    "status": "ok"
+  },
+  "Microdaceton_tibialis_CASENT0745552": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Microdaceton_tibialis_CASENT0745552_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Microdaceton_tibialis_CASENT0745552/Microdaceton_tibialis_CASENT0745552.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1982.4874293111595,
+    "raw_bbox_dims": [
+      3554.6375732421875,
+      2041.2847290039062,
+      1352.7636413574219
+    ],
+    "mm_per_model_unit": 4.837269327519229,
+    "raw_max_dim_mm": 8.673315678710937,
+    "status": "ok"
+  },
+  "Monomorium_pharaonis_CASENT0877625": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Monomorium_pharaonis_CASENT0877625_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Monomorium_pharaonis_CASENT0877625/Monomorium_pharaonis_CASENT0877625.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1102.4332821319647,
+    "raw_bbox_dims": [
+      2155.2117309570312,
+      1281.4436645507812,
+      1290.5985107421875
+    ],
+    "mm_per_model_unit": 2.689937208401994,
+    "raw_max_dim_mm": 5.258716623535156,
+    "status": "ok"
+  },
+  "Mycetomoellerius_holmgreni_CASENT0744498": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Mycetomoellerius_holmgreni_CASENT0744498_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Mycetomoellerius_holmgreni_CASENT0744498/Mycetomoellerius_holmgreni_CASENT0744498.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 405.2025733032361,
+    "raw_bbox_dims": [
+      720.8113098144531,
+      579.8067321777344,
+      615.1007690429688
+    ],
+    "mm_per_model_unit": 0.988694278859896,
+    "raw_max_dim_mm": 1.7587795959472656,
+    "status": "ok"
+  },
+  "Mycetophylax_asper_CASENT0745124": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Mycetophylax_asper_CASENT0745124_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Mycetophylax_asper_CASENT0745124/Mycetophylax_asper_CASENT0745124.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 280.8867607929529,
+    "raw_bbox_dims": [
+      388.77734375,
+      359.7252960205078,
+      479.0147247314453
+    ],
+    "mm_per_model_unit": 0.685363696334805,
+    "raw_max_dim_mm": 1.1687959283447265,
+    "status": "ok"
+  },
+  "Mycetophylax_morschi_CASENT0745100": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Mycetophylax_morschi_CASENT0745100_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Mycetophylax_morschi_CASENT0745100/Mycetophylax_morschi_CASENT0745100.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 307.6293189372791,
+    "raw_bbox_dims": [
+      537.3905334472656,
+      217.9387435913086,
+      452.71470642089844
+    ],
+    "mm_per_model_unit": 0.7506155382069609,
+    "raw_max_dim_mm": 1.311232901611328,
+    "status": "ok"
+  },
+  "Mycetosoritis_hartmanni_CASENT0745093": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Mycetosoritis_hartmanni_CASENT0745093_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Mycetosoritis_hartmanni_CASENT0745093/Mycetosoritis_hartmanni_CASENT0745093.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 186.41006297309565,
+    "raw_bbox_dims": [
+      314.1206512451172,
+      360.4298553466797,
+      242.73272705078125
+    ],
+    "mm_per_model_unit": 0.4548405536543534,
+    "raw_max_dim_mm": 0.8794488470458984,
+    "status": "ok"
+  },
+  "Mycocepurus_smithii_CASENT0744315": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Mycocepurus_smithii_CASENT0744315_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Mycocepurus_smithii_CASENT0744315/Mycocepurus_smithii_CASENT0744315.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 231.23812704490635,
+    "raw_bbox_dims": [
+      393.4994812011719,
+      441.3898162841797,
+      316.4904556274414
+    ],
+    "mm_per_model_unit": 0.5642210299895715,
+    "raw_max_dim_mm": 1.0769911517333983,
+    "status": "ok"
+  },
+  "Myopias_sp._CASENT0745084": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Myopias_sp._CASENT0745084_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Myopias_sp._CASENT0745084/Myopias_sp._CASENT0745084.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 413.5127471778785,
+    "raw_bbox_dims": [
+      754.9376220703125,
+      416.6934509277344,
+      558.5394744873047
+    ],
+    "mm_per_model_unit": 1.0089711031140236,
+    "raw_max_dim_mm": 1.8420477978515624,
+    "status": "ok"
+  },
+  "Myrmecina_graminicola_CASENT0745188": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Myrmecina_graminicola_CASENT0745188_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Myrmecina_graminicola_CASENT0745188/Myrmecina_graminicola_CASENT0745188.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 265.9097754656291,
+    "raw_bbox_dims": [
+      509.27500915527344,
+      432.09974670410156,
+      355.8446350097656
+    ],
+    "mm_per_model_unit": 0.6488198521361349,
+    "raw_max_dim_mm": 1.2426310223388672,
+    "status": "ok"
+  },
+  "Myrmecina_ryukyuensis_OKENT0105085": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Myrmecina_ryukyuensis_OKENT0105085_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Myrmecina_ryukyuensis_OKENT0105085/Myrmecina_ryukyuensis_OKENT0105085.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 258.7951681094317,
+    "raw_bbox_dims": [
+      486.2130584716797,
+      374.6458435058594,
+      247.41383361816406
+    ],
+    "mm_per_model_unit": 0.6314602101870134,
+    "raw_max_dim_mm": 1.1863598626708984,
+    "status": "ok"
+  },
+  "Myrmelachista_nodigera_CASENT0709257": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Myrmelachista_nodigera_CASENT0709257_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Myrmelachista_nodigera_CASENT0709257/Myrmelachista_nodigera_CASENT0709257.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1334.884282538847,
+    "raw_bbox_dims": [
+      2325.6072998046875,
+      1188.4242858886719,
+      712.8506469726562
+    ],
+    "mm_per_model_unit": 3.2571176493947864,
+    "raw_max_dim_mm": 5.674481811523437,
+    "status": "ok"
+  },
+  "Myrmica_kotokui_OKENT0105275": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Myrmica_kotokui_OKENT0105275_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Myrmica_kotokui_OKENT0105275/Myrmica_kotokui_OKENT0105275.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 616.7452529671993,
+    "raw_bbox_dims": [
+      949.9262390136719,
+      442.2379455566406,
+      573.1741638183594
+    ],
+    "mm_per_model_unit": 1.5048584172399664,
+    "raw_max_dim_mm": 2.3178200231933594,
+    "status": "ok"
+  },
+  "Myrmica_siciliana_CASENT0745246": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Myrmica_siciliana_CASENT0745246_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Myrmica_siciliana_CASENT0745246/Myrmica_siciliana_CASENT0745246.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 526.6546253231855,
+    "raw_bbox_dims": [
+      938.0233764648438,
+      582.6363220214844,
+      581.1581420898438
+    ],
+    "mm_per_model_unit": 1.2850372857885726,
+    "raw_max_dim_mm": 2.2887770385742185,
+    "status": "ok"
+  },
+  "Myrmica_transsibirica_OKENT0105358": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Myrmica_transsibirica_OKENT0105358_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Myrmica_transsibirica_OKENT0105358/Myrmica_transsibirica_OKENT0105358.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 430.0745291466052,
+    "raw_bbox_dims": [
+      758.4570922851562,
+      439.4606170654297,
+      464.2400665283203
+    ],
+    "mm_per_model_unit": 1.0493818511177166,
+    "raw_max_dim_mm": 1.8506353051757811,
+    "status": "ok"
+  },
+  "Myrmoteras_sp._CASENT0745083": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Myrmoteras_sp._CASENT0745083_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Myrmoteras_sp._CASENT0745083/Myrmoteras_sp._CASENT0745083.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 4163.784209134705,
+    "raw_bbox_dims": [
+      7004.068603515625,
+      3642.5181884765625,
+      2848.7716674804688
+    ],
+    "mm_per_model_unit": 10.159633470288679,
+    "raw_max_dim_mm": 17.089927392578126,
+    "status": "ok"
+  },
+  "Neivamyrmex_aff.pacificus_CASENT0744550": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Neivamyrmex_aff.pacificus_CASENT0744550_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Neivamyrmex_aff.pacificus_CASENT0744550/Neivamyrmex_aff.pacificus_CASENT0744550.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 351.7463398776764,
+    "raw_bbox_dims": [
+      666.6028137207031,
+      463.97608947753906,
+      559.6597442626953
+    ],
+    "mm_per_model_unit": 0.8582610693015303,
+    "raw_max_dim_mm": 1.6265108654785156,
+    "status": "ok"
+  },
+  "Neivamyrmex_cf.diana_CASENT0744104": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Neivamyrmex_cf.diana_CASENT0744104_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Neivamyrmex_cf.diana_CASENT0744104/Neivamyrmex_cf.diana_CASENT0744104.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 185.87154576352165,
+    "raw_bbox_dims": [
+      355.1281433105469,
+      139.42573165893555,
+      259.22412872314453
+    ],
+    "mm_per_model_unit": 0.4535265716629928,
+    "raw_max_dim_mm": 0.8665126696777343,
+    "status": "ok"
+  },
+  "Neivamyrmex_nigrescens_CASENT0741443": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Neivamyrmex_nigrescens_CASENT0741443_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Neivamyrmex_nigrescens_CASENT0741443/Neivamyrmex_nigrescens_CASENT0741443.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 591.7142021548975,
+    "raw_bbox_dims": [
+      734.3760986328125,
+      498.47682189941406,
+      1105.8338012695312
+    ],
+    "mm_per_model_unit": 1.4437826532579499,
+    "raw_max_dim_mm": 2.698234475097656,
+    "status": "ok"
+  },
+  "Neivamyrmex_pseudops_CASENT0744018": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Neivamyrmex_pseudops_CASENT0744018_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Neivamyrmex_pseudops_CASENT0744018/Neivamyrmex_pseudops_CASENT0744018.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 539.0124098170561,
+    "raw_bbox_dims": [
+      937.5665588378906,
+      566.1905212402344,
+      652.0149383544922
+    ],
+    "mm_per_model_unit": 1.3151902799536168,
+    "raw_max_dim_mm": 2.287662403564453,
+    "status": "ok"
+  },
+  "Neoponera_laevigata_CASENT0744169": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Neoponera_laevigata_CASENT0744169_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Neoponera_laevigata_CASENT0744169/Neoponera_laevigata_CASENT0744169.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 780.009625475746,
+    "raw_bbox_dims": [
+      1453.17138671875,
+      988.4000244140625,
+      1073.9682922363281
+    ],
+    "mm_per_model_unit": 1.9032234861608202,
+    "raw_max_dim_mm": 3.54573818359375,
+    "status": "ok"
+  },
+  "Neoponera_obscuricornis_CASENT0744592": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Neoponera_obscuricornis_CASENT0744592_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Neoponera_obscuricornis_CASENT0744592/Neoponera_obscuricornis_CASENT0744592.json",
+    "voxel_size_mm": 0.006110000000000001,
+    "normalization_scale": 1245.413700719375,
+    "raw_bbox_dims": [
+      2415.35693359375,
+      901.6642456054688,
+      1359.2459716796875
+    ],
+    "mm_per_model_unit": 7.609477711395382,
+    "raw_max_dim_mm": 14.757830864257814,
+    "status": "ok"
+  },
+  "Neoponera_villosa_CASENT0744613": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Neoponera_villosa_CASENT0744613_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Neoponera_villosa_CASENT0744613/Neoponera_villosa_CASENT0744613.json",
+    "voxel_size_mm": 0.006110000000000001,
+    "normalization_scale": 1257.4720934690483,
+    "raw_bbox_dims": [
+      2408.453369140625,
+      962.8260192871094,
+      975.5197143554688
+    ],
+    "mm_per_model_unit": 7.683154491095887,
+    "raw_max_dim_mm": 14.715650085449221,
+    "status": "ok"
+  },
+  "Nesomyrmex_angulatus_CASENT0744820": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Nesomyrmex_angulatus_CASENT0744820_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Nesomyrmex_angulatus_CASENT0744820/Nesomyrmex_angulatus_CASENT0744820.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 264.0739050529552,
+    "raw_bbox_dims": [
+      527.5556488037109,
+      238.43301391601562,
+      275.1505584716797
+    ],
+    "mm_per_model_unit": 0.6443403283292106,
+    "raw_max_dim_mm": 1.2872357830810546,
+    "status": "ok"
+  },
+  "Nesomyrmex_angulatus_CASENT0744821": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Nesomyrmex_angulatus_CASENT0744821_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Nesomyrmex_angulatus_CASENT0744821/Nesomyrmex_angulatus_CASENT0744821.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 287.0048005602574,
+    "raw_bbox_dims": [
+      556.4011077880859,
+      245.09180450439453,
+      374.39276123046875
+    ],
+    "mm_per_model_unit": 0.7002917133670281,
+    "raw_max_dim_mm": 1.3576187030029296,
+    "status": "ok"
+  },
+  "Nomamyrmex_esenbeckii_CASENT0744587": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Nomamyrmex_esenbeckii_CASENT0744587_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Nomamyrmex_esenbeckii_CASENT0744587/Nomamyrmex_esenbeckii_CASENT0744587.json",
+    "voxel_size_mm": 0.006110000000000001,
+    "normalization_scale": 949.7022246092629,
+    "raw_bbox_dims": [
+      1656.78369140625,
+      773.9922180175781,
+      1028.7105102539062
+    ],
+    "mm_per_model_unit": 5.802680592362597,
+    "raw_max_dim_mm": 10.12294835449219,
+    "status": "ok"
+  },
+  "Octostruma_iheringi_CASENT0744222": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Octostruma_iheringi_CASENT0744222_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Octostruma_iheringi_CASENT0744222/Octostruma_iheringi_CASENT0744222.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 249.79627610332696,
+    "raw_bbox_dims": [
+      431.91725158691406,
+      297.6014099121094,
+      300.5934295654297
+    ],
+    "mm_per_model_unit": 0.6095029136921177,
+    "raw_max_dim_mm": 1.0538780938720702,
+    "status": "ok"
+  },
+  "Ocymyrmex_sp._CASENT0744842": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Ocymyrmex_sp._CASENT0744842_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Ocymyrmex_sp._CASENT0744842/Ocymyrmex_sp._CASENT0744842.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 698.1176840744215,
+    "raw_bbox_dims": [
+      1356.8072509765625,
+      1022.9252624511719,
+      1273.61474609375
+    ],
+    "mm_per_model_unit": 1.7034071491415883,
+    "raw_max_dim_mm": 3.3106096923828123,
+    "status": "ok"
+  },
+  "Odontomachus_assiniensis_CASENT0744969": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Odontomachus_assiniensis_CASENT0744969_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Odontomachus_assiniensis_CASENT0744969/Odontomachus_assiniensis_CASENT0744969.json",
+    "voxel_size_mm": 0.006110000000000001,
+    "normalization_scale": 995.5535696867429,
+    "raw_bbox_dims": [
+      1768.0545654296875,
+      1105.7206726074219,
+      1069.8908996582031
+    ],
+    "mm_per_model_unit": 6.082832310786,
+    "raw_max_dim_mm": 10.802813394775391,
+    "status": "ok"
+  },
+  "Odontomachus_haematodus_CASENT0744047": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Odontomachus_haematodus_CASENT0744047_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Odontomachus_haematodus_CASENT0744047/Odontomachus_haematodus_CASENT0744047.json",
+    "voxel_size_mm": 0.006110000000000001,
+    "normalization_scale": 795.596853673931,
+    "raw_bbox_dims": [
+      1367.5775756835938,
+      1287.35107421875,
+      846.53955078125
+    ],
+    "mm_per_model_unit": 4.861096775947719,
+    "raw_max_dim_mm": 8.355898987426759,
+    "status": "ok"
+  },
+  "Odontomachus_hastatus_CASENT0745036": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Odontomachus_hastatus_CASENT0745036_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Odontomachus_hastatus_CASENT0745036/Odontomachus_hastatus_CASENT0745036.json",
+    "voxel_size_mm": 0.006110000000000001,
+    "normalization_scale": 1725.3672484110714,
+    "raw_bbox_dims": [
+      3020.51123046875,
+      781.7744445800781,
+      844.1904602050781
+    ],
+    "mm_per_model_unit": 10.541993887791648,
+    "raw_max_dim_mm": 18.455323618164066,
+    "status": "ok"
+  },
+  "Odontomachus_hastatus_CASENT0745037": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Odontomachus_hastatus_CASENT0745037_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Odontomachus_hastatus_CASENT0745037/Odontomachus_hastatus_CASENT0745037.json",
+    "voxel_size_mm": 0.006110000000000001,
+    "normalization_scale": 1579.5356124763534,
+    "raw_bbox_dims": [
+      2711.2105712890625,
+      751.0387573242188,
+      846.6947631835938
+    ],
+    "mm_per_model_unit": 9.65096259223052,
+    "raw_max_dim_mm": 16.565496590576174,
+    "status": "ok"
+  },
+  "Odontomachus_meinerti_CASENT0744112": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Odontomachus_meinerti_CASENT0744112_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Odontomachus_meinerti_CASENT0744112/Odontomachus_meinerti_CASENT0744112.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 829.7086907619025,
+    "raw_bbox_dims": [
+      1591.438232421875,
+      947.2036437988281,
+      982.9185485839844
+    ],
+    "mm_per_model_unit": 2.024489205459042,
+    "raw_max_dim_mm": 3.8831092871093746,
+    "status": "ok"
+  },
+  "Ooceraea_biroi_CASENT0741392": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Ooceraea_biroi_CASENT0741392_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Ooceraea_biroi_CASENT0741392/Ooceraea_biroi_CASENT0741392.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 262.4024955734687,
+    "raw_bbox_dims": [
+      454.7996826171875,
+      394.33921813964844,
+      266.2886505126953
+    ],
+    "mm_per_model_unit": 0.6402620891992635,
+    "raw_max_dim_mm": 1.1097112255859374,
+    "status": "ok"
+  },
+  "Ophthalmopone_berthoudi_CASENT0744976": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Ophthalmopone_berthoudi_CASENT0744976_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Ophthalmopone_berthoudi_CASENT0744976/Ophthalmopone_berthoudi_CASENT0744976.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1168.5098038070978,
+    "raw_bbox_dims": [
+      2216.4175415039062,
+      921.2781066894531,
+      1089.4778137207031
+    ],
+    "mm_per_model_unit": 2.8511639212893183,
+    "raw_max_dim_mm": 5.408058801269531,
+    "status": "ok"
+  },
+  "Ophthalmopone_berthoudi_CASENT0744977": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Ophthalmopone_berthoudi_CASENT0744977_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Ophthalmopone_berthoudi_CASENT0744977/Ophthalmopone_berthoudi_CASENT0744977.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1134.1765337608538,
+    "raw_bbox_dims": [
+      2202.005126953125,
+      1007.9507446289062,
+      1266.984375
+    ],
+    "mm_per_model_unit": 2.767390742376483,
+    "raw_max_dim_mm": 5.372892509765625,
+    "status": "ok"
+  },
+  "Orectognathus_versicolor_CASENT0741227": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Orectognathus_versicolor_CASENT0741227_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Orectognathus_versicolor_CASENT0741227/Orectognathus_versicolor_CASENT0741227.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 629.7116167112931,
+    "raw_bbox_dims": [
+      1142.4640502929688,
+      240.83557891845703,
+      220.86881256103516
+    ],
+    "mm_per_model_unit": 1.536496344775555,
+    "raw_max_dim_mm": 2.7876122827148437,
+    "status": "ok"
+  },
+  "Oxyepoecus_myops_CASENT0744239": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Oxyepoecus_myops_CASENT0744239_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Oxyepoecus_myops_CASENT0744239/Oxyepoecus_myops_CASENT0744239.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 184.8544760297461,
+    "raw_bbox_dims": [
+      282.4877014160156,
+      347.33250427246094,
+      209.18671417236328
+    ],
+    "mm_per_model_unit": 0.45104492151258047,
+    "raw_max_dim_mm": 0.8474913104248046,
+    "status": "ok"
+  },
+  "Parasyscia_sp._CASENT0744708": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Parasyscia_sp._CASENT0744708_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Parasyscia_sp._CASENT0744708/Parasyscia_sp._CASENT0744708.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 471.0342180454484,
+    "raw_bbox_dims": [
+      912.3715209960938,
+      543.4908752441406,
+      604.1549987792969
+    ],
+    "mm_per_model_unit": 1.1493234920308941,
+    "raw_max_dim_mm": 2.226186511230469,
+    "status": "ok"
+  },
+  "Parasyscia_sp._CASENT0878063": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Parasyscia_sp._CASENT0878063_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Parasyscia_sp._CASENT0878063/Parasyscia_sp._CASENT0878063.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1554.7956115579534,
+    "raw_bbox_dims": [
+      2711.396240234375,
+      1008.3263244628906,
+      916.4957580566406
+    ],
+    "mm_per_model_unit": 3.793701292201406,
+    "raw_max_dim_mm": 6.615806826171875,
+    "status": "ok"
+  },
+  "Parasyscia_sp._cribrinodis_group_CASENT0709293": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Parasyscia_sp._cribrinodis_group_CASENT0709293_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Parasyscia_sp._cribrinodis_group_CASENT0709293/Parasyscia_sp._cribrinodis_group_CASENT0709293.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 398.6935160112102,
+    "raw_bbox_dims": [
+      709.2630310058594,
+      272.44087982177734,
+      413.4754333496094
+    ],
+    "mm_per_model_unit": 0.9728121790673528,
+    "raw_max_dim_mm": 1.7306017956542967,
+    "status": "ok"
+  },
+  "Paratrachymyrmex_cornetzi_CASENT0744113": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Paratrachymyrmex_cornetzi_CASENT0744113_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Paratrachymyrmex_cornetzi_CASENT0744113/Paratrachymyrmex_cornetzi_CASENT0744113.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 326.1422385655159,
+    "raw_bbox_dims": [
+      577.0753784179688,
+      552.9645538330078,
+      452.4022216796875
+    ],
+    "mm_per_model_unit": 0.7957870620998588,
+    "raw_max_dim_mm": 1.4080639233398438,
+    "status": "ok"
+  },
+  "Paratrechina_longicornis_CASENT0877617": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Paratrechina_longicornis_CASENT0877617_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Paratrechina_longicornis_CASENT0877617/Paratrechina_longicornis_CASENT0877617.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 2418.236068967605,
+    "raw_bbox_dims": [
+      4135.9652099609375,
+      1848.8175048828125,
+      1650.4573974609375
+    ],
+    "mm_per_model_unit": 5.900496008280957,
+    "raw_max_dim_mm": 10.091755112304687,
+    "status": "ok"
+  },
+  "Pheidole_afrc-063_CASENT0744859": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Pheidole_afrc-063_CASENT0744859_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Pheidole_afrc-063_CASENT0744859/Pheidole_afrc-063_CASENT0744859.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 459.1605266062411,
+    "raw_bbox_dims": [
+      720.4324340820312,
+      571.1337890625,
+      599.6523132324219
+    ],
+    "mm_per_model_unit": 1.1203516849192283,
+    "raw_max_dim_mm": 1.7578551391601562,
+    "status": "ok"
+  },
+  "Pheidole_aurivillii_CASENT0744852": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Pheidole_aurivillii_CASENT0744852_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Pheidole_aurivillii_CASENT0744852/Pheidole_aurivillii_CASENT0744852.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 542.3909505432061,
+    "raw_bbox_dims": [
+      889.8887634277344,
+      607.1257781982422,
+      722.9046173095703
+    ],
+    "mm_per_model_unit": 1.323433919325423,
+    "raw_max_dim_mm": 2.171328582763672,
+    "status": "ok"
+  },
+  "Pheidole_bicarinata_CASENT0741431": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Pheidole_bicarinata_CASENT0741431_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Pheidole_bicarinata_CASENT0741431/Pheidole_bicarinata_CASENT0741431.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 345.9525922778359,
+    "raw_bbox_dims": [
+      587.2640991210938,
+      344.267822265625,
+      425.70326232910156
+    ],
+    "mm_per_model_unit": 0.8441243251579196,
+    "raw_max_dim_mm": 1.4329244018554688,
+    "status": "ok"
+  },
+  "Pheidole_bicarinata_CASENT0741434": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Pheidole_bicarinata_CASENT0741434_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Pheidole_bicarinata_CASENT0741434/Pheidole_bicarinata_CASENT0741434.json",
+    "voxel_size_mm": 0.00122,
+    "normalization_scale": 909.871500995562,
+    "raw_bbox_dims": [
+      1736.779052734375,
+      1344.4736022949219,
+      1230.0364990234375
+    ],
+    "mm_per_model_unit": 1.1100432312145856,
+    "raw_max_dim_mm": 2.118870444335937,
+    "status": "ok"
+  },
+  "Pheidole_capellinii_CASENT0877637": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Pheidole_capellinii_CASENT0877637_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Pheidole_capellinii_CASENT0877637/Pheidole_capellinii_CASENT0877637.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 2196.87570044335,
+    "raw_bbox_dims": [
+      3648.374755859375,
+      1450.4050903320312,
+      4152.38232421875
+    ],
+    "mm_per_model_unit": 5.360376709081774,
+    "raw_max_dim_mm": 10.13181287109375,
+    "status": "ok"
+  },
+  "Pheidole_gertrudae_CASENT0744265": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Pheidole_gertrudae_CASENT0744265_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Pheidole_gertrudae_CASENT0744265/Pheidole_gertrudae_CASENT0744265.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 354.509563973426,
+    "raw_bbox_dims": [
+      591.6832580566406,
+      379.3491516113281,
+      481.07347106933594
+    ],
+    "mm_per_model_unit": 0.8650033360951594,
+    "raw_max_dim_mm": 1.443707149658203,
+    "status": "ok"
+  },
+  "Pheidole_megacephala_OKENT0105126": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Pheidole_megacephala_OKENT0105126_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Pheidole_megacephala_OKENT0105126/Pheidole_megacephala_OKENT0105126.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 467.5516951860575,
+    "raw_bbox_dims": [
+      729.2859802246094,
+      563.5530395507812,
+      409.9629821777344
+    ],
+    "mm_per_model_unit": 1.1408261362539802,
+    "raw_max_dim_mm": 1.7794577917480467,
+    "status": "ok"
+  },
+  "Pheidole_midas_CASENT0744257": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Pheidole_midas_CASENT0744257_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Pheidole_midas_CASENT0744257/Pheidole_midas_CASENT0744257.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 330.5273405513055,
+    "raw_bbox_dims": [
+      550.4161224365234,
+      380.2323760986328,
+      514.9738006591797
+    ],
+    "mm_per_model_unit": 0.8064867109451853,
+    "raw_max_dim_mm": 1.3430153387451171,
+    "status": "ok"
+  },
+  "Pheidole_nodus_CASENT0877544": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Pheidole_nodus_CASENT0877544_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Pheidole_nodus_CASENT0877544/Pheidole_nodus_CASENT0877544.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 2707.105157320455,
+    "raw_bbox_dims": [
+      4570.857177734375,
+      4257.191650390625,
+      3870.246337890625
+    ],
+    "mm_per_model_unit": 6.60533658386191,
+    "raw_max_dim_mm": 11.152891513671875,
+    "status": "ok"
+  },
+  "Pheidole_nodus_OKENT0105130": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Pheidole_nodus_OKENT0105130_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Pheidole_nodus_OKENT0105130/Pheidole_nodus_OKENT0105130.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 396.2356149383065,
+    "raw_bbox_dims": [
+      664.76123046875,
+      586.7689819335938,
+      612.5934143066406
+    ],
+    "mm_per_model_unit": 0.9668149004494678,
+    "raw_max_dim_mm": 1.62201740234375,
+    "status": "ok"
+  },
+  "Pheidole_obscurithorax_CASENT0744317": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Pheidole_obscurithorax_CASENT0744317_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Pheidole_obscurithorax_CASENT0744317/Pheidole_obscurithorax_CASENT0744317.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 392.6997958534215,
+    "raw_bbox_dims": [
+      587.0685729980469,
+      668.0050354003906,
+      377.09930419921875
+    ],
+    "mm_per_model_unit": 0.9581875018823485,
+    "raw_max_dim_mm": 1.629932286376953,
+    "status": "ok"
+  },
+  "Pheidole_selathorax_CASENT0877567": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Pheidole_selathorax_CASENT0877567_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Pheidole_selathorax_CASENT0877567/Pheidole_selathorax_CASENT0877567.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1321.7514747573134,
+    "raw_bbox_dims": [
+      2039.0422973632812,
+      1120.16015625,
+      1903.218017578125
+    ],
+    "mm_per_model_unit": 3.2250735984078447,
+    "raw_max_dim_mm": 4.975263205566406,
+    "status": "ok"
+  },
+  "Pheidole_sp._CASENT0744267": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Pheidole_sp._CASENT0744267_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Pheidole_sp._CASENT0744267/Pheidole_sp._CASENT0744267.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 438.1616426043688,
+    "raw_bbox_dims": [
+      750.3919372558594,
+      386.406494140625,
+      368.6402587890625
+    ],
+    "mm_per_model_unit": 1.06911440795466,
+    "raw_max_dim_mm": 1.8309563269042968,
+    "status": "ok"
+  },
+  "Pheidole_tumida_CASENT0744092": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Pheidole_tumida_CASENT0744092_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Pheidole_tumida_CASENT0744092/Pheidole_tumida_CASENT0744092.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 782.6118512061878,
+    "raw_bbox_dims": [
+      1277.5788269042969,
+      553.1833801269531,
+      689.0883483886719
+    ],
+    "mm_per_model_unit": 1.9095729169430982,
+    "raw_max_dim_mm": 3.117292337646484,
+    "status": "ok"
+  },
+  "Philidris_sp._CASENT0878053": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Philidris_sp._CASENT0878053_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Philidris_sp._CASENT0878053/Philidris_sp._CASENT0878053.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1294.8456378404876,
+    "raw_bbox_dims": [
+      2398.7559814453125,
+      1406.6321411132812,
+      1394.9463500976562
+    ],
+    "mm_per_model_unit": 3.1594233563307896,
+    "raw_max_dim_mm": 5.852964594726562,
+    "status": "ok"
+  },
+  "Phrynoponera_transversa_CASENT0744980": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Phrynoponera_transversa_CASENT0744980_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Phrynoponera_transversa_CASENT0744980/Phrynoponera_transversa_CASENT0744980.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 619.3109113122063,
+    "raw_bbox_dims": [
+      1158.1065063476562,
+      746.7382202148438,
+      1091.7183227539062
+    ],
+    "mm_per_model_unit": 1.5111186236017833,
+    "raw_max_dim_mm": 2.8257798754882812,
+    "status": "ok"
+  },
+  "Phrynoponera_transversa_CASENT0744981": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Phrynoponera_transversa_CASENT0744981_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Phrynoponera_transversa_CASENT0744981/Phrynoponera_transversa_CASENT0744981.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 723.8198824127838,
+    "raw_bbox_dims": [
+      1394.8067626953125,
+      851.6547241210938,
+      872.7802429199219
+    ],
+    "mm_per_model_unit": 1.7661205130871924,
+    "raw_max_dim_mm": 3.403328500976562,
+    "status": "ok"
+  },
+  "Platythyrea_punctata_CASENT0745061": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Platythyrea_punctata_CASENT0745061_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Platythyrea_punctata_CASENT0745061/Platythyrea_punctata_CASENT0745061.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 685.3200834154387,
+    "raw_bbox_dims": [
+      1051.9564208984375,
+      696.8152160644531,
+      1175.2775268554688
+    ],
+    "mm_per_model_unit": 1.6721810035336704,
+    "raw_max_dim_mm": 2.8676771655273434,
+    "status": "ok"
+  },
+  "Polyergus_rufescens_CASENT0878121": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Polyergus_rufescens_CASENT0878121_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Polyergus_rufescens_CASENT0878121/Polyergus_rufescens_CASENT0878121.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 3879.8926517129134,
+    "raw_bbox_dims": [
+      6838.762451171875,
+      5006.040283203125,
+      4341.8055419921875
+    ],
+    "mm_per_model_unit": 9.46693807017951,
+    "raw_max_dim_mm": 16.686580380859375,
+    "status": "ok"
+  },
+  "Polyrhachis_decemdentata_CASENT0744779": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Polyrhachis_decemdentata_CASENT0744779_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Polyrhachis_decemdentata_CASENT0744779/Polyrhachis_decemdentata_CASENT0744779.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 717.570361366174,
+    "raw_bbox_dims": [
+      989.085205078125,
+      758.7842102050781,
+      1170.4366149902344
+    ],
+    "mm_per_model_unit": 1.7508716817334644,
+    "raw_max_dim_mm": 2.855865340576172,
+    "status": "ok"
+  },
+  "Polyrhachis_wolfi_CASENT0878096": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Polyrhachis_wolfi_CASENT0878096_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Polyrhachis_wolfi_CASENT0878096/Polyrhachis_wolfi_CASENT0878096.json",
+    "voxel_size_mm": 0.006110000000000001,
+    "normalization_scale": 5511.359809273541,
+    "raw_bbox_dims": [
+      10027.06591796875,
+      6546.039306640625,
+      4584.380615234375
+    ],
+    "mm_per_model_unit": 33.67440843466134,
+    "raw_max_dim_mm": 61.26537275878907,
+    "status": "implausible_size"
+  },
+  "Ponera_kohmoku_OKENT0105440": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Ponera_kohmoku_OKENT0105440_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Ponera_kohmoku_OKENT0105440/Ponera_kohmoku_OKENT0105440.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 439.0359644578026,
+    "raw_bbox_dims": [
+      829.4190063476562,
+      496.6957550048828,
+      371.46800231933594
+    ],
+    "mm_per_model_unit": 1.0712477532770384,
+    "raw_max_dim_mm": 2.023782375488281,
+    "status": "ok"
+  },
+  "Poneracantha_triangularis_CASENT0744463": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Poneracantha_triangularis_CASENT0744463_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Poneracantha_triangularis_CASENT0744463/Poneracantha_triangularis_CASENT0744463.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 337.7426881402686,
+    "raw_bbox_dims": [
+      602.3970031738281,
+      363.2805938720703,
+      363.2255096435547
+    ],
+    "mm_per_model_unit": 0.8240921590622554,
+    "raw_max_dim_mm": 1.4698486877441406,
+    "status": "ok"
+  },
+  "Prionopelta_antillana_CASENT0744466": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Prionopelta_antillana_CASENT0744466_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Prionopelta_antillana_CASENT0744466/Prionopelta_antillana_CASENT0744466.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 271.24201433264886,
+    "raw_bbox_dims": [
+      491.7496643066406,
+      193.12468719482422,
+      176.7281608581543
+    ],
+    "mm_per_model_unit": 0.6618305149716632,
+    "raw_max_dim_mm": 1.1998691809082032,
+    "status": "ok"
+  },
+  "Prionopelta_subtilis_CASENT0840863-D4": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Prionopelta_subtilis_CASENT0840863-D4_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Prionopelta_subtilis_CASENT0840863-D4/Prionopelta_subtilis_CASENT0840863-D4.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 212.54583309965625,
+    "raw_bbox_dims": [
+      363.1781921386719,
+      181.7223358154297,
+      219.22061157226562
+    ],
+    "mm_per_model_unit": 0.5186118327631613,
+    "raw_max_dim_mm": 0.8861547888183593,
+    "status": "ok"
+  },
+  "Pristomyrmex_brevispinosus_OKENT0105260": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Pristomyrmex_brevispinosus_OKENT0105260_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Pristomyrmex_brevispinosus_OKENT0105260/Pristomyrmex_brevispinosus_OKENT0105260.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 227.5681840399335,
+    "raw_bbox_dims": [
+      427.7548522949219,
+      387.8883819580078,
+      362.23736572265625
+    ],
+    "mm_per_model_unit": 0.5552663690574378,
+    "raw_max_dim_mm": 1.0437218395996093,
+    "status": "ok"
+  },
+  "Pristomyrmex_punctatus_CASENT0745047": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Pristomyrmex_punctatus_CASENT0745047_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Pristomyrmex_punctatus_CASENT0745047/Pristomyrmex_punctatus_CASENT0745047.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 295.02135387438784,
+    "raw_bbox_dims": [
+      533.4568481445312,
+      397.0613250732422,
+      450.73304748535156
+    ],
+    "mm_per_model_unit": 0.7198521034535063,
+    "raw_max_dim_mm": 1.3016347094726561,
+    "status": "ok"
+  },
+  "Proatta_sp._CASENT0745620": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Proatta_sp._CASENT0745620_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Proatta_sp._CASENT0745620/Proatta_sp._CASENT0745620.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 286.4443977257485,
+    "raw_bbox_dims": [
+      439.876708984375,
+      454.3094787597656,
+      437.81394958496094
+    ],
+    "mm_per_model_unit": 0.6989243304508264,
+    "raw_max_dim_mm": 1.1085151281738281,
+    "status": "ok"
+  },
+  "Probolomyrmex_sp._CASENT0744993": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Probolomyrmex_sp._CASENT0744993_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Probolomyrmex_sp._CASENT0744993/Probolomyrmex_sp._CASENT0744993.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 259.38859558082,
+    "raw_bbox_dims": [
+      474.3536376953125,
+      155.31883239746094,
+      157.172607421875
+    ],
+    "mm_per_model_unit": 0.6329081732172007,
+    "raw_max_dim_mm": 1.1574228759765623,
+    "status": "ok"
+  },
+  "Procryptocerus_goeldii_CASENT0744067": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Procryptocerus_goeldii_CASENT0744067_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Procryptocerus_goeldii_CASENT0744067/Procryptocerus_goeldii_CASENT0744067.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 407.0081919962049,
+    "raw_bbox_dims": [
+      809.84716796875,
+      364.0470886230469,
+      409.0141906738281
+    ],
+    "mm_per_model_unit": 0.99309998847074,
+    "raw_max_dim_mm": 1.97602708984375,
+    "status": "ok"
+  },
+  "Psalidomyrmex_sallyae_CASENT0744986": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Psalidomyrmex_sallyae_CASENT0744986_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Psalidomyrmex_sallyae_CASENT0744986/Psalidomyrmex_sallyae_CASENT0744986.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 907.8764879639548,
+    "raw_bbox_dims": [
+      1668.7158813476562,
+      1011.541259765625,
+      998.1436462402344
+    ],
+    "mm_per_model_unit": 2.2152186306320494,
+    "raw_max_dim_mm": 4.071666750488281,
+    "status": "ok"
+  },
+  "Pseudolasius_sp._CASENT0877597": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Pseudolasius_sp._CASENT0877597_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Pseudolasius_sp._CASENT0877597/Pseudolasius_sp._CASENT0877597.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1479.5114703203985,
+    "raw_bbox_dims": [
+      2738.578857421875,
+      1438.837646484375,
+      1851.9283142089844
+    ],
+    "mm_per_model_unit": 3.6100079875817723,
+    "raw_max_dim_mm": 6.682132412109374,
+    "status": "ok"
+  },
+  "Pseudolasius_sp._CASENT0878065": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Pseudolasius_sp._CASENT0878065_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Pseudolasius_sp._CASENT0878065/Pseudolasius_sp._CASENT0878065.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1395.9521843283808,
+    "raw_bbox_dims": [
+      2617.5618896484375,
+      1655.7510986328125,
+      2099.1427612304688
+    ],
+    "mm_per_model_unit": 3.406123329761249,
+    "raw_max_dim_mm": 6.386851010742188,
+    "status": "ok"
+  },
+  "Pseudoneoponera_rufipes_CASENT0877628": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Pseudoneoponera_rufipes_CASENT0877628_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Pseudoneoponera_rufipes_CASENT0877628/Pseudoneoponera_rufipes_CASENT0877628.json",
+    "voxel_size_mm": 0.006110000000000001,
+    "normalization_scale": 8514.162907648759,
+    "raw_bbox_dims": [
+      15229.49072265625,
+      5609.131103515625,
+      5899.60205078125
+    ],
+    "mm_per_model_unit": 52.021535365733925,
+    "raw_max_dim_mm": 93.0521883154297,
+    "status": "implausible_size"
+  },
+  "Recurvidris_kemneri_CASENT0745633": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Recurvidris_kemneri_CASENT0745633_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Recurvidris_kemneri_CASENT0745633/Recurvidris_kemneri_CASENT0745633.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 264.09364962578445,
+    "raw_bbox_dims": [
+      490.1835174560547,
+      305.9799041748047,
+      322.4880065917969
+    ],
+    "mm_per_model_unit": 0.644388505086914,
+    "raw_max_dim_mm": 1.1960477825927733,
+    "status": "ok"
+  },
+  "Sericomyrmex_cf.mayri_CASENT0744449": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Sericomyrmex_cf.mayri_CASENT0744449_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Sericomyrmex_cf.mayri_CASENT0744449/Sericomyrmex_cf.mayri_CASENT0744449.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 359.7408560943821,
+    "raw_bbox_dims": [
+      523.5630645751953,
+      708.9170837402344,
+      465.81178283691406
+    ],
+    "mm_per_model_unit": 0.8777676888702922,
+    "raw_max_dim_mm": 1.7297576843261717,
+    "status": "ok"
+  },
+  "Sericomyrmex_cf.parvulus_CASENT0744360": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Sericomyrmex_cf.parvulus_CASENT0744360_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Sericomyrmex_cf.parvulus_CASENT0744360/Sericomyrmex_cf.parvulus_CASENT0744360.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 390.30918188694307,
+    "raw_bbox_dims": [
+      544.8229217529297,
+      677.4471740722656,
+      636.9314575195312
+    ],
+    "mm_per_model_unit": 0.952354403804141,
+    "raw_max_dim_mm": 1.652971104736328,
+    "status": "ok"
+  },
+  "Sericomyrmex_mayri_CASENT0745109": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Sericomyrmex_mayri_CASENT0745109_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Sericomyrmex_mayri_CASENT0745109/Sericomyrmex_mayri_CASENT0745109.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 537.7781109312465,
+    "raw_bbox_dims": [
+      621.7799377441406,
+      711.925048828125,
+      860.4780883789062
+    ],
+    "mm_per_model_unit": 1.3121785906722414,
+    "raw_max_dim_mm": 2.099566535644531,
+    "status": "ok"
+  },
+  "Sericomyrmex_mayri_CASENT0745110": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Sericomyrmex_mayri_CASENT0745110_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Sericomyrmex_mayri_CASENT0745110/Sericomyrmex_mayri_CASENT0745110.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 568.1429503931342,
+    "raw_bbox_dims": [
+      604.5062866210938,
+      907.2491455078125,
+      818.4022369384766
+    ],
+    "mm_per_model_unit": 1.3862687989592475,
+    "raw_max_dim_mm": 2.2136879150390625,
+    "status": "ok"
+  },
+  "Solenopsis_afrc-za01_CASENT0744870": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Solenopsis_afrc-za01_CASENT0744870_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Solenopsis_afrc-za01_CASENT0744870/Solenopsis_afrc-za01_CASENT0744870.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 264.05511001179536,
+    "raw_bbox_dims": [
+      459.24717712402344,
+      456.4018249511719,
+      237.25476837158203
+    ],
+    "mm_per_model_unit": 0.6442944684287807,
+    "raw_max_dim_mm": 1.1205631121826172,
+    "status": "ok"
+  },
+  "Solenopsis_afrc-za09_CASENT0744879": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Solenopsis_afrc-za09_CASENT0744879_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Solenopsis_afrc-za09_CASENT0744879/Solenopsis_afrc-za09_CASENT0744879.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 313.3032086773732,
+    "raw_bbox_dims": [
+      481.3183288574219,
+      449.7442932128906,
+      385.84210205078125
+    ],
+    "mm_per_model_unit": 0.7644598291727907,
+    "raw_max_dim_mm": 1.1744167224121094,
+    "status": "ok"
+  },
+  "Solenopsis_afrc-zm02_CASENT0744886": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Solenopsis_afrc-zm02_CASENT0744886_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Solenopsis_afrc-zm02_CASENT0744886/Solenopsis_afrc-zm02_CASENT0744886.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 246.45495479863786,
+    "raw_bbox_dims": [
+      450.25816345214844,
+      281.93204498291016,
+      368.1221008300781
+    ],
+    "mm_per_model_unit": 0.6013500897086763,
+    "raw_max_dim_mm": 1.0986299188232422,
+    "status": "ok"
+  },
+  "Solenopsis_invicta_CASENT0744384": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Solenopsis_invicta_CASENT0744384_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Solenopsis_invicta_CASENT0744384/Solenopsis_invicta_CASENT0744384.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 277.55557208959493,
+    "raw_bbox_dims": [
+      488.21441650390625,
+      344.70794677734375,
+      459.0592498779297
+    ],
+    "mm_per_model_unit": 0.6772355958986116,
+    "raw_max_dim_mm": 1.1912431762695312,
+    "status": "ok"
+  },
+  "Sphinctomyrmex_stali_CASENT0790135": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Sphinctomyrmex_stali_CASENT0790135_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Sphinctomyrmex_stali_CASENT0790135/Sphinctomyrmex_stali_CASENT0790135.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 461.8187118814962,
+    "raw_bbox_dims": [
+      914.8750305175781,
+      157.12623596191406,
+      169.7697296142578
+    ],
+    "mm_per_model_unit": 1.1268376569908507,
+    "raw_max_dim_mm": 2.2322950744628907,
+    "status": "ok"
+  },
+  "Stenamma_debile_CASENT0745007": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Stenamma_debile_CASENT0745007_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Stenamma_debile_CASENT0745007/Stenamma_debile_CASENT0745007.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 378.69322562207316,
+    "raw_bbox_dims": [
+      690.0340270996094,
+      349.3632354736328,
+      361.56290435791016
+    ],
+    "mm_per_model_unit": 0.9240114705178585,
+    "raw_max_dim_mm": 1.6836830261230469,
+    "status": "ok"
+  },
+  "Stictoponera_bicolor_CASENT0877615": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Stictoponera_bicolor_CASENT0877615_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Stictoponera_bicolor_CASENT0877615/Stictoponera_bicolor_CASENT0877615.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 2732.970988599846,
+    "raw_bbox_dims": [
+      3764.5220947265625,
+      4191.95068359375,
+      3277.39892578125
+    ],
+    "mm_per_model_unit": 6.668449212183623,
+    "raw_max_dim_mm": 10.22835966796875,
+    "status": "ok"
+  },
+  "Stigmatomma_afrc-tz05_CASENT0744660": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Stigmatomma_afrc-tz05_CASENT0744660_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Stigmatomma_afrc-tz05_CASENT0744660/Stigmatomma_afrc-tz05_CASENT0744660.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 387.3689650765602,
+    "raw_bbox_dims": [
+      510.05381774902344,
+      364.4629211425781,
+      627.2266082763672
+    ],
+    "mm_per_model_unit": 0.9451802747868068,
+    "raw_max_dim_mm": 1.530432924194336,
+    "status": "ok"
+  },
+  "Stigmatomma_silvestrii_OKENT0105191": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Stigmatomma_silvestrii_OKENT0105191_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Stigmatomma_silvestrii_OKENT0105191/Stigmatomma_silvestrii_OKENT0105191.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 416.2216860789193,
+    "raw_bbox_dims": [
+      650.9482421875,
+      294.26824951171875,
+      442.0838317871094
+    ],
+    "mm_per_model_unit": 1.015580914032563,
+    "raw_max_dim_mm": 1.5883137109374998,
+    "status": "ok"
+  },
+  "Stigmatomma_sp._CASENT0741388": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Stigmatomma_sp._CASENT0741388_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Stigmatomma_sp._CASENT0741388/Stigmatomma_sp._CASENT0741388.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 640.6693250683812,
+    "raw_bbox_dims": [
+      1062.9425659179688,
+      751.8632507324219,
+      947.1634826660156
+    ],
+    "mm_per_model_unit": 1.5632331531668502,
+    "raw_max_dim_mm": 2.5935798608398435,
+    "status": "ok"
+  },
+  "Stigmatomma_sp._CASENT0745539": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Stigmatomma_sp._CASENT0745539_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Stigmatomma_sp._CASENT0745539/Stigmatomma_sp._CASENT0745539.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1275.5522813184057,
+    "raw_bbox_dims": [
+      2296.4456787109375,
+      559.6971435546875,
+      511.92869567871094
+    ],
+    "mm_per_model_unit": 3.1123475664169096,
+    "raw_max_dim_mm": 5.6033274560546875,
+    "status": "ok"
+  },
+  "Strongylognathus_destefanii_CASENT0745219": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Strongylognathus_destefanii_CASENT0745219_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Strongylognathus_destefanii_CASENT0745219/Strongylognathus_destefanii_CASENT0745219.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 236.70539307804216,
+    "raw_bbox_dims": [
+      414.1217956542969,
+      311.21453857421875,
+      422.4065856933594
+    ],
+    "mm_per_model_unit": 0.5775611591104228,
+    "raw_max_dim_mm": 1.0306720690917968,
+    "status": "ok"
+  },
+  "Strongylognathus_testaceus_CASENT0745196": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Strongylognathus_testaceus_CASENT0745196_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Strongylognathus_testaceus_CASENT0745196/Strongylognathus_testaceus_CASENT0745196.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 294.6565379958655,
+    "raw_bbox_dims": [
+      473.05859375,
+      249.751220703125,
+      282.70452880859375
+    ],
+    "mm_per_model_unit": 0.7189619527099118,
+    "raw_max_dim_mm": 1.15426296875,
+    "status": "ok"
+  },
+  "Strongylognathus_testaceus_CASENT0745197": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Strongylognathus_testaceus_CASENT0745197_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Strongylognathus_testaceus_CASENT0745197/Strongylognathus_testaceus_CASENT0745197.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 295.86488468119626,
+    "raw_bbox_dims": [
+      535.6707000732422,
+      288.29736328125,
+      315.769287109375
+    ],
+    "mm_per_model_unit": 0.7219103186221189,
+    "raw_max_dim_mm": 1.307036508178711,
+    "status": "ok"
+  },
+  "Strumigenys_aff.trudifera_CASENT0744220": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Strumigenys_aff.trudifera_CASENT0744220_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Strumigenys_aff.trudifera_CASENT0744220/Strumigenys_aff.trudifera_CASENT0744220.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 315.54148272771437,
+    "raw_bbox_dims": [
+      523.96630859375,
+      256.0725784301758,
+      223.53557586669922
+    ],
+    "mm_per_model_unit": 0.7699212178556231,
+    "raw_max_dim_mm": 1.2784777929687499,
+    "status": "ok"
+  },
+  "Strumigenys_alberti_CASENT0878103": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Strumigenys_alberti_CASENT0878103_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Strumigenys_alberti_CASENT0878103/Strumigenys_alberti_CASENT0878103.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 781.3124782907505,
+    "raw_bbox_dims": [
+      1493.685546875,
+      988.363525390625,
+      901.4652709960938
+    ],
+    "mm_per_model_unit": 1.9064024470294312,
+    "raw_max_dim_mm": 3.6445927343749998,
+    "status": "ok"
+  },
+  "Strumigenys_alberti_CASENT0878104": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Strumigenys_alberti_CASENT0878104_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Strumigenys_alberti_CASENT0878104/Strumigenys_alberti_CASENT0878104.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 907.1565669057949,
+    "raw_bbox_dims": [
+      1721.49169921875,
+      852.4915466308594,
+      948.1428527832031
+    ],
+    "mm_per_model_unit": 2.2134620232501394,
+    "raw_max_dim_mm": 4.20043974609375,
+    "status": "ok"
+  },
+  "Strumigenys_appretiata_CASENT0744350": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Strumigenys_appretiata_CASENT0744350_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Strumigenys_appretiata_CASENT0744350/Strumigenys_appretiata_CASENT0744350.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 175.68371868129148,
+    "raw_bbox_dims": [
+      319.7092742919922,
+      178.44322967529297,
+      173.51903533935547
+    ],
+    "mm_per_model_unit": 0.4286682735823512,
+    "raw_max_dim_mm": 0.7800906292724609,
+    "status": "ok"
+  },
+  "Strumigenys_auctidens_CASENT0878105": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Strumigenys_auctidens_CASENT0878105_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Strumigenys_auctidens_CASENT0878105/Strumigenys_auctidens_CASENT0878105.json",
+    "voxel_size_mm": 0.00122,
+    "normalization_scale": 673.3447337996898,
+    "raw_bbox_dims": [
+      1287.32666015625,
+      649.9022827148438,
+      731.1417541503906
+    ],
+    "mm_per_model_unit": 0.8214805752356216,
+    "raw_max_dim_mm": 1.570538525390625,
+    "status": "ok"
+  },
+  "Strumigenys_canina_OKENT0105289": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Strumigenys_canina_OKENT0105289_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Strumigenys_canina_OKENT0105289/Strumigenys_canina_OKENT0105289.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 229.57748703325115,
+    "raw_bbox_dims": [
+      443.43341064453125,
+      259.2878723144531,
+      246.36837768554688
+    ],
+    "mm_per_model_unit": 0.5601690683611328,
+    "raw_max_dim_mm": 1.0819775219726562,
+    "status": "ok"
+  },
+  "Strumigenys_crassicornis_CASENT0744273": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Strumigenys_crassicornis_CASENT0744273_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Strumigenys_crassicornis_CASENT0744273/Strumigenys_crassicornis_CASENT0744273.json",
+    "voxel_size_mm": 0.00122,
+    "normalization_scale": 515.9067912174119,
+    "raw_bbox_dims": [
+      1019.8666687011719,
+      718.4003601074219,
+      601.5157165527344
+    ],
+    "mm_per_model_unit": 0.6294062852852425,
+    "raw_max_dim_mm": 1.2442373358154297,
+    "status": "ok"
+  },
+  "Strumigenys_hispida_OKENT0105261": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Strumigenys_hispida_OKENT0105261_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Strumigenys_hispida_OKENT0105261/Strumigenys_hispida_OKENT0105261.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 271.3605920920183,
+    "raw_bbox_dims": [
+      491.45697021484375,
+      240.79330444335938,
+      194.30933380126953
+    ],
+    "mm_per_model_unit": 0.6621198447045246,
+    "raw_max_dim_mm": 1.1991550073242188,
+    "status": "ok"
+  },
+  "Strumigenys_hispida_OKENT0105262": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Strumigenys_hispida_OKENT0105262_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Strumigenys_hispida_OKENT0105262/Strumigenys_hispida_OKENT0105262.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 196.1712304552166,
+    "raw_bbox_dims": [
+      335.1219482421875,
+      180.4988250732422,
+      304.1139221191406
+    ],
+    "mm_per_model_unit": 0.47865780231072846,
+    "raw_max_dim_mm": 0.8176975537109374,
+    "status": "ok"
+  },
+  "Strumigenys_incerta_OKENT0105329": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Strumigenys_incerta_OKENT0105329_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Strumigenys_incerta_OKENT0105329/Strumigenys_incerta_OKENT0105329.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 146.17050409081236,
+    "raw_bbox_dims": [
+      266.3748474121094,
+      221.90830993652344,
+      203.00901794433594
+    ],
+    "mm_per_model_unit": 0.35665602998158213,
+    "raw_max_dim_mm": 0.6499546276855468,
+    "status": "ok"
+  },
+  "Strumigenys_lewisi_OKENT0105441": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Strumigenys_lewisi_OKENT0105441_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Strumigenys_lewisi_OKENT0105441/Strumigenys_lewisi_OKENT0105441.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 196.13148379677062,
+    "raw_bbox_dims": [
+      364.86842346191406,
+      273.3443603515625,
+      259.81639862060547
+    ],
+    "mm_per_model_unit": 0.4785608204641203,
+    "raw_max_dim_mm": 0.8902789532470703,
+    "status": "ok"
+  },
+  "Strumigenys_lewisi_OKENT0105442": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Strumigenys_lewisi_OKENT0105442_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Strumigenys_lewisi_OKENT0105442/Strumigenys_lewisi_OKENT0105442.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 244.24411841687234,
+    "raw_bbox_dims": [
+      415.5035400390625,
+      205.48220825195312,
+      274.39781951904297
+    ],
+    "mm_per_model_unit": 0.5959556489371685,
+    "raw_max_dim_mm": 1.0138286376953125,
+    "status": "ok"
+  },
+  "Strumigenys_sp._mandibularis_group_CASENT0744058": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Strumigenys_sp._mandibularis_group_CASENT0744058_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Strumigenys_sp._mandibularis_group_CASENT0744058/Strumigenys_sp._mandibularis_group_CASENT0744058.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 328.89409303069806,
+    "raw_bbox_dims": [
+      645.9044494628906,
+      406.8631134033203,
+      379.4375457763672
+    ],
+    "mm_per_model_unit": 0.8025015869949033,
+    "raw_max_dim_mm": 1.576006856689453,
+    "status": "ok"
+  },
+  "Strumigenys_sp._silvestri_group_CASENT0744283": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Strumigenys_sp._silvestri_group_CASENT0744283_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Strumigenys_sp._silvestri_group_CASENT0744283/Strumigenys_sp._silvestri_group_CASENT0744283.json",
+    "voxel_size_mm": 0.00122,
+    "normalization_scale": 490.1733948254382,
+    "raw_bbox_dims": [
+      949.2394104003906,
+      565.9979858398438,
+      552.3715667724609
+    ],
+    "mm_per_model_unit": 0.5980115416870346,
+    "raw_max_dim_mm": 1.1580720806884766,
+    "status": "ok"
+  },
+  "Strumigenys_stenorhina_OKENT0105268": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Strumigenys_stenorhina_OKENT0105268_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Strumigenys_stenorhina_OKENT0105268/Strumigenys_stenorhina_OKENT0105268.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 291.51394541717303,
+    "raw_bbox_dims": [
+      482.2469024658203,
+      262.9169006347656,
+      263.49061584472656
+    ],
+    "mm_per_model_unit": 0.7112940268179022,
+    "raw_max_dim_mm": 1.1766824420166015,
+    "status": "ok"
+  },
+  "Syllophopsis_aureorugosa_CASENT0840860-D4": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Syllophopsis_aureorugosa_CASENT0840860-D4_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Syllophopsis_aureorugosa_CASENT0840860-D4/Syllophopsis_aureorugosa_CASENT0840860-D4.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 435.25005423572753,
+    "raw_bbox_dims": [
+      851.988525390625,
+      514.6189117431641,
+      617.3143005371094
+    ],
+    "mm_per_model_unit": 1.0620101323351752,
+    "raw_max_dim_mm": 2.0788520019531247,
+    "status": "ok"
+  },
+  "Syllophopsis_sechellensis_OKENT0105212": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Syllophopsis_sechellensis_OKENT0105212_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Syllophopsis_sechellensis_OKENT0105212/Syllophopsis_sechellensis_OKENT0105212.json",
+    "voxel_size_mm": 0.00122,
+    "normalization_scale": 1125.4091772914771,
+    "raw_bbox_dims": [
+      1891.5425415039062,
+      1441.2066345214844,
+      916.2880249023438
+    ],
+    "mm_per_model_unit": 1.372999196295602,
+    "raw_max_dim_mm": 2.3076819006347655,
+    "status": "ok"
+  },
+  "Talaridris_mandibularis_CASENT0744061": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Talaridris_mandibularis_CASENT0744061_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Talaridris_mandibularis_CASENT0744061/Talaridris_mandibularis_CASENT0744061.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 178.9265839607697,
+    "raw_bbox_dims": [
+      315.1941375732422,
+      231.67089080810547,
+      294.29673767089844
+    ],
+    "mm_per_model_unit": 0.43658086486427805,
+    "raw_max_dim_mm": 0.7690736956787109,
+    "status": "ok"
+  },
+  "Tapinoma_cf.melanocephalum_CASENT0877585": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Tapinoma_cf.melanocephalum_CASENT0877585_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Tapinoma_cf.melanocephalum_CASENT0877585/Tapinoma_cf.melanocephalum_CASENT0877585.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1023.5560610659627,
+    "raw_bbox_dims": [
+      1976.1893310546875,
+      1146.8603515625,
+      1098.7299499511719
+    ],
+    "mm_per_model_unit": 2.497476789000949,
+    "raw_max_dim_mm": 4.821901967773437,
+    "status": "ok"
+  },
+  "Tatuidris_tatusia_CASENT0745546": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Tatuidris_tatusia_CASENT0745546_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Tatuidris_tatusia_CASENT0745546/Tatuidris_tatusia_CASENT0745546.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 305.37347118274056,
+    "raw_bbox_dims": [
+      476.0716857910156,
+      531.5131072998047,
+      412.81581115722656
+    ],
+    "mm_per_model_unit": 0.7451112696858869,
+    "raw_max_dim_mm": 1.2968919818115234,
+    "status": "ok"
+  },
+  "Temnothorax_OK01_OKENT0105230": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Temnothorax_OK01_OKENT0105230_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Temnothorax_OK01_OKENT0105230/Temnothorax_OK01_OKENT0105230.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 286.5547751525512,
+    "raw_bbox_dims": [
+      480.2205352783203,
+      240.9365692138672,
+      258.50840759277344
+    ],
+    "mm_per_model_unit": 0.6991936513722249,
+    "raw_max_dim_mm": 1.1717381060791014,
+    "status": "ok"
+  },
+  "Temnothorax_arimensis_OKENT0105447": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Temnothorax_arimensis_OKENT0105447_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Temnothorax_arimensis_OKENT0105447/Temnothorax_arimensis_OKENT0105447.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 234.49566554067167,
+    "raw_bbox_dims": [
+      451.4303283691406,
+      264.30372619628906,
+      194.95063018798828
+    ],
+    "mm_per_model_unit": 0.5721694239192389,
+    "raw_max_dim_mm": 1.1014900012207032,
+    "status": "ok"
+  },
+  "Temnothorax_indra_OKENT0105227": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Temnothorax_indra_OKENT0105227_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Temnothorax_indra_OKENT0105227/Temnothorax_indra_OKENT0105227.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 221.862922869723,
+    "raw_bbox_dims": [
+      405.0666198730469,
+      331.3341369628906,
+      342.5516815185547
+    ],
+    "mm_per_model_unit": 0.5413455318021241,
+    "raw_max_dim_mm": 0.9883625524902343,
+    "status": "ok"
+  },
+  "Temnothorax_indra_OKENT0105228": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Temnothorax_indra_OKENT0105228_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Temnothorax_indra_OKENT0105228/Temnothorax_indra_OKENT0105228.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 317.53400048959423,
+    "raw_bbox_dims": [
+      484.0647888183594,
+      506.4281005859375,
+      331.0612335205078
+    ],
+    "mm_per_model_unit": 0.7747829611946099,
+    "raw_max_dim_mm": 1.2356845654296875,
+    "status": "ok"
+  },
+  "Temnothorax_kubira_OKENT0105406": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Temnothorax_kubira_OKENT0105406_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Temnothorax_kubira_OKENT0105406/Temnothorax_kubira_OKENT0105406.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 273.5095087225818,
+    "raw_bbox_dims": [
+      478.9426574707031,
+      414.12770080566406,
+      344.65020751953125
+    ],
+    "mm_per_model_unit": 0.6673632012830996,
+    "raw_max_dim_mm": 1.1686200842285155,
+    "status": "ok"
+  },
+  "Temnothorax_nylanderi_CASENT0878032": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Temnothorax_nylanderi_CASENT0878032_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Temnothorax_nylanderi_CASENT0878032/Temnothorax_nylanderi_CASENT0878032.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1001.0134774391005,
+    "raw_bbox_dims": [
+      1693.6275024414062,
+      1441.87451171875,
+      1650.9133911132812
+    ],
+    "mm_per_model_unit": 2.442472884951405,
+    "raw_max_dim_mm": 4.132451105957031,
+    "status": "ok"
+  },
+  "Terataner_luteus_CASENT0744901": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Terataner_luteus_CASENT0744901_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Terataner_luteus_CASENT0744901/Terataner_luteus_CASENT0744901.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 575.8143759945924,
+    "raw_bbox_dims": [
+      853.4891967773438,
+      559.8697814941406,
+      568.0183868408203
+    ],
+    "mm_per_model_unit": 1.4049870774268054,
+    "raw_max_dim_mm": 2.082513640136719,
+    "status": "ok"
+  },
+  "Tetramorium_aculeatum_CASENT0744907": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Tetramorium_aculeatum_CASENT0744907_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Tetramorium_aculeatum_CASENT0744907/Tetramorium_aculeatum_CASENT0744907.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 631.4980632629367,
+    "raw_bbox_dims": [
+      819.22119140625,
+      834.1759643554688,
+      897.75927734375
+    ],
+    "mm_per_model_unit": 1.5408552743615656,
+    "raw_max_dim_mm": 2.19053263671875,
+    "status": "ok"
+  },
+  "Tetramorium_amentete_CASENT0744908": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Tetramorium_amentete_CASENT0744908_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Tetramorium_amentete_CASENT0744908/Tetramorium_amentete_CASENT0744908.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 223.93958226549083,
+    "raw_bbox_dims": [
+      387.28236389160156,
+      365.88671875,
+      320.7456817626953
+    ],
+    "mm_per_model_unit": 0.5464125807277976,
+    "raw_max_dim_mm": 0.9449689678955078,
+    "status": "ok"
+  },
+  "Tetramorium_bicarinatum_OKENT0105233": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Tetramorium_bicarinatum_OKENT0105233_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Tetramorium_bicarinatum_OKENT0105233/Tetramorium_bicarinatum_OKENT0105233.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 500.9818512483237,
+    "raw_bbox_dims": [
+      564.422119140625,
+      697.0582733154297,
+      587.1878051757812
+    ],
+    "mm_per_model_unit": 1.2223957170459099,
+    "raw_max_dim_mm": 1.7008221868896483,
+    "status": "ok"
+  },
+  "Tetramorium_bicarinatum_OKENT0105234": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Tetramorium_bicarinatum_OKENT0105234_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Tetramorium_bicarinatum_OKENT0105234/Tetramorium_bicarinatum_OKENT0105234.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 332.39648793521064,
+    "raw_bbox_dims": [
+      605.756103515625,
+      489.21815490722656,
+      607.8774871826172
+    ],
+    "mm_per_model_unit": 0.811047430561914,
+    "raw_max_dim_mm": 1.4832210687255858,
+    "status": "ok"
+  },
+  "Tetramorium_caespitum_CASENT0745052": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Tetramorium_caespitum_CASENT0745052_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Tetramorium_caespitum_CASENT0745052/Tetramorium_caespitum_CASENT0745052.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 473.318697160678,
+    "raw_bbox_dims": [
+      756.2996368408203,
+      456.24566650390625,
+      444.1368713378906
+    ],
+    "mm_per_model_unit": 1.1548976210720543,
+    "raw_max_dim_mm": 1.8453711138916016,
+    "status": "ok"
+  },
+  "Tetramorium_immigrans_CASENT0741336": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Tetramorium_immigrans_CASENT0741336_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Tetramorium_immigrans_CASENT0741336/Tetramorium_immigrans_CASENT0741336.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 512.2199770282438,
+    "raw_bbox_dims": [
+      833.8283996582031,
+      193.76325225830078,
+      195.6119155883789
+    ],
+    "mm_per_model_unit": 1.2498167439489147,
+    "raw_max_dim_mm": 2.0345412951660156,
+    "status": "ok"
+  },
+  "Tetramorium_pacificum_CASENT0745543": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Tetramorium_pacificum_CASENT0745543_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Tetramorium_pacificum_CASENT0745543/Tetramorium_pacificum_CASENT0745543.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 390.18802475816324,
+    "raw_bbox_dims": [
+      734.1679992675781,
+      416.6922149658203,
+      292.8888244628906
+    ],
+    "mm_per_model_unit": 0.9520587804099182,
+    "raw_max_dim_mm": 1.7913699182128906,
+    "status": "ok"
+  },
+  "Tetramorium_polymorphum_CASENT0877578": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Tetramorium_polymorphum_CASENT0877578_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Tetramorium_polymorphum_CASENT0877578/Tetramorium_polymorphum_CASENT0877578.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1415.9008955802217,
+    "raw_bbox_dims": [
+      2360.5289306640625,
+      1328.2835083007812,
+      1420.1481018066406
+    ],
+    "mm_per_model_unit": 3.454798185215741,
+    "raw_max_dim_mm": 5.759690590820313,
+    "status": "ok"
+  },
+  "Tetramorium_polymorphum_CASENT0877580": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Tetramorium_polymorphum_CASENT0877580_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Tetramorium_polymorphum_CASENT0877580/Tetramorium_polymorphum_CASENT0877580.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1280.6998486054251,
+    "raw_bbox_dims": [
+      2256.1868286132812,
+      2205.5671997070312,
+      2378.71630859375
+    ],
+    "mm_per_model_unit": 3.124907630597237,
+    "raw_max_dim_mm": 5.80406779296875,
+    "status": "ok"
+  },
+  "Tetramorium_polymorphum_CASENT0877581": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Tetramorium_polymorphum_CASENT0877581_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Tetramorium_polymorphum_CASENT0877581/Tetramorium_polymorphum_CASENT0877581.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 1499.5332267992262,
+    "raw_bbox_dims": [
+      2809.6612548828125,
+      1989.7172241210938,
+      1913.4052734375
+    ],
+    "mm_per_model_unit": 3.6588610733901117,
+    "raw_max_dim_mm": 6.855573461914062,
+    "status": "ok"
+  },
+  "Tetramorium_pullulum_CASENT0745590": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Tetramorium_pullulum_CASENT0745590_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Tetramorium_pullulum_CASENT0745590/Tetramorium_pullulum_CASENT0745590.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 372.4843199883191,
+    "raw_bbox_dims": [
+      633.5957489013672,
+      297.7482452392578,
+      367.6622314453125
+    ],
+    "mm_per_model_unit": 0.9088617407714986,
+    "raw_max_dim_mm": 1.5459736273193359,
+    "status": "ok"
+  },
+  "Tetramorium_sericeiventre_CASENT0744911": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Tetramorium_sericeiventre_CASENT0744911_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Tetramorium_sericeiventre_CASENT0744911/Tetramorium_sericeiventre_CASENT0744911.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 530.2338586268539,
+    "raw_bbox_dims": [
+      624.3741455078125,
+      790.8449096679688,
+      468.30255126953125
+    ],
+    "mm_per_model_unit": 1.2937706150495236,
+    "raw_max_dim_mm": 1.9296615795898437,
+    "status": "ok"
+  },
+  "Tetramorium_simillimum_OKENT0105249": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Tetramorium_simillimum_OKENT0105249_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Tetramorium_simillimum_OKENT0105249/Tetramorium_simillimum_OKENT0105249.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 177.3081481964335,
+    "raw_bbox_dims": [
+      319.7054443359375,
+      353.8604431152344,
+      235.6971893310547
+    ],
+    "mm_per_model_unit": 0.4326318815992977,
+    "raw_max_dim_mm": 0.8634194812011718,
+    "status": "ok"
+  },
+  "Tetramorium_sp._OKENT0105210": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Tetramorium_sp._OKENT0105210_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Tetramorium_sp._OKENT0105210/Tetramorium_sp._OKENT0105210.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 269.97156884997656,
+    "raw_bbox_dims": [
+      379.30120849609375,
+      495.8995666503906,
+      340.65089416503906
+    ],
+    "mm_per_model_unit": 0.6587306279939428,
+    "raw_max_dim_mm": 1.2099949426269532,
+    "status": "ok"
+  },
+  "Tetramorium_venator_CASENT0744916": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Tetramorium_venator_CASENT0744916_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Tetramorium_venator_CASENT0744916/Tetramorium_venator_CASENT0744916.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 218.5885329807057,
+    "raw_bbox_dims": [
+      434.0880889892578,
+      205.08763122558594,
+      293.6197967529297
+    ],
+    "mm_per_model_unit": 0.5333560204729219,
+    "raw_max_dim_mm": 1.059174937133789,
+    "status": "ok"
+  },
+  "Tetraponera_merita_CASENT0840853-D4": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Tetraponera_merita_CASENT0840853-D4_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Tetraponera_merita_CASENT0840853-D4/Tetraponera_merita_CASENT0840853-D4.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 912.383771378734,
+    "raw_bbox_dims": [
+      1598.3756103515625,
+      833.3560485839844,
+      892.8640747070312
+    ],
+    "mm_per_model_unit": 2.226216402164111,
+    "raw_max_dim_mm": 3.9000364892578125,
+    "status": "ok"
+  },
+  "Trachymyrmex_carinatus_CASENT0709287": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Trachymyrmex_carinatus_CASENT0709287_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Trachymyrmex_carinatus_CASENT0709287/Trachymyrmex_carinatus_CASENT0709287.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 401.49170791248775,
+    "raw_bbox_dims": [
+      683.9187316894531,
+      544.0307006835938,
+      489.5851745605469
+    ],
+    "mm_per_model_unit": 0.9796397673064701,
+    "raw_max_dim_mm": 1.6687617053222656,
+    "status": "ok"
+  },
+  "Trichomyrmex_destructor_OKENT0105257": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Trichomyrmex_destructor_OKENT0105257_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Trichomyrmex_destructor_OKENT0105257/Trichomyrmex_destructor_OKENT0105257.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 337.7706282941698,
+    "raw_bbox_dims": [
+      533.9405975341797,
+      359.3173522949219,
+      255.7488021850586
+    ],
+    "mm_per_model_unit": 0.8241603330377743,
+    "raw_max_dim_mm": 1.3028150579833984,
+    "status": "ok"
+  },
+  "Typhlomyrmex_reichenspergeri_CASENT0744415": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Typhlomyrmex_reichenspergeri_CASENT0744415_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Typhlomyrmex_reichenspergeri_CASENT0744415/Typhlomyrmex_reichenspergeri_CASENT0744415.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 307.68008282237395,
+    "raw_bbox_dims": [
+      541.0065002441406,
+      277.13165283203125,
+      434.6199493408203
+    ],
+    "mm_per_model_unit": 0.7507394020865924,
+    "raw_max_dim_mm": 1.3200558605957031,
+    "status": "ok"
+  },
+  "Typhlomyrmex_rogenhoferi_CASENT0744314": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Typhlomyrmex_rogenhoferi_CASENT0744314_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Typhlomyrmex_rogenhoferi_CASENT0744314/Typhlomyrmex_rogenhoferi_CASENT0744314.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 332.4857981819349,
+    "raw_bbox_dims": [
+      640.5197448730469,
+      235.72025299072266,
+      250.92730712890625
+    ],
+    "mm_per_model_unit": 0.8112653475639211,
+    "raw_max_dim_mm": 1.5628681774902342,
+    "status": "ok"
+  },
+  "Veromessor_pergandei_CASENT0709286": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Veromessor_pergandei_CASENT0709286_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Veromessor_pergandei_CASENT0709286/Veromessor_pergandei_CASENT0709286.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 403.7568766704118,
+    "raw_bbox_dims": [
+      705.3607482910156,
+      368.00962829589844,
+      524.8912963867188
+    ],
+    "mm_per_model_unit": 0.9851667790758049,
+    "raw_max_dim_mm": 1.7210802258300781,
+    "status": "ok"
+  },
+  "Vitsika_brevis_CASENT0840868-D4": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Vitsika_brevis_CASENT0840868-D4_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Vitsika_brevis_CASENT0840868-D4/Vitsika_brevis_CASENT0840868-D4.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 487.55850148419916,
+    "raw_bbox_dims": [
+      855.742919921875,
+      544.3863983154297,
+      690.4131011962891
+    ],
+    "mm_per_model_unit": 1.1896427436214458,
+    "raw_max_dim_mm": 2.0880127246093747,
+    "status": "ok"
+  },
+  "Wasmannia_sulcaticeps_CASENT0744311": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Wasmannia_sulcaticeps_CASENT0744311_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Wasmannia_sulcaticeps_CASENT0744311/Wasmannia_sulcaticeps_CASENT0744311.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 230.2146069729788,
+    "raw_bbox_dims": [
+      389.981689453125,
+      409.6163024902344,
+      293.7983703613281
+    ],
+    "mm_per_model_unit": 0.5617236410140682,
+    "raw_max_dim_mm": 0.9994637780761718,
+    "status": "ok"
+  },
+  "Xerolitor_explicatus_CASENT0745114": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Xerolitor_explicatus_CASENT0745114_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Xerolitor_explicatus_CASENT0745114/Xerolitor_explicatus_CASENT0745114.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 270.86517560776406,
+    "raw_bbox_dims": [
+      444.6653747558594,
+      312.4099578857422,
+      263.5846862792969
+    ],
+    "mm_per_model_unit": 0.6609110284829443,
+    "raw_max_dim_mm": 1.0849835144042967,
+    "status": "ok"
+  },
+  "Zasphinctus_sarowiwai_CASENT0254678": {
+    "mesh_path": "/hpcwork/nao48500/worker_ALT/Zasphinctus_sarowiwai_CASENT0254678_processed.obj",
+    "json_path": "/hpcwork/nao48500/antscan_data_json_only/Zasphinctus_sarowiwai_CASENT0254678/Zasphinctus_sarowiwai_CASENT0254678.json",
+    "voxel_size_mm": 0.00244,
+    "normalization_scale": 558.7213907331586,
+    "raw_bbox_dims": [
+      1066.6051940917969,
+      275.53079986572266,
+      479.29925537109375
+    ],
+    "mm_per_model_unit": 1.363280193388907,
+    "raw_max_dim_mm": 2.602516673583984,
+    "status": "ok"
+  }
+}

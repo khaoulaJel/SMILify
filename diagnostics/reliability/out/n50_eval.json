@@ -1,0 +1,30 @@
+{
+ "hard50": {
+  "n": 4,
+  "n_genus": 2,
+  "acc": NaN,
+  "null": NaN,
+  "lift": NaN
+ },
+ "equal": {
+  "n": 8,
+  "n_genus": 2,
+  "acc": NaN,
+  "null": NaN,
+  "lift": NaN
+ },
+ "continuous_global": {
+  "n": 8,
+  "n_genus": 2,
+  "acc": NaN,
+  "null": NaN,
+  "lift": NaN
+ },
+ "feature_scaling": {
+  "n": 8,
+  "n_genus": 2,
+  "acc": NaN,
+  "null": NaN,
+  "lift": NaN
+ }
+}

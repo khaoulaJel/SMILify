@@ -1,0 +1,625 @@
+{
+  "per_condition": {
+    "SYN_clean_pose0_w5": {
+      "corpus": "synth_clean_pose0",
+      "n_specimens": 12,
+      "confusion": {
+        "co": {
+          "co": 5497,
+          "tr": 209,
+          "fe": 0,
+          "ti": 0,
+          "ta": 0,
+          "pt": 0
+        },
+        "tr": {
+          "co": 773,
+          "tr": 19101,
+          "fe": 139,
+          "ti": 0,
+          "ta": 0,
+          "pt": 0
+        },
+        "fe": {
+          "co": 0,
+          "tr": 741,
+          "fe": 8540,
+          "ti": 42,
+          "ta": 0,
+          "pt": 0
+        },
+        "ti": {
+          "co": 0,
+          "tr": 0,
+          "fe": 555,
+          "ti": 1750,
+          "ta": 48,
+          "pt": 0
+        },
+        "ta": {
+          "co": 0,
+          "tr": 0,
+          "fe": 0,
+          "ti": 817,
+          "ta": 1007,
+          "pt": 69
+        },
+        "pt": {
+          "co": 0,
+          "tr": 0,
+          "fe": 0,
+          "ti": 23,
+          "ta": 115,
+          "pt": 17
+        }
+      }
+    },
+    "SYN_clean_pose05_w5": {
+      "corpus": "synth_clean_pose05",
+      "n_specimens": 12,
+      "confusion": {
+        "co": {
+          "co": 5223,
+          "tr": 202,
+          "fe": 0,
+          "ti": 0,
+          "ta": 0,
+          "pt": 0
+        },
+        "tr": {
+          "co": 765,
+          "tr": 19012,
+          "fe": 206,
+          "ti": 0,
+          "ta": 0,
+          "pt": 0
+        },
+        "fe": {
+          "co": 0,
+          "tr": 625,
+          "fe": 8660,
+          "ti": 74,
+          "ta": 0,
+          "pt": 0
+        },
+        "ti": {
+          "co": 0,
+          "tr": 0,
+          "fe": 471,
+          "ti": 1753,
+          "ta": 90,
+          "pt": 0
+        },
+        "ta": {
+          "co": 0,
+          "tr": 0,
+          "fe": 10,
+          "ti": 611,
+          "ta": 1198,
+          "pt": 100
+        },
+        "pt": {
+          "co": 0,
+          "tr": 0,
+          "fe": 0,
+          "ti": 19,
+          "ta": 94,
+          "pt": 22
+        }
+      }
+    },
+    "SYN_clean_pose10_w5": {
+      "corpus": "synth_clean_pose10",
+      "n_specimens": 12,
+      "confusion": {
+        "co": {
+          "co": 4887,
+          "tr": 237,
+          "fe": 0,
+          "ti": 0,
+          "ta": 0,
+          "pt": 0
+        },
+        "tr": {
+          "co": 759,
+          "tr": 18721,
+          "fe": 280,
+          "ti": 0,
+          "ta": 0,
+          "pt": 0
+        },
+        "fe": {
+          "co": 0,
+          "tr": 609,
+          "fe": 8457,
+          "ti": 142,
+          "ta": 0,
+          "pt": 0
+        },
+        "ti": {
+          "co": 0,
+          "tr": 0,
+          "fe": 461,
+          "ti": 1782,
+          "ta": 189,
+          "pt": 5
+        },
+        "ta": {
+          "co": 0,
+          "tr": 0,
+          "fe": 0,
+          "ti": 509,
+          "ta": 1213,
+          "pt": 169
+        },
+        "pt": {
+          "co": 0,
+          "tr": 0,
+          "fe": 0,
+          "ti": 16,
+          "ta": 117,
+          "pt": 31
+        }
+      }
+    },
+    "SYN_clean_pose15_w5": {
+      "corpus": "synth_clean_pose15",
+      "n_specimens": 12,
+      "confusion": {
+        "co": {
+          "co": 4508,
+          "tr": 282,
+          "fe": 0,
+          "ti": 0,
+          "ta": 0,
+          "pt": 0
+        },
+        "tr": {
+          "co": 727,
+          "tr": 18323,
+          "fe": 400,
+          "ti": 0,
+          "ta": 0,
+          "pt": 0
+        },
+        "fe": {
+          "co": 0,
+          "tr": 584,
+          "fe": 8357,
+          "ti": 162,
+          "ta": 22,
+          "pt": 0
+        },
+        "ti": {
+          "co": 0,
+          "tr": 0,
+          "fe": 426,
+          "ti": 1606,
+          "ta": 276,
+          "pt": 18
+        },
+        "ta": {
+          "co": 0,
+          "tr": 0,
+          "fe": 0,
+          "ti": 390,
+          "ta": 1220,
+          "pt": 160
+        },
+        "pt": {
+          "co": 0,
+          "tr": 0,
+          "fe": 0,
+          "ti": 11,
+          "ta": 115,
+          "pt": 42
+        }
+      }
+    },
+    "SYN_clean_pose20_w5": {
+      "corpus": "synth_clean_pose20",
+      "n_specimens": 12,
+      "confusion": {
+        "co": {
+          "co": 3970,
+          "tr": 430,
+          "fe": 0,
+          "ti": 0,
+          "ta": 0,
+          "pt": 0
+        },
+        "tr": {
+          "co": 745,
+          "tr": 16128,
+          "fe": 664,
+          "ti": 12,
+          "ta": 0,
+          "pt": 0
+        },
+        "fe": {
+          "co": 0,
+          "tr": 741,
+          "fe": 7419,
+          "ti": 369,
+          "ta": 33,
+          "pt": 0
+        },
+        "ti": {
+          "co": 0,
+          "tr": 0,
+          "fe": 452,
+          "ti": 1263,
+          "ta": 405,
+          "pt": 34
+        },
+        "ta": {
+          "co": 0,
+          "tr": 0,
+          "fe": 52,
+          "ti": 362,
+          "ta": 1090,
+          "pt": 143
+        },
+        "pt": {
+          "co": 0,
+          "tr": 0,
+          "fe": 10,
+          "ti": 14,
+          "ta": 97,
+          "pt": 18
+        }
+      }
+    },
+    "SYN_clean_w5": {
+      "corpus": "synth_clean",
+      "n_specimens": 12,
+      "confusion": {
+        "co": {
+          "co": 3861,
+          "tr": 411,
+          "fe": 0,
+          "ti": 10,
+          "ta": 1,
+          "pt": 0
+        },
+        "tr": {
+          "co": 975,
+          "tr": 11334,
+          "fe": 782,
+          "ti": 94,
+          "ta": 0,
+          "pt": 0
+        },
+        "fe": {
+          "co": 0,
+          "tr": 603,
+          "fe": 5715,
+          "ti": 578,
+          "ta": 33,
+          "pt": 0
+        },
+        "ti": {
+          "co": 0,
+          "tr": 13,
+          "fe": 346,
+          "ti": 1240,
+          "ta": 236,
+          "pt": 3
+        },
+        "ta": {
+          "co": 0,
+          "tr": 22,
+          "fe": 26,
+          "ti": 359,
+          "ta": 1014,
+          "pt": 172
+        },
+        "pt": {
+          "co": 0,
+          "tr": 2,
+          "fe": 2,
+          "ti": 20,
+          "ta": 103,
+          "pt": 29
+        }
+      }
+    },
+    "SYN_clean_pose35_w5": {
+      "corpus": "synth_clean_pose35",
+      "n_specimens": 12,
+      "confusion": {
+        "co": {
+          "co": 2586,
+          "tr": 574,
+          "fe": 0,
+          "ti": 10,
+          "ta": 0,
+          "pt": 0
+        },
+        "tr": {
+          "co": 778,
+          "tr": 11854,
+          "fe": 1013,
+          "ti": 72,
+          "ta": 3,
+          "pt": 0
+        },
+        "fe": {
+          "co": 0,
+          "tr": 832,
+          "fe": 5277,
+          "ti": 374,
+          "ta": 65,
+          "pt": 40
+        },
+        "ti": {
+          "co": 0,
+          "tr": 13,
+          "fe": 407,
+          "ti": 812,
+          "ta": 375,
+          "pt": 65
+        },
+        "ta": {
+          "co": 0,
+          "tr": 15,
+          "fe": 83,
+          "ti": 258,
+          "ta": 665,
+          "pt": 216
+        },
+        "pt": {
+          "co": 0,
+          "tr": 1,
+          "fe": 11,
+          "ti": 8,
+          "ta": 65,
+          "pt": 43
+        }
+      }
+    },
+    "SYN_clean_drop30_w5": {
+      "corpus": "synth_clean_drop30",
+      "n_specimens": 12,
+      "confusion": {
+        "co": {
+          "co": 1662,
+          "tr": 707,
+          "fe": 35,
+          "ti": 22,
+          "ta": 5,
+          "pt": 0
+        },
+        "tr": {
+          "co": 338,
+          "tr": 4976,
+          "fe": 687,
+          "ti": 89,
+          "ta": 48,
+          "pt": 23
+        },
+        "fe": {
+          "co": 40,
+          "tr": 386,
+          "fe": 1838,
+          "ti": 736,
+          "ta": 237,
+          "pt": 16
+        },
+        "ti": {
+          "co": 53,
+          "tr": 22,
+          "fe": 55,
+          "ti": 193,
+          "ta": 104,
+          "pt": 13
+        },
+        "ta": {
+          "co": 31,
+          "tr": 19,
+          "fe": 7,
+          "ti": 11,
+          "ta": 20,
+          "pt": 5
+        },
+        "pt": {
+          "co": 10,
+          "tr": 2,
+          "fe": 0,
+          "ti": 0,
+          "ta": 1,
+          "pt": 0
+        }
+      }
+    },
+    "SYN_clean_drop60_w5": {
+      "corpus": "synth_clean_drop60",
+      "n_specimens": 12,
+      "confusion": {
+        "co": {
+          "co": 1207,
+          "tr": 1010,
+          "fe": 31,
+          "ti": 7,
+          "ta": 41,
+          "pt": 2
+        },
+        "tr": {
+          "co": 249,
+          "tr": 4102,
+          "fe": 1097,
+          "ti": 234,
+          "ta": 97,
+          "pt": 13
+        },
+        "fe": {
+          "co": 67,
+          "tr": 291,
+          "fe": 972,
+          "ti": 398,
+          "ta": 163,
+          "pt": 5
+        },
+        "ti": {
+          "co": 28,
+          "tr": 11,
+          "fe": 3,
+          "ti": 26,
+          "ta": 49,
+          "pt": 0
+        },
+        "ta": {
+          "co": 53,
+          "tr": 9,
+          "fe": 7,
+          "ti": 1,
+          "ta": 1,
+          "pt": 8
+        },
+        "pt": {
+          "co": 0,
+          "tr": 5,
+          "fe": 1,
+          "ti": 0,
+          "ta": 0,
+          "pt": 0
+        }
+      }
+    }
+  },
+  "pooled_confusion_matrix": {
+    "co": {
+      "co": 33401,
+      "tr": 4062,
+      "fe": 66,
+      "ti": 49,
+      "ta": 47,
+      "pt": 2
+    },
+    "tr": {
+      "co": 6109,
+      "tr": 123551,
+      "fe": 5268,
+      "ti": 501,
+      "ta": 148,
+      "pt": 36
+    },
+    "fe": {
+      "co": 107,
+      "tr": 5412,
+      "fe": 55235,
+      "ti": 2875,
+      "ta": 553,
+      "pt": 61
+    },
+    "ti": {
+      "co": 81,
+      "tr": 59,
+      "fe": 3176,
+      "ti": 10425,
+      "ta": 1772,
+      "pt": 138
+    },
+    "ta": {
+      "co": 84,
+      "tr": 65,
+      "fe": 185,
+      "ti": 3318,
+      "ta": 7428,
+      "pt": 1042
+    },
+    "pt": {
+      "co": 10,
+      "tr": 10,
+      "fe": 24,
+      "ti": 111,
+      "ta": 707,
+      "pt": 202
+    }
+  },
+  "adjacency_summary": {
+    "co": {
+      "n_total": 37627,
+      "n_correct": 33401,
+      "n_mismatch": 4226,
+      "n_adjacent": 4062,
+      "n_other": 164,
+      "frac_adjacent_of_mismatch": 0.9611926171320397,
+      "frac_other_of_mismatch": 0.03880738286796025
+    },
+    "tr": {
+      "n_total": 135613,
+      "n_correct": 123551,
+      "n_mismatch": 12062,
+      "n_adjacent": 11377,
+      "n_other": 685,
+      "frac_adjacent_of_mismatch": 0.9432100812468911,
+      "frac_other_of_mismatch": 0.05678991875310894
+    },
+    "fe": {
+      "n_total": 64243,
+      "n_correct": 55235,
+      "n_mismatch": 9008,
+      "n_adjacent": 8287,
+      "n_other": 721,
+      "frac_adjacent_of_mismatch": 0.9199600355239786,
+      "frac_other_of_mismatch": 0.08003996447602131
+    },
+    "ti": {
+      "n_total": 15651,
+      "n_correct": 10425,
+      "n_mismatch": 5226,
+      "n_adjacent": 4948,
+      "n_other": 278,
+      "frac_adjacent_of_mismatch": 0.9468044393417527,
+      "frac_other_of_mismatch": 0.05319556065824722
+    },
+    "ta": {
+      "n_total": 12122,
+      "n_correct": 7428,
+      "n_mismatch": 4694,
+      "n_adjacent": 4360,
+      "n_other": 334,
+      "frac_adjacent_of_mismatch": 0.9288453344695355,
+      "frac_other_of_mismatch": 0.07115466553046443
+    },
+    "pt": {
+      "n_total": 1064,
+      "n_correct": 202,
+      "n_mismatch": 862,
+      "n_adjacent": 707,
+      "n_other": 155,
+      "frac_adjacent_of_mismatch": 0.820185614849188,
+      "frac_other_of_mismatch": 0.17981438515081208
+    }
+  },
+  "sampling_density_correlation": {
+    "rho": -0.8285714285714287,
+    "p": 0.04156268221574334,
+    "segments": [
+      "co",
+      "tr",
+      "fe",
+      "ti",
+      "ta",
+      "pt"
+    ],
+    "median_samples": [
+      108.0,
+      202.0,
+      122.0,
+      29.0,
+      24.0,
+      2.0
+    ],
+    "mismatch_rate": [
+      0.098529068409993,
+      0.140386803185438,
+      0.1752056573820176,
+      0.3253536452665941,
+      0.3634651600753296,
+      0.8141025641025641
+    ]
+  },
+  "interpretation": "Systematic (chain-adjacent) confusion supported for a segment if frac_adjacent > 0.5 (mismatches concentrate on the neighbor along the kinematic chain, not spread uniformly across all other segments/legs -- consistent with a geodesic/rank-order correspondence ambiguity that B5's geodesic-rank channel is designed to fix). Otherwise mismatch looks closer to noise/debris, which B5 would not fix."
+}

@@ -251,6 +251,40 @@ def main():
     )
     ap.add_argument("--hull_threshold", type=float, default=0.03, help="CoACD concavity threshold")
     ap.add_argument("--hull_points", type=int, default=20000, help="surface samples for the decomposition")
+    ap.add_argument(
+        "--distal_quota",
+        type=float,
+        default=None,
+        help="Task 7 Intervention C, DIAGNOSTIC ONLY, default off. Fraction of each TARGET "
+        "sample draw guaranteed to land on distal (tibia/tarsus/pretarsus, pooled across all 6 "
+        "legs) faces, instead of pure area-weighting -- see "
+        "diagnostics/registration_interventions/MECHANISM_C.md. Applies to H1_legs/H2_joint/"
+        "H3_deform only (NOT H0_body, whose global chamfer must stay area-weighted over the "
+        "whole target). Requires topology-preserving corpora (no --mesh_dir remesh). Omit (the "
+        "default) for today's exact behaviour, unchanged.",
+    )
+    ap.add_argument(
+        "--distal_quota_protected",
+        type=float,
+        default=None,
+        help="Rank 5 (overnight_20260818), DIAGNOSTIC ONLY, default off, MUTUALLY EXCLUSIVE with "
+        "--distal_quota (a different sampler, not a modifier -- do not pass both). Corrected "
+        "form of --distal_quota: the quota is applied ONLY inside a fixed LEG sub-budget (sized "
+        "to the template's own baseline leg-area fraction), so non-leg anatomy (body/head/"
+        "mandible/antenna) sampling density is INVARIANT to this flag by construction -- see "
+        "fitter_3d/stratified_sampling.py:sample_target_distal_protected and "
+        "diagnostics/overnight_20260818/OVERNIGHT_REPORT.md Rank 5. Applies to H1_legs/H2_joint/"
+        "H3_deform only, same as --distal_quota. Requires topology-preserving corpora. Omit "
+        "(the default) for today's exact behaviour, unchanged.",
+    )
+    ap.add_argument(
+        "--init_joint_rot_from",
+        default=None,
+        help="DIAGNOSTIC ONLY (Task 6, registration-failure D5 probe). Path to a "
+        "ground_truth.npz (make_synth_corpus.py's output) whose 'joint_rot'/'names' arrays "
+        "initialise joint_rot at the KNOWN true pose instead of zero, matched to --mesh_dir's "
+        "files by stem. Omit (the default) for today's exact zero-init behavior.",
+    )
     args = ap.parse_args()
 
     torch.manual_seed(args.seed)
@@ -276,7 +310,16 @@ def main():
     counts = {g: int((vg == i).sum()) for i, g in enumerate(gnames)}
     print(f"[hier] anatomical groups (template vertices): {counts}", flush=True)
 
-    smal = SMAL3DFitter(batch_size=len(targets), device=device, shape_family=-1)
+    init_joint_rot = None
+    if args.init_joint_rot_from:
+        gt = np.load(args.init_joint_rot_from)
+        gt_names = [str(x) for x in gt["names"]]
+        stems = [os.path.splitext(n)[0] for n in names]
+        idx = [gt_names.index(s) for s in stems]  # raises if a specimen is missing -- fail loud
+        init_joint_rot = gt["joint_rot"][idx]
+        print(f"[hier] DIAGNOSTIC: joint_rot initialised from ground truth ({args.init_joint_rot_from})", flush=True)
+
+    smal = SMAL3DFitter(batch_size=len(targets), device=device, shape_family=-1, init_joint_rot=init_joint_rot)
 
     part_scale = None
     if args.part_robust > 0:
@@ -393,6 +436,44 @@ def main():
         soft_partition=args.soft_partition,
         robust_mult=args.part_robust if args.part_robust > 0 else 3.0,
     )
+    distal_kwargs = {}
+    assert args.distal_quota is None or args.distal_quota_protected is None, (
+        "--distal_quota and --distal_quota_protected are separate arms (Intervention C vs Rank 5 "
+        "C5) -- pass at most one"
+    )
+    if args.distal_quota is not None:
+        from fitter_3d.stratified_sampling import distal_face_mask
+
+        template_faces = torch.tensor(np.asarray(dd["f"], dtype=np.int64), device=device)
+        dmask = distal_face_mask(dd, jnames).to(device)
+        distal_kwargs = dict(distal_quota=args.distal_quota, distal_face_mask=dmask, template_faces=template_faces)
+        print(
+            f"[hier] Intervention C: stratified target sampling, distal_quota={args.distal_quota} "
+            f"({int(dmask.sum())}/{dmask.numel()} template faces marked distal) -- H1/H2/H3 only",
+            flush=True,
+        )
+    if args.distal_quota_protected is not None:
+        from fitter_3d.stratified_sampling import distal_face_mask, leg_face_mask
+
+        template_faces = torch.tensor(np.asarray(dd["f"], dtype=np.int64), device=device)
+        template_verts = torch.tensor(np.asarray(dd["v_template"], dtype=np.float32), device=device)
+        dmask = distal_face_mask(dd, jnames).to(device)
+        lmask = leg_face_mask(dd, jnames).to(device)
+        distal_kwargs = dict(
+            distal_quota_protected=args.distal_quota_protected,
+            distal_face_mask=dmask,
+            template_faces=template_faces,
+            leg_face_mask=lmask,
+            template_verts=template_verts,
+        )
+        print(
+            f"[hier] Rank 5 C5: leg-protected stratified target sampling, "
+            f"distal_quota_protected={args.distal_quota_protected} "
+            f"({int(dmask.sum())}/{dmask.numel()} distal faces, {int(lmask.sum())}/{lmask.numel()} "
+            f"leg faces) -- H1/H2/H3 only, non-leg sampling density is invariant to this flag",
+            flush=True,
+        )
+
     partitioned = not args.no_partition
     ANTERIOR = {"head", "mandible", "antenna"}
     leg_groups = [g for g in gnames if g != "body" and g not in ANTERIOR]
@@ -454,6 +535,7 @@ def main():
                 "w_trans": args.trans_cap,
             },
             **common,
+            **distal_kwargs,
         ),
         # 3) everything, still partitioned
         HierarchicalStage(
@@ -475,6 +557,7 @@ def main():
                 "w_trans": args.trans_cap,
             },
             **common,
+            **distal_kwargs,
         ),
         # 4) small, expensive free-form pass
         HierarchicalStage(
@@ -494,6 +577,7 @@ def main():
                 "w_midline": args.midline,
             },
             **common,
+            **distal_kwargs,
         ),
     ]
 

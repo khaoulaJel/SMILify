@@ -102,8 +102,25 @@ def main(args):
         mesh_names=mesh_names,
     )
 
+    # Computed unconditionally (cheap, deterministic, template-only) so any stage's YAML can opt
+    # into `robust_leg_only: true` without extra plumbing; ignored by MoonshotStage unless that
+    # flag is set (cycle2_20260819 B1 extra arm, see trainer_moonshot.py:MoonshotStage).
+    from fitter_3d.stratified_sampling import leg_face_mask as _leg_face_mask_fn
+    import pickle as _pickle
+
+    with open(config.SMAL_FILE, "rb") as _f:
+        _dd = _pickle.load(_f, encoding="latin1")
+    _jnames = [str(x) for x in _dd["J_names"]]
+    leg_only_common = dict(
+        leg_face_mask=_leg_face_mask_fn(_dd, _jnames).to(device),
+        template_faces=torch.tensor(np.asarray(_dd["f"], dtype=np.int64), device=device),
+        template_verts=torch.tensor(np.asarray(_dd["v_template"], dtype=np.float32), device=device),
+    )
+
     for stage_name, kw in stage_options.items():
         kw = dict(kw)
+        if kw.get("robust_leg_only") or kw.get("robust_leg_only_topofree"):
+            kw = dict(leg_only_common, **kw)
         stage = MoonshotStage(name=stage_name, **kw, **common)
         manager.add_stage(stage)
 

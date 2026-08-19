@@ -1,0 +1,30 @@
+{
+  "pose25": {
+    "normal_sampler_ceiling": {
+      "R": 0.532678138859989,
+      "mean_relerr": 0.37935564192629484
+    },
+    "leg_protected_sampler_ceiling": {
+      "R": 0.6204018592284417,
+      "mean_relerr": 0.2769075458997549
+    },
+    "baseline_full_pipeline": {
+      "R": 0.6536973094324285,
+      "mean_relerr": 0.259390223878244
+    }
+  },
+  "pose35": {
+    "normal_sampler_ceiling": {
+      "R": 0.7685813372726784,
+      "mean_relerr": 0.2570382184317832
+    },
+    "leg_protected_sampler_ceiling": {
+      "R": 0.8546187408259063,
+      "mean_relerr": 0.20061510197763663
+    },
+    "baseline_full_pipeline": {
+      "R": 0.5186279147774014,
+      "mean_relerr": 0.3323828251632082
+    }
+  }
+}

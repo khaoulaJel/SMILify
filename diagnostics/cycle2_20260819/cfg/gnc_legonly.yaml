@@ -1,0 +1,56 @@
+# cycle2_20260819 B1 extra arm: leg-scoped GNC (medium schedule applied ONLY to leg residuals;
+# non-leg residuals get plain L2, matching baseline exactly for those points -- see
+# trainer_moonshot.py:MoonshotStage.forward's robust_leg_only branch).
+# Identical to diagnostics/moonshot/cfg/D1_low.yaml (the current production D1 recipe) in every
+# respect EXCEPT adding robust_kernel: gm + a robust_scale -> robust_scale_end schedule (already
+# implemented in fitter_3d/trainer_moonshot.py:MoonshotStage, unused by D1_low.yaml, which
+# defaults to plain L2 chamfer). One variable changed; nothing else touched.
+stages:
+  Stage_2_deform_coarse:
+    scheme: all
+    nits: 1000
+    lr: 0.002
+    n_sample: 6000
+    edge_mode: shrink
+    lr_decay: false
+    robust_kernel: gm
+    robust_leg_only: true
+    robust_scale: 0.25
+    robust_scale_end: 0.05
+    loss_weights:
+      w_chamfer: 1.0
+      w_edge: 0.8
+      w_normal: 0.005
+      w_laplacian: 0.01
+      w_offset: 5.0
+      w_sym: 0.5
+      w_beta_prior: 0.0
+      w_midline: 2.0
+      w_limit: 0.006
+    custom_lrs:
+      joint_rot: 0.002
+  Stage_3_deform_fine:
+    scheme: all
+    nits: 1000
+    lr: 0.0005
+    n_sample: 6000
+    edge_mode: shrink
+    lr_decay: false
+    robust_kernel: gm
+    robust_leg_only: true
+    robust_scale: 0.05
+    robust_scale_end: 0.02
+    loss_weights:
+      w_chamfer: 0.5
+      w_edge: 0.2
+      w_normal: 0.002
+      w_laplacian: 0.001
+      w_offset: 2.0
+      w_sym: 0.5
+      w_beta_prior: 0.0
+      w_midline: 2.0
+      w_limit: 0.006
+    custom_lrs:
+      joint_rot: 0.002
+args:
+  results_dir: diagnostics/cycle2_20260819/runs/GNC_legonly

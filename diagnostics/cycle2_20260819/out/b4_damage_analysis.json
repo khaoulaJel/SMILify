@@ -1,0 +1,38 @@
+{
+  "drop30": {
+    "SYN_clean_drop30_w5": {
+      "leg_distal_R": 0.6024644621260018,
+      "part_leg_distal_dist_mean": 0.008977090124972165,
+      "part_antenna_dist_mean": 0.010588228818960488,
+      "degenerate_tri_frac": 0.0,
+      "folded_face_frac": 0.0035587476450018585
+    },
+    "SYN_clean_drop30_gncmedium_w5": {
+      "leg_distal_R": 0.7784198170413477,
+      "part_leg_distal_dist_mean": 0.009689464000985026,
+      "part_antenna_dist_mean": 0.011670305277220905,
+      "degenerate_tri_frac": 0.0,
+      "folded_face_frac": 0.0028719717908340194
+    },
+    "delta_R": 0.17595535491534586,
+    "pct_antenna_cost": 10.219617244413227
+  },
+  "drop60": {
+    "SYN_clean_drop60_w5": {
+      "leg_distal_R": 0.411432235032235,
+      "part_leg_distal_dist_mean": 0.010577308246865869,
+      "part_antenna_dist_mean": 0.011247047844032446,
+      "degenerate_tri_frac": 0.0,
+      "folded_face_frac": 0.003751479283285638
+    },
+    "SYN_clean_drop60_gncmedium_w5": {
+      "leg_distal_R": 0.609400898420235,
+      "part_leg_distal_dist_mean": 0.01310158206615597,
+      "part_antenna_dist_mean": 0.012612849629173676,
+      "degenerate_tri_frac": 0.0,
+      "folded_face_frac": 0.002752532532516246
+    },
+    "delta_R": 0.197968663388,
+    "pct_antenna_cost": 12.143646973689263
+  }
+}

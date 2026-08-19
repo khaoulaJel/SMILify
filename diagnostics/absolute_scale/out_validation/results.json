@@ -1,0 +1,348 @@
+{
+  "A_size_lot_residual": {
+    "before": {
+      "acc": 0.10738255033557047,
+      "null": 0.04605704697986576,
+      "p": 0.0075,
+      "lift": 2.3315118397085612,
+      "ci95": [
+        0.0349604743083004,
+        0.18868254387122313
+      ]
+    },
+    "after": {
+      "acc": 0.10067114093959731,
+      "null": 0.04493288590604027,
+      "p": 0.01,
+      "lift": 2.240477968633308,
+      "ci95": [
+        0.034947073474470736,
+        0.17753428741800834
+      ]
+    },
+    "lift_retained_fraction": 0.9609550037341297,
+    "n_singleton_lots": 3,
+    "verdict": "SURVIVES (substantially above chance)"
+  },
+  "B_guild_lot_residual": {
+    "shape": {
+      "acc": 0.5471698113207547,
+      "null": 0.3120283018867925,
+      "p": 0.0,
+      "lift": 1.7535903250188962
+    },
+    "size_before": {
+      "acc": 0.5471698113207547,
+      "null": 0.3197641509433963,
+      "p": 0.0025,
+      "lift": 1.7111668387667796
+    },
+    "size_after": {
+      "acc": 0.6037735849056604,
+      "null": 0.30726415094339626,
+      "p": 0.0,
+      "lift": 1.964998464844949
+    },
+    "shape+size_before": {
+      "acc": 0.6037735849056604,
+      "null": 0.3175,
+      "p": 0.0,
+      "lift": 1.9016490863170405
+    },
+    "shape+size_after": {
+      "acc": 0.5660377358490566,
+      "null": 0.30183962264150943,
+      "p": 0.0,
+      "lift": 1.875293014533521
+    },
+    "gap_before_pp": 5.660377358490565,
+    "gap_after_pp": 1.8867924528301883,
+    "gap_verdict": "SURVIVES"
+  },
+  "C_retained_vs_excluded": {
+    "n_retained": 276,
+    "n_excluded": 481,
+    "n_genera_retained": 127,
+    "n_genera_excluded_only": 45,
+    "excluded_only_genera": [
+      "adelomyrmex",
+      "anoplolepis",
+      "apterostigma",
+      "atopomyrmex",
+      "axinidris",
+      "brachymyrmex",
+      "brachyponera",
+      "cardiocondyla",
+      "dacatria",
+      "dacetinops",
+      "daceton",
+      "dilobocondyla",
+      "dorymyrmex",
+      "euprenolepis",
+      "fisheropone",
+      "goniomma",
+      "hagensia",
+      "harpegnathos",
+      "hylomyrma",
+      "lachnomyrmex",
+      "lepisiota",
+      "liometopum",
+      "loboponera",
+      "lophomyrmex",
+      "manica",
+      "mycetagroicus",
+      "myrmecia",
+      "myrmicaria",
+      "myrmicocrypta",
+      "mystrium",
+      "neocerapachys",
+      "oxyopomyrmex",
+      "pachycondyla",
+      "paltothyreus",
+      "plectroctena",
+      "pogonomyrmex",
+      "ponerinae",
+      "protalaridris",
+      "pseudomyrmex",
+      "pseudoneoponera",
+      "pseudoponera",
+      "rasopone",
+      "rogeria",
+      "streblognathus",
+      "technomyrmex"
+    ],
+    "log_size_model_units": {
+      "retained_mean": -1.2593738768115943,
+      "excluded_mean": -1.2682785862785864,
+      "t_p": 0.42760049059118244,
+      "ks_p": 0.5580033430140966
+    },
+    "asym_median": {
+      "retained_mean": 0.05286760869565218,
+      "excluded_mean": 0.05508912681912682,
+      "t_p": 0.3021517355340154,
+      "ks_p": 0.2819353098272911
+    },
+    "PC1_shape": {
+      "retained_mean": 0.08800170538735835,
+      "excluded_mean": -0.050495781053868816,
+      "t_p": 0.5580497624379603,
+      "ks_p": 0.5593394934915484
+    },
+    "PC2_shape": {
+      "retained_mean": 0.19931938069894936,
+      "excluded_mean": -0.11437037229295213,
+      "t_p": 0.05670460828135113,
+      "ks_p": 0.2544286210700938
+    },
+    "subfamily_retained": {
+      "Amblyoponinae": 7,
+      "Ectatomminae": 6,
+      "Formicinae": 20,
+      "Dorylinae": 29,
+      "Apomyrminae": 1,
+      "Agroecomyrmecinae": 1,
+      "Ponerinae": 23,
+      "?": 84,
+      "Myrmicinae": 95,
+      "Pseudomyrmecinae": 1,
+      "Dolichoderinae": 7,
+      "Proceratiinae": 2,
+      "Myrmeciinae": 0
+    },
+    "subfamily_excluded": {
+      "Amblyoponinae": 10,
+      "Ectatomminae": 9,
+      "Formicinae": 41,
+      "Dorylinae": 53,
+      "Apomyrminae": 1,
+      "Agroecomyrmecinae": 1,
+      "Ponerinae": 50,
+      "?": 126,
+      "Myrmicinae": 159,
+      "Pseudomyrmecinae": 7,
+      "Dolichoderinae": 20,
+      "Proceratiinae": 2,
+      "Myrmeciinae": 2
+    }
+  },
+  "D_axis_inspection": {
+    "top_loadings": [
+      [
+        "mesosoma_len_abs",
+        -0.1707735487011236
+      ],
+      [
+        "attach_l_1_co_abs",
+        -0.17074482171634667
+      ],
+      [
+        "mesosoma_hei_abs",
+        -0.17071371233316754
+      ],
+      [
+        "mesosoma_wid_abs",
+        -0.17069277347438244
+      ],
+      [
+        "seg_b_a_1_abs",
+        -0.1706878533886244
+      ],
+      [
+        "attach_ma_abs",
+        -0.17067604845368098
+      ],
+      [
+        "attach_l_2_co_abs",
+        -0.17065630769252807
+      ],
+      [
+        "attach_l_3_co_abs",
+        -0.1706421592503573
+      ],
+      [
+        "head_hei_abs",
+        -0.1705722831931825
+      ],
+      [
+        "seg_l_2_co_abs",
+        -0.170566125954165
+      ],
+      [
+        "seg_l_1_co_abs",
+        -0.1705399109000092
+      ],
+      [
+        "seg_l_3_co_abs",
+        -0.1705373934111812
+      ],
+      [
+        "attach_an_1_abs",
+        -0.1705194543902443
+      ],
+      [
+        "attach_b_a_1_abs",
+        -0.17051287690466319
+      ],
+      [
+        "seg_b_a_2_abs",
+        -0.17048189465282618
+      ]
+    ],
+    "proportions_block_loading_mass": 0.015393729545433043,
+    "absolute_block_loading_mass": 0.9846062704545676,
+    "pc1_vs_log_size": {
+      "r": -0.9995084666721188,
+      "p": 5.8177552005130615e-223
+    },
+    "pc1_vs_weber_proxy_mesosoma_len": {
+      "r": -0.9990074195999362,
+      "p": 1.5491937509994685e-200
+    },
+    "pc1_vs_shape_indices": {
+      "cephalic_index (head_wid/head_len)": {
+        "r": -0.08521944325691125,
+        "p": 0.3014371616445947
+      },
+      "mandible_index (mandible_len/head_len)": {
+        "r": 0.08460980747526735,
+        "p": 0.304921144732608
+      },
+      "scape_index (seg_an_1/head_len)": {
+        "r": -0.038837780057035934,
+        "p": 0.638168961394438
+      }
+    },
+    "pc1_by_guild": {
+      "trap-jaw": {
+        "mean": 0.34157536130951927,
+        "sd": 1.0914629341315285,
+        "n": 20
+      },
+      "army ant": {
+        "mean": -0.10259932253962074,
+        "sd": 0.8577654523988558,
+        "n": 20
+      },
+      "arboreal": {
+        "mean": 0.25824648216177637,
+        "sd": 0.5638924032684199,
+        "n": 9
+      },
+      "leafcutter/fungus-grower": {
+        "mean": -1.6999793620085077,
+        "sd": 0.47041245032079104,
+        "n": 4
+      }
+    },
+    "pc1_top_genera": [
+      [
+        "strongylognathus",
+        0.9881672670172618
+      ],
+      [
+        "hypoponera",
+        0.9387140523015474
+      ],
+      [
+        "solenopsis",
+        0.9036216007098457
+      ],
+      [
+        "strumigenys",
+        0.8900450072856196
+      ],
+      [
+        "gnamptogenys",
+        0.6962014624070397
+      ],
+      [
+        "neivamyrmex",
+        0.6933858675531036
+      ],
+      [
+        "temnothorax",
+        0.6865197684564291
+      ],
+      [
+        "carebara",
+        0.5509593268220245
+      ]
+    ],
+    "pc1_bottom_genera": [
+      [
+        "aphaenogaster",
+        -1.7240931927029375
+      ],
+      [
+        "acromyrmex",
+        -1.6999793620085077
+      ],
+      [
+        "camponotus",
+        -1.6559203012724486
+      ],
+      [
+        "megaponera",
+        -1.5108939253304563
+      ],
+      [
+        "formica",
+        -1.3835754232373407
+      ],
+      [
+        "odontomachus",
+        -1.3038335766187819
+      ],
+      [
+        "eciton",
+        -1.2959704812918778
+      ],
+      [
+        "neoponera",
+        -1.238428326025358
+      ]
+    ],
+    "is_simple_size_axis": true
+  }
+}

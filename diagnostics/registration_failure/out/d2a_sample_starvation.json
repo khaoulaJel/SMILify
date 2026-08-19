@@ -1,0 +1,1316 @@
+{
+ "by_condition": {
+  "clean_pose0": [
+   {
+    "specimen": "synth_000.obj",
+    "distal_median": 76.0,
+    "distal_p10": 32.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 647.5,
+    "per_leg_distal_median": {
+     "l1d_r": 35.0,
+     "l1d_l": 35.0,
+     "l2d_r": 66.0,
+     "l2d_l": 86.0,
+     "l3d_r": 98.0,
+     "l3d_l": 120.0
+    }
+   },
+   {
+    "specimen": "synth_001.obj",
+    "distal_median": 49.0,
+    "distal_p10": 27.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 376.0,
+    "per_leg_distal_median": {
+     "l1d_r": 30.0,
+     "l1d_l": 30.0,
+     "l2d_r": 46.5,
+     "l2d_l": 52.0,
+     "l3d_r": 93.0,
+     "l3d_l": 85.0
+    }
+   },
+   {
+    "specimen": "synth_002.obj",
+    "distal_median": 52.0,
+    "distal_p10": 39.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 581.0,
+    "per_leg_distal_median": {
+     "l1d_r": 42.0,
+     "l1d_l": 47.0,
+     "l2d_r": 51.0,
+     "l2d_l": 47.0,
+     "l3d_r": 85.0,
+     "l3d_l": 76.0
+    }
+   },
+   {
+    "specimen": "synth_003.obj",
+    "distal_median": 73.0,
+    "distal_p10": 47.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 424.0,
+    "per_leg_distal_median": {
+     "l1d_r": 56.0,
+     "l1d_l": 47.0,
+     "l2d_r": 76.0,
+     "l2d_l": 70.0,
+     "l3d_r": 138.0,
+     "l3d_l": 125.5
+    }
+   },
+   {
+    "specimen": "synth_004.obj",
+    "distal_median": 30.0,
+    "distal_p10": 22.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 458.0,
+    "per_leg_distal_median": {
+     "l1d_r": 27.0,
+     "l1d_l": 25.0,
+     "l2d_r": 26.0,
+     "l2d_l": 29.0,
+     "l3d_r": 68.0,
+     "l3d_l": 74.0
+    }
+   },
+   {
+    "specimen": "synth_005.obj",
+    "distal_median": 57.0,
+    "distal_p10": 34.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 357.0,
+    "per_leg_distal_median": {
+     "l1d_r": 39.0,
+     "l1d_l": 34.5,
+     "l2d_r": 57.0,
+     "l2d_l": 56.0,
+     "l3d_r": 132.0,
+     "l3d_l": 120.0
+    }
+   },
+   {
+    "specimen": "synth_006.obj",
+    "distal_median": 37.0,
+    "distal_p10": 17.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 612.5,
+    "per_leg_distal_median": {
+     "l1d_r": 21.0,
+     "l1d_l": 18.0,
+     "l2d_r": 39.0,
+     "l2d_l": 36.0,
+     "l3d_r": 62.0,
+     "l3d_l": 64.0
+    }
+   },
+   {
+    "specimen": "synth_007.obj",
+    "distal_median": 93.0,
+    "distal_p10": 57.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 456.0,
+    "per_leg_distal_median": {
+     "l1d_r": 59.0,
+     "l1d_l": 64.0,
+     "l2d_r": 98.0,
+     "l2d_l": 91.0,
+     "l3d_r": 109.0,
+     "l3d_l": 123.0
+    }
+   },
+   {
+    "specimen": "synth_008.obj",
+    "distal_median": 44.0,
+    "distal_p10": 33.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 472.0,
+    "per_leg_distal_median": {
+     "l1d_r": 36.0,
+     "l1d_l": 44.0,
+     "l2d_r": 45.0,
+     "l2d_l": 39.0,
+     "l3d_r": 51.0,
+     "l3d_l": 52.0
+    }
+   },
+   {
+    "specimen": "synth_009.obj",
+    "distal_median": 36.0,
+    "distal_p10": 26.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 510.0,
+    "per_leg_distal_median": {
+     "l1d_r": 28.0,
+     "l1d_l": 31.0,
+     "l2d_r": 34.0,
+     "l2d_l": 36.0,
+     "l3d_r": 78.0,
+     "l3d_l": 79.0
+    }
+   },
+   {
+    "specimen": "synth_010.obj",
+    "distal_median": 54.0,
+    "distal_p10": 28.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 482.5,
+    "per_leg_distal_median": {
+     "l1d_r": 33.0,
+     "l1d_l": 30.0,
+     "l2d_r": 52.5,
+     "l2d_l": 56.0,
+     "l3d_r": 94.0,
+     "l3d_l": 95.0
+    }
+   },
+   {
+    "specimen": "synth_011.obj",
+    "distal_median": 50.0,
+    "distal_p10": 38.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 481.0,
+    "per_leg_distal_median": {
+     "l1d_r": 49.0,
+     "l1d_l": 45.0,
+     "l2d_r": 43.0,
+     "l2d_l": 44.0,
+     "l3d_r": 122.0,
+     "l3d_l": 129.5
+    }
+   }
+  ],
+  "clean_pose05": [
+   {
+    "specimen": "synth_000.obj",
+    "distal_median": 73.5,
+    "distal_p10": 31.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 647.0,
+    "per_leg_distal_median": {
+     "l1d_r": 34.0,
+     "l1d_l": 34.0,
+     "l2d_r": 64.0,
+     "l2d_l": 87.0,
+     "l3d_r": 98.0,
+     "l3d_l": 120.0
+    }
+   },
+   {
+    "specimen": "synth_001.obj",
+    "distal_median": 49.5,
+    "distal_p10": 26.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 375.0,
+    "per_leg_distal_median": {
+     "l1d_r": 30.0,
+     "l1d_l": 29.0,
+     "l2d_r": 47.0,
+     "l2d_l": 52.0,
+     "l3d_r": 91.0,
+     "l3d_l": 85.5
+    }
+   },
+   {
+    "specimen": "synth_002.obj",
+    "distal_median": 52.0,
+    "distal_p10": 39.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 582.0,
+    "per_leg_distal_median": {
+     "l1d_r": 42.0,
+     "l1d_l": 46.5,
+     "l2d_r": 51.0,
+     "l2d_l": 47.0,
+     "l3d_r": 84.0,
+     "l3d_l": 76.5
+    }
+   },
+   {
+    "specimen": "synth_003.obj",
+    "distal_median": 74.0,
+    "distal_p10": 47.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 423.0,
+    "per_leg_distal_median": {
+     "l1d_r": 56.0,
+     "l1d_l": 47.0,
+     "l2d_r": 75.5,
+     "l2d_l": 72.0,
+     "l3d_r": 138.0,
+     "l3d_l": 126.0
+    }
+   },
+   {
+    "specimen": "synth_004.obj",
+    "distal_median": 30.0,
+    "distal_p10": 21.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 458.0,
+    "per_leg_distal_median": {
+     "l1d_r": 27.0,
+     "l1d_l": 25.0,
+     "l2d_r": 27.0,
+     "l2d_l": 29.0,
+     "l3d_r": 66.0,
+     "l3d_l": 75.0
+    }
+   },
+   {
+    "specimen": "synth_005.obj",
+    "distal_median": 56.0,
+    "distal_p10": 33.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 357.0,
+    "per_leg_distal_median": {
+     "l1d_r": 39.0,
+     "l1d_l": 35.0,
+     "l2d_r": 57.0,
+     "l2d_l": 55.0,
+     "l3d_r": 132.0,
+     "l3d_l": 120.5
+    }
+   },
+   {
+    "specimen": "synth_006.obj",
+    "distal_median": 37.5,
+    "distal_p10": 16.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 612.0,
+    "per_leg_distal_median": {
+     "l1d_r": 19.0,
+     "l1d_l": 18.0,
+     "l2d_r": 40.0,
+     "l2d_l": 36.0,
+     "l3d_r": 62.0,
+     "l3d_l": 63.0
+    }
+   },
+   {
+    "specimen": "synth_007.obj",
+    "distal_median": 94.0,
+    "distal_p10": 57.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 453.0,
+    "per_leg_distal_median": {
+     "l1d_r": 59.0,
+     "l1d_l": 64.0,
+     "l2d_r": 101.0,
+     "l2d_l": 90.0,
+     "l3d_r": 108.0,
+     "l3d_l": 121.0
+    }
+   },
+   {
+    "specimen": "synth_008.obj",
+    "distal_median": 44.0,
+    "distal_p10": 34.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 474.0,
+    "per_leg_distal_median": {
+     "l1d_r": 36.0,
+     "l1d_l": 44.0,
+     "l2d_r": 45.0,
+     "l2d_l": 39.0,
+     "l3d_r": 50.0,
+     "l3d_l": 52.0
+    }
+   },
+   {
+    "specimen": "synth_009.obj",
+    "distal_median": 36.0,
+    "distal_p10": 25.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 511.0,
+    "per_leg_distal_median": {
+     "l1d_r": 28.0,
+     "l1d_l": 31.0,
+     "l2d_r": 34.0,
+     "l2d_l": 35.5,
+     "l3d_r": 78.0,
+     "l3d_l": 80.0
+    }
+   },
+   {
+    "specimen": "synth_010.obj",
+    "distal_median": 54.0,
+    "distal_p10": 28.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 485.0,
+    "per_leg_distal_median": {
+     "l1d_r": 31.0,
+     "l1d_l": 30.0,
+     "l2d_r": 52.0,
+     "l2d_l": 57.0,
+     "l3d_r": 95.0,
+     "l3d_l": 94.5
+    }
+   },
+   {
+    "specimen": "synth_011.obj",
+    "distal_median": 50.0,
+    "distal_p10": 38.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 482.0,
+    "per_leg_distal_median": {
+     "l1d_r": 49.0,
+     "l1d_l": 45.0,
+     "l2d_r": 42.0,
+     "l2d_l": 45.0,
+     "l3d_r": 123.0,
+     "l3d_l": 128.0
+    }
+   }
+  ],
+  "clean_pose10": [
+   {
+    "specimen": "synth_000.obj",
+    "distal_median": 75.0,
+    "distal_p10": 31.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 646.0,
+    "per_leg_distal_median": {
+     "l1d_r": 34.0,
+     "l1d_l": 34.0,
+     "l2d_r": 64.0,
+     "l2d_l": 87.0,
+     "l3d_r": 99.0,
+     "l3d_l": 118.0
+    }
+   },
+   {
+    "specimen": "synth_001.obj",
+    "distal_median": 50.0,
+    "distal_p10": 27.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 376.5,
+    "per_leg_distal_median": {
+     "l1d_r": 30.0,
+     "l1d_l": 29.0,
+     "l2d_r": 47.0,
+     "l2d_l": 53.0,
+     "l3d_r": 93.0,
+     "l3d_l": 85.0
+    }
+   },
+   {
+    "specimen": "synth_002.obj",
+    "distal_median": 53.0,
+    "distal_p10": 40.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 581.0,
+    "per_leg_distal_median": {
+     "l1d_r": 43.0,
+     "l1d_l": 48.0,
+     "l2d_r": 52.0,
+     "l2d_l": 47.0,
+     "l3d_r": 84.0,
+     "l3d_l": 76.0
+    }
+   },
+   {
+    "specimen": "synth_003.obj",
+    "distal_median": 74.0,
+    "distal_p10": 47.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 424.0,
+    "per_leg_distal_median": {
+     "l1d_r": 57.0,
+     "l1d_l": 47.0,
+     "l2d_r": 75.0,
+     "l2d_l": 72.0,
+     "l3d_r": 139.0,
+     "l3d_l": 126.0
+    }
+   },
+   {
+    "specimen": "synth_004.obj",
+    "distal_median": 30.0,
+    "distal_p10": 21.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 455.0,
+    "per_leg_distal_median": {
+     "l1d_r": 27.0,
+     "l1d_l": 25.0,
+     "l2d_r": 26.0,
+     "l2d_l": 28.0,
+     "l3d_r": 69.0,
+     "l3d_l": 74.0
+    }
+   },
+   {
+    "specimen": "synth_005.obj",
+    "distal_median": 57.0,
+    "distal_p10": 33.900000000000006,
+    "p_distal_zero": 0.0,
+    "proximal_median": 357.0,
+    "per_leg_distal_median": {
+     "l1d_r": 39.0,
+     "l1d_l": 35.0,
+     "l2d_r": 57.0,
+     "l2d_l": 56.0,
+     "l3d_r": 130.0,
+     "l3d_l": 121.0
+    }
+   },
+   {
+    "specimen": "synth_006.obj",
+    "distal_median": 37.0,
+    "distal_p10": 17.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 610.0,
+    "per_leg_distal_median": {
+     "l1d_r": 20.0,
+     "l1d_l": 18.0,
+     "l2d_r": 38.0,
+     "l2d_l": 36.0,
+     "l3d_r": 62.0,
+     "l3d_l": 63.0
+    }
+   },
+   {
+    "specimen": "synth_007.obj",
+    "distal_median": 94.0,
+    "distal_p10": 57.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 454.5,
+    "per_leg_distal_median": {
+     "l1d_r": 59.0,
+     "l1d_l": 64.0,
+     "l2d_r": 100.0,
+     "l2d_l": 91.0,
+     "l3d_r": 109.0,
+     "l3d_l": 123.5
+    }
+   },
+   {
+    "specimen": "synth_008.obj",
+    "distal_median": 44.0,
+    "distal_p10": 33.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 471.0,
+    "per_leg_distal_median": {
+     "l1d_r": 35.5,
+     "l1d_l": 44.0,
+     "l2d_r": 45.0,
+     "l2d_l": 38.0,
+     "l3d_r": 51.5,
+     "l3d_l": 51.0
+    }
+   },
+   {
+    "specimen": "synth_009.obj",
+    "distal_median": 36.0,
+    "distal_p10": 25.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 513.0,
+    "per_leg_distal_median": {
+     "l1d_r": 27.0,
+     "l1d_l": 30.0,
+     "l2d_r": 33.0,
+     "l2d_l": 36.0,
+     "l3d_r": 76.0,
+     "l3d_l": 80.0
+    }
+   },
+   {
+    "specimen": "synth_010.obj",
+    "distal_median": 53.0,
+    "distal_p10": 28.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 486.0,
+    "per_leg_distal_median": {
+     "l1d_r": 31.0,
+     "l1d_l": 30.0,
+     "l2d_r": 52.0,
+     "l2d_l": 56.0,
+     "l3d_r": 95.0,
+     "l3d_l": 96.0
+    }
+   },
+   {
+    "specimen": "synth_011.obj",
+    "distal_median": 49.0,
+    "distal_p10": 38.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 475.5,
+    "per_leg_distal_median": {
+     "l1d_r": 48.0,
+     "l1d_l": 44.0,
+     "l2d_r": 43.0,
+     "l2d_l": 45.0,
+     "l3d_r": 125.0,
+     "l3d_l": 128.0
+    }
+   }
+  ],
+  "clean_pose15": [
+   {
+    "specimen": "synth_000.obj",
+    "distal_median": 75.0,
+    "distal_p10": 32.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 645.0,
+    "per_leg_distal_median": {
+     "l1d_r": 36.0,
+     "l1d_l": 34.0,
+     "l2d_r": 64.0,
+     "l2d_l": 88.0,
+     "l3d_r": 97.0,
+     "l3d_l": 117.0
+    }
+   },
+   {
+    "specimen": "synth_001.obj",
+    "distal_median": 50.0,
+    "distal_p10": 27.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 377.0,
+    "per_leg_distal_median": {
+     "l1d_r": 30.0,
+     "l1d_l": 30.0,
+     "l2d_r": 47.0,
+     "l2d_l": 53.0,
+     "l3d_r": 93.0,
+     "l3d_l": 87.0
+    }
+   },
+   {
+    "specimen": "synth_002.obj",
+    "distal_median": 53.0,
+    "distal_p10": 40.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 581.0,
+    "per_leg_distal_median": {
+     "l1d_r": 43.0,
+     "l1d_l": 48.0,
+     "l2d_r": 52.0,
+     "l2d_l": 48.0,
+     "l3d_r": 85.5,
+     "l3d_l": 77.0
+    }
+   },
+   {
+    "specimen": "synth_003.obj",
+    "distal_median": 74.0,
+    "distal_p10": 47.900000000000006,
+    "p_distal_zero": 0.0,
+    "proximal_median": 423.0,
+    "per_leg_distal_median": {
+     "l1d_r": 56.0,
+     "l1d_l": 47.5,
+     "l2d_r": 76.0,
+     "l2d_l": 71.0,
+     "l3d_r": 139.0,
+     "l3d_l": 126.0
+    }
+   },
+   {
+    "specimen": "synth_004.obj",
+    "distal_median": 30.0,
+    "distal_p10": 21.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 453.0,
+    "per_leg_distal_median": {
+     "l1d_r": 25.0,
+     "l1d_l": 25.0,
+     "l2d_r": 26.5,
+     "l2d_l": 28.0,
+     "l3d_r": 66.0,
+     "l3d_l": 73.0
+    }
+   },
+   {
+    "specimen": "synth_005.obj",
+    "distal_median": 56.0,
+    "distal_p10": 33.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 358.0,
+    "per_leg_distal_median": {
+     "l1d_r": 38.0,
+     "l1d_l": 34.0,
+     "l2d_r": 56.5,
+     "l2d_l": 55.0,
+     "l3d_r": 131.5,
+     "l3d_l": 121.0
+    }
+   },
+   {
+    "specimen": "synth_006.obj",
+    "distal_median": 37.0,
+    "distal_p10": 17.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 613.5,
+    "per_leg_distal_median": {
+     "l1d_r": 20.0,
+     "l1d_l": 18.0,
+     "l2d_r": 39.0,
+     "l2d_l": 35.0,
+     "l3d_r": 62.0,
+     "l3d_l": 63.0
+    }
+   },
+   {
+    "specimen": "synth_007.obj",
+    "distal_median": 95.0,
+    "distal_p10": 58.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 451.0,
+    "per_leg_distal_median": {
+     "l1d_r": 60.0,
+     "l1d_l": 64.0,
+     "l2d_r": 101.0,
+     "l2d_l": 92.5,
+     "l3d_r": 110.0,
+     "l3d_l": 125.0
+    }
+   },
+   {
+    "specimen": "synth_008.obj",
+    "distal_median": 44.0,
+    "distal_p10": 33.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 473.5,
+    "per_leg_distal_median": {
+     "l1d_r": 36.0,
+     "l1d_l": 43.0,
+     "l2d_r": 46.0,
+     "l2d_l": 38.0,
+     "l3d_r": 50.0,
+     "l3d_l": 52.0
+    }
+   },
+   {
+    "specimen": "synth_009.obj",
+    "distal_median": 36.0,
+    "distal_p10": 26.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 514.0,
+    "per_leg_distal_median": {
+     "l1d_r": 28.0,
+     "l1d_l": 30.0,
+     "l2d_r": 34.0,
+     "l2d_l": 34.0,
+     "l3d_r": 77.0,
+     "l3d_l": 79.5
+    }
+   },
+   {
+    "specimen": "synth_010.obj",
+    "distal_median": 55.0,
+    "distal_p10": 28.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 484.0,
+    "per_leg_distal_median": {
+     "l1d_r": 33.0,
+     "l1d_l": 30.5,
+     "l2d_r": 54.0,
+     "l2d_l": 56.0,
+     "l3d_r": 95.0,
+     "l3d_l": 94.0
+    }
+   },
+   {
+    "specimen": "synth_011.obj",
+    "distal_median": 50.0,
+    "distal_p10": 38.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 476.5,
+    "per_leg_distal_median": {
+     "l1d_r": 49.0,
+     "l1d_l": 43.0,
+     "l2d_r": 43.0,
+     "l2d_l": 45.0,
+     "l3d_r": 123.0,
+     "l3d_l": 128.0
+    }
+   }
+  ],
+  "clean_pose20": [
+   {
+    "specimen": "synth_000.obj",
+    "distal_median": 74.5,
+    "distal_p10": 32.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 646.0,
+    "per_leg_distal_median": {
+     "l1d_r": 35.0,
+     "l1d_l": 34.0,
+     "l2d_r": 64.0,
+     "l2d_l": 86.0,
+     "l3d_r": 95.0,
+     "l3d_l": 119.0
+    }
+   },
+   {
+    "specimen": "synth_001.obj",
+    "distal_median": 49.0,
+    "distal_p10": 27.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 380.0,
+    "per_leg_distal_median": {
+     "l1d_r": 30.0,
+     "l1d_l": 30.0,
+     "l2d_r": 46.5,
+     "l2d_l": 52.5,
+     "l3d_r": 92.5,
+     "l3d_l": 85.0
+    }
+   },
+   {
+    "specimen": "synth_002.obj",
+    "distal_median": 53.0,
+    "distal_p10": 40.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 578.0,
+    "per_leg_distal_median": {
+     "l1d_r": 44.0,
+     "l1d_l": 49.0,
+     "l2d_r": 51.0,
+     "l2d_l": 47.0,
+     "l3d_r": 84.0,
+     "l3d_l": 77.0
+    }
+   },
+   {
+    "specimen": "synth_003.obj",
+    "distal_median": 73.0,
+    "distal_p10": 48.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 422.0,
+    "per_leg_distal_median": {
+     "l1d_r": 56.0,
+     "l1d_l": 48.0,
+     "l2d_r": 76.0,
+     "l2d_l": 72.0,
+     "l3d_r": 140.5,
+     "l3d_l": 128.0
+    }
+   },
+   {
+    "specimen": "synth_004.obj",
+    "distal_median": 29.0,
+    "distal_p10": 21.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 452.0,
+    "per_leg_distal_median": {
+     "l1d_r": 26.0,
+     "l1d_l": 24.0,
+     "l2d_r": 26.0,
+     "l2d_l": 28.0,
+     "l3d_r": 67.0,
+     "l3d_l": 72.0
+    }
+   },
+   {
+    "specimen": "synth_005.obj",
+    "distal_median": 57.0,
+    "distal_p10": 34.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 359.0,
+    "per_leg_distal_median": {
+     "l1d_r": 39.0,
+     "l1d_l": 35.0,
+     "l2d_r": 57.0,
+     "l2d_l": 55.0,
+     "l3d_r": 131.0,
+     "l3d_l": 120.5
+    }
+   },
+   {
+    "specimen": "synth_006.obj",
+    "distal_median": 37.0,
+    "distal_p10": 17.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 615.0,
+    "per_leg_distal_median": {
+     "l1d_r": 20.0,
+     "l1d_l": 19.0,
+     "l2d_r": 39.0,
+     "l2d_l": 34.0,
+     "l3d_r": 62.0,
+     "l3d_l": 63.0
+    }
+   },
+   {
+    "specimen": "synth_007.obj",
+    "distal_median": 94.0,
+    "distal_p10": 58.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 451.0,
+    "per_leg_distal_median": {
+     "l1d_r": 60.5,
+     "l1d_l": 64.0,
+     "l2d_r": 101.5,
+     "l2d_l": 91.0,
+     "l3d_r": 109.0,
+     "l3d_l": 124.0
+    }
+   },
+   {
+    "specimen": "synth_008.obj",
+    "distal_median": 44.0,
+    "distal_p10": 33.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 471.5,
+    "per_leg_distal_median": {
+     "l1d_r": 35.0,
+     "l1d_l": 43.0,
+     "l2d_r": 45.0,
+     "l2d_l": 39.0,
+     "l3d_r": 50.0,
+     "l3d_l": 52.0
+    }
+   },
+   {
+    "specimen": "synth_009.obj",
+    "distal_median": 36.0,
+    "distal_p10": 25.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 513.0,
+    "per_leg_distal_median": {
+     "l1d_r": 27.0,
+     "l1d_l": 31.0,
+     "l2d_r": 33.5,
+     "l2d_l": 35.0,
+     "l3d_r": 78.0,
+     "l3d_l": 78.0
+    }
+   },
+   {
+    "specimen": "synth_010.obj",
+    "distal_median": 55.0,
+    "distal_p10": 28.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 486.0,
+    "per_leg_distal_median": {
+     "l1d_r": 34.0,
+     "l1d_l": 30.0,
+     "l2d_r": 53.0,
+     "l2d_l": 56.0,
+     "l3d_r": 97.0,
+     "l3d_l": 95.0
+    }
+   },
+   {
+    "specimen": "synth_011.obj",
+    "distal_median": 50.0,
+    "distal_p10": 38.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 474.5,
+    "per_leg_distal_median": {
+     "l1d_r": 49.0,
+     "l1d_l": 44.5,
+     "l2d_r": 43.0,
+     "l2d_l": 45.0,
+     "l3d_r": 122.0,
+     "l3d_l": 128.5
+    }
+   }
+  ],
+  "clean_pose25": [
+   {
+    "specimen": "synth_000.obj",
+    "distal_median": 62.0,
+    "distal_p10": 33.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 481.0,
+    "per_leg_distal_median": {
+     "l1d_r": 37.0,
+     "l1d_l": 36.0,
+     "l2d_r": 57.0,
+     "l2d_l": 67.0,
+     "l3d_r": 83.0,
+     "l3d_l": 83.0
+    }
+   },
+   {
+    "specimen": "synth_001.obj",
+    "distal_median": 51.0,
+    "distal_p10": 37.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 374.0,
+    "per_leg_distal_median": {
+     "l1d_r": 41.0,
+     "l1d_l": 42.0,
+     "l2d_r": 48.0,
+     "l2d_l": 49.5,
+     "l3d_r": 86.0,
+     "l3d_l": 81.0
+    }
+   },
+   {
+    "specimen": "synth_002.obj",
+    "distal_median": 26.0,
+    "distal_p10": 16.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 554.5,
+    "per_leg_distal_median": {
+     "l1d_r": 20.0,
+     "l1d_l": 18.0,
+     "l2d_r": 27.0,
+     "l2d_l": 25.0,
+     "l3d_r": 50.0,
+     "l3d_l": 46.0
+    }
+   },
+   {
+    "specimen": "synth_003.obj",
+    "distal_median": 69.0,
+    "distal_p10": 35.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 409.0,
+    "per_leg_distal_median": {
+     "l1d_r": 44.0,
+     "l1d_l": 35.0,
+     "l2d_r": 64.0,
+     "l2d_l": 75.0,
+     "l3d_r": 87.5,
+     "l3d_l": 84.0
+    }
+   },
+   {
+    "specimen": "synth_004.obj",
+    "distal_median": 50.0,
+    "distal_p10": 37.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 510.5,
+    "per_leg_distal_median": {
+     "l1d_r": 41.0,
+     "l1d_l": 46.0,
+     "l2d_r": 50.0,
+     "l2d_l": 43.0,
+     "l3d_r": 144.0,
+     "l3d_l": 140.5
+    }
+   },
+   {
+    "specimen": "synth_005.obj",
+    "distal_median": 90.0,
+    "distal_p10": 56.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 503.0,
+    "per_leg_distal_median": {
+     "l1d_r": 60.5,
+     "l1d_l": 60.0,
+     "l2d_r": 90.0,
+     "l2d_l": 91.0,
+     "l3d_r": 134.0,
+     "l3d_l": 151.0
+    }
+   },
+   {
+    "specimen": "synth_006.obj",
+    "distal_median": 52.0,
+    "distal_p10": 39.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 470.0,
+    "per_leg_distal_median": {
+     "l1d_r": 41.0,
+     "l1d_l": 47.0,
+     "l2d_r": 49.0,
+     "l2d_l": 49.0,
+     "l3d_r": 74.0,
+     "l3d_l": 81.0
+    }
+   },
+   {
+    "specimen": "synth_007.obj",
+    "distal_median": 72.0,
+    "distal_p10": 41.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 332.0,
+    "per_leg_distal_median": {
+     "l1d_r": 42.0,
+     "l1d_l": 49.0,
+     "l2d_r": 71.0,
+     "l2d_l": 73.0,
+     "l3d_r": 148.5,
+     "l3d_l": 163.5
+    }
+   },
+   {
+    "specimen": "synth_008.obj",
+    "distal_median": 48.0,
+    "distal_p10": 24.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 429.0,
+    "per_leg_distal_median": {
+     "l1d_r": 30.0,
+     "l1d_l": 24.0,
+     "l2d_r": 49.0,
+     "l2d_l": 47.0,
+     "l3d_r": 76.5,
+     "l3d_l": 73.0
+    }
+   },
+   {
+    "specimen": "synth_009.obj",
+    "distal_median": 50.0,
+    "distal_p10": 36.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 455.0,
+    "per_leg_distal_median": {
+     "l1d_r": 40.0,
+     "l1d_l": 43.0,
+     "l2d_r": 44.5,
+     "l2d_l": 51.0,
+     "l3d_r": 101.0,
+     "l3d_l": 103.0
+    }
+   },
+   {
+    "specimen": "synth_010.obj",
+    "distal_median": 64.0,
+    "distal_p10": 23.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 409.5,
+    "per_leg_distal_median": {
+     "l1d_r": 26.0,
+     "l1d_l": 25.5,
+     "l2d_r": 64.0,
+     "l2d_l": 63.0,
+     "l3d_r": 86.0,
+     "l3d_l": 94.0
+    }
+   },
+   {
+    "specimen": "synth_011.obj",
+    "distal_median": 77.0,
+    "distal_p10": 53.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 368.0,
+    "per_leg_distal_median": {
+     "l1d_r": 61.0,
+     "l1d_l": 54.0,
+     "l2d_r": 83.0,
+     "l2d_l": 73.0,
+     "l3d_r": 111.0,
+     "l3d_l": 90.0
+    }
+   }
+  ],
+  "clean_pose35": [
+   {
+    "specimen": "synth_000.obj",
+    "distal_median": 76.0,
+    "distal_p10": 32.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 647.0,
+    "per_leg_distal_median": {
+     "l1d_r": 35.0,
+     "l1d_l": 35.0,
+     "l2d_r": 64.0,
+     "l2d_l": 87.5,
+     "l3d_r": 97.0,
+     "l3d_l": 118.0
+    }
+   },
+   {
+    "specimen": "synth_001.obj",
+    "distal_median": 50.0,
+    "distal_p10": 28.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 384.0,
+    "per_leg_distal_median": {
+     "l1d_r": 31.0,
+     "l1d_l": 31.0,
+     "l2d_r": 47.0,
+     "l2d_l": 53.0,
+     "l3d_r": 94.0,
+     "l3d_l": 86.0
+    }
+   },
+   {
+    "specimen": "synth_002.obj",
+    "distal_median": 53.0,
+    "distal_p10": 40.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 575.0,
+    "per_leg_distal_median": {
+     "l1d_r": 43.0,
+     "l1d_l": 48.0,
+     "l2d_r": 51.5,
+     "l2d_l": 47.0,
+     "l3d_r": 85.0,
+     "l3d_l": 78.0
+    }
+   },
+   {
+    "specimen": "synth_003.obj",
+    "distal_median": 73.0,
+    "distal_p10": 47.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 424.0,
+    "per_leg_distal_median": {
+     "l1d_r": 56.0,
+     "l1d_l": 48.0,
+     "l2d_r": 75.5,
+     "l2d_l": 71.5,
+     "l3d_r": 139.0,
+     "l3d_l": 127.0
+    }
+   },
+   {
+    "specimen": "synth_004.obj",
+    "distal_median": 30.0,
+    "distal_p10": 21.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 448.0,
+    "per_leg_distal_median": {
+     "l1d_r": 27.0,
+     "l1d_l": 26.0,
+     "l2d_r": 26.0,
+     "l2d_l": 27.0,
+     "l3d_r": 66.0,
+     "l3d_l": 72.0
+    }
+   },
+   {
+    "specimen": "synth_005.obj",
+    "distal_median": 57.0,
+    "distal_p10": 34.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 358.0,
+    "per_leg_distal_median": {
+     "l1d_r": 39.0,
+     "l1d_l": 34.0,
+     "l2d_r": 57.0,
+     "l2d_l": 56.0,
+     "l3d_r": 131.0,
+     "l3d_l": 119.0
+    }
+   },
+   {
+    "specimen": "synth_006.obj",
+    "distal_median": 37.0,
+    "distal_p10": 17.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 619.0,
+    "per_leg_distal_median": {
+     "l1d_r": 21.0,
+     "l1d_l": 18.0,
+     "l2d_r": 39.0,
+     "l2d_l": 34.0,
+     "l3d_r": 61.0,
+     "l3d_l": 63.0
+    }
+   },
+   {
+    "specimen": "synth_007.obj",
+    "distal_median": 96.0,
+    "distal_p10": 58.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 455.0,
+    "per_leg_distal_median": {
+     "l1d_r": 60.0,
+     "l1d_l": 64.5,
+     "l2d_r": 101.0,
+     "l2d_l": 93.0,
+     "l3d_r": 108.0,
+     "l3d_l": 123.0
+    }
+   },
+   {
+    "specimen": "synth_008.obj",
+    "distal_median": 43.0,
+    "distal_p10": 32.900000000000006,
+    "p_distal_zero": 0.0,
+    "proximal_median": 470.5,
+    "per_leg_distal_median": {
+     "l1d_r": 35.0,
+     "l1d_l": 43.0,
+     "l2d_r": 46.0,
+     "l2d_l": 38.0,
+     "l3d_r": 49.5,
+     "l3d_l": 50.0
+    }
+   },
+   {
+    "specimen": "synth_009.obj",
+    "distal_median": 36.0,
+    "distal_p10": 26.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 513.5,
+    "per_leg_distal_median": {
+     "l1d_r": 27.5,
+     "l1d_l": 30.0,
+     "l2d_r": 34.0,
+     "l2d_l": 35.0,
+     "l3d_r": 78.0,
+     "l3d_l": 80.0
+    }
+   },
+   {
+    "specimen": "synth_010.obj",
+    "distal_median": 54.0,
+    "distal_p10": 28.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 489.0,
+    "per_leg_distal_median": {
+     "l1d_r": 33.0,
+     "l1d_l": 30.0,
+     "l2d_r": 53.0,
+     "l2d_l": 55.5,
+     "l3d_r": 96.0,
+     "l3d_l": 97.5
+    }
+   },
+   {
+    "specimen": "synth_011.obj",
+    "distal_median": 50.0,
+    "distal_p10": 37.0,
+    "p_distal_zero": 0.0,
+    "proximal_median": 476.0,
+    "per_leg_distal_median": {
+     "l1d_r": 47.0,
+     "l1d_l": 44.0,
+     "l2d_r": 41.0,
+     "l2d_l": 46.0,
+     "l3d_r": 123.0,
+     "l3d_l": 128.0
+    }
+   }
+  ]
+ },
+ "by_segment_pooled_clean_pose25": {
+  "co": {
+   "median": 108.0,
+   "p10": 69.0,
+   "p_zero": 0.0,
+   "p_lt10": 0.0
+  },
+  "tr": {
+   "median": 202.0,
+   "p10": 128.0,
+   "p_zero": 0.0,
+   "p_lt10": 0.0
+  },
+  "fe": {
+   "median": 122.0,
+   "p10": 76.0,
+   "p_zero": 0.0,
+   "p_lt10": 0.0
+  },
+  "ti": {
+   "median": 29.0,
+   "p10": 14.0,
+   "p_zero": 0.0,
+   "p_lt10": 0.03013888888888889
+  },
+  "ta": {
+   "median": 24.0,
+   "p10": 12.0,
+   "p_zero": 0.0,
+   "p_lt10": 0.059027777777777776
+  },
+  "pt": {
+   "median": 2.0,
+   "p10": 0.0,
+   "p_zero": 0.17604166666666668,
+   "p_lt10": 0.9952083333333334
+  }
+ }
+}

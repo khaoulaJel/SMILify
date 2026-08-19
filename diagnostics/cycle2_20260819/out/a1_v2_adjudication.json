@@ -1,0 +1,66 @@
+{
+  "n_labeled": 60,
+  "n_unlabeled": 20,
+  "group_sizes": [
+    2,
+    3,
+    2,
+    4
+  ],
+  "size_entanglement": {
+    "r_pc1_vs_centroid_size": 0.7060187458992004,
+    "p": 2.960260701668352e-10
+  },
+  "ratio_results": {
+    "betas_raw": {
+      "ratio": 1.1188803131447342,
+      "within_mean": 2.6816881461576982,
+      "random_mean": 2.3967605066001414,
+      "permutation_p": 0.7718,
+      "null_mean": 1.0037077920181603,
+      "null_std": 0.15733606346220969
+    },
+    "betas_size_residualized": {
+      "ratio": 1.1121341468004655,
+      "within_mean": 2.378766818480058,
+      "random_mean": 2.138920763581991,
+      "permutation_p": 0.78515,
+      "null_mean": 1.0036489400987527,
+      "null_std": 0.1389245735559631
+    },
+    "raw_baseline_size_inclusive_v1": {
+      "ratio": 0.535239935011912,
+      "within_mean": 1.607588678819062,
+      "random_mean": 3.0034916560986513,
+      "permutation_p": 0.02515,
+      "null_mean": 1.0147850004346157,
+      "null_std": 0.29155056983613803
+    },
+    "raw_baseline_scale_invariant": {
+      "ratio": 0.5550040456348915,
+      "within_mean": 0.9726225300268694,
+      "random_mean": 1.752460252635181,
+      "permutation_p": 0.0202,
+      "null_mean": 1.0106814917420128,
+      "null_std": 0.2656212319096345
+    }
+  },
+  "registration_artifact_check": {
+    "pc1_vs_chamfer": {
+      "r": 0.722000810195885,
+      "p": 7.509789675690104e-11
+    },
+    "pc2_vs_chamfer": {
+      "r": -0.24899632238551989,
+      "p": 0.05505018354286833
+    },
+    "pc1_vs_fscore": {
+      "r": -0.7784707438358617,
+      "p": 2.4625192539009597e-13
+    },
+    "pc2_vs_fscore": {
+      "r": 0.25226405568187443,
+      "p": 0.05183532500323637
+    }
+  }
+}

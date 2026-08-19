@@ -1,0 +1,133 @@
+{
+  "n_specimens": 80,
+  "n_labeled": 60,
+  "n_unlabeled": 20,
+  "cross_seed_repeatability": {
+    "intra_specimen_var": 0.00022855683346278965,
+    "inter_specimen_var": 0.14016804099082947,
+    "variance_ratio_inter_over_intra": 613.2743530273438,
+    "total_var_pooled": 0.1403966099023819
+  },
+  "pca_betas": {
+    "var_ratio": [
+      0.41688594222068787,
+      0.17863304913043976
+    ]
+  },
+  "pca_raw_baseline": {
+    "var_ratio": [
+      0.6526495149918732,
+      0.2066392240755471
+    ]
+  },
+  "genus_consistency_betas": {
+    "multi_specimen_genera": {
+      "cephalotes": {
+        "n_specimens": 2,
+        "mean_within_dist": 2.074465751647949,
+        "pair_dists": [
+          2.074465751647949
+        ]
+      },
+      "dolichoderus": {
+        "n_specimens": 3,
+        "mean_within_dist": 1.9894283215204875,
+        "pair_dists": [
+          2.1165049076080322,
+          2.2068874835968018,
+          1.6448925733566284
+        ]
+      },
+      "dorylus": {
+        "n_specimens": 2,
+        "mean_within_dist": 3.0378642082214355,
+        "pair_dists": [
+          3.0378642082214355
+        ]
+      },
+      "pheidole": {
+        "n_specimens": 4,
+        "mean_within_dist": 3.069659113883972,
+        "pair_dists": [
+          2.9596798419952393,
+          2.8972394466400146,
+          2.4699788093566895,
+          4.16412878036499,
+          4.375136375427246,
+          1.5517914295196533
+        ]
+      }
+    },
+    "mean_within_genus_dist": 2.6816881461576982,
+    "mean_random_pair_dist": 2.45042692639611,
+    "n_multi_specimen_genera": 4,
+    "n_within_pairs": 11
+  },
+  "genus_consistency_raw_baseline": {
+    "multi_specimen_genera": {
+      "cephalotes": {
+        "n_specimens": 2,
+        "mean_within_dist": 2.0424160624437024,
+        "pair_dists": [
+          2.0424160624437024
+        ]
+      },
+      "dolichoderus": {
+        "n_specimens": 3,
+        "mean_within_dist": 1.5799400326525552,
+        "pair_dists": [
+          1.1322334766814344,
+          2.3556126924564276,
+          1.2519739288198037
+        ]
+      },
+      "dorylus": {
+        "n_specimens": 2,
+        "mean_within_dist": 0.8596638018484056,
+        "pair_dists": [
+          0.8596638018484056
+        ]
+      },
+      "pheidole": {
+        "n_specimens": 4,
+        "mean_within_dist": 1.1017980383873278,
+        "pair_dists": [
+          1.1815654812919294,
+          1.3243304853722238,
+          0.5928451399990433,
+          1.5715368346728544,
+          1.2067375836928762,
+          0.7337727052950407
+        ]
+      }
+    },
+    "mean_within_genus_dist": 1.2956989265976127,
+    "mean_random_pair_dist": 2.3063817098103714,
+    "n_multi_specimen_genera": 4,
+    "n_within_pairs": 11
+  },
+  "within_over_random_ratio_betas": 1.0943758890626087,
+  "within_over_random_ratio_raw": 0.561788589064099,
+  "unlabeled_specimens": [
+    "01.obj",
+    "02.obj",
+    "03.obj",
+    "04.obj",
+    "05.obj",
+    "06.obj",
+    "07.obj",
+    "08.obj",
+    "09.obj",
+    "10.obj",
+    "11.obj",
+    "12.obj",
+    "13.obj",
+    "14.obj",
+    "15.obj",
+    "16.obj",
+    "17.obj",
+    "18.obj",
+    "19.obj",
+    "20.obj"
+  ]
+}

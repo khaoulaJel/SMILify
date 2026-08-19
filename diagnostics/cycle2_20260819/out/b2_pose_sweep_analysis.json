@@ -1,0 +1,91 @@
+{
+  "per_condition": [
+    {
+      "pose_scale": 0.0,
+      "baseline_run": "SYN_clean_pose0_w5",
+      "gnc_run": "SYN_clean_pose0_gnclegonly_w5",
+      "baseline_R": 0.8518610845754759,
+      "gnc_legonly_R": 0.9586021762979184,
+      "delta_R": 0.1067410917224425,
+      "baseline_cross_leg_pt": 0.0,
+      "gnc_legonly_cross_leg_pt": 0.0,
+      "cross_leg_delta": 0.0
+    },
+    {
+      "pose_scale": 0.05,
+      "baseline_run": "SYN_clean_pose05_w5",
+      "gnc_run": "SYN_clean_pose05_gnclegonly_w5",
+      "baseline_R": 0.9358391874356176,
+      "gnc_legonly_R": 0.9575436434515312,
+      "delta_R": 0.021704456015913642,
+      "baseline_cross_leg_pt": 0.0,
+      "gnc_legonly_cross_leg_pt": 0.0,
+      "cross_leg_delta": 0.0
+    },
+    {
+      "pose_scale": 0.1,
+      "baseline_run": "SYN_clean_pose10_w5",
+      "gnc_run": "SYN_clean_pose10_gnclegonly_w5",
+      "baseline_R": 0.9492467269843672,
+      "gnc_legonly_R": 0.9620292641885891,
+      "delta_R": 0.012782537204221955,
+      "baseline_cross_leg_pt": 0.0,
+      "gnc_legonly_cross_leg_pt": 0.008333333333333333,
+      "cross_leg_delta": 0.008333333333333333
+    },
+    {
+      "pose_scale": 0.15,
+      "baseline_run": "SYN_clean_pose15_w5",
+      "gnc_run": "SYN_clean_pose15_gnclegonly_w5",
+      "baseline_R": 0.9126987369841784,
+      "gnc_legonly_R": 0.9509359246718243,
+      "delta_R": 0.038237187687645946,
+      "baseline_cross_leg_pt": 0.054450757575757576,
+      "gnc_legonly_cross_leg_pt": 0.040824915824915826,
+      "cross_leg_delta": -0.01362584175084175
+    },
+    {
+      "pose_scale": 0.2,
+      "baseline_run": "SYN_clean_pose20_w5",
+      "gnc_run": "SYN_clean_pose20_gnclegonly_w5",
+      "baseline_R": 0.707893385001946,
+      "gnc_legonly_R": 0.9115368302071928,
+      "delta_R": 0.2036434452052468,
+      "baseline_cross_leg_pt": 0.07000319284802044,
+      "gnc_legonly_cross_leg_pt": 0.09335748792270532,
+      "cross_leg_delta": 0.02335429507468488
+    },
+    {
+      "pose_scale": 0.25,
+      "baseline_run": "SYN_clean_w5",
+      "gnc_run": "SYN_clean_pose25_gnclegonly_w5",
+      "baseline_R": 0.6536973094324285,
+      "gnc_legonly_R": 0.834999507957028,
+      "delta_R": 0.1813021985245995,
+      "baseline_cross_leg_pt": 0.2216415284062343,
+      "gnc_legonly_cross_leg_pt": 0.20899026496852588,
+      "cross_leg_delta": -0.012651263437708421
+    },
+    {
+      "pose_scale": 0.35,
+      "baseline_run": "SYN_clean_pose35_w5",
+      "gnc_run": "SYN_clean_pose35_gnclegonly_w5",
+      "baseline_R": 0.5186279147774014,
+      "gnc_legonly_R": 0.7806189632203842,
+      "delta_R": 0.2619910484429827,
+      "baseline_cross_leg_pt": 0.3360009946007389,
+      "gnc_legonly_cross_leg_pt": 0.3417930517195223,
+      "cross_leg_delta": 0.005792057118783389
+    }
+  ],
+  "spearman_pose_vs_delta_R": {
+    "rho": 0.7142857142857144,
+    "p": 0.07134356146753759
+  },
+  "spearman_pose_vs_cross_leg_delta": {
+    "rho": 0.09009374626955591,
+    "p": 0.8476720796198265
+  },
+  "falsifier_triggered": true,
+  "interpretation": "FALSIFIER TRIGGERED for the cross-leg-confusion mechanism. delta_R DOES scale with pose severity (rho=0.714, p=0.071, positive as predicted), but cross_leg_pt delta [gnc-baseline] does NOT decrease with pose -- it is flat-to-POSITIVE and, if anything, grows more positive at higher pose severity (rho=0.090, p=0.848), meaning GNC's own TargetPartition-measured cross-leg confusion on the pretarsus is WORSE than baseline's, increasingly so as pose severity rises -- the opposite of the predicted direction. GNC's large, real, reproducible R improvement (established in B1) is therefore NOT explained by reduced cross-leg confusion as measured by this specific diagnostic. Either (a) the true mechanism is something else (e.g. better local-minimum escape from the annealing schedule itself, independent of cross-leg assignment), or (b) the TargetPartition-based audit is not capturing what actually improved under GNC's substantially different final geometry. Do NOT report 'GNC works because it fixes cross-leg confusion' as an established mechanism -- report only that GNC improves leg_distal R, and that WHY remains open."
+}

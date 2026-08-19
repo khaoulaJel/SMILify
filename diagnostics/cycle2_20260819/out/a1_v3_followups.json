@@ -1,0 +1,60 @@
+{
+  "classification": {
+    "betas_raw": {
+      "acc_1nn": 0.45454545454545453,
+      "p_1nn": 0.0866,
+      "null_mean_1nn": 0.19816363636363635,
+      "acc_centroid": 0.36363636363636365,
+      "p_centroid": 0.2128,
+      "null_mean_centroid": 0.2085272727272727
+    },
+    "betas_size_chamfer_residualized": {
+      "acc_1nn": 0.2727272727272727,
+      "p_1nn": 0.4002,
+      "null_mean_1nn": 0.20183636363636362,
+      "acc_centroid": 0.36363636363636365,
+      "p_centroid": 0.1696,
+      "null_mean_centroid": 0.19165454545454544
+    },
+    "deform_pca10": {
+      "acc_1nn": 0.18181818181818182,
+      "p_1nn": 0.631,
+      "null_mean_1nn": 0.1976,
+      "acc_centroid": 0.2727272727272727,
+      "p_centroid": 0.4808,
+      "null_mean_centroid": 0.2326909090909091
+    }
+  },
+  "deformation_space": {
+    "repeatability_ratio": 345.62599192452797,
+    "pc1_vs_chamfer": {
+      "r": -0.804492267111126,
+      "p": 9.705535398631717e-15
+    },
+    "pc1_vs_centroid_size": {
+      "r": -0.34037226441791807,
+      "p": 0.007790535683853223
+    },
+    "genus_ratio": 1.2475002631294478,
+    "genus_ratio_p": 0.7787,
+    "explained_variance_top10": [
+      0.08217760952163336,
+      0.05287836946652328,
+      0.03899634319722578,
+      0.038951252816861175,
+      0.036470038183243646,
+      0.03389566198054688,
+      0.03158378715813959,
+      0.02968169567928747,
+      0.028396198058886803,
+      0.026887615558110825
+    ]
+  },
+  "high_fit_quality_subsample": {
+    "n_retained": 30,
+    "genera_with_pairs": {},
+    "ratio": null,
+    "permutation_p": null,
+    "note": "degenerate -- filter removed all within-genus pairs"
+  }
+}
