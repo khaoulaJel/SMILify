@@ -281,3 +281,18 @@ diagnostics/morphometrics/ab_scale_cap/smoke_D1_PROD_out/
 diagnostics/morphometrics/ab_scale_cap/stage_A/
 diagnostics/morphometrics/ab_scale_cap/stage_B/
 diagnostics/morphometrics/stage/
+
+# Large regenerable training corpora (5000-specimen synthetic datasets,
+# ~550M each) for the anatomical-pose-init investigation. Regenerate via
+# generate_synth_5000*.slurm + diagnostics/moonshot/generate_synth_large.py.
+diagnostics/moonshot/synth_large/
+diagnostics/moonshot/synth_large_25pc/
+diagnostics/moonshot/synth_large_25pc_lowpose/
+diagnostics/moonshot/synth_large_25pc_lowpose05/
+diagnostics/moonshot/synth_large_25pc_lowpose10/
+
+# issue95_fullrun: pure scratch (downloaded raw STLs mid-processing) and
+# reprocessed specimen outputs already uploaded to the Google Drive
+# destination (antscan_processed_issue95) -- not source-of-truth here.
+diagnostics/issue95_fullrun/tmp/
+diagnostics/issue95_fullrun/specimens/

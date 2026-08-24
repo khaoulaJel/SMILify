@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/moonshot/generate_synth_large.py", line 278, in <module>
+    main()
+  File "/rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/moonshot/generate_synth_large.py", line 225, in main
+    verts, joint_rot, joint_rot_aa = sample_batch(
+  File "/rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/moonshot/generate_synth_large.py", line 126, in sample_batch
+    verts, joints = smil.forward(return_joints=True)
+  File "/rwthfs/rz/cluster/home/nao48500/SMILify/fitter_3d/trainer.py", line 360, in forward
+    verts, joints, Rs, v_shaped = self.smal_model(
+  File "/rwthfs/rz/cluster/home/nao48500/SMILify/smal_model/smal_torch.py", line 307, in __call__
+    self.J_transformed, A = batch_global_rigid_transformation(
+  File "/rwthfs/rz/cluster/home/nao48500/SMILify/smal_model/batch_lbs.py", line 160, in batch_global_rigid_transformation
+    j_here = j_here + translation_offsets[:, i, :].unsqueeze(-1)
+RuntimeError: The size of tensor a (8) must match the size of tensor b (64) at non-singleton dimension 0

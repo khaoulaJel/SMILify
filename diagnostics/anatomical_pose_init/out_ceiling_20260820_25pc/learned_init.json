@@ -1,0 +1,30 @@
+{
+  "method": "learned_partbased_pointnet_bodycore_canon_6drot",
+  "n_specimens": 12,
+  "per_specimen_leg_rot_err_deg": {
+    "synth_000": 23.121740341186523,
+    "synth_001": 19.219465255737305,
+    "synth_002": 24.581525802612305,
+    "synth_003": 22.736804962158203,
+    "synth_004": 22.917232513427734,
+    "synth_005": 25.33431625366211,
+    "synth_006": 21.414690017700195,
+    "synth_007": 20.561494827270508,
+    "synth_008": 24.449050903320312,
+    "synth_009": 24.44176483154297,
+    "synth_010": 21.479310989379883,
+    "synth_011": 23.157140731811523
+  },
+  "summary": {
+    "mean_leg_rot_err_deg": 22.784544785817463,
+    "median_leg_rot_err_deg": 23.01948642730713,
+    "frac_specimens_under_15deg": 0.0
+  },
+  "comparison": {
+    "zero_init_mean_deg": 23.087,
+    "cheap_pca_heuristic_init_mean_deg": 28.52,
+    "retrieval_mean_deg": 32.04,
+    "retrieval_random_baseline_mean_deg": 32.658,
+    "robust_basin_upper_bound_deg": 15.0
+  }
+}

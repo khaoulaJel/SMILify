@@ -1,0 +1,92 @@
+Using device: cuda
+Generating 5000 specimens
+Batch size: 64
+Pose scale: 0.1
+Shape scale: 2.0
+Generated 64/5000
+Generated 128/5000
+Generated 192/5000
+Generated 256/5000
+Generated 320/5000
+Generated 384/5000
+Generated 448/5000
+Generated 512/5000
+Generated 576/5000
+Generated 640/5000
+Generated 704/5000
+Generated 768/5000
+Generated 832/5000
+Generated 896/5000
+Generated 960/5000
+Generated 1024/5000
+Generated 1088/5000
+Generated 1152/5000
+Generated 1216/5000
+Generated 1280/5000
+Generated 1344/5000
+Generated 1408/5000
+Generated 1472/5000
+Generated 1536/5000
+Generated 1600/5000
+Generated 1664/5000
+Generated 1728/5000
+Generated 1792/5000
+Generated 1856/5000
+Generated 1920/5000
+Generated 1984/5000
+Generated 2048/5000
+Generated 2112/5000
+Generated 2176/5000
+Generated 2240/5000
+Generated 2304/5000
+Generated 2368/5000
+Generated 2432/5000
+Generated 2496/5000
+Generated 2560/5000
+Generated 2624/5000
+Generated 2688/5000
+Generated 2752/5000
+Generated 2816/5000
+Generated 2880/5000
+Generated 2944/5000
+Generated 3008/5000
+Generated 3072/5000
+Generated 3136/5000
+Generated 3200/5000
+Generated 3264/5000
+Generated 3328/5000
+Generated 3392/5000
+Generated 3456/5000
+Generated 3520/5000
+Generated 3584/5000
+Generated 3648/5000
+Generated 3712/5000
+Generated 3776/5000
+Generated 3840/5000
+Generated 3904/5000
+Generated 3968/5000
+Generated 4032/5000
+Generated 4096/5000
+Generated 4160/5000
+Generated 4224/5000
+Generated 4288/5000
+Generated 4352/5000
+Generated 4416/5000
+Generated 4480/5000
+Generated 4544/5000
+Generated 4608/5000
+Generated 4672/5000
+Generated 4736/5000
+Generated 4800/5000
+Generated 4864/5000
+Generated 4928/5000
+Generated 4992/5000
+Generated 5000/5000
+
+Final corpus:
+  verts: (5000, 10235, 3)
+  joint_rot: (5000, 54, 3, 3)
+  joint_rot_aa: (5000, 54, 3)
+  names: (5000,)
+
+Saved: diagnostics/moonshot/synth_large_25pc_lowpose10/ground_truth.npz
