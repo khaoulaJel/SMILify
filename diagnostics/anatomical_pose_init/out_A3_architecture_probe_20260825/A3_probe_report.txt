@@ -1,0 +1,11 @@
+==============================================================================
+A3 ARCHITECTURE PROBE (SMILPointNet2, checkpoints/checkpoint_epoch_10.pth, sa1/sa2 only)
+==============================================================================
+
+[sa1] leg-identity classification: n_train=8601 n_test=3687 classes=['body', 'l1_l', 'l1_r', 'l2_l', 'l2_r', 'l3_l', 'l3_r'] accuracy=0.8497
+[sa1] within-leg chain-position regression: n_train=3447 n_test=1478 R2=0.8384
+
+[sa2] leg-identity classification: n_train=2150 n_test=922 classes=['body', 'l1_l', 'l1_r', 'l2_l', 'l2_r', 'l3_l', 'l3_r'] accuracy=0.8655
+[sa2] within-leg chain-position regression: n_train=974 n_test=418 R2=0.7062
+
+[A3] wrote /home/khaoula/SMILify/diagnostics/anatomical_pose_init/out_A3_architecture_probe_20260825/fig_A3_sa1_sa2_linear_probes.png

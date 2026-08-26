@@ -22,9 +22,16 @@ output/
 # must never be swept into this repo's index (git warns "adding embedded git
 # repository" if it is)
 custom_processing/external/Manifold/
+custom_processing/external/ManifoldPlus/
+custom_processing/external/instant-mesh-intersection-repair/
+custom_processing/external/torch-mesh-intersection/
+custom_processing/external/torch-mesh-isect/
+custom_processing/external/torch-mesh-isect-wonjongg/
 # vendored Blender site-packages (numpy/scipy/pillow/trimesh/... bundled for Blender's
 # own Python) — 364M of third-party code, not project code
 custom_processing/external/blender_python_packages/
+# vendored CGAL source tree + local build dir (~560M), not project code
+custom_processing/external/cgal_alpha_wrap/
 3D_model_prep/morph_anim/
 3D_model_prep/measurements/
 3D_model_prep/VIDEOS/
@@ -290,6 +297,11 @@ diagnostics/moonshot/synth_large_25pc/
 diagnostics/moonshot/synth_large_25pc_lowpose/
 diagnostics/moonshot/synth_large_25pc_lowpose05/
 diagnostics/moonshot/synth_large_25pc_lowpose10/
+
+# Large regenerable B2 training corpus (236M) for the anatomical-pose-init
+# investigation. Regenerate via make_b2_training_corpus_20260825.py (see
+# its --out default for the path).
+diagnostics/moonshot/synth_b2_train_corrb06.npz
 
 # issue95_fullrun: pure scratch (downloaded raw STLs mid-processing) and
 # reprocessed specimen outputs already uploaded to the Google Drive

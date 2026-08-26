@@ -322,6 +322,9 @@ class HierarchicalStage:
         partition=None,
         chamfer_groups=None,
         soft_partition=0.0,
+        init_joint_rot=None,
+        init_anchor_joint_weight=None,
+        dense_gt_verts=None,
     ):
         self.name = name
         self.n_it = nits
@@ -357,9 +360,28 @@ class HierarchicalStage:
             w_limit=0.0,
             w_scale=0.0,
             w_trans=0.0,
+            w_init_anchor=0.0,
+            w_dense_gt=0.0,
         )
         if loss_weights:
             self.lw.update(loss_weights)
+
+        # Dense per-vertex correspondence ORACLE (2026-08-25, Phase 10 design doc step 1
+        # follow-up): (B, V, 3) TRUE target-mesh vertices, template order/topology, or None.
+        # w_dense_gt=0.0 (default) means this is never touched -- byte-identical to every
+        # existing arm when the flag introducing it is off, same discipline as
+        # --init_joint_rot_from. See forward()'s w_dense_gt block for the actual mechanism.
+        self.dense_gt_verts = dense_gt_verts.to(device) if dense_gt_verts is not None else None
+
+        # detach: this is a fixed regularization target, not something the anchor loss
+        # should be able to backprop into (there is nothing upstream of it to update anyway
+        # since it is the seeded/zero starting value, but detach documents the intent).
+        self.init_joint_rot = init_joint_rot.detach() if init_joint_rot is not None else None
+        self.init_anchor_w = (
+            init_anchor_joint_weight.to(device)
+            if init_anchor_joint_weight is not None
+            else torch.ones(smal.joint_rot.shape[1], device=device)
+        )
 
         # Authored rotation limits, or (None, None) when the model has none. Built once here
         # rather than per-iteration; config.dd is the same dict SMAL loaded from config.SMAL_FILE.
@@ -560,6 +582,35 @@ class HierarchicalStage:
             l_o = self.smal.deform_verts.pow(2).sum(-1).mean()
             comp["off"] = l_o
             loss = loss + self.lw["w_offset"] * l_o
+
+        if self.lw.get("w_dense_gt", 0.0) > 0:
+            # Dense correspondence ORACLE, additive on top of the existing chamfer term, not a
+            # replacement -- unlike --oracle_gt_partition_from (which only fixes GROUP/leg-level
+            # assignment, capped by FINAL_REPORT's own measurement at 16.7% of total
+            # correspondence error), this assigns each resampled target point its own TRUE
+            # corresponding vertex (nearest vertex on the TRUE, not fitted, target mesh) and
+            # matches the FITTED mesh's own vertex at that exact index directly -- capable in
+            # principle of addressing the 83.3%-of-error within-part slice no partition can.
+            if self.dense_gt_verts is None:
+                raise ValueError("w_dense_gt > 0 but no dense_gt_verts were supplied.")
+            with torch.no_grad():
+                true_idx = knn_points(tgt_pts, self.dense_gt_verts, K=1).idx[..., 0]  # (B, P)
+            matched = torch.gather(fitted, 1, true_idx.unsqueeze(-1).expand(-1, -1, 3))  # (B, P, 3)
+            l_dense = (matched - tgt_pts).pow(2).sum(-1).mean()
+            comp["dense_gt"] = l_dense
+            loss = loss + self.lw["w_dense_gt"] * l_dense
+
+        if self.lw.get("w_init_anchor", 0.0) > 0 and self.init_joint_rot is not None:
+            # SMPLify-X-style init-anchoring (Pavlakos et al. 2019 fit pose close to a
+            # regressed init rather than letting the optimizer drift arbitrarily far from
+            # it), weighted per-joint by self.init_anchor_w -- the D/E/F basin-structure
+            # finding (RESULTS_ABC_DEF.md) showed proximal (coxa/trochanter/femur) error is
+            # far more damaging than distal, so init_anchor_w lets proximal rows be held
+            # closer to their init than distal ones instead of anchoring uniformly.
+            d2 = (self.smal.joint_rot - self.init_joint_rot).pow(2).sum(-1)  # (B, n_pose)
+            l_ia = (d2 * self.init_anchor_w.unsqueeze(0)).mean()
+            comp["ianc"] = l_ia
+            loss = loss + self.lw["w_init_anchor"] * l_ia
 
         return loss, comp
 

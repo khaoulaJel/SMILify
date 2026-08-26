@@ -481,3 +481,471 @@ def init_joint_rot_for_specimen(global_rot_aa, trans, rest_J, jnames, target_pts
             row = chain_idx[i] - 1  # joint_rot row = global joint idx - 1 (root has no row)
             out[row] = local_aa[i]
     return out
+
+
+# ============================================================================================
+# Genuine constrained IK (2026-08-25 basin-map follow-up, per literature sweep item Kim et al.
+# 2015 "Tracking the joints of arthropod legs using multiple images and inverse kinematics").
+#
+# WHY THIS IS A DIFFERENT METHOD FROM `solve_chain_rotations` ABOVE, NOT A RENAME OF IT:
+# `solve_chain_rotations` is a GREEDY, ONE-PASS "aim" heuristic: it walks root-to-tip, and at
+# each segment rotates that segment's REST direction to point at an already-estimated
+# intermediate curve position, then commits and moves on -- there is no mechanism to revisit an
+# earlier joint once a later one reveals it was wrong, and no consultation of this model's
+# authored per-axis joint limits (`fitter_3d/joint_limits.py`) at all. This was tested
+# end-to-end, under the name "cheap anatomical" (Arm B, `out_ceiling_20260820/RESULTS.md`) and
+# found a genuine FAILURE: mean pose error 28.52 deg (worse than zero-init's 23.09 deg), leg_acc
+# 0.732 (vs zero-init 0.857) -- numbers the project's own D/E/F follow-up later recognised as
+# matching the signature of a PROXIMAL-concentrated error (E: leg_acc 0.768), i.e. consistent
+# with "an early greedy commitment at the coxa/root propagating downstream," the single most
+# damaging error pattern this whole investigation has found. `init_joint_rot_for_specimen`
+# above was never actually run through this failing test (grep confirms it has zero callers
+# anywhere in the repo outside this file) -- it is a more carefully leakage-audited rewrite that
+# was built but never taken through an actual D1 fit.
+#
+# `solve_chain_ik` below is a real end-effector-reaching inverse-kinematics solve: given ONLY
+# the leg's root (coxa, already reliably known from H0's shared rigid fit) and tip position
+# (estimated once, not five separate intermediate curve points), it optimises ALL FIVE joints'
+# rotations JOINTLY against a single objective -- reach the tip -- so an error at any one joint
+# can be compensated by the others, subject to this model's ACTUAL authored per-axis joint
+# limits (`fitter_3d/joint_limits.py`, the same tensors `--limit` already uses in the real
+# fitter, not invented bounds), with a minimum-norm (rest-pose-seeking) regulariser to pick a
+# sensible point among the redundant solutions (5 joints x 3 axes = 15 unknowns, only 3 position
+# constraints from the tip). This directly targets the two most plausible causes of Arm B's
+# failure: no joint-limit awareness, and no ability to correct an early mistake using later
+# degrees of freedom.
+# ============================================================================================
+
+
+def solve_chain_ik(
+    global_rot_mat,
+    coxa_pos,
+    rest_J,
+    chain_idx,
+    target_tip,
+    min_limits,
+    max_limits,
+    n_iters=300,
+    lr=0.08,
+    w_limit=1.0,
+    w_reg=0.02,
+    theta_init=None,
+):
+    """Joint IK for one leg: local axis-angle rotations [co,tr,fe,ti,ta] such that forward
+    kinematics places the chain's end (pretarsus/tip, chain_idx[5]) at `target_tip`, subject to
+    this model's authored per-axis joint limits.
+
+    global_rot_mat: (3,3), coxa_pos: (3,) -- both from `analytic_coxa_anchors`, IDENTICAL
+    preconditions to `solve_chain_rotations`, so this is a fair substitution of the rotation-
+    solving step alone.
+    rest_J: (55,3) rest joint positions, same frame as `Jr @ verts`.
+    chain_idx: [co,tr,fe,ti,ta,pt] global joint indices for this leg.
+    target_tip: (3,) target/world-frame position for the chain's end (chain_idx[5]).
+    min_limits, max_limits: (5,3) axis-angle box constraints for THIS leg's five joints
+    (co,tr,fe,ti,ta), sliced from `joint_limits.joint_limit_tensors`'s full (N_POSE,3) output by
+    the caller -- see `init_joint_rot_for_specimen_ik`.
+    n_iters/lr: fixed, not tuned to any result -- 300 Adam steps on a smooth 15-D least-squares
+    objective converges the position residual to numerical noise well before that, verified by
+    the oracle self-consistency check this module ships alongside (see
+    `diagnostics/anatomical_pose_init/ik_init_probe.py`).
+    w_limit/w_reg: joint-limit hinge weight (same functional form as the real fitter's own
+    `--limit`, via `fitter_3d.joint_limits.limit_hinge`) and a minimum-norm regulariser toward
+    rest pose (theta=0), breaking ties among the redundant solutions in the direction the rest
+    of this project's evaluation convention already treats as "no information, no rotation."
+
+    Returns (5,3) axis-angle, one row per co,tr,fe,ti,ta (same row convention as
+    `solve_chain_rotations`, drop-in compatible with its caller).
+    """
+    from pytorch3d.transforms import axis_angle_to_matrix
+
+    from fitter_3d.joint_limits import limit_hinge
+
+    device = coxa_pos.device
+    rest_dirs = torch.stack(
+        [rest_J[chain_idx[i + 1]] - rest_J[chain_idx[i]] for i in range(5)]
+    ).to(device)  # (5,3), co->tr, tr->fe, fe->ti, ti->ta, ta->pt -- SAME convention as
+    # `solve_chain_rotations`: already scaled to segment length, not unit vectors.
+
+    if theta_init is None:
+        theta = torch.zeros(5, 3, device=device, requires_grad=True)
+    else:
+        theta = theta_init.detach().clone().to(device).requires_grad_(True)
+    opt = torch.optim.Adam([theta], lr=lr)
+    target_tip = target_tip.detach().to(device)
+
+    for _ in range(n_iters):
+        opt.zero_grad()
+        R_local = axis_angle_to_matrix(theta)  # (5,3,3)
+        R_g = global_rot_mat
+        pos = coxa_pos
+        for i in range(5):
+            R_g = R_g @ R_local[i]
+            pos = pos + R_g @ rest_dirs[i]
+        pos_loss = ((pos - target_tip) ** 2).sum()
+        limit_loss = limit_hinge(theta, min_limits, max_limits)
+        reg_loss = (theta**2).mean()
+        loss = pos_loss + w_limit * limit_loss + w_reg * reg_loss
+        loss.backward()
+        opt.step()
+
+    return theta.detach()
+
+
+def estimate_leg_tip(coxa_pos, leg_pts, min_pts=MIN_PTS_PER_BAND):
+    """Single tip-position estimate for one leg: the assigned point with the LARGEST graph
+    (geodesic-like) distance from the coxa anchor -- the most-distal point this leg's own
+    assigned points actually contain, not a fixed-band centroid.
+
+    Deliberately requires only ONE reliable fact (which assigned point is furthest along the
+    chain) rather than `estimate_leg_curve`'s five separately-banded centroids -- the distal
+    segments this project's own `joint_limits.py` notes hold ~2.4% of a leg's surface area are
+    exactly where per-band centroid estimation is most starved of points; a single "furthest
+    point" estimate only needs there to BE a most-distal point among however many the leg has,
+    not four-plus points in each of five separate bands.
+
+    Returns (tip (3,), valid bool). valid=False (tip left at coxa_pos) if too few points --
+    caller must handle this the same way `solve_chain_rotations`'s `valid=False` path does.
+    """
+    if leg_pts.shape[0] < min_pts:
+        return coxa_pos.clone(), False
+    d = _graph_distance_from_anchor(coxa_pos, leg_pts)
+    finite = torch.isfinite(d)
+    if int(finite.sum()) < min_pts:
+        return coxa_pos.clone(), False
+    idx = torch.argmax(torch.where(finite, d, torch.full_like(d, -1.0)))
+    return leg_pts[idx], True
+
+
+def estimate_leg_waypoint(coxa_pos, leg_pts, target_cumlen, min_pts=MIN_PTS_PER_BAND):
+    """One intermediate point estimate: the assigned point whose graph distance from the coxa is
+    CLOSEST to `target_cumlen` (a rest-pose cumulative bone length up to some joint along the
+    chain). Companion to `estimate_leg_tip` -- together they give a 2-constraint IK problem
+    (root implicit, one waypoint, one tip) instead of 1 (tip only) or 5 (`estimate_leg_curve`'s
+    full banded curve). Deliberately the weakest possible second constraint: needs only the
+    SINGLE nearest point to exist, not >=4 points in a band, so it degrades as gracefully as
+    `estimate_leg_tip` does under sparse coverage.
+
+    Returns (point (3,), valid bool). valid=False if the leg has too few points at all to trust
+    ANY graph-distance-based statistic (same min_pts gate as `estimate_leg_tip`, for consistency
+    -- this function does not additionally require the nearest point to be close to
+    `target_cumlen`, since "no leg point that ATTEMPTS to be a mid-chain point but is a somewhat
+    poor match" is still informative for IK's overdetermination; if the assignment is bad enough
+    that this is actively misleading, that is a genuine failure mode this arm should not hide).
+    """
+    if leg_pts.shape[0] < min_pts:
+        return coxa_pos.clone(), False
+    d = _graph_distance_from_anchor(coxa_pos, leg_pts)
+    finite = torch.isfinite(d)
+    if int(finite.sum()) < min_pts:
+        return coxa_pos.clone(), False
+    diff = torch.where(finite, (d - target_cumlen).abs(), torch.full_like(d, float("inf")))
+    idx = torch.argmin(diff)
+    return leg_pts[idx], True
+
+
+def solve_chain_ik_multi(
+    global_rot_mat,
+    coxa_pos,
+    rest_J,
+    chain_idx,
+    constraints,
+    min_limits,
+    max_limits,
+    n_iters=300,
+    lr=0.08,
+    w_limit=1.0,
+    w_reg=0.02,
+):
+    """Generalisation of `solve_chain_ik` to MULTIPLE position constraints along the same chain,
+    solved JOINTLY (not sequentially/greedily -- see the module-level note above
+    `solve_chain_ik` for why sequential solving is the specific thing that made Arm B fail).
+
+    constraints: list of (seg_idx, target_pos) pairs. seg_idx in {0..4}: the world position AFTER
+    applying segment `seg_idx` (0 = position of the joint after co's rotation, i.e. `tr`; 4 = the
+    chain's end, i.e. the tip/pretarsus -- matching `solve_chain_ik`'s single-tip case exactly
+    when called with constraints=[(4, target_tip)]). Every extra constraint reduces the
+    redundancy this module's oracle probes found dominates the single-tip case: 5 joints x 3
+    axes = 15 unknowns; one tip constraint gives 3 equations (heavily underdetermined, confirmed
+    empirically in `ik_init_oracle_disambiguation_PROBE.py`); a second constraint at a different
+    point along the chain gives 6, still redundant but less so, and -- unlike two points that
+    happened to be adjacent -- a point roughly mid-chain and the tip jointly constrain more of
+    the chain's shape than either alone.
+
+    Returns (5,3) axis-angle, same row convention as `solve_chain_ik`.
+    """
+    from pytorch3d.transforms import axis_angle_to_matrix
+
+    from fitter_3d.joint_limits import limit_hinge
+
+    device = coxa_pos.device
+    rest_dirs = torch.stack(
+        [rest_J[chain_idx[i + 1]] - rest_J[chain_idx[i]] for i in range(5)]
+    ).to(device)
+
+    theta = torch.zeros(5, 3, device=device, requires_grad=True)
+    opt = torch.optim.Adam([theta], lr=lr)
+    constraints = [(seg_idx, tgt.detach().to(device)) for seg_idx, tgt in constraints]
+
+    for _ in range(n_iters):
+        opt.zero_grad()
+        R_local = axis_angle_to_matrix(theta)  # (5,3,3)
+        R_g = global_rot_mat
+        pos = coxa_pos
+        pos_loss = 0.0
+        for i in range(5):
+            R_g = R_g @ R_local[i]
+            pos = pos + R_g @ rest_dirs[i]
+            for seg_idx, tgt in constraints:
+                if seg_idx == i:
+                    pos_loss = pos_loss + ((pos - tgt) ** 2).sum()
+        limit_loss = limit_hinge(theta, min_limits, max_limits)
+        reg_loss = (theta**2).mean()
+        loss = pos_loss + w_limit * limit_loss + w_reg * reg_loss
+        loss.backward()
+        opt.step()
+
+    return theta.detach()
+
+
+def init_joint_rot_for_specimen_ik(global_rot_aa, trans, rest_J, jnames, target_pts, min_limits_all, max_limits_all, n_iters=300):
+    """End-to-end IK-based (N_POSE,3) joint_rot init for ALL joints, geometric legs + zero
+    elsewhere -- the `solve_chain_ik`/`estimate_leg_tip` analogue of
+    `init_joint_rot_for_specimen`, with the SAME leakage-audit preconditions (H0's shared rigid
+    fit + fixed template constants only, no ground truth, no learned classifier) but using the
+    FIXED chain-based point assignment (`assign_points_to_legs_chain`, not the coxa-only default
+    alias `assign_points_to_legs`) since the coxa-only assignment's mesothoracic-leg starvation
+    defect is a known, already-fixed confound this arm should not reinherit.
+
+    min_limits_all, max_limits_all: (N_POSE,3) from `fitter_3d.joint_limits.joint_limit_tensors`
+    -- the model's REAL authored per-axis limits, sliced per-leg internally.
+    """
+    n_pose = len(jnames) - 1
+    out = torch.zeros(n_pose, 3, dtype=trans.dtype, device=trans.device)
+    chains = leg_chains(jnames)
+    anchors, R_root = analytic_coxa_anchors(global_rot_aa, trans, rest_J, chains)
+    assigned = assign_points_to_legs_chain(
+        target_pts, rest_chain_points(rest_J, chains, global_rot_aa, trans)
+    )
+    for key, chain_idx in chains.items():
+        rows = [chain_idx[i] - 1 for i in range(5)]
+        min_l = min_limits_all[rows].to(trans.device)
+        max_l = max_limits_all[rows].to(trans.device)
+        tip, valid = estimate_leg_tip(anchors[key], assigned[key])
+        if valid:
+            local_aa = solve_chain_ik(
+                R_root, anchors[key], rest_J, chain_idx, tip, min_l, max_l, n_iters=n_iters
+            )
+        else:
+            local_aa = torch.zeros(5, 3, dtype=trans.dtype, device=trans.device)
+        for i in range(5):
+            out[rows[i]] = local_aa[i]
+    return out
+
+
+def init_joint_rot_for_specimen_ik2(global_rot_aa, trans, rest_J, jnames, target_pts, min_limits_all, max_limits_all, n_iters=300, waypoint_seg_idx=2):
+    """Two-constraint variant of `init_joint_rot_for_specimen_ik`: tip PLUS one mid-chain
+    waypoint (default `waypoint_seg_idx=2`, the position after fe->ti -- the middle joint of the
+    6-joint chain, a structural choice not fit to any result), via `solve_chain_ik_multi`. See
+    that function's docstring for why a second constraint matters: the oracle probes found the
+    single-tip version underdetermined (~21 deg mean per-joint gap from GT even with the TRUE
+    tip position), not a solver bug -- this variant tests whether one extra, weak, single-point
+    constraint meaningfully closes that gap. Same preconditions/leakage-audit as the tip-only
+    version otherwise.
+    """
+    n_pose = len(jnames) - 1
+    out = torch.zeros(n_pose, 3, dtype=trans.dtype, device=trans.device)
+    chains = leg_chains(jnames)
+    anchors, R_root = analytic_coxa_anchors(global_rot_aa, trans, rest_J, chains)
+    assigned = assign_points_to_legs_chain(
+        target_pts, rest_chain_points(rest_J, chains, global_rot_aa, trans)
+    )
+    for key, chain_idx in chains.items():
+        rows = [chain_idx[i] - 1 for i in range(5)]
+        min_l = min_limits_all[rows].to(trans.device)
+        max_l = max_limits_all[rows].to(trans.device)
+        seg_len = torch.stack(
+            [(rest_J[chain_idx[i + 1]] - rest_J[chain_idx[i]]).norm() for i in range(5)]
+        ).to(trans.device)
+        cumlen = torch.cumsum(seg_len, dim=0)
+        tip, tip_valid = estimate_leg_tip(anchors[key], assigned[key])
+        wpt, wpt_valid = estimate_leg_waypoint(anchors[key], assigned[key], cumlen[waypoint_seg_idx])
+        if tip_valid and wpt_valid:
+            constraints = [(waypoint_seg_idx, wpt), (4, tip)]
+            local_aa = solve_chain_ik_multi(
+                R_root, anchors[key], rest_J, chain_idx, constraints, min_l, max_l, n_iters=n_iters
+            )
+        elif tip_valid:
+            local_aa = solve_chain_ik(
+                R_root, anchors[key], rest_J, chain_idx, tip, min_l, max_l, n_iters=n_iters
+            )
+        else:
+            local_aa = torch.zeros(5, 3, dtype=trans.dtype, device=trans.device)
+        for i in range(5):
+            out[rows[i]] = local_aa[i]
+    return out
+
+
+# ============================================================================================
+# PCA-coherent initializer (2026-08-25, candidate pool expansion). GT-free, deployable on real
+# scans exactly like `init_joint_rot_for_specimen_ik`, but mechanistically distinct: a bilateral-
+# symmetry-averaged candidate was considered and REJECTED before being built -- an empirical
+# check (`mirror`'s own achieved error) found true left/right leg-pose distances in synth_clean
+# average 33.7 deg (range 27.8-42.2), comparable to or worse than this project's own
+# `proximal_30deg` condition already shown to be damaging, so specimens are NOT close to
+# bilaterally symmetric and averaging with a mirrored counterpart would inject a false premise.
+#
+# This candidate instead directly exploits the basin map's own strongest finding: `coherent`
+# (root-only rotation, downstream joints left at rest) was far less damaging than the same
+# magnitude of independent per-joint noise, and `solve_chain_ik`'s minimum-norm redundant pick
+# has no mechanism to prefer a coherent solution over an incoherent one (confirmed by the oracle
+# disambiguation probe). This estimates the leg's overall pointing direction via PCA on its own
+# assigned scan points (closed-form, no optimization loop -- a genuinely different mechanism from
+# constrained IK), and applies it ONLY at the coxa, leaving trochanter->pretarsus at exactly rest
+# -- i.e. constructing a `coherent`-STRUCTURED initializer from real geometry instead of from a
+# perturbed ground truth.
+# ============================================================================================
+
+
+def estimate_leg_pca_direction(coxa_pos, leg_pts, min_pts=MIN_PTS_PER_BAND):
+    """Leg's overall pointing direction from the coxa, via PCA (top principal component) on its
+    own assigned scan points. Sign resolved to point AWAY from the coxa (toward the points'
+    centroid), since PCA alone leaves the axis's sign ambiguous. Returns (direction (3,) unit
+    vector, valid bool); direction is None (a zero-rotation fallback) when invalid."""
+    if leg_pts.shape[0] < min_pts:
+        return None, False
+    centered = leg_pts - leg_pts.mean(dim=0, keepdim=True)
+    _, _, Vt = torch.linalg.svd(centered)
+    direction = Vt[0]
+    centroid_dir = leg_pts.mean(dim=0) - coxa_pos
+    if torch.dot(direction, centroid_dir) < 0:
+        direction = -direction
+    return direction / direction.norm().clamp_min(1e-8), True
+
+
+def init_joint_rot_for_specimen_coherent(global_rot_aa, trans, rest_J, jnames, target_pts, direction_fn):
+    """Shared skeleton behind every coxa-only 'coherent' candidate (PCA / cluster-axis / tip-
+    direction, 2026-08-25 multi-start pool): rotates ONLY each leg's coxa (via `_align_rotation`,
+    closed-form, no optimization loop) toward whatever direction `direction_fn(coxa_pos, leg_pts)`
+    estimates; trochanter->pretarsus left at EXACTLY rest -- the `coherent` family's own
+    definition (basin map, 2026-08-25: coherent error is far less damaging than the same
+    magnitude of incoherent per-joint noise), applied to a real-scan estimate instead of a
+    perturbed ground truth. `direction_fn` is the ONLY thing that differs between candidates;
+    factored out here per this project's "unify repeated code" convention rather than copy-pasting
+    this loop for each new estimator.
+
+    direction_fn: (coxa_pos (3,), leg_pts (P,3)) -> (direction (3,) unit vector or None, valid bool).
+    Same leakage-audit preconditions as `init_joint_rot_for_specimen_ik` (H0's shared rigid fit +
+    fixed template constants only), using the fixed chain-based point assignment.
+    """
+    n_pose = len(jnames) - 1
+    out = torch.zeros(n_pose, 3, dtype=trans.dtype, device=trans.device)
+    chains = leg_chains(jnames)
+    anchors, R_root = analytic_coxa_anchors(global_rot_aa, trans, rest_J, chains)
+    assigned = assign_points_to_legs_chain(
+        target_pts, rest_chain_points(rest_J, chains, global_rot_aa, trans)
+    )
+    for key, chain_idx in chains.items():
+        row_co = chain_idx[0] - 1
+        rest_dir0 = rest_J[chain_idx[1]] - rest_J[chain_idx[0]]
+        direction, valid = direction_fn(anchors[key], assigned[key])
+        if valid:
+            R_global_co = _align_rotation(rest_dir0.unsqueeze(0), direction.unsqueeze(0))[0]
+            R_local_co = R_root.transpose(-1, -2) @ R_global_co
+            out[row_co] = matrix_to_axis_angle(R_local_co.unsqueeze(0))[0]
+        # else: leave at zero -- same fallback convention as every other arm here.
+    return out
+
+
+def init_joint_rot_for_specimen_pca_coherent(global_rot_aa, trans, rest_J, jnames, target_pts):
+    """PCA-direction coherent candidate. Thin wrapper over `init_joint_rot_for_specimen_coherent`
+    with `estimate_leg_pca_direction` -- kept as its own named function for backward compatibility
+    with existing callers (`generate_pca_coherent_init.py`)."""
+    return init_joint_rot_for_specimen_coherent(
+        global_rot_aa, trans, rest_J, jnames, target_pts, estimate_leg_pca_direction
+    )
+
+
+# ============================================================================================
+# Multi-start candidate pool, part 2 (2026-08-25): two MORE independent direction estimators,
+# so a per-leg 'coherent' candidate can be generated from three mechanistically distinct sources
+# -- PCA's top variance axis, a near/far cluster split, and the tip-finding estimate `solve_
+# chain_ik` already uses -- rather than trusting a single point estimate (which is exactly why
+# PCA-coherent alone underperformed: coherent-BY-CONSTRUCTION does not fix an estimate that is
+# simply wrong, only an estimate that is noisy in a way multiple independent guesses can outvote
+# via GT-free selection). A bilateral-symmetry-derived 4th candidate was considered and rejected
+# already (see note above `estimate_leg_pca_direction`) -- these two are genuinely new geometric
+# mechanisms, not variations on symmetry.
+# ============================================================================================
+
+
+def estimate_leg_cluster_axis_direction(coxa_pos, leg_pts, min_pts=MIN_PTS_PER_BAND):
+    """Second independent direction estimate, mechanistically distinct from PCA's variance-
+    maximizing axis: split the leg's assigned points into near/far halves by GRAPH (geodesic-
+    like) distance from the coxa (median split, reusing `_graph_distance_from_anchor` -- the
+    same distance notion `estimate_leg_curve`/`estimate_leg_tip` already validated as the correct
+    chain-position proxy, see their docstrings for why plain Euclidean distance fails even at
+    rest), then take the direction from the near-half centroid to the far-half centroid. This
+    directly encodes chain progression (near points vs far points) rather than overall point-
+    cloud variance, so it can disagree with PCA in a genuinely informative way (e.g. a leg
+    L-bent in a plane PCA's top axis would happily point along the WRONG arm of the bend).
+
+    Returns (direction (3,) unit vector, valid bool). Requires >=2*min_pts total (>=min_pts on
+    each side of the median split) -- stricter than the single-estimate functions above, since a
+    degenerate split (e.g. all points on one side) would make the two centroids nearly coincident
+    and the direction numerically meaningless.
+    """
+    if leg_pts.shape[0] < 2 * min_pts:
+        return None, False
+    d = _graph_distance_from_anchor(coxa_pos, leg_pts)
+    finite = torch.isfinite(d)
+    if int(finite.sum()) < 2 * min_pts:
+        return None, False
+    d_fin = d[finite]
+    pts_fin = leg_pts[finite]
+    med = torch.median(d_fin)
+    near_mask = d_fin <= med
+    far_mask = ~near_mask
+    if int(near_mask.sum()) < min_pts or int(far_mask.sum()) < min_pts:
+        return None, False
+    near_c = pts_fin[near_mask].mean(dim=0)
+    far_c = pts_fin[far_mask].mean(dim=0)
+    direction = far_c - near_c
+    return direction / direction.norm().clamp_min(1e-8), True
+
+
+def estimate_leg_tip_direction(coxa_pos, leg_pts, min_pts=MIN_PTS_PER_BAND):
+    """Third independent direction estimate: reuses `estimate_leg_tip` (the same most-distal-
+    point estimate `solve_chain_ik`'s tip constraint is built from) but only as a DIRECTION
+    (coxa -> tip, normalised), not as an IK target -- i.e. this is 'IK's direction' without
+    running IK's 300-step optimiser, since a coherent candidate only ever uses the coxa rotation
+    anyway (downstream joints stay at rest by the `coherent` family's own definition). Cheap and
+    mechanistically distinct from both PCA (variance axis, uses ALL assigned points) and the
+    cluster-axis split (near/far centroids): this depends on exactly ONE point, the single most-
+    distal one, so it disagrees with the other two specifically when that one point is an outlier
+    or when the leg's true shape is not well summarised by "coxa toward furthest point" (e.g. a
+    leg bent back toward the body, where the furthest point may not lie in the true overall
+    pointing direction).
+
+    Returns (direction (3,) unit vector, valid bool).
+    """
+    tip, valid = estimate_leg_tip(coxa_pos, leg_pts, min_pts=min_pts)
+    if not valid:
+        return None, False
+    direction = tip - coxa_pos
+    return direction / direction.norm().clamp_min(1e-8), True
+
+
+def init_joint_rot_for_specimen_cluster_coherent(global_rot_aa, trans, rest_J, jnames, target_pts):
+    """Cluster-axis coherent candidate. Thin wrapper over `init_joint_rot_for_specimen_coherent`
+    with `estimate_leg_cluster_axis_direction`."""
+    return init_joint_rot_for_specimen_coherent(
+        global_rot_aa, trans, rest_J, jnames, target_pts, estimate_leg_cluster_axis_direction
+    )
+
+
+def init_joint_rot_for_specimen_tipdir_coherent(global_rot_aa, trans, rest_J, jnames, target_pts):
+    """Tip-direction coherent candidate. Thin wrapper over `init_joint_rot_for_specimen_coherent`
+    with `estimate_leg_tip_direction`."""
+    return init_joint_rot_for_specimen_coherent(
+        global_rot_aa, trans, rest_J, jnames, target_pts, estimate_leg_tip_direction
+    )

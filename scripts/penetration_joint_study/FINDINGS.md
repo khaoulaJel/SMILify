@@ -299,13 +299,21 @@ results: `diagnostics/gwn_full_results.csv`. Raw run output preserved as
 The count/severity split (depth improves, count does not) now has TWO
 confirmed, evidenced (not yet fixed) mechanisms: chamfer vertex-density
 asymmetry (step 3) and proximity-test accuracy asymmetry (step 6) -- both
-real, not mutually exclusive, and neither yet tested as a causal
-intervention. Ruled out: pose-freezing (falsified, confirmed under
-biomechanically-bounded rotation), the depth clamp (ruled out), local
-smoothness release (falsified). The natural next tests, neither started:
-a symmetric-sampled-chamfer ablation (step 3's mechanism) and a
-winding-number-based loss ablation (step 6's mechanism) -- to see if
-the directional flip disappears.
+real, not mutually exclusive. Ruled out: pose-freezing (falsified, confirmed
+under biomechanically-bounded rotation), the depth clamp (ruled out), local
+smoothness release (falsified). Step 6's proposed fix (replace the proximity
+test with a winding-number-based loss) has since been tested as a causal
+intervention -- see `diagnostics/khaoula_review/TASK6_gwn_matching_primitive_causal_test.md`:
+**not a clean fix**, real wins on some specimens, real new F-score/count costs
+on others (worst on the specimen the mechanism was expected to help most), no
+consistent direction across a 3-specimen pilot. A part-filtered BVH/conical
+loss (torch-mesh-isect) was also scoped as an alternative and found to not run
+correctly on this project's current environment
+(`diagnostics/khaoula_review/DELIVERABLE_penetration_fix_TASK1-5.md`'s
+addendum) -- not currently a viable near-term substitute either. The
+remaining untried thread from this step: a symmetric-sampled-chamfer ablation
+(step 3's mechanism, independent of step 6's) -- to see if the directional
+flip disappears when THAT asymmetry alone is corrected.
 
 ## Compute cost (all jobs run for this investigation)
 

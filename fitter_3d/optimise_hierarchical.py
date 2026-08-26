@@ -57,6 +57,33 @@ def main():
         "~600 wasted iterations/specimen. Explicit flag so this isn't tribal knowledge.",
     )
     ap.add_argument(
+        "--init_joint_rot_from",
+        default="",
+        help="path to an npz with joint_rot (N,54,3) axis-angle + names (N,), matched to "
+        "--mesh_dir by basename (extension stripped). Seeds smal.joint_rot before H0 instead "
+        "of the zero default. Convention shared by cheap_init.npz/learned_init.npz and every "
+        "diagnostics/anatomical_pose_init generator script.",
+    )
+    ap.add_argument(
+        "--init_anchor_weight",
+        type=float,
+        default=0.0,
+        help="weight on an L2 penalty pulling joint_rot back toward its initial value (the "
+        "--init_joint_rot_from seed, or zero if that is not given) every iteration, instead of "
+        "letting the optimizer drift arbitrarily far from it. SMPLify-X-style (Pavlakos et al. "
+        "2019 anchor pose to a regressed init). 0 = off (previous behaviour, unchanged).",
+    )
+    ap.add_argument(
+        "--init_anchor_proximal_mult",
+        type=float,
+        default=1.0,
+        help="multiplier on --init_anchor_weight applied only to proximal leg joints "
+        "(coxa/trochanter/femur). RESULTS_ABC_DEF.md's D/E/F experiment found proximal "
+        "initialization error far more damaging to the optimizer's basin than distal error of "
+        "the same magnitude, so >1 lets proximal joints be held closer to their init than "
+        "distal ones instead of anchoring the whole chain uniformly. 1.0 = uniform (no effect).",
+    )
+    ap.add_argument(
         "--midline",
         type=float,
         default=0.0,
@@ -87,6 +114,36 @@ def main():
         help="path to a trained part-field checkpoint. Replaces the fit-derived "
         "partition with a frozen, TARGET-derived one and drops points the "
         "field calls debris from every data term. Requires --split_distal.",
+    )
+    ap.add_argument(
+        "--oracle_gt_partition_from",
+        default="",
+        help="path to a ground_truth.npz (must have 'names' and 'verts', verts in the "
+        "TEMPLATE's own vertex order/topology -- true of synth_clean/synth_noisy by "
+        "construction). Replaces the fit-derived partition with a frozen, GROUND-TRUTH "
+        "one: every resampled target point is assigned the anatomical group of its nearest "
+        "TRUE (not fitted) vertex. Reuses PartFieldPartition unmodified (2026-08-25 "
+        "correspondence-oracle test, Phase 10 design doc step 1) -- answers whether "
+        "perfect correspondence, fed through the exact hook a learned network would use, "
+        "moves leg_acc beyond what the current recipe already gets, before any network is "
+        "built. Mutually exclusive with --part_field/--hull_partition.",
+    )
+    ap.add_argument(
+        "--dense_gt_correspondence_from",
+        default="",
+        help="path to a ground_truth.npz ('names'+'verts', template order/topology). Adds a "
+        "DENSE per-vertex correspondence oracle term ON TOP OF the existing chamfer term "
+        "(additive, not a replacement -- unlike --oracle_gt_partition_from, which only fixes "
+        "group/leg-level assignment): each resampled target point is matched directly to the "
+        "FITTED mesh's own vertex at its TRUE corresponding index. Weight via "
+        "--w_dense_gt_correspondence. 0.0 weight (the default) is byte-identical to every "
+        "existing arm -- see trainer_hierarchical.py's w_dense_gt block.",
+    )
+    ap.add_argument(
+        "--w_dense_gt_correspondence",
+        type=float,
+        default=1.0,
+        help="weight on the --dense_gt_correspondence_from term, same scale as w_chamfer.",
     )
     ap.add_argument(
         "--pf_init",
@@ -287,6 +344,43 @@ def main():
 
     smal = SMAL3DFitter(batch_size=len(targets), device=device, shape_family=-1)
 
+    if args.init_joint_rot_from:
+        stems = [os.path.splitext(n)[0] for n in names]
+        d = np.load(args.init_joint_rot_from, allow_pickle=True)
+        init_names = list(d["names"])
+        missing = [s for s in stems if s not in init_names]
+        if missing:
+            raise SystemExit(
+                f"--init_joint_rot_from {args.init_joint_rot_from}: {len(missing)} of "
+                f"{len(stems)} mesh_dir specimens have no matching entry (e.g. {missing[:3]})"
+            )
+        if d["joint_rot"].shape[1:] != (config.N_POSE, 3):
+            raise SystemExit(
+                f"--init_joint_rot_from {args.init_joint_rot_from}: joint_rot shape "
+                f"{d['joint_rot'].shape} does not match (N, {config.N_POSE}, 3)"
+            )
+        idx = [init_names.index(s) for s in stems]
+        init_jr = torch.tensor(d["joint_rot"][idx], dtype=torch.float32, device=device)
+        with torch.no_grad():
+            smal.joint_rot.copy_(init_jr)
+        print(f"[hier] joint_rot seeded from {args.init_joint_rot_from} for {len(stems)} specimens", flush=True)
+
+    init_joint_rot = None
+    init_anchor_joint_weight = None
+    if args.init_anchor_weight > 0:
+        init_joint_rot = smal.joint_rot.detach().clone()
+        PROXIMAL = {"co", "tr", "fe"}
+        init_anchor_joint_weight = torch.ones(config.N_POSE, device=device)
+        for j, nm in enumerate(jnames):
+            if nm.startswith("l_") and nm.split("_")[2] in PROXIMAL:
+                init_anchor_joint_weight[j] = args.init_anchor_proximal_mult
+        print(
+            f"[hier] init-anchor active: weight={args.init_anchor_weight} "
+            f"proximal_mult={args.init_anchor_proximal_mult} "
+            f"({int((init_anchor_joint_weight > 1).sum())} proximal joint rows up-weighted)",
+            flush=True,
+        )
+
     part_scale = None
     if args.part_robust > 0:
         from fitter_3d.trainer_hierarchical import part_thickness
@@ -360,6 +454,77 @@ def main():
             flush=True,
         )
 
+    # ------------------------------------------------------------------ oracle GT partition
+    # Correspondence-oracle test (2026-08-25): is perfect correspondence, fed through the SAME
+    # partition-injection hook --part_field already uses, worth anything before a network exists
+    # to predict it? PartFieldPartition is reused UNCHANGED -- the only difference from the
+    # learned case is what ref_pts/ref_label are computed from.
+    if args.oracle_gt_partition_from:
+        if partition is not None:
+            raise SystemExit("--oracle_gt_partition_from and --part_field/--hull_partition are alternative partitions; pick one")
+        stems = [os.path.splitext(n)[0] for n in names]
+        d = np.load(args.oracle_gt_partition_from, allow_pickle=True)
+        gt_names = list(d["names"])
+        missing = [s for s in stems if s not in gt_names]
+        if missing:
+            raise SystemExit(
+                f"--oracle_gt_partition_from {args.oracle_gt_partition_from}: {len(missing)} of "
+                f"{len(stems)} mesh_dir specimens have no matching entry (e.g. {missing[:3]})"
+            )
+        n_verts_template = int(np.asarray(dd["v_template"]).shape[0])
+        if d["verts"].shape[1:] != (n_verts_template, 3):
+            raise SystemExit(
+                f"--oracle_gt_partition_from {args.oracle_gt_partition_from}: verts shape "
+                f"{d['verts'].shape} does not match (N, {n_verts_template}, 3) -- this corpus's "
+                "ground truth is not in the template's own vertex order/topology, so nearest-"
+                "TRUE-vertex group lookup would be meaningless."
+            )
+        idx = [gt_names.index(s) for s in stems]
+        gt_verts = torch.tensor(d["verts"][idx], dtype=torch.float32, device=device)  # (B, V, 3)
+        vg_t = torch.as_tensor(vg, device=device)
+        ref_label = vg_t.unsqueeze(0).expand(gt_verts.shape[0], -1).contiguous()  # (B, V) -- same group per vertex row for every specimen, since vg is a fixed template-level array
+        partition = PartFieldPartition(gt_verts, ref_label, len(gnames), device)
+        print(
+            f"[hier] ORACLE GT partition active: {len(stems)} specimens, {n_verts_template} "
+            "true vertices each, group assignment from nearest TRUE (not fitted) vertex every "
+            "reassignment. This is a correspondence CEILING test, not a deployable arm.",
+            flush=True,
+        )
+
+    # ------------------------------------------------------------- dense GT correspondence oracle
+    # Dense-per-vertex follow-up (2026-08-25) to the group-level oracle above: FINAL_REPORT.md's
+    # own measurement caps any GROUP/partition-shaped intervention at 16.7% of total
+    # correspondence error (83.3% is within-part). This term is not a partition -- it assigns
+    # each point its own true vertex directly -- so it is the one test capable of showing whether
+    # that larger 83.3% slice is addressable by correspondence information at all.
+    dense_gt_verts = None
+    if args.dense_gt_correspondence_from:
+        stems = [os.path.splitext(n)[0] for n in names]
+        d = np.load(args.dense_gt_correspondence_from, allow_pickle=True)
+        gt_names = list(d["names"])
+        missing = [s for s in stems if s not in gt_names]
+        if missing:
+            raise SystemExit(
+                f"--dense_gt_correspondence_from {args.dense_gt_correspondence_from}: {len(missing)} "
+                f"of {len(stems)} mesh_dir specimens have no matching entry (e.g. {missing[:3]})"
+            )
+        n_verts_template = int(np.asarray(dd["v_template"]).shape[0])
+        if d["verts"].shape[1:] != (n_verts_template, 3):
+            raise SystemExit(
+                f"--dense_gt_correspondence_from {args.dense_gt_correspondence_from}: verts shape "
+                f"{d['verts'].shape} does not match (N, {n_verts_template}, 3) -- this corpus's "
+                "ground truth is not in the template's own vertex order/topology."
+            )
+        idx = [gt_names.index(s) for s in stems]
+        dense_gt_verts = torch.tensor(d["verts"][idx], dtype=torch.float32, device=device)  # (B, V, 3)
+        print(
+            f"[hier] DENSE GT correspondence oracle active: {len(stems)} specimens, "
+            f"weight={args.w_dense_gt_correspondence}. This is a correspondence CEILING test, "
+            "not a deployable arm.",
+            flush=True,
+        )
+    dense_w = args.w_dense_gt_correspondence if args.dense_gt_correspondence_from else 0.0
+
     # ------------------------------------------------------------------ hull hierarchy
     if args.hull_partition > 0:
         if partition is not None:
@@ -401,6 +566,9 @@ def main():
         part_scale=part_scale,
         soft_partition=args.soft_partition,
         robust_mult=args.part_robust if args.part_robust > 0 else 3.0,
+        init_joint_rot=init_joint_rot,
+        init_anchor_joint_weight=init_anchor_joint_weight,
+        dense_gt_verts=dense_gt_verts,
     )
     partitioned = not args.no_partition
     ANTERIOR = {"head", "mandible", "antenna"}
@@ -438,8 +606,10 @@ def main():
                 "w_midline": args.midline,
                 "w_jresid": args.jresid,
                 "w_limit": args.limit,
+                "w_init_anchor": args.init_anchor_weight,
                 "w_scale": args.scale_cap,
                 "w_trans": args.trans_cap,
+                "w_dense_gt": dense_w,
             },
             **common,
         ),
@@ -459,8 +629,10 @@ def main():
                 "w_midline": args.midline,
                 "w_jresid": args.jresid,
                 "w_limit": args.limit,
+                "w_init_anchor": args.init_anchor_weight,
                 "w_scale": args.scale_cap,
                 "w_trans": args.trans_cap,
+                "w_dense_gt": dense_w,
             },
             **common,
         ),
@@ -480,8 +652,10 @@ def main():
                 "w_midline": args.midline,
                 "w_jresid": args.jresid,
                 "w_limit": args.limit,
+                "w_init_anchor": args.init_anchor_weight,
                 "w_scale": args.scale_cap,
                 "w_trans": args.trans_cap,
+                "w_dense_gt": dense_w,
             },
             **common,
         ),
@@ -501,6 +675,7 @@ def main():
                 "w_sym": 0.5,
                 "w_offset": args.offset,
                 "w_midline": args.midline,
+                "w_dense_gt": dense_w,
             },
             **common,
         ),

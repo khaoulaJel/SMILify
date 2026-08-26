@@ -1,0 +1,35 @@
+=== torch-mesh-isect compatibility probe -- Mon Aug 24 08:26:41 CEST 2026 ===
+python: Python 3.10.20
+torch:  2.5.1+cu124 12.4
+gpu:    NVIDIA RTX A1000 6GB Laptop GPU
+[fork] custom_processing/external/torch-mesh-intersection already present, reusing (not re-cloning)
+[fork] building in place (build_ext --inplace)
+[fork] build succeeded
+
+=== running collision probe against the 'fork' build ===
+torch 2.5.1+cu124, cuda available: True
+device: NVIDIA RTX A1000 6GB Laptop GPU
+--- pass 0: two EXACTLY coincident triangles (maximal, unambiguous overlap) ---
+collision pairs: []
+FAIL: two IDENTICAL, fully-coincident triangles were not flagged as colliding.
+      This is the most extreme possible positive case -- if this fails, the
+      kernel is not detecting intersections at all on this build, independent
+      of any geometric edge case in the other passes below.
+
+analytic ground truth: triangle 1 pierces the z=0 plane along the
+segment (0.25, 0.20, 0.0) -- (0.20, 0.25, 0.0), both points strictly
+inside triangle 0's interior (x>0, y>0, x+y<1) -- a genuine, non-
+boundary 3D intersection, independent of the BVH extension.
+
+--- pass 1: triangle 1 intersecting triangle 0 ---
+collision pairs: []
+FAIL: expected collision (0,1) not detected.
+
+--- pass 2: triangle 1 translated away, collision should vanish ---
+collision pairs: []
+PASS: no spurious collision once triangles are separated.
+
+=== OVERALL: FAIL ===
+
+variant used: fork
+=== OVERALL: FAIL (probe exited 1) ===

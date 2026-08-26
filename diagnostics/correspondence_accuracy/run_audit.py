@@ -89,6 +89,71 @@ RUNS = [
     # Capacity-ceiling arm: GT-pose init + scale_cap=0.052 (D1_PROD.yaml), compared against the
     # existing SYN_clean_pose25_gtinit_w5 (GT-pose + free/uncapped segment scale, D1_low.yaml).
     ("ACI_gtcapacitycap", "synth_clean", None),
+    # Phase 2 basin map (2026-08-25, diagnostics/anatomical_pose_init/CHAIN_OF_THOUGHT_20260824_WSL.md
+    # continuation): extends ACI_D/E/F (random/proximal/distal) across a 15/23/30deg magnitude
+    # sweep, plus two new perturbation families -- coherent (root-joint-only rigid leg rotation)
+    # and swap (nearest-other-specimen's real GT leg pose, no synthetic noise, single natural
+    # magnitude) -- see generate_structured_perturbation_init.py for full construction and
+    # basin_map_manifest.csv for the achieved per-specimen initial error every row here should be
+    # joined against.
+    ("BASIN_random_15deg", "synth_clean", None),
+    ("BASIN_random_23deg", "synth_clean", None),
+    ("BASIN_random_30deg", "synth_clean", None),
+    ("BASIN_proximal_15deg", "synth_clean", None),
+    ("BASIN_proximal_23deg", "synth_clean", None),
+    ("BASIN_proximal_30deg", "synth_clean", None),
+    ("BASIN_distal_15deg", "synth_clean", None),
+    ("BASIN_distal_23deg", "synth_clean", None),
+    ("BASIN_distal_30deg", "synth_clean", None),
+    ("BASIN_coherent_15deg", "synth_clean", None),
+    ("BASIN_coherent_23deg", "synth_clean", None),
+    ("BASIN_coherent_30deg", "synth_clean", None),
+    ("BASIN_swap", "synth_clean", None),
+    ("BASIN_mirror", "synth_clean", None),
+    # A1 corrected-sampler basin-map rerun (2026-08-25, generate_correlated_chain_parameters,
+    # rho=0.6): identical 13-condition basin map, but built from
+    # anatomical_pose_init_corr_rho06 (lag-1 AR(1) whole-chain-coupled GT poses) instead of
+    # synth_clean (i.i.d. GT poses) -- corpus_dir differs accordingly, since GT/meshes differ.
+    ("BASINCORR_random_15deg", "anatomical_pose_init_corr_rho06", None),
+    ("BASINCORR_random_23deg", "anatomical_pose_init_corr_rho06", None),
+    ("BASINCORR_random_30deg", "anatomical_pose_init_corr_rho06", None),
+    ("BASINCORR_proximal_15deg", "anatomical_pose_init_corr_rho06", None),
+    ("BASINCORR_proximal_23deg", "anatomical_pose_init_corr_rho06", None),
+    ("BASINCORR_proximal_30deg", "anatomical_pose_init_corr_rho06", None),
+    ("BASINCORR_distal_15deg", "anatomical_pose_init_corr_rho06", None),
+    ("BASINCORR_distal_23deg", "anatomical_pose_init_corr_rho06", None),
+    ("BASINCORR_distal_30deg", "anatomical_pose_init_corr_rho06", None),
+    ("BASINCORR_coherent_15deg", "anatomical_pose_init_corr_rho06", None),
+    ("BASINCORR_coherent_23deg", "anatomical_pose_init_corr_rho06", None),
+    ("BASINCORR_coherent_30deg", "anatomical_pose_init_corr_rho06", None),
+    ("BASINCORR_swap", "anatomical_pose_init_corr_rho06", None),
+    # WSL-fresh zero-init reference (same code version/machine as the BASIN_* and IK_* arms
+    # above -- the original cluster SYN_clean_w5 row is unreachable, see HANDOFF_20260824.md).
+    ("SYN_clean_zero_wsl", "synth_clean", None),
+    # IK-based init arms (2026-08-25), see generate_ik_init.py.
+    ("IK_tip_only", "synth_clean", None),
+    ("IK_tip_waypoint", "synth_clean", None),
+    # PCA-coherent candidate (2026-08-25), see generate_pca_coherent_init.py.
+    ("PCA_coherent", "synth_clean", None),
+    # Multi-start coherent pool, part 2 (2026-08-25), see generate_multistart_coherent_init.py.
+    ("Cluster_coherent", "synth_clean", None),
+    ("Tipdir_coherent", "synth_clean", None),
+    # Correspondence-oracle test (2026-08-25, Phase 10 design doc step 1): zero-init pose +
+    # PERFECT (ground-truth) partition, via --oracle_gt_partition_from. Ceiling test, not a
+    # deployable arm -- see PHASE10_DESIGN_correspondence_network_20260825.md.
+    ("Oracle_GT_partition", "synth_clean", None),
+    # Dense per-vertex correspondence oracle (2026-08-25, Phase 10 step 1 follow-up): fixes
+    # BOTH between-part (leg-level) and within-part (segment-level) correspondence, unlike
+    # Oracle_GT_partition above which only fixes the former. See PHASE10 design doc.
+    ("Dense_GT_oracle", "synth_clean", None),
+    # Metric-ceiling check (2026-08-25): "fitted" = ground truth itself (zero error, by
+    # construction). Establishes seg_acc's own ceiling below 1.0, if any, from near-boundary
+    # point-sampling ambiguity alone -- before treating 1.0 as the reference for "residual gap."
+    ("GT_as_fitted_ceiling", "synth_clean", os.path.join(HERE, "out", "gt_as_fitted.npz")),
+    # Weight-dominance check (2026-08-25): w_dense_gt_correspondence=50.0 (~50x the smoke-tested
+    # default), pushing edge/laplacian/sym toward negligible relative pull. Resolves whether
+    # Dense_GT_oracle's residual seg_acc gap is a tuning artifact or a real capacity limit.
+    ("Dense_GT_oracle_dominant", "synth_clean", None),
 ]
 
 
@@ -111,6 +176,15 @@ def audit_run(run, corpus, npz_path, template_faces, face_lab, vlabels, n_verts_
     geo_by_true_seg = {s: [] for s in lb.LEG_SEGMENTS}
     geo_by_pair = {}  # (true_seg, matched_seg) -> list of distances
     per_specimen_leg_acc = []  # [(stem, leg_acc)] -- for trajectory plots (protocol section 4)
+    per_specimen_per_leg_acc = []  # [(stem, {leg_name: accuracy})] -- row-normalized diagonal of
+    # THIS specimen's own leg confusion matrix, i.e. per-leg (not just per-specimen-aggregate)
+    # accuracy -- needed to test whether cross-estimator direction spread (multi-start coherent
+    # candidates, 2026-08-25) predicts WHICH legs go wrong, not just which specimens.
+    per_specimen_seg_acc = []  # [(stem, seg_acc)] -- WITHIN-part (segment-level, co/tr/fe/ti/ta/
+    # pt) accuracy per specimen, restricted to points already correctly leg-assigned -- the
+    # per-specimen distribution of the 83.3%-within-part error (why_partitions_null.py), pulled
+    # BEFORE looking at the dense-GT-oracle result (2026-08-25, Phase 10 step 1 follow-up), so a
+    # pattern in what moves can be checked against a pattern already known about the corpus.
 
     n = n_specimens or len(spec_labels)
     for i, spec_lab in enumerate(spec_labels[:n]):
@@ -151,7 +225,12 @@ def audit_run(run, corpus, npz_path, template_faces, face_lab, vlabels, n_verts_
             point_lab["true_vertex_idx"], true_is_leg, pts_leg, true_leg_sub, leg_pred, fitted_i, vlabels
         )
 
-        per_specimen_leg_acc.append((stem, leg_acc_i.as_dict()["accuracy"]))
+        leg_acc_i_dict = leg_acc_i.as_dict()
+        per_specimen_leg_acc.append((stem, leg_acc_i_dict["accuracy"]))
+        row_norm = np.array(leg_acc_i_dict["row_normalized"])
+        per_leg = {name: float(row_norm[j, j]) for j, name in enumerate(leg_acc_i_dict["names"])}
+        per_specimen_per_leg_acc.append((stem, per_leg))
+        per_specimen_seg_acc.append((stem, seg_acc_i.as_dict()["accuracy"]))
 
         leg_acc.M += leg_acc_i.M
         leg_acc.n_unmapped_true += leg_acc_i.n_unmapped_true
@@ -202,6 +281,8 @@ def audit_run(run, corpus, npz_path, template_faces, face_lab, vlabels, n_verts_
         antenna_segment_confusion=ant_seg_acc.as_dict(),
         geodesic=geodesic_summary,
         per_specimen_leg_acc=per_specimen_leg_acc,
+        per_specimen_per_leg_acc=per_specimen_per_leg_acc,
+        per_specimen_seg_acc=per_specimen_seg_acc,
     )
 
 

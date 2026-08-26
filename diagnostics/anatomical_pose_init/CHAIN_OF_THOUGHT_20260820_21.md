@@ -225,6 +225,40 @@ this writing (2026-08-21 morning), waiting on cluster priority.
   chunk pre-staged) with one manual step left for the user to run from an actual terminal to
   resume full automation. Documented separately; not part of the main scientific thread.
 
+## Closing update (2026-08-25): G1d landed, dose-response plateaued, one new lead
+
+Continued on a WSL machine after the 2026-08-21 cluster outage never cleared (see
+`HANDOFF_20260824.md` and `CHAIN_OF_THOUGHT_20260824_WSL.md` for full detail — this is a summary
+closing out the thread this file tracks).
+
+**G1d (pose_scale 0.05)**: statistically tied with zero-init (paired p=0.70-0.85, n=50) — parity,
+same verdict as G1c. The dose-response curve's apparent continued improvement (an early aggregate
+comparison against the *original cluster* G3 number made it look like a win) was a
+same-code/same-hardware comparison artifact, traced to and confirmed against an unrelated commit
+that replaced the shared fitter trainer file; corrected once a same-checkout G3 rerun made a
+proper paired test possible. **The real result: the sweep plateaued at G1c, not G1d — training
+pose-noise scale, pushed as far as 0.05, buys parity with zero-init and no further.** This is
+itself the informative endpoint this file's own "where this stands" section anticipated might
+happen ("Not yet a confirmed win on real data — parity is the current honest status") — it stayed
+parity rather than crossing into victory.
+
+**New lead, not previously tested**: an SMPLify-X-style init-anchor regularizer (pulls pose back
+toward its init throughout optimization, weighted toward proximal joints per the D/E/F finding
+in section 6 above) was null when anchoring to the learned init, but showed a consistent,
+not-yet-significant directional improvement (p=0.065-0.10, 60-64% win rate across three metrics)
+when anchoring to *zero* — i.e. restraining the optimizer from letting proximal joints wander far
+from rest pose helps a little, independent of any learned prior at all. Consistent with this
+whole investigation's recurring finding that zero-init is a strong baseline specifically because
+bench50 specimens are close to rest pose. Not yet a confirmed result — flagged as the most
+promising next thing to test with a larger sample, not chased further this session.
+
+**Updated status vs. the "where this stands" list above**: real-scan transfer (bullet 4) is now
+resolved to *parity, not victory* as its final state for the learned-initializer approach as
+built; the mechanism (bullet 1, proximal-vs-distal) gained a refinement — it governs which basin
+the optimizer settles into early, not whether persistently pulling pose back toward an init helps
+afterward (confirmed by the anchor ablations being null on a *learned* init but suggestive on
+*zero*). Everything else in this file's findings stands unchanged.
+
 ## Files to read for full detail, in dependency order
 
 1. `out_ceiling_20260820/RESULTS.md` — the inherited FAILURE result this session responded to.
@@ -234,4 +268,8 @@ this writing (2026-08-21 morning), waiting on cluster priority.
    `assign_points_to_legs` defect, its fix, body-core, the raw-scan pipeline, the pre-fit sanity
    checks.
 4. `out_ceiling_20260820_25pc/RESULTS_bench50_G1_vs_G3.md` — the real-data test, the negative
-   result, the dose-response confirmation (G1/G1b/G1c, G1d pending).
+   result, the dose-response confirmation (G1/G1b/G1c), and its 2026-08-25 follow-up (G1d,
+   plateau not victory, init-anchor ablations).
+5. `CHAIN_OF_THOUGHT_20260824_WSL.md` — the full WSL-continuation reasoning: the missing
+   `--init_joint_rot_from` recovery, the G1d aggregate-comparison correction and its root cause,
+   and both init-anchor ablations, with every intermediate number.

@@ -151,6 +151,72 @@ vs. synthetic geometry, not retested here) and/or that 13.8° may still not be t
 pose-noise scale — a small pose-scale sweep (e.g. 0.05, 0.10, 0.20) would be the natural next
 step to find whether an even better match exists, not attempted tonight given time constraints.
 
+## Follow-up: G1c, G1d, and the WSL continuation (2026-08-24/25)
+
+**G1c** (pose_scale 0.10, retrained/refit on the cluster before the 2026-08-21 compute outage):
+chamfer 0.000637 (tied with G3's 0.000637), F@0.01 0.4974, 26/50 wins, paired p=0.855 — parity,
+matching G1b, continuing the plateau rather than a new data point of improvement.
+
+**Investigation moved to a WSL machine 2026-08-24** after a cluster-wide compute outage (kernel
+CVE lockdown) — see `HANDOFF_20260824.md` for the full transition context. Two things had to be
+recovered/fixed before G1d could even run: (1) `optimise_hierarchical.py --init_joint_rot_from`,
+documented by every generator script in this directory but never actually implemented in the
+committed fitter code (the modification existed only on the cluster's own diverged local branch
+and was lost when only new files, not modifications to existing ones, were carried over to
+`origin/feature/investigation`) — implemented fresh, verified against `config.N_POSE` and the npz
+convention every generator script already used; (2) confirmed `diagnostics/moonshot/runs/` (git-
+ignored) was genuinely unreachable from WSL, so G1d was re-run from scratch rather than assumed
+lost.
+
+**G1d** (pose_scale 0.05): chamfer 0.000621, F@0.01 0.5051 — beats the *original cluster* G3
+number (0.000637) on every aggregate metric. **This aggregate comparison is misleading and is
+explicitly retracted below.** Re-running G3 fresh on the WSL checkout (needed because G3's
+original per-specimen `metrics.csv` is git-ignored/cluster-only, so no paired test against it was
+possible) gave chamfer 0.000617 — itself ~3% better than the cluster G3 number, for reasons
+traced to `fitter_3d/trainer_hierarchical.py`/`optimise_moonshot.py` being wholesale different
+files on `origin/feature/investigation`'s current tip than whatever the cluster's original G1-G1c
+series ran under (introduced by an unrelated commit, `3ca5799`, "ship scale_cap..." — confirmed
+via `git show --stat`, not assumed). **The correct, paired, same-code/same-hardware comparison is
+G1d vs. the WSL G3 rerun**, and on that comparison G1d is statistically indistinguishable from
+zero-init (chamfer p=0.72, F@0.01 p=0.85, F@0.02 p=0.70, n=50) — **parity, continuing the plateau
+established at G1c, not a fourth step of improvement.** The historical G1→G1b→G1c series remains
+valid (run pairwise-consistently within the cluster session); only the specific claim "G1d
+continues the trend into a win" is retracted, and only because it relied on an invalid
+cross-code-version comparison.
+
+**Decision, per this file's own "credible next steps" list above and the handoff's explicit
+instruction not to chase a number past its informative endpoint**: the dose-response sweep on
+training pose-noise scale has reached parity and plateaued (G1c → G1d, both statistically tied
+with zero-init); a fifth point (G1e, an even lower `pose_scale`) is not pursued, since the trend
+that would justify it did not, in fact, continue.
+
+**New mechanism tested instead — an SMPLify-X-style init-anchor regularizer** (`--init_anchor_
+weight` / `--init_anchor_proximal_mult`, new in `optimise_hierarchical.py`/
+`trainer_hierarchical.py`, weighted toward proximal joints per the D/E/F basin-structure finding
+above): pulls `joint_rot` back toward its initial value throughout optimization instead of only
+setting the starting point. Mechanically confirmed active (proximal-joint displacement from init
+reduced 3.4x, ~42-43° → ~12-13°, measured directly from `H2_joint.npz`) in both configurations
+tested:
+
+| Arm | vs. WSL G3 (paired, n=50) | Verdict |
+|---|---|---|
+| G1d's learned init + proximal anchor | chamfer p=0.81, F@0.01 p=0.84 | Null — no effect over G1d alone either (p=0.91-1.00) |
+| **Zero-init + proximal anchor** (no learned network) | chamfer: paired-t p=0.233, sign-test p=0.065 (32/18 win); F@0.02 p=0.097 (30/20) | **Not significant on the primary (paired-t) metric.** The 0.065 figure is a secondary sign-test on win/loss direction, not the paired t-test used everywhere else in this document — reported separately here after a 2026-08-25 reproducibility audit found the two conflated in an earlier draft of this table. Still directionally consistent (wins the majority on all three metrics), but weaker evidence than "trending toward significance" implied |
+
+Read together: anchoring optimization toward a *learned* init doesn't help once the partitioned
+data term has already solved the leg-assignment multimodality (the actual mechanism D/E/F
+identifies), but anchoring toward *rest pose* specifically shows a consistent (if not yet
+significant) directional improvement across all three metrics — plausibly because bench50
+specimens are genuinely close to rest pose (consistent with zero-init's surprising strength
+throughout this whole investigation) and restraining the optimizer from chasing anatomically
+implausible proximal rotations mildly helps. Full reasoning, code changes, and every intermediate
+number: `diagnostics/anatomical_pose_init/CHAIN_OF_THOUGHT_20260824_WSL.md`.
+
+**Recommended next step, if this thread is picked up again**: repeat the zero-init+anchor arm
+with a different seed and/or a higher `--init_anchor_proximal_mult` to check whether the trend
+strengthens or was a favorable draw at n=50 — not run tonight given time already spent on four
+full fit+eval cycles.
+
 ## Artifacts
 
 - `diagnostics/moonshot/runs/{bench50_G1_learned,bench50_G1b_learned_lowpose,bench50_G3_zero}/metrics.csv`
@@ -161,3 +227,7 @@ step to find whether an even better match exists, not attempted tonight given ti
 - `generate_synth_5000_lowpose.slurm` (SLURM 3102282, corpus), `submit_train_leg_pose_lowpose.sbatch`
   (SLURM 3102293, retrain) — `diagnostics/moonshot/synth_large_25pc_lowpose/ground_truth.npz`,
   `diagnostics/anatomical_pose_init/learned_init_lowpose/best_model.pt`
+- WSL continuation (2026-08-24/25): `diagnostics/moonshot/runs/{bench50_G1d_learned_lowpose05,
+  bench50_G3_zero_wsl,bench50_G1d_ianchor,bench50_zero_ianchor}/metrics.csv`,
+  `diagnostics/anatomical_pose_init/CHAIN_OF_THOUGHT_20260824_WSL.md` (full reasoning + every
+  intermediate number, including the retracted aggregate-only G1d claim and its correction)

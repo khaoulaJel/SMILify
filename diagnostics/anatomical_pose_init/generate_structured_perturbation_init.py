@@ -1,19 +1,42 @@
 #!/usr/bin/env python3
 """Arms D/E/F (2026-08-20 basin-structure follow-up to the Anatomical Initialization Ceiling
-Test): construct theta_0 = theta_GT + epsilon for the 12 synth_clean specimens, matched in mean
-per-joint geodesic magnitude (~23 deg, same convention as leg_rot_err_deg elsewhere in this
-experiment series) but with different STRUCTURE:
+Test) plus the Phase 2 basin-map extension (2026-08-25): construct theta_0 = theta_GT + epsilon
+for the 12 synth_clean specimens, matched in mean per-joint geodesic magnitude but with different
+STRUCTURE:
 
-  D (random)              -- all 36 leg joints i.i.d. magnitude from the same pooled distribution.
-  E (proximal-concentrated) -- coxa/trochanter/femur (18 joints) mean 34.5 deg, tibia/tarsus/
-                                pretarsus (18 joints) mean 11.5 deg. Weighted mean 23 deg.
-  F (distal-concentrated)   -- mirror of E (distal joints get the higher mean).
+  random (D)    -- all 36 leg joints i.i.d. magnitude from the same pooled distribution.
+  proximal (E)  -- coxa/trochanter/femur (18 joints) get the higher mean, tibia/tarsus/pretarsus
+                   (18 joints) get 1/3 of it. Weighted mean == the requested magnitude.
+  distal (F)    -- mirror of proximal (distal joints get the higher mean).
+  coherent (D2, new 2026-08-25) -- ONE rigid rotation applied only at each leg's ROOT joint
+                   (coxa), all downstream joints (tr/fe/ti/ta/pt) left EXACTLY at GT. Per
+                   `fitter_3d/geom_leg_init.py` (`analytic_coxa_anchors`: "root (no intermediate
+                   joints between root and coxa)"), the coxa is the kinematic root of the leg
+                   chain, so perturbing only its local rotation rigidly displaces the whole leg
+                   in world space via forward kinematics while its own internal articulation
+                   (the relative angles between segments) stays anatomically correct/GT --
+                   "wrong globally, coherent internally," as opposed to `proximal`, which also
+                   concentrates magnitude near the root but still perturbs trochanter/femur
+                   independently (incoherent even locally).
+  swap (E2, new 2026-08-25) -- no synthetic noise at all: for each specimen, its own 36 leg-joint
+                   angles are replaced by the NEAREST OTHER specimen's actual GT leg pose (whole
+                   leg block, all 6 legs). A genuinely valid, real, plausible pose -- just the
+                   wrong one for this target. Unlike the other conditions, `swap` is NOT
+                   magnitude-parametrized: an empirical probe (2026-08-25) over all 12x11 ordered
+                   pairs in `synth_clean` found the closest any two specimens' leg poses ever get
+                   is ~27 deg (mean ~32.6 deg, range 27-40 deg) -- there is no pair close enough
+                   to hit a 15 deg or 23 deg target by picking a real donor pose, so `swap` always
+                   uses each specimen's single nearest donor and reports whatever magnitude that
+                   naturally is (typically ~28-33 deg per specimen). This is itself informative:
+                   it means "wrong-but-plausible" whole-leg-pose configurations in this corpus are
+                   never small perturbations of each other.
 
-Perturbation construction (grounded in standard SO(3) sampling practice: sampling angle ~
-Uniform and axis ~ uniform on S^2 independently biases toward small angles under the Haar
-measure; the way to get an EXACT, direction-unbiased geodesic distance is to fix the angle
-magnitude directly and only randomize the axis uniformly on S^2 -- see e.g. Shoemake 1992,
-Kuffner 2004 "Effective Sampling and Distance Metrics for 3D Rigid Body Path Planning"):
+Perturbation construction for random/proximal/distal/coherent (grounded in standard SO(3)
+sampling practice: sampling angle ~ Uniform and axis ~ uniform on S^2 independently biases toward
+small angles under the Haar measure; the way to get an EXACT, direction-unbiased geodesic
+distance is to fix the angle magnitude directly and only randomize the axis uniformly on S^2 --
+see e.g. Shoemake 1992, Kuffner 2004 "Effective Sampling and Distance Metrics for 3D Rigid Body
+Path Planning"):
   R_pert(axis, angle) applied as R_init = R_pert @ R_GT, axis ~ Uniform(S^2), angle = magnitude
   drawn per-joint from the group's Gamma-ish (here: clipped Gaussian) distribution.
 
@@ -23,11 +46,22 @@ multiplication by R_pert does not change the geodesic distance it induces from R
 Non-leg joints (head/gaster/wing/antenna) are left at zero rotation (rest pose), matching the
 convention of cheap_init.npz and learned_init.npz -- these arms isolate the leg-pose init only.
 
-Output: <out_dir>/<condition>_init.npz with joint_rot (N,54,3) + names (N,), a drop-in for
-`optimise_hierarchical.py --init_joint_rot_from`, identical convention to cheap_init.npz /
-learned_init.npz.
+Output: <out_dir>/<condition>_<magdeg>deg_init.npz with joint_rot (N,54,3) + names (N,), a
+drop-in for `optimise_hierarchical.py --init_joint_rot_from`, identical convention to
+cheap_init.npz / learned_init.npz. `swap` has no magdeg suffix (`swap_init.npz`) since it is not
+magnitude-parametrized. A companion `<out_dir>/basin_map_manifest.csv` records the ACHIEVED
+per-specimen mean error (overall/proximal/distal) for every condition x magnitude x specimen cell
+-- the requested magnitude is a target for the sampler, not a guarantee, so downstream basin-map
+analysis should read the manifest's achieved values, not the filename's nominal target.
+
+Backward compatibility: running with no new flags reproduces the original 2026-08-20 D/E/F run
+exactly (random/proximal/distal at 23 deg, same seed, same output paths minus the new `_23deg`
+filename suffix having replaced the old unsuffixed one -- the old `{condition}_init.npz` names are
+NOT regenerated by this version; re-run with `--magnitudes 23` and copy/symlink if byte-identical
+legacy filenames are needed).
 """
 import argparse
+import csv
 import os
 import pickle
 import sys
@@ -66,23 +100,39 @@ def sample_perturbation_aa(rng, mean_deg, R_gt_np):
     return aa_init, mag_deg
 
 
-def build_condition(condition, jr_gt_aa, names, chains, rng):
-    """jr_gt_aa: (N,54,3) axis-angle GT. Returns joint_rot (N,54,3), per_specimen_mean_err_deg."""
-    N, n_joints, _ = jr_gt_aa.shape
+def geodesic_deg(aa_a, aa_b):
+    """Angle (deg) of the relative rotation between two axis-angle vectors."""
+    Ra = axis_angle_to_matrix(torch.from_numpy(np.asarray(aa_a, dtype=np.float32)).unsqueeze(0))[0]
+    Rb = axis_angle_to_matrix(torch.from_numpy(np.asarray(aa_b, dtype=np.float32)).unsqueeze(0))[0]
+    rel = Ra.T @ Rb
+    aa_rel = matrix_to_axis_angle(rel.unsqueeze(0))[0].numpy()
+    return float(np.rad2deg(np.linalg.norm(aa_rel)))
+
+
+def build_noise_condition(condition, mean_target_deg, jr_gt_aa, chains, rng):
+    """random/proximal/distal/coherent. Returns joint_rot (N,54,3), per-specimen (all, prox,
+    distal) achieved mean error deg lists."""
+    N = jr_gt_aa.shape[0]
     out = np.zeros_like(jr_gt_aa)
-    per_specimen_err = []
+    err_all, err_prox, err_dist = [], [], []
     for s in range(N):
-        errs = []
+        errs_prox, errs_dist = [], []
         for leg_key, chain in chains.items():
             for seg_i, joint_1idx in enumerate(chain):
                 row = joint_1idx - 1
                 seg = LEG_SEGMENTS[seg_i]
+                if condition == "coherent" and seg_i != 0:
+                    # non-root joints keep their GT (internally coherent leg).
+                    out[s, row] = jr_gt_aa[s, row]
+                    continue
                 if condition == "random":
-                    mean_deg = 23.0
+                    mean_deg = mean_target_deg
                 elif condition == "proximal":
-                    mean_deg = 34.5 if seg in PROXIMAL else 11.5
+                    mean_deg = mean_target_deg * 1.5 if seg in PROXIMAL else mean_target_deg / 2.0
                 elif condition == "distal":
-                    mean_deg = 34.5 if seg in DISTAL else 11.5
+                    mean_deg = mean_target_deg * 1.5 if seg in DISTAL else mean_target_deg / 2.0
+                elif condition == "coherent":
+                    mean_deg = mean_target_deg  # only reached for seg_i == 0 (coxa)
                 else:
                     raise ValueError(condition)
                 R_gt = axis_angle_to_matrix(
@@ -90,9 +140,98 @@ def build_condition(condition, jr_gt_aa, names, chains, rng):
                 )[0].numpy()
                 aa_init, mag_deg = sample_perturbation_aa(rng, mean_deg, R_gt)
                 out[s, row] = aa_init
-                errs.append(mag_deg)
-        per_specimen_err.append(float(np.mean(errs)))
-    return out, per_specimen_err
+                (errs_prox if seg in PROXIMAL else errs_dist).append(mag_deg)
+        err_prox.append(float(np.mean(errs_prox)) if errs_prox else 0.0)
+        err_dist.append(float(np.mean(errs_dist)) if errs_dist else 0.0)
+        err_all.append(float(np.mean(errs_prox + errs_dist)))
+    return out, err_all, err_prox, err_dist
+
+
+def build_swap_condition(jr_gt_aa, names, chains):
+    """No synthetic noise: each specimen's leg block <- its nearest OTHER specimen's real GT leg
+    block. Returns joint_rot (N,54,3), per-specimen (all, prox, distal) achieved mean error deg
+    lists, and the chosen donor name per specimen."""
+    N = jr_gt_aa.shape[0]
+    leg_rows = sorted({j - 1 for chain in chains.values() for j in chain})
+    prox_rows = {j - 1 for chain in chains.values() for seg_i, j in enumerate(chain) if LEG_SEGMENTS[seg_i] in PROXIMAL}
+
+    # Pairwise whole-leg mean geodesic distance, donor selection = nearest other specimen.
+    dist = np.zeros((N, N))
+    for i in range(N):
+        for j in range(N):
+            if i == j:
+                continue
+            dist[i, j] = np.mean([geodesic_deg(jr_gt_aa[i, r], jr_gt_aa[j, r]) for r in leg_rows])
+
+    out = np.zeros_like(jr_gt_aa)
+    err_all, err_prox, err_dist, donors = [], [], [], []
+    for s in range(N):
+        donor = int(np.argmin([dist[s, d] if d != s else np.inf for d in range(N)]))
+        donors.append(names[donor])
+        per_joint = []
+        for r in leg_rows:
+            out[s, r] = jr_gt_aa[donor, r]
+            per_joint.append((r, geodesic_deg(jr_gt_aa[s, r], jr_gt_aa[donor, r])))
+        prox_e = [e for r, e in per_joint if r in prox_rows]
+        dist_e = [e for r, e in per_joint if r not in prox_rows]
+        err_prox.append(float(np.mean(prox_e)))
+        err_dist.append(float(np.mean(dist_e)))
+        err_all.append(float(np.mean(prox_e + dist_e)))
+    return out, err_all, err_prox, err_dist, donors
+
+
+# Model's own left/right mirror plane: verified empirically (2026-08-25) against rest-pose coxa
+# positions -- l{k}_l and l{k}_r rest coxa positions match exactly in X/Z and are exact
+# sign-flips of each other in Y, for all three leg pairs. Ref conjugation R_mirrored = Ref@R@Ref
+# is the standard way to mirror a rotation across that plane; verified by forward-kinematics
+# round-trip (mirroring l1_l's true rotations and applying them from l1_r's coxa lands EXACTLY
+# on the Y-flipped true l1_l tip position, to float32 precision) before use in build_mirror_condition.
+_MIRROR_REF = torch.diag(torch.tensor([1.0, -1.0, 1.0]))
+
+
+def _mirror_rotation_aa(aa):
+    R = axis_angle_to_matrix(torch.as_tensor(aa, dtype=torch.float32).unsqueeze(0))[0]
+    R_m = _MIRROR_REF @ R @ _MIRROR_REF
+    return matrix_to_axis_angle(R_m.unsqueeze(0))[0].numpy()
+
+
+def build_mirror_condition(jr_gt_aa, chains):
+    """Anatomically-correct left/right leg-pose flip: each specimen's OWN true pose, but with
+    every left-leg chain's rotations MIRRORED (via `_mirror_rotation_aa`, not a naive direct
+    copy) into its paired right-leg chain's slot and vice versa, for all three leg pairs
+    (l1/l2/l3). Unlike `swap` (another specimen's pose) or the noise families (synthetic error),
+    this tests: is a fully anatomically self-consistent, exactly-plausible pose -- just assigned
+    to the mirror-image side of the SAME specimen -- something the optimizer can recover from?
+    Returns joint_rot (N,54,3), per-specimen mean error (all/prox/dist) deg vs GT."""
+    N = jr_gt_aa.shape[0]
+    pairs = {}  # 'l1' -> ('l1_l','l1_r'), etc.
+    for key in chains:
+        base = key.rsplit("_", 1)[0]
+        pairs.setdefault(base, {})[key.rsplit("_", 1)[1]] = key
+
+    out = np.zeros_like(jr_gt_aa)
+    err_all, err_prox, err_dist = [], [], []
+    for s in range(N):
+        per_joint = []
+        for base, sides in pairs.items():
+            chain_l, chain_r = chains[sides["l"]], chains[sides["r"]]
+            for seg_i in range(5):  # co,tr,fe,ti,ta -- pretarsus (idx 5) left at zero, convention
+                row_l, row_r = chain_l[seg_i] - 1, chain_r[seg_i] - 1
+                seg = LEG_SEGMENTS[seg_i]
+                mirrored_from_l = _mirror_rotation_aa(jr_gt_aa[s, row_l])
+                mirrored_from_r = _mirror_rotation_aa(jr_gt_aa[s, row_r])
+                out[s, row_r] = mirrored_from_l  # right slot <- mirrored left pose
+                out[s, row_l] = mirrored_from_r  # left slot <- mirrored right pose
+                e_r = geodesic_deg(out[s, row_r], jr_gt_aa[s, row_r])
+                e_l = geodesic_deg(out[s, row_l], jr_gt_aa[s, row_l])
+                per_joint.append((seg, e_r))
+                per_joint.append((seg, e_l))
+        prox_e = [e for seg, e in per_joint if seg in PROXIMAL]
+        dist_e = [e for seg, e in per_joint if seg in DISTAL]
+        err_prox.append(float(np.mean(prox_e)))
+        err_dist.append(float(np.mean(dist_e)))
+        err_all.append(float(np.mean(prox_e + dist_e)))
+    return out, err_all, err_prox, err_dist
 
 
 def main():
@@ -101,6 +240,10 @@ def main():
     ap.add_argument("--model", default="3D_model_prep/OmniAnt_25PCs_joint_limited.pkl")
     ap.add_argument("--out_dir", default="diagnostics/anatomical_pose_init/out_ceiling_20260820_25pc")
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--magnitudes", default="15,23,30",
+                     help="Comma-separated target mean deg, applied to random/proximal/distal/coherent.")
+    ap.add_argument("--conditions", default="random,proximal,distal,coherent,swap",
+                     help="Comma-separated subset of {random,proximal,distal,coherent,swap,mirror}.")
     args = ap.parse_args()
 
     dd = load_model(args.model)
@@ -112,18 +255,66 @@ def main():
     names = [str(n) for n in gt["names"]]
 
     os.makedirs(args.out_dir, exist_ok=True)
-    for condition in ("random", "proximal", "distal"):
-        rng = np.random.default_rng(args.seed)
-        joint_rot, per_specimen_err = build_condition(condition, jr_gt_aa, names, chains, rng)
-        mean_err = float(np.mean(per_specimen_err))
-        print(f"[perturb] {condition}: per-specimen mean leg-joint error = "
-              f"{mean_err:.2f} deg (band {min(per_specimen_err):.1f}-{max(per_specimen_err):.1f})")
-        np.savez(
-            os.path.join(args.out_dir, f"{condition}_init.npz"),
-            joint_rot=joint_rot.astype(np.float32),
-            names=np.array(names),
-        )
-    print(f"[perturb] wrote {args.out_dir}/{{random,proximal,distal}}_init.npz")
+    magnitudes = [float(m) for m in args.magnitudes.split(",")]
+    conditions = args.conditions.split(",")
+
+    manifest_rows = []
+
+    for condition in conditions:
+        if condition == "swap":
+            joint_rot, err_all, err_prox, err_dist, donors = build_swap_condition(jr_gt_aa, names, chains)
+            mean_err = float(np.mean(err_all))
+            print(f"[perturb] swap: per-specimen mean leg-joint error = {mean_err:.2f} deg "
+                  f"(band {min(err_all):.1f}-{max(err_all):.1f}, no magnitude target -- "
+                  f"see module docstring)")
+            np.savez(os.path.join(args.out_dir, "swap_init.npz"),
+                     joint_rot=joint_rot.astype(np.float32), names=np.array(names))
+            for s, nm in enumerate(names):
+                manifest_rows.append({
+                    "condition": "swap", "magnitude_target_deg": "", "specimen": nm,
+                    "achieved_err_all_deg": err_all[s], "achieved_err_proximal_deg": err_prox[s],
+                    "achieved_err_distal_deg": err_dist[s], "donor_or_seed": donors[s],
+                })
+            continue
+
+        if condition == "mirror":
+            joint_rot, err_all, err_prox, err_dist = build_mirror_condition(jr_gt_aa, chains)
+            mean_err = float(np.mean(err_all))
+            print(f"[perturb] mirror: per-specimen mean leg-joint error = {mean_err:.2f} deg "
+                  f"(band {min(err_all):.1f}-{max(err_all):.1f}, no magnitude target -- "
+                  f"anatomically-correct L/R flip, see module docstring)")
+            np.savez(os.path.join(args.out_dir, "mirror_init.npz"),
+                     joint_rot=joint_rot.astype(np.float32), names=np.array(names))
+            for s, nm in enumerate(names):
+                manifest_rows.append({
+                    "condition": "mirror", "magnitude_target_deg": "", "specimen": nm,
+                    "achieved_err_all_deg": err_all[s], "achieved_err_proximal_deg": err_prox[s],
+                    "achieved_err_distal_deg": err_dist[s], "donor_or_seed": "",
+                })
+            continue
+
+        for mag in magnitudes:
+            rng = np.random.default_rng(args.seed)
+            joint_rot, err_all, err_prox, err_dist = build_noise_condition(
+                condition, mag, jr_gt_aa, chains, rng)
+            mean_err = float(np.mean(err_all))
+            print(f"[perturb] {condition} @ target {mag:.0f} deg: achieved per-specimen mean = "
+                  f"{mean_err:.2f} deg (band {min(err_all):.1f}-{max(err_all):.1f})")
+            out_path = os.path.join(args.out_dir, f"{condition}_{mag:.0f}deg_init.npz")
+            np.savez(out_path, joint_rot=joint_rot.astype(np.float32), names=np.array(names))
+            for s, nm in enumerate(names):
+                manifest_rows.append({
+                    "condition": condition, "magnitude_target_deg": mag, "specimen": nm,
+                    "achieved_err_all_deg": err_all[s], "achieved_err_proximal_deg": err_prox[s],
+                    "achieved_err_distal_deg": err_dist[s], "donor_or_seed": args.seed,
+                })
+
+    manifest_path = os.path.join(args.out_dir, "basin_map_manifest.csv")
+    with open(manifest_path, "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=list(manifest_rows[0].keys()))
+        w.writeheader()
+        w.writerows(manifest_rows)
+    print(f"[perturb] wrote {manifest_path} ({len(manifest_rows)} rows)")
 
 
 if __name__ == "__main__":
