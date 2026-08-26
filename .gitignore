@@ -51,9 +51,6 @@ test_visualizations/
 tests/test_output/
 checkpoints/
 
-#ignore other repos cloned during dev / debugging
-fitter_3d/pointcloud2smil/
-
 # unless specifically added, ignore videos
 *.mp4
 
