@@ -3,7 +3,7 @@
 
 Runs the same classes of check we caught by hand on the first two specimens,
 across ALL exported *_joints.json files in a folder at once. Doesn't fix
-anything — just flags exactly what to look at before sending to Fabian.
+anything — just flags exactly what to look at before sending.
 
 Usage:
     python 07_batch_qa_check.py /path/to/annotation/folder

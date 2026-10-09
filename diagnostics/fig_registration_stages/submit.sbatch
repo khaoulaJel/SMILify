@@ -8,7 +8,7 @@
 #SBATCH --time=01:30:00
 #SBATCH --output=diagnostics/fig_registration_stages/sbatch_logs/run_%j.log
 #SBATCH --error=diagnostics/fig_registration_stages/sbatch_logs/run_%j.log
-# Task 2 (Holotype work package): D1_PROD on the 20 Atta scans, seed 0, exactly as
+# Task 2: D1_PROD on the 20 Atta scans, seed 0, exactly as
 # PREREGISTRATION.md section 2. Figure specimen is 13.obj (pre-registered).
 set -eo pipefail
 source /home/nao48500/miniforge3/etc/profile.d/conda.sh

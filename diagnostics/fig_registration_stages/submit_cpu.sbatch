@@ -7,7 +7,7 @@
 #SBATCH --time=12:00:00
 #SBATCH --output=diagnostics/fig_registration_stages/sbatch_logs/run_cpu_%j.log
 #SBATCH --error=diagnostics/fig_registration_stages/sbatch_logs/run_cpu_%j.log
-# Task 2 (Holotype work package): D1_PROD on the 20 Atta scans, seed 0, exactly as
+# Task 2: D1_PROD on the 20 Atta scans, seed 0, exactly as
 # PREREGISTRATION.md section 2. Figure specimen is 13.obj (pre-registered).
 # DEVIATIONS.md D1: CPU execution (c23ms, account default); recipe unchanged.
 set -eo pipefail

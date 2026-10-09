@@ -1,4 +1,4 @@
-# Registration stage figure (Holotype work package, Task 2)
+# Registration stage figure (Task 2)
 
 D1_PROD on one cleaned *Atta vollenweideri* worker (WOLO scan 13), four stages, same camera and lighting.
 

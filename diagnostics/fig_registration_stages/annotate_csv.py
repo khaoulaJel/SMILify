@@ -1,4 +1,4 @@
-"""Add provenance columns (work-package rule 2: every number names config, specimen set, seed) to the
+"""Add provenance columns (every number names config, specimen set, seed) to the
 deliverable CSVs. Reads the raw scorer output in run_cpu1/, writes the annotated copies to this folder.
 Values are copied unchanged; only columns are added in front."""
 

@@ -18,13 +18,3 @@ ones, and no expert joints exist for these scans.
 
 Numbers: `stages.csv` (specimen 13) and `stages_all20.csv` (all 20), with config / specimen-set / seed columns; provenance
 in `run_cpu1/PROVENANCE.md`.
-
-## Points the main text or Methods must not contradict
-
-- The 20 Atta fits in the paper's shape space used master `fitter_3d.optimise` (`init_rot_lock`, no
-  hierarchy, no w_offset / w_limit / w_scale), not D1_PROD. The stage names coincide but the recipes
-  differ, so these numbers are not those fits' numbers (relevant to Task 3).
-- This is a clean scan in a near-rest posture; the legs already align after body placement. It shows
-  the pipeline on the easy case, not on the uncleaned AntScan meshes the paper's claim is about.
-- The fit was run on CPU, one specimen per job (`DEVIATIONS.md` D1, D2); recipe, model, code and seed
-  unchanged.

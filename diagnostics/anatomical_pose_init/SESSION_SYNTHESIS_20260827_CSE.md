@@ -335,7 +335,7 @@ extracting or using it". Those call for different fixes:
 | information present but unlearned | harder negative mining on circumferential pairs; explicit circumferential supervision; longer training | **the live question** |
 
 The second family is substantially cheaper than an architecture change, and is where the evidence
-now points. The honest statement for Fabian is not "we don't know whether equivariance would help" —
+now points. The honest statement is not "we don't know whether equivariance would help" —
 it is **"the specific geometric reason we thought equivariance was necessary turned out not to hold,
 so the remaining question is a training/representation shortfall on a signal that is measurably
 there."**

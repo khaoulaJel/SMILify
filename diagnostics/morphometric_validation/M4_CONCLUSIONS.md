@@ -83,6 +83,5 @@ Three defects were caught **before** becoming claims, and each is documented in 
 
 ## 7. Remaining action
 
-One, and it is not an experiment: **send Fabian the scale question**
-(`diagnostics/atta_reference/MESSAGE_TO_FABIAN_20260908.md`, drafted, unsent). A defensible scale
-source unlocks the predefined M4-D. Its absence does not block the study.
+One, and it is not an experiment: **obtain a defensible scale source**.
+It unlocks the predefined M4-D. Its absence does not block the study.
