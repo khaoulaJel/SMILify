@@ -1,0 +1,78 @@
+host=n23m0018.hpc.itc.rwth-aachen.de head=302d14396998d735992b324899b9e28931ed87c2 job=4890848
+merged H0_body: 20 specimens
+merged H1_legs: 20 specimens
+merged H2_joint: 20 specimens
+merged Stage_2_deform_coarse: 20 specimens
+merged Stage_3_deform_fine: 20 specimens
+merged metrics.csv
+20 target meshes loaded.
+[gate 1] {
+ "init_vs_v_template_maxabs": 0.3095459043979645,
+ "H0_body_repro_maxabs": 2.384185791015625e-07,
+ "H0_body_deform_absmax": 0.0,
+ "H1_legs_repro_maxabs": 1.7881393432617188e-07,
+ "H1_legs_deform_absmax": 0.0,
+ "H2_joint_repro_maxabs": 1.7881393432617188e-07,
+ "H2_joint_deform_absmax": 0.0,
+ "Stage_2_deform_coarse_repro_maxabs": 2.384185791015625e-07,
+ "Stage_2_deform_coarse_deform_absmax": 0.07100154459476471,
+ "Stage_3_deform_fine_repro_maxabs": 2.384185791015625e-07,
+ "Stage_3_deform_fine_deform_absmax": 0.061760276556015015
+}
+[score] init done
+[score] H0_body done
+[score] H1_legs done
+[score] H2_joint done
+[score] Stage_2_deform_coarse done
+[score] Stage_3_deform_fine done
+[gates 2/3] {
+ "gate2": {
+  "chamfer_l2": {
+   "ours_mean5": 7.02499906765297e-05,
+   "d1prod_metrics_csv": 7.042581273708493e-05,
+   "absdiff": 1.7582206055522507e-07,
+   "tol": 3.0785518652230096e-06,
+   "pass": true
+  },
+  "fscore@0.01": {
+   "ours_mean5": 0.9470609903335572,
+   "d1prod_metrics_csv": 0.9462460875511169,
+   "absdiff": 0.00081490278244023,
+   "tol": 0.018941219806671145,
+   "pass": true
+  }
+ },
+ "gate3": {
+  "init": {
+   "numpy_chamfer_l2": 0.013383953935315752,
+   "p3d_chamfer_l2": 0.013482892327010632,
+   "numpy_fscore@0.01": 0.150299546008194,
+   "p3d_fscore@0.01": 0.1486089587211609,
+   "pass": true
+  },
+  "H2_joint": {
+   "numpy_chamfer_l2": 0.0008923823499940422,
+   "p3d_chamfer_l2": 0.0008876130450516939,
+   "numpy_fscore@0.01": 0.5053826911898572,
+   "p3d_fscore@0.01": 0.5084058046340942,
+   "pass": true
+  },
+  "Stage_2_deform_coarse": {
+   "numpy_chamfer_l2": 8.189086881196048e-05,
+   "p3d_chamfer_l2": 8.303993672598153e-05,
+   "numpy_fscore@0.01": 0.9303088098862721,
+   "p3d_fscore@0.01": 0.929261302947998,
+   "pass": true
+  },
+  "Stage_3_deform_fine": {
+   "numpy_chamfer_l2": 6.971958031486802e-05,
+   "p3d_chamfer_l2": 7.02499906765297e-05,
+   "numpy_fscore@0.01": 0.9476374868901348,
+   "p3d_fscore@0.01": 0.9470609903335572,
+   "pass": true
+  }
+ }
+}
+[score] done
+renders done
+DONE

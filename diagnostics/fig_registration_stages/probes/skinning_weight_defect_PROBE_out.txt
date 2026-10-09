@@ -1,0 +1,27 @@
+  dd = pickle.load(f, encoding="latin1")
+OmniAnt_25PCs_anterior_limited.pkl                      md5 ea14e4ce59e5eea0b3d50533f44c0c13 V=10235 rows_not_1=134 min_sum=0.401 {'ma_l': 134}
+OmniAnt_25PCs_joint_limited.pkl                         md5 08b69daf119a6eda0cd699b8894ee7f8 V=10235 rows_not_1=134 min_sum=0.401 {'ma_l': 134}
+SMIL_OmniAnt.pkl                                        md5 691bcd7c84a3856d12e51c1a3a1001fd V=10229 rows_not_1=120 min_sum=0.706 {'b_t': 61, 'b_a_1': 5, 'l_1_co_r': 11, 'l_2_co_r': 7, 'l_3_co_r': 8, 'l_1_co_l': 13, 'l_2_co_l': 7, 'l_3_co_l': 8}
+SMIL_unposed.pkl                                        md5 8ce7fd28a8931c393c918c83e41c9653 V=10229 rows_not_1=120 min_sum=0.706 {'b_t': 61, 'b_a_1': 5, 'l_1_co_r': 11, 'l_2_co_r': 7, 'l_3_co_r': 8, 'l_1_co_l': 13, 'l_2_co_l': 7, 'l_3_co_l': 8}
+SMILy_Mouse_static_joints.pkl                           md5 a84f15d89d33cd3889f2b9b539e99b4e V=11263 rows_not_1=0 min_sum=1.000 {}
+SMILy_Mouse_static_joints_Falkner_conv.pkl              md5 7fa9a2ce938009ee557e65f378196cc5 V=11263 rows_not_1=0 min_sum=1.000 {}
+SMILy_Mouse_static_joints_Falkner_conv_repose_hind_legs.pkl md5 1e157667e0e1b24e0f1a676afc6acb6d V=11263 rows_not_1=0 min_sum=1.000 {}
+SMILy_Mouse_static_joints_REPOSE.pkl                    md5 2e987d81e3a6d95fd5cd15ae919846e1 V=11263 rows_not_1=0 min_sum=1.000 {}
+SMILy_Mouse_static_joints_REPOSE_LONG.pkl               md5 0c39a63f1da816f77d678510cf14e113 V=11263 rows_not_1=0 min_sum=1.000 {}
+SMILy_STICK.pkl                                         md5 0928470a19541e71a0754e518f3316dd V=3020 rows_not_1=0 min_sum=1.000 {}
+SMPL_STICK.pkl                                          md5 c774d9d091c9379994f1309fd9fa708e V=18151 rows_not_1=0 min_sum=1.000 {}
+SMPL_fit.pkl                                            md5 e93a490192b927039cd843e57aeb3f8e V=10236 rows_not_1=134 min_sum=0.401 {'ma_l': 134}
+SMPL_fit_new.pkl                                        md5 22d637271b8b1f9dcb8a3bd7c42ac877 V=10227 rows_not_1=134 min_sum=0.401 {'ma_l': 134}
+SMPL_fit_new_J_regressor.pkl                            md5 20e666e878197b3e3ce5995d6e3e854a V=10243 rows_not_1=128 min_sum=0.706 {'b_t': 65, 'b_a_1': 5, 'l_1_co_r': 15, 'l_2_co_r': 7, 'l_3_co_r': 8, 'l_1_co_l': 13, 'l_2_co_l': 7, 'l_3_co_l': 8}
+smpl_ATTA.pkl                                           md5 8541a0ff7d5793c76006f6872b26c624 V=10290 rows_not_1=134 min_sum=0.401 {'ma_l': 134}
+
+config.SMAL_FILE = 3D_model_prep/OmniAnt_25PCs_joint_limited.pkl
+default state vs v_template: max 0.3174; moved > 0.05: 10; all moved verts are rows_not_1: False
+  ratio |v0|/|v_template| on rows_not_1 vs weight sum: max abs diff 1.27e-07
+/hpcwork/nao48500/fig_registration_stages/D1_s0_cpu1/13/hier/H2_joint.npz: defect L-vs-mirrored-R median 0.0105 max 0.2835 | reference L/R pairs median 0.0122 p95 0.0645
+/hpcwork/nao48500/fig_registration_stages/D1_s0_cpu1/13/moon/Stage_3_deform_fine.npz: defect L-vs-mirrored-R median 0.0091 max 0.2358 | reference L/R pairs median 0.0132 p95 0.0599
+
+NOTE (2026-10-09, follow-up check): "all moved verts are rows_not_1: False" is explained by 13 further
+vertices whose weight sums are off by < 1e-3 (max |sum-1| 0.0008, inside the 1e-3 tolerance); they move
+by <= 0.00049, equal to |1-sum| * |v_template| to 2.6e-8. Every displacement of the default state from
+v_template is therefore the weight-sum deficit and nothing else.
