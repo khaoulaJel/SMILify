@@ -28,7 +28,7 @@ primary source are flagged explicitly in §7 — treat those as leads, not citat
   three independent sweeps converged on this same gap without being told to look for it. The
   closest analogs (2-fold human left/right symmetry, 4–5-fold hand-finger self-similarity, rigid
   single-object rotational symmetry) are all meaningfully easier problems. This is worth stating
-  to Fabian plainly: this is not a matter of finding the right existing method to import.
+  plainly: this is not a matter of finding the right existing method to import.
 - **SMILify's current two-stage design (learned network seeds a gradient-descent optimizer,
   rather than the network replacing it) is the dominant pattern in current SOTA, not a
   compromise.** SPIN, PyMAF, 3D-CODED, IPNet/LoopReg, and a 2025 point-cloud self-improving-loop
@@ -328,7 +328,7 @@ a generic summary of the paper.
 
 ---
 
-## 6. Genuine gaps worth stating to Fabian directly (not glossed over)
+## 6. Genuine gaps worth stating directly (not glossed over)
 
 - No insect-specific single-scan pose *initialization* method exists in the literature — confirmed
   absent across multiple independent query framings, not a search-term artifact.

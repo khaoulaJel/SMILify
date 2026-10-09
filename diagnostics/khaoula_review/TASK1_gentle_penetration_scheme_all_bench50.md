@@ -112,7 +112,7 @@ side by side: `out/task1_outliers_lateral_XZ.png`, `out/task1_outliers_anterior_
 the baseline/gentle columns are visually close, consistent with the modest integrity deltas in
 §4 — this is a real but non-catastrophic effect, not a repeat of the GWN-as-loss failure mode.
 
-## Answer to Fabian's question, stated plainly
+## Answer to the question, stated plainly
 
 **Does gentle proximity penetration loss + scheme:'all' help, on bench50?**
 
