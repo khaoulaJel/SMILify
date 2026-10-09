@@ -1,3 +1,24 @@
+"""
+Prepares AntScan STL meshes for mesh fitting.
+
+Pipeline (process_stl):
+    1. Merge near-duplicate vertices of very dense scans (reduce_vertices_by_distance).
+    2. Keep the largest connected component of the input scan.
+    3. Remove internal geometry by ray casting from a surrounding sphere, keeping the surface
+       visible from outside (clean_internal_geometry). Islands separated by sparse ray
+       coverage are reconnected along short paths of the original mesh
+       (bridge_nearby_islands); components below a minimum face count are removed.
+    4. Edge split, weld, hole filling and limited dissolve (apply_modifiers). The weld distance
+       adapts to the bounding-box size and to the local edge length; a weld that destroys more
+       than a set fraction of faces raises an error.
+    5. Remove small components, decimate to a vertex budget, and align the mesh to its principal
+       axes with legs down, positive Z up and the head along positive X.
+    6. Export a triangulated OBJ and write mesh statistics into the JSON file next to the input.
+
+Usage:
+    blender --background --python prepare_antscan_data_for_mesh_fitting.py -- <input_stl_path> <output_dir>
+"""
+
 import bpy
 import bmesh
 import mathutils
@@ -74,31 +95,22 @@ def apply_modifiers(
         edge_split_angle (float): Angle threshold for the Edge Split modifier
             (radians).
         weld_merge_threshold (float): Distance threshold for the Weld
-            modifier. If None, the threshold is derived from the mesh itself
-            (see implementation).
+            modifier. If None, it is the smaller of 0.2% of the largest
+            bounding-box dimension and 30% of the median edge length.
         dissolve_angle_limit (float): Angle limit for the Limited Dissolve
             operation.
         fill_holes_sides (int): Maximum number of sides a hole may have to be
             filled. 0 means no limit.
-        min_island_faces (int): Before welding, any connected component with
-            fewer faces than this value is discarded. Prevents small debris
-            fragments from being merged into real geometry by the Weld
-            modifier.
-        max_weld_face_loss_pct (float): If the Weld step destroys more than
-            this percentage of faces, a RuntimeError is raised. This indicates
-            that vertices were merged across disconnected mesh regions,
-            producing degenerate geometry.
+        min_island_faces (int): Connected components with fewer faces than
+            this are removed before welding.
+        max_weld_face_loss_pct (float): A RuntimeError is raised if the Weld
+            step removes more than this percentage of faces.
 
     Returns:
         None
     """
     if weld_merge_threshold is None:
-        # A threshold based solely on the bounding box assumes a solid,
-        # densely and uniformly triangulated mesh. A sparser or patchier mesh
-        # (for example after ray-cast cleaning) requires a smaller weld
-        # distance for the same bounding-box size. Therefore a second
-        # threshold is derived from local mesh density (median edge length)
-        # and the more conservative of the two values is used.
+        # Weld distance: the smaller of a bounding-box-relative and an edge-length-relative bound.
         bbox_size = obj.dimensions
         max_dimension = max(bbox_size)
         bbox_threshold = max_dimension * 0.002  # 0.2 % of the largest dimension
@@ -125,8 +137,7 @@ def apply_modifiers(
     bpy.context.view_layer.objects.active = obj
     bpy.ops.object.modifier_apply(modifier="EdgeSplit")
 
-    # Remove small debris islands before welding so that the Weld modifier
-    # only merges vertices within genuine geometry.
+    # Remove small components before welding.
     removed_islands = filter_small_components(obj, min_faces=min_island_faces)
     print(f"Removed {removed_islands} debris islands (< {min_island_faces} faces) before Weld")
 
@@ -219,35 +230,28 @@ def bridge_nearby_islands(
     patch_rings=2,
 ):
     """
-    Reconnects anatomically genuine but thin connections (for example a
-    head–thorax neck) that were split into separate islands by sparse ray
-    sampling.
+    Reconnects islands of the kept surface that are joined in the original mesh.
 
-    Rather than lowering the global weld threshold (which risks fusing
-    unrelated surfaces) or inventing synthetic geometry, the function locates
-    the shortest path that already exists in the original, still-intact mesh
-    graph and restores the faces belonging to that path into
-    vertices_to_keep.
-
-    Bridging decisions are gated on real graph path length (max_bridge_hops),
-    not on Euclidean proximity. Euclidean distance is used only as a cheap
-    pre-filter. Only islands whose face count meets or exceeds
-    min_bridge_island_faces are considered candidates.
+    The faces whose vertices are all in vertices_to_keep form islands. For each
+    pair of islands with at least min_bridge_island_faces faces whose bounding
+    boxes and closest boundary vertices lie within prefilter_gap_multiplier
+    median edge lengths, a breadth-first search through the original mesh runs
+    from the boundary vertex of the first island closest to the second island
+    to the nearest vertex of the second island. If the path has at most
+    max_bridge_hops edges, its vertices and patch_rings rings of neighbours are
+    added to vertices_to_keep, restoring existing faces of the original mesh.
 
     Args:
-        bm (BMesh): Full mesh before any deletion, with all original faces
-            intact.
+        bm (BMesh): The complete mesh before any vertices are deleted.
         vertices_to_keep (set): Set of vertex indices marked to survive;
             mutated in place.
         min_bridge_island_faces (int): Minimum face count required for an
             island to be considered a bridging candidate.
-        prefilter_gap_multiplier (float): Bounding-box gap pre-filter expressed
-            as a multiple of the median edge length. Used solely for speed.
-        max_bridge_hops (int): Maximum number of edges allowed in a path that
-            justifies bridging.
-        patch_rings (int): Number of extra topological rings expanded around
-            the recovered path so that the restored geometry forms a proper
-            surface patch rather than a single-vertex-wide wire.
+        prefilter_gap_multiplier (float): Maximum bounding-box gap and closest
+            boundary-vertex distance between two islands, as a multiple of the
+            median edge length.
+        max_bridge_hops (int): Maximum number of edges in a bridging path.
+        patch_rings (int): Number of vertex rings added around the path.
 
     Returns:
         int: Number of island pairs that were bridged.
@@ -281,7 +285,7 @@ def bridge_nearby_islands(
         return 0
 
     def boundary_verts(verts, faces):
-        """Return vertices lying on the open boundary of the given face subset."""
+        """Vertices on edges shared with faces outside the given face subset."""
         result = set()
         for f in faces:
             for edge in f.edges:
@@ -377,19 +381,13 @@ def clean_internal_geometry(
         secondary_rays (int): Number of secondary rays cast for each primary ray.
         random_seed (int): Seed for random-number generation, ensuring
             reproducible results.
-        keep_rings (int): Number of topological hops expanded around each
-            ray-hit face when marking vertices to keep. Expanding several rings
-            produces contiguous surface patches instead of isolated single-face
-            islands that downstream steps cannot safely rejoin.
-        min_island_faces (int): After deletion of unselected geometry, any
-            remaining connected component with fewer faces than this value is
-            discarded as ray-cast noise.
-        min_bridge_island_faces (int): Minimum face count required for an
-            island to be considered a candidate for bridge_nearby_islands.
-            Deliberately larger than min_island_faces so that only substantial,
-            anatomically plausible islands are bridged.
-        max_bridge_hops (int): Passed through to bridge_nearby_islands; the
-            acceptance criterion for whether two islands are reconnected.
+        keep_rings (int): Number of face rings kept around each ray-hit face.
+        min_island_faces (int): Components with fewer faces than this are
+            removed after ray-cast cleaning.
+        min_bridge_island_faces (int): Minimum face count of an island
+            considered by bridge_nearby_islands.
+        max_bridge_hops (int): Maximum path length used by
+            bridge_nearby_islands.
 
     Returns:
         None
@@ -412,20 +410,15 @@ def clean_internal_geometry(
     bbox_max = Vector(map(max, zip(*bbox_corners)))
 
     center = (bbox_max + bbox_min) / 2
-    radius = (bbox_max - bbox_min).length * 2  # enlarged so that difficult corners are sampled
+    radius = (bbox_max - bbox_min).length * 2  # ray origins lie on a sphere of twice the bounding-box diagonal
 
     def cast_ray(origin, direction):
         """Cast a ray and return hit status together with the face index."""
-        hit, loc, norm, face_index = obj.ray_cast(
-            obj.matrix_world.inverted() @ origin, direction
-        )
+        hit, loc, norm, face_index = obj.ray_cast(obj.matrix_world.inverted() @ origin, direction)
         return hit, face_index
 
     def add_face_and_connected(face, vertices_to_keep):
-        """
-        Add the given face and all faces within keep_rings topological hops
-        of it to the set of vertices that should be retained.
-        """
+        """Add the vertices of face and of all faces within keep_rings rings of it."""
         frontier = {face}
         visited_faces = {face}
         for _ in range(keep_rings):
@@ -464,7 +457,7 @@ def clean_internal_geometry(
                 add_face_and_connected(face, vertices_to_keep)
 
             for _ in range(secondary_rays):
-                azimuth_offset = np.random.uniform(-np.pi / 9, np.pi / 9)  # ±20°
+                azimuth_offset = np.random.uniform(-np.pi / 9, np.pi / 9)  # +/- 20 degrees
                 elevation_offset = np.random.uniform(-np.pi / 9, np.pi / 9)
 
                 offset_direction = main_direction.copy()
@@ -475,9 +468,7 @@ def clean_internal_geometry(
                     face = bm.faces[face_index]
                     add_face_and_connected(face, vertices_to_keep)
 
-    # Reconnect genuine thin anatomical bottlenecks that were split solely
-    # because of sparse ray sampling, using the still-intact original mesh
-    # graph.
+    # Reconnect kept islands along short paths of the original mesh.
     bridged = bridge_nearby_islands(
         bm,
         vertices_to_keep,
@@ -561,16 +552,8 @@ def find_largest_component(obj):
 
 def filter_small_components(obj, min_faces=4):
     """
-    Removes every connected component (by face adjacency) that contains fewer
-    than min_faces faces, while retaining all components that meet or exceed
-    the threshold.
-
-    Unlike find_largest_component, which keeps only the single largest island,
-    this function preserves every sufficiently large island. It is therefore
-    appropriate for meshes that legitimately consist of several disjoint but
-    valid regions (for example after ray-cast cleaning), where discarding
-    everything except the largest component would delete real geometry such as
-    antennae or mandibles.
+    Removes every connected component (by face adjacency) with fewer than
+    min_faces faces and keeps all others.
 
     Args:
         obj (bpy.types.Object): The Blender object to process.
@@ -647,9 +630,7 @@ def export_mesh_to_obj(obj, filepath):
         if len(poly.vertices) == 3:
             faces.append(poly.vertices)
         else:
-            raise ValueError(
-                f"Face with vertices {poly.vertices} is not a triangle and will be skipped."
-            )
+            raise ValueError(f"Face with vertices {poly.vertices} is not a triangle and will be skipped.")
 
     with open(filepath, "w") as file:
         for vert in vertices:
@@ -696,9 +677,7 @@ def count_holes(obj):
                     if current_edge.verts[0] in current_edge.link_faces[0].verts
                     else current_edge.verts[0]
                 )
-                next_edges = [
-                    e for e in next_vert.link_edges if e in boundary_edges and e != current_edge
-                ]
+                next_edges = [e for e in next_vert.link_edges if e in boundary_edges and e != current_edge]
 
                 if not next_edges:
                     is_hole = False
@@ -812,9 +791,7 @@ def decimate_mesh(obj, max_vertices):
         except RuntimeError as e:
             if "Modifiers cannot be applied to multi-user data" in str(e):
                 print("Making mesh data single-user and retrying...")
-                bpy.ops.object.make_single_user(
-                    object=True, obdata=True, material=False, animation=False
-                )
+                bpy.ops.object.make_single_user(object=True, obdata=True, material=False, animation=False)
                 bpy.ops.object.modifier_apply(modifier="Decimate")
             else:
                 raise
@@ -851,16 +828,13 @@ def reduce_vertices_by_distance(obj, target_vertices=1000000, max_iterations=100
     bpy.context.view_layer.objects.active = obj
 
     for i in range(max_iterations):
-        merge_distance = 1 * (2 ** i)
+        merge_distance = 1 * (2**i)
         bpy.ops.object.mode_set(mode="EDIT")
         bpy.ops.mesh.remove_doubles(threshold=merge_distance)
         bpy.ops.object.mode_set(mode="OBJECT")
 
         current_vertices = len(obj.data.vertices)
-        print(
-            f"Iteration {i + 1}: Merge distance = {merge_distance:.6f}, "
-            f"Vertices = {current_vertices}"
-        )
+        print(f"Iteration {i + 1}: Merge distance = {merge_distance:.6f}, Vertices = {current_vertices}")
 
         if current_vertices <= target_vertices:
             break
@@ -895,17 +869,13 @@ def process_stl(
         secondary_rays (int): Number of secondary rays used for internal-
             geometry cleaning.
         random_seed (int): Seed for random-number generation.
-        min_island_faces (int): Minimum face count for a connected component
-            to be retained whenever the pipeline filters small islands. A
-            single value is used at all call sites so that the definition of
-            “real geometry” versus “debris” remains consistent.
-        keep_rings (int): Number of topological hops expanded around each
-            ray-hit face inside clean_internal_geometry.
-        min_bridge_island_faces (int): Minimum face count required for an
-            island to be considered a candidate for bridge_nearby_islands.
-        max_bridge_hops (int): Acceptance criterion for bridge_nearby_islands:
-            only islands connected by a short real path through the original
-            mesh graph are reconnected.
+        min_island_faces (int): Minimum face count of a connected component,
+            used by every small-component filter in the pipeline.
+        keep_rings (int): Number of face rings kept around each ray-hit face.
+        min_bridge_island_faces (int): Minimum face count of an island
+            considered by bridge_nearby_islands.
+        max_bridge_hops (int): Maximum path length used by
+            bridge_nearby_islands.
 
     Returns:
         tuple: (remaining_vertices, hole_count, face_size_cov, mesh_smoothness)
@@ -949,14 +919,9 @@ def process_stl(
         min_island_faces=min_island_faces,
     )
 
-    # Remove any remaining debris islands. The same size threshold used
-    # earlier is applied so that legitimate multi-island anatomy (legs,
-    # antennae, mandibles) is preserved.
+    # Remove small components left by welding and hole filling.
     removed_islands = filter_small_components(obj, min_faces=min_island_faces)
-    print(
-        f"Removed {removed_islands} debris islands (< {min_island_faces} faces) "
-        f"after apply_modifiers"
-    )
+    print(f"Removed {removed_islands} debris islands (< {min_island_faces} faces) after apply_modifiers")
 
     # Decimate
     remaining_vertices = decimate_mesh(obj, max_vertices)
@@ -1007,9 +972,7 @@ def process_stl(
     for i in range(num_slices):
         slice_start = x_min + i * slice_width
         slice_end = slice_start + slice_width
-        slice_vertices = vertices[
-            (vertices[:, 0] >= slice_start) & (vertices[:, 0] < slice_end)
-        ]
+        slice_vertices = vertices[(vertices[:, 0] >= slice_start) & (vertices[:, 0] < slice_end)]
         slice_volume = (
             slice_width
             * (slice_vertices[:, 1].max() - slice_vertices[:, 1].min())
@@ -1074,7 +1037,7 @@ def main():
     start_time = time.time()
 
     if bpy.context.space_data is not None and bpy.context.space_data.type == "TEXT_EDITOR":
-        # Running inside Blender’s text editor
+        # Running inside the Blender text editor
         stl_path = bpy.path.abspath(
             "/home/fabi/dev/SMILify/custom_processing/antscan_data/"
             "Acanthomyrmex_glabfemoralis_CASENT0744002/"
