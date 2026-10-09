@@ -16,4 +16,3 @@ D1_PROD on one cleaned *Atta vollenweideri* worker (WOLO scan 13), four stages, 
 | `blender_render.py` (+ `submit_blender.sbatch`), `compose_figure.py` | final render (Blender 5.0.1 Cycles) and figure assembly |
 | `render_stages.py` | pytorch3d overlays and checks; the earlier draft figure |
 | `submit*.sbatch` | fit and scoring jobs |
-| `NOTE_TO_FABIAN_20261009.md` | draft message (not sent) |
