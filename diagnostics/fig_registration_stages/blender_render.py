@@ -10,9 +10,8 @@ Camera = the pre-registered dorsolateral view (render_stages.py: look_at dist 2.
 the renderer's (x, z, -y) frame, orthographic half-width 1/1.15), translated into Blender's Z-up frame.
 
 Run with the bpy venv (Blender 5.0.1 as a Python module):
-    B=/hpcwork/nao48500/bpy_venv/lib/python3.11/site-packages/bpy
-    LD_LIBRARY_PATH=$B/lib /hpcwork/nao48500/bpy_venv/bin/python -I \
-        diagnostics/fig_registration_stages/blender_render.py --npz run_cpu1/probes/focus_meshes.npz --out run_cpu1/blender
+    LD_LIBRARY_PATH=<bpy>/lib python -I diagnostics/fig_registration_stages/blender_render.py \
+        --npz probes/focus_meshes.npz --out layers
 """
 
 import argparse

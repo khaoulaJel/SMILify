@@ -1,4 +1,4 @@
-"""Task 2: score every registration stage of the D1_PROD Atta run (PREREGISTRATION.md s3-s5).
+"""Score every registration stage of a D1_PROD run on the Atta scans.
 
 For all 20 specimens and stages init, H0_body, H1_legs, H2_joint, Stage_2, Stage_3:
   - gate 1: verts rebuilt from each npz's parameters must reproduce the saved verts (< 1e-4);
@@ -13,9 +13,7 @@ For all 20 specimens and stages init, H0_body, H1_legs, H2_joint, Stage_2, Stage
 Writes stages_all20.csv, stages.csv, probes/gates.json, probes/focus_meshes.npz.
 
     python diagnostics/fig_registration_stages/score_stages.py \
-        --hier_dir /hpcwork/nao48500/fig_registration_stages/D1_s0_hier \
-        --moon_dir /hpcwork/nao48500/fig_registration_stages/D1_s0 \
-        --mesh_dir /hpcwork/nao48500/atta20
+        --hier_dir <results>/D1_s0_hier --moon_dir <results>/D1_s0 --mesh_dir <atta_scans>
 """
 
 import argparse

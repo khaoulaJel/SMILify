@@ -1,6 +1,0 @@
-specimen 13 (run_cpu1); 'defect' = vertex among the 134 left-mandible rows with weight sum < 1
-v_template (no skinning)   total  18 | pairs {mandible__antenna:18} | penetrating verts in defect set: 0/18
-init                       total  18 | pairs {mandible__antenna:18} | penetrating verts in defect set: 0/18
-H2_joint                   total  46 | pairs {mandible__antenna:14, waist__legs:32} | penetrating verts in defect set: 0/46
-Stage_2_deform_coarse      total   3 | pairs {mandible__antenna:2, waist__legs:1} | penetrating verts in defect set: 0/3
-Stage_3_deform_fine        total   6 | pairs {mandible__antenna:4, waist__legs:2} | penetrating verts in defect set: 0/6

@@ -5,7 +5,7 @@ surface the fit has not reached. One crop box for all panels (the camera stays s
 stages.csv unchanged.
 
 Outputs (this folder): fig_registration_stages.png (300 dpi), fig_registration_stages.pdf (editable text);
-run_cpu1/blender/panel_<label>.png: bare text-free transparent panels.
+layers/panel_<label>.png: bare text-free transparent panels.
 
     python diagnostics/fig_registration_stages/compose_figure.py
 """
@@ -21,7 +21,7 @@ import matplotlib.pyplot as plt  # noqa: E402
 from matplotlib.patches import FancyArrowPatch, Rectangle  # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-LAYERS = os.path.join(HERE, "run_cpu1", "blender")
+LAYERS = os.path.join(HERE, "layers")
 PANELS = [("init", "init", "init"), ("H2_joint", "pose", "pose"),
           ("Stage_2_deform_coarse", "Stage_2", "Stage 2 (coarse)"), ("Stage_3_deform_fine", "Stage_3", "Stage 3 (fine)")]
 INK, INK2, MUTED = "#0b0b0b", "#52514e", "#898781"
