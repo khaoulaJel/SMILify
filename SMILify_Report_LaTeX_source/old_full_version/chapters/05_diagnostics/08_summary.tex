@@ -1,0 +1,25 @@
+\section{Three failure modes}
+\label{sec:three-failure-modes}
+
+The diagnostics above converge on three failure modes, each of which
+contradicts a natural first guess at how to fix it:
+
+\begin{enumerate}
+\item \textbf{Self-generated targets still fail to recover.} With exact
+correspondence and zero noise, recovery still breaks (\S\ref{sec:articulation}):
+the failure is not solely a data-quality artefact that a cleaner target
+would remove.
+\item \textbf{Anatomical supervision does not generalise spatially.} Ground
+truth supplied everywhere else produces no detectable improvement in a
+held-out region: supervision at one location does not transfer to
+another the way a smooth prior might suggest.
+\item \textbf{Deformation cost functions as a regulariser, not a hard
+constraint.} Neither fully free nor fully frozen deformation is correct
+(\S\ref{sec:deformation-freedom}); the anatomically best-behaved optimum sits
+strictly between the two extremes.
+\end{enumerate}
+
+Together with \F{F1}--\F{F6}, these three failure modes set the criteria
+against which every candidate intervention in Chapter~\ref{ch:interventions}
+is judged: not whether it improves the statistic it directly targets, but
+whether it moves the anatomical outcome that statistic is meant to serve.

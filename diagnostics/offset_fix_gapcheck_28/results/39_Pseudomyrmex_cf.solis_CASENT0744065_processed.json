@@ -1,0 +1,25 @@
+{
+  "specimen": "39_Pseudomyrmex_cf.solis_CASENT0744065_processed",
+  "alpha": 3.25154,
+  "pre_gap": 1.5414712627230307,
+  "diag_length": 1115.4649432721899,
+  "old": {
+    "offset": 0.10838466666666666,
+    "relative_alpha": 343.0574261033818,
+    "relative_offset": 10291.722783101453,
+    "gap_after": 4.818549828297162,
+    "verdict": "preserved",
+    "output_vertices": 278955,
+    "output_faces": 558262
+  },
+  "new": {
+    "offset": 1.300616,
+    "relative_alpha": 343.0574261033818,
+    "relative_offset": 857.6435652584544,
+    "gap_after": 9.258175362255603,
+    "verdict": "preserved",
+    "output_vertices": 65429,
+    "output_faces": 131142
+  },
+  "flipped": false
+}

@@ -1,0 +1,251 @@
+%% ============================================================================
+%%  notebook.sty — design package for the SMILify internship report
+%%  Concept: "investigator's notebook". Asymmetric measure, wide outer margin
+%%  carrying finding IDs and thread markers, three typographic registers.
+%%
+%%  Compiles with pdfLaTeX, XeLaTeX or LuaLaTeX (fonts switch automatically).
+%% ============================================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{notebook}[2026/09/02 SMILify report design]
+
+% == engine ==
+\RequirePackage{iftex}
+\RequirePackage{etoolbox}
+\RequirePackage{xparse}
+
+% == fonts ==
+% \fastcompile is the default: Latin Modern, always pre-cached on every TeX
+% installation, near-zero font-generation cost. newtx (Times-like, nicer
+% maths) is available as an opt-in for a later, less time-constrained build —
+% define \notebookfullfonts before \usepackage{notebook} to switch to it.
+\ifPDFTeX
+  \RequirePackage[T1]{fontenc}
+  \RequirePackage[utf8]{inputenc}
+  \@ifundefined{notebookfullfonts}{%
+    \IfFileExists{lmodern.sty}{\RequirePackage{lmodern}}{}%
+  }{%
+    \IfFileExists{newtxtext.sty}{%
+      \RequirePackage{newtxtext}\RequirePackage{newtxmath}%
+    }{\RequirePackage{lmodern}}%
+  }
+  \newcommand{\displayfont}{\rmfamily}
+\else
+  \RequirePackage{fontspec}
+  \RequirePackage{unicode-math}
+  % Libertinus is a good default; swap for EB Garamond / Minion if available.
+  \setmainfont{Libertinus Serif}[Numbers=OldStyle]
+  \setsansfont{Libertinus Sans}
+  \setmathfont{Libertinus Math}
+  \newcommand{\displayfont}{\rmfamily}
+\fi
+
+% microtype protrusion only — cheap. Expansion is deliberately off; it is
+% the single biggest first-compile time cost with any non-CM font.
+\RequirePackage[expansion=false,protrusion=true]{microtype}
+\RequirePackage[english]{babel}
+\RequirePackage{csquotes}
+
+\RequirePackage{amsmath}
+\RequirePackage{bm}
+
+% == colour ==
+\RequirePackage[dvipsnames]{xcolor}
+
+\definecolor{ink}        {HTML}{1A1A1C}  % body text
+\definecolor{graphite}   {HTML}{55585E}  % secondary text, margin notes
+\definecolor{rule}       {HTML}{C9C6BE}  % hairlines
+\definecolor{paper}      {HTML}{FBFAF7}  % page tint (screen version)
+\definecolor{accent}     {HTML}{16506B}  % deep blue — structure, links
+\definecolor{accentsoft} {HTML}{E3EBEF}
+\definecolor{ochre}      {HTML}{9A6B1F}  % thread markers
+\definecolor{adopt}      {HTML}{2F6B4F}
+\definecolor{reject}     {HTML}{8C3A2E}
+\definecolor{hold}       {HTML}{A07414}
+\definecolor{diagnostic} {HTML}{2C5F8A}
+\definecolor{nullres}    {HTML}{6A6A6A}
+
+\color{ink}
+
+% == geometry ==
+% A more conventional report layout: comfortable text block, less dramatic
+% margin choreography, and more usable space on each page.
+\RequirePackage[
+  paperwidth=210mm, paperheight=297mm,
+  inner=18mm, outer=15mm,
+  top=14mm, bottom=16mm,
+  marginparwidth=18mm, marginparsep=3mm,
+  headsep=6mm, footskip=9mm
+]{geometry}
+
+\RequirePackage{marginnote}
+\renewcommand*{\marginfont}{\scriptsize\color{graphite}\raggedright}
+
+\linespread{0.96}
+\setlength{\parindent}{1.1em}
+\setlength{\parskip}{0.08em}
+\frenchspacing
+
+% == headings (KOMA) ==
+\RequirePackage{scrlayer-scrpage}
+% NB: scrextend is deliberately NOT loaded. It exists to add KOMA-Script
+% features to *non*-KOMA classes; main.tex already uses the KOMA class
+% scrbook, so scrextend self-aborts when loaded here — and that abort is
+% what breaks caption's version check downstream. Do not re-add it.
+
+% Part pages: single hairline, number set as a word.
+\renewcommand*{\partformat}{\normalfont\scshape\color{graphite}Part~\thepart}
+\addtokomafont{part}{\displayfont\fontsize{22}{26}\selectfont\color{ink}}
+
+% Chapter: calmer, more professional title treatment with room for text.
+\renewcommand*{\chapterformat}{%
+  \makebox[0pt][l]{\hspace{\dimexpr\textwidth+\marginparsep\relax}%
+    \raisebox{-0.28\height}{\displayfont\fontsize{42}{42}\selectfont
+      \color{rule}\thechapter}}}
+\addtokomafont{chapter}{\displayfont\fontsize{20}{24}\selectfont\color{ink}}
+\RedeclareSectionCommand[beforeskip=0.5\baselineskip,afterskip=0.7\baselineskip]{chapter}
+
+\addtokomafont{section}{\displayfont\fontsize{13}{16}\selectfont\color{accent}}
+\addtokomafont{subsection}{\displayfont\fontsize{11.5}{14}\selectfont\color{ink}}
+\renewcommand*{\sectionformat}{\color{rule}\thesection\hspace{0.65em}}
+\renewcommand*{\subsectionformat}{\color{graphite}\thesubsection\hspace{0.5em}}
+
+% Running heads: chapter title outer, nothing else. Quiet.
+\clearpairofpagestyles
+\automark[section]{chapter}
+\ohead*{\footnotesize\scshape\color{graphite}\headmark}
+\ofoot*{\footnotesize\color{graphite}\thepage}
+\setkomafont{pagehead}{\normalfont}
+\setkomafont{pagefoot}{\normalfont}
+\KOMAoptions{headsepline=false}
+
+% == structures ==
+\RequirePackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\RequirePackage{booktabs}
+\RequirePackage{longtable}
+\RequirePackage{array}
+\RequirePackage{enumitem}
+\setlist{noitemsep,topsep=0.4\baselineskip,leftmargin=1.4em}
+
+\RequirePackage{graphicx}
+\RequirePackage{caption}
+\captionsetup{font={footnotesize,color=graphite},labelfont={color=accent,sc},
+              labelsep=period,justification=RaggedRight,singlelinecheck=false}
+
+\RequirePackage[hidelinks]{hyperref}
+\hypersetup{
+  colorlinks=true, linkcolor=accent, citecolor=accent, urlcolor=accent,
+  linktoc=all, bookmarksnumbered=true, bookmarksopen=true,
+  pdfcreator={}, pdfproducer={}
+}
+\RequirePackage{bookmark}
+
+% ============================================================================
+%  LAYER 2 — the investigation unit
+%  Fixed six-field shape. Never varies. This is the navigational contract
+%  with the reader.
+% ============================================================================
+\newcommand{\inv@field}[2]{%
+  \par\vspace{0.35\baselineskip}%
+  \noindent{\footnotesize\scshape\color{accent}#1}\par\nopagebreak
+  \noindent #2\par}
+
+\newcommand{\invQuestion}[1]{\inv@field{Research question}{#1}}
+\newcommand{\invPrior}[1]{\inv@field{Rationale}{#1}}
+\newcommand{\invMethod}[1]{\inv@field{Method}{#1}}
+\newcommand{\invResult}[1]{\inv@field{Results}{#1}}
+\newcommand{\invVerdict}[2]{\inv@field{Conclusion}{#2}}
+\newcommand{\invConsequence}[1]{\inv@field{Implications}{#1}}
+
+\tcbset{
+  invstyle/.style={
+    enhanced, breakable,
+    colback=white, colframe=rule,
+    boxrule=0.4pt, arc=0pt, outer arc=0pt,
+    left=7pt, right=7pt, top=5pt, bottom=5pt,
+    fontupper=\small,
+    borderline west={2pt}{0pt}{accent},
+    toptitle=1pt, bottomtitle=1pt
+  }
+}
+
+% \begin{investigation}{E7}{Rest-edge regulariser}  ... \end{investigation}
+\NewDocumentEnvironment{investigation}{m m}{%
+  \begin{tcolorbox}[invstyle]
+  \noindent{\footnotesize\scshape\color{graphite}Investigation #1}\hfill\null\par
+  \vspace{0.15\baselineskip}
+  \noindent{\displayfont\large #2}\par
+  \vspace{0.2\baselineskip}\noindent\textcolor{rule}{\rule{\linewidth}{0.4pt}}%
+}{%
+  \end{tcolorbox}
+}
+
+% == verdict badges ==
+\newcommand{\verdict}[1]{%
+  \begingroup
+  \def\@vd@{#1}%
+  \def\@adopt{ADOPT}\def\@reject{REJECT}\def\@hold{HOLD}\def\@diag{DIAGNOSTIC}%
+  \ifx\@vd@\@adopt \colorlet{vdc}{adopt}\else
+  \ifx\@vd@\@reject\colorlet{vdc}{reject}\else
+  \ifx\@vd@\@hold  \colorlet{vdc}{hold}\else
+  \ifx\@vd@\@diag  \colorlet{vdc}{diagnostic}\else
+                   \colorlet{vdc}{nullres}\fi\fi\fi\fi
+  \setlength{\fboxsep}{2.2pt}%
+  \colorbox{vdc}{\textcolor{white}{\scriptsize\scshape\bfseries #1}}%
+  \endgroup}
+
+% ============================================================================
+%  THE FINDINGS LEDGER
+%  Declare a finding once; cite it anywhere with \F{F1}; the ledger table
+%  builds itself. This is the machinery that makes the threads visible.
+% ============================================================================
+\newcommand{\fnd@list}{}
+
+% \DeclareFinding{id}{statement}{evidence}{status}
+\newcommand{\DeclareFinding}[4]{%
+  \csdef{fnd@stmt@#1}{#2}%
+  \csdef{fnd@evid@#1}{#3}%
+  \csdef{fnd@stat@#1}{#4}%
+  \listgadd{\fnd@list}{#1}}
+
+% Cross-reference: small caps ID, hyperlinked back to the ledger row.
+\newcommand{\F}[1]{\protect\hyperlink{fnd:#1}{\textcolor{accent}{\textsc{#1}}}}
+
+% Margin marker: cross-references a finding to where it recurs. Plain and
+% factual, in the manner of a margin citation, not an annotation of intent.
+\newcommand{\findingmark}[1]{%
+  \marginnote{\footnotesize\color{graphite}#1}}
+
+\newcommand{\fnd@row}[1]{%
+  \hypertarget{fnd:#1}{}\textsc{#1} &
+  \csuse{fnd@stmt@#1} &
+  \csuse{fnd@evid@#1} &
+  \csuse{fnd@stat@#1} \\
+  \addlinespace[2pt]}
+
+\newcommand{\printfindingledger}{%
+  \begingroup\footnotesize
+  \setlength{\tabcolsep}{5pt}%
+  \begin{longtable}{@{}p{2.2em} p{0.40\linewidth} p{0.26\linewidth} p{0.15\linewidth}@{}}
+  \toprule
+  \textsc{id} & \textsc{finding} & \textsc{evidence} & \textsc{status}\\
+  \midrule
+  \endfirsthead
+  \toprule
+  \textsc{id} & \textsc{finding} & \textsc{evidence} & \textsc{status}\\
+  \midrule
+  \endhead
+  \forlistloop{\fnd@row}{\fnd@list}
+  \bottomrule
+  \end{longtable}
+  \endgroup}
+
+% == utilities ==
+% Fact that still needs verifying before submission. Prints visibly in draft.
+\newcommand{\needcheck}[1]{\textcolor{reject}{\small[check: #1]}}
+% Turn off for the final build with \renewcommand{\needcheck}[1]{}
+
+\newcommand{\term}[1]{\textsc{#1}}
+\newcommand{\code}[1]{{\ttfamily\small #1}}
+
+\endinput

@@ -1,0 +1,29 @@
+species with >=2 specimens: 191; of those, DETERMINED to species: 159
+drew 25 species x 2 = 50 specimens across 25 genera
+  Acanthostichus_brevicornis         Acanthostichus_brevicornis_CASENT0744297_processed.obj  |  Acanthostichus_brevicornis_CASENT0744298_processed.obj
+  Acromyrmex_echinatior              Acromyrmex_echinatior_CASENT0745011_processed.obj  |  Acromyrmex_echinatior_CASENT0745012_processed.obj
+  Acropyga_goeldii                   Acropyga_goeldii_CASENT0744198_processed.obj  |  Acropyga_goeldii_CASENT0744199_processed.obj
+  Adelomyrmex_samoanus               Adelomyrmex_samoanus_CASENT0745601_processed.obj  |  Adelomyrmex_samoanus_CASENT0745602_processed.obj
+  Aenictus_lifuiae                   Aenictus_lifuiae_OKENT0105003_processed.obj  |  Aenictus_lifuiae_OKENT0105004_processed.obj
+  Allomerus_octoarticulatus          Allomerus_octoarticulatus_CASENT0744405_processed.obj  |  Allomerus_octoarticulatus_CASENT0744406_processed.obj
+  Anochetus_risii                    Anochetus_risii_CASENT0877608_processed.obj  |  Anochetus_risii_CASENT0877609_processed.obj
+  Aphaenogaster_gonacantha           Aphaenogaster_gonacantha_CASENT0745599_processed.obj  |  Aphaenogaster_gonacantha_CASENT0745600_processed.obj
+  Apomyrma_stygia                    Apomyrma_stygia_CASENT0744661_processed.obj  |  Apomyrma_stygia_CASENT0744662_processed.obj
+  Atopomyrmex_mocquerysi             Atopomyrmex_mocquerysi_CASENT0744784_processed.obj  |  Atopomyrmex_mocquerysi_CASENT0744786_processed.obj
+  Blepharidatta_brasiliensis         Blepharidatta_brasiliensis_CASENT0744515_processed.obj  |  Blepharidatta_brasiliensis_CASENT0745135_processed.obj
+  Bothriomyrmex_corsicus             Bothriomyrmex_corsicus_CASENT0745215_processed.obj  |  Bothriomyrmex_corsicus_CASENT0745216_processed.obj
+  Calyptomyrmex_brunneus             Calyptomyrmex_brunneus_CASENT0745549_processed.obj  |  Calyptomyrmex_brunneus_CASENT0745550_processed.obj
+  Camponotus_lateralis               Camponotus_lateralis_CASENT0878124_processed.obj  |  Camponotus_lateralis_CASENT0878125_processed.obj
+  Carebara_atoma                     Carebara_atoma_CASENT0741393_processed.obj  |  Carebara_atoma_CASENT0741394_processed.obj
+  Cephalotes_pusillus                Cephalotes_pusillus_CASENT0744051_processed.obj  |  Cephalotes_pusillus_CASENT0744206_processed.obj
+  Cerapachys_sulcinodis              Cerapachys_sulcinodis_CASENT0877601_processed.obj  |  Cerapachys_sulcinodis_CASENT0877602_processed.obj
+  Cryptopone_sauteri                 Cryptopone_sauteri_CASENT0743771_processed.obj  |  Cryptopone_sauteri_OKENT0105281_processed.obj
+  Cylindromyrmex_striatus            Cylindromyrmex_striatus_CASENT0741379_processed.obj  |  Cylindromyrmex_striatus_CASENT0741380_processed.obj
+  Cyphoidris_afrc-tz01               Cyphoidris_afrc-tz01_CASENT0744810_processed.obj  |  Cyphoidris_afrc-tz01_CASENT0744811_processed.obj
+  Cyphomyrmex_major                  Cyphomyrmex_major_CASENT0745147_processed.obj  |  Cyphomyrmex_major_CASENT0745148_processed.obj
+  Dacatria_templaris                 Dacatria_templaris_CASENT0743774_processed.obj  |  Dacatria_templaris_CASENT0743775_processed.obj
+  Discothyrea_patrizii               Discothyrea_patrizii_CASENT0744990_processed.obj  |  Discothyrea_patrizii_CASENT0744991_processed.obj
+  Dolichoderus_quadripunctatus       Dolichoderus_quadripunctatus_CASENT0745213_processed.obj  |  Dolichoderus_quadripunctatus_CASENT0878128_processed.obj
+  Dorylus_helvolus                   Dorylus_helvolus_pretoriae_CASENT0744691_processed.obj  |  Dorylus_helvolus_pretoriae_CASENT0744694_processed.obj
+
+wrote /rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/noise_floor/paired50  (50 .obj + pairs.json)

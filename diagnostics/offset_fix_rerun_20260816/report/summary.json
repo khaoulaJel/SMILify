@@ -1,0 +1,41 @@
+{
+  "n_specimens": 13,
+  "n_flagged": 13,
+  "n_recon_approach_alpha_wrap": 13,
+  "n_recon_approach_manifold_plus_fallback": 0,
+  "n_recon_fidelity_gate_failed_at_generation_time": 0,
+  "chamfer_mean_median": 40.61130919835148,
+  "chamfer_mean_mad": 25.670708858865666,
+  "wilcoxon_tests": {
+    "vertices": {
+      "n": 13,
+      "median_diff_aw_minus_orig": 43791.0,
+      "wilcoxon_stat": 1.0,
+      "p_value": 0.00048828125
+    },
+    "thickness_p1_ratio (aw/orig)": {
+      "n": 13,
+      "median": 8.526622918370695,
+      "wilcoxon_stat": 8.0,
+      "p_value": 0.006103515625
+    },
+    "thickness_p5_ratio (aw/orig) - more robust to ray-hit noise, see docstring": {
+      "n": 13,
+      "median": 2.0482423589787015,
+      "wilcoxon_stat": 16.0,
+      "p_value": 0.039794921875
+    },
+    "thickness_p1_ratio (aw/orig), alpha_wrap-only subset": {
+      "n": 13,
+      "median": 8.526622918370695,
+      "wilcoxon_stat": 8.0,
+      "p_value": 0.006103515625
+    },
+    "thickness_p5_ratio (aw/orig), alpha_wrap-only subset": {
+      "n": 13,
+      "median": 2.0482423589787015,
+      "wilcoxon_stat": 16.0,
+      "p_value": 0.039794921875
+    }
+  }
+}

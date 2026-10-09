@@ -1,0 +1,110 @@
+{
+  "oracle": {
+    "pose only (global_rot, joint_rot)": {
+      "Acromyrmex_echinatior_CASENT0745011": 6.225526616301139,
+      "Aenictus_ceylonicus_CASENT0878084": 8.27680689719938,
+      "Aphaenogaster_gracillima_OKENT0105348": 7.324966244641774,
+      "Cataglyphis_iberica_CASENT0745158": 6.050830760922945,
+      "Cephalotes_atratus_CASENT0744612": 6.1084146800856605,
+      "Crematogaster_evallans_CASENT0744252": 8.771998468560744,
+      "Cyphomyrmex_major_CASENT0745147": 6.187179365492703,
+      "Discothyrea_patrizii_CASENT0744991": 5.541774831621804,
+      "Dolichoderus_cf.bidens_CASENT0744033": 5.493737973065174,
+      "Eciton_burchellii_CASENT0744558": 8.115556864800405,
+      "Formica_cf.fusca_CASENT0878139": 6.2767311072102485,
+      "Gigantiops_destructor_CASENT0745031": 4.9348019570993396,
+      "Leptogenys_peuqueti_CASENT0741327": 10.242827087383187,
+      "Odontomachus_bauri_CASENT0878072": 10.918074727854222
+    },
+    "+ betas (25-D shape space)": {
+      "Acromyrmex_echinatior_CASENT0745011": 3.6850240716604166,
+      "Aenictus_ceylonicus_CASENT0878084": 5.397957970941687,
+      "Aphaenogaster_gracillima_OKENT0105348": 3.6034449545953686,
+      "Cataglyphis_iberica_CASENT0745158": 2.1499047344966074,
+      "Cephalotes_atratus_CASENT0744612": 3.3654021360626825,
+      "Crematogaster_evallans_CASENT0744252": 6.018466802710446,
+      "Cyphomyrmex_major_CASENT0745147": 3.428475595789074,
+      "Discothyrea_patrizii_CASENT0744991": 3.7471531324443683,
+      "Dolichoderus_cf.bidens_CASENT0744033": 3.7928206804371802,
+      "Eciton_burchellii_CASENT0744558": 5.290763244744452,
+      "Formica_cf.fusca_CASENT0878139": 2.997550346603619,
+      "Gigantiops_destructor_CASENT0745031": 3.1828764620862002,
+      "Leptogenys_peuqueti_CASENT0741327": 5.42485907152848,
+      "Odontomachus_bauri_CASENT0878072": 5.999385799821991
+    },
+    "+ per-joint scale & translation": {
+      "Acromyrmex_echinatior_CASENT0745011": 0.07187100518376832,
+      "Aenictus_ceylonicus_CASENT0878084": 0.0034182018817798645,
+      "Aphaenogaster_gracillima_OKENT0105348": 0.130374784425451,
+      "Cataglyphis_iberica_CASENT0745158": 0.006694860947692881,
+      "Cephalotes_atratus_CASENT0744612": 0.00019010809710501167,
+      "Crematogaster_evallans_CASENT0744252": 0.02119913357374282,
+      "Cyphomyrmex_major_CASENT0745147": 0.19995677163234982,
+      "Discothyrea_patrizii_CASENT0744991": 0.07860403114512601,
+      "Dolichoderus_cf.bidens_CASENT0744033": 0.022364783831517333,
+      "Eciton_burchellii_CASENT0744558": 0.0002643650062862672,
+      "Formica_cf.fusca_CASENT0878139": 0.07676458224668076,
+      "Gigantiops_destructor_CASENT0745031": 0.028958450929374716,
+      "Leptogenys_peuqueti_CASENT0741327": 0.03423921241551265,
+      "Odontomachus_bauri_CASENT0878072": 0.10495397577619889
+    }
+  },
+  "baseline": {
+    "Acromyrmex_echinatior_CASENT0745011": {
+      "template": 35.569020173996044,
+      "production": 33.74008669372304
+    },
+    "Aenictus_ceylonicus_CASENT0878084": {
+      "template": 37.90078374737567,
+      "production": 29.360028650715105
+    },
+    "Aphaenogaster_gracillima_OKENT0105348": {
+      "template": 25.59489213902347,
+      "production": 20.86129481951919
+    },
+    "Cataglyphis_iberica_CASENT0745158": {
+      "template": 32.14898682329706,
+      "production": 13.015130875862585
+    },
+    "Cephalotes_atratus_CASENT0744612": {
+      "template": 33.8517826945562,
+      "production": 30.5371432920667
+    },
+    "Crematogaster_evallans_CASENT0744252": {
+      "template": 21.290083077848003,
+      "production": 27.028892630842844
+    },
+    "Cyphomyrmex_major_CASENT0745147": {
+      "template": 34.22952375695624,
+      "production": 25.036303785416774
+    },
+    "Discothyrea_patrizii_CASENT0744991": {
+      "template": 27.462005432503744,
+      "production": 26.480342286548282
+    },
+    "Dolichoderus_cf.bidens_CASENT0744033": {
+      "template": 28.110522336482703,
+      "production": 29.311293524732218
+    },
+    "Eciton_burchellii_CASENT0744558": {
+      "template": 40.64541474987408,
+      "production": 41.25387698759501
+    },
+    "Formica_cf.fusca_CASENT0878139": {
+      "template": 41.23138252265571,
+      "production": 44.4775900109071
+    },
+    "Gigantiops_destructor_CASENT0745031": {
+      "template": 36.636572748595746,
+      "production": 13.151676975959722
+    },
+    "Leptogenys_peuqueti_CASENT0741327": {
+      "template": 29.13649627450176,
+      "production": 27.110521270641303
+    },
+    "Odontomachus_bauri_CASENT0878072": {
+      "template": 47.286745992368516,
+      "production": 31.02765250861865
+    }
+  }
+}

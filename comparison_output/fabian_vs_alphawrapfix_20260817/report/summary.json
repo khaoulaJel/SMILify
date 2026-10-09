@@ -1,0 +1,53 @@
+{
+  "n_specimens": 50,
+  "n_flagged": 40,
+  "n_recon_approach_alpha_wrap": 37,
+  "n_recon_approach_manifold_plus_fallback": 13,
+  "n_recon_fidelity_gate_failed_at_generation_time": 8,
+  "chamfer_mean_median": 30.191569977197506,
+  "chamfer_mean_mad": 21.564086903788866,
+  "wilcoxon_tests": {
+    "vertices": {
+      "n": 50,
+      "median_diff_aw_minus_orig": 35459.0,
+      "wilcoxon_stat": 251.0,
+      "p_value": 0.00010867611974241242
+    },
+    "thickness_p1_ratio (aw/orig)": {
+      "n": 50,
+      "median": 1.414081953567667,
+      "wilcoxon_stat": 326.0,
+      "p_value": 0.0021981232450851707
+    },
+    "thickness_p5_ratio (aw/orig) - more robust to ray-hit noise, see docstring": {
+      "n": 50,
+      "median": 0.999999999699924,
+      "wilcoxon_stat": 547.0,
+      "p_value": 0.38817752503383396
+    },
+    "thickness_p1_ratio (aw/orig), alpha_wrap-only subset": {
+      "n": 37,
+      "median": 4.24820969380797,
+      "wilcoxon_stat": 66.0,
+      "p_value": 2.736429451033473e-06
+    },
+    "thickness_p1_ratio (aw/orig), manifold_plus-fallback-only subset": {
+      "n": 13,
+      "median": 0.0026624667907184374,
+      "wilcoxon_stat": 2.0,
+      "p_value": 0.000732421875
+    },
+    "thickness_p5_ratio (aw/orig), alpha_wrap-only subset": {
+      "n": 37,
+      "median": 1.505543552789739,
+      "wilcoxon_stat": 185.0,
+      "p_value": 0.011064192251069471
+    },
+    "thickness_p5_ratio (aw/orig), manifold_plus-fallback-only subset": {
+      "n": 13,
+      "median": 0.0006856593217450515,
+      "wilcoxon_stat": 0.0,
+      "p_value": 0.000244140625
+    }
+  }
+}

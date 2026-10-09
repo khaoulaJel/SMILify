@@ -1,0 +1,25 @@
+{
+  "specimen": "36_Ponera_kohmoku_OKENT0105440_processed",
+  "alpha": 2.63235,
+  "pre_gap": 0.7571714489734169,
+  "diag_length": 1032.7880630575928,
+  "old": {
+    "offset": 0.087745,
+    "relative_alpha": 392.344507021328,
+    "relative_offset": 11770.33521063984,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 553053,
+    "output_faces": 1106430
+  },
+  "new": {
+    "offset": 1.0529400000000002,
+    "relative_alpha": 392.344507021328,
+    "relative_offset": 980.8612675533199,
+    "gap_after": 3.425064463164711,
+    "verdict": "preserved",
+    "output_vertices": 123863,
+    "output_faces": 248018
+  },
+  "flipped": true
+}

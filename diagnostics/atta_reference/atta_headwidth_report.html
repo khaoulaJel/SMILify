@@ -1,0 +1,420 @@
+<title>Atta Head-Width Replication</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --bg:#eef1ec; --surface:#ffffff; --surface-2:#f4f6f2; --ink:#202822; --muted:#5c665a;
+  --line:#d6dccd; --accent:#0e6b5f; --accent-soft:#dbeee9;
+  --warn:#a15c1f; --warn-soft:#f3e6d8;
+  --series-ref:#2a78d6; --series-got:#eb6834;
+  --good:#1f7a3d;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+  --serif: "Source Serif 4", Georgia, serif;
+  --sans: "IBM Plex Sans", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:#15170f; --surface:#1c1f16; --surface-2:#20241a; --ink:#e7ebe1; --muted:#9aa48f;
+    --line:#333a2a; --accent:#4fc4b6; --accent-soft:#1c3430;
+    --warn:#e0a355; --warn-soft:#332a1c;
+    --series-ref:#3987e5; --series-got:#ff9a52;
+    --good:#5fcf82;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:#15170f; --surface:#1c1f16; --surface-2:#20241a; --ink:#e7ebe1; --muted:#9aa48f;
+  --line:#333a2a; --accent:#4fc4b6; --accent-soft:#1c3430;
+  --warn:#e0a355; --warn-soft:#332a1c;
+  --series-ref:#3987e5; --series-got:#ff9a52;
+  --good:#5fcf82;
+}
+* { box-sizing:border-box; }
+body { background:var(--bg); color:var(--ink); font-family:var(--sans); line-height:1.6; }
+.wrap { max-width:860px; margin:0 auto; padding:48px 28px 80px; }
+header { border-bottom:2px solid var(--accent); padding-bottom:22px; margin-bottom:32px; }
+.eyebrow { font-family:var(--mono); font-size:11px; letter-spacing:.13em; text-transform:uppercase; color:var(--accent); }
+h1 { font-family:var(--serif); font-weight:600; font-size:clamp(28px,4vw,40px); margin:6px 0 8px; text-wrap:balance; letter-spacing:-.01em; }
+.dek { color:var(--muted); max-width:64ch; margin:0 0 14px; font-size:15.5px; }
+.metarow { display:flex; gap:18px; flex-wrap:wrap; font-family:var(--mono); font-size:12px; color:var(--muted); }
+.metarow b { color:var(--ink); font-weight:500; }
+
+.verdict { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line);
+  border:1px solid var(--line); border-radius:4px; overflow:hidden; margin-bottom:40px; }
+.vcell { background:var(--surface); padding:18px 20px; display:flex; flex-direction:column; gap:4px; }
+.vcell .n { font-family:var(--serif); font-weight:600; font-size:28px; font-variant-numeric:tabular-nums; }
+.vcell .n.good { color:var(--good); }
+.vcell .lbl { font-size:12.5px; color:var(--muted); }
+
+section { margin-bottom:44px; }
+h2 { font-family:var(--serif); font-weight:600; font-size:21px; margin:0 0 4px; display:flex; align-items:baseline; gap:10px; }
+h2 .no { font-family:var(--mono); font-size:14px; color:var(--accent); font-weight:500; }
+.lede { color:var(--muted); font-size:14.5px; margin:0 0 18px; max-width:66ch; }
+
+.phase { border-left:2px solid var(--line); padding-left:18px; margin-bottom:22px; position:relative; }
+.phase::before { content:attr(data-n); position:absolute; left:-11px; top:0; width:20px; height:20px;
+  background:var(--accent); color:var(--surface); border-radius:50%; font-family:var(--mono); font-size:11px;
+  display:flex; align-items:center; justify-content:center; font-weight:600; }
+.phase h3 { font-size:15.5px; font-weight:600; margin:0 0 6px; }
+.phase p { margin:0 0 8px; font-size:14.5px; color:var(--ink); }
+.settings { background:var(--surface-2); border:1px solid var(--line); border-radius:4px; padding:12px 14px;
+  font-family:var(--mono); font-size:12.5px; line-height:1.8; overflow-x:auto; }
+.settings .off { color:var(--muted); }
+.settings .on { color:var(--good); font-weight:500; }
+code { font-family:var(--mono); font-size:.92em; background:var(--surface-2); padding:1px 5px; border-radius:3px; }
+
+.callout { border:1px solid var(--line); border-left:3px solid var(--warn); background:var(--warn-soft);
+  border-radius:0 4px 4px 0; padding:16px 18px; font-size:14.5px; }
+.callout p { margin:0 0 8px; }
+.callout p:last-child { margin-bottom:0; }
+.callout .tag { font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--warn); font-weight:600; }
+
+table { border-collapse:collapse; width:100%; font-size:13.5px; }
+th { font-family:var(--mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted);
+  text-align:left; border-bottom:1px solid var(--line); padding:0 10px 8px 0; font-weight:500; }
+td { padding:6px 10px 6px 0; border-bottom:1px solid var(--line); }
+.m { font-family:var(--mono); }
+.num { font-variant-numeric:tabular-nums; text-align:right; }
+.num.flag { color:var(--warn); font-weight:600; }
+.tablewrap { overflow-x:auto; }
+.statgrid { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line);
+  border:1px solid var(--line); border-radius:4px; overflow:hidden; margin-bottom:20px; }
+.statcell { background:var(--surface); padding:14px 16px; }
+.statcell .n { font-family:var(--serif); font-size:21px; font-weight:600; font-variant-numeric:tabular-nums; }
+.statcell .lbl { font-size:11.5px; color:var(--muted); margin-top:2px; }
+
+.chartbox { background:var(--surface); border:1px solid var(--line); border-radius:4px; padding:16px 12px 4px; }
+.chart { width:100%; height:auto; }
+.chart .grid { stroke:var(--line); stroke-width:1; }
+.chart .tick { fill:var(--muted); font-family:var(--mono); font-size:10.5px; }
+.chart .axislabel { fill:var(--muted); font-family:var(--mono); font-size:10.5px; letter-spacing:.03em; }
+.chart .fitline { stroke:var(--muted); stroke-width:1.5; stroke-dasharray:3 3; }
+.chart .pt-ref { fill:var(--series-ref); }
+.chart .pt-got { fill:var(--series-got); fill-opacity:.85; }
+.chart .flag-ring { fill:none; stroke:var(--warn); stroke-width:1.5; }
+.chart .direct-label { fill:var(--warn); font-family:var(--mono); font-size:10.5px; }
+.legend { display:flex; gap:20px; padding:10px 4px 14px; font-size:12.5px; color:var(--muted); flex-wrap:wrap; }
+.legend .sw { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:6px; vertical-align:middle; }
+.legend .l1 .sw { background:var(--series-ref); }
+.legend .l2 .sw { background:var(--series-got); }
+.legend .l3 .sw { display:inline-block; width:14px; height:0; border-top:1.5px dashed var(--muted); border-radius:0; margin-right:6px; }
+
+.findingnote { font-size:14px; color:var(--ink); background:var(--surface-2); border:1px solid var(--line);
+  border-radius:4px; padding:14px 16px; margin-top:14px; }
+.findingnote b { color:var(--accent); }
+
+.bugcard { border:1px solid var(--line); border-radius:4px; padding:16px 18px; margin-bottom:14px; background:var(--surface); }
+.bugcard h3 { font-size:14.5px; margin:0 0 8px; font-weight:600; }
+.bugcard p { font-size:13.5px; color:var(--ink); margin:0 0 6px; }
+.bugcard .status { font-family:var(--mono); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--warn); border:1px solid var(--warn); border-radius:3px; padding:2px 7px; display:inline-block; margin-bottom:8px; }
+
+.appendix table td, .appendix table th { font-size:12.5px; }
+footer { border-top:1px solid var(--line); padding-top:16px; font-size:12px; color:var(--muted); font-family:var(--mono); }
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">SMILify · Atta vollenweideri · methodology &amp; validation record</div>
+  <h1>Atta Head-Width Replication</h1>
+  <p class="dek">Replicating Fabian Plum's 2025 Atta body-length and head-width measurements with the
+  current SMIL model, on the 20 <code>ALL_ANTS_CLEAN</code> Atta vollenweideri scans (<code>01</code>–<code>20</code>).</p>
+  <div class="metarow">
+    <span><b>Model</b> OmniAnt_25PCs_joint_limited.pkl</span>
+    <span><b>Corpus</b> 20 specimens</span>
+    <span><b>Date</b> 2026-09-06</span>
+  </div>
+</header>
+
+<div class="verdict">
+  <div class="vcell"><span class="n good">1.05%</span><span class="lbl">median error, all 55 joint pairs (n=29,680)</span></div>
+  <div class="vcell"><span class="n good">96.0%</span><span class="lbl">of all pairs within 5% of reference</span></div>
+  <div class="vcell"><span class="n good">1.77%</span><span class="lbl">median error, head width specifically</span></div>
+</div>
+
+<section>
+  <h2><span class="no">01</span>Methodology</h2>
+  <p class="lede">Five phases, each reproducible from the paths in the appendix.</p>
+
+  <div class="phase" data-n="1">
+    <h3>Data acquisition &amp; indexing</h3>
+    <p>The 20 Atta scans were located in the shared Google Drive
+    (<code>UM6P_2026/DATA/mesh_registration/ALL_ANTS_CLEAN</code>), reachable directly from the
+    cluster via a pre-configured <code>rclone</code> remote — no local round-trip needed. Filenames
+    were already <code>01.obj</code>–<code>20.obj</code>, matching the reference CSVs' shape labels
+    exactly. Indexing was checked against the reference body lengths before fitting: correlation
+    between each mesh's bounding-box extent and its reference <code>b_t</code>–<code>b_a_5</code>
+    length, r&nbsp;=&nbsp;0.985.</p>
+  </div>
+
+  <div class="phase" data-n="2">
+    <h3>Fitting recipe — A/B decision</h3>
+    <p>Two candidate fitters were run head-to-head on the same 20 meshes, with the model file
+    pinned identical between them (sha256-verified) so the fitter was the only variable:</p>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>Arm</th><th>Fitter</th><th class="num">Ref-CSV agreement</th><th class="num">Chamfer to scans</th></tr></thead>
+      <tbody>
+        <tr><td><b>A — used</b></td><td class="m">origin/master, fitter_3d/optimise.py</td><td class="num">1.95% median</td><td class="num">0.3041%</td></tr>
+        <tr><td>B — not used</td><td class="m">hierarchical→moonshot, D1_PROD.yaml</td><td class="num">4.27% median</td><td class="num">0.3341%</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="margin-top:10px">Arm A won on both metrics and, unlike Arm B, needs no unmerged branch
+    to reproduce — it runs from <code>origin/master</code> as-is. Used exclusively from here on.</p>
+  </div>
+
+  <div class="phase" data-n="3">
+    <h3>Blender import</h3>
+    <p>SMIL Model Importer, with the fitted npz loaded and every processing toggle off:</p>
+    <div class="settings">pkl_filepath&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= OmniAnt_25PCs_joint_limited.pkl<br>
+npz_filepath&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= ATTA20_ARM_A.npz&nbsp;&nbsp;<span class="off"># Arm A fit, from Phase 2</span><br>
+shapekeys_from_PCA = <span class="off">False</span>&nbsp;&nbsp;<span class="off"># one shape key per specimen, not PCA axes</span><br>
+clean_mesh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span class="off">False</span><br>
+symmetrise&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= <span class="off">False</span><br>
+regress_joints&nbsp;&nbsp;&nbsp;&nbsp; = <span class="off">False</span></div>
+    <p style="margin-top:10px">Result: 20 distinct shape keys named <code>01.obj</code>–<code>20.obj</code>,
+    each the fitter's raw per-specimen output.</p>
+  </div>
+
+  <div class="phase" data-n="4">
+    <h3>Head-width reporter bones</h3>
+    <p>Two bones, <code>b_h_l</code> / <code>b_h_r</code>, added as children of <code>b_h</code>,
+    placed at the widest point of the head capsule on each side. Placed against the <b>Basis</b>
+    (template) shape specifically — the exporter's nearest-vertex search reads
+    <code>mesh.vertices</code>, which always holds Basis coordinates regardless of which shape key
+    is displayed, so Basis is the only frame worth aligning a landmark against. Added after fitting,
+    per Fabian's note that order doesn't matter — the bones are inert reporters, unrelated to pose
+    or deformation.</p>
+  </div>
+
+  <div class="phase" data-n="5">
+    <h3>Reference load &amp; export</h3>
+    <p><code>ant_body_lengths.csv</code> loaded in the Morphometry panel (confirmed:
+    <code>Joint Pair: b_t to b_a_5 [mm]</code>, <code>Number of Shapes: 20</code>), then
+    <b>Joint Distances</b> exported with the mesh selected.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="no">02</span>One deviation from spec</h2>
+  <div class="callout">
+    <span class="tag">Stated plainly</span>
+    <p>Fabian's instruction: add the vertices to each bone's vertex group <i>"e.g. via weight
+    painting."</i> This replication used the importer's default <code>inverse_distance</code>
+    method instead — each bone automatically claims its 10 nearest vertices, weighted by distance —
+    rather than painting weights by hand.</p>
+    <p>This is a substitution of method, not a corner cut: the tool supports both, and Fabian's own
+    phrasing ("e.g.") frames weight painting as one example, not the only route. The validation in
+    §3 is the justification — if the automatic method had grabbed the wrong vertices, it would show
+    up as elevated head-width error relative to the rest of the skeleton, and it doesn't in a way
+    that changes the verdict (see the allometry check below).</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="no">03</span>Results</h2>
+
+  <h3 style="font-size:14.5px;margin:0 0 10px;font-weight:600;">Whole-skeleton agreement</h3>
+  <div class="statgrid">
+    <div class="statcell"><div class="n">29,680</div><div class="lbl">joint-pair measurements compared</div></div>
+    <div class="statcell"><div class="n">1.05%</div><div class="lbl">median absolute error</div></div>
+    <div class="statcell"><div class="n">1.59%</div><div class="lbl">mean absolute error</div></div>
+    <div class="statcell"><div class="n">96.0%</div><div class="lbl">of pairs within 5%</div></div>
+  </div>
+  <p class="lede" style="margin-top:-8px;">The tail above 5% is concentrated in leg-tip and coxa
+  joints (e.g. <code>l_3_pt–l_3_ta</code>, <code>l_2_co–l_2_tr</code>) — the known-noisiest
+  region on this project, not a new or unexplained defect.</p>
+
+  <h3 style="font-size:14.5px;margin:24px 0 10px;font-weight:600;">Head width, per specimen</h3>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>Shape</th><th class="num">Body length (mm)</th><th class="num">Ref HW (mm)</th>
+    <th class="num">Replicated HW (mm)</th><th class="num">Error</th><th class="num">Residual from allometric line</th></tr></thead>
+    <tbody>
+<tr><td class="m">01</td><td class="num">2.71</td><td class="num">1.130</td><td class="num">1.120</td><td class="num">-0.89%</td><td class="num">+0.0159</td></tr>
+<tr><td class="m">02</td><td class="num">2.90</td><td class="num">1.060</td><td class="num">1.098</td><td class="num flag">+3.57%</td><td class="num">-0.0285</td></tr>
+<tr><td class="m">03</td><td class="num">2.95</td><td class="num">1.130</td><td class="num">1.185</td><td class="num flag">+4.85%</td><td class="num">-0.0042</td></tr>
+<tr><td class="m">04</td><td class="num">3.04</td><td class="num">1.330</td><td class="num">1.381</td><td class="num flag">+3.86%</td><td class="num">+0.0454</td></tr>
+<tr><td class="m">05</td><td class="num">3.33</td><td class="num">1.340</td><td class="num">1.345</td><td class="num">+0.36%</td><td class="num">-0.0144</td></tr>
+<tr><td class="m">06</td><td class="num">3.44</td><td class="num">1.420</td><td class="num">1.486</td><td class="num flag">+4.66%</td><td class="num">+0.0111</td></tr>
+<tr><td class="m">07</td><td class="num">3.61</td><td class="num">1.570</td><td class="num">1.584</td><td class="num">+0.92%</td><td class="num">+0.0133</td></tr>
+<tr><td class="m">08</td><td class="num">3.87</td><td class="num">1.690</td><td class="num">1.728</td><td class="num">+2.27%</td><td class="num">+0.0133</td></tr>
+<tr><td class="m">09</td><td class="num">4.23</td><td class="num">1.930</td><td class="num">1.953</td><td class="num">+1.21%</td><td class="num">+0.0191</td></tr>
+<tr><td class="m">10</td><td class="num">4.51</td><td class="num">2.310</td><td class="num">2.273</td><td class="num">-1.59%</td><td class="num">+0.0504</td></tr>
+<tr><td class="m">11</td><td class="num">4.96</td><td class="num">2.180</td><td class="num">2.109</td><td class="num">-3.26%</td><td class="num">-0.0333</td></tr>
+<tr><td class="m">12</td><td class="num">5.47</td><td class="num">2.500</td><td class="num">2.471</td><td class="num">-1.15%</td><td class="num">-0.0166</td></tr>
+<tr><td class="m">13</td><td class="num">5.52</td><td class="num">2.570</td><td class="num">2.578</td><td class="num">+0.33%</td><td class="num">-0.0034</td></tr>
+<tr><td class="m">14</td><td class="num">5.84</td><td class="num">2.880</td><td class="num">2.793</td><td class="num">-3.01%</td><td class="num">+0.0010</td></tr>
+<tr><td class="m">15</td><td class="num">6.81</td><td class="num">3.200</td><td class="num">3.135</td><td class="num">-2.02%</td><td class="num">-0.0308</td></tr>
+<tr><td class="m">16</td><td class="num">7.01</td><td class="num">3.460</td><td class="num">3.460</td><td class="num">-0.00%</td><td class="num">-0.0038</td></tr>
+<tr><td class="m">17</td><td class="num">7.26</td><td class="num">3.860</td><td class="num">3.785</td><td class="num">-1.93%</td><td class="num">+0.0166</td></tr>
+<tr><td class="m">18</td><td class="num">7.96</td><td class="num">4.240</td><td class="num">4.172</td><td class="num">-1.62%</td><td class="num">+0.0095</td></tr>
+<tr><td class="m">19</td><td class="num">8.32</td><td class="num">4.010</td><td class="num">4.024</td><td class="num">+0.35%</td><td class="num">-0.0299</td></tr>
+<tr><td class="m">20</td><td class="num">8.59</td><td class="num">4.450</td><td class="num">4.268</td><td class="num flag">-4.08%</td><td class="num">-0.0215</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 style="font-size:14.5px;margin:24px 0 4px;font-weight:600;">Is the error noise, or a real problem? — allometry check</h3>
+  <p class="lede">Fitting Fabian's own 20 reference points to a log-log allometric line and checking
+  whether the replicated points scatter around it any more than his own data does.</p>
+  <div class="chartbox">
+
+<svg viewBox="0 0 640 420" class="chart" role="img" aria-label="Head width versus body length, log-log, reference and replicated measurements with fitted allometric line">
+  <text x="338.0" y="414" class="axislabel" text-anchor="middle">body length, b_t–b_a_5 (mm, log scale)</text>
+  <text x="16" y="198.0" class="axislabel" text-anchor="middle" transform="rotate(-90 16 198.0)">head width (mm, log scale)</text>
+  <line x1="131.0" y1="20" x2="131.0" y2="376" class="grid"/>
+<text x="131.0" y="394" class="tick" text-anchor="middle">3</text>
+<line x1="252.5" y1="20" x2="252.5" y2="376" class="grid"/>
+<text x="252.5" y="394" class="tick" text-anchor="middle">4</text>
+<line x1="346.7" y1="20" x2="346.7" y2="376" class="grid"/>
+<text x="346.7" y="394" class="tick" text-anchor="middle">5</text>
+<line x1="423.7" y1="20" x2="423.7" y2="376" class="grid"/>
+<text x="423.7" y="394" class="tick" text-anchor="middle">6</text>
+<line x1="545.2" y1="20" x2="545.2" y2="376" class="grid"/>
+<text x="545.2" y="394" class="tick" text-anchor="middle">8</text>
+  <line x1="56" y1="365.8" x2="620" y2="365.8" class="grid"/>
+<text x="46" y="369.8" class="tick" text-anchor="end">1</text>
+<line x1="56" y1="276.3" x2="620" y2="276.3" class="grid"/>
+<text x="46" y="280.3" class="tick" text-anchor="end">1.5</text>
+<line x1="56" y1="212.7" x2="620" y2="212.7" class="grid"/>
+<text x="46" y="216.7" class="tick" text-anchor="end">2</text>
+<line x1="56" y1="123.2" x2="620" y2="123.2" class="grid"/>
+<text x="46" y="127.2" class="tick" text-anchor="end">3</text>
+<line x1="56" y1="59.6" x2="620" y2="59.6" class="grid"/>
+<text x="46" y="63.6" class="tick" text-anchor="end">4</text>
+  <line x1="56.0" y1="369.7" x2="620.0" y2="5.6" class="fitline"/>
+  <circle cx="88.1" cy="338.8" r="4" class="pt-ref"><title>01: BL=2.71mm, HW=1.130mm</title></circle>
+<circle cx="116.3" cy="353.0" r="4" class="pt-ref"><title>02: BL=2.90mm, HW=1.060mm</title></circle>
+<circle cx="123.3" cy="338.8" r="4" class="pt-ref"><title>03: BL=2.95mm, HW=1.130mm</title></circle>
+<circle cx="136.7" cy="302.8" r="4" class="pt-ref"><title>04: BL=3.04mm, HW=1.330mm</title></circle>
+<circle cx="174.6" cy="301.2" r="4" class="pt-ref"><title>05: BL=3.33mm, HW=1.340mm</title></circle>
+<circle cx="188.7" cy="288.4" r="4" class="pt-ref"><title>06: BL=3.44mm, HW=1.420mm</title></circle>
+<circle cx="209.0" cy="266.2" r="4" class="pt-ref"><title>07: BL=3.61mm, HW=1.570mm</title></circle>
+<circle cx="238.7" cy="249.9" r="4" class="pt-ref"><title>08: BL=3.87mm, HW=1.690mm</title></circle>
+<circle cx="276.0" cy="220.6" r="4" class="pt-ref"><title>09: BL=4.23mm, HW=1.930mm</title></circle>
+<circle cx="303.2" cy="180.9" r="4" class="pt-ref"><title>10: BL=4.51mm, HW=2.310mm</title></circle>
+<circle cx="343.5" cy="193.7" r="4" class="pt-ref"><title>11: BL=4.96mm, HW=2.180mm</title></circle>
+<circle cx="384.6" cy="163.4" r="4" class="pt-ref"><title>12: BL=5.47mm, HW=2.500mm</title></circle>
+<circle cx="388.7" cy="157.3" r="4" class="pt-ref"><title>13: BL=5.52mm, HW=2.570mm</title></circle>
+<circle cx="412.7" cy="132.2" r="4" class="pt-ref"><title>14: BL=5.84mm, HW=2.880mm</title></circle>
+<circle cx="477.2" cy="108.9" r="4" class="pt-ref"><title>15: BL=6.81mm, HW=3.200mm</title></circle>
+<circle cx="489.7" cy="91.7" r="4" class="pt-ref"><title>16: BL=7.01mm, HW=3.460mm</title></circle>
+<circle cx="504.4" cy="67.5" r="4" class="pt-ref"><title>17: BL=7.26mm, HW=3.860mm</title></circle>
+<circle cx="543.2" cy="46.8" r="4" class="pt-ref"><title>18: BL=7.96mm, HW=4.240mm</title></circle>
+<circle cx="561.9" cy="59.1" r="4" class="pt-ref"><title>19: BL=8.32mm, HW=4.010mm</title></circle>
+<circle cx="575.5" cy="36.1" r="4" class="pt-ref"><title>20: BL=8.59mm, HW=4.450mm</title></circle>
+  <circle cx="88.1" cy="340.8" r="4" class="pt-got"><title>01: BL=2.71mm, HW=1.120mm</title></circle>
+<circle cx="116.3" cy="345.2" r="4" class="pt-got"><title>02: BL=2.90mm, HW=1.098mm</title></circle>
+<circle cx="123.3" cy="328.4" r="4" class="pt-got"><title>03: BL=2.95mm, HW=1.185mm</title></circle>
+<circle cx="136.7" cy="294.5" r="4" class="pt-got"><title>04: BL=3.04mm, HW=1.381mm</title></circle>
+<circle cx="174.6" cy="300.4" r="4" class="pt-got"><title>05: BL=3.33mm, HW=1.345mm</title></circle>
+<circle cx="188.7" cy="278.3" r="4" class="pt-got"><title>06: BL=3.44mm, HW=1.486mm</title></circle>
+<circle cx="209.0" cy="264.2" r="4" class="pt-got"><title>07: BL=3.61mm, HW=1.584mm</title></circle>
+<circle cx="238.7" cy="245.0" r="4" class="pt-got"><title>08: BL=3.87mm, HW=1.728mm</title></circle>
+<circle cx="276.0" cy="218.0" r="4" class="pt-got"><title>09: BL=4.23mm, HW=1.953mm</title></circle>
+<circle cx="303.2" cy="184.4" r="4" class="pt-got"><title>10: BL=4.51mm, HW=2.273mm</title></circle>
+<circle cx="343.5" cy="201.0" r="4" class="pt-got"><title>11: BL=4.96mm, HW=2.109mm</title></circle>
+<circle cx="384.6" cy="166.0" r="4" class="pt-got"><title>12: BL=5.47mm, HW=2.471mm</title></circle>
+<circle cx="388.7" cy="156.6" r="4" class="pt-got"><title>13: BL=5.52mm, HW=2.578mm</title></circle>
+<circle cx="412.7" cy="139.0" r="4" class="pt-got"><title>14: BL=5.84mm, HW=2.793mm</title></circle>
+<circle cx="477.2" cy="113.4" r="4" class="pt-got"><title>15: BL=6.81mm, HW=3.135mm</title></circle>
+<circle cx="489.7" cy="91.7" r="4" class="pt-got"><title>16: BL=7.01mm, HW=3.460mm</title></circle>
+<circle cx="504.4" cy="71.8" r="4" class="pt-got"><title>17: BL=7.26mm, HW=3.785mm</title></circle>
+<circle cx="543.2" cy="50.4" r="4" class="pt-got"><title>18: BL=7.96mm, HW=4.172mm</title></circle>
+<circle cx="561.9" cy="58.3" r="4" class="pt-got"><title>19: BL=8.32mm, HW=4.024mm</title></circle>
+<circle cx="575.5" cy="45.3" r="4" class="pt-got"><title>20: BL=8.59mm, HW=4.268mm</title></circle>
+  <circle cx="303.2" cy="180.9" r="8" class="flag-ring"/>
+  <text x="314.2" y="174.9" class="direct-label">10 (flagged)</text>
+</svg>
+
+    <div class="legend">
+      <span class="l1"><span class="sw"></span>Fabian's reference</span>
+      <span class="l2"><span class="sw"></span>Replicated (this work)</span>
+      <span class="l3"><span class="sw"></span>allometric fit (on reference)</span>
+    </div>
+  </div>
+  <div class="findingnote">
+    <b>std(residual), Fabian's own data): 0.0232</b> log₁₀-units &nbsp;·&nbsp;
+    <b>std(residual), replicated data: 0.0232</b> log₁₀-units — identical. The four specimens with
+    the largest raw % error against the old CSV (<code>03</code>, <code>04</code>, <code>06</code>,
+    <code>20</code>) are <i>not</i> the ones sitting off the line — <code>03</code>'s residual is
+    −0.004, essentially on it. Only <code>10</code> crosses a 2σ flag, and it was already the
+    largest outlier in Fabian's <i>own</i> reference at that residual (0.057 vs. the replicated
+    0.050 — the new point sits closer to the line than his does). <b>Verdict: the deviations from
+    the old numbers are ordinary specimen-to-specimen scatter, not a systematic placement error —
+    good enough for a scaling-law claim.</b>
+  </div>
+
+  <h3 style="font-size:14.5px;margin:24px 0 4px;font-weight:600;">Where <code>inverse_distance</code> actually landed</h3>
+  <p class="lede">No Blender access from the cluster to inspect this visually, so the bones' exact
+  3D position was reconstructed instead — by trilateration from the pairwise distances already in
+  the export, against the pkl's known joint positions (well-conditioned; fit residual ≈0.013 model
+  units).</p>
+  <div class="findingnote">
+    Both <code>b_h_l</code> and <code>b_h_r</code> sit closer to the mandible base
+    (<code>ma_l</code>/<code>ma_r</code>, ≈0.14 model units) than to the head-center pivot
+    (<code>b_h</code>, ≈0.20) or the antenna base (≈0.18–0.27). Wilson (1980)'s head-width
+    convention is nominally taken at eye level in full-face view — there's no eye landmark in this
+    rig to check directly, so this can't be confirmed as an error, only noted: the grabbed point
+    sits toward the mandibular/genal region rather than mid-head. Given the allometry check above
+    shows the numbers land on the established scaling law, this reads as a one-line caveat for
+    Fabian, not a fix to make.
+  </div>
+</section>
+
+<section>
+  <h2><span class="no">04</span>Bugs found along the way</h2>
+  <p class="lede">Two defects in the existing addon, independent of this replication's result.
+  Reported to Fabian separately, ahead of this document.</p>
+
+  <div class="bugcard">
+    <span class="status">Blocks export</span>
+    <h3>Inverted <code>static_joint_locs</code> guard</h3>
+    <p><code>export_joint_distances</code> in <code>SMIL_processing_addon.py</code> raises
+    <code>UnboundLocalError: J_regressor</code> on <code>origin/master</code> for any model without
+    a <code>static_joint_locs</code> key (including <code>OmniAnt_25PCs_joint_limited.pkl</code>) —
+    the regressor is built only when the flag is <i>true</i>, but read only when it's <i>false</i>.</p>
+    <p>Traced to commit <code>6cde0d34</code> (2025-11-24), which added the same guard in six
+    places — five correct, this one inverted. Fabian's reference CSVs predate that commit
+    (2025-03-04), which is why his export worked and a fresh one couldn't.</p>
+  </div>
+
+  <div class="bugcard">
+    <span class="status">Wrong numbers, not a crash</span>
+    <h3>Constant scaling factor in <code>SMPL_Object_measurements.csv</code></h3>
+    <p>Every one of the 20 Atta scaling factors in that file implies the same
+    <code>b_t</code>–<code>b_a_5</code> distance (0.845) across all 20 specimens, while
+    <code>SMPL_Object_joint_distances.csv</code> correctly varies it (0.590–0.920).
+    <code>export_mesh_measurements</code> reads <code>obj.data.vertices</code> after setting a
+    shape key's value, but shape keys only move the depsgraph-evaluated mesh — so it silently reads
+    Basis every time. Surface-area/volume figures in that file are off by 8–43% depending on
+    specimen.</p>
+    <p style="color:var(--muted); font-size:12.5px;">Does not affect this document: every number
+    above was checked against <code>SMPL_Object_joint_distances.csv</code>, which is unaffected —
+    confirmed directly, not assumed.</p>
+  </div>
+</section>
+
+<section class="appendix">
+  <h2><span class="no">05</span>Reproducibility appendix</h2>
+  <div class="tablewrap">
+  <table>
+    <tbody>
+      <tr><td>Model</td><td class="m">3D_model_prep/OmniAnt_25PCs_joint_limited.pkl</td></tr>
+      <tr><td>Source meshes</td><td class="m">/hpcwork/nao48500/atta20/{01..20}.obj</td></tr>
+      <tr><td>Fit (Arm A, used)</td><td class="m">diagnostics/atta_reference/runs/ARM_A_master/Stage_3_deform_fine.npz</td></tr>
+      <tr><td>Fit config</td><td class="m">origin/master fitter_3d/ants_cfg.yaml (results_dir only override)</td></tr>
+      <tr><td>Fit worktree</td><td class="m">/hpcwork/nao48500/atta20_master (origin/master @ b5bf9565)</td></tr>
+      <tr><td>Fit (Arm B, not used)</td><td class="m">diagnostics/moonshot/runs/ATTA20/Stage_3_deform_fine.npz</td></tr>
+      <tr><td>Reference CSVs</td><td class="m">diagnostics/atta_reference/measurements/</td></tr>
+      <tr><td>Blender export</td><td class="m">diagnostics/atta_reference/blender_export/OmniAnt_25PCs_joint_limited_joint_distances.csv</td></tr>
+      <tr><td>Blend file</td><td class="m">diagnostics/atta_reference/blender_export/bone_placement.blend</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<footer>SMILify · diagnostics/atta_reference/ · generated 2026-09-06</footer>
+</div>

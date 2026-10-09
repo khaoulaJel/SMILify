@@ -1,0 +1,103 @@
+% !TEX program = xelatex
+% !TEX encoding = UTF-8
+%% ===========================================================================
+%%  Mesh Registration from Scan-Derived 3D Data
+%%  Internship report -- Forschungszentrum Juelich (IAS-7), July-Sept. 2026
+%%  Khaoula Jellal
+%%
+%%  Build (XeLaTeX, Calibri 12 pt; falls back to the metric-identical Carlito):
+%%     xelatex main && bibtex main && xelatex main && xelatex main
+%% ===========================================================================
+\documentclass[12pt,a4paper,toc=listof,toc=bibliography]{scrartcl}
+
+\usepackage{style/report}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit}
+\usepackage{pgfplots}\pgfplotsset{compat=1.16}
+
+\usepackage[numbers,sort&compress]{natbib}
+\bibliographystyle{unsrtnat}
+\setlength{\bibsep}{2pt}
+
+\hypersetup{
+  pdftitle={Mesh Registration from Scan-Derived 3D Data: Correspondence and Optimization in Articulated Parametric Models},
+  pdfauthor={Khaoula Jellal}
+}
+
+% ===========================================================================
+%  FINDINGS LEDGER: each load-bearing result is declared once and cited
+%  anywhere as \F{F1}; Table~\ref{tab:findings} builds itself.
+% ===========================================================================
+\DeclareFinding{F1}
+  {Surface agreement is not anatomical correctness: the strategy with the best
+   surface was among the worst skeletons, and no strategy improved both.}
+  {Without offset/normal penalties: $0.45\times$ Chamfer, joint-level ratio
+   $1.25$ (8 of 11 worse); resolved by the joint-level model.}
+  {Validated at joint level}
+\DeclareFinding{F2}
+  {Cleaner input does not give a better registration: the apparent gain
+   depends on which target is used for scoring.}
+  {50 specimens, double scoring: gain against cleaned target, loss against
+   raw target; target-independent metrics slightly worse.}
+  {Validated}
+\DeclareFinding{F3}
+  {Regional identity and within-region localisation are distinct problems.}
+  {Synthetic oracles ($n=12$): partial gain, driven by few specimens; large
+   residual within correct structures.}
+  {Validated (synthetic)}
+\DeclareFinding{F4}
+  {Initialisation sensitivity is anatomically heterogeneous: it helps the
+   distal chain but not where attachment is set by shape.}
+  {Ground-truth start ($n=48$): distal error falls up to twelvefold; coxa
+   unchanged ($p=0.47$).}
+  {Validated (synthetic)}
+\DeclareFinding{F5}
+  {Thin distal structures are under-supported by the sampling scheme,
+   independently of pose.}
+  {Vertices per leg segment: $200$--$275$ proximal, $38$ tarsus, $8$
+   pretarsus.}
+  {Validated (model audit)}
+\DeclareFinding{F6}
+  {The objective has no term observing joint location; supervision acts
+   locally and does not propagate.}
+  {11 expert specimens, 396 fits: $25.1\%$ of Weber's length; expert targets
+   $26.9\to17.4\%$; held-out regions unchanged.}
+  {Validated, pre-registered}
+\DeclareFinding{F7}
+  {Ground truth is part of the measurement system: a reference frame fitted to
+   the fit under test hid the true error.}
+  {Frame correction alone: $42.7\%\to25.1\%$ of Weber's length; four mirrored
+   scenes and one wrong mesh found.}
+  {Validated}
+\DeclareFinding{F8}
+  {Registration error is structured by joint and specimen, not by optimiser
+   seed.}
+  {Log-scale variance: joint $0.36$, specimen $0.17$, seed $0.02$.}
+  {Validated}
+
+\begin{document}
+
+\input{chapters/00_cover}
+
+\clearpage
+\input{chapters/00b_abstract}
+
+\clearpage
+\tableofcontents
+\clearpage
+\listoffigures
+\vspace{1.5em}
+\listoftables
+\clearpage
+
+\input{chapters/01_introduction}
+\input{chapters/02_host_organisation}
+\input{chapters/03_work}
+\input{chapters/04_conclusion}
+
+\bibliography{bib/references}
+
+\clearpage
+\input{chapters/05_back_cover}
+
+\end{document}

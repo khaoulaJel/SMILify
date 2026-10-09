@@ -1,0 +1,17 @@
+\begin{figure}[!htb]
+\centering
+\begin{tikzpicture}[every node/.style={font=\scriptsize},
+ box/.style={draw,rounded corners=2pt,minimum height=8mm,align=center,fill=white},
+ arr/.style={-{Stealth[length=1.6mm]}}]
+\node[box] (a) {point cloud\\$N\times3$};
+\node[box,right=6mm of a] (b) {shared MLP\\per point};
+\node[box,right=6mm of b] (c) {symmetric\\max-pool};
+\node[box,right=6mm of c] (d) {global\\descriptor};
+\node[box,right=6mm of d] (e) {regression head\\$\hat{\bm\theta}$};
+\node[box,right=6mm of e] (f) {SMILify\\optimiser};
+\foreach \x/\y in {a/b,b/c,c/d,d/e,e/f}{\draw[arr] (\x)--(\y);}
+\end{tikzpicture}
+\caption{Learned initialiser. Max-pooling makes the descriptor invariant to
+point ordering, which a raw scan does not have.}
+\label{fig:pointnet}
+\end{figure}

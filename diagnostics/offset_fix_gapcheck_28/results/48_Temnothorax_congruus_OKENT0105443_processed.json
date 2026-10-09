@@ -1,0 +1,25 @@
+{
+  "specimen": "48_Temnothorax_congruus_OKENT0105443_processed",
+  "alpha": 1.81246,
+  "pre_gap": 0.24166132516704664,
+  "diag_length": 702.9030918987858,
+  "old": {
+    "offset": 0.06041533333333333,
+    "relative_alpha": 387.8171611504727,
+    "relative_offset": 11634.514834514182,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 561713,
+    "output_faces": 1124314
+  },
+  "new": {
+    "offset": 0.7249840000000001,
+    "relative_alpha": 387.8171611504727,
+    "relative_offset": 969.5429028761816,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 134109,
+    "output_faces": 268910
+  },
+  "flipped": false
+}

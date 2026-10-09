@@ -1,0 +1,22 @@
+\section{Technical stack}
+
+\begin{center}
+\begin{tabular}{@{}p{0.30\linewidth}p{0.62\linewidth}@{}}
+\toprule
+\textbf{Component} & \textbf{Role} \\
+\midrule
+PyTorch / PyTorch3D~\cite{pytorch3d} & Differentiable mesh geometry,
+  rendering, and autograd-based optimisation of $(\bm\beta,\bm\theta,s,\mathbf d)$ \\
+PointNet~\cite{pointnet} & Point-cloud encoder for learned pose/shape
+  initialisation, replacing a fixed canonical start \\
+Shape Diameter Function~\cite{sdf} & Local-thickness descriptor evaluated as
+  a candidate part-aware segmentation and correspondence signal \\
+As-rigid-as-possible energy~\cite{arap} & Reference formulation for the
+  edge/Laplacian deformation-cost terms used to bound free vertex deformation \\
+Synthetic round-trip harness & Purpose-built during the internship: samples
+  the model's own distribution, exports an anonymous mesh with known
+  per-vertex identity, and re-fits it, giving exact correspondence ground
+  truth with no manual annotation cost \\
+\bottomrule
+\end{tabular}
+\end{center}

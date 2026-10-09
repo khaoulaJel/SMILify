@@ -1,0 +1,116 @@
+\section{From geometric to learned correspondence}
+\label{sec:learned-correspondence}
+
+Every correspondence mechanism considered so far in this report is
+geometric: a vertex is matched to whichever target point is nearest to it,
+possibly after the chain-aware and shape-diameter refinements of the previous
+sections. A separate line of work asked whether a \emph{learned}
+descriptor, a small network trained to produce a feature vector per
+point such that corresponding anatomical locations produce similar vectors
+could do better, and pursued that question through four increasingly
+demanding tests.
+
+The first attempt, a handcrafted baseline rather than a learned one,
+normalised each point's coordinates within its own anatomical part (by that
+part's local length and radius) before matching, on the hypothesis that
+canonicalising away each part's specific proportions would make
+correspondence easier to learn. It performed \emph{worse} than raw
+coordinates: normalising away a part's specific geometry destroys
+information that, it turns out, itself carries correspondence signal. The
+first genuinely learned descriptor, trained with an off-the-shelf objective,
+then failed when deployed, for a mundane but instructive reason: a mismatch
+between the density of points it was trained on and the density it was
+evaluated and deployed on, not a failure of the learning approach itself.
+This motivated a redesigned, within-part training objective, tested next.
+
+Two tasks must be kept apart. \emph{Pairwise retrieval} matches each query
+point to its nearest neighbour in descriptor space,
+$q_i\mapsto\arg\min_j\|f(q_i)-f(t_j)\|$. \emph{Dense correspondence} needs a
+whole assignment $\{q_i\}_{i=1}^N\mapsto\{t_{\pi(i)}\}_{i=1}^N$ that is
+globally consistent and covers the surface. Good retrieval does not
+guarantee a consistent assignment.
+
+\begin{algbox}{3: Learned-correspondence evaluation}
+\begin{enumerate}[nosep,leftmargin=1.4em]
+\item Compute descriptors $f$ for template and target points.
+\item Retrieve candidates by nearest neighbour in descriptor space.
+\item Score pairwise accuracy at a joint (retrieval).
+\item Deploy the votes as a dense field over the whole mesh; measure coverage
+and error against the geometric baseline across all specimens.
+\end{enumerate}
+\end{algbox}
+
+\begin{investigation}{I14}{Can a descriptor trained specifically within one
+anatomical part outperform raw local geometry at correspondence within that
+part?}
+\invQuestion{Trained and evaluated with an identical backbone and warm-start
+procedure to the earlier attempt, does a within-part learned descriptor
+improve correspondence accuracy at a specific, hard joint?}
+\invMethod{Held-out coxa correspondence error, within-part learned
+descriptor vs.\ the earlier learned baseline, same backbone, bootstrap
+resampling for a confidence interval.}
+\invResult{Coxa correspondence error falls from $0.2689$ to $0.2247$, a
+$16.4\%$ improvement (bootstrap 95\% CI $[12.6\%, 19.8\%]$,
+$p=7.8\times10^{-26}$), and the same descriptor outperforms the earlier
+baseline across other segments too.}
+\invVerdict{HOLD}{A learned local descriptor extracts correspondence
+information that raw local geometry alone does not provide. This is
+retained as evidence that learning has something to contribute, not as a
+deployed mechanism: \S\ref{sec:learned-correspondence} next tests exactly
+this descriptor as a dense correspondence field and rejects it at that
+level. This is the strongest positive evidence in the investigation that
+learning captures signal here, and, as the next result shows, it is also
+where the harder problem begins.}
+\end{investigation}
+
+\begin{figure}[!htb]
+\centering
+\begin{tikzpicture}[every node/.style={font=\scriptsize},
+ n/.style={draw,rounded corners=2pt,minimum height=7mm,align=center,fill=white,inner sep=3pt}]
+\node[n,fill=green!12] (a) {Local test\\checkmark};
+\node[n,below=3mm of a] (a2) {within-part descriptor};
+\node[n,below=3mm of a2] (a3) {better pairwise retrieval};
+\node[n,below=3mm of a3,fill=green!12] (a4) {$+16.4\%$ coxa};
+\node[n,right=22mm of a,fill=red!10] (b) {Deployment\\$\times$};
+\node[n,below=3mm of b] (b2) {dense correspondence};
+\node[n,below=3mm of b2] (b3) {votes collapse};
+\node[n,below=3mm of b3,fill=red!10] (b4) {$28.1\%\to1.8\%$ coverage};
+\node[below=4mm of $(a4)!0.5!(b4)$,font=\small\bfseries] {local success $\neq$ global consistency};
+\end{tikzpicture}
+\caption{The same descriptor, evaluated at two levels of abstraction. Strong
+local (pairwise) retrieval does not imply a usable dense correspondence
+field.}
+\label{fig:local-vs-global}
+\end{figure}
+
+\begin{investigation}{I15}{Does strong pairwise retrieval accuracy translate
+into a usable, dense correspondence field at deployment?}
+\invQuestion{Deployed as a dense, whole-mesh correspondence mechanism rather
+than evaluated pairwise at one joint, does the within-part descriptor still
+outperform the existing geometric baseline?}
+\invMethod{Full-mesh deployment benchmark across 48 specimens, learned
+descriptor vs.\ geometric nearest-point baseline; a follow-up analysis
+isolating how much of any gap is attributable to differences in the
+candidate point set each method was allowed to match against, versus the
+descriptor's votes themselves.}
+\invResult{The learned descriptor performs \emph{worse} at deployment scale.
+Candidate-set differences account for only about $2.9\%$ of the observed
+gap, against an overall gap of roughly $145\%$; at the coxa specifically,
+surface coverage collapses from $28.1\%$ under the geometric baseline to
+$1.8\%$ under the learned descriptor.}
+\invVerdict{REJECT}{The learned votes collapse onto a small subset of
+points instead of producing a dense, globally consistent field across the
+whole mesh. Pairwise retrieval accuracy at a single joint (Investigation~I14) is not
+the same property as dense, globally consistent correspondence across an
+entire specimen, and the two must be evaluated separately rather than
+assumed to track each other.}
+\end{investigation}
+
+Read together, these four steps identify a specific, narrow gap rather than
+a blanket failure of learning: local, within-part descriptors carry real
+information (Investigation~I14) that geometric nearest-matching does not,
+but turning that local signal into a dense, mesh-wide correspondence
+field (global consistency, not just local accuracy) is an unsolved
+engineering problem in its own right (Investigation~I15), and is the
+concrete direction this report's outlook (Chapter~\ref{ch:conclusion})
+recommends pursuing further.

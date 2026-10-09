@@ -1,0 +1,4 @@
+The bench50 specimens in neither clean14 (ratio<=2x) nor dirty14 (14 worst). Fitting these
+completes all 50, so gain-vs-degradation can be read as a CONTINUOUS relationship rather than
+a binary clean/dirty split -- which distinguishes a graceful decline (set a principled usability
+threshold) from a cliff at a specific ratio (a real boundary to understand mechanistically).

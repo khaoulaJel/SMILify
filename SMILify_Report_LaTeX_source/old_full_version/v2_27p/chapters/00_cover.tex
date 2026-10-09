@@ -1,0 +1,69 @@
+% Front cover: full-bleed design (scan point cloud -> fitted model), no page number
+\begin{titlepage}
+\thispagestyle{empty}
+\definecolor{covnavy}{HTML}{081C2A}
+\definecolor{covblue}{HTML}{14506B}
+\definecolor{covcyan}{HTML}{7FD6E8}
+\definecolor{covgold}{HTML}{E2B04A}
+\pgfmathsetseed{11}
+\begin{tikzpicture}[remember picture,overlay,every node/.style={inner sep=0pt}]
+  % ---- background -------------------------------------------------------
+  \shade[top color=covblue!85!covnavy,bottom color=covnavy]
+    (current page.south west) rectangle (current page.north east);
+  % soft glow behind the model (stacked, very low opacity)
+  \foreach \k in {1,...,16}{
+    \fill[covcyan!60!covblue,opacity=0.028]
+      ([xshift=10.5cm,yshift=13.3cm]current page.south west) ellipse ({11.5cm-\k*0.55cm} and {5.6cm-\k*0.27cm});
+  }
+
+  % ---- scan point cloud (left) resolving into the mesh (right) ------------
+  \foreach \i in {1,...,330}{
+    \pgfmathsetmacro{\px}{rnd*17.5+1.8}
+    \pgfmathsetmacro{\py}{13.3+(rnd-0.5)*8.4}
+    \pgfmathsetmacro{\o}{0.55*(1-\px/19.5)+0.04}
+    \pgfmathsetmacro{\r}{0.035+0.04*rnd}
+    \fill[covcyan,opacity=\o] ([xshift=\px cm,yshift=\py cm]current page.south west) circle (\r cm);
+  }
+  % ---- fitted ant ---------------------------------------------------------
+  \node[opacity=0.97] at ([xshift=10.9cm,yshift=13.3cm]current page.south west)
+    {\includegraphics[width=18.6cm]{figures/cover_ant.png}};
+  % correspondence ticks between scan points and model
+  \foreach \a/\b/\c/\d in {3.2/15.0/6.0/14.4, 3.7/12.4/6.4/13.0, 4.8/16.3/7.4/15.4, 4.2/11.0/6.8/12.2}{
+    \draw[covgold,opacity=0.75,line width=0.5pt,dash pattern=on 2pt off 2pt]
+      ([xshift=\a cm,yshift=\b cm]current page.south west) --
+      ([xshift=\c cm,yshift=\d cm]current page.south west);
+    \fill[covgold] ([xshift=\a cm,yshift=\b cm]current page.south west) circle (0.07cm);
+  }
+
+  % ---- header strip -------------------------------------------------------
+  \node[anchor=north west,text=covcyan,font=\small\bfseries,text width=15cm]
+    at ([xshift=1.8cm,yshift=-1.6cm]current page.north west)
+    {FORSCHUNGSZENTRUM J\"ULICH \;$\cdot$\; IAS-7 CIVIL SAFETY RESEARCH};
+  \node[anchor=north west,text=white,opacity=0.8,font=\small,text width=15cm]
+    at ([xshift=1.8cm,yshift=-2.25cm]current page.north west)
+    {Universit\'e Mohammed VI Polytechnique \;$\cdot$\; Internship report};
+  \fill[covgold] ([xshift=1.8cm,yshift=-3.25cm]current page.north west) rectangle ++(2.6cm,0.09cm);
+
+  % ---- title --------------------------------------------------------------
+  \node[anchor=north west,text=white,font=\fontsize{36}{40}\selectfont\bfseries,text width=17cm]
+    at ([xshift=1.8cm,yshift=-4.1cm]current page.north west)
+    {Mesh Registration from\\ Scan-Derived 3D Data};
+  \node[anchor=north west,text=covcyan,font=\fontsize{15}{20}\selectfont\itshape,text width=16cm]
+    at ([xshift=1.8cm,yshift=-7.2cm]current page.north west)
+    {Correspondence and optimization in articulated\\ parametric models of insects};
+
+  % ---- author block -------------------------------------------------------
+  \fill[covgold] ([xshift=1.8cm,yshift=6.15cm]current page.south west) rectangle ++(2.6cm,0.09cm);
+  \node[anchor=north west,text=white,font=\Large\bfseries]
+    at ([xshift=1.8cm,yshift=5.9cm]current page.south west) {Khaoula Jellal};
+  \node[anchor=north west,text=white,opacity=0.9,font=\normalsize,text width=17cm]
+    at ([xshift=1.8cm,yshift=4.9cm]current page.south west)
+    {\textcolor{covcyan}{Company supervisor}\quad Dr.\ Fabian Plum\\[3pt]
+     \textcolor{covcyan}{Academic supervisor}\quad\rule[-2pt]{5.2cm}{0.4pt}\\[3pt]
+     \textcolor{covcyan}{Internship period}\quad 1 July -- 25 September 2026};
+  \node[anchor=south west,text=white,opacity=0.6,font=\footnotesize]
+    at ([xshift=1.8cm,yshift=1.3cm]current page.south west) {October 2026};
+  \node[anchor=south east,text=white,opacity=0.6,font=\footnotesize]
+    at ([xshift=-1.8cm,yshift=1.3cm]current page.south east) {SMILify \;$\cdot$\; articulated 3D reconstruction};
+\end{tikzpicture}
+\end{titlepage}

@@ -1,0 +1,25 @@
+{
+  "specimen": "2_Acromyrmex_coronatus_CASENT0744365_processed",
+  "alpha": 50.2882,
+  "pre_gap": 8.046111515083705,
+  "diag_length": 8577.322448061506,
+  "old": {
+    "offset": 1.6762733333333335,
+    "relative_alpha": 170.56332197337557,
+    "relative_offset": 5116.899659201267,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 68789,
+    "output_faces": 137630
+  },
+  "new": {
+    "offset": 20.115280000000002,
+    "relative_alpha": 170.56332197337557,
+    "relative_offset": 426.40830493343896,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 14751,
+    "output_faces": 29530
+  },
+  "flipped": false
+}

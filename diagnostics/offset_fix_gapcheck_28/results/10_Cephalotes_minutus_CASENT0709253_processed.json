@@ -1,0 +1,25 @@
+{
+  "specimen": "10_Cephalotes_minutus_CASENT0709253_processed",
+  "alpha": 5.85286,
+  "pre_gap": 0.8865869177339042,
+  "diag_length": 893.1511005091246,
+  "old": {
+    "offset": 0.19509533333333332,
+    "relative_alpha": 152.60079696236107,
+    "relative_offset": 4578.023908870832,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 101326,
+    "output_faces": 202680
+  },
+  "new": {
+    "offset": 2.341144,
+    "relative_alpha": 152.60079696236107,
+    "relative_offset": 381.5019924059027,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 20273,
+    "output_faces": 40574
+  },
+  "flipped": false
+}

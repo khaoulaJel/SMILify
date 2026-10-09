@@ -1,0 +1,41 @@
+\section{Retained and qualified interventions}
+\label{sec:retained}
+
+Each intervention is recorded as hypothesis $\rightarrow$ expected mechanism
+$\rightarrow$ proxy metric $\rightarrow$ anatomical metric $\rightarrow$
+outcome, so that a proxy improvement cannot be mistaken for a mechanism
+improvement (\S\ref{sec:methodological-discipline}).
+
+\begin{center}
+\small
+\begin{tabular}{@{}p{0.16\linewidth}p{0.22\linewidth}p{0.22\linewidth}p{0.30\linewidth}@{}}
+\toprule
+\textbf{Intervention} & \textbf{Mechanism expected} & \textbf{Proxy result} & \textbf{Anatomical outcome} \\
+\midrule
+Joint rotation limits as a fitting prior & Remove impossible poses on the one
+  path that had no angular constraint & Fewer implausible poses &
+  Plausible, not correct: correspondence unresolved (\F{F1}). Integrated into
+  the production fitting path. \\
+Staged schedule with pose kept free longer & Fix pose frozen for 2000 of 2400
+  refinement iterations (\S\ref{sec:staged}) & Nearly all integrity metrics
+  improve, no extra cost & Consistent with the integrity gains; shipped into
+  the production recipe. \\
+Per-joint scale barrier & Curb anterior scale outliers that distort head,
+  mandible, antenna groups & Outlier statistic reduced substantially in
+  controlled experiments & Intended anterior morphology did \emph{not}
+  measurably improve; retained as a numerical stabiliser rather than a
+  solved anatomical correction (below). \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{The scale barrier is a qualified intervention.} It was implemented
+and evaluated as a targeted regularizer. It moved its own proxy, the
+scale-outlier statistic, but a separate test of the anatomical mechanism it
+was meant to correct, the deformation ratio between the head, mandible and
+antenna groups and the thorax, found none of the three ratios moving
+significantly toward its expected value. It is retained as a numerical
+stabiliser, not as a solved anatomical defect, and the defect remains open
+(Chapter~\ref{ch:conclusion}). A downstream check on a small existing
+benchmark was directional only and underpowered; no corpus-scale validation
+is claimed here.

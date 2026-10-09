@@ -46,6 +46,19 @@ def build_parser():
     p.add_argument("--eval", action="store_true", help="run the metric suite after fitting")
     p.add_argument("--quiet", action="store_true", default=True)
     p.add_argument(
+        "--cse_correspondence_from",
+        default="",
+        help="H_A (2026-08-28): npz with names/verts/mask, same contract as "
+             "optimise_hierarchical.py --cse_correspondence_from. Carries the predicted dense "
+             "correspondence term THROUGH D1, which previously dropped it entirely. Without this "
+             "flag nothing changes.",
+    )
+    p.add_argument(
+        "--w_cse_correspondence", type=float, default=1.0,
+        help="weight on --cse_correspondence_from, same scale as w_chamfer (matches the "
+             "hierarchical default so the term is not silently re-tuned in transit).",
+    )
+    p.add_argument(
         "--init_from",
         type=str,
         default=None,
@@ -102,8 +115,60 @@ def main(args):
         mesh_names=mesh_names,
     )
 
+    # Computed unconditionally (cheap, deterministic, template-only) so any stage's YAML can opt
+    # into `robust_leg_only: true` without extra plumbing; ignored by MoonshotStage unless that
+    # flag is set (cycle2_20260819 B1 extra arm, see trainer_moonshot.py:MoonshotStage).
+    from fitter_3d.stratified_sampling import leg_face_mask as _leg_face_mask_fn
+    import pickle as _pickle
+
+    with open(config.SMAL_FILE, "rb") as _f:
+        _dd = _pickle.load(_f, encoding="latin1")
+    _jnames = [str(x) for x in _dd["J_names"]]
+    leg_only_common = dict(
+        leg_face_mask=_leg_face_mask_fn(_dd, _jnames).to(device),
+        template_faces=torch.tensor(np.asarray(_dd["f"], dtype=np.int64), device=device),
+        template_verts=torch.tensor(np.asarray(_dd["v_template"], dtype=np.float32), device=device),
+    )
+
+    cse_common = {}
+    if args.cse_correspondence_from:
+        stems = [os.path.splitext(os.path.basename(n))[0] for n in mesh_names]
+        c = np.load(args.cse_correspondence_from, allow_pickle=True)
+        c_names = [str(x) for x in list(c["names"])]
+        missing = [s for s in stems if s not in c_names]
+        if missing:
+            raise SystemExit(
+                f"--cse_correspondence_from {args.cse_correspondence_from}: {len(missing)} of "
+                f"{len(stems)} mesh_dir specimens have no matching entry (e.g. {missing[:3]})"
+            )
+        n_verts_template = int(np.asarray(_dd["v_template"]).shape[0])
+        if c["verts"].shape[1:] != (n_verts_template, 3):
+            raise SystemExit(
+                f"--cse_correspondence_from {args.cse_correspondence_from}: verts shape "
+                f"{c['verts'].shape} does not match (N, {n_verts_template}, 3)."
+            )
+        cidx = [c_names.index(s) for s in stems]
+        cse_common = dict(
+            cse_corr_verts=torch.tensor(c["verts"][cidx], dtype=torch.float32, device=device),
+            cse_corr_mask=torch.tensor(c["mask"][cidx], dtype=torch.bool, device=device),
+        )
+        print(
+            f"[moonshot] CSE PREDICTED correspondence carried into D1: {len(stems)} specimens, "
+            f"weight={args.w_cse_correspondence}, coverage="
+            f"{100.0 * cse_common['cse_corr_mask'].float().mean().item():.1f}% of template "
+            "vertices. PREDICTIONS, not ground truth.",
+            flush=True,
+        )
+
     for stage_name, kw in stage_options.items():
         kw = dict(kw)
+        if kw.get("robust_leg_only") or kw.get("robust_leg_only_topofree"):
+            kw = dict(leg_only_common, **kw)
+        if cse_common:
+            kw = dict(kw)
+            kw.setdefault("loss_weights", {})
+            kw["loss_weights"] = dict(kw["loss_weights"], w_cse_corr=args.w_cse_correspondence)
+            kw = dict(cse_common, **kw)
         stage = MoonshotStage(name=stage_name, **kw, **common)
         manager.add_stage(stage)
 

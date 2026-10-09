@@ -1,0 +1,25 @@
+{
+  "specimen": "28_Mesoponera_ambigua_CASENT0745584_processed",
+  "alpha": 2.58737,
+  "pre_gap": 1.3657046172123948,
+  "diag_length": 1116.7131296270354,
+  "old": {
+    "offset": 0.08624566666666666,
+    "relative_alpha": 431.60163781254147,
+    "relative_offset": 12948.049134376244,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 963582,
+    "output_faces": 1927456
+  },
+  "new": {
+    "offset": 1.034948,
+    "relative_alpha": 431.60163781254147,
+    "relative_offset": 1079.0040945313538,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 185202,
+    "output_faces": 370620
+  },
+  "flipped": false
+}

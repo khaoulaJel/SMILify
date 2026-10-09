@@ -1,0 +1,37 @@
+% Abstract (English only), placed after the front cover
+\thispagestyle{plain}
+\section*{Abstract}
+\addcontentsline{toc}{section}{Abstract}
+
+Articulated parametric mesh models provide a shared coordinate system in
+which otherwise unrelated three-dimensional scans can be compared, but
+fitting them to imperfect scan-derived geometry is an ill-constrained inverse
+problem: the optimiser recovers shape, pose, scale and deformation from
+surface observations alone, and anatomical correspondence is an intended
+consequence of those parameters rather than an independently observed
+quantity. This report investigates that problem for an insect-focused
+instance of the SMAL/SMPL family of models (SMILify), across defect-aware mesh
+preprocessing, anatomical structural priors, learned pose initialisation,
+sampling and robust optimisation, learned correspondence descriptors, and the
+registration objective itself. It uses a synthetic round-trip benchmark with
+exact vertex-identity ground truth and an independently annotated,
+coordinate-corrected expert benchmark (11 specimens, 396 fits). The central
+technical finding is that surface agreement, anatomical correspondence,
+parameter recovery and measurement validity are distinct properties that do
+not track one another: a fit can score a lower surface-distance loss while its
+skeleton is anatomically worse; a locally accurate learned correspondence
+descriptor can collapse when deployed as a dense, globally consistent field;
+and a measurement such as head width can agree with an independent reference
+even where individual-level correspondence is not reliable enough for
+specimen-by-specimen comparison. The contribution is a diagnostic and
+evaluation framework (synthetic and expert ground truth, counterfactual
+interventions, an adversarial metric test, and a multi-level evidence
+hierarchy), together with the algorithmic and systems extensions evaluated
+against it, that localises where the current pipeline loses anatomical
+information and what is required before a registration can be trusted as a
+biological measurement.
+
+\medskip
+\noindent\textbf{Keywords:} 3D computer vision; mesh registration; articulated
+reconstruction; geometric learning; point clouds; correspondence;
+differentiable optimisation; morphometric measurement.

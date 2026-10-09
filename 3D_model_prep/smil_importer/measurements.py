@@ -99,6 +99,50 @@ def get_joint_distances_from_positions(joint_positions, joint_names):
     return distances
 
 
+def build_J_regressor_with_reporters(context, mesh_obj, armature, smpl_tool):
+    """Return a (n_bones x n_verts) regressor for the CURRENT armature, by bone name.
+
+    Reporter bones (e.g. the head-width markers b_h_l / b_h_r) are added in Blender and so
+    have no row in the model's trained J_regressor. They still need one, because joint
+    positions here are J_regressor @ verts -- a bone with no row simply cannot be measured.
+
+    Rows for bones the model already knows are taken VERBATIM from the trained regressor
+    stored on the object. Only the extra bones get a freshly computed inverse-distance row.
+    Recomputing every row instead would silently redefine the original joints and shift every
+    reported distance, which would break comparison against previously exported measurements.
+
+    Matching is by NAME, not row order: Blender's bone collection order is not guaranteed to
+    match the model's J_names once bones have been added.
+    """
+    bone_names = [b.name for b in armature.data.bones]
+    computed = export_J_regressor_to_npy(mesh_obj, armature, 10, influence_type=smpl_tool.j_regressor_method)
+
+    data = get_smpl_data(context)
+    trained = data.get("J_regressor") if isinstance(data, dict) else None
+    names = data.get("J_names") if isinstance(data, dict) else None
+    if trained is None or names is None:
+        return computed, "no stored J_regressor/J_names -- all rows recomputed"
+
+    trained = np.asarray(trained, dtype=np.float64)
+    if trained.ndim != 2 or trained.shape[1] != len(mesh_obj.data.vertices):
+        return computed, f"stored J_regressor shape {trained.shape} does not match mesh -- all rows recomputed"
+
+    row_of = {str(n): i for i, n in enumerate(names)}
+    rows, kept, added = [], [], []
+    for i, bn in enumerate(bone_names):
+        j = row_of.get(bn)
+        if j is not None and j < trained.shape[0]:
+            rows.append(trained[j])
+            kept.append(bn)
+        else:
+            rows.append(np.asarray(computed[i], dtype=np.float64))
+            added.append(bn)
+    msg = f"{len(kept)} trained rows preserved, {len(added)} reporter rows computed"
+    if added:
+        msg += f" ({', '.join(added)})"
+    return np.asarray(rows), msg
+
+
 def export_joint_distances(context, filepath):
     """Export joint distances to a CSV file, including distances for each shape key."""
     mesh_obj = context.active_object
@@ -116,8 +160,14 @@ def export_joint_distances(context, filepath):
     # This ensures it works even if mesh topology has changed
     # Uses the 10 nearest vertices, consider exposing this as a parameter
     smpl_tool = context.scene.smpl_tool
-    if mesh_obj.get("static_joint_locs", False):
-        J_regressor = export_J_regressor_to_npy(mesh_obj, armature, 10, influence_type=smpl_tool.j_regressor_method)
+    # The regressor is needed on the NON-static path, which is the one that uses it below.
+    # This guard used to be inverted (built only when static, read only when not), so every
+    # non-static model -- including OmniAnt_25PCs_joint_limited, which has no
+    # static_joint_locs key -- raised UnboundLocalError here.
+    J_regressor = None
+    if not mesh_obj.get("static_joint_locs", False):
+        J_regressor, _msg = build_J_regressor_with_reporters(context, mesh_obj, armature, smpl_tool)
+        print(f"[joint distances] J_regressor: {_msg}")
 
     # Check if reference measurements are available
     reference_measurements = {}
@@ -388,7 +438,8 @@ def export_mesh_measurements(context, filepath):
             if reference_joint_pair and reference_measurements and armature:
                 # Recalculate J_regressor for current mesh state using selected method
                 smpl_tool = context.scene.smpl_tool
-                J_regressor = export_J_regressor_to_npy(obj, armature, 10, influence_type=smpl_tool.j_regressor_method)
+                J_regressor, _msg = build_J_regressor_with_reporters(context, obj, armature, smpl_tool)
+                print(f"[mesh measurements] J_regressor: {_msg}")
                 joint_names = [bone.name for bone in armature.data.bones]
 
                 # Get indices of reference joints
@@ -409,9 +460,19 @@ def export_mesh_measurements(context, filepath):
                         # Set this shape key to 1.0
                         key.value = 1.0
                         obj.data.update()
+                        context.view_layer.update()
 
-                        # Get vertex positions with this shape key applied
-                        vertex_positions = np.array([np.array(v.co) for v in obj.data.vertices])
+                        # Get vertex positions with this shape key applied.
+                        # MUST come from the depsgraph-evaluated mesh: setting key.value does
+                        # NOT move obj.data.vertices[i].co, so reading those returns the BASIS
+                        # coordinates for every shape key. That made the reference distance --
+                        # and hence the scaling factor -- identical for all specimens, which is
+                        # exactly the defect visible in the 2025 reference export
+                        # (SMPL_Object_measurements.csv implies a constant b_t--b_a_5 distance
+                        # of 0.845135 for all 20 Atta, while the joint-distance export, which
+                        # does evaluate the depsgraph, correctly varies it 0.590--0.920).
+                        eval_shape_obj = obj.evaluated_get(context.evaluated_depsgraph_get())
+                        vertex_positions = np.array([np.array(v.co) for v in eval_shape_obj.data.vertices])
 
                         # Calculate joint positions using J_regressor
                         joint_positions = recalculate_joint_positions(vertex_positions, J_regressor)

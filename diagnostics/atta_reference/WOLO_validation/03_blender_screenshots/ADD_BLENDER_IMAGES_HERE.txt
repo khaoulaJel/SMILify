@@ -1,0 +1,4 @@
+Copy from C:\atta_blender\blender_screens\ :
+  00_template_anterior.png, 00_template_anterior_xray.png, 00_template_anterior_context.png
+plus manual UI screenshots (Outliner: b_h -> b_h_l / b_h_r; Bone Relations: Parent = b_h).
+Delete this file afterwards.

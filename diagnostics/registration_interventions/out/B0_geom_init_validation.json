@@ -1,0 +1,276 @@
+{
+ "pose25": {
+  "rows": [
+   {
+    "joint": "l_1_co_r",
+    "group": "leg_prox",
+    "median_err_zero": 0.03814468866422445,
+    "median_err_geom": 0.0385962401089182
+   },
+   {
+    "joint": "l_1_tr_r",
+    "group": "leg_prox",
+    "median_err_zero": 0.06683331986054122,
+    "median_err_geom": 0.19892533223245493
+   },
+   {
+    "joint": "l_1_fe_r",
+    "group": "leg_prox",
+    "median_err_zero": 0.10359760817528708,
+    "median_err_geom": 0.2849716454888682
+   },
+   {
+    "joint": "l_1_ti_r",
+    "group": "leg_distal",
+    "median_err_zero": 0.10269582323779525,
+    "median_err_geom": 0.38042970346665905
+   },
+   {
+    "joint": "l_1_ta_r",
+    "group": "leg_distal",
+    "median_err_zero": 0.1147951155836863,
+    "median_err_geom": 0.3834908414067518
+   },
+   {
+    "joint": "l_1_pt_r",
+    "group": "leg_distal",
+    "median_err_zero": 0.15390487892296342,
+    "median_err_geom": 0.42674418567596406
+   },
+   {
+    "joint": "l_2_co_r",
+    "group": "leg_prox",
+    "median_err_zero": 0.04014354517686232,
+    "median_err_geom": 0.040873847830619446
+   },
+   {
+    "joint": "l_2_tr_r",
+    "group": "leg_prox",
+    "median_err_zero": 0.05314635507574806,
+    "median_err_geom": 0.12298235245354813
+   },
+   {
+    "joint": "l_2_fe_r",
+    "group": "leg_prox",
+    "median_err_zero": 0.1502140574821781,
+    "median_err_geom": 0.3499935601230098
+   },
+   {
+    "joint": "l_2_ti_r",
+    "group": "leg_distal",
+    "median_err_zero": 0.16235162603766023,
+    "median_err_geom": 0.5723419866685417
+   },
+   {
+    "joint": "l_2_ta_r",
+    "group": "leg_distal",
+    "median_err_zero": 0.1742104376111815,
+    "median_err_geom": 0.7145411639734769
+   },
+   {
+    "joint": "l_2_pt_r",
+    "group": "leg_distal",
+    "median_err_zero": 0.1875775611339729,
+    "median_err_geom": 0.8213372265374771
+   },
+   {
+    "joint": "l_3_co_r",
+    "group": "leg_prox",
+    "median_err_zero": 0.048864378577245814,
+    "median_err_geom": 0.049092832848207146
+   },
+   {
+    "joint": "l_3_tr_r",
+    "group": "leg_prox",
+    "median_err_zero": 0.05948971310784183,
+    "median_err_geom": 0.09096783107878012
+   },
+   {
+    "joint": "l_3_fe_r",
+    "group": "leg_prox",
+    "median_err_zero": 0.05238454631293063,
+    "median_err_geom": 0.16398730221337895
+   },
+   {
+    "joint": "l_3_ti_r",
+    "group": "leg_distal",
+    "median_err_zero": 0.1041353600839953,
+    "median_err_geom": 0.31207347982228695
+   },
+   {
+    "joint": "l_3_ta_r",
+    "group": "leg_distal",
+    "median_err_zero": 0.18393728867355297,
+    "median_err_geom": 0.36528544711354216
+   },
+   {
+    "joint": "l_3_pt_r",
+    "group": "leg_distal",
+    "median_err_zero": 0.22539868617336517,
+    "median_err_geom": 0.3543059969081601
+   },
+   {
+    "joint": "l_1_co_l",
+    "group": "leg_prox",
+    "median_err_zero": 0.04257813559174897,
+    "median_err_geom": 0.04285978969354058
+   },
+   {
+    "joint": "l_1_tr_l",
+    "group": "leg_prox",
+    "median_err_zero": 0.06731478407515151,
+    "median_err_geom": 0.18196687682202717
+   },
+   {
+    "joint": "l_1_fe_l",
+    "group": "leg_prox",
+    "median_err_zero": 0.0763861301343168,
+    "median_err_geom": 0.2974157110995179
+   },
+   {
+    "joint": "l_1_ti_l",
+    "group": "leg_distal",
+    "median_err_zero": 0.11067177556939402,
+    "median_err_geom": 0.44523399677038866
+   },
+   {
+    "joint": "l_1_ta_l",
+    "group": "leg_distal",
+    "median_err_zero": 0.16519861948274106,
+    "median_err_geom": 0.5875887412780789
+   },
+   {
+    "joint": "l_1_pt_l",
+    "group": "leg_distal",
+    "median_err_zero": 0.1841497616629055,
+    "median_err_geom": 0.6350072466080761
+   },
+   {
+    "joint": "l_2_co_l",
+    "group": "leg_prox",
+    "median_err_zero": 0.04367632672853361,
+    "median_err_geom": 0.04432340056981618
+   },
+   {
+    "joint": "l_2_tr_l",
+    "group": "leg_prox",
+    "median_err_zero": 0.053087169303820056,
+    "median_err_geom": 0.12549429481108018
+   },
+   {
+    "joint": "l_2_fe_l",
+    "group": "leg_prox",
+    "median_err_zero": 0.1160222708831436,
+    "median_err_geom": 0.46760211923768846
+   },
+   {
+    "joint": "l_2_ti_l",
+    "group": "leg_distal",
+    "median_err_zero": 0.14167134921592583,
+    "median_err_geom": 0.6693986710734243
+   },
+   {
+    "joint": "l_2_ta_l",
+    "group": "leg_distal",
+    "median_err_zero": 0.20227861836448635,
+    "median_err_geom": 0.8057692264094546
+   },
+   {
+    "joint": "l_2_pt_l",
+    "group": "leg_distal",
+    "median_err_zero": 0.25785703893101997,
+    "median_err_geom": 0.8885468540117019
+   },
+   {
+    "joint": "l_3_co_l",
+    "group": "leg_prox",
+    "median_err_zero": 0.04105810038340039,
+    "median_err_geom": 0.041247220647564975
+   },
+   {
+    "joint": "l_3_tr_l",
+    "group": "leg_prox",
+    "median_err_zero": 0.063930732341378,
+    "median_err_geom": 0.10151928914385114
+   },
+   {
+    "joint": "l_3_fe_l",
+    "group": "leg_prox",
+    "median_err_zero": 0.12119024451521354,
+    "median_err_geom": 0.18945705415797917
+   },
+   {
+    "joint": "l_3_ti_l",
+    "group": "leg_distal",
+    "median_err_zero": 0.11024267638906951,
+    "median_err_geom": 0.3107004575142478
+   },
+   {
+    "joint": "l_3_ta_l",
+    "group": "leg_distal",
+    "median_err_zero": 0.15104843007499905,
+    "median_err_geom": 0.3775392314412962
+   },
+   {
+    "joint": "l_3_pt_l",
+    "group": "leg_distal",
+    "median_err_zero": 0.16413733818431664,
+    "median_err_geom": 0.41169474966914293
+   }
+  ],
+  "summary": {
+   "leg_prox": {
+    "zero": 0.05631803409179495,
+    "geom": 0.12423832363231416
+   },
+   "leg_distal": {
+    "zero": 0.16324448211098844,
+    "geom": 0.43598909122317636
+   }
+  },
+  "per_specimen": {
+   "specimen": [
+    "synth_000.obj",
+    "synth_001.obj",
+    "synth_002.obj",
+    "synth_003.obj",
+    "synth_004.obj",
+    "synth_005.obj",
+    "synth_006.obj",
+    "synth_007.obj",
+    "synth_008.obj",
+    "synth_009.obj",
+    "synth_010.obj",
+    "synth_011.obj"
+   ],
+   "leg_distal_err_zero": [
+    0.18320917439911938,
+    0.10539413254434928,
+    0.09061984821202876,
+    0.2846951590101526,
+    0.07208059663621122,
+    0.4208539952873783,
+    0.20798818839386507,
+    0.10131544108129248,
+    0.17405928314150904,
+    0.1263451791068841,
+    0.13867877109275353,
+    0.10989821317617271
+   ],
+   "leg_distal_err_geom": [
+    0.6208625308983584,
+    0.4022424591790588,
+    0.4288322912071105,
+    0.6787913307281597,
+    0.44630279092740144,
+    0.6325123902918393,
+    0.39144844841210713,
+    0.3367230372522101,
+    0.3537137116543717,
+    0.4276084946905925,
+    0.7611158940695932,
+    0.43780044522055056
+   ]
+  }
+ }
+}

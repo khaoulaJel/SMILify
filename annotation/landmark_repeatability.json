@@ -1,0 +1,22 @@
+{
+ "repeatability_pct_WL": 2.4009490742051804,
+ "per_landmark": {
+  "clypeal_ant_mid": 1.8025056168924505,
+  "cephalic_post_mid": 1.3541993040799734,
+  "head_width_r": 2.7554956870396836,
+  "head_width_l": 11.129557441180395,
+  "mandibular_apex_r": 0.9319501944718938,
+  "mandibular_apex_l": 1.845517230362502,
+  "antennal_insertion_r": 2.4233320481228926,
+  "antennal_insertion_l": 37.532680047682156,
+  "scape_apex_r": 2.6964857244539537,
+  "scape_apex_l": 1.6363938462863492,
+  "wl_anterior_r": 4.9680013411853166,
+  "wl_posterior_r": 5.121486470440301
+ },
+ "per_specimen": {
+  "Discothyrea_patrizii_CASENT0744991": 2.0977308308786324,
+  "Formica_cf.fusca_CASENT0878139": 2.589413867581288,
+  "Gigantiops_destructor_CASENT0745031": 2.249495670673202
+ }
+}

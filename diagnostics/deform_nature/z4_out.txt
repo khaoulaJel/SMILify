@@ -1,0 +1,29 @@
+====================================================================================================
+[VOIDING] the template's mirror involution
+  max match distance 0.00e+00   involution exact on 100.0% of vertices
+  -> PASS
+
+====================================================================================================
+SYMMETRIC SHARE OF THE FREE-FORM FIELD    (noise null = 0.500 exactly, by construction)
+====================================================================================================
+run                      n   sym share    |S| rms    |A| rms   vs null
+Z3_A_off                50      0.6006    0.00417    0.00301   +0.1006
+Z2_A_stock              50      0.5900    0.00414    0.00300   +0.0900
+bench50_G1_learned      50      0.5676    0.00403    0.00306   +0.0676
+bench50_G3_zero         50      0.5726    0.00388    0.00288   +0.0726
+
+====================================================================================================
+DOES THE SYMMETRIC PART TRANSFER?   gen@20/spread, leave-one-out
+floor under exact correspondence = 0.00 at k=20; 1.0 = no better than the mean
+====================================================================================================
+(Z3_A_off, n=50 real workers)
+
+component                           gen@20/spread      spread
+betas only (parametric)                    0.2936     0.01119
+deform_verts, full                         0.9885     0.00583
+  -> symmetric part S                      0.9791     0.00449
+  -> antisymmetric part A                  0.9792     0.00371
+betas + S (drop A)                         0.5292     0.01214
+betas + deform (as shipped)                0.6147     0.01273
+
+wrote /rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/deform_nature/out_Z4/z4_results.json

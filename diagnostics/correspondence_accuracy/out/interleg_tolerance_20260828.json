@@ -1,0 +1,50 @@
+[
+  {
+    "segment": "co",
+    "interleg_tolerance": 0.02019567110036855,
+    "placement_error": 0.020098955188608027,
+    "risk_ratio": 0.9952110572963947,
+    "leg_err_cse": 0.404302360322677,
+    "leg_err_ceiling": 0.09486106961458023
+  },
+  {
+    "segment": "tr",
+    "interleg_tolerance": 0.06751782365331549,
+    "placement_error": 0.023799827435654102,
+    "risk_ratio": 0.3524969578086423,
+    "leg_err_cse": 0.08463894967177243,
+    "leg_err_ceiling": 0.012151714077315828
+  },
+  {
+    "segment": "fe",
+    "interleg_tolerance": 0.121625591738504,
+    "placement_error": 0.02942133336644367,
+    "risk_ratio": 0.24190084459938146,
+    "leg_err_cse": 0.05398164510060993,
+    "leg_err_ceiling": 0.004845237416633415
+  },
+  {
+    "segment": "ti",
+    "interleg_tolerance": 0.15645189360098402,
+    "placement_error": 0.034814053054412056,
+    "risk_ratio": 0.222522414098752,
+    "leg_err_cse": 0.04464996022275258,
+    "leg_err_ceiling": 0.000994431185361973
+  },
+  {
+    "segment": "ta",
+    "interleg_tolerance": 0.18240395561738698,
+    "placement_error": 0.03787929544530552,
+    "risk_ratio": 0.2076670723345586,
+    "leg_err_cse": 0.047679519741399216,
+    "leg_err_ceiling": 0.0016162549064881089
+  },
+  {
+    "segment": "pt",
+    "interleg_tolerance": 0.1925519261618532,
+    "placement_error": 0.03974846617027831,
+    "risk_ratio": 0.20642985485830442,
+    "leg_err_cse": 0.05491698595146871,
+    "leg_err_ceiling": 0.0
+  }
+]

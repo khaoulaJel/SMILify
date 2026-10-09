@@ -1,0 +1,33 @@
+=== SELECTION ===
+accepted_pairs=1 rejected_not_A=0 rejected_short_chain=0 rejected_diff_component=0 rejected_near_touch_zone=0
+n_candidate_border_halfedges=0 n_matched_pairs=0 n_stitched=0
+
+=== BEFORE ===
+n_boundary_edges=2974 n_boundary_loops=63
+n_non_manifold_vertices=0 n_components=1
+n_degenerate_faces=0 n_self_intersecting_pairs=5529
+
+=== AFTER ===
+n_boundary_edges=2974 (delta=0)
+n_boundary_loops=63 (delta=0)
+n_non_manifold_vertices=0 (delta=0)
+n_components=1 (delta=0)
+n_degenerate_faces=0 (delta=0)
+n_self_intersecting_pairs=5529 (delta=0)
+vertex_displacement: n_checked=49504 n_moved=0 max_disp=0
+
+=== FORENSIC SAFETY CHECK ===
+n_B_or_C_pairs_touched=0 (MUST be 0)
+n_diffcomponent_pairs_touched=0 (MUST be 0)
+n_near_genuine_touch_pairs_touched=0 (MUST be 0)
+
+=== NEAR-TOUCH GAPS ===
+cand_leftfarcluster_A: before=4.0414856140277653 after=4.0414856140277653 pre_gap=4.0410000000000004
+cand_rightfarcluster_A: before=4.7961762336338136 after=4.7961762336338136 pre_gap=4.7960000000000003
+cand_rightfarcluster_B: before=5.0751110744013328 after=5.0751110744013328 pre_gap=5.0750000000000002
+cand_midlower: before=5.2339370548779121 after=5.2339370548779121 pre_gap=5.234
+cand_rightfarcluster_C: before=5.4825928338293277 after=5.4825928338293277 pre_gap=5.4829999999999997
+cand_nearcore: before=5.6720166513428678 after=5.6720166513428678 pre_gap=5.6719999999999997
+cand_leftfarcluster_B: before=5.818008270279277 after=5.818008270279277 pre_gap=5.8179999999999996
+cand_leftfarcluster_C: before=5.9532016348881056 after=5.9532016348881056 pre_gap=5.9530000000000003
+near_touch_preserved_count=8/8

@@ -1,0 +1,54 @@
+SMILify original vs AlphaWrap comparison
+
+run_dir=/home/nao48500/SMILify/comparison_output/bench50_clean_20260814_125245_Glc7oS
+data_dir=/home/nao48500/SMILify/diagnostics/moonshot/bench50_clean
+blender=/home/nao48500/software/blender-4.2.23-linux-x64/blender
+repo=/home/nao48500/SMILify
+specimen_count=50
+max_concurrent=8
+
+git_commit:
+a63f04aaa4f30292491e80fe57f309033e471efa
+
+git_status:
+ M custom_processing/prepare_antscan_data_for_mesh_fitting.py
+ M custom_processing/prepare_antscan_data_for_mesh_fitting_enhanced.py
+ M utilities/convert_smal_windows.ps1
+?? comparison_output/
+?? core.login23-1.hpc.itc.rwth-aachen.de.380266.11
+?? custom_processing/WINDING_NUMBER_MEMORY_FIX_SPEC.md
+?? custom_processing/external/
+?? custom_processing/prepare_antscan_data_for_mesh_fitting_alphawrap.py
+?? custom_processing/prepare_antscan_data_for_mesh_fitting_alphawrap_before_predecimation.py
+?? custom_processing/prepare_antscan_data_for_mesh_fitting_manifold.py
+?? custom_processing/prepare_antscan_data_for_mesh_fitting_test.py
+?? custom_processing/prepare_antscan_data_for_mesh_fitting_v2.py
+?? custom_processing/worker_alt_data/
+?? run_comparison_array_task.sh
+?? run_original_vs_alphawrap_comparison.sh
+?? submit_comparison_array.sh
+?? test_gpu.sh
+
+blender:
+Blender 4.2.23 LTS
+	build date: 2026-07-21
+	build time: 01:31:03
+	build commit date: 2026-07-20
+	build commit time: 13:44
+	build hash: d0cbe84903e8
+	build branch: blender-v4.2-release
+	build platform: Linux
+	build type: Release
+	build c flags:  -Wall -Werror=implicit-function-declaration -Wstrict-prototypes -Werror=return-type -Werror=vla -Wmissing-prototypes -Wno-char-subscripts -Wno-unknown-pragmas -Wpointer-arith -Wunused-parameter -Wwrite-strings -Wlogical-op -Wundef -Winit-self -Wmissing-include-dirs -Wno-div-by-zero -Wtype-limits -Wformat-signedness -Wrestrict -Wno-stringop-overread -Wno-stringop-overflow -Wnonnull -Wabsolute-value -Wuninitialized -Wredundant-decls -Wshadow -Wimplicit-fallthrough=5 -Wno-error=unused-but-set-variable  -march=x86-64-v2 -std=gnu11 -pipe -fPIC -funsigned-char -fno-strict-aliasing -ffp-contract=off  
+	build c++ flags:  -Wuninitialized -Wredundant-decls -Wall -Wno-invalid-offsetof -Wno-sign-compare -Wlogical-op -Winit-self -Wmissing-include-dirs -Wno-div-by-zero -Wtype-limits -Werror=return-type -Wno-char-subscripts -Wno-unknown-pragmas -Wpointer-arith -Wunused-parameter -Wwrite-strings -Wundef -Wcomma-subscript -Wformat-signedness -Wrestrict -Wno-suggest-override -Wuninitialized -Wno-stringop-overread -Wno-stringop-overflow -Wimplicit-fallthrough=5 -Wundef -Wmissing-declarations  -march=x86-64-v2 -pipe -fPIC -funsigned-char -fno-strict-aliasing -ffp-contract=off  
+	build link flags:  -Wl,--version-script='/home/blender/git/blender-v420/blender.git/source/creator/symbols_unix.map'
+	build system: CMake
+
+alphawrap_binary:
+-rwxr-x---+ 1 nao48500 nao48500 1.4M Aug 14 12:21 /home/nao48500/SMILify/custom_processing/external/cgal_alpha_wrap/build/triangle_soup_wrap
+
+manifoldplus_binary:
+-rwxrwx---+ 1 nao48500 nao48500 501K Aug 14 12:28 /home/nao48500/SMILify/custom_processing/external/ManifoldPlus/build/manifold
+
+created=2026-08-14T12:52:46+02:00
+host=login23-1.hpc.itc.rwth-aachen.de

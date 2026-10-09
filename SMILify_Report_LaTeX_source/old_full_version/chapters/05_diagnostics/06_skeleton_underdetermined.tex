@@ -1,0 +1,80 @@
+\section{Objective under-determination of skeletal position}
+\label{sec:skeleton-underdetermined}
+
+The coxa result in \S\ref{sec:articulation} was pursued to a mechanism
+rather than left as an observation; doing so honestly first required
+checking the ground truth being pursued against. An early set of expert
+joint annotations was recorded in Blender's internal coordinate convention,
+one axis permutation, $(x,y,z)\mapsto(x,z,-y)$, away from the convention
+used by the scan meshes those annotations were meant to describe; a
+derived skeleton reference file inherited the same mismatch. Every
+conclusion drawn against that reference in the project's first analysis
+pass, including an apparent $42.7\%$ production skeleton error, was
+invalidated once this was found, and discarded. This is reported as a
+technical result in its own right (\F{F7}), not a caveat: catching a
+ground-truth defect before it propagates into a project's headline claims
+is exactly the discipline a registration pipeline needs.
+
+\begin{investigation}{I5}{Does the objective actually constrain skeleton
+position, once the ground truth used to check it is trustworthy?}
+\invQuestion{Is there a solution, reachable within the model's own shape
+budget, that is substantially more anatomically accurate than production's,
+and if so, why does the optimiser not find it?}
+\invMethod{The corrected \term{Joint Alignment Benchmark}: eleven
+expert-annotated specimens, re-registered against the mesh coordinate
+convention to a residual of $7\times10^{-8}$, frozen and hash-verified,
+yielding 396 fits under a fixed protocol. Expert joint targets are supplied
+directly during fitting and compared against the unsupervised production
+fit; a systematic single-factor sweep re-tests every existing objective term
+in isolation; a leave-one-region-out variant withholds expert targets for
+one anatomical region at a time.}
+\invResult{Production skeleton error is $25.1\%$ of Weber's length (95\% CI
+$17.5$--$44.8\%$). Supplying expert joint targets during fitting reduces
+this to $17.4\%$ ($10$ of $11$ specimens improved). The single-factor sweep
+found no individual existing objective term that reliably improved joint
+alignment on its own (Friedman test, $p=.011$, with the unmodified
+production configuration retaining the best mean rank across variants).
+Leave-one-region-out supervision does not propagate: for every held-out
+region, the confidence interval for improvement included zero.}
+\invVerdict{REJECT}{The production objective contains no explicit
+observation term for joint location. Its surface terms constrain the
+skeleton only indirectly, through the skinned surface it produces, and do
+not distinguish all anatomically different latent configurations that yield
+similar surfaces. No single existing term, reweighted or removed, fixes this
+reliably, and supervision supplied for one region does not propagate to
+another. Recorded as \F{F6}; it also explains why reweighting existing terms
+(\S\ref{sec:eliminated}) returned null results.}
+\end{investigation}
+
+The error this benchmark measures is itself structured rather than uniform.
+Proximal joints are recovered far more reliably than distal ones:
+coxae at $11.6\%$ of Weber's length, trochanter/femur at $12.9\%$, while
+the body axis, mandibles, antennae, and tibia/tarsus segments range from
+$24\%$ to over $56\%$ (Table~\ref{tab:regional-error}). A log-scale variance
+decomposition attributes far more of the spread in this benchmark to
+\emph{which joint} and \emph{which specimen} than to \emph{which random
+seed} the optimiser started from.
+
+\begin{table}[!htb]
+\centering
+\caption{Regional skeleton error (\% of Weber's length) on the corrected
+benchmark, and the log-scale variance decomposition across the same fits.}
+\label{tab:regional-error}
+\begin{tabular}{@{}lc@{\hspace{2.5em}}lc@{}}
+\toprule
+\textbf{Anatomical region} & \textbf{Error} & \textbf{Variance source} & \textbf{Share} \\
+\midrule
+Coxae               & 11.6\% & Which joint          & 0.36 \\
+Trochanter / femur   & 12.9\% & Which specimen       & 0.17 \\
+Body axis            & 24.1\% & Optimiser random seed & 0.02 \\
+Mandibles            & 42.8\% & & \\
+Antennae             & 54.9\% & & \\
+Tibia / tarsus       & 56.3\% & & \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Registration failure is therefore anatomically structured, not attributable
+to optimiser luck (\F{F8}): a fit that happens to land badly is far more
+likely to have landed on a hard joint or a hard specimen than to have simply
+been unlucky in its random initialisation.

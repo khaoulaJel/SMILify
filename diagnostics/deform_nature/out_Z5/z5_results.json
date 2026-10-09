@@ -1,0 +1,23 @@
+{
+  "verdict": "PARTIAL (B_dsym2, gen@20 0.5713, improved +0.0331 but did not reach 0.56)",
+  "gen20": {
+    "A_off": 0.604382712553423,
+    "B_dsym2": 0.5712524006770849,
+    "C_dsym10": 0.5544977660147473
+  },
+  "sym_share": {
+    "A_off": 0.6070054241921803,
+    "B_dsym2": 0.8499547576751784,
+    "C_dsym10": 0.9724430979652444
+  },
+  "chamfer": {
+    "A_off": 0.00115,
+    "B_dsym2": 0.00124,
+    "C_dsym10": 0.00128
+  },
+  "fit_ok": {
+    "A_off": true,
+    "B_dsym2": true,
+    "C_dsym10": false
+  }
+}

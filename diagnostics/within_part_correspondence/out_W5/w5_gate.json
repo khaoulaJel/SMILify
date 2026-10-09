@@ -1,0 +1,35 @@
+{
+  "config": {
+    "w3b": "diagnostics/within_part_correspondence/out_W3b/w3_best.pt",
+    "c3": "diagnostics/anatomical_pose_init/out_C3_cse_head_20260826/best_model.pt",
+    "c3_npz": "diagnostics/anatomical_pose_init/out_C3_cse_head_20260826/cse_p48_all.npz",
+    "mesh_dir": "diagnostics/moonshot/synth_power48",
+    "corpus": "diagnostics/moonshot/synth_b2_train_corrb06.npz",
+    "n_refs": 12,
+    "n_points": 4096,
+    "seed": 0,
+    "out_dir": "diagnostics/within_part_correspondence/out_W5"
+  },
+  "leak_exact_matches": 0,
+  "w3b_epoch": 149,
+  "gate": {
+    "w3b": 0.05863669011610563,
+    "c3_full": 0.030404753046592056,
+    "c3_part": 0.023264520809865002,
+    "rel_vs_c3_full": -0.9285369634889363,
+    "rel_vs_c3_part": -1.520434037534164,
+    "c3_same_candidates": 0.02392821599333277,
+    "rel_vs_c3_same": -1.4505249422875424,
+    "sign_p_same": 7.105427357601002e-15,
+    "reachable_frac": 0.40141581809695365,
+    "sign_p_full": 7.105427357601002e-15,
+    "sign_p_part": 7.105427357601002e-15,
+    "pass": false
+  },
+  "arms_differ_coxa": true,
+  "noncoxa_identical": true,
+  "coverage": {
+    "A": 0.2935942843185149,
+    "B": 0.2700517016772513
+  }
+}

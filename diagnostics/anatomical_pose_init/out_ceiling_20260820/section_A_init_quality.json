@@ -1,0 +1,97 @@
+{
+ "per_specimen": {
+  "names": [
+   "synth_000",
+   "synth_001",
+   "synth_002",
+   "synth_003",
+   "synth_004",
+   "synth_005",
+   "synth_006",
+   "synth_007",
+   "synth_008",
+   "synth_009",
+   "synth_010",
+   "synth_011"
+  ],
+  "leg_rot_err_deg_zero": [
+   22.416,
+   19.874,
+   23.376,
+   24.886,
+   21.831,
+   24.945,
+   22.706,
+   21.393,
+   24.01,
+   26.01,
+   21.795,
+   23.803
+  ],
+  "leg_rot_err_deg_cheap": [
+   27.382,
+   23.103,
+   26.58,
+   31.537,
+   29.776,
+   27.333,
+   28.062,
+   28.626,
+   29.156,
+   33.797,
+   28.975,
+   27.912
+  ],
+  "global_orient_err_deg_zero": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "global_orient_err_deg_cheap": [
+   9.784000396728516,
+   20.371999740600586,
+   15.468000411987305,
+   22.29800033569336,
+   1.5770000219345093,
+   21.29800033569336,
+   8.871999740600586,
+   7.026000022888184,
+   18.965999603271484,
+   19.174999237060547,
+   11.852999687194824,
+   7.205999851226807
+  ],
+  "global_orient_err_deg_gt": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ "summary": {
+  "leg_rot_err_deg_mean_zero": 23.087099457166076,
+  "leg_rot_err_deg_mean_cheap": 28.51978717630227,
+  "leg_rot_err_deg_mean_gt": 0.0,
+  "global_orient_err_deg_mean_zero": 0.0,
+  "global_orient_err_deg_mean_cheap": 13.657980918884277,
+  "global_orient_err_deg_mean_gt": 0.0
+ },
+ "note": "leg_rot_err is mean per-leg-joint axis-angle magnitude error vs ground truth (36 leg joints/specimen), BEFORE any optimisation. cheap is WORSE than zero here (see cheap_anatomical_init.py / simple_leg_heuristic.py docstrings) -- reported honestly, not a bug. global_orient_err for zero/gt is exactly 0 because synth_clean is canonically aligned by construction (true global orientation is always identity) and optimise_hierarchical.py always zero-inits global_rot regardless of init_joint_rot_from; cheap's global_orient_err is a PCA ESTIMATE that is NEVER fed into the fitter, kept only as a diagnostic showing raw-geometry PCA orientation estimation is itself noisy (mean ~9-10deg) even when the true answer is exactly identity."
+}

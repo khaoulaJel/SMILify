@@ -1,0 +1,8 @@
+MESH_AFTER_CONVERSION: n_vertices=49504 n_faces=96216
+ORIGINAL_COMPONENTS: n=1
+N_BOUNDARY_LOOPS_FOUND: 63
+N_PATCHES_CREATED: 51
+N_FACES_AFTER_REPAIR: 99036
+TOTAL_SELF_INTERSECTION_PAIRS: 25655
+CLASSIFICATION: ORIG_ORIG(pre-existing,excluded-from-new-count)=5529 A_patch_vs_existing=15681 A_diff_component=0 A_same_component=15681 B_same_patch=4124 B_cross_patch=321 RECONCILE_TOTAL=25655 (should equal TOTAL_SELF_INTERSECTION_PAIRS above)
+Wrote strumigenys_alberti_patches.csv and strumigenys_alberti_pairs.csv

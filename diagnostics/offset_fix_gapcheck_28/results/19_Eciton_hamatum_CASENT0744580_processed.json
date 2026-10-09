@@ -1,0 +1,25 @@
+{
+  "specimen": "19_Eciton_hamatum_CASENT0744580_processed",
+  "alpha": 5.32559,
+  "pre_gap": 1.623036876021065,
+  "diag_length": 2456.203664849357,
+  "old": {
+    "offset": 0.17751966666666666,
+    "relative_alpha": 461.2078032385815,
+    "relative_offset": 13836.234097157445,
+    "gap_after": 5.4315558774851915,
+    "verdict": "preserved",
+    "output_vertices": 587132,
+    "output_faces": 1174616
+  },
+  "new": {
+    "offset": 2.130236,
+    "relative_alpha": 461.2078032385815,
+    "relative_offset": 1153.0195080964538,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 113556,
+    "output_faces": 227352
+  },
+  "flipped": true
+}

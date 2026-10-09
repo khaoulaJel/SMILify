@@ -1,0 +1,19 @@
+skipping degenerate parts (0 vertices): ['waist'] -- 5/15 pairs dropped
+[1/50] Acanthostichus_aff.brevicornis_CASENT0744328_processed.obj: mean disagreement_rate over trustworthy pairs = 0.0092
+[2/50] Acromyrmex_coronatus_CASENT0744365_processed.obj: mean disagreement_rate over trustworthy pairs = 0.0218
+[3/50] Acromyrmex_lobicornis_CASENT0878007_processed.obj: mean disagreement_rate over trustworthy pairs = 0.0170
+[4/50] Anochetus_risii_CASENT0877608_processed.obj: mean disagreement_rate over trustworthy pairs = 0.0144
+[5/50] Anochetus_risii_CASENT0877609_processed.obj: mean disagreement_rate over trustworthy pairs = 0.0129
+[6/50] Aphaenogaster_pallida_CASENT0745235_processed.obj: mean disagreement_rate over trustworthy pairs = 0.0157
+[7/50] Atopomyrmex_mocquerysi_CASENT0744784_processed.obj: mean disagreement_rate over trustworthy pairs = 0.0862
+[8/50] Carebara_trechideros_CASENT0877591_processed.obj: mean disagreement_rate over trustworthy pairs = 0.0365
+[9/50] Centromyrmex_brachycola_CASENT0744052_processed.obj: mean disagreement_rate over trustworthy pairs = 0.0126
+[10/50] Cephalotes_minutus_CASENT0709253_processed.obj: mean disagreement_rate over trustworthy pairs = 0.0284
+[11/50] Cephalotes_simillimus_CASENT0744408_processed.obj: mean disagreement_rate over trustworthy pairs = 0.0185
+[12/50] Cephalotes_spinosus_CASENT0744158_processed.obj: mean disagreement_rate over trustworthy pairs = 0.0108
+[13/50] Crematogaster_nawai_OKENT0105046_processed.obj: mean disagreement_rate over trustworthy pairs = 0.0093
+[14/50] Cryptopone_sauteri_CASENT0743771_processed.obj: mean disagreement_rate over trustworthy pairs = 0.0139
+[15/50] Cyphoidris_afrc-tz01_CASENT0744810_processed.obj: mean disagreement_rate over trustworthy pairs = 0.0093
+[16/50] Cyphomyrmex_cf.minutus_CASENT0744280_processed.obj: mean disagreement_rate over trustworthy pairs = 0.0008
+[17/50] Dilobocondyla_fouqueti_CASENT0745576_processed.obj: mean disagreement_rate over trustworthy pairs = 0.0227
+[18/50] Dorylus_fulvus_CASENT0745678_processed.obj: mean disagreement_rate over trustworthy pairs = 0.0319

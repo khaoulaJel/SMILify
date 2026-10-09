@@ -1,0 +1,23 @@
+cheap_anatomical - zero_init leg_acc delta, sorted (most negative = cheap hurt most)
+  synth_004: delta=-0.345  zero=0.979  cheap=0.634
+  synth_003: delta=-0.252  zero=0.699  cheap=0.447
+  synth_010: delta=-0.245  zero=0.880  cheap=0.636
+  synth_006: delta=-0.180  zero=0.878  cheap=0.698
+  synth_002: delta=-0.122  zero=0.953  cheap=0.830
+  synth_011: delta=-0.117  zero=0.863  cheap=0.746
+  synth_008: delta=-0.116  zero=0.951  cheap=0.834
+  synth_009: delta=-0.031  zero=0.960  cheap=0.929
+  synth_000: delta=-0.028  zero=0.952  cheap=0.925
+  synth_005: delta=-0.026  zero=0.366  cheap=0.340
+  synth_001: delta=-0.009  zero=0.959  cheap=0.951
+  synth_007: delta=+0.037  zero=0.899  cheap=0.936
+
+Worst 3 (cheap helped least / hurt most):
+  synth_004: -0.345
+  synth_003: -0.252
+  synth_010: -0.245
+
+Best 3 (cheap helped most):
+  synth_005: -0.026
+  synth_001: -0.009
+  synth_007: +0.037

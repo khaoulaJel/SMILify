@@ -1,0 +1,25 @@
+{
+  "specimen": "11_Cephalotes_simillimus_CASENT0744408_processed",
+  "alpha": 4.23069,
+  "pre_gap": 0.5582761150122842,
+  "diag_length": 760.432558407108,
+  "old": {
+    "offset": 0.141023,
+    "relative_alpha": 179.74197079131488,
+    "relative_offset": 5392.259123739446,
+    "gap_after": 2.2970846502838094,
+    "verdict": "preserved",
+    "output_vertices": 198537,
+    "output_faces": 397258
+  },
+  "new": {
+    "offset": 1.6922760000000001,
+    "relative_alpha": 179.74197079131488,
+    "relative_offset": 449.3549269782872,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 44318,
+    "output_faces": 88780
+  },
+  "flipped": true
+}

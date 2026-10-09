@@ -1,0 +1,26 @@
+{
+  "Z3_A_off": {
+    "sym_share": 0.6005695285327909,
+    "n": 50
+  },
+  "Z2_A_stock": {
+    "sym_share": 0.5900170275869016,
+    "n": 50
+  },
+  "bench50_G1_learned": {
+    "sym_share": 0.5675594075353206,
+    "n": 50
+  },
+  "bench50_G3_zero": {
+    "sym_share": 0.5726314174944059,
+    "n": 50
+  },
+  "gen20": {
+    "betas only (parametric)": 0.293619412982935,
+    "deform_verts, full": 0.9885032843790099,
+    "-> symmetric part S": 0.9791360555777296,
+    "-> antisymmetric part A": 0.9792446130379329,
+    "betas + S (drop A)": 0.5291533240583957,
+    "betas + deform (as shipped)": 0.6147471126388933
+  }
+}

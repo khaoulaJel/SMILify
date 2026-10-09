@@ -1,0 +1,218 @@
+[
+  {
+    "specimen": "Aenictus_ceylonicus_CASENT0878084",
+    "n_comp": 19,
+    "thin_frac": 0.6897525931307261,
+    "assign": {
+      "mandible_r": 11,
+      "mandible_l": 11,
+      "antenna_r": 7,
+      "antenna_l": 2
+    },
+    "dist": {
+      "mandible_r": 0.03434126378874429,
+      "mandible_l": 0.06981346927854716,
+      "antenna_r": 0.03452229761617762,
+      "antenna_l": 0.019453641403652085
+    },
+    "merged": 1,
+    "far": 0,
+    "secs": 5.570713996887207
+  },
+  {
+    "specimen": "Aphaenogaster_gracillima_OKENT0105348",
+    "n_comp": 25,
+    "thin_frac": 0.5158699099915552,
+    "assign": {
+      "mandible_r": 13,
+      "mandible_l": 13,
+      "antenna_r": 0,
+      "antenna_l": 5
+    },
+    "dist": {
+      "mandible_r": 0.09093446547479674,
+      "mandible_l": 0.06659295382714622,
+      "antenna_r": 0.06103468584994853,
+      "antenna_l": 0.12571288658478585
+    },
+    "merged": 1,
+    "far": 0,
+    "secs": 5.132310628890991
+  },
+  {
+    "specimen": "Cataglyphis_iberica_CASENT0745158",
+    "n_comp": 85,
+    "thin_frac": 0.7246619851168641,
+    "assign": {
+      "mandible_r": 7,
+      "mandible_l": 13,
+      "antenna_r": 0,
+      "antenna_l": 4
+    },
+    "dist": {
+      "mandible_r": 0.10334125546416062,
+      "mandible_l": 0.14548783427103976,
+      "antenna_r": 0.10749243238329845,
+      "antenna_l": 0.09125776480696556
+    },
+    "merged": 0,
+    "far": 0,
+    "secs": 6.285738468170166
+  },
+  {
+    "specimen": "Cephalotes_atratus_CASENT0744612",
+    "n_comp": 35,
+    "thin_frac": 0.48768483447818367,
+    "assign": {
+      "mandible_r": 10,
+      "mandible_l": 10
+    },
+    "dist": {
+      "mandible_r": 0.05941297793015122,
+      "mandible_l": 0.12233507478214355
+    },
+    "merged": 1,
+    "far": 0,
+    "secs": 5.524440288543701
+  },
+  {
+    "specimen": "Cyphomyrmex_major_CASENT0745147",
+    "n_comp": 43,
+    "thin_frac": 0.6179014817781338,
+    "assign": {
+      "mandible_r": 8,
+      "mandible_l": 8,
+      "antenna_r": 25,
+      "antenna_l": 5
+    },
+    "dist": {
+      "mandible_r": 0.07407506902124618,
+      "mandible_l": 0.1351412645518903,
+      "antenna_r": 0.12427644365982571,
+      "antenna_l": 0.14320385141728495
+    },
+    "merged": 1,
+    "far": 0,
+    "secs": 5.398428678512573
+  },
+  {
+    "specimen": "Discothyrea_patrizii_CASENT0744991",
+    "n_comp": 19,
+    "thin_frac": 0.5960308935604317,
+    "assign": {
+      "mandible_r": 4,
+      "mandible_l": 4,
+      "antenna_r": 4,
+      "antenna_l": 6
+    },
+    "dist": {
+      "mandible_r": 0.18829085605879448,
+      "mandible_l": 0.13900160517538274,
+      "antenna_r": 0.21140142045511684,
+      "antenna_l": 0.2502136958644019
+    },
+    "merged": 2,
+    "far": 0,
+    "secs": 2.084233522415161
+  },
+  {
+    "specimen": "Eciton_burchellii_CASENT0744558",
+    "n_comp": 37,
+    "thin_frac": 0.6721822839200132,
+    "assign": {
+      "mandible_r": 4,
+      "mandible_l": 4,
+      "antenna_r": 9,
+      "antenna_l": 5
+    },
+    "dist": {
+      "mandible_r": 0.11199920918149332,
+      "mandible_l": 0.287688113231743,
+      "antenna_r": 0.09274022608163422,
+      "antenna_l": 0.5603594303079525
+    },
+    "merged": 1,
+    "far": 0,
+    "secs": 6.048644542694092
+  },
+  {
+    "specimen": "Formica_cf.fusca_CASENT0878139",
+    "n_comp": 34,
+    "thin_frac": 0.5645261073991586,
+    "assign": {
+      "mandible_r": 9,
+      "mandible_l": 9,
+      "antenna_r": 12,
+      "antenna_l": 10
+    },
+    "dist": {
+      "mandible_r": 0.1851254135781512,
+      "mandible_l": 0.06967875795731317,
+      "antenna_r": 0.02162431109785081,
+      "antenna_l": 0.06040549907085597
+    },
+    "merged": 1,
+    "far": 0,
+    "secs": 5.557669401168823
+  },
+  {
+    "specimen": "Gigantiops_destructor_CASENT0745031",
+    "n_comp": 40,
+    "thin_frac": 0.6439143555108493,
+    "assign": {
+      "mandible_r": 14,
+      "mandible_l": 7,
+      "antenna_r": 2,
+      "antenna_l": 7
+    },
+    "dist": {
+      "mandible_r": 0.1439023533099979,
+      "mandible_l": 0.027479983378617324,
+      "antenna_r": 0.06281252445157111,
+      "antenna_l": 0.0937230624988584
+    },
+    "merged": 1,
+    "far": 0,
+    "secs": 5.701992034912109
+  },
+  {
+    "specimen": "Leptogenys_peuqueti_CASENT0741327",
+    "n_comp": 40,
+    "thin_frac": 0.5548678524116664,
+    "assign": {
+      "mandible_r": 30,
+      "mandible_l": 30,
+      "antenna_r": 20,
+      "antenna_l": 24
+    },
+    "dist": {
+      "mandible_r": 0.05706832233216631,
+      "mandible_l": 0.05279072741620851,
+      "antenna_r": 0.07928779079673133,
+      "antenna_l": 0.08649722704276604
+    },
+    "merged": 1,
+    "far": 0,
+    "secs": 5.1569273471832275
+  },
+  {
+    "specimen": "Odontomachus_bauri_CASENT0878072",
+    "n_comp": 16,
+    "thin_frac": 0.5834575260804769,
+    "assign": {
+      "mandible_r": 9,
+      "mandible_l": 9,
+      "antenna_r": 3,
+      "antenna_l": 8
+    },
+    "dist": {
+      "mandible_r": 0.0720632251214065,
+      "mandible_l": 0.0259956649618767,
+      "antenna_r": 0.049737083463447115,
+      "antenna_l": 0.026171688124937535
+    },
+    "merged": 1,
+    "far": 0,
+    "secs": 4.7385101318359375
+  }
+]

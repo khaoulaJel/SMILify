@@ -1,0 +1,25 @@
+{
+  "specimen": "5_Anochetus_risii_CASENT0877609_processed",
+  "alpha": 47.3699,
+  "pre_gap": 9.47397161927252,
+  "diag_length": 7139.8474942160565,
+  "old": {
+    "offset": 1.5789966666666666,
+    "relative_alpha": 150.72540778460703,
+    "relative_offset": 4521.762233538211,
+    "gap_after": 15.681224161562996,
+    "verdict": "preserved",
+    "output_vertices": 30675,
+    "output_faces": 61398
+  },
+  "new": {
+    "offset": 18.947960000000002,
+    "relative_alpha": 150.72540778460703,
+    "relative_offset": 376.81351946151756,
+    "gap_after": 63.20045252582998,
+    "verdict": "preserved",
+    "output_vertices": 10459,
+    "output_faces": 20974
+  },
+  "flipped": false
+}

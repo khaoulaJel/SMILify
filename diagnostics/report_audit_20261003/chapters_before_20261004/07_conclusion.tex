@@ -1,0 +1,87 @@
+\section{Conclusion and outlook}
+\label{sec:conclusion}
+
+\subsection{Technical synthesis}
+
+The starting observation was that an optimiser can succeed while a registration
+fails. The investigation traced this to one structural fact: the scan supplies
+surface geometry, whereas anatomical correspondence is an intended consequence of
+the recovered parameters and is constrained only through the model, its priors and
+independent verification. Four distinctions summarise the
+outcome: representability is not recoverability; regional identity is not
+within-region location; plausibility is not correspondence; and fit quality is not
+measurement validity. Each was the concrete reason that a plausible intervention
+failed to deliver what it was built for.
+
+Technically, the investigation extended the pipeline across mesh conditioning,
+anatomical priors, learned point-cloud initialisation, sampling-aware and robust
+optimisation, learned correspondence and hierarchical fitting, while introducing
+synthetic and expert-grounded instruments to evaluate these mechanisms
+independently. Taken together, the experiments indicate that the dominant
+difficulty is not simply surface alignment but recovery of a unique anatomical
+explanation from an observation that lacks explicit identity information. A useful
+parametric representation is defined not only by what it can represent but by what
+anatomical meaning survives its recovery from data: a reconstruction is not yet a
+phenotype.
+
+\subsection{Research directions}
+
+Each direction follows from a diagnosed limitation (Table~\ref{tab:roadmap}), and
+none was implemented.
+
+\begin{table}[!htb]
+\centering
+\caption{Diagnosed limitations and the research directions they motivate.}
+\label{tab:roadmap}
+\begin{tabular}{@{}L{0.40\linewidth}L{0.52\linewidth}@{}}
+\toprule
+\textbf{Diagnosed limitation} & \textbf{Next technical direction}\\
+\midrule
+Local votes lack global consistency & Functional maps~\cite{fmaps}, optimal
+ transport~\cite{ot}, globally coupled assignment\\
+Joint position is not observed & Skeleton-conditioned correspondence, a learned 3D
+ joint predictor\\
+Free deformation can absorb pose & Structured, diffeomorphic deformation\\
+Synthetic learning transfers unevenly & Scan-realistic corruption and domain
+ randomisation\\
+Part identity does not give precise location & A continuous anatomical canonical
+ field with uncertainty, in the spirit of probabilistic implicit
+ embeddings~\cite{liu2020}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The most ambitious direction is an anatomical canonical field that predicts, for
+every observed point, its part, joint-relative coordinates, laterality and a
+confidence, so that correspondence becomes the mapping of a scan into a canonical
+anatomical coordinate system: exactly the information the diagnosed objective lacks.
+
+\subsection{Broader significance}
+\label{sec:significance}
+
+The ant is a useful test case because it forces diversity, articulation, difficult geometry
+and correspondence to be handled at once (Figure~\ref{fig:corpus}): genera differ in body
+plan and posture, the structures of interest are thin and articulated, and the data are
+imperfect. The aim, however, is broader than one good ant model. The longer-term objective
+is to use what is learned here to build purpose-built articulated models for the body plans
+that a scientific question actually requires, spanning other animals within a single
+construction and fitting pipeline and not one predefined model family, as the mouse and
+multi-species insect models already built with the same framework~\cite{smilify} begin to
+show. It extends equally to human-centred applications, where generic parametric models can
+impose restrictions that are inappropriate to the question being asked.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.78\linewidth]{figures/fig_corpus_gallery.png}
+\caption[Diversity of the curated corpus]{Eight genera from the curated corpus of clean
+scans, rendered under identical conditions: the shared representation has to accommodate
+differences in body plan, proportions, posture and articulation.}
+\label{fig:corpus}
+\end{figure}
+
+The value of the work is therefore not only the fitted mesh. It is an understanding of how
+to construct the representation, how to fit it, where the fitting can fail, and how to
+establish what its parameters mean. The question that started the project was how to bring
+many different meshes into one shared representation; the harder question it leads to is
+what that representation can be trusted to mean. Once that is established, the value extends
+beyond reconstruction: it becomes a way of making morphology measurable.

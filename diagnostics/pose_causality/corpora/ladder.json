@@ -1,0 +1,28 @@
+{
+  "0.05": {
+    "dir": "/rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/pose_causality/corpora/ps0.05",
+    "mean_deg_per_joint": 4.571497440338135,
+    "n": 50
+  },
+  "0.15": {
+    "dir": "/rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/pose_causality/corpora/ps0.15",
+    "mean_deg_per_joint": 13.714493751525879,
+    "n": 50
+  },
+  "0.25": {
+    "dir": "/rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/pose_causality/corpora/ps0.25",
+    "mean_deg_per_joint": 22.85748863220215,
+    "n": 50
+  },
+  "0.50": {
+    "dir": "/rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/pose_causality/corpora/ps0.50",
+    "mean_deg_per_joint": 45.7149772644043,
+    "n": 50
+  },
+  "0.75": {
+    "dir": "/rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/pose_causality/corpora/ps0.75",
+    "mean_deg_per_joint": 68.57246398925781,
+    "n": 50
+  },
+  "n_betas": 25
+}

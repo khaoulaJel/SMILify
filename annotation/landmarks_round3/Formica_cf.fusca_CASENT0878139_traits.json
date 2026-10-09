@@ -1,0 +1,33 @@
+{
+ "specimen_id": "Formica_cf.fusca_CASENT0878139",
+ "frame": "canonical: +X anterior, right=-Y, +Z dorsal",
+ "coordinate_frame": "obj",
+ "note": "`original` is in the .obj MESH frame. The expert joints file is in a different frame (~100x smaller, permuted axes); use joint_to_obj_transform.json to bring the joints here, which is what this tool now does on load. `canonical` is after the load rotation.",
+ "missing": [
+  "clypeal_ant_mid",
+  "cephalic_post_mid",
+  "head_width_r",
+  "head_width_l",
+  "mandibular_apex_r",
+  "mandibular_apex_l",
+  "antennal_insertion_r",
+  "scape_apex_r",
+  "scape_apex_l",
+  "wl_anterior_r",
+  "wl_posterior_r"
+ ],
+ "landmarks": {
+  "antennal_insertion_l": {
+   "canonical": [
+    0.37654247879981995,
+    -0.05593085289001465,
+    0.5042007565498352
+   ],
+   "original": [
+    3196.013671875,
+    -256.728271484375,
+    449.9819641113281
+   ]
+  }
+ }
+}

@@ -59,7 +59,10 @@ from pytorch3d.ops import sample_points_from_meshes, knn_points
 from pytorch3d.loss import mesh_laplacian_smoothing, mesh_normal_consistency
 
 import config
-from fitter_3d.joint_limits import joint_limit_tensors, limit_hinge, scale_barrier, trans_barrier
+from fitter_3d.joint_limits import (
+    joint_limit_tensors, limit_hinge, scale_barrier, trans_barrier,
+    build_head_width_reporter_matrix, allometric_prior_loss,
+)
 from fitter_3d.trainer import SMALParamGroup, get_meshes  # reuse model, unmodified
 from fitter_3d.utils import plot_meshes
 
@@ -74,10 +77,15 @@ default_weights = dict(
     w_normal_align=0.0,  # NEW: point-to-plane / normal agreement along correspondence
     w_beta_prior=0.0,  # NEW: Mahalanobis shape prior (see note 6)
     w_sym=0.0,  # NEW: left/right symmetry on per-joint scale & translation (note 7)
+    w_deform_sym=0.0,  # NEW: left/right symmetry on the FREE-FORM field (Z4)
     w_midline=0.0,  # NEW: keep midsagittal vertices on y=0 (see midline_penalty)
     w_limit=0.0,  # NEW: authored per-joint rotation limits (see fitter_3d/joint_limits.py)
+    w_jresid=0.0,  # NEW: L2 on the FREE joint scale/trans residual (see COUPLE_JOINT_BLENDSHAPES)
     w_scale=0.0,  # NEW: barrier on per-joint scale beyond a 2x free band (see scale_barrier)
     w_trans=0.0,  # NEW: barrier on per-joint translation beyond an absolute band (trans_barrier)
+    w_cse_corr=0.0,  # NEW (H_A, 2026-08-28): predicted dense correspondence, ported from
+    # trainer_hierarchical. Default 0.0 -- with no yaml setting it, this file's behaviour is
+    # unchanged, which is verified byte-identically rather than assumed.
 )
 
 
@@ -141,6 +149,29 @@ def midline_penalty(verts, sym_verts):
     """
     y = verts[:, sym_verts.long(), 1]
     return (y - y.mean(dim=1, keepdim=True)).pow(2).mean()
+
+
+def deform_symmetry_penalty(deform_verts, involution):
+    """Penalise left/right disagreement in the FREE-FORM field.
+
+    `symmetry_penalty` above covers per-joint scale and translation; nothing has ever constrained
+    `deform_verts`, which is 30,705 free parameters per specimen. Measured on 50 real workers
+    (diagnostics/deform_nature/): the field is only 60% symmetric against a null of exactly 0.500
+    -- the symmetric and antisymmetric subspaces have equal dimension, so an isotropic random
+    field splits evenly. Neither half transfers across specimens (gen@20 0.979 / 0.979), i.e. the
+    field is predominantly per-specimen noise rather than anatomy the shape space is missing.
+
+    Projecting the antisymmetric half out of finished fits moves gen@20/spread from 0.6147 to
+    0.5292. This term asks whether refitting under the constraint realises that, or whether the
+    freedom was load-bearing for the data term.
+
+    `involution` maps each vertex to its mirror partner; the y component negates because the
+    template's symmetry plane is y = 0. build_shape_space.py applies the same map when building
+    the shape space, so this makes the fitter agree with the model builder.
+    """
+    mirrored = deform_verts[:, involution, :] * torch.tensor(
+        [1.0, -1.0, 1.0], device=deform_verts.device)
+    return (deform_verts - mirrored).pow(2).mean()
 
 
 def symmetry_penalty(log_beta_scales, betas_trans, pairs):
@@ -253,6 +284,69 @@ def robust_chamfer(
     return loss, align_loss, info
 
 
+def robust_chamfer_leg_split_topofree(src_leg, src_nonleg, tgt_pts, kernel="gm", scale=1.0, trim_frac=0.0):
+    """Topology-free version of the `robust_leg_only` leg/non-leg kernel split (B4's
+    `gnc_legonly` arm on drop30/drop60 crashed because `sample_leg_nonleg_split` assumes the
+    TARGET mesh shares the template's face indexing, which damaged/decimated corpora violate --
+    see manifest.json's b4_gnc_legonly_damage FAILED entry).
+
+    Only the SOURCE side needs template topology (always true: `src_mesh` is the fitted SMAL
+    output, never damaged), so `src_leg`/`src_nonleg` are still drawn via the existing
+    face-pool sampler. `tgt_pts` must instead come from plain uniform-area sampling on the
+    (possibly arbitrary-topology) target mesh -- no face-index assumption on it at all.
+
+    Direction src->tgt: each src point's group is already known (which pool it was drawn from).
+    Direction tgt->src: each target point's nearest neighbour is a SOURCE point, whose group is
+    known -- the label transfers via nearest-neighbour correspondence, standard label transfer,
+    not a topology assumption.
+    """
+    n_leg, n_nonleg = src_leg.shape[1], src_nonleg.shape[1]
+    frac_leg = n_leg / max(n_leg + n_nonleg, 1)
+    src_all = torch.cat([src_leg, src_nonleg], dim=1)
+
+    d_fwd_leg = knn_points(src_leg, tgt_pts, K=1).dists[..., 0]
+    d_fwd_nonleg = knn_points(src_nonleg, tgt_pts, K=1).dists[..., 0]
+    bwd = knn_points(tgt_pts, src_all, K=1)
+    d_bwd = bwd.dists[..., 0]
+    is_leg_bwd = bwd.idx[..., 0] < n_leg
+
+    def reduce_full(d, kind, sc):
+        r = robust_kernel(d, kind, sc)
+        if trim_frac > 0.0:
+            k = max(1, int(round(r.shape[1] * (1.0 - trim_frac))))
+            r, _ = torch.sort(r, dim=1)
+            r = r[:, :k]
+        return r.mean()
+
+    def reduce_masked(d, kind, sc, mask):
+        r = robust_kernel(d, kind, sc)
+        if trim_frac <= 0.0:
+            mask_f = mask.float()
+            denom = mask_f.sum(dim=1).clamp_min(1.0)
+            return ((r * mask_f).sum(dim=1) / denom).mean()
+        # small batches in practice -- per-row loop is fine; unused by any current recipe since
+        # every gnc_* config here has trim_frac unset (0.0)
+        out = []
+        for b in range(r.shape[0]):
+            vals = r[b][mask[b]]
+            if vals.numel() == 0:
+                continue
+            k = max(1, int(round(vals.numel() * (1.0 - trim_frac))))
+            vals_sorted, _ = torch.sort(vals)
+            out.append(vals_sorted[:k].mean())
+        return torch.stack(out).mean() if out else d.new_tensor(0.0)
+
+    l_leg = reduce_full(d_fwd_leg, kernel, scale) + reduce_masked(d_bwd, kernel, scale, is_leg_bwd)
+    l_nonleg = reduce_full(d_fwd_nonleg, "l2", 1.0) + reduce_masked(d_bwd, "l2", 1.0, ~is_leg_bwd)
+    loss = frac_leg * l_leg + (1.0 - frac_leg) * l_nonleg
+    info = {
+        "chamfer_raw": float((d_fwd_leg.mean() + d_fwd_nonleg.mean() + d_bwd.mean()).item()),
+        "frac_beyond_scale": float((d_fwd_leg.sqrt() > scale).float().mean().item()),
+        "frac_tgt_matched_leg": float(is_leg_bwd.float().mean().item()),
+    }
+    return loss, info
+
+
 def rest_edge_loss(pred_verts, rest_verts, faces):
     """Penalise edge-length distortion introduced by FREE-FORM OFFSETS only.
 
@@ -306,6 +400,8 @@ class MoonshotStage:
         trim_frac=0.0,
         lr_decay=True,
         log_every=50,
+        cse_corr_verts=None,
+        cse_corr_mask=None,
         edge_mode="rest",
         n_sample_tgt=None,
         corr_mode="chamfer",
@@ -313,6 +409,11 @@ class MoonshotStage:
         corr_ratio=0.9,
         corr_blur=0.05,
         corr_blur_end=None,
+        robust_leg_only=False,
+        robust_leg_only_topofree=False,
+        leg_face_mask=None,
+        template_faces=None,
+        template_verts=None,
     ):
         self.n_it = nits
         self.name = name
@@ -329,6 +430,24 @@ class MoonshotStage:
         # the loss starts near-convex (wide basin) and progressively rejects outliers.
         self.robust_scale_end = robust_scale if robust_scale_end is None else robust_scale_end
         self.trim_frac = trim_frac
+        # cycle2_20260819 B1 extra arm: opt-in, default-off. Tests whether the antenna
+        # regression under global GNC (see overnight_20260818/OVERNIGHT_REPORT.md Rank 4) is a
+        # leg-specific effect leaking outward, or a consequence of narrowing the kernel
+        # globally -- anneal the GM scale ONLY on leg-derived residuals; non-leg residuals
+        # (antenna/head/body) get plain L2, exactly matching D1_low.yaml's baseline treatment
+        # of those points, so their loss landscape is untouched by this flag by construction.
+        self.robust_leg_only = robust_leg_only
+        # topology-free variant (see robust_chamfer_leg_split_topofree docstring): only assumes
+        # the SOURCE mesh has template topology, so this one also runs on damage/decimated
+        # target corpora where robust_leg_only's face-index target split crashes (B4 FAILED).
+        self.robust_leg_only_topofree = robust_leg_only_topofree
+        self.leg_face_mask = leg_face_mask
+        self.template_faces = template_faces
+        self.template_verts = template_verts
+        assert not (robust_leg_only and robust_leg_only_topofree), "mutually exclusive"
+        if robust_leg_only or robust_leg_only_topofree:
+            assert leg_face_mask is not None and template_faces is not None and template_verts is not None
+            assert robust_kernel != "l2", "robust_leg_only(_topofree) requires a non-l2 robust_kernel to be meaningful"
         self.lr_decay = lr_decay
         self.log_every = log_every
         # 'rest' = deviation from template rest edge lengths (the fix).
@@ -346,6 +465,13 @@ class MoonshotStage:
         # allow an asymmetric point budget so the control can mimic the baseline's
         # 3000-target-samples-vs-all-source-verts sampling if needed
         self.n_sample_tgt = n_sample_tgt or n_sample
+
+        # H_A: predicted dense correspondence, moved across from the hierarchical trainer.
+        # D1 previously had NO correspondence term of any kind (verified by grep: neither 'cse'
+        # nor 'dense_gt' appeared in this file or optimise_moonshot.py), which is the leading
+        # explanation for the H2->D1 coxal regression. Both stay None unless supplied.
+        self.cse_corr_verts = cse_corr_verts.to(device) if cse_corr_verts is not None else None
+        self.cse_corr_mask = cse_corr_mask.to(device) if cse_corr_mask is not None else None
 
         self.loss_weights = default_weights.copy()
         if loss_weights:
@@ -386,6 +512,27 @@ class MoonshotStage:
                 _u.encoding = "latin1"
                 self.sym_verts = torch.tensor(np.asarray(_u.load()["sym_verts"]).astype(np.int64), device=device)
 
+        # X2 allometric-consistency prior (PREREGISTRATION_X2_allometric_prior.md §3 Step 1):
+        # b_t/b_a_5 indices for body_length, and the b_h_l/b_h_r reporter matrix for head_width.
+        # Loaded the same way as the w_sym/w_midline blocks below -- once, from config.SMAL_FILE,
+        # only when the term is actually in use.
+        self.allo_R = None
+        self.allo_bt_idx = None
+        self.allo_ba5_idx = None
+        if self.loss_weights.get("w_allo", 0.0) > 0:
+            import pickle as _pkl_allo
+
+            with open(config.SMAL_FILE, "rb") as _f:
+                _u = _pkl_allo._Unpickler(_f)
+                _u.encoding = "latin1"
+                _dd_allo = _u.load()
+            _jn_allo = list(_dd_allo["J_names"])
+            self.allo_bt_idx = _jn_allo.index("b_t")
+            self.allo_ba5_idx = _jn_allo.index("b_a_5")
+            self.allo_R = build_head_width_reporter_matrix(
+                _dd_allo["v_template"], dtype=torch.float32, device=device
+            )
+
         self.lr_pairs = None
         if self.loss_weights.get("w_sym", 0.0) > 0:
             import pickle as _pkl
@@ -395,6 +542,27 @@ class MoonshotStage:
                 _u.encoding = "latin1"
                 _jn = list(_u.load()["J_names"])
             self.lr_pairs = build_lr_joint_pairs(_jn).to(device)
+
+        # Template's own mirror involution, for w_deform_sym. Built from v_template rather than
+        # from a fitted specimen: build_shape_space.py is explicit that matching a fitted mesh
+        # conflates the mirror map with fit error (7.68e-02 vs the template's true 0). Asserted
+        # exact here rather than assumed, because a sloppy map would silently penalise real
+        # asymmetry as if it were error.
+        self.deform_involution = None
+        if self.loss_weights.get("w_deform_sym", 0.0) > 0:
+            _vt = self.smal_3d_fitter.smal_model.v_template.detach()
+            _vm = _vt.clone()
+            _vm[:, 1] *= -1
+            _idx = torch.cdist(_vm.unsqueeze(0), _vt.unsqueeze(0))[0].argmin(dim=1)
+            _md = float((_vt[_idx] - _vm).norm(dim=-1).max())
+            _exact = float((_idx[_idx] == torch.arange(len(_idx), device=device)).float().mean())
+            if _md > 1e-6 or _exact < 0.99:
+                raise ValueError(
+                    f"template mirror involution is not clean (max match {_md:.2e}, exact on "
+                    f"{100*_exact:.1f}% of verts); refusing to penalise deform asymmetry with it")
+            print(f"[moonshot] deform involution: max match {_md:.2e}, exact on {100*_exact:.1f}%",
+                  flush=True)
+            self.deform_involution = _idx
 
         self.losses_to_plot = []
         self.loss_components_to_plot = {}
@@ -424,7 +592,44 @@ class MoonshotStage:
             src_nrm = tgt_nrm = None
 
         if lw["w_chamfer"] > 0:
-            if self.corr_mode == "chamfer":
+            if self.robust_leg_only and self.corr_mode == "chamfer":
+                # split into leg / non-leg point pools (fixed sizes, template-derived, see
+                # sample_leg_nonleg_split) INSTEAD of the plain global src_pts/tgt_pts drawn
+                # above -- leg residuals get the annealed kernel, non-leg get plain L2
+                # (identical to D1_low.yaml's baseline treatment of those points).
+                from fitter_3d.stratified_sampling import sample_leg_nonleg_split
+
+                src_leg, src_nonleg = sample_leg_nonleg_split(
+                    src_mesh, self.template_faces, self.n_sample, self.leg_face_mask, self.template_verts
+                )
+                tgt_leg, tgt_nonleg = sample_leg_nonleg_split(
+                    self.target_meshes, self.template_faces, self.n_sample, self.leg_face_mask, self.template_verts
+                )
+                n_leg, n_nonleg = src_leg.shape[1], src_nonleg.shape[1]
+                l_ch_leg, _, info_leg = robust_chamfer(
+                    src_leg, tgt_leg, kernel=self.robust_kernel_kind, scale=self._current_scale(it),
+                    trim_frac=self.trim_frac,
+                )
+                l_ch_nonleg, _, info_nonleg = robust_chamfer(src_nonleg, tgt_nonleg, kernel="l2", scale=1.0)
+                frac_leg = n_leg / max(n_leg + n_nonleg, 1)
+                l_ch = frac_leg * l_ch_leg + (1.0 - frac_leg) * l_ch_nonleg
+                l_align = None
+                info = dict(info_nonleg, **{f"leg_{k}": v for k, v in info_leg.items()})
+            elif self.robust_leg_only_topofree and self.corr_mode == "chamfer":
+                # source-side split only (always template topology); tgt_pts is the plain
+                # uniform sample drawn above, valid on any target topology including damage
+                # corpora -- see robust_chamfer_leg_split_topofree's docstring.
+                from fitter_3d.stratified_sampling import sample_leg_nonleg_split
+
+                src_leg, src_nonleg = sample_leg_nonleg_split(
+                    src_mesh, self.template_faces, self.n_sample, self.leg_face_mask, self.template_verts
+                )
+                l_ch, info = robust_chamfer_leg_split_topofree(
+                    src_leg, src_nonleg, tgt_pts, kernel=self.robust_kernel_kind,
+                    scale=self._current_scale(it), trim_frac=self.trim_frac,
+                )
+                l_align = None
+            elif self.corr_mode == "chamfer":
                 l_ch, l_align, info = robust_chamfer(
                     src_pts,
                     tgt_pts,
@@ -475,6 +680,32 @@ class MoonshotStage:
             comp["edge"] = l_e
             loss = loss + lw["w_edge"] * l_e
 
+        if lw.get("w_cse_corr", 0.0) > 0:
+            # Mechanism copied verbatim from trainer_hierarchical.forward's w_cse_corr block:
+            # pull the fitted mesh's own vertex v onto where vertex v is believed to be, masked to
+            # the vertices the network actually predicts and normalised by the number of VALID
+            # entries, so partial coverage does not silently rescale the term. An empty mask
+            # contributes exactly zero rather than a NaN from 0/0.
+            #
+            # NOT assumed to transfer unchanged just because the flag name matches: this trainer
+            # optimizes deform_verts (scheme 'all'), so `fitted` here includes the free-form
+            # offsets, whereas the hierarchical arms ran with --deform_its 0. The term therefore
+            # acts on the deformed surface here and on the posed-only surface there. That is a
+            # real difference in what is being pulled, and is why H_A is tested rather than
+            # declared.
+            if self.cse_corr_verts is None or self.cse_corr_mask is None:
+                raise ValueError("w_cse_corr > 0 but no cse_corr_verts/cse_corr_mask were supplied.")
+            fitted_v = src_mesh.verts_padded()                          # (B,V,3)
+            m = self.cse_corr_mask.unsqueeze(-1).to(fitted_v.dtype)     # (B,V,1)
+            denom = m.sum()
+            if denom > 0:
+                sq = (fitted_v - self.cse_corr_verts).pow(2).sum(-1, keepdim=True)
+                l_cse = (sq * m).sum() / denom
+            else:
+                l_cse = fitted_v.sum() * 0.0
+            comp["cse_corr"] = l_cse
+            loss = loss + lw["w_cse_corr"] * l_cse
+
         if lw["w_normal"] > 0:
             l_n = mesh_normal_consistency(src_mesh)
             comp["normal"] = l_n
@@ -510,10 +741,46 @@ class MoonshotStage:
             comp["mid"] = l_m
             loss = loss + lw["w_midline"] * l_m
 
+        if lw.get("w_deform_sym", 0.0) > 0:
+            if self.deform_involution is None:
+                raise ValueError("w_deform_sym > 0 but the template involution was not built")
+            l_ds = deform_symmetry_penalty(
+                self.smal_3d_fitter.deform_verts, self.deform_involution)
+            comp["dsym"] = l_ds
+            loss = loss + lw["w_deform_sym"] * l_ds
+
+        if lw.get("w_jresid", 0.0) > 0:
+            # Penalise the FREE per-joint residual so the betas, not 330 unmodelled per-specimen
+            # parameters, carry the joint scale/translation variation. Only meaningful with
+            # config.COUPLE_JOINT_BLENDSHAPES on -- without the shape space driving these
+            # channels this term merely shrinks them toward zero.
+            l_j = (self.smal_3d_fitter.log_beta_scales.pow(2).mean()
+                   + self.smal_3d_fitter.betas_trans.pow(2).mean())
+            comp["jres"] = l_j
+            loss = loss + lw["w_jresid"] * l_j
+
         if lw.get("w_scale", 0.0) > 0:
             l_sc = scale_barrier(self.smal_3d_fitter.log_beta_scales)
             comp["scale"] = l_sc
             loss = loss + lw["w_scale"] * l_sc
+
+        if lw.get("w_allo", 0.0) > 0:
+            # X2 allometric-consistency prior -- content-bearing replacement for scale_barrier,
+            # see fitter_3d/joint_limits.py::allometric_prior_loss and
+            # PREREGISTRATION_X2_allometric_prior.md §3 Step 1. A fresh forward pass is needed
+            # for `joints` (body_length) since Stage.forward's own src_mesh doesn't carry
+            # joints -- same pattern as the w_edge rest-pose call above (line ~652).
+            _allo_verts, _allo_joints = self.smal_3d_fitter(return_joints=True)
+            _bl = torch.linalg.norm(
+                _allo_joints[:, self.allo_bt_idx] - _allo_joints[:, self.allo_ba5_idx], dim=-1
+            )
+            _hw = torch.einsum(
+                "jv,bvc->bjc", self.allo_R.to(_allo_verts.dtype), _allo_verts
+            )
+            _hw = torch.linalg.norm(_hw[:, 0] - _hw[:, 1], dim=-1)
+            l_allo = allometric_prior_loss(_hw, _bl)
+            comp["allo"] = l_allo
+            loss = loss + lw["w_allo"] * l_allo
 
         if lw.get("w_trans", 0.0) > 0:
             l_tr = trans_barrier(self.smal_3d_fitter.betas_trans)

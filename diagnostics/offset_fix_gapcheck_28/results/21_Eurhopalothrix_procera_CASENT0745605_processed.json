@@ -1,0 +1,25 @@
+{
+  "specimen": "21_Eurhopalothrix_procera_CASENT0745605_processed",
+  "alpha": 2.19725,
+  "pre_gap": 1.7577973002407432,
+  "diag_length": 922.6848793931346,
+  "old": {
+    "offset": 0.07324166666666666,
+    "relative_alpha": 419.92712681448836,
+    "relative_offset": 12597.813804434652,
+    "gap_after": 2.5781771785998586,
+    "verdict": "preserved",
+    "output_vertices": 920903,
+    "output_faces": 1842170
+  },
+  "new": {
+    "offset": 0.8789,
+    "relative_alpha": 419.92712681448836,
+    "relative_offset": 1049.817817036221,
+    "gap_after": 2.229635038068767,
+    "verdict": "preserved",
+    "output_vertices": 177133,
+    "output_faces": 354518
+  },
+  "flipped": false
+}

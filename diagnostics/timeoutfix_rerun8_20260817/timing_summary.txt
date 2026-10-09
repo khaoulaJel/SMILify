@@ -1,0 +1,8 @@
+specimen=24_Labidus_praedator_CASENT0744237_processed exit_code=0 seconds=1022
+specimen=23_Labidus_praedator_CASENT0744236_processed exit_code=0 seconds=1272
+specimen=15_Cyphoidris_afrc-tz01_CASENT0744810_processed exit_code=0 seconds=1456
+specimen=25_Lasius_nr._fuliginosus_CASENT0878037_processed exit_code=0 seconds=1776
+specimen=9_Centromyrmex_brachycola_CASENT0744052_processed exit_code=0 seconds=588
+specimen=20_Ectatomma_brunneum_CASENT0744575_processed exit_code=0 seconds=1939
+specimen=31_Nesomyrmex_angulatus_CASENT0744820_processed exit_code=0 seconds=2150
+specimen=46_Strumigenys_stenorhina_OKENT0105268_processed exit_code=0 seconds=1280

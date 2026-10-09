@@ -1,0 +1,261 @@
+\chapter{Introduction}
+\label{ch:introduction}
+
+\section{Motivation}
+
+Ant scans are valuable because they can turn specimens that are difficult to
+measure repeatedly into a source of comparable three-dimensional traits. Once
+anatomically corresponding models are available, quantities such as head
+width, Weber's length, and appendage proportions can be extracted
+systematically rather than measured by hand under a microscope. The practical
+promise is therefore not only better mesh fitting, but a way to study
+biodiversity at population scale.
+
+In the first week of July 2026, ten preprocessed ant scans were passed
+through the registration pipeline. All ten optimisation runs converged
+cleanly: the loss curves showed no divergence, and the numerical objective
+decreased exactly as expected. By the numerical signals available to the pipeline, every run had
+succeeded.
+
+Four of the resulting models were not recognisable as anatomically meaningful
+ants. Legs had collapsed into the gaster; in some fits, the head had been
+absorbed into the thorax. More troublingly, several of these anatomically
+incorrect fits achieved a \emph{lower} loss than the runs that had visibly
+succeeded.
+
+The optimiser had succeeded. The registration had failed.
+
+\findingmark{Established here; recurs throughout this report as \F{F1}.}%
+This discrepancy is the starting point of the internship.\footnote{Recorded
+as \F{F1} in the findings ledger (Section~\ref{sec:ledger}) and the direct
+motivation for the correspondence instrument built later
+(\S\ref{sec:synthetic-instrument}).} The objective minimised during fitting
+is a symmetric point-to-point distance between two surfaces. It quantifies
+whether the fitted mesh \emph{covers} the target, not whether vertex $i$ of
+the template has landed on the anatomical point vertex $i$ is defined to
+represent. These two properties can diverge, and when they do the failure
+produces no exception, no divergent loss curve, and no signal in the log
+that anything is wrong: the pipeline's own numerical output cannot tell a
+biologically correct fit from a plausible but wrong one.
+
+The project began from a fundamental question: how can a parametric
+mesh be fitted to imperfect animal scans if the pipeline has no objective that
+disambiguates good correspondence from a plausible but wrong deformation? The
+internship addressed this question by moving from a mesh-quality-centred
+hypothesis to a more precise investigation of initialisation, correspondence,
+and constrained optimisation. A method is not considered reliable simply
+because it reaches a numerically stable minimum, but because it reaches a
+biologically meaningful one.
+
+\section{Scope of the internship}
+
+The internship brief listed six assignments: unify the preprocessing
+pipeline, stabilise a Shape-Diameter-Function-based segmentation, integrate
+neural initialisation, design a hybrid registration framework, benchmark the
+result, and deliver documentation. Read together, this list implies a
+specific hypothesis: that input mesh quality is the limiting factor, and
+that cleaning it will improve the fits.
+\S\ref{sec:turn} describes how an early, direct test of that hypothesis
+produced a null result, and how the investigation was redirected on the
+basis of that evidence toward initialisation, sampling, anatomical
+structure, correspondence, and, ultimately, the optimisation objective
+itself: the sequence this report follows.
+
+\section{Parametric shape modelling for non-human subjects}
+
+Parametric mesh registration deforms a rigged, segmented template mesh until
+it matches a target scan, governed by a shape vector $\bm\beta$, joint
+rotations $\bm\theta$, a global scale $s$, and residual per-vertex
+deformation $\mathbf d$ (Eq.~\ref{eq:registration}). Because every
+vertex retains a fixed anatomical identity across all fits, a correctly
+registered corpus places otherwise unrelated scans into a shared coordinate
+system in which measurement and population-level comparison become possible
+: this property, not visual resemblance, is what makes the technique
+useful, and Chapter~\ref{ch:pipeline} traces its lineage from \term{SMPL}
+through \term{SMAL} to \term{SMILify} in full. An ant presents six limbs,
+two antennae, and a pair of mandibles, all thin and articulated, several
+represented by only a few dozen template vertices; scans from \term{scAnt}
+photogrammetry~\cite{scant} or micro-CT commonly contain holes,
+self-intersections, arbitrary orientation, and missing surface exactly at
+the structures of greatest anatomical interest. Existing registration
+pipelines, designed for clean, watertight meshes in near-canonical poses,
+were not built to survive input of this kind: the problem this report
+addresses.
+
+\section{Project state at the outset}
+
+\term{SMILify} is built on \term{SMALify}~\cite{smalify}, Biggs et al.'s
+optimisation-based framework for fitting the SMAL quadruped model, itself
+built on SMAL~\cite{smal}; its stated ambition is to turn any rigged mesh
+into a SMAL-compatible parametric model regardless of skeletal topology, with
+\term{SMIL} (Skinned Multi-Insect Linear) as the current insect-focused
+instance. At the outset, a Shape Diameter Function module intended for
+part-aware segmentation had not been validated on incomplete meshes, and a
+\term{PointNet}-based initialisation predictor was implemented but
+unevaluated; of roughly 380 raw scans in the available corpus, only 86
+(around 23\%) were curated as clean enough for registration, indicating the
+scale of the data-quality problem the brief was written against. A
+longer-term ambition beyond this internship's scope, tracked internally as
+\term{SMILify} Gen2, is building a shape space from the full scan collection
+rather than a curated subset, something that can only be trusted once the
+registrations feeding it are individually reliable, which is the
+prerequisite this report's investigation addresses.
+
+
+\section{Problem statement and research questions}
+\label{sec:problem}
+
+Registration recovers, for a scan $T$, the latent variables of a parametric
+mesh $M$:
+\begin{equation}
+(\hat{\bm\beta},\hat{\bm\theta},\hat s,\hat{\mathbf d})
+ =\arg\min_{\bm\beta,\bm\theta,s,\mathbf d}\;
+ \mathcal{L}\big(M(\bm\beta,\bm\theta,s,\mathbf d),\,T\big),
+\label{eq:registration}
+\end{equation}
+with shape $\bm\beta$, articulated pose $\bm\theta$, scale $s$ and residual
+per-vertex deformation $\mathbf d$. The scan is only a set of surface
+samples. It carries no vertex identities, no joint locations and no
+labelling of anatomical structures, yet the aim is to recover exactly those
+quantities. Equation~\eqref{eq:registration} is a non-convex problem whose
+objective observes only surfaces (\S\ref{sec:registration}), so several
+different latent configurations can yield nearly the same surface.
+
+\begin{tcolorbox}[invstyle,title={Formal problem statement}]
+The mapping from observed surface to anatomical state is not guaranteed to
+be \emph{identifiable} from a surface-only objective alone: distinct
+$(\bm\beta,\bm\theta,\mathbf d)$ can generate near-identical surfaces while
+differing in every anatomical quantity that matters. Every mechanism this
+report investigates (deformation absorbing pose error, local descriptors
+that do not deploy densely, supervision that does not propagate) is a
+different symptom of this one ambiguity.
+\end{tcolorbox}
+
+This is the central issue of the report, studied through four research
+questions:
+
+\begin{enumerate}[nosep,label=\textbf{RQ\arabic*.}]
+\item Is input mesh quality the dominant limit on registration accuracy?
+\item Does a good surface fit imply a correct anatomical fit?
+\item Which component (initialisation, sampling, deformation freedom,
+correspondence, or the objective) limits anatomical recovery, and where
+along the body?
+\item When a parameter is recovered, when is it a valid biological
+measurement?
+\end{enumerate}
+
+\begin{figure}[!htb]
+\centering
+\begin{tikzpicture}[node distance=5mm and 5mm, every node/.style={font=\scriptsize},
+ n/.style={draw,rounded corners=2pt,minimum height=7mm,align=center,fill=white,inner sep=2pt},
+ arr/.style={-{Stealth[length=1.5mm]}}]
+\node[n,fill=gray!10] (h0) {``The scans are the problem''};
+\node[n,below=of h0] (pp) {Preprocessing test};
+\node[n,below=of pp,fill=gray!10] (null) {Null result (\F{F2})};
+\node[n,below=of null] (q) {Then what is failing?};
+\node[n,below left=8mm and 30mm of q] (init) {Initialisation\\distal helps, coxa does not (\F{F4})};
+\node[n,below=8mm of q] (corr) {Correspondence\\local signal exists, global deploy collapses};
+\node[n,below right=8mm and 30mm of q] (obj) {Objective\\surface $\neq$ anatomy (\F{F1}); no joint term (\F{F6})};
+\node[n,below=14mm of corr,fill=gray!10] (ct) {Counterfactual tests (oracles) + corrected expert ground truth (\F{F7})};
+\node[n,below=of ct] (surv) {What actually survives?};
+\node[n,below left=6mm and 22mm of surv] (s1) {Surface: reliable as coverage only};
+\node[n,below=6mm of surv] (s2) {Anatomy: partial, structured recovery (\F{F8})};
+\node[n,below right=6mm and 22mm of surv] (s3) {Measurement: trait-specific validity};
+\node[n,below=10mm of s2,fill=gray!10] (open) {Open problem: a globally consistent anatomical correspondence};
+\draw[arr](h0)--(pp); \draw[arr](pp)--(null); \draw[arr](null)--(q);
+\draw[arr](q)--(init); \draw[arr](q)--(corr); \draw[arr](q)--(obj);
+\draw[arr](init)|-(ct); \draw[arr](corr)--(ct); \draw[arr](obj)|-(ct);
+\draw[arr](ct)--(surv); \draw[arr](surv)--(s1); \draw[arr](surv)--(s2); \draw[arr](surv)--(s3);
+\draw[arr](s1)|-(open); \draw[arr](s2)--(open); \draw[arr](s3)|-(open);
+\end{tikzpicture}
+\caption{The investigation at a glance: from the initial mesh-quality
+hypothesis, through its rejection, to a three-way diagnosis and what each
+level of validity turned out to support.}
+\label{fig:glance}
+\end{figure}
+
+\section{The redirection of the project}
+\label{sec:turn}
+
+The first weeks tested the hypothesis implicit in the brief (RQ1): a rebuilt
+preprocessing pipeline was compared against the existing one with
+registration held fixed. The two tied (\F{F2}, \S\ref{sec:prep-null}).
+That null result located the problem elsewhere and redirected the internship
+toward a question the pipeline had no instrument to answer: whether the
+optimiser finds the \emph{right} correspondence, not merely a close surface.
+Building that instrument from synthetic ground truth
+(\S\ref{sec:synthetic-instrument}), and later an independent expert
+benchmark (\S\ref{sec:skeleton-underdetermined}) after correcting a
+coordinate-frame error in an early annotation set (\F{F7}), is the thread the
+rest of the report follows.
+
+\section{Established results}
+\label{sec:ledger}
+
+Results that recur are registered once here and cited by identifier
+(\F{F1}, \F{F2}, and so on); evidence is in the chapter each points to. Table~\ref{tab:evidence}
+(Chapter~\ref{ch:conclusion}) gives the evidence status of every headline
+claim in the report.
+
+\printfindingledger
+
+\section{Contributions}
+
+Existing SMILify provided the parametric representation and a baseline
+optimisation-based fitting pipeline. This internship's contribution is the
+diagnostic and validation machinery built around it, and what that machinery
+established.
+
+\textbf{Scientific contribution.} A diagnostic framework, evidenced
+experimentally rather than asserted, showing that surface fit, anatomical
+correspondence, parameter recovery and measurement validity are four
+distinct properties that do not track one another: surface proximity does
+not imply anatomical correspondence (\F{F1}); regional identity and
+within-region localisation are distinct problems (\F{F3}); initialisation
+sensitivity is anatomically heterogeneous (\F{F4}); the objective has no
+explicit joint observation term and expert supervision does not propagate
+spatially (\F{F6}); error is structured by joint and specimen rather than by
+seed (\F{F8}); local learned correspondence does not imply dense global
+correspondence (Chapter~\ref{ch:structure}); and accurate population-level
+measurements can coexist with unreliable individual-level correspondence
+(\S\ref{sec:scale-dependence}).
+
+\textbf{Algorithmic contributions.} Chain-aware anatomical assignment; an
+SDF-based anatomical field; a PointNet-style pose initialiser; localised
+graduated non-convexity; a distal-protected sampling scheme; and learned
+within-part correspondence descriptors, each evaluated against a
+pre-registered criterion (Table~\ref{tab:evidence}), not assumed successful.
+
+\textbf{Evaluation contributions.} A synthetic round-trip correspondence
+benchmark; an adversarial metric test; a three-level evaluation protocol;
+counterfactual (oracle) interventions for causal bottleneck localisation; a
+corrected, frozen expert Joint Alignment Benchmark (11 specimens, 396 fits);
+variance decomposition; and leave-one-region-out supervision.
+
+\textbf{Systems and infrastructure contributions.} A configurable
+preprocessing pipeline with Alpha Wrap and ManifoldPlus handling and
+mesh-quality classification; integration of joint-limit priors into the 3D
+registration path; a corrected staged fitting schedule; and reproducible
+large-scale ablation studies across two HPC systems (JURECA, RWTH H100) with
+fixed seeds, preserved checkpoints, configuration-driven experiments and
+hash-frozen evaluation artifacts (\S\ref{sec:infrastructure}).
+
+\textbf{What is open.} Within-part localisation on thin articulated
+structures; the anterior deformation defect that the scale barrier did not
+resolve; supplying joint information without expert annotation; and dense,
+globally consistent learned correspondence. Claims not reproducible in the
+final environment are marked provisional or excluded (Table~\ref{tab:evidence}).
+
+\section{Structure of this report}
+
+Chapter~\ref{ch:host} gives the host context and Chapter~\ref{ch:related}
+positions the work against existing literature on parametric models,
+point-cloud registration, shape correspondence, and defective mesh repair.
+Chapter~\ref{ch:pipeline} defines the model, objective and pipeline
+mathematically, and Chapter~\ref{ch:method} sets out the experimental
+methodology. Chapter~\ref{ch:structure} reports the algorithmic
+investigations and Chapter~\ref{ch:diagnostics} the mechanistic diagnosis of
+the registration bottleneck. Chapter~\ref{ch:interventions} evaluates
+candidate interventions against that diagnosis, Chapter~\ref{ch:validation}
+is the move from registration to measurement, and Chapter~\ref{ch:conclusion}
+the discussion, limitations and future work.

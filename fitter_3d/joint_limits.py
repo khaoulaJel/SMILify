@@ -135,6 +135,87 @@ def trans_barrier(betas_trans, free_abs=0.02):
     return (betas_trans.abs() - free_abs).clamp_min(0.0).pow(2).mean()
 
 
+# ---------------------------------------------------------------------------
+# X2: allometric-consistency prior (diagnostics/anterior_mechanism/
+# PREREGISTRATION_X2_allometric_prior.md), a content-bearing replacement for scale_barrier.
+#
+# WHY THIS EXISTS. X1 (diagnostics/anterior_mechanism/RESULTS_X1_scalecap_mechanism_20260830.md)
+# showed scale_barrier fixes the anterior scale-outlier STATISTIC it targets (shipped, -58 to
+# -70% tail reduction) but does not move the underlying anatomical symptom (head-carriage deform
+# ratio 0.793 -> 0.802, not significant): the barrier has no notion of what an ant's proportions
+# are actually supposed to be, it only punishes distance from a magnitude of 1.0 in log-space.
+#
+# The Atta head-width replication (diagnostics/atta_reference/REPORT_ATTA_HEADWIDTH.md)
+# independently found that this project's own fits reproduce a REAL, externally-published
+# allometric law -- head width scales with body length as a power law, exponent 1.189 in this
+# repo's fits vs. 1.235 in the reference data (Hansell et al.-style scaling study; CIs overlap,
+# residual scatter statistically identical to the reference's own noise). That is a genuine,
+# content-bearing biological constraint, not an arbitrary constant -- the direct candidate to
+# replace scale_barrier with, and the object of the X2 preregistration's H2.
+# ---------------------------------------------------------------------------
+
+# Reference (published) coefficients ONLY -- not this repo's own replicated fit (exponent 1.189),
+# which would make the penalty circular (specimens fit under a scale_cap precursor, being judged
+# against their own descendants). See PREREGISTRATION_X2_allometric_prior.md §2 item 3.
+ALLO_EXPONENT_REF = 1.2341
+ALLO_INTERCEPT_REF = -0.5012
+
+# b_h_l / b_h_r rest-pose positions, trilaterated from the Blender CSV's own Base-pose distances
+# against the model's 55 trained joints (55 overdetermined anchors, residual ~3.6e-9 model units --
+# essentially exact). Verified end-to-end against a freshly matched Blender export: mean |rel err|
+# 0.070%, max 0.121%, 20/20 specimens within +/-1% (RESULTS_X2_step0_reporter_validation_
+# rematch_20260908.md). Hardcoded rather than re-derived from a CSV at training time so this loss
+# has no runtime dependency on Blender or diagnostics/atta_reference/.
+_ALLO_B_H_L_REST = (0.40507574, 0.16124934, 0.06171087)
+_ALLO_B_H_R_REST = (0.39643314, -0.16170239, 0.05901498)
+
+
+def build_head_width_reporter_matrix(v_template, n_nearest=10, dtype=torch.float64, device=None):
+    """Frozen (2, V) inverse-distance regressor for b_h_l (row 0) / b_h_r (row 1), replicated
+    EXACTLY from the SMIL Model Importer addon's reporter-bone algorithm (`core_mesh.py::
+    find_nearest_neighbors`, diagnostics/anterior_mechanism/x2_head_width_reporter.py): each
+    reporter's position is the inverse-distance-weighted mean of its `n_nearest` closest
+    REST-POSE (Basis) vertices, weights normalized to sum to 1 (1/d, not 1/d^2).
+
+    `head_width(verts) = ||R[0] @ verts - R[1] @ verts||`, same pattern as `joints =
+    J_regressor @ verts` in smal_model/smal_torch.py.
+
+    Args:
+        v_template: (V, 3) array/tensor of the model's rest-pose vertices (numpy or torch).
+    """
+    if torch.is_tensor(v_template):
+        v = v_template.detach().cpu().numpy().astype(np.float64)
+    else:
+        v = np.asarray(v_template, dtype=np.float64)
+
+    R = np.zeros((2, v.shape[0]), dtype=np.float64)
+    for row_i, pos in enumerate((_ALLO_B_H_L_REST, _ALLO_B_H_R_REST)):
+        pos = np.asarray(pos, dtype=np.float64)
+        dist = np.linalg.norm(v - pos, axis=1)
+        idx = np.argpartition(dist, n_nearest)[:n_nearest]
+        w = 1.0 / dist[idx]
+        w = w / w.sum()
+        R[row_i, idx] = w
+
+    return torch.as_tensor(R, dtype=dtype, device=device)
+
+
+def allometric_prior_loss(head_width, body_length, exponent_ref=ALLO_EXPONENT_REF,
+                           intercept_ref=ALLO_INTERCEPT_REF, eps=1e-8):
+    """l_allo = (log10(head_width) - (intercept_ref + exponent_ref * log10(body_length)))^2,
+    mean over the batch. Mirrors scale_barrier's `.mean()` reduction so the two are drop-in
+    alternatives at the call site (PREREGISTRATION_X2_allometric_prior.md §3 Step 1).
+
+    `eps` guards log10 of a degenerate (near-zero) length rather than letting it silently
+    produce -inf/NaN -- a collapsed body_length or head_width should show up as an exploding
+    loss value the optimizer visibly fights, not a silent NaN that stops training somewhere
+    downstream with no traceable cause.
+    """
+    target_log = intercept_ref + exponent_ref * torch.log10(body_length.clamp_min(eps))
+    pred_log = torch.log10(head_width.clamp_min(eps))
+    return (pred_log - target_log).pow(2).mean()
+
+
 def composed_log_scale(fitter):
     """Total per-joint log-scale actually applied: shape-space contribution + free residual.
 
@@ -153,12 +234,8 @@ def composed_log_scale(fitter):
     free = fitter.log_beta_scales
     if not getattr(config, "COUPLE_JOINT_BLENDSHAPES", False):
         return free
-    sd = getattr(fitter.smal_model, "scaledirs", None)
-    if sd is None:
-        return free
-    nb = fitter.betas.shape[1]
-    driven = torch.einsum("bk,kjc->bjc", fitter.betas, sd[:nb])
-    return free + torch.log(torch.clamp(1.0 + driven, min=config.COUPLE_MIN_SCALE))
+    from smal_model.smal_torch import compose_log_scale
+    return compose_log_scale(fitter.betas, getattr(fitter.smal_model, "scaledirs", None), free)
 
 
 def composed_trans(fitter):
@@ -171,8 +248,5 @@ def composed_trans(fitter):
     free = fitter.betas_trans
     if not getattr(config, "COUPLE_JOINT_BLENDSHAPES", False):
         return free
-    td = getattr(fitter.smal_model, "transdirs", None)
-    if td is None:
-        return free
-    nb = fitter.betas.shape[1]
-    return free + torch.einsum("bk,kjc->bjc", fitter.betas, td[:nb]) * config.COUPLE_TRANSLATION_FACTOR
+    from smal_model.smal_torch import compose_trans
+    return compose_trans(fitter.betas, getattr(fitter.smal_model, "transdirs", None), free)

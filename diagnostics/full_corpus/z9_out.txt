@@ -1,0 +1,39 @@
+  Z8_W0            worker    64 specimens
+  Z8_W1            worker    64 specimens
+  Z8_W2            worker    64 specimens
+  Z8_W3            worker    64 specimens
+  Z8_W4            worker    64 specimens
+  Z8_W5            worker    64 specimens
+  Z8_W6            worker    64 specimens
+  Z8_W7            worker    64 specimens
+  Z8_W8            worker    64 specimens
+  Z8_W9            worker    64 specimens
+  Z8_W10           worker    64 specimens
+  Z8_W11           worker    53 specimens
+
+757 specimens, 71 features
+lot-blind classifiable: 602 specimens, 83 genera
+
+========================================================================================
+TEST 2 -- lot-blind LOO-1NN genus accuracy vs trait reliability
+========================================================================================
+feature set                   traits   accuracy     null    lift        p
+all traits                        71      0.091    0.022    4.13   0.0000
+R >= 0.0                          60      0.095    0.022    4.28   0.0000
+R >= 0.1                          45      0.113    0.022    5.24   0.0000
+R >= 0.2 (drop noise)             22      0.090    0.022    4.00   0.0000
+R >= 0.3                           6      0.071    0.023    3.09   0.0000
+
+========================================================================================
+TEST 1 -- do two nest-mates get the SAME genus?  (lot-blind 1-NN prediction)
+========================================================================================
+  conspecific pairs (determined species, lot-blind): 318
+  BOTH nest-mates assigned the SAME genus :    5.7%
+  chance agreement (label permutation)    :    3.0% +- 1.0
+  lift                                    :   1.89x
+  both assigned the CORRECT genus         :    1.9%
+
+  A pair can agree and both be wrong, so 'same genus' is the repeatability number
+  and 'both correct' is the accuracy number. Reported separately on purpose.
+
+wrote /rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/full_corpus/out_Z9/z9_results.json

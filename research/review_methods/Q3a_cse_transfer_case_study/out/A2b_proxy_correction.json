@@ -1,0 +1,140 @@
+{
+ "q": {
+  "q_mean": 0.8918118873727998,
+  "q_p10": 0.8363353881718857
+ },
+ "rows": {
+  "Aenictus_ceylonicus_CASENT0878084": {
+   "cse_targets_obs": 0.8816901408450705,
+   "cse_targets_corr": [
+    0.9883681385021139,
+    1.0
+   ],
+   "per_point_obs": 0.7938498539769799,
+   "per_point_corr": [
+    0.8874225113828162,
+    0.9471311550142152
+   ]
+  },
+  "Aphaenogaster_gracillima_OKENT0105348": {
+   "cse_targets_obs": 0.8386666666666667,
+   "cse_targets_corr": [
+    0.9389257728560204,
+    1.0
+   ],
+   "per_point_obs": 0.6580246913580247,
+   "per_point_corr": [
+    0.7313329002486824,
+    0.7781108142382813
+   ]
+  },
+  "Cataglyphis_iberica_CASENT0745158": {
+   "cse_targets_obs": 0.708507670850767,
+   "cse_targets_corr": [
+    0.7893476928392191,
+    0.8409316512078298
+   ],
+   "per_point_obs": 0.6407935955447268,
+   "per_point_corr": [
+    0.7115310093983244,
+    0.7566685009720948
+   ]
+  },
+  "Cephalotes_atratus_CASENT0744612": {
+   "cse_targets_obs": 0.46424642464246424,
+   "cse_targets_corr": [
+    0.5086438659440976,
+    0.5369738404721037
+   ],
+   "per_point_obs": 0.25902048455859417,
+   "per_point_corr": [
+    0.27279922151546765,
+    0.2815914233985514
+   ]
+  },
+  "Cyphomyrmex_major_CASENT0745147": {
+   "cse_targets_obs": 0.6567796610169492,
+   "cse_targets_corr": [
+    0.7299021174832395,
+    0.7765615029879402
+   ],
+   "per_point_obs": 0.559420701405651,
+   "per_point_corr": [
+    0.6180176783032596,
+    0.6554083660153989
+   ]
+  },
+  "Discothyrea_patrizii_CASENT0744991": {
+   "cse_targets_obs": 0.4475347661188369,
+   "cse_targets_corr": [
+    0.4894389098810052,
+    0.5161779130892026
+   ],
+   "per_point_obs": 0.26338380827471086,
+   "per_point_corr": [
+    0.2778135317431806,
+    0.2870211276388675
+   ]
+  },
+  "Eciton_burchellii_CASENT0744558": {
+   "cse_targets_obs": 0.38235294117647056,
+   "cse_targets_corr": [
+    0.4145322761462094,
+    0.4350658860411413
+   ],
+   "per_point_obs": 0.38204592901878914,
+   "per_point_corr": [
+    0.41417945927942323,
+    0.4346838412232805
+   ]
+  },
+  "Formica_cf.fusca_CASENT0878139": {
+   "cse_targets_obs": 0.7930535455861071,
+   "cse_targets_corr": [
+    0.8865073976831339,
+    0.9461402317346631
+   ],
+   "per_point_obs": 0.6648602878916172,
+   "per_point_corr": [
+    0.7391883342803836,
+    0.7866170058248568
+   ]
+  },
+  "Gigantiops_destructor_CASENT0745031": {
+   "cse_targets_obs": 0.83991683991684,
+   "cse_targets_corr": [
+    0.9403624658273904,
+    1.0
+   ],
+   "per_point_obs": 0.803888577304169,
+   "per_point_corr": [
+    0.89895896302558,
+    0.9596233059897813
+   ]
+  },
+  "Leptogenys_peuqueti_CASENT0741327": {
+   "cse_targets_obs": 0.23636363636363636,
+   "cse_targets_corr": [
+    0.24676208262245278,
+    0.2533973235058564
+   ],
+   "per_point_obs": 0.23198594024604569,
+   "per_point_corr": [
+    0.24173125570141232,
+    0.24794973430116365
+   ]
+  },
+  "Odontomachus_bauri_CASENT0878072": {
+   "cse_targets_obs": 0.680073126142596,
+   "cse_targets_corr": [
+    0.7566708534326217,
+    0.8055478066851001
+   ],
+   "per_point_obs": 0.6080870917573873,
+   "per_point_corr": [
+    0.6739448555569709,
+    0.7159686460325947
+   ]
+  }
+ }
+}

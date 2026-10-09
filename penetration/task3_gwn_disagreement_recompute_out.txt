@@ -1,0 +1,56 @@
+baseline: 1000 rows, 50 specimens, 20 pair/directions, 0 rows with disagreement_rate=None
+gentle: 1000 rows, 50 specimens, 20 pair/directions, 0 rows with disagreement_rate=None
+
+=== recomputed directly from per-specimen CSVs (mean over 50 specimens/pair) ===
+pair       dir        other        baseline     gentle      delta
+mandible   A_into_B   antenna        0.0479     0.1221    +0.0742
+gaster     A_into_B   legs           0.0195     0.0844    +0.0649
+mandible   B_into_A   antenna        0.0925     0.0492    -0.0433
+head       A_into_B   legs           0.0036     0.0377    +0.0341
+mandible   A_into_B   legs           0.0020     0.0220    +0.0200
+antenna    A_into_B   legs           0.0097     0.0250    +0.0153
+antenna    B_into_A   thorax         0.0017     0.0148    +0.0131
+mandible   B_into_A   thorax         0.0010     0.0100    +0.0090
+antenna    B_into_A   legs           0.0019     0.0091    +0.0073
+antenna    A_into_B   thorax         0.0031     0.0056    +0.0025
+head       B_into_A   legs           0.0016     0.0036    +0.0020
+mandible   B_into_A   legs           0.0014     0.0031    +0.0017
+antenna    B_into_A   gaster         0.0000     0.0007    +0.0007
+gaster     B_into_A   legs           0.0131     0.0127    -0.0004
+mandible   A_into_B   thorax         0.0033     0.0034    +0.0001
+head       A_into_B   gaster         0.0000     0.0000    -0.0000
+head       B_into_A   gaster         0.0000     0.0000    +0.0000
+mandible   B_into_A   gaster         0.0000     0.0000    +0.0000
+mandible   A_into_B   gaster         0.0000     0.0000    +0.0000
+antenna    A_into_B   gaster         0.0000     0.0000    +0.0000
+
+13 worse (gentle disagrees more), 2 better, 5 tie (threshold |delta|<1e-4), out of 20 pair/directions
+
+=== cross-check vs TASK3_HANDOFF.md table (log-derived) ===
+  ('mandible', 'antenna', 'A_into_B'): handoff=(0.0479,0.1221) recompute=(0.0479,0.1221)
+  ('mandible', 'antenna', 'B_into_A'): handoff=(0.0925,0.0492) recompute=(0.0925,0.0492)
+  ('gaster', 'legs', 'A_into_B'): handoff=(0.0195,0.0844) recompute=(0.0195,0.0844)
+  ('head', 'legs', 'A_into_B'): handoff=(0.0036,0.0377) recompute=(0.0036,0.0377)
+  ('antenna', 'legs', 'A_into_B'): handoff=(0.0097,0.0250) recompute=(0.0097,0.0250)
+  ('mandible', 'legs', 'A_into_B'): handoff=(0.0020,0.0220) recompute=(0.0020,0.0220)
+  ('antenna', 'thorax', 'B_into_A'): handoff=(0.0017,0.0148) recompute=(0.0017,0.0148)
+  ('gaster', 'legs', 'B_into_A'): handoff=(0.0131,0.0127) recompute=(0.0131,0.0127)
+  ('mandible', 'thorax', 'B_into_A'): handoff=(0.0010,0.0100) recompute=(0.0010,0.0100)
+  ('antenna', 'legs', 'B_into_A'): handoff=(0.0019,0.0091) recompute=(0.0019,0.0091)
+  ('antenna', 'thorax', 'A_into_B'): handoff=(0.0031,0.0056) recompute=(0.0031,0.0056)
+  ('head', 'legs', 'B_into_A'): handoff=(0.0016,0.0036) recompute=(0.0016,0.0036)
+  ('mandible', 'thorax', 'A_into_B'): handoff=(0.0033,0.0034) recompute=(0.0033,0.0034)
+  ('mandible', 'legs', 'B_into_A'): handoff=(0.0014,0.0031) recompute=(0.0014,0.0031)
+  ('antenna', 'gaster', 'B_into_A'): handoff=(0.0000,0.0007) recompute=(0.0000,0.0007)
+
+max abs diff handoff-vs-recompute across all checked rows: 0.000049
+
+=== per-specimen (mean disagreement over all 20 pair/directions), n=50 ===
+specimens with higher mean disagreement under gentle: 40
+specimens with lower mean disagreement under gentle: 10
+tied: 0
+grand mean disagreement_rate: baseline=0.0101 gentle=0.0202 delta=+0.0101
+
+=== gaster-legs only (the targeted pair) ===
+  A_into_B: baseline=0.0195 gentle=0.0844 delta=+0.0649
+  B_into_A: baseline=0.0131 gentle=0.0127 delta=-0.0004

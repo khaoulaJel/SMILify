@@ -1,0 +1,85 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+\subsection{What the investigation establishes}
+
+The starting observation was that an optimiser can succeed while a registration
+fails. The investigation traced this to one structural fact: the scan supplies
+surface geometry, whereas anatomical correspondence is an intended consequence
+of the recovered parameters, never an observed quantity. Each result is a
+different consequence of that fact. Input quality is not the limit (\F{F2}).
+Surface proximity is an unreliable proxy for anatomy, because free deformation
+lets a wrong explanation hide behind a good surface (\F{F1}).
+Correspondence splits into identity and localisation (\F{F3}); initialisation
+helps where pose alone determines placement and not where attachment depends on
+shape (\F{F4}); thin structures are under-weighted before any pose question
+arises (\F{F5}); and the objective has no term observing joint location, so
+supervision acts only where it is supplied (\F{F6}). The residual error is
+structured by joint and specimen, not by chance (\F{F8}), and the reference
+used to see all of this had itself to be audited (\F{F7}).
+
+Four distinctions summarise the outcome: representability is not
+recoverability; regional identity is not within-region location; plausibility
+is not correspondence; and fit quality is not measurement validity. Each was the
+concrete reason that a plausible intervention failed. The contribution is
+therefore not a fitting trick but a technical framework that makes articulated
+3D reconstruction measurable, diagnostically interpretable and independently
+verifiable. A useful parametric representation is defined not only by what it
+can represent but by what anatomical meaning survives its recovery from data:
+a reconstruction is not yet a phenotype.
+
+\subsection{Relation to existing knowledge}
+
+Several findings confirm established principles in a new domain and are not
+claimed as discoveries: the dissociation between fit error and target error
+(known from medical registration~\cite{fitzpatrick}), the inability of
+intrinsic descriptors to break mirror symmetry~\cite{donati}, the expectation
+that dense-correspondence models become multi-modal on symmetric
+surfaces~\cite{haugaard,cse}, and the gap between benchmark success and system
+success~\cite{liao}. What this work adds is their measurement, under
+pre-registered single-factor ablation and an independently audited reference,
+in a deformable articulated animal model, together with per-region numbers that
+decide which traits can be trusted.
+
+\subsection{Scope of the evidence}
+
+The conclusions are bounded by the data in a precise way. The expert benchmark
+has 11 specimens, so the pre-registered specimen-level test resolves effects
+that are consistent across about ten of eleven specimens, and smaller effects
+are carried by intervals and the joint-level model. Synthetic targets come from
+the model and therefore give a lower bound for real scans. A fixed topology and a
+25-dimensional shape basis define what the model can express, and residual
+deformation is ambiguous with pose by construction (Section~\ref{sec:formal}).
+Annotation has its own repeatability, trait definitions are coupled to scale,
+and a population-level result does not carry over automatically to individual
+specimens. The ground-truth audit retired earlier analyses built on the
+superseded reference; every result reported here rests on the corrected
+benchmark or on exact synthetic ground truth.
+
+\subsection{Outlook}
+
+Each direction follows from a diagnosed failure, and none was implemented.
+Independent pointwise votes collapse, which calls for a global mechanism such
+as functional maps~\cite{fmaps} or optimal transport~\cite{ot}, with partial
+variants for incomplete scans. The absence of an anatomical signal in the
+objective calls for skeleton-conditioned correspondence or a learned 3D joint
+predictor; deformation that absorbs pose error calls for structured deformation;
+and the synthetic-to-real gap calls for scan-realistic synthetic training. The
+most ambitious direction is an anatomical canonical field that predicts, for
+every observed point, its part, joint-relative coordinates, laterality and a
+confidence, so that correspondence becomes the mapping of a scan into a
+canonical anatomical coordinate system: exactly the information the diagnosed
+objective lacks. The failure mechanisms are not specific to ants; whether they
+recur on other body plans is an empirical question that the same framework is
+built to answer.
+
+\subsection{What the internship taught me}
+
+Technically, it taught me to treat an objective as a proxy and to test the
+mechanism behind it: to build ground truth, to audit it before trusting it, and
+to report negative results with the same care as positive ones. Professionally,
+it taught me to work on a live shared repository under review, to fix success
+criteria before an experiment, to run reproducible experiments on two HPC
+systems, and to redirect a project when the evidence contradicts its starting
+hypothesis, a decision that is only defensible alongside the evidence that
+motivated it.

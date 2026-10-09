@@ -1,0 +1,25 @@
+\section{Synthetic ground truth and the round-trip benchmark}
+\label{sec:synthetic-method}
+
+Real scans have no known vertex identities, so correspondence cannot be
+measured on them directly. The model can, however, generate its own targets:
+sample latent variables, pose the template, export an anonymous mesh, refit
+it, and compare against the known truth. The corpus used holds $5000$
+specifications drawn with a fixed seed, pose scale $0.50$ and shape scale
+$2.0$, with fixed train/test splits; this allows the perturbation, sampling,
+initialisation and correspondence variables to be manipulated one at a time.
+
+\begin{algbox}{1: Synthetic round-trip correspondence benchmark}
+\begin{enumerate}[nosep,leftmargin=1.4em]
+\item Sample $(\bm\beta,\bm\theta)$ from the model's learned distributions (fixed seed).
+\item Generate the posed mesh $M$; keep the true identity of every vertex.
+\item Optionally corrupt $M$ (noise, holes, dropped points) and strip identities.
+\item Run the production fitter on the anonymous mesh, optionally with a
+counterfactual input (ground-truth initialisation, regional-identity oracle).
+\item For each vertex $i$, compare fitted vertex $i$ with true vertex $i$;
+report correspondence, parameter and surface errors per anatomical part.
+\end{enumerate}
+\end{algbox}
+
+The limitation is intrinsic: the target comes from the model, so the
+benchmark bounds error from below on real scans (\S\ref{sec:limitations}).

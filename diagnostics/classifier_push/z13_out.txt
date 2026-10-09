@@ -1,0 +1,1313 @@
+  Z8_W0            worker    64 specimens
+  Z8_W1            worker    64 specimens
+  Z8_W2            worker    64 specimens
+  Z8_W3            worker    64 specimens
+  Z8_W4            worker    64 specimens
+  Z8_W5            worker    64 specimens
+  Z8_W6            worker    64 specimens
+  Z8_W7            worker    64 specimens
+  Z8_W8            worker    64 specimens
+  Z8_W9            worker    64 specimens
+  Z8_W10           worker    64 specimens
+  Z8_W11           worker    53 specimens
+757 specimens, 70 features (traits R>=0.1 + betas)
+genera without a subfamily mapping: 84  e.g. allomerus, anoplolepis, apterostigma, atopomyrmex, axinidris, blepharidatta
+
+comparable subset: 492 specimens, 9 subfamilies, 56 genera, 31 lots
+subfamily sizes: Myrmicinae 231, Dorylinae 79, Ponerinae 65, Formicinae 56, Dolichoderinae 24, Ectatomminae 15, Amblyoponinae 12, Pseudomyrmecinae 6 ...
+
+==========================================================================================
+LOT-BLIND ACCURACY BY TAXONOMIC LEVEL -- same specimens, same features
+==========================================================================================
+level        classesmodel              top-1    null   lift   top-3   macroR
+subfamily          9LDA shrinkage      0.581   0.383   1.52   0.866    0.288
+subfamily          9logistic L2        0.541   0.339   1.60   0.864    0.299
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_shrunk_covariance.py:349: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+/home/nao48500/miniforge3/envs/pytorch3d/lib/python3.10/site-packages/sklearn/covariance/_empirical_covariance.py:102: UserWarning: Only one sample available. You may want to reshape your data array
+  warnings.warn(
+genus             56LDA shrinkage      0.217   0.035   6.25   0.392    0.115
+genus             56logistic L2        0.217   0.037   5.90   0.378    0.117
+
+==========================================================================================
+USABILITY -- do two nest-mates get the same answer?  (255 pairs, lot-blind)
+==========================================================================================
+level / model                   same answer   chance   lift   both correct
+subfamily|LDA shrinkage               50.6%    35.6%   1.42          37.6%
+subfamily|logistic L2                 41.6%    31.0%   1.34          30.6%
+genus|LDA shrinkage                   23.1%     4.6%   5.07          12.9%
+genus|logistic L2                     23.1%     5.5%   4.21          12.5%
+
+wrote /rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/classifier_push/out_Z13/z13_results.json

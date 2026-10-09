@@ -1,0 +1,25 @@
+{
+  "specimen": "6_Aphaenogaster_pallida_CASENT0745235_processed",
+  "alpha": 46.4195,
+  "pre_gap": 9.98604718315533,
+  "diag_length": 5326.097288027195,
+  "old": {
+    "offset": 1.5473166666666667,
+    "relative_alpha": 114.7383596985576,
+    "relative_offset": 3442.150790956728,
+    "gap_after": 17.3386062048512,
+    "verdict": "preserved",
+    "output_vertices": 43710,
+    "output_faces": 87444
+  },
+  "new": {
+    "offset": 18.567800000000002,
+    "relative_alpha": 114.7383596985576,
+    "relative_offset": 286.84589924639397,
+    "gap_after": 53.29452200376255,
+    "verdict": "preserved",
+    "output_vertices": 7793,
+    "output_faces": 15598
+  },
+  "flipped": false
+}

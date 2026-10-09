@@ -1,0 +1,139 @@
+{
+ "model": "3D_model_prep/OmniAnt_25PCs_joint_limited.pkl",
+ "n_vertices": 10235,
+ "n_midline": 227,
+ "axis_convention": "+X anterior, Y lateral, +Z dorsal",
+ "landmarks": [
+  {
+   "name": "clypeal_margin_ant_mid",
+   "vertex": 5089,
+   "xyz": [
+    0.5704,
+    0.0,
+    0.0002
+   ],
+   "confidence": "medium",
+   "note": "Anteriormost midline point of the head part. GLAD HL anterior endpoint. Verify it sits on the median clypeal margin, not on a mandible or the labrum."
+  },
+  {
+   "name": "cephalic_margin_post_mid",
+   "vertex": 5096,
+   "xyz": [
+    0.2893,
+    0.0,
+    0.0549
+   ],
+   "confidence": "medium",
+   "note": "Posteriormost midline point of the head part. GLAD HL posterior endpoint. Verify it is the occipital margin midpoint, not inside the neck/foramen."
+  },
+  {
+   "name": "mandibular_apex_r",
+   "vertex": 1664,
+   "xyz": [
+    0.5988,
+    -0.0381,
+    -0.1307
+   ],
+   "confidence": "high",
+   "note": "Vertex furthest from the mandibular articulation = the apical tooth. HIGHEST-RISK point: the template is a mean mandible, and correspondence on trap-jaw (Odontomachus) and long-mandible (Aenictus) forms may not hold."
+  },
+  {
+   "name": "antennal_insertion_r",
+   "vertex": 678,
+   "xyz": [
+    0.5445,
+    -0.0657,
+    0.0435
+   ],
+   "confidence": "medium",
+   "note": "Head vertex nearest the scape articulation. Torular/antennal insertion."
+  },
+  {
+   "name": "scape_apex_r",
+   "vertex": 1802,
+   "xyz": [
+    0.5761,
+    -0.309,
+    0.0947
+   ],
+   "confidence": "medium",
+   "note": "Furthest scape vertex from its articulation. NOTE: GLAD SL excludes the basal condyle/neck, so the proximal endpoint is the articulation, not the bulb."
+  },
+  {
+   "name": "wl_anterior_r",
+   "vertex": 832,
+   "xyz": [
+    0.2468,
+    -0.0588,
+    0.0822
+   ],
+   "confidence": "RULE",
+   "note": "Anteriormost mesosoma vertex in the right lateral band -- the front of the pronotum in profile, excluding the neck. Type III constructed."
+  },
+  {
+   "name": "wl_posterior_r",
+   "vertex": 2386,
+   "xyz": [
+    -0.1276,
+    -0.0564,
+    -0.0056
+   ],
+   "confidence": "RULE",
+   "note": "Posteroventral-most mesosoma vertex in the same lateral band -- the posterior basal angle of the metapleuron, behind and below the hind coxa. Type III."
+  },
+  {
+   "name": "petiole_ant_mid",
+   "vertex": 2702,
+   "xyz": [
+    -0.1508,
+    0.0,
+    0.0049
+   ],
+   "confidence": "medium",
+   "note": "Anterior petiole, VENTRAL midline outline (same-surface rule)."
+  },
+  {
+   "name": "petiole_post_mid",
+   "vertex": 5165,
+   "xyz": [
+    -0.217,
+    0.0,
+    0.0146
+   ],
+   "confidence": "medium",
+   "note": "Posterior petiole, same VENTRAL outline."
+  },
+  {
+   "name": "gaster_apex_mid",
+   "vertex": 5201,
+   "xyz": [
+    -0.6944,
+    0.0,
+    -0.0962
+   ],
+   "confidence": "medium",
+   "note": "Posteriormost midline gaster point (TBL endpoint). Taken over b_a_3+b_a_4 because b_a_5 carries no vertices."
+  }
+ ],
+ "regions": {
+  "head_region": {
+   "vertices": 2174,
+   "rule": "max |y| extent within head part -> HW",
+   "confidence": "high",
+   "note": "Whole head part. HW is a max, not a percentile."
+  },
+  "pronotum_region": {
+   "vertices": 469,
+   "rule": "anterior third of mesosoma by x -> PW",
+   "confidence": "LOW",
+   "note": "PLACEHOLDER. The pronotum is not a modelled part; this is the anterior third of b_t by x and needs hand-painting in Blender."
+  },
+  "eye_region_r": {
+   "vertices": 0,
+   "rule": "max diameter within eye region -> EL",
+   "confidence": "ABSENT",
+   "note": "No eye geometry is separable from the head part. EL and HW2 cannot be computed until an eye vertex group is painted, or they are dropped."
+  }
+ },
+ "mirror_map_note": "template is exactly mirror-symmetric; left-side indices derived, never clicked"
+}

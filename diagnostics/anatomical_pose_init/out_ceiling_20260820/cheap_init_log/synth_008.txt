@@ -1,0 +1,10 @@
+specimen: synth_008.obj
+global_rot_aa (deg, PCA diagnostic only, NOT used for legs): [-15.8100004196167, 9.359999656677246, -4.710000038146973]
+trans (used for legs): [-0.2462, -0.0142, -0.0187]
+per-leg point counts and whether a nonzero coxa rotation was estimated:
+  l1_r: 3861 pts assigned, estimated=True
+  l2_r: 439 pts assigned, estimated=True
+  l3_r: 653 pts assigned, estimated=True
+  l1_l: 3565 pts assigned, estimated=True
+  l2_l: 293 pts assigned, estimated=True
+  l3_l: 1424 pts assigned, estimated=True

@@ -1,0 +1,15 @@
+\section{Correspondence}
+\label{sec:correspondence-def}
+
+Every one of the eight terms in \S\ref{sec:registration} is a function of
+surface geometry, not of vertex identity: $\mathcal{L}_{\mathrm{chamfer}}$ is
+minimised by the \emph{nearest} target point to each template vertex, not by
+the \emph{anatomically corresponding} one. Two meshes can therefore agree
+almost perfectly as surfaces while disagreeing almost completely about which
+point is which: the central observation of this report, introduced in
+Chapter~\ref{ch:introduction} and diagnosed mechanistically in
+Chapter~\ref{ch:diagnostics}. Because no correspondence measurement existed
+in the pipeline before this internship, one had to be built from synthetic
+ground truth before that diagnosis was even possible; that instrument is
+described first, in \S\ref{sec:synthetic-instrument}, because every later
+result in this report depends on it.

@@ -1,0 +1,22 @@
+14 specimens with annotations and a production fit
+
+====================================================================================================
+G3 -- can the parameterisation reach the annotated joints when handed them directly?
+median residual, % of mesosoma length (same units as G1)
+====================================================================================================
+  pose only (global_rot, joint_rot)        median    6.3%   range 4.9-10.9%
+  + betas (25-D shape space)               median    3.7%   range 2.1-6.0%
+  + per-joint scale & translation          median    0.0%   range 0.0-0.2%
+
+  unfitted template (reference)            median   34.0%
+  production D1_PROD fit (reference)       median   28.2%
+
+====================================================================================================
+ORACLE (best parameterisation, truth handed over) : 0.0%
+PRODUCTION FIT                                    : 28.2%
+UNFITTED TEMPLATE                                 : 34.0%
+
+share of the production residual that the parameterisation COULD remove: 100%
+=> CASE B (optimisation). The model can express the truth; the objective is not
+   finding it. Attack priors, weighting, constraints, initialisation.
+====================================================================================================

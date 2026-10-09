@@ -1,0 +1,25 @@
+{
+  "specimen": "33_Oxyopomyrmex_saulcyi_CASENT0745218_processed",
+  "alpha": 1.19938,
+  "pre_gap": 0.4797539814864434,
+  "diag_length": 530.9690524516719,
+  "old": {
+    "offset": 0.03997933333333333,
+    "relative_alpha": 442.7029402288449,
+    "relative_offset": 13281.088206865346,
+    "gap_after": 0.9076986942996044,
+    "verdict": "preserved",
+    "output_vertices": 894370,
+    "output_faces": 1789944
+  },
+  "new": {
+    "offset": 0.47975199999999996,
+    "relative_alpha": 442.7029402288449,
+    "relative_offset": 1106.7573505721123,
+    "gap_after": 1.6027645091877842,
+    "verdict": "preserved",
+    "output_vertices": 225606,
+    "output_faces": 452180
+  },
+  "flipped": false
+}

@@ -1,0 +1,1181 @@
+<title>Three Weeks on Correspondence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --ground:#F6F8F7;
+  --panel:#FFFFFF;
+  --panel-2:#EEF2F0;
+  --ink:#14181A;
+  --ink-2:#3E4846;
+  --muted:#6B7773;
+  --rule:#D7DEDB;
+  --rule-soft:#E6EBE9;
+  --accent:#0F5C4E;
+  --accent-soft:#E2EFEA;
+  --ok:#1F6F4A;
+  --ok-bg:#E4F0E8;
+  --fail:#98392C;
+  --fail-bg:#F6E6E2;
+  --open:#7E620F;
+  --open-bg:#F5EEDA;
+  --ship:#1B4E7A;
+  --ship-bg:#E2ECF5;
+  --shadow:0 1px 2px rgba(20,24,26,.05), 0 8px 24px -16px rgba(20,24,26,.25);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0E1211;
+    --panel:#161B1A;
+    --panel-2:#1C2322;
+    --ink:#E7ECEA;
+    --ink-2:#B4C0BC;
+    --muted:#7E8C88;
+    --rule:#2A3432;
+    --rule-soft:#222B2A;
+    --accent:#5FD3AC;
+    --accent-soft:#16302A;
+    --ok:#6DCF9B;
+    --ok-bg:#14291F;
+    --fail:#E08A78;
+    --fail-bg:#2E1B17;
+    --open:#D9BC63;
+    --open-bg:#2B2413;
+    --ship:#7FB5E4;
+    --ship-bg:#152532;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0E1211;
+  --panel:#161B1A;
+  --panel-2:#1C2322;
+  --ink:#E7ECEA;
+  --ink-2:#B4C0BC;
+  --muted:#7E8C88;
+  --rule:#2A3432;
+  --rule-soft:#222B2A;
+  --accent:#5FD3AC;
+  --accent-soft:#16302A;
+  --ok:#6DCF9B;
+  --ok-bg:#14291F;
+  --fail:#E08A78;
+  --fail-bg:#2E1B17;
+  --open:#D9BC63;
+  --open-bg:#2B2413;
+  --ship:#7FB5E4;
+  --ship-bg:#152532;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:16.5px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px 120px;}
+
+.masthead{padding:72px 0 40px;border-bottom:1px solid var(--rule);}
+.eyebrow{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);font-weight:500;
+}
+h1{
+  font-family:Newsreader,Georgia,serif;
+  font-weight:500;font-size:clamp(2.6rem,6vw,4.1rem);
+  line-height:1.03;letter-spacing:-.022em;
+  margin:.28em 0 .32em;text-wrap:balance;max-width:16ch;
+}
+.standfirst{
+  font-family:Newsreader,Georgia,serif;
+  font-size:clamp(1.12rem,2.3vw,1.36rem);line-height:1.55;
+  color:var(--ink-2);max-width:62ch;margin:0;
+}
+.meta-row{
+  display:flex;flex-wrap:wrap;gap:10px 30px;margin-top:34px;
+  font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);
+  letter-spacing:.03em;
+}
+.meta-row b{color:var(--ink-2);font-weight:500;}
+
+h2.sec{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);font-weight:500;
+  margin:0 0 22px;padding-bottom:10px;border-bottom:1px solid var(--rule-soft);
+}
+section{padding-top:64px;}
+
+.ledger{display:grid;gap:1px;background:var(--rule-soft);border:1px solid var(--rule-soft);border-radius:3px;overflow:hidden;}
+.led-row{
+  display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:baseline;
+  background:var(--panel);padding:14px 18px;
+}
+.led-row .n{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;}
+.led-row .t{font-size:15px;}
+.led-row .t a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule);}
+.led-row .t a:hover{border-bottom-color:var(--accent);color:var(--accent);}
+.led-row .t em{font-style:normal;color:var(--muted);font-size:13.5px;display:block;line-height:1.45;margin-top:2px;}
+
+.chip{
+  display:inline-block;font-family:"IBM Plex Mono",monospace;
+  font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:500;
+  padding:3px 8px;border-radius:2px;white-space:nowrap;
+}
+.chip.ok{background:var(--ok-bg);color:var(--ok);}
+.chip.fail{background:var(--fail-bg);color:var(--fail);}
+.chip.open{background:var(--open-bg);color:var(--open);}
+.chip.ship{background:var(--ship-bg);color:var(--ship);}
+
+.thread{
+  display:grid;grid-template-columns:112px minmax(0,1fr);gap:0 40px;
+  padding-top:56px;
+}
+.rail{position:relative;}
+.rail-inner{position:sticky;top:24px;}
+.rail .num{
+  font-family:Newsreader,Georgia,serif;font-size:2.6rem;line-height:1;
+  color:var(--accent);font-weight:500;font-variant-numeric:tabular-nums;
+}
+.rail .dates{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--muted);
+  margin-top:10px;letter-spacing:.04em;line-height:1.5;
+}
+.rail .chips{margin-top:12px;display:flex;flex-direction:column;gap:6px;align-items:flex-start;}
+.body{min-width:0;}
+h3{
+  font-family:Newsreader,Georgia,serif;font-weight:500;
+  font-size:clamp(1.6rem,3.2vw,2.05rem);line-height:1.18;letter-spacing:-.015em;
+  margin:0 0 6px;text-wrap:balance;
+}
+.kicker{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--muted);margin:0 0 14px;
+}
+.body p{max-width:66ch;margin:0 0 1.05em;}
+.body p:last-child{margin-bottom:0;}
+
+.beat{
+  display:grid;grid-template-columns:96px minmax(0,1fr);gap:0 20px;
+  padding:16px 0;border-top:1px solid var(--rule-soft);
+}
+.beat:first-of-type{border-top:1px solid var(--rule);}
+.beat > .lab{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--accent);padding-top:5px;font-weight:500;
+}
+.beat > .txt{min-width:0;}
+.beat > .txt > :first-child{margin-top:0;}
+.beat > .txt > :last-child{margin-bottom:0;}
+@media (max-width:720px){
+  .beat{grid-template-columns:1fr;gap:6px;}
+  .beat > .lab{padding-top:0;}
+}
+
+.tablewrap{overflow-x:auto;margin:14px 0 4px;border:1px solid var(--rule-soft);border-radius:3px;background:var(--panel);}
+table{border-collapse:collapse;width:100%;font-size:13.5px;}
+th,td{padding:8px 14px;text-align:left;border-bottom:1px solid var(--rule-soft);white-space:nowrap;}
+th{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--panel-2);
+}
+tr:last-child td{border-bottom:none;}
+td.num,th.num{text-align:right;font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;}
+td strong{color:var(--accent);font-weight:600;}
+code{
+  font-family:"IBM Plex Mono",monospace;font-size:.88em;
+  background:var(--panel-2);padding:1px 5px;border-radius:2px;color:var(--ink-2);
+}
+.body ul{margin:0 0 1.05em;padding-left:1.15em;max-width:66ch;}
+.body li{margin-bottom:.42em;}
+.body li::marker{color:var(--accent);}
+
+.callout{
+  background:var(--panel);border:1px solid var(--rule);border-left:2px solid var(--accent);
+  padding:16px 20px;margin:18px 0;border-radius:0 3px 3px 0;box-shadow:var(--shadow);
+}
+.callout .lab{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-weight:500;
+}
+.callout p{margin:0;max-width:64ch;}
+.callout.warn{border-left-color:var(--fail);}
+.callout.warn .lab{color:var(--fail);}
+
+.verdict{
+  font-family:Newsreader,Georgia,serif;font-size:1.16rem;line-height:1.5;
+  color:var(--ink);max-width:62ch;
+}
+.verdict strong{color:var(--accent);font-weight:600;}
+
+.pattern{
+  display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px 18px;
+  padding:12px 0;border-bottom:1px solid var(--rule-soft);align-items:baseline;
+}
+.pattern .n{
+  font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--fail);
+  font-variant-numeric:tabular-nums;
+}
+.pattern p{margin:0;max-width:64ch;font-size:15px;}
+
+.decision{
+  background:var(--accent-soft);border:1px solid var(--rule);border-radius:3px;
+  padding:28px 30px;margin-top:16px;
+}
+.decision h4{
+  font-family:Newsreader,Georgia,serif;font-weight:500;font-size:1.5rem;
+  margin:0 0 10px;line-height:1.2;
+}
+.decision p{max-width:62ch;margin:0 0 .9em;}
+.decision p:last-child{margin-bottom:0;}
+
+footer{
+  margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--muted);
+  line-height:1.7;letter-spacing:.02em;
+}
+
+a{color:var(--accent);}
+a:focus-visible,.led-row .t a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px;}
+
+@media (max-width:840px){
+  .thread{grid-template-columns:1fr;gap:0;}
+  .rail{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:14px;}
+  .rail-inner{position:static;display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;}
+  .rail .num{font-size:1.7rem;}
+  .rail .dates{margin-top:0;}
+  .rail .chips{margin-top:0;flex-direction:row;}
+  .led-row{grid-template-columns:auto 1fr;}
+  .led-row .chip{grid-column:2;justify-self:start;}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
+</style>
+
+<div class="wrap">
+
+<header class="masthead">
+  <div class="eyebrow">SMILify · Lab record · 2026-08-05 → 08-30</div>
+  <h1>Three Weeks on Correspondence</h1>
+  <p class="standfirst">Nine threads of work while you were away, each written the way it actually
+  ran: the observation that opened it, the theory that motivated the intervention, what got built,
+  and what came back — including the six times the number improved and the mechanism did not.
+  One decision at the end is yours.</p>
+  <div class="meta-row">
+    <span><b>Branches</b> feature/investigation · to-ship · second-to-ship · registration_moonshot</span>
+    <span><b>Commits</b> ~90</span>
+    <span><b>Corpus</b> bench50 real scans · synth_clean (12) · synth_large_25pc (5000)</span>
+  </div>
+</header>
+
+<section id="ledger">
+  <h2 class="sec">The nine threads, at a glance</h2>
+  <div class="ledger">
+    <div class="led-row"><span class="n">01</span><span class="t"><a href="#t1">The moonshot post-mortem</a><em>The stock pipeline scores well by destroying correspondence. Four root causes, one self-inflicted.</em></span><span class="chip ok">Closed</span></div>
+    <div class="led-row"><span class="n">02</span><span class="t"><a href="#t2">Penetration, nine ways</a><em>Legs passing through the gaster. Every avenue tried; none produces an unconditional win, and we know exactly why.</em></span><span class="chip fail">No fix</span></div>
+    <div class="led-row"><span class="n">03</span><span class="t"><a href="#t3">Shipping D1_PROD</a><em>Weight sweeps, an overclaim caught and reverted, scale_cap promoted on 838 specimens.</em></span><span class="chip ship">Shipped</span></div>
+    <div class="led-row"><span class="n">04</span><span class="t"><a href="#t4">Alpha-wrap calibration</a><em>gap_ratio is a routing signal, not a predictor. Paused for visual ground truth.</em></span><span class="chip open">Paused</span></div>
+    <div class="led-row"><span class="n">05</span><span class="t"><a href="#t5">A metric that audits the fitter's own rule</a><em>Chamfer can improve while matching gets worse. Built the instrument that tells them apart.</em></span><span class="chip ok">Built</span></div>
+    <div class="led-row"><span class="n">06</span><span class="t"><a href="#t6">Pose initialisation, exhausted</a><em>A learned init wins on synthetic, loses on real. Then a disentangling probe closed the whole family.</em></span><span class="chip fail">Closed</span></div>
+    <div class="led-row"><span class="n">07</span><span class="t"><a href="#t7">The reframe: predict correspondence, not pose</a><em>A CSE head trained on synthetic, run on real ants. 44/50 improved, p = 3.2e-08.</em></span><span class="chip ok">Works</span></div>
+    <div class="led-row"><span class="n">08</span><span class="t"><a href="#t8">The coxa</a><em>Resisted four mechanisms. The cause was a dropped term, not a hard problem — and the fix costs shape.</em></span><span class="chip ok">Fixed</span></div>
+    <div class="led-row"><span class="n">09</span><span class="t"><a href="#t9">The F-series: advanced methods, priced</a><em>Optimal transport, conformal uncertainty, soft targets, embedding geometry. Four cheap answers.</em></span><span class="chip fail">Closed</span></div>
+    <div class="led-row"><span class="n">10</span><span class="t"><a href="#t10">What's actually still open</a><em>The tree reduced to two live branches — and the one cheap arm that decides between them.</em></span><span class="chip open">Next</span></div>
+  </div>
+</section>
+
+<!-- ============ THREAD 1 ============ -->
+<section id="t1">
+  <h2 class="sec">Where the three weeks start</h2>
+  <div class="thread">
+    <div class="rail"><div class="rail-inner">
+      <div class="num">01</div>
+      <div class="dates">Aug 5 – Aug 7<br>registration_moonshot</div>
+      <div class="chips"><span class="chip ok">Closed</span></div>
+    </div></div>
+    <div class="body">
+      <p class="kicker">Branch synthesis · diagnostics/moonshot/REPORT.md</p>
+      <h3>The pipeline was scoring well by destroying the thing registration exists to produce</h3>
+
+      <div class="beat"><div class="lab">Observation</div><div class="txt">
+        <p>Surface metrics on the stock <code>ants_cfg.yaml</code> looked fine. Per-stage instrumentation
+        of the actual parameter deltas did not: stages 2 and 3 run <code>scheme: 'deform'</code>, and the
+        measured change in <code>joint_rot</code> over those 2000 iterations was exactly <code>0.00000</code>.</p>
+        <div class="tablewrap"><table>
+          <tr><th>Stage</th><th class="num">Iters</th><th class="num">Δ joint_rot</th><th class="num">Δ betas</th><th class="num">Δ deform</th></tr>
+          <tr><td>Stage_0_init</td><td class="num">200</td><td class="num">0.31</td><td class="num">0.00</td><td class="num">0.00</td></tr>
+          <tr><td>Stage_1_pose_shape</td><td class="num">200</td><td class="num">1.42</td><td class="num">0.83</td><td class="num">0.00</td></tr>
+          <tr><td>Stage_2_deform_coarse</td><td class="num">1000</td><td class="num"><strong>0.00000</strong></td><td class="num"><strong>0.00000</strong></td><td class="num">4.87</td></tr>
+          <tr><td>Stage_3_deform_fine</td><td class="num">1000</td><td class="num"><strong>0.00000</strong></td><td class="num"><strong>0.00000</strong></td><td class="num">2.11</td></tr>
+        </table></div>
+      </div></div>
+
+      <div class="beat"><div class="lab">Theory</div><div class="txt">
+        <p>83% of the compute cannot change a joint angle. Whatever pose error survives iteration 400 is
+        permanent, and the rest of the budget is spent hiding it with per-vertex offsets. If that is what is
+        happening, the damage should be visible in template-relative quantities the chamfer score never touches.</p>
+      </div></div>
+
+      <div class="beat"><div class="lab">Measured</div><div class="txt">
+        <p>Mean edge distortion vs. template <strong>74%</strong>. Local vertex neighbourhoods destroyed
+        <strong>36%</strong>. Free-form offset magnitude 2× the best arm's. The pipeline produces
+        <em>surface fits</em>, not <em>registrations</em>.</p>
+        <p>Confirmed independently: a leave-one-out shape model built from these registrations reconstructs
+        a held-out specimen no better than the population mean (gen/spread 0.99–1.00), while the same metric
+        reaches 0.42 at 10 modes on synthetic data with exact correspondence. <strong>No amount of extra
+        corpus fixes this.</strong></p>
+      </div></div>
+
+      <div class="beat"><div class="lab">Also found</div><div class="txt">
+        <ul>
+          <li><b>Pose is trapped, not under-optimised.</b> Raising the pose learning rate produced a result
+          worse than its own initialisation — six substitutable legs make a multimodal objective, and bigger
+          steps move you between basins, not down one.</li>
+          <li><b>Two real code defects:</b> the edge regulariser compared against the original template
+          (penalising legitimate pose change), and target points were sampled per-vertex rather than
+          per-area (letting dense regions dominate the data term).</li>
+          <li><b><code>scaledirs</code>/<code>transdirs</code> are never used by the fitter at all.</b>
+          Shape was living in a pose-space parameter. Wiring them in did not fix the shape freeze, but the
+          defect is real.</li>
+          <li><b>Outlier rejection is contraindicated.</b> Robust kernels delete thin structure: distal legs
+          are read as outliers at 36× the body's rate.</li>
+          <li><b>Mesh preprocessing is not the blocker.</b> Cleaning worker meshes to reference quality on
+          6 of 7 axes made the <em>scoring target</em> easier and the registration marginally worse.</li>
+          <li><b>Fittability is predictable from the scan alone.</b> <code>radial_med</code> predicts fit
+          quality at ρ 0.80–0.81, validated on held-out specimens (deform_mag +38.9%, p = 4.5e-13).</li>
+        </ul>
+      </div></div>
+
+      <div class="callout warn"><div class="lab">A mistake worth naming</div>
+        <p>An earlier draft listed "<code>betas_prec</code> is computed and never used" as a defect and
+        <em>activated</em> it as <code>w_beta_prior</code>. It is not a defect — it is legacy SMAL machinery
+        the SMIL workflow deliberately does not use. That term then closed the shape space in every arm
+        built on the hierarchical pipeline (betas sd 0.00038 vs. 0.068–0.50 elsewhere, a 100–1000× split
+        invisible to every surface metric). Removing it produced the only movement in the correspondence
+        metric the whole investigation had achieved. <b>The whole cost traces to inferring intent from
+        absence.</b></p>
+      </div>
+
+      <p class="verdict">Two things ship out of this thread: <strong>M7_handoff_midline</strong> (chamfer
+      +60.68 ± 0.34% over 3 seeds, from a four-line midsagittal planarity penalty on the 223
+      <code>sym_verts</code>) and the one-word free win <strong><code>scheme: 'deform'</code> →
+      <code>'all'</code></strong>. And one framing that governs everything after it: <b>every per-part
+      metric in this suite is source→target proximity, and shrink-wrapping games it.</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THREAD 2 ============ -->
+<section id="t2">
+  <h2 class="sec">The parallel track</h2>
+  <div class="thread">
+    <div class="rail"><div class="rail-inner">
+      <div class="num">02</div>
+      <div class="dates">Aug 6 – Aug 24<br>khaoula_review</div>
+      <div class="chips"><span class="chip fail">No clean fix</span><span class="chip ship">2 shipped</span></div>
+    </div></div>
+    <div class="body">
+      <p class="kicker">TASK 1–9 · diagnostics/khaoula_review/</p>
+      <h3>Nine attempts at penetration, and three confirmed reasons it is genuinely hard</h3>
+
+      <div class="beat"><div class="lab">Observation</div><div class="txt">
+        <p>A fitted mesh can look accurate from outside — good chamfer, good silhouette — while a leg passes
+        straight through the gaster. Turning on <code>w_penetration</code> reliably makes existing contact
+        <em>shallower</em> but not <em>less frequent</em>. That count/severity split is what opened the thread.</p>
+      </div></div>
+
+      <div class="beat"><div class="lab">Sequence</div><div class="txt">
+        <div class="tablewrap"><table>
+          <tr><th>#</th><th>Intervention</th><th>Outcome</th></tr>
+          <tr><td class="num">1</td><td>Gentle proximity loss + <code>scheme:'all'</code></td><td>Gaster-legs −20.8%; all-pairs aggregate <b>+16.8% worse</b></td></tr>
+          <tr><td class="num">2</td><td>+ <code>w_offset</code> structural constraint</td><td>Aggregate cost more than halved (+16.8% → +5.4%). Partial.</td></tr>
+          <tr><td class="num">3</td><td>GWN disagreement diagnostic</td><td>A second, unrelated code path corroborates TASK1: 13/15 pair-directions worse under gentle</td></tr>
+          <tr><td class="num">4</td><td>Pair-scoped loss (gaster-legs only)</td><td>Aggregate turns positive (−13.6%) but F-score cost quintuples. Squeezed balloon.</td></tr>
+          <tr><td class="num">5</td><td>+ <code>w_scale</code>/<code>w_trans</code> barriers</td><td>Best aggregate yet (−16.9%), edge distortion 4.3× better — still fails the same F-score bar</td></tr>
+          <tr><td class="num">6</td><td>GWN as the matching primitive itself</td><td>Not a fix. <em>Gentler in both directions</em>, not better-conditioned.</td></tr>
+          <tr><td class="num">7</td><td>Symmetric chamfer sampling</td><td><b>Shipped</b> as a gated flag: F-score +0.028–0.058, 3/3 seeds. No reliable count win.</td></tr>
+          <tr><td class="num">8</td><td>torch-mesh-isect BVH as a training signal</td><td>Original fork never detects any collision. Maintained fork detects correctly, then <b>CUDA illegal memory access</b>.</td></tr>
+          <tr><td class="num">9</td><td>Post-hoc repair (SIGGRAPH 2025 method)</td><td>Whole-mesh F-score −0.152; the mechanistically-motivated refinement made it <b>worse</b> (−0.326, one specimen collapsed)</td></tr>
+        </table></div>
+      </div></div>
+
+      <div class="beat"><div class="lab">Why it's hard</div><div class="txt">
+        <p>Three separate mechanisms, each independently evidenced rather than guessed:</p>
+        <ul>
+          <li><b>Near-tie matching instability.</b> Any hard threshold on a continuous geometric quantity has
+          vertices sitting at the boundary that flip between otherwise-identical runs. Flipped vertices sit
+          6–7× closer to the boundary than stable ones in 7/10 specimens. This affects the <em>count metric
+          itself</em>, whichever loss produced the fit.</li>
+          <li><b>Rough gradients from discrete primitives.</b> GWN's gradient near its own boundary is
+          known-rough in the literature, and TASK6 measured exactly that signature.</li>
+          <li><b>A repeated-invocation fault in the one well-conditioned primitive.</b> The BVH kernel
+          crashes when called in any loop — confirmed caller-agnostic across a training step and a
+          single-energy repair loop. Isolated calls work every time. A third-party implementation bug,
+          not a conceptual problem.</li>
+        </ul>
+      </div></div>
+
+      <p class="verdict">Nothing ships as a penetration <em>fix</em>. Two things ship anyway:
+      <strong><code>penetration_soft_num_penetrating</code></strong> is now the standard comparison metric
+      (the hard count has ~40% seed-to-seed CV; the soft count cuts that 25–45%), and
+      <strong><code>symmetric_chamfer_sampling</code></strong> ships as an opt-in surface-quality win
+      independent of the penetration question.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THREAD 3 ============ -->
+<section id="t3">
+  <h2 class="sec">Consolidation</h2>
+  <div class="thread">
+    <div class="rail"><div class="rail-inner">
+      <div class="num">03</div>
+      <div class="dates">Aug 13 – Aug 19<br>to-ship</div>
+      <div class="chips"><span class="chip ship">D1_PROD</span></div>
+    </div></div>
+    <div class="body">
+      <p class="kicker">diagnostics/SHIPPED_RECIPE.md · V2_CHANGELOG.md</p>
+      <h3>Turning the moonshot findings into one recipe that actually runs</h3>
+
+      <div class="beat"><div class="lab">Theory</div><div class="txt">
+        <p>The moonshot branch produced a pile of individually-validated levers. A production recipe needs
+        each one re-tested <em>in combination</em>, on the corpus that ships, with a bar set before the run —
+        because levers that help alone can interact badly.</p>
+      </div></div>
+
+      <div class="beat"><div class="lab">Ported</div><div class="txt">
+        <ul>
+          <li><code>scheme: all</code> — pose never frozen during deform</li>
+          <li>symmetric area-weighted chamfer sampling on both meshes</li>
+          <li><code>w_offset</code> penalty on <code>deform_verts</code></li>
+          <li><code>w_midline</code> anatomical prior on <code>sym_verts</code></li>
+          <li><code>rest_edge_loss</code> + <code>edge_mode</code> toggle (default unchanged)</li>
+          <li>authored joint limits, via PR #97/#98 merged to master</li>
+        </ul>
+      </div></div>
+
+      <div class="beat"><div class="lab">Decided</div><div class="txt">
+        <ul>
+          <li><b><code>w_offset</code> 5.0/2.0 confirmed near-optimal</b> — full sweep across 0.2/0.08 → 200/200,
+          non-monotonic as predicted.</li>
+          <li><b><code>edge_mode: rest</code> REJECTED</b> — tested in combination with the winning offset,
+          correctness collapsed 6.69% → 1.52%. Interacts negatively; not merely redundant.</li>
+          <li><b><code>scale_cap</code> (<code>w_scale = 0.052</code>) SHIPPED</b> after a pre-registered
+          838-specimen A/B: genus classification non-inferior (11.4% vs 11.7% LOO-1NN), integrity shift
+          &lt;1% on every term, anterior joint-scale outlier tail down 58–70%.</li>
+          <li>A silent config defect caught and fixed: <code>w_limit: 0.006</code> was <b>absent from
+          <code>D1_low.yaml</code>'s handoff stage</b>.</li>
+        </ul>
+      </div></div>
+
+      <div class="callout"><div class="lab">The verdict that got walked back</div>
+        <p>The D1 N=50 × 3-seed validation was written up as <b>PROMOTE</b>, then corrected the same day to
+        <b>HOLD</b> when the comparison was found to be against a favourable reference rather than a
+        same-specimen-set control. It was subsequently re-run against a genuinely independent
+        <code>ALL_ANTS_CLEAN</code> holdout. The overclaim is in the commit history on purpose — the verdict
+        was not rewritten after the fact.</p>
+      </div>
+
+      <p class="verdict">Adoption of <code>scale_cap</code> rests on <strong>two independent arguments</strong>
+      that currently point the same way: non-inferiority on genus, and mesh-validity on its own original
+      target (anterior joint-scale pathology). Any future recipe change must re-check pathology separately —
+      a genus-neutral change could still reintroduce the explosion <code>scale_cap</code> exists to prevent.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THREAD 4 ============ -->
+<section id="t4">
+  <h2 class="sec">Upstream of the fitter</h2>
+  <div class="thread">
+    <div class="rail"><div class="rail-inner">
+      <div class="num">04</div>
+      <div class="dates">Aug 16 – Aug 17<br>second-to-ship</div>
+      <div class="chips"><span class="chip open">Paused</span></div>
+    </div></div>
+    <div class="body">
+      <p class="kicker">custom_processing/prepare_antscan_data_for_mesh_fitting_alphawrap.py</p>
+      <h3>The alpha-wrap reconstruction pipeline: what generalises, and what was heuristic all along</h3>
+
+      <div class="beat"><div class="lab">Observation</div><div class="txt">
+        <p>The CGAL alpha-wrap tiering was tuned on the 50-ant bench corpus. The question was whether it
+        generalises to arbitrary insect meshes — so Phase-1 instrumentation (geometry-aware tier routing,
+        per-specimen bisection timeout, near-touch normal diagnostic, p5 thin-feature diagnostic, hard
+        compute ceiling) went in and ran across all 50.</p>
+      </div></div>
+
+      <div class="beat"><div class="lab">Result</div><div class="txt">
+        <ul>
+          <li><b><code>gap_ratio</code> is a genuine predictor of difficulty</b> (ρ = −0.537, p = 0.0001)
+          <b>that explains only ~37% of variance.</b> Adding hole count, boundary edges, surface area,
+          compactness, hole density and near-touch normal angle pushed R² to at most 0.41. <b>Treat it as a
+          routing signal, not a predictor of required alpha.</b></li>
+          <li><b>The ×5 "preserved-start" multiplier is not calibrated.</b> Actual <code>alpha/pre_gap</code>
+          across 45 successes spans 0.625–26.25 — a &gt;40× spread. Tier A is clean (35/35, zero fallback);
+          Tier B/C boundaries are not (2 of 3 fallbacks were mis-routed).</li>
+          <li><b>All 6 fidelity-gate failures fail via the same check</b> — whole-surface p99.9 deviation,
+          3.1–4.3× over threshold — and <b>never</b> via gap fusion. Consistent with either a too-tight
+          threshold or a real defect no other metric covers.</li>
+          <li>A reproduced <code>MemoryError</code>: Blender's bundled Python lacks <code>embreex</code>, so
+          the p5 metric's ray-casting blows up on large meshes. 2/50 real crashes.</li>
+        </ul>
+      </div></div>
+
+      <p class="verdict">Deliberately stopped here. The remaining ~60% of difficulty variance is unexplained
+      by any simple global geometric quantity tested, and <strong>the next step is visual ground-truth
+      labelling, not more heuristic search</strong>. An inspection set is built and waiting.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THREAD 5 ============ -->
+<section id="t5">
+  <h2 class="sec">Building the instrument</h2>
+  <div class="thread">
+    <div class="rail"><div class="rail-inner">
+      <div class="num">05</div>
+      <div class="dates">Aug 19 – Aug 20<br>feature/investigation</div>
+      <div class="chips"><span class="chip ok">Built</span></div>
+    </div></div>
+    <div class="body">
+      <p class="kicker">diagnostics/correspondence_accuracy/</p>
+      <h3>A metric that answers the correspondence question directly</h3>
+
+      <div class="beat"><div class="lab">Observation</div><div class="txt">
+        <p>Everything measured so far — D1 promotion, the GNC arms, stratified sampling — was scored by
+        chamfer, edge and F-score. Those can improve while <em>which scan point got matched to which
+        anatomical region</em> stays broken or gets worse. Without a direct instrument, "the constraint
+        helped" cannot be told apart from "the loss landscape got smoother."</p>
+      </div></div>
+
+      <div class="beat"><div class="lab">Design</div><div class="txt">
+        <p>For each sampled scan point on a <code>synth_clean</code> specimen with known ground truth:
+        the <b>true</b> anatomical label (exact, because the corpus is a posed copy of the template — face
+        topology asserted equal every run) versus the <b>matched</b> label (which region the fitted mesh's
+        nearest vertex belongs to).</p>
+        <p>The matching direction is deliberately <em>the fitter's own rule</em> — the same
+        <code>knn_points</code> nearest-vertex assignment <code>TargetPartition.update</code> uses. The
+        metric audits the fitter, not a reimplementation of it. Output is full confusion matrices at three
+        granularities: leg-level (6×6 cross-leg swaps), within-leg segment-level (restricted to
+        already-correct legs, isolating femur↔tibia from leg swaps), and antenna — tracked separately
+        because antenna is <em>never</em> its own <code>TargetPartition</code> group in any run, so its
+        correspondence is presently unconstrained by construction.</p>
+      </div></div>
+
+      <p class="verdict">This is the instrument every result in threads 6–9 is scored on:
+      <code>leg_acc</code>, <code>seg_acc</code>, and the confusion structure underneath them. Its
+      bootstrap noise floor at n = 12 is wide — a fact that later invalidated several small-sample
+      figures, correctly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THREAD 6 ============ -->
+<section id="t6">
+  <h2 class="sec">The long dead end</h2>
+  <div class="thread">
+    <div class="rail"><div class="rail-inner">
+      <div class="num">06</div>
+      <div class="dates">Aug 20 – Aug 26<br>anatomical_pose_init</div>
+      <div class="chips"><span class="chip fail">Family closed</span></div>
+    </div></div>
+    <div class="body">
+      <p class="kicker">CHAIN_OF_THOUGHT_20260820_21.md → SESSION_SYNTHESIS_20260825.md</p>
+      <h3>Can a better leg-pose initialisation escape the basin problem? No — and the reason is structural</h3>
+
+      <div class="beat"><div class="lab">Premise</div><div class="txt">
+        <p>Thread 1 established that pose is <em>trapped</em>, not under-optimised. If the optimiser cannot
+        leave a bad basin, start it in a good one. A prior hand-designed initialiser
+        (<code>cheap_anatomical_init.py</code>) had already <b>failed</b> — worse than zero-init on almost
+        every metric — so this thread tried a <em>learned</em> regressor instead.</p>
+      </div></div>
+
+      <div class="beat"><div class="lab">A bug first</div><div class="txt">
+        <p>Before any comparison was valid: the 5000-specimen training corpus was generated with
+        <code>SMIL_OmniAnt.pkl</code> (10229 verts, 13 PCs); the benchmark and the real fitter use
+        <code>OmniAnt_25PCs_joint_limited.pkl</code> (10235 verts, 25 PCs). <b>The trained checkpoint was
+        topologically invalid for the benchmark it was to be compared against.</b> Root cause traced through
+        <code>config.py</code>: <code>SMAL_FILE</code>/<code>N_BETAS</code> resolve from an env var at
+        <em>import</em> time, so a <code>--model</code> CLI flag can never switch the model. Fixed by making
+        the generator assert and fail loudly.</p>
+      </div></div>
+
+      <div class="beat"><div class="lab">Result A/B/C</div><div class="txt">
+        <div class="tablewrap"><table>
+          <tr><th>Arm</th><th class="num">Init error</th><th class="num">leg_acc</th><th class="num">all_feature_R</th><th class="num">Chamfer</th><th class="num">F@0.01</th></tr>
+          <tr><td>A · zero-init</td><td class="num">23.09°</td><td class="num">0.857</td><td class="num">0.745</td><td class="num">0.000264</td><td class="num">0.6951</td></tr>
+          <tr><td>B · cheap_anatomical</td><td class="num">28.52°</td><td class="num">0.732</td><td class="num">0.518</td><td class="num">0.000417</td><td class="num">0.5948</td></tr>
+          <tr><td>C · <b>learned</b></td><td class="num">22.79°</td><td class="num"><strong>0.901</strong></td><td class="num"><strong>0.761</strong></td><td class="num"><strong>0.000226</strong></td><td class="num"><strong>0.7153</strong></td></tr>
+        </table></div>
+        <p>C wins every metric at near-identical <em>scalar</em> pose error to A. So scalar error does not
+        explain the outcome — which raised the real question, and produced the strongest single result of
+        the thread.</p>
+      </div></div>
+
+      <div class="callout"><div class="lab">The transferable mechanism</div>
+        <p>At matched ~23–30° magnitude, <b>where</b> the error sits dominates <b>how big</b> it is.
+        Proximal error (coxa/trochanter/femur) → leg_acc 0.622–0.768. Distal error → 0.937–0.940.
+        And <em>coherent</em> error (one clean rotation at the coxa, downstream joints at rest) → 0.839
+        against incoherent proximal noise at 0.622. A donor specimen's fully-valid pose
+        (<code>swap</code>) is nearly as damaging as bad noise — so this is a basin-<em>selection</em>
+        problem, not an anatomical-plausibility one. <b>This says something about SMILify's optimiser in
+        general, independent of whether any initialiser ships.</b></p>
+      </div>
+
+      <div class="beat"><div class="lab">Then: real scans</div><div class="txt">
+        <p>On bench50, the learned init <b>lost</b> to zero-init (chamfer 0.000697 vs 0.000637, 20/50 wins,
+        p = 0.013). The domain-gap hypothesis — synthetic training pose-noise too large versus near-rest
+        museum specimens — was tested by three independent retrain-and-refit cycles at falling
+        <code>pose_scale</code>: <b>23° → p=0.013 worse; 13.8° → p=0.85 parity; 8.85° → p=0.855, chamfer tied,
+        26/50.</b> Monotonic and controlled. The broader lesson: <b>a synthetic distribution's noise
+        statistics, not just its coverage, must be calibrated to real deployment data</b> — or a learned
+        corrective network is worse than doing nothing.</p>
+      </div></div>
+
+      <div class="beat"><div class="lab">Then: the closure</div><div class="txt">
+        <p>Three <em>independently estimated</em> coherent coxa-only candidates were built (PCA,
+        cluster-axis, tip-direction) on the theory that coherent-beats-proximal made this an estimation
+        problem. An oracle check on clean, noise-free points settled it before any GPU was spent: all three
+        estimators agree with the true overall coxa→tip direction to within 4–5°, and <b>still imply a coxa
+        rotation ~50–55° from the true one</b> — because the true coxa rotation's own implied direction
+        differs from the true overall direction by a mean of <b>50.03°</b>. Real leg poses distribute about
+        half their bend across tr/fe/ti/ta.</p>
+        <p class="verdict"><strong>No coxa-only estimator, however accurate, can recover the true per-joint
+        decomposition.</strong> All three arms duly lost to zero-init (0.826–0.835 vs 0.867–0.872).</p>
+      </div></div>
+
+      <div class="beat"><div class="lab">And the last door</div><div class="txt">
+        <p>If hand-built estimators can't capture the coupling, learn it: a PCA subspace over real whole-chain
+        rotations, leave-one-out, IK constrained to that subspace. Every mode count tested (2–15) performed
+        at or worse than raw IK's own oracle, with nearly flat explained-variance ratios (0.14, 0.12, 0.10…)
+        — no detectable low-dimensional structure in 66 pooled rows.</p>
+        <p>The decisive step was checking for a bigger corpus <em>before</em> concluding anything:
+        <code>joint_limits.py</code>'s bounds are hand-authored in Blender by an artist, not calibrated from
+        digitised poses; AntScan holds pinned museum scans with <b>no per-joint rotation ground truth at
+        all</b> — extracting it would require solving the very correspondence problem this work exists to
+        fix. <b>The 12 <code>synth_clean</code> specimens are the only source of ground-truth joint rotations
+        anywhere in the project.</b></p>
+      </div></div>
+
+      <p class="verdict">Both families closed for the same underlying reason: geometry structurally
+      underdetermines pose, and there is no data to learn a substitute from. <strong>That is what forced the
+      reframe.</strong> (Two things do ship regardless: RigNet-style nearest-bone-segment leg assignment,
+      macro-F1 0.656 → 0.831, and the same fix for body-core, recall 0.366 → 0.663.)</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THREAD 7 ============ -->
+<section id="t7">
+  <h2 class="sec">The pivot</h2>
+  <div class="thread">
+    <div class="rail"><div class="rail-inner">
+      <div class="num">07</div>
+      <div class="dates">Aug 26 – Aug 27<br>C-series</div>
+      <div class="chips"><span class="chip ok">Works on real ants</span></div>
+    </div></div>
+    <div class="body">
+      <p class="kicker">PHASE10_DESIGN → LAB_RECORD_correspondence_20260827.md</p>
+      <h3>Stop regressing pose. Predict, for each scan point, which template vertex it is.</h3>
+
+      <div class="beat"><div class="lab">Theory</div><div class="txt">
+        <p>Every closed door in thread 6 was closed by trying to recover <em>pose</em> from geometry that
+        underdetermines it. The registration-SOTA literature (GeoTransformer, D3Feat, REGTR) points at a
+        better-posed target: correspondence first, pose derived from it. A dense oracle handed the fitter
+        true per-vertex correspondence and moved seg_acc 0.832 → 0.874, 12/12 — the target was known to be
+        worth chasing; what was unknown was whether a network could supply it.</p>
+      </div></div>
+
+      <div class="beat"><div class="lab">C1 · Ask first</div><div class="txt">
+        <p>Before spending GPU on a head, measure whether the frozen backbone already carries usable
+        structure. Within-specimen retrieval looked excellent (0.92–0.97 of ceiling) — and was measuring
+        the wrong thing, since pose-dependent features ace it while being useless for correspondence.
+        Cross-specimen is the real number: 0.27–0.55, far above chance on 4 of 5 segments, and the error
+        splits by direction — strong <em>along</em> the limb (0.14–0.57), near chance <em>around</em> it
+        (0.09–0.20). <b>The weakness is specifically circumferential.</b> That measurement, not preference,
+        chose the head design: SurfEmb says a deterministic embedding cannot fix this and a contrastive one can.</p>
+      </div></div>
+
+      <div class="beat"><div class="lab">C2 · Price the conversion</div><div class="txt">
+        <p>Two queued fits turned network output into pose via a centroid/IK conversion. Rather than read
+        them as "does the network help", they were used to price the conversion itself — network-fed vs.
+        <em>true labels through the same conversion</em> vs. the dense oracle.</p>
+        <div class="tablewrap"><table>
+          <tr><th>Route</th><th class="num">seg_acc</th></tr>
+          <tr><td>Dense oracle (direct vertex identity)</td><td class="num">0.8745</td></tr>
+          <tr><td>True labels → centroid/IK conversion</td><td class="num">0.8522</td></tr>
+          <tr><td>Network → centroid/IK conversion</td><td class="num">0.8488</td></tr>
+        </table></div>
+        <p><b>The conversion discards ~41% of the achievable gain and flattens the gap between perfect and
+        predicted signal to 0.003. The conversion, not the network, was the bottleneck.</b> It also explained
+        an old puzzle: the trochanter was the worst segment under conversion and the <em>best</em> under
+        direct retrieval.</p>
+      </div></div>
+
+      <div class="beat"><div class="lab">C3 · The head</div><div class="txt">
+        <p>Replace only the decode head and its loss: a continuous per-point embedding, one learned embedding
+        per template vertex, correspondence by nearest neighbour, both sides L2-normalised so the training
+        loss optimises exactly the retrieval performed at inference. Supervised by <b>true vertex index</b>,
+        InfoNCE.</p>
+        <p>Cross-specimen retrieval improved on 4/5 segments, all p &lt; 6e-3. The circumferential component
+        — the reason for the design choice — improved <b>2–4×</b>, from 0.09–0.20 to 0.28–0.43.
+        <em>The literature-derived prediction was made before the head was written and confirmed by the
+        specific thing it predicted.</em></p>
+      </div></div>
+
+      <div class="beat"><div class="lab">C4 · Into the fitter</div><div class="txt">
+        <p>Aggregate predictions into "where does the network think vertex <em>v</em> sits on this scan", add
+        a masked term pulling fitted vertex <em>v</em> there. Additive, flag-gated, off by default.</p>
+        <p><b>seg_acc 0.8657 against a 0.8201 baseline — 84% of the dense oracle's gain from predictions
+        alone, and better than the oracle fed true labels through the conversion.</b> Worse information
+        through the right mechanism beats perfect information through a biased one.</p>
+      </div></div>
+
+      <div class="beat"><div class="lab">C5–C7 · Deployability</div><div class="txt">
+        <ul>
+          <li><b>Which points to trust, without ground truth.</b> Four candidate confidence signals tested.
+          Cycle consistency cut mean retrieval error 0.726 → 0.449; <b>similarity <em>raised</em> it to
+          1.044</b> — similarity is entangled with ambiguity, since a confusable point scores high precisely
+          because it is confusable. MNN and multi-sample stability did nothing. Cycle filtering made the
+          pipeline ground-truth-free end to end.</li>
+          <li><b>A written-down prediction that was wrong.</b> All-segments was pre-registered to lose to
+          the tr/fe/co whitelist. It reached <b>92% of the oracle gain</b> instead — and it needs no
+          whitelist, so it is the deployable configuration.</li>
+          <li><b>n=48 power run.</b> At 12 specimens the configurations were indistinguishable. On 48 fresh
+          specimens: <b>+0.031 seg_acc, 37/48, significant on all three tests</b> — real, robust, and
+          <em>smaller</em> than the 12-specimen estimate of +0.050. The corrected figure is the one carried.</li>
+          <li><b>A three-way shuffle control, and what it revealed.</b> Real correspondence on tibia/tarsus
+          (0.8701) is <em>indistinguishable</em> from shuffled-within-segment (0.8711), sign p = 1.0 — while
+          removing them entirely costs ~0.02. <b>The head is doing two different jobs:</b> genuine
+          correspondence on tr/fe, and a coarse regional pull on ti/ta where vertex identity is irrelevant.
+          This closed a planned class-balanced retrain before it was built.</li>
+        </ul>
+      </div></div>
+
+      <div class="beat"><div class="lab">C8–C10 · Real ants</div><div class="txt">
+        <p>Normalised into the model frame, the retrieval distribution on real scans stays healthy —
+        coverage, entropy and per-segment shares track synthetic closely. <b>No collapse.</b> But cycle
+        consistency, the signal the filter depends on, degrades <b>2.6×</b> and unevenly — which makes it
+        double as a per-specimen triage signal. Cause investigated across all 50: not scan damage, not point
+        density, not species (within-genus spread exceeds between-genus); partly aspect ratio (ρ = −0.502,
+        ~25% of variance, in the direction <em>opposite</em> a simple distribution-distance story).</p>
+        <div class="tablewrap"><table>
+          <tr><th>Set</th><th class="num">fscore@0.01</th><th>Wins</th></tr>
+          <tr><td>Cleanest 14</td><td class="num">0.713 → <strong>0.787</strong></td><td>14/14 (also NC 0.830→0.879, H95 14/14)</td></tr>
+          <tr><td>Worst 14 (degradation 5.2–12×)</td><td class="num">+0.054</td><td>74% of the clean-set gain</td></tr>
+          <tr><td><b>All 50</b></td><td class="num">mean <strong>+0.067</strong></td><td><b>44/50, sign p = 3.2e-08</b></td></tr>
+        </table></div>
+        <p>Gain is flat from degradation ratio 0 to 8, and 47/50 sit below 8. <b>Degradation predicts how
+        hard a scan is to fit, not whether correspondence helps it. Those are separate axes.</b> Usable
+        scope is ~94% of the corpus, not the 28% screened subset first assumed.</p>
+      </div></div>
+
+      <div class="beat"><div class="lab">C11–C12 · The one that didn't take</div><div class="txt">
+        <p>Circumferential hard-negative mining <b>failed its pre-registered circumferential bar</b> while
+        genuinely improving direct retrieval — and C12 then showed tibia's role in the fitter did not change
+        at all. <b>Third case in the session of a retrieval gain that never reaches the fitter.</b></p>
+      </div></div>
+
+      <div class="callout warn"><div class="lab">A hypothesis tested before it was funded</div>
+        <p>The obvious explanation for weak circumferential retrieval was geometric: a leg is a cylinder,
+        a cylinder's cross-section has no unique axis, so the signal is architecturally unrepresentable —
+        which would justify an equivariant backbone. Measured instead: real trochanter/femur neighbourhoods
+        score <b>0.38–0.44 against a perfect cylinder's 0.031 floor, 12–14× above it</b> (metric verified on
+        toy shapes with known answers, which <em>reversed</em> the first reading). <b>Ant leg segments are
+        tapered and flattened, not cylinders. The signal is present and unlearned</b> — a training problem,
+        not an architecture problem, and far cheaper.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THREAD 8 ============ -->
+<section id="t8">
+  <h2 class="sec">The hard one</h2>
+  <div class="thread">
+    <div class="rail"><div class="rail-inner">
+      <div class="num">08</div>
+      <div class="dates">Aug 28<br>C13 → D1 → H_A</div>
+      <div class="chips"><span class="chip ok">Fixed</span><span class="chip open">Costs shape</span></div>
+    </div></div>
+    <div class="body">
+      <p class="kicker">Five pre-registered arms in one day</p>
+      <h3>The coxa resisted four separate mechanisms — and the cause was a dropped term</h3>
+
+      <div class="beat"><div class="lab">Observation</div><div class="txt">
+        <p>With correspondence working corpus-wide, the residual leg-level error localised: it is
+        <b>coxal</b>. Everything else had moved; the coxa had not.</p>
+      </div></div>
+
+      <div class="beat"><div class="lab">Four failures</div><div class="txt">
+        <div class="tablewrap"><table>
+          <tr><th>Arm</th><th>Mechanism tried</th><th class="num">Effect on coxal error</th></tr>
+          <tr><td>C4</td><td>correspondence term alone</td><td class="num">−0.009</td></tr>
+          <tr><td>C13</td><td>gradient reweighting by measured tolerance</td><td class="num">−0.010, saturating</td></tr>
+          <tr><td>C14p</td><td>pose initialised from ground truth</td><td class="num">−0.009, n.s.</td></tr>
+          <tr><td>E1</td><td>pose <em>frozen</em> at ground truth, shape free</td><td class="num">−0.005, n.s.</td></tr>
+        </table></div>
+        <p>Each pre-registered, each failing its bar. C14p is the notable one: <b>a ground-truth pose is the
+        ceiling for any initialiser, and it bought nothing</b> — which retroactively confirms thread 6's
+        closure was correct, not premature.</p>
+      </div></div>
+
+      <div class="beat"><div class="lab">Cause</div><div class="txt">
+        <p>Structural, and embarrassing in the useful way: <b>the D1 refinement stage had no correspondence
+        term of any kind.</b> The hierarchical stage reached co = 0.2564 and D1 relaxed it back to 0.4115.
+        D1 was <em>dropping</em> the term that held the coxa, not failing to add one.</p>
+      </div></div>
+
+      <div class="beat"><div class="lab">Fix</div><div class="txt">
+        <p>Carry the correspondence term into D1, with free-form deformation disabled.</p>
+        <div class="tablewrap"><table>
+          <tr><th>Measure</th><th class="num">Before</th><th class="num">After</th><th>Significance</th></tr>
+          <tr><td><code>co</code> leg-level error</td><td class="num">0.4115</td><td class="num"><strong>0.2265</strong></td><td>43/48, p = 0.0000 · ~119% of the regression recovered</td></tr>
+          <tr><td>Coxa surface placement vs GT</td><td class="num">0.01857</td><td class="num"><strong>0.00794</strong></td><td>45/48, p = 0.0000 · 2.3× closer</td></tr>
+          <tr><td><code>leg_acc</code></td><td class="num">0.9418</td><td class="num"><strong>0.9682</strong></td><td>~52% of the remaining gap to the 0.9926 ceiling</td></tr>
+        </table></div>
+        <p>Replicated on an independent seed with <code>deform_verts</code> pinned at exactly 0 — so it is
+        not bought by free-form surface deformation. Recommended: <code>scheme: pose</code>,
+        <code>--cse_correspondence_from</code>, <b>no</b> <code>w_beta_prior</code>.</p>
+      </div></div>
+
+      <div class="beat"><div class="lab">The cost</div><div class="txt">
+        <p><b><code>betas</code> error vs ground truth rises +16.3%.</b> Characterised, not a mystery:</p>
+        <ul>
+          <li><b>Not controllable by the shape prior.</b> Adding <code>w_beta_prior = 0.002</code> made it
+          <em>worse</em> (+60.8%) — the Mahalanobis prior pulls <code>betas</code> toward <em>typical under
+          the model</em>, not <em>correct for this specimen</em>, and on a corpus with sampled shape
+          parameters those directions diverge.</li>
+          <li><b>Uncorrelated with the coxa gain</b> across two independent arms (r = +0.13, p = 0.39) —
+          consistent with independent drift, not shape paying for placement.</li>
+        </ul>
+      </div></div>
+
+      <div class="callout"><div class="lab">Also settled: it was never a capacity problem</div>
+        <p>A perfect parameter set scores 0.0908 on the coxal metric — <b>the metric's own floor</b>, because
+        adjacent coxae are close enough that ~9% of coxal points misassign even on an exact mesh. Model
+        expressiveness was never the limitation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THREAD 9 ============ -->
+<section id="t9">
+  <h2 class="sec">Pricing what's left</h2>
+  <div class="thread">
+    <div class="rail"><div class="rail-inner">
+      <div class="num">09</div>
+      <div class="dates">Aug 28<br>F1 – F7</div>
+      <div class="chips"><span class="chip fail">All closed</span></div>
+    </div></div>
+    <div class="body">
+      <p class="kicker">REGISTER_F_series_20260828.md — bars fixed before every run</p>
+      <h3>Seven cheap arms to find out which advanced method, if any, is worth funding</h3>
+
+      <div class="beat"><div class="lab">F1</div><div class="txt">
+        <p><b>Is an equivariant retrain justified?</b> A linear probe on the frozen backbone recovers
+        circumferential angle at <b>52.9°</b> against a 90° chance level — on the exact tensor the embedding
+        head consumes — with a passing axial control (R² 0.85) and a passing shuffle control (89°). Meanwhile
+        retrieval top-1 is 0.071.</p>
+        <p class="verdict"><strong>The information reaches the head; the contrastive loss is not using it.
+        A loss problem, not a backbone problem. Do not spend the GPU budget.</strong></p>
+      </div></div>
+
+      <div class="beat"><div class="lab">F2</div><div class="txt">
+        <p><b>Multi-hypothesis selection.</b> A trained 1-of-5 selector combining similarity margin,
+        cycle-consistency and local agreement closed <b>2.5% / 4.2%</b> of the oracle gap against a 40% bar.
+        Worse than cycle-consistency alone. The lesson is specific and non-obvious: <b>rank accuracy is not a
+        proxy for error reduction</b> — the classifier picked the best candidate ~50% more often than chance
+        and bought almost nothing, because the cases it fixed and broke roughly cancelled.</p>
+      </div></div>
+
+      <div class="beat"><div class="lab">F4</div><div class="txt">
+        <p><b>Optimal transport instead of per-point argmax</b> (Sinkhorn, SuperGlue-standard). Real,
+        extremely consistent, and <b>just under the bar</b>: tr −4.3% (35/40), fe −4.5% (33/40), both
+        p = 0.0000, against a registered ≥5%. Recorded FAIL; the bar had no PARTIAL band and one was not
+        invented after seeing the number. Mechanism checks pass (entropy 4.31 nats, 1.19× the vertices
+        argmax uses — spreading, not collapsing).</p>
+        <p>A first implementation used <em>balanced</em> OT and its registered no-op control fired at 0.096.
+        The arm was recorded <b>VOID</b> rather than quietly patched, and rebuilt as unbalanced OT where
+        τ→0 provably recovers argmax — control then passes at 1.000.</p>
+        <p class="verdict">With F2, two independent attacks on the <em>selection</em> stage both land in the
+        low single digits. <strong>Selection is not where the headroom is.</strong></p>
+      </div></div>
+
+      <div class="beat"><div class="lab">F5</div><div class="txt">
+        <p><b>Conformal uncertainty</b> — SMILify has no way to know a fit is wrong on a real scan. Coverage
+        landed inside the band (0.871) but that half is guaranteed by construction; the width condition
+        failed at <b>1.078 against a bar of &lt;0.80</b> — the signal-based intervals are <em>wider</em> than
+        a constant predictor's.</p>
+        <p>The registered mechanism check is worse than the endpoint: per-segment coverage collapses on
+        <code>co</code> (0.657), and <b>worst-decile coverage is 0.200</b>. The intervals cover 87% of
+        specimens and 20% of the specimens a user actually needs flagged.</p>
+        <p class="verdict">Conformal machinery worked exactly as advertised and produced honest, useless
+        intervals. <strong>The missing ingredient is a signal that predicts error</strong> — and neither
+        cycle-consistency nor embedding margin is one at segment level. (This bounds the earlier triage
+        claim's scope; it does not overturn it — that was a per-specimen binary signal, this is a
+        per-segment quantitative one.)</p>
+      </div></div>
+
+      <div class="beat"><div class="lab">F6</div><div class="txt">
+        <p><b>Geodesic-softened targets.</b> The loss is cross-entropy against one true vertex, so on a
+        10,235-vertex mesh the vertex 0.1 mm away is punished as hard as one on the opposite leg. Targets
+        spread over the true vertex's <em>graph</em> neighbourhood — graph, not Euclidean, because adjacent
+        coxae are physically close but not edge-connected, and Euclidean smoothing would teach exactly the
+        cross-leg confusion. Verified before launch: σ read off the mesh, cross-leg target mass masked to
+        exactly 0.0 (it was 0.46 on one coxa).</p>
+        <p>Median 3D error 0.02687 → <b>0.02606, −3.0%</b>, against a registered −15%. Mechanism check
+        passes. One run, no replicate, within epoch-to-epoch fluctuation. <b>Essentially nothing.</b></p>
+      </div></div>
+
+      <div class="beat"><div class="lab">F7</div><div class="txt">
+        <p><b>Is 16 dimensions too few for 10,235 vertices?</b> A free diagnostic on the frozen key table.</p>
+        <div class="tablewrap"><table>
+          <tr><th>Measurement</th><th class="num">Value</th><th>Reading</th></tr>
+          <tr><td>Participation-ratio effective dim</td><td class="num">14.82 / 16</td><td>space nearly fully used</td></tr>
+          <tr><td>Median cosine to nearest other key</td><td class="num">0.9837</td><td>keys <em>are</em> crowded</td></tr>
+          <tr><td>Graph distance to that key</td><td class="num">0.0049</td><td>…but crowded pairs are mesh-adjacent</td></tr>
+          <tr><td>Fraction further than 0.10 body-diag</td><td class="num"><strong>0.000</strong></td><td>crowding entirely local</td></tr>
+          <tr><td>Leg verts whose nearest key is another leg</td><td class="num"><strong>0.0001</strong></td><td>anatomically correct</td></tr>
+        </table></div>
+        <p class="verdict"><strong>The embedding learned exactly the geometry it should: near in embedding
+        space ⇔ near on the surface. Capacity is not the bottleneck, and top-1 was the wrong yardstick all
+        along.</strong> The F-series closes here.</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PATTERN ============ -->
+<section id="pattern">
+  <h2 class="sec">The pattern underneath all of it</h2>
+  <div class="thread">
+    <div class="rail"><div class="rail-inner">
+      <div class="num">✳</div>
+      <div class="dates">Standing practice</div>
+    </div></div>
+    <div class="body">
+      <h3>Six times, a component improved on its own measure while the thing that measure stood for did not</h3>
+      <div class="pattern"><span class="n">1</span><p>Hard-negative mining improved retrieval; the fitter saw nothing.</p></div>
+      <div class="pattern"><span class="n">2</span><p>bench50's original framing improved geometric fit with correspondence never checked.</p></div>
+      <div class="pattern"><span class="n">3</span><p>Carrying correspondence into D1 improved surface metrics by 127% while pose worsened — later shown to be a mis-specified check, not a real decoupling.</p></div>
+      <div class="pattern"><span class="n">4</span><p>A probe produced a plausible "signal at sa1, lost by fp1" pattern from a network that <b>never loaded</b> — weights stored under <code>model_state_dict</code>, looked up as <code>model</code>, <code>strict=False</code> matching nothing across 178 missing keys. A non-zero-weight check does not catch this, because random weights are non-zero.</p></div>
+      <div class="pattern"><span class="n">5</span><p>A selector beat chance on rank accuracy and delivered no error reduction.</p></div>
+      <div class="pattern"><span class="n">6</span><p>A shape prior "controlling" a cost made it four times worse.</p></div>
+
+      <div class="callout" style="margin-top:26px"><div class="lab">Now standing discipline</div>
+        <p><b>Every arm carries a mechanism check alongside its endpoint, and every bar is written down
+        before the run.</b> The D1 arm cleared its endpoint by 127% and was still wrong; the probe in (4)
+        produced a believable pattern from random weights. Endpoints alone are not evidence — and
+        <code>load_state_dict(..., strict=True)</code> plus one named-tensor comparison against the raw file
+        is now mandatory before anything downstream is trusted.</p>
+      </div>
+      <p>Two smaller pieces of hygiene from the same weeks: jobs are submitted under
+      <code>--account=rwth2151</code>, never <code>default</code> (which is exhausted and silently demotes
+      priority); and <code>.gitignore</code> patterns like <code>probe_*.py</code> were found to be the root
+      cause of a recurring vanishing-scripts problem — two real modules were recovered from it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THREAD 10 ============ -->
+<section id="t10">
+  <h2 class="sec">The tree, reduced</h2>
+  <div class="thread">
+    <div class="rail"><div class="rail-inner">
+      <div class="num">10</div>
+      <div class="dates">Aug 30<br>R-series</div>
+      <div class="chips"><span class="chip open">Live</span></div>
+    </div></div>
+    <div class="body">
+      <p class="kicker">PREREGISTRATION_R1_anterior_rescore_20260830.md</p>
+      <h3>Two families, not twenty branches — and they are not equally alive</h3>
+
+      <div class="beat"><div class="lab">The cut</div><div class="txt">
+        <p>Every intervention in this record falls on one side of a single line, and the record
+        states which side wins in its own words, from the moonshot branch, before any of the
+        correspondence work:</p>
+        <div class="callout"><div class="lab">REPORT.md §6.10.1</div>
+          <p>Three pre-registered nulls in a row — rotation limits, soft partition, anterior
+          partition — <b>all of them interventions on how the data term is shaped.</b> The one
+          intervention that has ever moved correspondence (removing <code>w_beta_prior</code>)
+          acted on <b>what the model is allowed to represent.</b></p>
+        </div>
+        <div class="tablewrap"><table>
+          <tr><th>What the model may represent</th><th>Status</th></tr>
+          <tr><td>Global deformation / plausibility prior</td><td><b>OPEN — strongest</b></td></tr>
+          <tr><td>Anterior representation bounds</td><td><b>OPEN — cheapest</b></td></tr>
+          <tr><td>Removing <code>w_beta_prior</code></td><td>Done — the one thing that moved correspondence</td></tr>
+          <tr><td><code>w_offset</code>, <code>w_midline</code></td><td>Shipped — largest gains measured</td></tr>
+        </table></div>
+        <div class="tablewrap"><table>
+          <tr><th>How the model is fit or initialised</th><th>Status</th></tr>
+          <tr><td>Joint limits</td><td>NULL</td></tr>
+          <tr><td>Soft partition · anterior partition</td><td>NULL</td></tr>
+          <tr><td>Anatomical state / leg initialisation</td><td>Exhausted — see below</td></tr>
+          <tr><td>Learned correspondence descriptors</td><td>Works, but at its ceiling</td></tr>
+        </table></div>
+      </div></div>
+
+      <div class="beat"><div class="lab">Why the init story closes</div><div class="txt">
+        <p>The tempting version — "give the optimiser the right anatomical basin and let it solve
+        the rest" — has its ladder's top rung already measured, at n = 48, pre-registered:</p>
+        <div class="tablewrap"><table>
+          <tr><th>arm</th><th>init</th><th>corresp.</th><th class="num">leg_acc</th><th class="num">co</th></tr>
+          <tr><td><code>P48_zero</code></td><td>zero</td><td>—</td><td class="num">0.8859</td><td class="num">0.4204</td></tr>
+          <tr><td><code>C13_uniform</code></td><td>zero</td><td>CSE</td><td class="num">0.9415</td><td class="num">0.4115</td></tr>
+          <tr><td><code>C14p_gtinit_nocse</code></td><td><b>GT pose</b></td><td>—</td><td class="num"><strong>0.9468</strong></td><td class="num">0.4114</td></tr>
+          <tr><td><code>C14p_gtinit_cse</code></td><td>GT pose</td><td>CSE</td><td class="num">0.9459</td><td class="num">0.4060</td></tr>
+        </table></div>
+        <p>Perfect anatomical state is worth <b>+0.061 leg_acc</b>. The existing correspondence
+        term — no ground truth anywhere in the loop — already delivers <b>91% of it</b>. And the
+        combined arm adds nothing: <b>the two are not additive.</b> Any intermediate rung is
+        bounded above by a number already in hand.</p>
+      </div></div>
+
+      <div class="beat"><div class="lab">The one genuinely untested thing</div><div class="txt">
+        <p>Everything above is legs. The whole-animal defect exists, is quantified, and came from a
+        domain observation off the renders — <em>"the head is simply not moved forward enough so the
+        mandibles and antennae explode to form the head, while the head shrinks into the thorax."</em></p>
+        <div class="tablewrap"><table>
+          <tr><th>group</th><th class="num">joints</th><th class="num">constrained axes</th><th class="num">deform vs thorax</th></tr>
+          <tr><td>thorax <code>b_t</code></td><td class="num">1</td><td class="num">3/3</td><td class="num">1.00×</td></tr>
+          <tr><td><b>head</b> <code>b_h</code></td><td class="num">1</td><td class="num"><strong>0/3</strong></td><td class="num"><strong>0.72×</strong></td></tr>
+          <tr><td>gaster <code>b_a_1…5</code></td><td class="num">5</td><td class="num"><strong>0/15</strong></td><td class="num">1.05×</td></tr>
+          <tr><td>waist <code>w_*</code></td><td class="num">4</td><td class="num"><strong>0/12</strong></td><td class="num">—</td></tr>
+          <tr><td>mandible <code>ma_*</code></td><td class="num">2</td><td class="num">6/6</td><td class="num">1.24×</td></tr>
+          <tr><td>antenna <code>an_*</code></td><td class="num">—</td><td class="num">—</td><td class="num"><strong>1.72×</strong></td></tr>
+        </table></div>
+        <p>Of §6.10's three named mechanisms, two are tested and null: the authored limits
+        <b>cannot reach the anterior by construction</b> (30 of 33 body axes free), and the anterior
+        partition split moved the head ratio <b>0.72× → 0.73×</b>. The third — <b>unbounded per-joint
+        scale</b>, an antenna joint spanning 889× and a head joint 138× — was never tested.</p>
+      </div></div>
+
+      <div class="beat"><div class="lab">R1 · the arm</div><div class="txt">
+        <p><b>A bound on exactly that quantity already ships.</b> <code>w_scale = 0.052</code> is in
+        <code>D1_PROD.yaml</code>, promoted on a pre-registered 838-specimen A/B whose validated
+        claim is <em>"anterior joint-scale outlier tail reduced 58–70%."</em> It was scored on genus
+        classification, five integrity scalars and the anterior <em>scale</em> ratios — <b>never on
+        the §6.10 symptom itself.</b></p>
+        <p class="verdict">Did the representation bound fix the anatomical deformation, or only make
+        the scale statistics look healthier?</p>
+        <p>Prior evidence, declared in the registration before the bar, from the A/B summaries
+        already on disk — head joint-scale ratio, n = 838 per arm:</p>
+        <div class="tablewrap"><table>
+          <tr><th>arm</th><th class="num">mean</th><th class="num">median</th><th class="num">p95</th><th class="num">max</th></tr>
+          <tr><td>A · baseline</td><td class="num">1.6069</td><td class="num">1.3874</td><td class="num">2.1849</td><td class="num">8.9114</td></tr>
+          <tr><td>B · scale_cap</td><td class="num">1.5290</td><td class="num">1.3853</td><td class="num">2.1168</td><td class="num">3.7735</td></tr>
+          <tr><td>Δ</td><td class="num">−4.9%</td><td class="num"><strong>−0.15%</strong></td><td class="num">−3.1%</td><td class="num"><strong>−57.7%</strong></td></tr>
+        </table></div>
+        <p><b>A tail-only signature</b> — the maximum falls 58% while the median does not move at
+        all. That biases toward FAIL, which is why it is on the record before the bar rather than
+        after the result.</p>
+      </div></div>
+
+      <div class="callout warn"><div class="lab">Blocker, found while writing the spec</div>
+        <p>The endpoint needs per-specimen <code>deform_verts</code>, and <b>the A/B outputs in this
+        repo do not contain them</b> — only <code>analysis.json</code> and a figure. The raw fits
+        went to JSC scratch. <code>integrity_anterior_full_corpus.json</code> stores
+        <code>deform_mag_mean</code> <em>globally, not stratified by anatomical group</em>, even
+        though <code>SCHEMA.md</code>'s own secondary endpoint specified stratification. Routes, in
+        order: recover the scratch fits (zero GPU), or refit the 81 <code>ALL_ANTS_CLEAN</code>
+        specimens on both arms (two short jobs, reported as n = 81 and never as the A/B result).
+        The 126 local fits are scattered smoke tests with no matched pair — checked, not usable.</p>
+      </div>
+
+      <div class="beat"><div class="lab">Either way it pays</div><div class="txt">
+        <ul>
+          <li><b>PASS</b> (head ratio rises ≥ 0.10, sign p &lt; 0.05) → representation bounds are the
+          mechanism behind a whole-animal failure, demonstrated on something already in production.
+          The global-prior path gets its first working instance instead of a literature argument.</li>
+          <li><b>FAIL</b> (tail down 58%, symptom unmoved) → the <b>seventh</b> instance of this
+          session's central pattern, and all three of §6.10's named mechanisms are then exhausted.
+          The anterior becomes genuinely open and needs a learned global prior — the expensive path,
+          which this cheap arm exists to justify before anyone starts it.</li>
+        </ul>
+        <p>The registered mechanism check guards the failure mode that matters: if the head ratio
+        and the antenna ratio rise <em>together</em>, that is a global deformation-scale shift and is
+        reported as such <b>regardless of the primary endpoint</b>. A void control requires arm A to
+        reproduce §6.10's 0.72× within ±0.03 before any verdict is issued at all.</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING ============ -->
+<section id="next">
+  <h2 class="sec">What's open</h2>
+  <div class="thread">
+    <div class="rail"><div class="rail-inner">
+      <div class="num">→</div>
+      <div class="dates">Waiting on you</div>
+    </div></div>
+    <div class="body">
+      <div class="decision">
+        <h4>The one decision that is yours, not another experiment's</h4>
+        <p>The coxa fix costs <b>+16.3% shape-parameter accuracy</b>. It is not controllable by the shape
+        prior, and it is uncorrelated with the coxa gain — so it is a real, characterised trade, not a bug
+        waiting to be found.</p>
+        <p><b>Is a 16.3% shape-accuracy cost acceptable in exchange for a 2.3× closer coxa and
+        <code>leg_acc</code> 0.9418 → 0.9682?</b> That depends on how SMILify's downstream users actually
+        consume shape parameters. No further experiment on this side resolves it.</p>
+      </div>
+
+      <div style="margin-top:34px">
+        <h3 style="font-size:1.35rem">Ranked, deliberately not started</h3>
+        <ul>
+          <li><b>R1 — re-score the shipped scale bound against the §6.10 symptom</b> (thread 10).
+          Cheapest, decisive either way, and it tests the family the record itself identifies as the
+          only one that has ever moved correspondence. Registered; blocked only on recovering the
+          converged fits.</li>
+          <li><b>A global deformation / plausibility prior.</b> The strongest remaining path, and
+          the family <code>w_offset</code> and <code>w_midline</code> already belong to. One
+          constraint to scope first: it cannot be learned from the pipeline's own registrations —
+          a leave-one-out shape model over them reconstructs a held-out specimen no better than the
+          population mean (gen/spread 0.99–1.00), while the same metric reaches 0.42 at 10 modes and
+          0.00 at 20 on synthetic data with exact correspondence. <b>The synthetic route is open;
+          the real-registration route is closed.</b></li>
+          <li><b>Human joint annotation on real scans.</b> Tooling drafted, 10 specimens scoped and
+          sanity-checked — one per genus across 8 subfamilies, chosen for body-plan extremes that stress the
+          fitter differently (trap-jaw Odontomachus, flattened Cephalotes, spined Acromyrmex, long-legged
+          Cataglyphis, tiny cryptic Discothyrea). This is the only thing that can turn thread 7 from "the fit
+          gets geometrically closer" into a <em>correspondence</em> claim. Note it yields <em>joint
+          positions</em> — a pose-accuracy measure, <b>not</b> <code>leg_acc</code>/<code>seg_acc</code>,
+          which are surface-label metrics and need a different definition built from annotations.</li>
+          <li><b>Mean-teacher fine-tuning on bench50.</b> The last untried lever with genuine upside on real
+          data, fully pre-registered. It should follow the decision above, not precede it.</li>
+          <li><b>Alpha-wrap visual ground truth</b> (thread 4) — inspection set built, waiting on labels.</li>
+        </ul>
+      </div>
+
+      <div class="callout warn" style="margin-top:26px"><div class="lab">The honest limit, stated first rather than buried</div>
+        <p>bench50 has no correspondence ground truth. Everything in thread 7 is <em>geometric fit</em> —
+        "did the fit get closer to the scan" — never "is the correspondence correct." Closing that gap is
+        what the annotation work is for, and it does not exist yet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Every result above is committed with its pre-registration timestamped before its run. Where a bar was met
+  by the letter but the instrument was later found wrong, both are recorded — no verdict was rewritten after
+  the fact.<br>
+  Evidence trail: <code>diagnostics/moonshot/REPORT.md</code> ·
+  <code>diagnostics/khaoula_review/PENETRATION_LOSS_SUMMARY.md</code> ·
+  <code>diagnostics/SHIPPED_RECIPE.md</code> ·
+  <code>diagnostics/correspondence_accuracy/REPORT.md</code> ·
+  <code>diagnostics/anatomical_pose_init/LAB_RECORD_correspondence_20260827.md</code> ·
+  <code>diagnostics/anatomical_pose_init/SYNTHESIS_FOR_FABIAN_20260828.md</code>
+</footer>
+
+</div>

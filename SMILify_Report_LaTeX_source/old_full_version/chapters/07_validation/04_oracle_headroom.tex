@@ -1,0 +1,13 @@
+\section{Demonstrated headroom}
+\label{sec:validation-headroom}
+
+The expert-supervised fit introduced in \S\ref{sec:skeleton-underdetermined}
+is the one result in this report that moves skeleton accuracy against
+\emph{human ground truth}, rather than only against a self-consistency or
+synthetic-corpus statistic: supplying expert joint targets during fitting
+reduces skeleton error from production's $25.1\%$ of Weber's length to
+$17.4\%$. This is reported as demonstrated headroom rather than a deployed
+capability, because it depends on expert joint annotations unavailable at
+inference time; supplying an equivalent signal automatically, from a learned
+3D joint predictor, is the concrete engineering objective this result
+motivates for the project's next phase (Chapter~\ref{ch:conclusion}).

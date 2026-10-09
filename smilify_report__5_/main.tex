@@ -1,0 +1,99 @@
+%% ===========================================================================
+%%  Mesh Registration from Scan-Derived 3D Data
+%%  Internship report — Forschungszentrum Jülich, July–September 2026
+%%  Khaoula Jellal
+%%
+%%  Build:  latexmk -pdf main.tex          (pdfLaTeX)
+%%      or  latexmk -lualatex main.tex     (better fonts, if Libertinus present)
+%% ===========================================================================
+\documentclass[
+  11pt,
+  twoside,
+  open=right,
+  numbers=noenddot,
+  chapterprefix=false,
+  parskip=never
+]{scrbook}
+
+\usepackage{style/notebook}
+
+% --- Bibliography ------------------------------------------------------
+% natbib + plain bibtex, deliberately, not biblatex+biber: biber is a
+% separate Perl subprocess with real startup cost, and on a throttled
+% free-tier compile server that overhead is enough on its own to trip a
+% timeout even when everything else compiles quickly. Five references do
+% not need biblatex's extra machinery.
+\usepackage[numbers,sort&compress]{natbib}
+\bibliographystyle{unsrtnat}
+
+% --- Metadata --------------------------------------------------------------
+\hypersetup{
+  pdftitle={Mesh Registration from Scan-Derived 3D Data},
+  pdfauthor={Khaoula Jellal}
+}
+
+% ===========================================================================
+%  FINDINGS LEDGER — declare every load-bearing result here, once.
+%  Cite anywhere with \F{F1}. The ledger table in Chapter 1 builds itself.
+%  (Fill in / correct as you consolidate your session notes.)
+% ===========================================================================
+\DeclareFinding{F1}
+  {Chamfer distance can fall while correspondence is anatomically wrong; low
+   loss is not evidence of a correct fit.}
+  {Confirmed three times independently: rotation probe, 10-specimen fitter
+   batch, synthetic ground truth.}
+  {Established}
+
+\DeclareFinding{F2}
+  {Input mesh quality is not the dominant bottleneck. A carefully rebuilt
+   preprocessing pipeline ties with the existing one on fit accuracy.}
+  {Head-to-head Chamfer, 0.000771 vs.\ 0.000737.}
+  {Established}
+
+\DeclareFinding{F3}
+  {Roughly 83\% of correspondence error never crosses a part boundary; it is
+   sliding \emph{within} a correctly identified part.}
+  {Synthetic ground-truth correspondence audit.}
+  {Established}
+
+\DeclareFinding{F4}
+  {Initialisation, not the shape of the objective, dominates catastrophic
+   registration failure.}
+  {Ground-truth-initialised vs.\ zero-initialised fits; pose-sweep sensitivity.}
+  {Established}
+
+\DeclareFinding{F5}
+  {Thin distal structures are systematically under-supported by sampling,
+   independently of pose.}
+  {Vertex-support audit: 38 tarsus / 8 pretarsus vertices vs.\ hundreds
+   proximally.}
+  {Established}
+
+\begin{document}
+
+\frontmatter
+\input{chapters/00_titlepage}
+\cleardoublepage
+\tableofcontents
+\cleardoublepage
+
+\mainmatter
+
+% ---------------------------------------------------------------------------
+% This report intentionally keeps only the background chapters that establish
+% the project motivation, the scientific context, and the research narrative
+% most relevant to the SMILify contribution.
+\part{Background}
+\input{chapters/01_introduction}
+\input{chapters/02_host_organisation}
+
+\appendix
+\input{chapters/A_assignment_mapping}
+% \input{chapters/B_experiment_inventory}
+% \input{chapters/C_configurations}
+
+\backmatter
+\addcontentsline{toc}{chapter}{References}
+\bibliography{bib/references}
+
+\end{document}

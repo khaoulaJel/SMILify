@@ -1,0 +1,867 @@
+{
+ "npz": "/rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/moonshot/runs/AUDIT40_W0/Stage_3_deform_fine.npz",
+ "n": 40,
+ "preregistration": "PREREGISTRATION_M3b_extraction_audit.md",
+ "bars": {
+  "C1": [
+   40,
+   40
+  ],
+  "C2": [
+   40,
+   38
+  ],
+  "C3": [
+   37,
+   36
+  ],
+  "C4": [
+   40,
+   38
+  ]
+ },
+ "verdict": {
+  "C1": true,
+  "C2": true,
+  "C3": true,
+  "C4": true,
+  "C5": true
+ },
+ "C5": {
+  "HW/WL": {
+   "largest_gap_frac": 0.16626429895995526,
+   "minority_frac": 0.075,
+   "violates": false
+  },
+  "HL/WL": {
+   "largest_gap_frac": 0.1351450755779683,
+   "minority_frac": 0.05,
+   "violates": false
+  }
+ },
+ "overall_pass": true,
+ "flagged": [
+  "Atta_sexdens_CASENT0744597",
+  "Cataulacus_sp._CASENT0745593",
+  "Tetramorium_sp._OKENT0105210"
+ ],
+ "per_specimen": [
+  {
+   "specimen": "Acromyrmex_octospinosus_CASENT0878016",
+   "genus": "Acromyrmex",
+   "HW": 0.5405547507827448,
+   "HL": 0.4842640452762616,
+   "WL": 0.49703669702446246,
+   "HW_WL": 1.087555011569177,
+   "HL_WL": 0.9743023969363529,
+   "head_lat_ratio": 0.9901376017853953,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.47351823963706896,
+    "cephalic_margin_post_mid": 0.41670295387175726,
+    "petiole_ant_mid": -0.07174677123901181,
+    "gaster_apex_mid": -0.701466740731432
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Acropyga_goeldii_CASENT0744200",
+   "genus": "Acropyga",
+   "HW": 0.3302639019456187,
+   "HL": 0.3112303195199148,
+   "WL": 0.487121229237789,
+   "HW_WL": 0.67799119012405,
+   "HL_WL": 0.6389175852731872,
+   "head_lat_ratio": 1.0227581777460122,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.42711499425656996,
+    "cephalic_margin_post_mid": 0.3605954685233149,
+    "petiole_ant_mid": -0.12141897177047575,
+    "gaster_apex_mid": -0.9474015835168594
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Anochetus_risii_CASENT0877608",
+   "genus": "Anochetus",
+   "HW": 0.37429034012659135,
+   "HL": 0.36127114675935457,
+   "WL": 0.6908904781610585,
+   "HW_WL": 0.5417506130969398,
+   "HL_WL": 0.5229065360995409,
+   "head_lat_ratio": 1.024758510404899,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.5367356617875771,
+    "cephalic_margin_post_mid": 0.3213072567739703,
+    "petiole_ant_mid": -0.23585304420346703,
+    "gaster_apex_mid": -0.8775176119484521
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Atta_sexdens_CASENT0744597",
+   "genus": "Atta",
+   "HW": 0.25488459021256404,
+   "HL": 0.23707854938897335,
+   "WL": 0.6217512185492443,
+   "HW_WL": 0.4099462656579844,
+   "HL_WL": 0.38130773582102134,
+   "head_lat_ratio": 1.0085851915620856,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.14231009281186124,
+    "cephalic_margin_post_mid": 0.1706662257815092,
+    "petiole_ant_mid": 0.021883423024818435,
+    "gaster_apex_mid": -0.11112979266822841
+   },
+   "C1": true,
+   "C2": true,
+   "C3": false,
+   "C4": true
+  },
+  {
+   "specimen": "Blepharidatta_conops_CASENT0744070",
+   "genus": "Blepharidatta",
+   "HW": 0.40283107551128544,
+   "HL": 0.37943127127214565,
+   "WL": 0.6438380474326867,
+   "HW_WL": 0.6256714357245274,
+   "HL_WL": 0.5893271961561346,
+   "head_lat_ratio": 1.0329097753048464,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.5137763682929016,
+    "cephalic_margin_post_mid": 0.37536934966796487,
+    "petiole_ant_mid": -0.13660142840325962,
+    "gaster_apex_mid": -0.6951181078621286
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Bothroponera_fugax_CASENT0744923",
+   "genus": "Bothroponera",
+   "HW": 0.44083800657571404,
+   "HL": 0.4096538661269991,
+   "WL": 0.7891129828642931,
+   "HW_WL": 0.5586500490406032,
+   "HL_WL": 0.5191320825061738,
+   "head_lat_ratio": 1.0009651203253098,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.6605361998584279,
+    "cephalic_margin_post_mid": 0.5277578857226602,
+    "petiole_ant_mid": -0.045855905307189165,
+    "gaster_apex_mid": -0.7996432117001627
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Carebara_atoma_CASENT0741394",
+   "genus": "Carebara",
+   "HW": 0.5551997495529737,
+   "HL": 0.4740421808625033,
+   "WL": 0.5422500971621638,
+   "HW_WL": 1.0238813279307486,
+   "HL_WL": 0.8742131782795008,
+   "head_lat_ratio": 1.013793431058881,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.3760720928122688,
+    "cephalic_margin_post_mid": 0.2985593084557174,
+    "petiole_ant_mid": -0.08998169720706062,
+    "gaster_apex_mid": -0.7651288450461883
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Cataulacus_sp._CASENT0745593",
+   "genus": "Cataulacus",
+   "HW": 0.7207747198892407,
+   "HL": 0.5661443049136435,
+   "WL": 0.6943963449707645,
+   "HW_WL": 1.037987491019393,
+   "HL_WL": 0.8153042696926628,
+   "head_lat_ratio": 0.9931267990730511,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.010716494200053791,
+    "cephalic_margin_post_mid": 0.13129426046340853,
+    "petiole_ant_mid": -0.11266354593636507,
+    "gaster_apex_mid": -0.7449243485858696
+   },
+   "C1": true,
+   "C2": true,
+   "C3": false,
+   "C4": true
+  },
+  {
+   "specimen": "Cephalotes_depressus_CASENT0744567",
+   "genus": "Cephalotes",
+   "HW": 0.6133159822494081,
+   "HL": 0.4726897309602799,
+   "WL": 0.4743958513439393,
+   "HW_WL": 1.2928358890827463,
+   "HL_WL": 0.9964035933728634,
+   "head_lat_ratio": 1.0076056449727142,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.536803332713347,
+    "cephalic_margin_post_mid": 0.4852733489782151,
+    "petiole_ant_mid": -0.09212449472826996,
+    "gaster_apex_mid": -0.9480118328909769
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Cephalotes_duckei_CASENT0744396",
+   "genus": "Cephalotes",
+   "HW": 0.4645022323062793,
+   "HL": 0.4129928188466323,
+   "WL": 0.34020721230005857,
+   "HW_WL": 1.3653509258839405,
+   "HL_WL": 1.213944925078125,
+   "head_lat_ratio": 0.9892295155275662,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.35545245726986857,
+    "cephalic_margin_post_mid": 0.26833706650777217,
+    "petiole_ant_mid": -0.17528188383439613,
+    "gaster_apex_mid": -0.9816834035849304
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Cephalotes_pusillus_CASENT0744207",
+   "genus": "Cephalotes",
+   "HW": 0.4180354675316092,
+   "HL": 0.3538875219756448,
+   "WL": 0.7607098170831745,
+   "HW_WL": 0.5495334201607944,
+   "HL_WL": 0.4652069869856188,
+   "head_lat_ratio": 0.9838173564974334,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.7046704700589549,
+    "cephalic_margin_post_mid": 0.5821383180217032,
+    "petiole_ant_mid": -0.04612155629062262,
+    "gaster_apex_mid": -0.7326202240333729
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Cephalotes_pusillus_CASENT0744391",
+   "genus": "Cephalotes",
+   "HW": 0.4337568719135044,
+   "HL": 0.3931200649516596,
+   "WL": 0.5661738470743662,
+   "HW_WL": 0.7661195835075918,
+   "HL_WL": 0.6943451503156834,
+   "head_lat_ratio": 1.0418903181345558,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.478083975560561,
+    "cephalic_margin_post_mid": 0.34680575038767386,
+    "petiole_ant_mid": -0.07946991835756634,
+    "gaster_apex_mid": -0.6649801853396533
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Cerapachys_sulcinodis_CASENT0877602",
+   "genus": "Cerapachys",
+   "HW": 0.3984897756172677,
+   "HL": 0.2929357461650304,
+   "WL": 0.5054614664271053,
+   "HW_WL": 0.7883682576913814,
+   "HL_WL": 0.5795412026868637,
+   "head_lat_ratio": 1.1136279261727695,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.41755930527116436,
+    "cephalic_margin_post_mid": 0.33677629641679424,
+    "petiole_ant_mid": -0.03495219537966998,
+    "gaster_apex_mid": -0.804835116824656
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Eburopone_afrc-gh01_CASENT0744704",
+   "genus": "Eburopone",
+   "HW": 0.3641686052903046,
+   "HL": 0.3035797776377032,
+   "WL": 0.7043608855854732,
+   "HW_WL": 0.5170199151356955,
+   "HL_WL": 0.4310003349850469,
+   "head_lat_ratio": 1.0141623092643106,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.4738363185809474,
+    "cephalic_margin_post_mid": 0.393603213047247,
+    "petiole_ant_mid": 0.0806137181987871,
+    "gaster_apex_mid": -0.700872679880788
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Eciton_burchellii_CASENT0744556",
+   "genus": "Eciton",
+   "HW": 0.28419085621820495,
+   "HL": 0.25489960678678336,
+   "WL": 0.4874734754031005,
+   "HW_WL": 0.5829873225065271,
+   "HL_WL": 0.5228994389407595,
+   "head_lat_ratio": 0.904063597471254,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.3243089730684388,
+    "cephalic_margin_post_mid": 0.3015417225525924,
+    "petiole_ant_mid": 0.13855298042295966,
+    "gaster_apex_mid": -0.2006612451952378
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Formica_cf.pallidefulva_CASENT0709279",
+   "genus": "Formica",
+   "HW": 0.3204373260737656,
+   "HL": 0.2745955138588386,
+   "WL": 0.6177594483071941,
+   "HW_WL": 0.5187089035252138,
+   "HL_WL": 0.44450232952534324,
+   "head_lat_ratio": 0.9255788269596832,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.5370799502458978,
+    "cephalic_margin_post_mid": 0.4555611318040594,
+    "petiole_ant_mid": -0.2359347559427489,
+    "gaster_apex_mid": -0.949394499356365
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Formica_sanguinea_CASENT0878137",
+   "genus": "Formica",
+   "HW": 0.39506190301910776,
+   "HL": 0.3530041555245366,
+   "WL": 0.5684935187001185,
+   "HW_WL": 0.6949277168936445,
+   "HL_WL": 0.6209466667829278,
+   "head_lat_ratio": 0.9520216973789237,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.6250036028282986,
+    "cephalic_margin_post_mid": 0.47592669980388963,
+    "petiole_ant_mid": -0.04022931354574617,
+    "gaster_apex_mid": -0.62210943516289
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Fulakora_elongata_CASENT0744292",
+   "genus": "Fulakora",
+   "HW": 0.3558431893912889,
+   "HL": 0.2578500424720424,
+   "WL": 0.4038685903967476,
+   "HW_WL": 0.8810865659092724,
+   "HL_WL": 0.6384503489581568,
+   "head_lat_ratio": 0.7157075500424961,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.2640317724004477,
+    "cephalic_margin_post_mid": 0.2148080676453285,
+    "petiole_ant_mid": -0.09151978256447557,
+    "gaster_apex_mid": -0.8174795875134176
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Hypoponera_opacior_CASENT0878068",
+   "genus": "Hypoponera",
+   "HW": 0.44055435319670067,
+   "HL": 0.3969249087101052,
+   "WL": 0.6435624622541233,
+   "HW_WL": 0.6845557021048551,
+   "HL_WL": 0.6167620580601415,
+   "head_lat_ratio": 1.0824077929977762,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.7443962945894075,
+    "cephalic_margin_post_mid": 0.5936863190426926,
+    "petiole_ant_mid": 0.16827515026500353,
+    "gaster_apex_mid": -0.9209111167311125
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Leptogenys_birmana_CASENT0741330",
+   "genus": "Leptogenys",
+   "HW": 0.3660282517863719,
+   "HL": 0.22672077693580014,
+   "WL": 0.698561967062976,
+   "HW_WL": 0.5239739193436136,
+   "HL_WL": 0.32455356521773115,
+   "head_lat_ratio": 0.629049235029228,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.4658850568935855,
+    "cephalic_margin_post_mid": 0.42492740271865276,
+    "petiole_ant_mid": -0.13328294783632877,
+    "gaster_apex_mid": -0.7875550724792475
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Lioponera_daikoku_OKENT0105067",
+   "genus": "Lioponera",
+   "HW": 0.40678207621422097,
+   "HL": 0.3521398023314377,
+   "WL": 0.6486302262718817,
+   "HW_WL": 0.6271401790081134,
+   "HL_WL": 0.5428976141852412,
+   "head_lat_ratio": 1.0873497547824138,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.6355947975031291,
+    "cephalic_margin_post_mid": 0.4736876496870453,
+    "petiole_ant_mid": 0.21571045360896335,
+    "gaster_apex_mid": -1.1866257349260032
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Megaponera_analis_CASENT0744964",
+   "genus": "Megaponera",
+   "HW": 0.31918717215441705,
+   "HL": 0.29059342251341325,
+   "WL": 0.6655206316118069,
+   "HW_WL": 0.4796052248318524,
+   "HL_WL": 0.43664074216547233,
+   "head_lat_ratio": 1.0140469451166338,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.5405581646168249,
+    "cephalic_margin_post_mid": 0.5272640574656127,
+    "petiole_ant_mid": -0.18163226586916248,
+    "gaster_apex_mid": -0.6319697089960101
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Myrmecina_sicula_CASENT0745245",
+   "genus": "Myrmecina",
+   "HW": 0.35635055164764606,
+   "HL": 0.33317963514121735,
+   "WL": 0.6092704267085516,
+   "HW_WL": 0.5848807623451394,
+   "HL_WL": 0.5468501678985905,
+   "head_lat_ratio": 1.0014841421692384,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.5336456507178935,
+    "cephalic_margin_post_mid": 0.413141670496256,
+    "petiole_ant_mid": -0.05443950630626557,
+    "gaster_apex_mid": -0.9104037411664045
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Myrmicaria_sp._CASENT0745630",
+   "genus": "Myrmicaria",
+   "HW": 0.2927899163767906,
+   "HL": 0.24339170036499624,
+   "WL": 0.2684331067900049,
+   "HW_WL": 1.0907369805388423,
+   "HL_WL": 0.9067126751820573,
+   "head_lat_ratio": 1.0075551221096664,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.23276237027805138,
+    "cephalic_margin_post_mid": 0.21514037828335442,
+    "petiole_ant_mid": 0.009832205517501141,
+    "gaster_apex_mid": -0.09493528614434017
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Myrmicocrypta_squamosa_uncinata_CASENT0745104",
+   "genus": "Myrmicocrypta",
+   "HW": 0.44932391263183546,
+   "HL": 0.3991731752527358,
+   "WL": 0.7913838129322079,
+   "HW_WL": 0.5677699054356647,
+   "HL_WL": 0.5043989638526131,
+   "head_lat_ratio": 1.0184414644670323,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.5986546573234581,
+    "cephalic_margin_post_mid": 0.46507093464280047,
+    "petiole_ant_mid": -0.0773865772397491,
+    "gaster_apex_mid": -0.7920778895431563
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Neoponera_laevigata_CASENT0744169",
+   "genus": "Neoponera",
+   "HW": 0.28722674188108416,
+   "HL": 0.2708434369507257,
+   "WL": 0.5222001269224464,
+   "HW_WL": 0.5500319265984037,
+   "HL_WL": 0.5186583131393024,
+   "head_lat_ratio": 1.010868048764771,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.49862274442934174,
+    "cephalic_margin_post_mid": 0.39315968975462695,
+    "petiole_ant_mid": -0.07078390359666047,
+    "gaster_apex_mid": -0.9038534060024584
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Nomamyrmex_esenbeckii_CASENT0744587",
+   "genus": "Nomamyrmex",
+   "HW": 0.3210693366024936,
+   "HL": 0.3021646157399009,
+   "WL": 0.6240660243646109,
+   "HW_WL": 0.5144797570567768,
+   "HL_WL": 0.4841869352646589,
+   "head_lat_ratio": 1.0190551701026251,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.47603081838953465,
+    "cephalic_margin_post_mid": 0.3699937138842523,
+    "petiole_ant_mid": 0.007757636652477048,
+    "gaster_apex_mid": -0.41413042386193244
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Pheidole_nodus_OKENT0105130",
+   "genus": "Pheidole",
+   "HW": 0.3134141528215465,
+   "HL": 0.2800853381488306,
+   "WL": 0.4998964872660691,
+   "HW_WL": 0.6269581019374764,
+   "HL_WL": 0.5602866699076355,
+   "head_lat_ratio": 1.0042896519217015,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.5067841901989396,
+    "cephalic_margin_post_mid": 0.44338689560366584,
+    "petiole_ant_mid": 0.09451996604177555,
+    "gaster_apex_mid": -0.38310616197234254
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Pogonomyrmex_barbatus_CASENT0741383",
+   "genus": "Pogonomyrmex",
+   "HW": 0.4684234680920165,
+   "HL": 0.4185718942252121,
+   "WL": 0.3748627291043803,
+   "HW_WL": 1.249586666594385,
+   "HL_WL": 1.1166004559195883,
+   "head_lat_ratio": 0.9820561160206626,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.17844009865281468,
+    "cephalic_margin_post_mid": 0.12468926354084425,
+    "petiole_ant_mid": 0.11001134529486799,
+    "gaster_apex_mid": -0.3060385398378558
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Polyrhachis_illaudata_CASENT0878095",
+   "genus": "Polyrhachis",
+   "HW": 0.38638591372504094,
+   "HL": 0.33903568771789805,
+   "WL": 0.4190888068402365,
+   "HW_WL": 0.9219666748874482,
+   "HL_WL": 0.8089829224361603,
+   "head_lat_ratio": 1.0397651082163886,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.477786415711522,
+    "cephalic_margin_post_mid": 0.3144863473007031,
+    "petiole_ant_mid": -0.18956422642486184,
+    "gaster_apex_mid": -0.6075507961694355
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Poneracantha_triangularis_CASENT0744645",
+   "genus": "Poneracantha",
+   "HW": 0.30029929821298024,
+   "HL": 0.2560971587861172,
+   "WL": 0.37003050843179847,
+   "HW_WL": 0.8115528081337363,
+   "HL_WL": 0.692097416160266,
+   "head_lat_ratio": 1.016527490902362,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.27127179527736944,
+    "cephalic_margin_post_mid": 0.21807357244149284,
+    "petiole_ant_mid": -0.04944596840009236,
+    "gaster_apex_mid": -0.2811046981614669
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Pristomyrmex_punctatus_OKENT0105157",
+   "genus": "Pristomyrmex",
+   "HW": 0.480384291534765,
+   "HL": 0.41388009111308377,
+   "WL": 0.6014652546990553,
+   "HW_WL": 0.7986900120691535,
+   "HL_WL": 0.6881197008132577,
+   "head_lat_ratio": 0.9844745456751736,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.7041195178519732,
+    "cephalic_margin_post_mid": 0.6313450536132226,
+    "petiole_ant_mid": -0.004239779887698602,
+    "gaster_apex_mid": -0.692733842036362
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Pseudomyrmex_ferrugineus_CASENT0741429",
+   "genus": "Pseudomyrmex",
+   "HW": 0.4376680639371932,
+   "HL": 0.3476831364790317,
+   "WL": 0.5919216286310565,
+   "HW_WL": 0.739402047107812,
+   "HL_WL": 0.5873803552053373,
+   "head_lat_ratio": 0.9917848380835501,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.61231517355749,
+    "cephalic_margin_post_mid": 0.47907322341859176,
+    "petiole_ant_mid": 0.1825425155438213,
+    "gaster_apex_mid": -0.49680792701808285
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Streblognathus_peetersi_CASENT0744989",
+   "genus": "Streblognathus",
+   "HW": 0.3110118592755695,
+   "HL": 0.27558952893939015,
+   "WL": 0.4671951794404468,
+   "HW_WL": 0.6657000606214818,
+   "HL_WL": 0.5898809342798869,
+   "head_lat_ratio": 1.0137145136182686,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.5343385989941596,
+    "cephalic_margin_post_mid": 0.46392985051143093,
+    "petiole_ant_mid": 0.08554945935634599,
+    "gaster_apex_mid": -0.5445601612982488
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Strumigenys_hispida_OKENT0105261",
+   "genus": "Strumigenys",
+   "HW": 0.33186413823988525,
+   "HL": 0.2828245261191284,
+   "WL": 0.6438021514162526,
+   "HW_WL": 0.5154753483035773,
+   "HL_WL": 0.4393034808861134,
+   "head_lat_ratio": 1.026547252248993,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.5916841176031996,
+    "cephalic_margin_post_mid": 0.5108929145378687,
+    "petiole_ant_mid": -0.08919942849408125,
+    "gaster_apex_mid": -0.7028184618699898
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Strumigenys_sp._mandibularis_group_CASENT0744058",
+   "genus": "Strumigenys",
+   "HW": 0.26703393952320065,
+   "HL": 0.21861804872224852,
+   "WL": 0.5471394765614136,
+   "HW_WL": 0.48805460209418366,
+   "HL_WL": 0.3995654820891173,
+   "head_lat_ratio": 1.111118783830177,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.38240608633153356,
+    "cephalic_margin_post_mid": 0.27147737385256343,
+    "petiole_ant_mid": -0.25246420279123527,
+    "gaster_apex_mid": -0.9753328375752855
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Tapinoma_simrothi_CASENT0745227",
+   "genus": "Tapinoma",
+   "HW": 0.41200297882281023,
+   "HL": 0.34993004988853077,
+   "WL": 0.564764632188887,
+   "HW_WL": 0.7295127126250618,
+   "HL_WL": 0.6196033355210101,
+   "head_lat_ratio": 1.0071367665245727,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.43581279418298235,
+    "cephalic_margin_post_mid": 0.3792790249848269,
+    "petiole_ant_mid": 0.04589904979350609,
+    "gaster_apex_mid": -0.5930102174846407
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Temnothorax_affinis_CASENT0745855",
+   "genus": "Temnothorax",
+   "HW": 0.3503665603080768,
+   "HL": 0.33064854617967765,
+   "WL": 0.6557759589212505,
+   "HW_WL": 0.5342778361140728,
+   "HL_WL": 0.5042096186685366,
+   "head_lat_ratio": 1.0349636912936135,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.8509652556982152,
+    "cephalic_margin_post_mid": 0.720557078338553,
+    "petiole_ant_mid": 0.06581539393764892,
+    "gaster_apex_mid": -0.5995996927257625
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  },
+  {
+   "specimen": "Tetramorium_sp._OKENT0105210",
+   "genus": "Tetramorium",
+   "HW": 0.5234011542934379,
+   "HL": 0.45386664783461217,
+   "WL": 0.5398049168069607,
+   "HW_WL": 0.9696116837716968,
+   "HL_WL": 0.8407975431556121,
+   "head_lat_ratio": 1.0310597046538452,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.0011846228042690869,
+    "cephalic_margin_post_mid": 0.044701982546284796,
+    "petiole_ant_mid": 0.20044090729642344,
+    "gaster_apex_mid": -0.44776603881802046
+   },
+   "C1": true,
+   "C2": true,
+   "C3": false,
+   "C4": true
+  },
+  {
+   "specimen": "Typhlomyrmex_reichenspergeri_CASENT0744415",
+   "genus": "Typhlomyrmex",
+   "HW": 0.35501600768801644,
+   "HL": 0.3250124033550251,
+   "WL": 0.6097955462573029,
+   "HW_WL": 0.582188587415851,
+   "HL_WL": 0.532985859522638,
+   "head_lat_ratio": 1.0053540816289794,
+   "ap_proj": {
+    "clypeal_margin_ant_mid": 0.5791483867312115,
+    "cephalic_margin_post_mid": 0.467111096637382,
+    "petiole_ant_mid": 0.07861506708095554,
+    "gaster_apex_mid": -0.8259326335380234
+   },
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true
+  }
+ ],
+ "summary": {
+  "HW_WL": {
+   "median": 0.6464201198147976,
+   "q05": 0.4876321332310671,
+   "q95": 1.251749127718803
+  },
+  "HL_WL": {
+   "median": 0.5834607789461005,
+   "q05": 0.3986525947757125,
+   "q95": 1.0024134365001993
+  },
+  "head_lat_ratio": {
+   "median": 1.0097266201634283,
+   "q05": 0.8946457950998161,
+   "q95": 1.088538206234802
+  }
+ }
+}

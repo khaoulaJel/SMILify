@@ -1,0 +1,33 @@
+{
+ "specimen_id": "Gigantiops_destructor_CASENT0745031",
+ "frame": "canonical: +X anterior, right=-Y, +Z dorsal",
+ "coordinate_frame": "obj",
+ "note": "`original` is in the .obj MESH frame. The expert joints file is in a different frame (~100x smaller, permuted axes); use joint_to_obj_transform.json to bring the joints here, which is what this tool now does on load. `canonical` is after the load rotation.",
+ "missing": [
+  "clypeal_ant_mid",
+  "cephalic_post_mid",
+  "head_width_r",
+  "head_width_l",
+  "mandibular_apex_r",
+  "mandibular_apex_l",
+  "antennal_insertion_r",
+  "scape_apex_r",
+  "scape_apex_l",
+  "wl_anterior_r",
+  "wl_posterior_r"
+ ],
+ "landmarks": {
+  "antennal_insertion_l": {
+   "canonical": [
+    0.07651957869529724,
+    -0.008373172953724861,
+    -0.06710408627986908
+   ],
+   "original": [
+    671.4370727539062,
+    -49.76668167114258,
+    49.01948547363281
+   ]
+  }
+ }
+}

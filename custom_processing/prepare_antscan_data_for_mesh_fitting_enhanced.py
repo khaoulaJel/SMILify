@@ -22,7 +22,6 @@ THREE additions, each independently verified during the adaptive-pitch investiga
      than silently keeping a corrupted result or giving up on the whole call), and now RAISES
      clearly if it ever makes zero net progress instead of returning the mesh unchanged with no
      signal a caller could distinguish from "target already met".
-
   3. DIAGNOSTIC TOOLKIT (report_mesh_degeneracy, count_boundary_edges, remove_orphan_vertices,
      _find_exact_duplicate_vertex_groups): read-only (except remove_orphan_vertices, which only
      ever deletes literal zero-face vertices - a no-op on output from this pipeline's own
@@ -56,7 +55,6 @@ import bmesh
 import mathutils
 from mathutils import Vector, Matrix
 import math
-import addon_utils
 import numpy as np
 import os
 import time
@@ -64,21 +62,6 @@ import sys
 import random
 import json
 from collections import deque, Counter
-
-
-def ensure_addon_enabled(addon_name):
-    """
-    Ensures that the specified Blender addon is enabled.
-
-    Args:
-        addon_name (str): The name of the addon to enable.
-
-    Returns:
-        None
-    """
-    if not addon_utils.check(addon_name)[0]:
-        addon_utils.enable(addon_name, default_set=True)
-        print(f"Enabled addon: {addon_name}")
 
 
 def _median_edge_length(obj):
@@ -1484,11 +1467,7 @@ def process_stl(
     process_stl_start_time = time.time()
 
     # Import the STL file
-    try:
-        bpy.ops.wm.stl_import(filepath=stl_path)
-    except AttributeError:
-        ensure_addon_enabled("io_mesh_stl")
-        bpy.ops.import_mesh.stl(filepath=stl_path)
+    bpy.ops.wm.stl_import(filepath=stl_path)
     obj = bpy.context.selected_objects[0]
 
     # Reduce vertices if necessary

@@ -1,0 +1,689 @@
+{
+ "preregistration": "PREREGISTRATION_M4_corpus_analysis.md \u00a72 (B-ii only)",
+ "B_i_status": "NOT EXECUTABLE -- see RESULTS_M4B doc; premise (within-genus scale comparability) fails for 12/45 genera with n>=5",
+ "B_iii_status": "PROHIBITED by pre-registration",
+ "ratios": {
+  "HW/WL": {
+   "n_total": 753,
+   "n_tested": 488,
+   "n_genera": 45,
+   "H": 161.02290527188848,
+   "p_perm": 0.0,
+   "eta_sq_rank": 0.33064251595870364,
+   "median": 0.6372196271166438,
+   "q25": 0.5326859966013179,
+   "q75": 0.7917009588564831,
+   "hl_conditioned": false,
+   "genus_medians": [
+    {
+     "genus": "Leptogenys",
+     "median": 0.3763709089018664,
+     "n": 10
+    },
+    {
+     "genus": "Dolichoderus",
+     "median": 0.5043163755136332,
+     "n": 9
+    },
+    {
+     "genus": "Neivamyrmex",
+     "median": 0.5088093500699796,
+     "n": 17
+    },
+    {
+     "genus": "Megaponera",
+     "median": 0.5206935529855654,
+     "n": 8
+    },
+    {
+     "genus": "Odontomachus",
+     "median": 0.5299490556870955,
+     "n": 9
+    },
+    {
+     "genus": "Aphaenogaster",
+     "median": 0.5310117635034769,
+     "n": 11
+    },
+    {
+     "genus": "Pseudomyrmex",
+     "median": 0.5317121092419241,
+     "n": 6
+    },
+    {
+     "genus": "Eciton",
+     "median": 0.5331614775548587,
+     "n": 9
+    },
+    {
+     "genus": "Acanthostichus",
+     "median": 0.559517253591067,
+     "n": 5
+    },
+    {
+     "genus": "Cerapachys",
+     "median": 0.5652310380337795,
+     "n": 5
+    },
+    {
+     "genus": "Temnothorax",
+     "median": 0.5758124565578635,
+     "n": 16
+    },
+    {
+     "genus": "Strumigenys",
+     "median": 0.5771514585888542,
+     "n": 33
+    },
+    {
+     "genus": "Anochetus",
+     "median": 0.5772540931409571,
+     "n": 6
+    },
+    {
+     "genus": "Neoponera",
+     "median": 0.5818711880532459,
+     "n": 8
+    },
+    {
+     "genus": "Ponera",
+     "median": 0.5830014389971798,
+     "n": 7
+    },
+    {
+     "genus": "Tapinoma",
+     "median": 0.6027585494889126,
+     "n": 5
+    },
+    {
+     "genus": "Dorylus",
+     "median": 0.6085295792257962,
+     "n": 21
+    },
+    {
+     "genus": "Formica",
+     "median": 0.61344854420375,
+     "n": 10
+    },
+    {
+     "genus": "Crematogaster",
+     "median": 0.6146840884201006,
+     "n": 8
+    },
+    {
+     "genus": "Myrmica",
+     "median": 0.6166309265959685,
+     "n": 6
+    },
+    {
+     "genus": "Aenictus",
+     "median": 0.6188698812676401,
+     "n": 6
+    },
+    {
+     "genus": "Hypoponera",
+     "median": 0.6349827997978424,
+     "n": 14
+    },
+    {
+     "genus": "Camponotus",
+     "median": 0.6355458854241451,
+     "n": 16
+    },
+    {
+     "genus": "Myrmecina",
+     "median": 0.6365467017335238,
+     "n": 6
+    },
+    {
+     "genus": "Pheidole",
+     "median": 0.6389611476019583,
+     "n": 39
+    },
+    {
+     "genus": "Stigmatomma",
+     "median": 0.6466615687416147,
+     "n": 9
+    },
+    {
+     "genus": "Solenopsis",
+     "median": 0.6541888908287858,
+     "n": 10
+    },
+    {
+     "genus": "Polyrhachis",
+     "median": 0.6619479077837962,
+     "n": 8
+    },
+    {
+     "genus": "Labidus",
+     "median": 0.6693273974353791,
+     "n": 10
+    },
+    {
+     "genus": "Tetramorium",
+     "median": 0.698167488246153,
+     "n": 37
+    },
+    {
+     "genus": "Acropyga",
+     "median": 0.7035150054872791,
+     "n": 7
+    },
+    {
+     "genus": "Carebara",
+     "median": 0.7095819043821321,
+     "n": 8
+    },
+    {
+     "genus": "Nomamyrmex",
+     "median": 0.7140568412212809,
+     "n": 5
+    },
+    {
+     "genus": "Blepharidatta",
+     "median": 0.7152268683887122,
+     "n": 5
+    },
+    {
+     "genus": "Lasius",
+     "median": 0.7175535374142388,
+     "n": 8
+    },
+    {
+     "genus": "Typhlomyrmex",
+     "median": 0.7444054819174134,
+     "n": 6
+    },
+    {
+     "genus": "Parasyscia",
+     "median": 0.7695235498415587,
+     "n": 7
+    },
+    {
+     "genus": "Gnamptogenys",
+     "median": 0.787339687355542,
+     "n": 5
+    },
+    {
+     "genus": "Pristomyrmex",
+     "median": 0.8540543392804143,
+     "n": 8
+    },
+    {
+     "genus": "Cyphomyrmex",
+     "median": 0.8718825868629385,
+     "n": 9
+    },
+    {
+     "genus": "Meranoplus",
+     "median": 0.9027204309558647,
+     "n": 6
+    },
+    {
+     "genus": "Cephalotes",
+     "median": 0.9257048670697516,
+     "n": 28
+    },
+    {
+     "genus": "Mycetophylax",
+     "median": 0.943488924590806,
+     "n": 7
+    },
+    {
+     "genus": "Sericomyrmex",
+     "median": 1.015698359917313,
+     "n": 5
+    },
+    {
+     "genus": "Acromyrmex",
+     "median": 1.0863029953782224,
+     "n": 10
+    }
+   ]
+  },
+  "HL/WL": {
+   "n_total": 711,
+   "n_tested": 451,
+   "n_genera": 42,
+   "H": 146.79012508625874,
+   "p_perm": 0.0,
+   "eta_sq_rank": 0.32620027796946455,
+   "median": 0.5566113414366859,
+   "q25": 0.4645964845738394,
+   "q75": 0.685352383956155,
+   "hl_conditioned": true,
+   "genus_medians": [
+    {
+     "genus": "Leptogenys",
+     "median": 0.33916589297327415,
+     "n": 9
+    },
+    {
+     "genus": "Aphaenogaster",
+     "median": 0.41251720913155054,
+     "n": 10
+    },
+    {
+     "genus": "Odontomachus",
+     "median": 0.42807199267665624,
+     "n": 9
+    },
+    {
+     "genus": "Pseudomyrmex",
+     "median": 0.43291957466034303,
+     "n": 6
+    },
+    {
+     "genus": "Dolichoderus",
+     "median": 0.45736632260925425,
+     "n": 8
+    },
+    {
+     "genus": "Strumigenys",
+     "median": 0.4763795312484768,
+     "n": 33
+    },
+    {
+     "genus": "Neivamyrmex",
+     "median": 0.4765719265752282,
+     "n": 16
+    },
+    {
+     "genus": "Neoponera",
+     "median": 0.48660214394537693,
+     "n": 8
+    },
+    {
+     "genus": "Megaponera",
+     "median": 0.4927020133946894,
+     "n": 8
+    },
+    {
+     "genus": "Eciton",
+     "median": 0.49554422716018015,
+     "n": 6
+    },
+    {
+     "genus": "Myrmica",
+     "median": 0.5158640279823821,
+     "n": 6
+    },
+    {
+     "genus": "Temnothorax",
+     "median": 0.5165592598647681,
+     "n": 16
+    },
+    {
+     "genus": "Cerapachys",
+     "median": 0.5277287705752142,
+     "n": 5
+    },
+    {
+     "genus": "Myrmecina",
+     "median": 0.531071469187592,
+     "n": 6
+    },
+    {
+     "genus": "Pheidole",
+     "median": 0.5325552811013106,
+     "n": 37
+    },
+    {
+     "genus": "Crematogaster",
+     "median": 0.5362371598121585,
+     "n": 8
+    },
+    {
+     "genus": "Ponera",
+     "median": 0.5377471350210509,
+     "n": 7
+    },
+    {
+     "genus": "Anochetus",
+     "median": 0.539058737116055,
+     "n": 6
+    },
+    {
+     "genus": "Formica",
+     "median": 0.5469486247975495,
+     "n": 10
+    },
+    {
+     "genus": "Aenictus",
+     "median": 0.553300539992557,
+     "n": 6
+    },
+    {
+     "genus": "Dorylus",
+     "median": 0.5620090813616887,
+     "n": 19
+    },
+    {
+     "genus": "Hypoponera",
+     "median": 0.5643227539979114,
+     "n": 14
+    },
+    {
+     "genus": "Camponotus",
+     "median": 0.566891504244999,
+     "n": 15
+    },
+    {
+     "genus": "Polyrhachis",
+     "median": 0.5806202467515353,
+     "n": 7
+    },
+    {
+     "genus": "Labidus",
+     "median": 0.5843412051686718,
+     "n": 11
+    },
+    {
+     "genus": "Acanthostichus",
+     "median": 0.5849602826760943,
+     "n": 5
+    },
+    {
+     "genus": "Stigmatomma",
+     "median": 0.5907449303160819,
+     "n": 9
+    },
+    {
+     "genus": "Lasius",
+     "median": 0.5930267246705392,
+     "n": 8
+    },
+    {
+     "genus": "Carebara",
+     "median": 0.6089625599950463,
+     "n": 8
+    },
+    {
+     "genus": "Acropyga",
+     "median": 0.6103203079173777,
+     "n": 7
+    },
+    {
+     "genus": "Solenopsis",
+     "median": 0.6120758704839021,
+     "n": 11
+    },
+    {
+     "genus": "Tetramorium",
+     "median": 0.6289200367605858,
+     "n": 30
+    },
+    {
+     "genus": "Typhlomyrmex",
+     "median": 0.6529786081780597,
+     "n": 6
+    },
+    {
+     "genus": "Bothroponera",
+     "median": 0.6927411587762234,
+     "n": 5
+    },
+    {
+     "genus": "Parasyscia",
+     "median": 0.7026680788659215,
+     "n": 5
+    },
+    {
+     "genus": "Meranoplus",
+     "median": 0.787385472139707,
+     "n": 6
+    },
+    {
+     "genus": "Cephalotes",
+     "median": 0.8146672726593085,
+     "n": 28
+    },
+    {
+     "genus": "Pristomyrmex",
+     "median": 0.829020770312461,
+     "n": 8
+    },
+    {
+     "genus": "Sericomyrmex",
+     "median": 0.8900739511430158,
+     "n": 5
+    },
+    {
+     "genus": "Mycetophylax",
+     "median": 0.8964396059730622,
+     "n": 6
+    },
+    {
+     "genus": "Acromyrmex",
+     "median": 0.9838576252932028,
+     "n": 10
+    },
+    {
+     "genus": "Cyphomyrmex",
+     "median": 0.99402368990347,
+     "n": 8
+    }
+   ]
+  },
+  "HW/HL": {
+   "n_total": 707,
+   "n_tested": 443,
+   "n_genera": 41,
+   "H": 114.61949878399264,
+   "p_perm": 0.0,
+   "eta_sq_rank": 0.2593201329954578,
+   "median": 1.1285228708231005,
+   "q25": 1.0860817353795675,
+   "q75": 1.192013838750258,
+   "hl_conditioned": true,
+   "genus_medians": [
+    {
+     "genus": "Parasyscia",
+     "median": 1.0566014918037518,
+     "n": 5
+    },
+    {
+     "genus": "Acanthostichus",
+     "median": 1.057706486119203,
+     "n": 5
+    },
+    {
+     "genus": "Cerapachys",
+     "median": 1.0644460085168896,
+     "n": 5
+    },
+    {
+     "genus": "Eciton",
+     "median": 1.0800912583612972,
+     "n": 6
+    },
+    {
+     "genus": "Megaponera",
+     "median": 1.0810392275437986,
+     "n": 8
+    },
+    {
+     "genus": "Neivamyrmex",
+     "median": 1.0823766302424138,
+     "n": 16
+    },
+    {
+     "genus": "Dorylus",
+     "median": 1.0827753490235303,
+     "n": 19
+    },
+    {
+     "genus": "Hypoponera",
+     "median": 1.0873063512966095,
+     "n": 14
+    },
+    {
+     "genus": "Aenictus",
+     "median": 1.0946295830830786,
+     "n": 6
+    },
+    {
+     "genus": "Stigmatomma",
+     "median": 1.0971505427004593,
+     "n": 9
+    },
+    {
+     "genus": "Labidus",
+     "median": 1.099863267437224,
+     "n": 10
+    },
+    {
+     "genus": "Ponera",
+     "median": 1.100585816031917,
+     "n": 7
+    },
+    {
+     "genus": "Temnothorax",
+     "median": 1.1024546972319142,
+     "n": 16
+    },
+    {
+     "genus": "Anochetus",
+     "median": 1.1050050926894086,
+     "n": 6
+    },
+    {
+     "genus": "Aphaenogaster",
+     "median": 1.107680056011316,
+     "n": 10
+    },
+    {
+     "genus": "Leptogenys",
+     "median": 1.1148266260859125,
+     "n": 9
+    },
+    {
+     "genus": "Pristomyrmex",
+     "median": 1.1174801219728905,
+     "n": 8
+    },
+    {
+     "genus": "Acromyrmex",
+     "median": 1.1190144098275105,
+     "n": 10
+    },
+    {
+     "genus": "Polyrhachis",
+     "median": 1.1243525266640375,
+     "n": 7
+    },
+    {
+     "genus": "Carebara",
+     "median": 1.133627275485506,
+     "n": 8
+    },
+    {
+     "genus": "Neoponera",
+     "median": 1.1357367810723011,
+     "n": 8
+    },
+    {
+     "genus": "Tetramorium",
+     "median": 1.139902158207812,
+     "n": 30
+    },
+    {
+     "genus": "Cyphomyrmex",
+     "median": 1.1410867204567843,
+     "n": 7
+    },
+    {
+     "genus": "Sericomyrmex",
+     "median": 1.1411392936654003,
+     "n": 5
+    },
+    {
+     "genus": "Typhlomyrmex",
+     "median": 1.1419813355794997,
+     "n": 6
+    },
+    {
+     "genus": "Meranoplus",
+     "median": 1.1432414174893903,
+     "n": 6
+    },
+    {
+     "genus": "Dolichoderus",
+     "median": 1.14539344431901,
+     "n": 8
+    },
+    {
+     "genus": "Pheidole",
+     "median": 1.1460266054254573,
+     "n": 37
+    },
+    {
+     "genus": "Solenopsis",
+     "median": 1.146783181652208,
+     "n": 10
+    },
+    {
+     "genus": "Acropyga",
+     "median": 1.1526980117832122,
+     "n": 7
+    },
+    {
+     "genus": "Crematogaster",
+     "median": 1.1553227280537883,
+     "n": 8
+    },
+    {
+     "genus": "Camponotus",
+     "median": 1.1608115734951359,
+     "n": 15
+    },
+    {
+     "genus": "Cephalotes",
+     "median": 1.162088712712726,
+     "n": 28
+    },
+    {
+     "genus": "Myrmecina",
+     "median": 1.167393824859015,
+     "n": 6
+    },
+    {
+     "genus": "Lasius",
+     "median": 1.171553595933203,
+     "n": 8
+    },
+    {
+     "genus": "Myrmica",
+     "median": 1.172604499093472,
+     "n": 6
+    },
+    {
+     "genus": "Formica",
+     "median": 1.1747938913371485,
+     "n": 10
+    },
+    {
+     "genus": "Pseudomyrmex",
+     "median": 1.1829467044056419,
+     "n": 6
+    },
+    {
+     "genus": "Odontomachus",
+     "median": 1.211228173166693,
+     "n": 9
+    },
+    {
+     "genus": "Strumigenys",
+     "median": 1.2175181724290078,
+     "n": 33
+    },
+    {
+     "genus": "Mycetophylax",
+     "median": 1.2581318637468029,
+     "n": 6
+    }
+   ]
+  }
+ }
+}

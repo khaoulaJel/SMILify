@@ -1,0 +1,74 @@
+[
+  {
+    "specimen": "Aenictus_ceylonicus_CASENT0878084",
+    "n_body": 15374,
+    "n_app": 34180,
+    "n_unreachable": 91,
+    "midline_ok": true,
+    "result": {
+      "mandibular": true,
+      "scape": false
+    },
+    "secs": 5.4636454582214355
+  },
+  {
+    "specimen": "Cataglyphis_iberica_CASENT0745158",
+    "n_body": 13135,
+    "n_app": 34570,
+    "n_unreachable": 388,
+    "midline_ok": true,
+    "result": {
+      "mandibular": false,
+      "scape": true
+    },
+    "secs": 4.514035224914551
+  },
+  {
+    "specimen": "Cyphomyrmex_major_CASENT0745147",
+    "n_body": 19082,
+    "n_app": 30858,
+    "n_unreachable": 112,
+    "midline_ok": true,
+    "result": {
+      "mandibular": false,
+      "scape": true
+    },
+    "secs": 4.780774116516113
+  },
+  {
+    "specimen": "Discothyrea_patrizii_CASENT0744991",
+    "n_body": 7898,
+    "n_app": 11653,
+    "n_unreachable": 12,
+    "midline_ok": true,
+    "result": {
+      "mandibular": false,
+      "scape": false
+    },
+    "secs": 1.8741631507873535
+  },
+  {
+    "specimen": "Eciton_burchellii_CASENT0744558",
+    "n_body": 15869,
+    "n_app": 32539,
+    "n_unreachable": 348,
+    "midline_ok": true,
+    "result": {
+      "mandibular": false,
+      "scape": false
+    },
+    "secs": 4.681734561920166
+  },
+  {
+    "specimen": "Formica_cf.fusca_CASENT0878139",
+    "n_body": 21117,
+    "n_app": 27375,
+    "n_unreachable": 396,
+    "midline_ok": true,
+    "result": {
+      "mandibular": false,
+      "scape": true
+    },
+    "secs": 5.307961940765381
+  }
+]

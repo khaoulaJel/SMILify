@@ -57,6 +57,16 @@ default_weights = dict(
     # behavior -- flagged as a real gap, not an oversight, in the post-mortem of that run).
     # Set >0 per-stage in yaml for the same reason penetration_ramp_iters exists: an
     # undertrained pose can be badly self-intersecting purely from initialisation.
+    w_penetration_bvh=0.0,  # off by default -- see fitter_3d/bvh_penetration_loss.py. A
+    # THIRD, additive alternative to w_penetration/w_penetration_gwn: exact BVH triangle
+    # collision detection + SMPLify-X's conical distance field push, the field-standard
+    # approach, reused (not reimplemented) from a confirmed-working compiled extension.
+    # Only has an effect if Stage was constructed with bvh_penetration_pairs set (see
+    # Stage.__init__) -- otherwise silently a no-op even if this weight is > 0, same
+    # convention as w_penetration_gwn/gwn_penetration_pairs.
+    bvh_penetration_ramp_iters=0,  # 0 = no ramp -- same rationale as penetration_ramp_iters
+    # and penetration_gwn_ramp_iters: set >0 per-stage in yaml if an undertrained pose's
+    # initial self-intersection would otherwise dominate the loss from iteration 0.
     w_offset=0.0,  # off by default; L2 penalty on ||deform_verts||, ported from
     # trainer_moonshot.py (its only prior home) so it can run alongside this trainer's
     # penetration/limit machinery -- see the penetration-joint-study TASK 2 structural-
@@ -418,6 +428,9 @@ class Stage:
         local_downweight=None,
         gwn_penetration_pairs=None,
         penetration_train_pairs=None,
+        symmetric_chamfer_sampling=False,
+        bvh_penetration_pairs=None,
+        bvh_max_collisions=8,
     ):
         """
         nits = integer, number of iterations in stage
@@ -469,6 +482,34 @@ class Stage:
             pair set regardless -- this only narrows what the optimizer sees
             a gradient for, so collateral effects on untrained pairs remain
             visible for scoring.
+        bvh_penetration_pairs = optional list of (part_a, part_b) tuples enabling
+            fitter_3d/bvh_penetration_loss.py's exact-BVH-collision + conical-distance-
+            field penetration signal (SMPLify-X's own approach, reused from a confirmed-
+            working compiled extension -- see that module's docstring for provenance and
+            why this is a real, not-reimplemented, use of the field-standard method).
+            None (default) does no face-part-id precompute and w_penetration_bvh is
+            silently a no-op even if set > 0. Requires `mesh_intersection` (the compiled
+            bvh_cuda extension) importable -- NOT on the default Python path, since it's
+            a local build under custom_processing/external/, not an installed package;
+            raises ImportError with a clear message if bvh_penetration_pairs is set but
+            it isn't importable, rather than failing confusingly deeper in forward().
+        bvh_max_collisions = int, default 8. Passed straight through to
+            mesh_intersection.bvh_search_tree.BVH's own max_collisions -- the maximum
+            number of colliding faces recorded per query face before older ones are
+            dropped. Only relevant if bvh_penetration_pairs is set.
+        symmetric_chamfer_sampling = bool, default False (unchanged prior behaviour).
+            The chamfer term compares an area-weighted 3000-point sample of the
+            TARGET against the SOURCE's raw, unsampled template vertices
+            (src_mesh.verts_padded(), ~10229 of them) -- an asymmetry, since raw
+            vertex density varies non-uniformly across the template (legs are
+            2.36x denser than gaster per scripts/penetration_joint_study/FINDINGS.md
+            step 3), so a densely-meshed part gets pulled toward the target harder
+            than an equally-sized sparse part gets. fitter_3d/trainer_moonshot.py
+            already fixes this (area-weighted-samples both sides, unconditionally).
+            When True, ports that fix here: the SOURCE is also sampled via
+            sample_points_from_meshes (same 3000-point budget as the target, so
+            this changes only WHICH points are compared, not how many). False
+            (default) is byte-identical to prior behaviour.
 
         lr_decay = factor by which lr decreases at each it"""
 
@@ -550,9 +591,47 @@ class Stage:
             v_template = smal_3d_fitter.smal_model.v_template.detach().cpu().numpy()
             self.gwn_capped_topology = precompute_capped_topology(v_template, self.part_faces)
 
+        # BVH-based penetration signal (see fitter_3d/bvh_penetration_loss.py). Imported
+        # lazily, only when actually requested -- mesh_intersection (the compiled bvh_cuda
+        # extension) is a local build under custom_processing/external/, not on the default
+        # Python path or an installed package, so every other config must keep working
+        # without it importable.
+        self.bvh_penetration_pairs = bvh_penetration_pairs
+        if self.bvh_penetration_pairs is not None:
+            try:
+                from mesh_intersection.bvh_search_tree import BVH
+                from mesh_intersection.loss import DistanceFieldPenetrationLoss
+                from fitter_3d.bvh_penetration_loss import build_face_part_ids, bvh_penetration_loss_batched
+            except ImportError as exc:
+                raise ImportError(
+                    "bvh_penetration_pairs was set but `mesh_intersection` (the compiled "
+                    "bvh_cuda extension) is not importable. It's a local build, not an "
+                    "installed package -- add its directory to PYTHONPATH/sys.path before "
+                    "constructing this Stage (see fitter_3d/bvh_penetration_loss.py's "
+                    "docstring for which fork/build is confirmed working)."
+                ) from exc
+            self.bvh_face_part_id_np, self.bvh_part_name_to_idx = build_face_part_ids(
+                faces_np, self.part_vertex_indices
+            )
+            self.bvh_face_part_id = torch.as_tensor(
+                self.bvh_face_part_id_np, dtype=torch.long, device=device
+            )
+            self.bvh_faces = torch.as_tensor(faces_np, dtype=torch.long, device=device)
+            self.bvh_module = BVH(max_collisions=bvh_max_collisions)
+            self.dfp_loss_module = DistanceFieldPenetrationLoss()
+            # Stashed as an instance attribute, not imported at module level in this file --
+            # fitter_3d.bvh_penetration_loss itself imports mesh_intersection at import time,
+            # so importing it unconditionally here would force the same hard dependency on
+            # every config, exactly what the lazy try/except above exists to avoid.
+            self._bvh_penetration_loss_batched = bvh_penetration_loss_batched
+
         self.consider_loss = lambda loss_name: (
             self.loss_weights[f"w_{loss_name}"] > 0
         )  # function to check if loss is non-zero
+
+        # See symmetric_chamfer_sampling's docstring above. False (default) leaves
+        # the chamfer term exactly as before -- every existing config unaffected.
+        self.symmetric_chamfer_sampling = symmetric_chamfer_sampling
 
     def forward(self, src_mesh, iteration=0):
         loss = 0
@@ -562,7 +641,11 @@ class Stage:
         target_verts = sample_points_from_meshes(self.target_meshes, 3000)
 
         if self.consider_loss("chamfer"):
-            loss_chamfer, _ = chamfer_distance(target_verts, src_mesh.verts_padded())
+            if self.symmetric_chamfer_sampling:
+                src_verts_for_chamfer = sample_points_from_meshes(src_mesh, 3000)
+            else:
+                src_verts_for_chamfer = src_mesh.verts_padded()
+            loss_chamfer, _ = chamfer_distance(target_verts, src_verts_for_chamfer)
             loss_components["chamfer"] = loss_chamfer
             loss += self.loss_weights["w_chamfer"] * loss_chamfer
 
@@ -608,6 +691,23 @@ class Stage:
             loss_penetration_gwn = loss_penetration_gwn_per_specimen.mean()
             loss_components["penetration_gwn"] = loss_penetration_gwn
             loss += self.loss_weights["w_penetration_gwn"] * loss_penetration_gwn
+
+        if self.bvh_penetration_pairs is not None and self.consider_loss("penetration_bvh"):
+            loss_penetration_bvh_per_specimen = self._bvh_penetration_loss_batched(
+                verts_padded=src_mesh.verts_padded(),
+                faces=self.bvh_faces,
+                face_part_id=self.bvh_face_part_id,
+                part_name_to_idx=self.bvh_part_name_to_idx,
+                train_pairs=self.bvh_penetration_pairs,
+                dfp_loss_module=self.dfp_loss_module,
+                bvh_module=self.bvh_module,
+                iteration=iteration,
+                n_ramp_iters=self.loss_weights.get("bvh_penetration_ramp_iters", 0),
+                return_diagnostics=False,
+            )
+            loss_penetration_bvh = loss_penetration_bvh_per_specimen.mean()
+            loss_components["penetration_bvh"] = loss_penetration_bvh
+            loss += self.loss_weights["w_penetration_bvh"] * loss_penetration_bvh
 
         vertex_weight = None
         if self.local_downweight is not None:
@@ -921,6 +1021,13 @@ class Stage:
             row["penetration_mean_depth"] = penetration_mean_depth_per_specimen[spec_idx].item()
             row["penetration_max_depth"] = penetration_diagnostics["max_depth"][spec_idx].item()
             row["penetration_num_penetrating"] = penetration_diagnostics["num_penetrating"][spec_idx].item()
+            # Continuous surrogate for penetration_num_penetrating -- prefer this column when
+            # comparing arms/seeds, since the hard count has substantial seed-to-seed variance
+            # (near-boundary vertices flip discretely; see penetration_loss.py's
+            # soft_num_penetrating comment). Same units (a count), not a normalized fraction.
+            row["penetration_soft_num_penetrating"] = penetration_diagnostics["soft_num_penetrating"][
+                spec_idx
+            ].item()
             row["penetration_fraction_penetrating"] = penetration_diagnostics["fraction_penetrating"][spec_idx].item()
             # undiluted severity: mean depth over penetrating (vertex, pair-direction)
             # instances only. 0 (not NaN) for zero-collision specimens -- penetration_loss_batched
@@ -964,6 +1071,7 @@ class Stage:
                         "direction": direction,
                         "n_query_vertices": values["n_query"],
                         "num_penetrating": values["num_penetrating"][spec_idx].item(),
+                        "soft_num_penetrating": values["soft_num_penetrating"][spec_idx].item(),
                         "max_depth": values["max_depth"][spec_idx].item(),
                         "mean_depth_among_penetrating": values["mean_depth_among_penetrating"][spec_idx].item(),
                     })

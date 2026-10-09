@@ -22,9 +22,16 @@ output/
 # must never be swept into this repo's index (git warns "adding embedded git
 # repository" if it is)
 custom_processing/external/Manifold/
+custom_processing/external/ManifoldPlus/
+custom_processing/external/instant-mesh-intersection-repair/
+custom_processing/external/torch-mesh-intersection/
+custom_processing/external/torch-mesh-isect/
+custom_processing/external/torch-mesh-isect-wonjongg/
 # vendored Blender site-packages (numpy/scipy/pillow/trimesh/... bundled for Blender's
 # own Python) — 364M of third-party code, not project code
 custom_processing/external/blender_python_packages/
+# vendored CGAL source tree + local build dir (~560M), not project code
+custom_processing/external/cgal_alpha_wrap/
 3D_model_prep/morph_anim/
 3D_model_prep/measurements/
 3D_model_prep/VIDEOS/
@@ -43,9 +50,6 @@ visualizations_train/
 test_visualizations/
 tests/test_output/
 checkpoints/
-
-#ignore other repos cloned during dev / debugging
-fitter_3d/pointcloud2smil/
 
 # unless specifically added, ignore videos
 *.mp4
@@ -281,3 +285,33 @@ diagnostics/morphometrics/ab_scale_cap/smoke_D1_PROD_out/
 diagnostics/morphometrics/ab_scale_cap/stage_A/
 diagnostics/morphometrics/ab_scale_cap/stage_B/
 diagnostics/morphometrics/stage/
+
+# Large regenerable training corpora (5000-specimen synthetic datasets,
+# ~550M each) for the anatomical-pose-init investigation. Regenerate via
+# generate_synth_5000*.slurm + diagnostics/moonshot/generate_synth_large.py.
+diagnostics/moonshot/synth_large/
+diagnostics/moonshot/synth_large_25pc/
+diagnostics/moonshot/synth_large_25pc_lowpose/
+diagnostics/moonshot/synth_large_25pc_lowpose05/
+diagnostics/moonshot/synth_large_25pc_lowpose10/
+
+# Large regenerable B2 training corpus (236M) for the anatomical-pose-init
+# investigation. Regenerate via make_b2_training_corpus_20260825.py (see
+# its --out default for the path).
+diagnostics/moonshot/synth_b2_train_corrb06.npz
+
+# issue95_fullrun: pure scratch (downloaded raw STLs mid-processing) and
+# reprocessed specimen outputs already uploaded to the Google Drive
+# destination (antscan_processed_issue95) -- not source-of-truth here.
+diagnostics/issue95_fullrun/tmp/
+diagnostics/issue95_fullrun/specimens/
+
+# E0 identity artifact: 29MB, regenerate with make_E0_identity_20260828.py
+diagnostics/anatomical_pose_init/out_E0_identity_20260828/
+
+# large binary inputs/outputs kept on disk, not in git
+annotation/**/*.obj
+annotation/**/*.blend
+annotation/**/*.blend1
+
+annotation/landmark_session/

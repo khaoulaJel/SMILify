@@ -1,0 +1,31 @@
+\section{A multi-level evaluation protocol}
+\label{sec:eval-suite}
+
+\F{F1} showed that surface-proximity metrics can reward an anatomically worse
+fit. A direct adversarial test sharpens this: deliberately snapping distal
+vertices onto the nearest target surface improves a per-part distance metric
+by $53\%$ while edge-length distortion rises $7.5$-fold. A metric that a
+targeted attack can improve by damaging the mesh cannot be the sole judge of
+a fit. The protocol therefore has three evidence levels, always used
+together:
+
+\begin{center}
+\begin{tabular}{@{}p{0.18\linewidth}p{0.34\linewidth}p{0.36\linewidth}@{}}
+\toprule
+\textbf{Level} & \textbf{Metrics} & \textbf{Question answered} \\
+\midrule
+1. Surface proximity & Chamfer, F-score, Hausdorff, per-part variants &
+  Does the fitted mesh cover the target? \\
+2. Target-independent integrity & Edge-length distortion, Laplacian /
+  as-rigid-as-possible deviation~\cite{arap}, normal consistency &
+  Was that coverage bought by damaging the mesh? \\
+3. Anatomical ground truth & Synthetic vertex-identity error
+  (\S\ref{sec:synthetic-instrument}); expert joint error on the corrected
+  benchmark (\S\ref{sec:skeleton-underdetermined}) &
+  Is vertex $i$ on the anatomical locus it represents? \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+An intervention is adopted only if it does not degrade levels 1--2 and is
+checked at level 3 wherever ground truth exists.

@@ -1,0 +1,25 @@
+{
+  "specimen": "22_Heteroponera_panamensis_CASENT0744055_processed",
+  "alpha": 4.71989,
+  "pre_gap": 1.006910030602662,
+  "diag_length": 734.2950259811977,
+  "old": {
+    "offset": 0.15732966666666667,
+    "relative_alpha": 155.57460576013375,
+    "relative_offset": 4667.238172804013,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 116559,
+    "output_faces": 233138
+  },
+  "new": {
+    "offset": 1.8879560000000002,
+    "relative_alpha": 155.57460576013375,
+    "relative_offset": 388.9365144003343,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 16213,
+    "output_faces": 32442
+  },
+  "flipped": false
+}

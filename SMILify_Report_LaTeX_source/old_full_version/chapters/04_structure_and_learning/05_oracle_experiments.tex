@@ -1,0 +1,53 @@
+\section{Counterfactual bottleneck analysis}
+\label{sec:oracle}
+
+Every experiment so far asks \emph{can an intervention make the system
+better?} An \term{oracle intervention} asks a different, more powerful
+question: \emph{if this one piece of information were solved exactly, how
+much of the failure would remain?} The fitter is supplied, at inference,
+with the correct answer to exactly one sub-question (information it could
+not obtain on real data), and the residual error localises the bottleneck
+causally, without proposing a deployable fix. Two oracles were run on the
+synthetic corpus, where ground truth is exact, escalating in how much
+information is supplied.
+
+\begin{center}
+\small
+\begin{tabular}{@{}p{0.17\linewidth}p{0.20\linewidth}p{0.30\linewidth}p{0.20\linewidth}@{}}
+\toprule
+\textbf{Oracle} & \textbf{Information supplied} & \textbf{What remains} & \textbf{Evidence} \\
+\midrule
+Regional identity & ``which structure is this?'' & Localisation error inside
+  the correct structure & Leg accuracy $0.867\to0.937$ (\F{F3}) \\
+Dense correspondence & ``where exactly, for every vertex?'' & Objective,
+  deformation and trajectory effects, even with correspondence solved &
+  Residual error persists \\
+Expert joints (\S\ref{sec:skeleton-underdetermined}) & ``where is the true
+  skeleton?'' & Incomplete propagation to unsupervised regions &
+  $25.1\%\to17.4\%$ WL, leave-one-region-out null (\F{F6}) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Regional identity.} Every target point is labelled with the region it
+truly belongs to (which leg, which body segment), leaving the optimiser to
+decide only where \emph{within} that region the point sits. Leg accuracy
+improves from $0.867$ to $0.937$: a real but partial recovery. A large share
+of correspondence error survives even when ``which structure is this?'' is
+answered perfectly, so the harder remaining question is \emph{where within
+the structure} a point belongs: regional identity and within-region
+localisation are distinct problems (\F{F3}).
+
+\textbf{Dense correspondence.} A second oracle supplies near-exact per-vertex
+correspondence, including at very high weight against the rest of the
+objective. Residual error remains here too: the objective's other terms, the
+deformation freedom of \S\ref{sec:deformation-freedom}, and the optimisation
+trajectory continue to limit the fit even when correspondence is no longer
+the constraint. This rules out the simplest reading of this report's central
+theme, that correspondence is the \emph{only} missing ingredient, and
+locates the problem in an interaction between correspondence, objective,
+trajectory and deformation. A third, real-data oracle along the same logic
+(supplying expert joint locations) is reported in
+\S\ref{sec:skeleton-underdetermined}, where the same escalating pattern holds:
+more information supplied recovers more accuracy, but does not propagate
+beyond where it is supplied.

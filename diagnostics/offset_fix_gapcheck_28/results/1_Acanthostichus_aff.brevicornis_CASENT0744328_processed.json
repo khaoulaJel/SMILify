@@ -1,0 +1,25 @@
+{
+  "specimen": "1_Acanthostichus_aff.brevicornis_CASENT0744328_processed",
+  "alpha": 44.4061,
+  "pre_gap": 8.881217113181744,
+  "diag_length": 4664.245409842753,
+  "old": {
+    "offset": 1.4802033333333333,
+    "relative_alpha": 105.03614165267278,
+    "relative_offset": 3151.084249580184,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 29298,
+    "output_faces": 58612
+  },
+  "new": {
+    "offset": 17.76244,
+    "relative_alpha": 105.03614165267278,
+    "relative_offset": 262.590354131682,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 3973,
+    "output_faces": 7962
+  },
+  "flipped": false
+}

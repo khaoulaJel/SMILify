@@ -1,0 +1,33 @@
+\section{Registration objective}
+\label{sec:registration}
+
+Registration (Eq.~\ref{eq:registration}) is solved by differentiable
+gradient-based optimisation with PyTorch3D~\cite{pytorch3d}, minimising
+$\mathcal{L}=\sum_t\lambda_t\mathcal{L}_t$ over the terms below. The table
+states what each term \emph{observes}, which is the information the
+optimiser actually has:
+\begin{center}
+\small
+\begin{tabular}{@{}p{0.20\linewidth}p{0.70\linewidth}@{}}
+\toprule
+\textbf{Term} & \textbf{What it observes} \\
+\midrule
+Chamfer & Distance from each sampled model point to its nearest target point
+  and back; a function of two surfaces, blind to which vertex is which \\
+Normal & Agreement of surface normals at matched points \\
+Edge / Laplacian / offset & Local mesh regularity and size of residual
+  deformation $\mathbf d$; target-independent, ARAP-style~\cite{arap} \\
+Symmetry / midline & Bilateral consistency of the model \\
+Rotation limits & Joint \emph{angles} against authored ranges, not joint
+  positions \\
+\bottomrule
+\end{tabular}
+\end{center}
+No term takes a joint location or a vertex identity as an observation.
+The surface term is evaluated on $N$ sampled points,
+$\mathcal{L}_{\mathrm{ch}}\approx\frac1N\sum_i d(p_i,T)^2$, so the sampling
+distribution is itself an implicit weighting over anatomy
+(\S\ref{sec:sampling}). Optimisation is staged and hierarchical: global
+pose and scale first, then coarse, then fine vertex deformation, rather
+than a single flat descent; \S\ref{sec:staged} reports a defect found in this
+schedule.

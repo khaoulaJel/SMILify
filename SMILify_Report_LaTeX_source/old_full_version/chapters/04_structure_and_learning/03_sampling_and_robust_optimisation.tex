@@ -1,0 +1,33 @@
+\section{Sampling starvation and robust optimisation}
+\label{sec:sampling}
+
+\textbf{Sampling starvation.} The surface term is a Monte Carlo estimate,
+$\mathcal{L}_{\mathrm{ch}}\approx\frac1N\sum_i d(p_i,T)^2$ with
+$p_i\sim p(x)$. If $p$ is proportional to surface area, the expected loss
+$\mathbb{E}_{x\sim p}[\mathrm{err}(x)]$ weights the body and head far more
+than distal legs or antennae, so a tiny structure can be almost invisible to
+the optimiser: a second route to the under-representation of \F{F5}, this
+time in the sampling scheme rather than the mesh. Reserving a fixed quota of
+the global budget for distal points improved distal legs but starved
+antennae and head, which shared that budget; restricting the quota to within
+the leg budget avoided the trade-off, yet did not clearly improve on simply
+splitting distal sampling. The conclusion is narrow: starvation is a real
+confound, but controlling it did not create anatomical correspondence.
+
+\textbf{Robust optimisation.} A related question is how the objective
+should respond to points that are simply wrong (occluded regions,
+scanning artefacts, disconnected debris) rather than merely
+under-sampled. \term{Graduated non-convexity} (GNC)~\cite{gnc} is a robust-optimisation
+strategy that treats every point correspondence as suspect initially and
+progressively hardens its confidence in inliers as optimisation proceeds,
+rather than trusting every nearest-point match from the first iteration.
+Applied globally across the whole body, it produced undesirable behaviour
+specifically around the antennae; restricted to the leg point set alone
+(\emph{leg-only, topology-free}), it improved robustness where applied,
+under synthetic corruption benchmarks with 30\% and 60\% of points dropped:
+accuracy rose from $0.602$ to $0.797$ (Drop30) and from $0.411$ to $0.607$
+(Drop60). Localising the robust treatment to the anatomical subsystem where
+corrupted points actually occur outperformed applying it uniformly; the
+result is retained as a promising candidate for leg registration
+specifically, not adopted as a general replacement for point-matching across
+the whole body.

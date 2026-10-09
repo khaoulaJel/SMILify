@@ -1,0 +1,46 @@
+{
+ "preregistration": "PREREGISTRATION_M4_corpus_analysis.md \u00a76",
+ "dense": {
+  "n": 757,
+  "n_pcs": 50,
+  "var_explained": 0.9303671132318053
+ },
+ "traits": {
+  "HW/WL": {
+   "tier": "primary",
+   "n": 753,
+   "n_tested": 488,
+   "dense_predicts_trait_R2": 0.7191978357526427,
+   "eta_sq_trait": 0.33064251595870364,
+   "eta_sq_trait_aligned_direction": 0.350314729543427,
+   "null_random_direction": {
+    "median": 0.15001901321800315,
+    "q95": 0.22469896168333767
+   },
+   "p_vs_random_direction": 0.0005,
+   "best_single_pc": {
+    "pc": 18,
+    "eta_sq": 0.24305814953685403
+   },
+   "mean_eta_top10_pcs": 0.14878800280993232
+  },
+  "HL/WL": {
+   "tier": "secondary",
+   "n": 711,
+   "n_tested": 451,
+   "dense_predicts_trait_R2": 0.7455924719976753,
+   "eta_sq_trait": 0.32620027796946455,
+   "eta_sq_trait_aligned_direction": 0.3573718288900547,
+   "null_random_direction": {
+    "median": 0.16024723084704162,
+    "q95": 0.23577361724560242
+   },
+   "p_vs_random_direction": 0.0,
+   "best_single_pc": {
+    "pc": 18,
+    "eta_sq": 0.27278979351842736
+   },
+   "mean_eta_top10_pcs": 0.15349891169205893
+  }
+ }
+}

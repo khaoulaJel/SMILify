@@ -1,0 +1,25 @@
+{
+  "specimen": "37_Ponera_tamon_OKENT0105154_processed",
+  "alpha": 1.32244,
+  "pre_gap": 0.2418170738550882,
+  "diag_length": 644.6674598486973,
+  "old": {
+    "offset": 0.044081333333333333,
+    "relative_alpha": 487.4833337230402,
+    "relative_offset": 14624.500011691205,
+    "gap_after": 0.2651363691660685,
+    "verdict": "preserved",
+    "output_vertices": 741999,
+    "output_faces": 1484866
+  },
+  "new": {
+    "offset": 0.528976,
+    "relative_alpha": 487.4833337230402,
+    "relative_offset": 1218.7083343076004,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 173046,
+    "output_faces": 346748
+  },
+  "flipped": true
+}

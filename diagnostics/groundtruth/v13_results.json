@@ -1,0 +1,230 @@
+{
+  "production_all": 10.105673789978027,
+  "rows": [
+    {
+      "k": 2,
+      "held_median": 9.818768501281738,
+      "held_min": 8.01557731628418,
+      "held_max": 9.836844444274902,
+      "chamfer": 0.0009141676127910614,
+      "draws": [
+        {
+          "sup": [
+            "head_width_l",
+            "wl_anterior_r"
+          ],
+          "held": 9.818768501281738,
+          "sup_err": 0.10058774054050446
+        },
+        {
+          "sup": [
+            "antennal_insertion_l",
+            "head_width_r"
+          ],
+          "held": 9.836844444274902,
+          "sup_err": 0.09247391670942307
+        },
+        {
+          "sup": [
+            "mandibular_apex_r",
+            "wl_anterior_r"
+          ],
+          "held": 8.01557731628418,
+          "sup_err": 0.08316562324762344
+        }
+      ]
+    },
+    {
+      "k": 4,
+      "held_median": 9.04041862487793,
+      "held_min": 7.896984100341797,
+      "held_max": 10.363378524780273,
+      "chamfer": 0.000936277094297111,
+      "draws": [
+        {
+          "sup": [
+            "wl_posterior_r",
+            "antennal_insertion_r",
+            "head_width_r",
+            "head_width_l"
+          ],
+          "held": 10.363378524780273,
+          "sup_err": 0.10677968710660934
+        },
+        {
+          "sup": [
+            "wl_posterior_r",
+            "mandibular_apex_r",
+            "antennal_insertion_r",
+            "scape_apex_l"
+          ],
+          "held": 7.896984100341797,
+          "sup_err": 0.10761310905218124
+        },
+        {
+          "sup": [
+            "mandibular_apex_r",
+            "mandibular_apex_l",
+            "antennal_insertion_l",
+            "head_width_r"
+          ],
+          "held": 9.04041862487793,
+          "sup_err": 0.12572051584720612
+        }
+      ]
+    },
+    {
+      "k": 6,
+      "held_median": 6.639230251312256,
+      "held_min": 6.328152656555176,
+      "held_max": 9.556448936462402,
+      "chamfer": 0.000996923423372209,
+      "draws": [
+        {
+          "sup": [
+            "antennal_insertion_l",
+            "wl_posterior_r",
+            "head_width_r",
+            "cephalic_post_mid",
+            "mandibular_apex_r",
+            "head_width_l"
+          ],
+          "held": 9.556448936462402,
+          "sup_err": 0.11015443503856659
+        },
+        {
+          "sup": [
+            "mandibular_apex_l",
+            "antennal_insertion_r",
+            "head_width_l",
+            "cephalic_post_mid",
+            "scape_apex_l",
+            "scape_apex_r"
+          ],
+          "held": 6.328152656555176,
+          "sup_err": 0.10568102449178696
+        },
+        {
+          "sup": [
+            "scape_apex_r",
+            "head_width_r",
+            "clypeal_ant_mid",
+            "mandibular_apex_r",
+            "scape_apex_l",
+            "antennal_insertion_r"
+          ],
+          "held": 6.639230251312256,
+          "sup_err": 0.1107245460152626
+        }
+      ]
+    },
+    {
+      "k": 8,
+      "held_median": 8.099309921264648,
+      "held_min": 6.435333251953125,
+      "held_max": 13.075814247131348,
+      "chamfer": 0.000979133415967226,
+      "draws": [
+        {
+          "sup": [
+            "head_width_r",
+            "wl_anterior_r",
+            "mandibular_apex_r",
+            "antennal_insertion_r",
+            "clypeal_ant_mid",
+            "antennal_insertion_l",
+            "scape_apex_l",
+            "head_width_l"
+          ],
+          "held": 8.099309921264648,
+          "sup_err": 0.118222177028656
+        },
+        {
+          "sup": [
+            "scape_apex_r",
+            "scape_apex_l",
+            "antennal_insertion_r",
+            "mandibular_apex_l",
+            "head_width_r",
+            "wl_posterior_r",
+            "clypeal_ant_mid",
+            "mandibular_apex_r"
+          ],
+          "held": 6.435333251953125,
+          "sup_err": 0.1502830535173416
+        },
+        {
+          "sup": [
+            "wl_anterior_r",
+            "clypeal_ant_mid",
+            "scape_apex_r",
+            "antennal_insertion_r",
+            "head_width_r",
+            "wl_posterior_r",
+            "cephalic_post_mid",
+            "head_width_l"
+          ],
+          "held": 13.075814247131348,
+          "sup_err": 0.13002899289131165
+        }
+      ]
+    },
+    {
+      "k": 10,
+      "held_median": 10.287729263305664,
+      "held_min": 3.7320637702941895,
+      "held_max": 21.579116821289062,
+      "chamfer": 0.0009711399907246232,
+      "draws": [
+        {
+          "sup": [
+            "antennal_insertion_r",
+            "wl_anterior_r",
+            "mandibular_apex_l",
+            "clypeal_ant_mid",
+            "antennal_insertion_l",
+            "cephalic_post_mid",
+            "head_width_l",
+            "mandibular_apex_r",
+            "head_width_r",
+            "wl_posterior_r"
+          ],
+          "held": 21.579116821289062,
+          "sup_err": 0.16512921452522278
+        },
+        {
+          "sup": [
+            "wl_posterior_r",
+            "head_width_l",
+            "mandibular_apex_r",
+            "wl_anterior_r",
+            "clypeal_ant_mid",
+            "scape_apex_l",
+            "antennal_insertion_r",
+            "antennal_insertion_l",
+            "head_width_r",
+            "cephalic_post_mid"
+          ],
+          "held": 10.287729263305664,
+          "sup_err": 0.1297214925289154
+        },
+        {
+          "sup": [
+            "wl_posterior_r",
+            "clypeal_ant_mid",
+            "scape_apex_l",
+            "head_width_r",
+            "scape_apex_r",
+            "antennal_insertion_l",
+            "antennal_insertion_r",
+            "mandibular_apex_r",
+            "wl_anterior_r",
+            "cephalic_post_mid"
+          ],
+          "held": 3.7320637702941895,
+          "sup_err": 0.11565815657377243
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "alpha": 0.1,
+  "coverage": 0.8714285714285714,
+  "width": 0.23204789171483606,
+  "baseline_coverage": 0.8685714285714285,
+  "baseline_width": 0.21520854792770844,
+  "width_ratio": 1.0782466307647975,
+  "per_segment_coverage": {
+    "tr": 0.9,
+    "fe": 0.8857142857142857,
+    "co": 0.6571428571428571,
+    "ti": 0.9857142857142858,
+    "ta": 0.9285714285714286
+  },
+  "worst_decile_coverage": 0.2,
+  "n_cal": 347,
+  "n_test": 350,
+  "verdict": "FAIL"
+}

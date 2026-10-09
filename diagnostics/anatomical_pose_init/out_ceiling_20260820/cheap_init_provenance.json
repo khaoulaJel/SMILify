@@ -1,0 +1,6 @@
+{
+  "mesh_dir": "diagnostics/moonshot/synth_clean",
+  "model": "3D_model_prep/OmniAnt_25PCs_joint_limited.pkl",
+  "n_specimens": 12,
+  "command": "diagnostics/anatomical_pose_init/cheap_anatomical_init.py"
+}

@@ -1,0 +1,74 @@
+{
+ "preregistration": "PREREGISTRATION_M4_corpus_analysis.md \u00a73",
+ "note": "variance decomposition is primary; classification NOT run",
+ "models": {
+  "HW/WL": {
+   "tier": "primary",
+   "model_A": {
+    "n": 753,
+    "variance_pct": {
+     "genus": 23.726646295203093,
+     "genus_species": 17.65058557707244,
+     "residual": 58.62276812772447
+    },
+    "variance_raw": {
+     "genus": 0.011952769730838562,
+     "genus_species": 0.008891833358676588,
+     "residual": 0.02953238480048892
+    },
+    "converged": true
+   },
+   "model_B": {
+    "n": 544,
+    "variance_pct": {
+     "subfamily": 7.733498667738941,
+     "subfamily_genus": 20.230189989718603,
+     "subfamily_genus_species": 13.667620921416749,
+     "residual": 58.368690421125706
+    },
+    "variance_raw": {
+     "subfamily": 0.0042211878704858635,
+     "subfamily_genus": 0.011042276758701756,
+     "subfamily_genus_species": 0.007460219252711297,
+     "residual": 0.03185947507169306
+    },
+    "converged": true
+   },
+   "mapped_coverage": 0.7224435590969456
+  },
+  "HL/WL": {
+   "tier": "secondary -- carries the genus-structured M4-A exclusion",
+   "model_A": {
+    "n": 711,
+    "variance_pct": {
+     "genus": 25.70500125144263,
+     "genus_species": 21.30002318610518,
+     "residual": 52.99497556245218
+    },
+    "variance_raw": {
+     "genus": 0.009696183368589855,
+     "genus_species": 0.008034581618862998,
+     "residual": 0.01999023441551617
+    },
+    "converged": true
+   },
+   "model_B": {
+    "n": 514,
+    "variance_pct": {
+     "subfamily": 8.675689991765427,
+     "subfamily_genus": 23.84318939836538,
+     "subfamily_genus_species": 16.1575604170147,
+     "residual": 51.3235601928545
+    },
+    "variance_raw": {
+     "subfamily": 0.003646188617222386,
+     "subfamily_genus": 0.010020732168290216,
+     "subfamily_genus_species": 0.0067906429264438925,
+     "residual": 0.02157008620042146
+    },
+    "converged": true
+   },
+   "mapped_coverage": 0.7229254571026723
+  }
+ }
+}

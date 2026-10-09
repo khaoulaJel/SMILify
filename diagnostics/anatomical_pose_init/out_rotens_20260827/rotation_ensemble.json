@@ -1,0 +1,51 @@
+{
+  "config": {
+    "c3_ckpt": "diagnostics/anatomical_pose_init/out_C3_cse_head_20260826/best_model.pt",
+    "corpus": "diagnostics/moonshot/synth_b2_train_corrb06.npz",
+    "val_frac": 0.05,
+    "n_specimens": 8,
+    "n_points": 2048,
+    "n_rot": 8,
+    "min_gain": 0.05,
+    "seed": 0,
+    "device": "cpu",
+    "out_dir": "diagnostics/anatomical_pose_init/out_rotens_20260827"
+  },
+  "direct": {
+    "tr": {
+      "single": 0.14084645765355686,
+      "vote": 0.6998883741791816,
+      "mean": 0.6714898864229659,
+      "delta_vote": 0.5590419165256247,
+      "sign_p": 0.0078125,
+      "n": 8
+    },
+    "fe": {
+      "single": 0.19697724965873042,
+      "vote": 1.2469798880617393,
+      "mean": 1.06393543514544,
+      "delta_vote": 1.050002638403009,
+      "sign_p": 0.0078125,
+      "n": 8
+    }
+  },
+  "cross": {
+    "tr": {
+      "n": 48,
+      "total": 0.46849228507588375,
+      "axial": 0.47178497098410566,
+      "circ": 0.2582590587673685
+    },
+    "fe": {
+      "n": 48,
+      "total": 0.4431371305496019,
+      "axial": 0.43774373317630344,
+      "circ": 0.2592122091693201
+    }
+  },
+  "baseline_circ": {
+    "tr": 0.317,
+    "fe": 0.28
+  },
+  "pursue": false
+}

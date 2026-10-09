@@ -1,0 +1,96 @@
+{
+  "config": {
+    "corpus": "diagnostics/moonshot/synth_b2_train_corrb06.npz",
+    "val_frac": 0.05,
+    "n_specimens": 4,
+    "n_points": 8000,
+    "radii": "0.02,0.05,0.10",
+    "min_neighbours": 12,
+    "drop_threshold": 0.3,
+    "seed": 0,
+    "out_dir": "diagnostics/anatomical_pose_init/out_lrf_check_20260827"
+  },
+  "results": {
+    "body@0.02": {
+      "n": 128,
+      "circum_median": 0.6090406687601817,
+      "circum_p25": 0.3980869444552095,
+      "circum_p75": 0.7974972675618294,
+      "axis_median": 0.4901080377694502,
+      "scatter_median": 0.18477294381262566
+    },
+    "body@0.05": {
+      "n": 1195,
+      "circum_median": 0.8157567319693187,
+      "circum_p25": 0.5794849282211858,
+      "circum_p75": 0.9565299554111653,
+      "axis_median": 0.3686588599598638,
+      "scatter_median": 0.09370469658200048
+    },
+    "body@0.1": {
+      "n": 1200,
+      "circum_median": 0.6567348045432235,
+      "circum_p25": 0.4324540302997173,
+      "circum_p75": 0.8497610181965285,
+      "axis_median": 0.30383528054106135,
+      "scatter_median": 0.1992447272474424
+    },
+    "fe@0.02": {
+      "n": 109,
+      "circum_median": 0.5624688762641901,
+      "circum_p25": 0.43920113555702756,
+      "circum_p75": 0.7252773801154613,
+      "axis_median": 0.5004782887083773,
+      "scatter_median": 0.20147721758313059
+    },
+    "fe@0.05": {
+      "n": 1200,
+      "circum_median": 0.5018078392945213,
+      "circum_p25": 0.3529289123141803,
+      "circum_p75": 0.6757729876517911,
+      "axis_median": 0.6262544831995661,
+      "scatter_median": 0.14682304229854937
+    },
+    "fe@0.1": {
+      "n": 1200,
+      "circum_median": 0.38125563699408627,
+      "circum_p25": 0.25666322245080203,
+      "circum_p75": 0.5827170192616912,
+      "axis_median": 0.8067924358448881,
+      "scatter_median": 0.10468349579407862
+    },
+    "tr@0.02": {
+      "n": 124,
+      "circum_median": 0.6585600227474714,
+      "circum_p25": 0.457508310784029,
+      "circum_p75": 0.7750661718978193,
+      "axis_median": 0.49643839098551523,
+      "scatter_median": 0.17223469589954332
+    },
+    "tr@0.05": {
+      "n": 1199,
+      "circum_median": 0.5082985427686149,
+      "circum_p25": 0.3576162257551739,
+      "circum_p75": 0.6659954901979399,
+      "axis_median": 0.49609568455371117,
+      "scatter_median": 0.21855430403134293
+    },
+    "tr@0.1": {
+      "n": 1200,
+      "circum_median": 0.43961885833285125,
+      "circum_p25": 0.34460853167528716,
+      "circum_p75": 0.5913244575732203,
+      "axis_median": 0.7209349087713218,
+      "scatter_median": 0.14392135069624445
+    }
+  },
+  "verdict": {
+    "tr@0.02": true,
+    "fe@0.02": true,
+    "tr@0.05": true,
+    "fe@0.05": true,
+    "tr@0.1": true,
+    "fe@0.1": true
+  },
+  "any_ok": true
+}

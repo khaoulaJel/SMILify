@@ -1,0 +1,28 @@
+{
+  "0.05": {
+    "dir": "/rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/pose_causality/corpora_smoke/ps0.05",
+    "mean_deg_per_joint": 4.734066963195801,
+    "n": 6
+  },
+  "0.15": {
+    "dir": "/rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/pose_causality/corpora_smoke/ps0.15",
+    "mean_deg_per_joint": 14.202202796936035,
+    "n": 6
+  },
+  "0.25": {
+    "dir": "/rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/pose_causality/corpora_smoke/ps0.25",
+    "mean_deg_per_joint": 23.67033576965332,
+    "n": 6
+  },
+  "0.50": {
+    "dir": "/rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/pose_causality/corpora_smoke/ps0.50",
+    "mean_deg_per_joint": 47.34067153930664,
+    "n": 6
+  },
+  "0.75": {
+    "dir": "/rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/pose_causality/corpora_smoke/ps0.75",
+    "mean_deg_per_joint": 71.01100158691406,
+    "n": 6
+  },
+  "n_betas": 25
+}

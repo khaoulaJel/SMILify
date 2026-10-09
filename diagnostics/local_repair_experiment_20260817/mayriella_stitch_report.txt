@@ -1,0 +1,20 @@
+=== BEFORE STITCH ===
+n_vertices=13624 n_faces=25544
+n_boundary_edges=2332 n_boundary_loops=188
+n_non_manifold_vertices=0 n_components=15
+n_self_intersecting_pairs=19007
+
+=== STITCH_BORDERS CALLED: n_pairs_stitched=461 ===
+
+=== AFTER STITCH ===
+n_vertices=13624 (removed=0) n_faces=25544
+n_boundary_edges=1410 (was 2332) n_boundary_loops=39 (was 188)
+n_non_manifold_vertices=0 (was 0)
+n_components=15 (was 15)
+n_self_intersecting_pairs=15406 (was 19007)
+surviving_vertex_immutability: n_checked=13312 n_moved=0 max_displacement=0
+
+=== FORENSIC CROSS-CHECK vs classification (diagnostics/local_repair_experiment_20260817/mayriella_dup_pairs.csv) ===
+class A: 165/667 pairs got merged by stitch_borders
+class B: 82/503 pairs got merged by stitch_borders
+class C: 37/84 pairs got merged by stitch_borders

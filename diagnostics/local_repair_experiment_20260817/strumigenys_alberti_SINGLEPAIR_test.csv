@@ -1,0 +1,2 @@
+v1,v2,distance,deg_v1,deg_v2,is_border_v1,is_border_v2,cc_v1,cc_v2,same_component,normal_dot,chain_match_length,chain_direction,one_ring_position_match_fraction,near_genuine_near_touch,near_touch_min_dist,in_mindist0_loop_v1,in_mindist0_loop_v2,classification,classification_reason
+v48932,v12320,0,2,5,True,True,0,0,True,-0.953218,6,same_direction,1,False,21.6703,False,False,A,reversed_border_chain_matches_for_6_consecutive_steps

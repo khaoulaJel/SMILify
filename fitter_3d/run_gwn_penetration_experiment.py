@@ -110,26 +110,33 @@ def main():
     manager.run()
     manager.plot_losses("losses")
 
-    # ---- three-way comparison against the already-existing step-1 data ----
+    # ---- three-way comparison against the already-existing step-1 data, IF present ----
+    cols = ["specimen", "penetration_num_penetrating", "penetration_fraction_penetrating",
+            "penetration_mean_depth_among_penetrating", "f_score@0.01"]
     eval_gwn = pd.read_csv(os.path.join(OUT_ROOT, "Stage_3_deform_fine_eval_metrics.csv"))
+    eval_gwn["specimen"] = eval_gwn["specimen"].str.replace(r"\.obj$", "", regex=True)
+    print("\n=== gentle-GWN (new w_penetration_gwn) ===")
+    print(eval_gwn[cols].to_string(index=False))
 
-    eval_baseline = pd.read_csv("fit3d_results_all_baseline/Stage_3_deform_fine_eval_metrics.csv")
-    eval_proximity = pd.read_csv("fit3d_results_all_gentle/Stage_3_deform_fine_eval_metrics.csv")
+    try:
+        eval_baseline = pd.read_csv("fit3d_results_all_baseline/Stage_3_deform_fine_eval_metrics.csv")
+        eval_proximity = pd.read_csv("fit3d_results_all_gentle/Stage_3_deform_fine_eval_metrics.csv")
+    except FileNotFoundError as exc:
+        print(f"\nSkipping three-way comparison -- baseline/proximity reference CSVs not found "
+              f"locally ({exc}). GWN-only eval metrics above and "
+              f"{OUT_ROOT}/Stage_3_deform_fine_eval_metrics.csv are still complete and saved.")
+        return
+
     for df in (eval_baseline, eval_proximity):
         df["specimen"] = df["specimen"].str.replace(r"\.obj$", "", regex=True)
-    eval_gwn["specimen"] = eval_gwn["specimen"].str.replace(r"\.obj$", "", regex=True)
 
     eval_baseline = eval_baseline[eval_baseline["specimen"].isin(mesh_names)]
     eval_proximity = eval_proximity[eval_proximity["specimen"].isin(mesh_names)]
 
-    cols = ["specimen", "penetration_num_penetrating", "penetration_fraction_penetrating",
-            "penetration_mean_depth_among_penetrating", "f_score@0.01"]
     print("\n=== baseline (no penetration loss) ===")
     print(eval_baseline[cols].to_string(index=False))
     print("\n=== gentle-proximity (existing w_penetration) ===")
     print(eval_proximity[cols].to_string(index=False))
-    print("\n=== gentle-GWN (new w_penetration_gwn) ===")
-    print(eval_gwn[cols].to_string(index=False))
 
     combined = eval_baseline[cols].merge(
         eval_proximity[cols], on="specimen", suffixes=("_baseline", "_proximity")

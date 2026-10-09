@@ -1,0 +1,111 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{What the experiments establish}
+
+Table~\ref{tab:questions} collects the technical questions, the main finding for each
+and the evidence basis. Read together, the experiments indicate that the dominant
+difficulty is not surface alignment but recovery of a unique anatomical explanation
+from an observation that lacks explicit identity information, and that each
+mechanism acts on that ambiguity: free deformation can absorb a pose error, local
+learned votes can be accurate and globally inconsistent, and supervision constrains
+only where it is supplied.
+
+\begin{table}[!htb]
+\centering
+\caption{Technical questions, main findings and evidence basis.}
+\label{tab:questions}
+\begin{tabular}{@{}L{0.30\linewidth}L{0.40\linewidth}L{0.22\linewidth}@{}}
+\toprule
+\textbf{Technical question} & \textbf{Main finding} & \textbf{Evidence basis}\\
+\midrule
+Does cleaner input improve registration? & Topology improves; registration does
+ not, once scored against both targets & Matched A/B, 50 specimens\\
+Can surface agreement certify anatomy? & No; deformation can reduce surface error
+ while worsening skeletal alignment & Expert benchmark, controlled ablation\\
+Where does correspondence error arise? & Regional identity and within-region
+ localisation are distinct & Synthetic round-trip, oracle ablations\\
+Does initialisation determine recovery? & Sensitivity depends on position in the
+ articulated chain and on the training distribution & Synthetic perturbation study,
+ real scans\\
+What information does the objective lack? & No term observes joint position; supervision
+ acts locally & Expert benchmark, held-out regions\\
+Can recovered parameters serve as measurements? & For validated quantities and
+ scales, not uniformly & Reference table, noise floor\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Relation to existing work}
+
+\textbf{Parametric articulated models.} SMPL~\cite{smpl} learns a human shape and
+pose space under a fixed topology; SMAL~\cite{smal} learns a quadruped shape space
+from scans of toy figurines through a part-based registration, and the SMALify
+procedure~\cite{smalify} fits it to images and video by energy minimisation.
+SMILify~\cite{smilify} generalises this to arbitrary rigged templates and optimises
+shape, pose, scale and per-vertex deformation against the target, which introduces
+the freedom that Section~\ref{sec:identifiability} analyses.
+
+\textbf{Point-cloud registration and learned matching.} Deep Closest Point~\cite{dcp}
+replaces iterative closest point's greedy matching with a learned embedding, an
+attention module that approximates combinatorial matching and a differentiable
+rigid fit; PREDATOR~\cite{predator} lets two clouds exchange information through
+an overlap-attention block to handle low overlap; GeoTransformer~\cite{geotransformer}
+encodes pairwise distances and triplet-wise angles and matches coarse superpoints
+before dense points. These are rigid problems. The present setting is a model-based
+one, in which the match is constrained to the image of an articulated parametric
+model, and the initialiser of Section~\ref{sec:pointnet} is closer to a
+PointNet-based pose regressor~\cite{pointnet}, whose max-pooling construction is
+permutation invariant and robust to missing points.
+
+\textbf{Non-rigid surface correspondence.} Functional maps~\cite{fmaps} represent a
+correspondence as a linear map between function spaces in a Laplace--Beltrami basis
+and assume near-isometry. Fully intrinsic formulations cannot separate a shape from
+its mirror image when orientation-reversing symmetries exist~\cite{donati}, the
+limitation that Section~\ref{sec:sdf} meets on ant scans. Embedding formulations
+learn dense correspondence from vertex identity~\cite{cse}, and correspondence
+distributions become multi-modal on symmetric surfaces without symmetry
+supervision~\cite{haugaard}. Implicit-function formulations learn probabilistic
+embeddings with a confidence that a correspondence exists on the target for
+topology-varying shapes~\cite{liu2020}. A recent survey~\cite{survey}
+organises the field by correspondence problem, by paradigm for generating and
+refining correspondences, by evaluation strategy and by topology, and notes that
+formulations differ with the application and the input data.
+
+\textbf{Robust and structured geometry.} As-rigid-as-possible
+modelling~\cite{arap}, graduated non-convexity~\cite{gnc} and defect-tolerant
+repair~\cite{alphawrap,manifoldplus} supply the regularisation, robustness and
+conditioning ingredients used here.
+
+\textbf{What differs in this setting.} In the articulated parametric setting,
+correspondence is coupled to recovery of latent articulated parameters and residual
+deformation, the scan is noisy and incomplete, and the quantity to be validated
+(anatomical identity) is not available from any scan. The contribution is therefore
+the diagnostic framework that separates these couplings, not a new matching
+architecture.
+
+\subsection{General technical implications}
+
+The mechanisms generalise beyond ants without being claimed as universal. Any
+registration objective built from a symmetric surface distance is label-invariant,
+so any model with an additive residual field after skinning has a
+pose--deformation equivalence whose conditioning is set by the regulariser. Any
+sampling-based surface term weights regions by sampling measure. Any local
+descriptor must be evaluated as the assignment the downstream consumer needs, and
+any benchmark that scores a proxy can be moved by changing the scoring target.
+Whether each failure recurs on other body plans is an empirical question the same
+framework is built to answer.
+
+\subsection{Scope of the evidence}
+
+The conclusions are bounded by the data in a precise way. The expert benchmark has
+11 specimens, so the pre-registered specimen-level test resolves effects that are
+consistent across about ten of eleven specimens, and smaller effects are carried by
+intervals and the joint-level model. Synthetic targets come from the model and give
+a lower bound for real scans. A fixed topology and a 25-dimensional shape basis define
+what the model can express, and residual deformation is ambiguous with pose by
+construction. Annotation has its own repeatability, trait definitions are coupled to
+scale, and a population-level result does not carry over automatically to individual
+specimens. The ground-truth audit retired earlier analyses built on the superseded
+reference; every result reported here rests on the corrected benchmark or on exact
+synthetic ground truth.

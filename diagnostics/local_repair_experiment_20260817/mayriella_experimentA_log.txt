@@ -1,0 +1,22 @@
+MESH_AFTER_CONVERSION: n_vertices=13624 n_faces=25544
+N_BOUNDARY_LOOPS_FOUND: 188
+N_REQUESTED_LOOPS: 9
+LOOP_RESULT: loop_id=17 length=15 variant=A_default success=1 n_new_faces=13 patch_area=94.110143495155512 n_patch_vs_existing=169 n_patch_self_intersect=0 n_new_non_manifold_vertices=0 n_degenerate_faces=0 vertices_moved=0
+LOOP_RESULT: loop_id=17 length=15 variant=B_2D_CDT success=1 n_new_faces=13 patch_area=94.110143495155512 n_patch_vs_existing=169 n_patch_self_intersect=0 n_new_non_manifold_vertices=0 n_degenerate_faces=0 vertices_moved=0
+LOOP_RESULT: loop_id=26 length=15 variant=A_default success=1 n_new_faces=13 patch_area=83.794879017200984 n_patch_vs_existing=18 n_patch_self_intersect=0 n_new_non_manifold_vertices=0 n_degenerate_faces=0 vertices_moved=0
+LOOP_RESULT: loop_id=26 length=15 variant=B_2D_CDT success=1 n_new_faces=13 patch_area=83.794879017200984 n_patch_vs_existing=18 n_patch_self_intersect=0 n_new_non_manifold_vertices=0 n_degenerate_faces=0 vertices_moved=0
+LOOP_RESULT: loop_id=41 length=15 variant=A_default success=1 n_new_faces=13 patch_area=68.14096856636877 n_patch_vs_existing=146 n_patch_self_intersect=0 n_new_non_manifold_vertices=0 n_degenerate_faces=0 vertices_moved=0
+LOOP_RESULT: loop_id=41 length=15 variant=B_2D_CDT success=1 n_new_faces=13 patch_area=68.14096856636877 n_patch_vs_existing=146 n_patch_self_intersect=0 n_new_non_manifold_vertices=0 n_degenerate_faces=0 vertices_moved=0
+LOOP_RESULT: loop_id=111 length=7 variant=A_default success=1 n_new_faces=5 patch_area=22.863716033721804 n_patch_vs_existing=0 n_patch_self_intersect=0 n_new_non_manifold_vertices=0 n_degenerate_faces=0 vertices_moved=0
+LOOP_RESULT: loop_id=111 length=7 variant=B_2D_CDT success=1 n_new_faces=5 patch_area=22.815265413489684 n_patch_vs_existing=0 n_patch_self_intersect=0 n_new_non_manifold_vertices=0 n_degenerate_faces=0 vertices_moved=0
+LOOP_RESULT: loop_id=138 length=8 variant=A_default success=1 n_new_faces=6 patch_area=23.614867274564627 n_patch_vs_existing=4 n_patch_self_intersect=0 n_new_non_manifold_vertices=0 n_degenerate_faces=0 vertices_moved=0
+LOOP_RESULT: loop_id=138 length=8 variant=B_2D_CDT success=1 n_new_faces=6 patch_area=23.614867274564627 n_patch_vs_existing=4 n_patch_self_intersect=0 n_new_non_manifold_vertices=0 n_degenerate_faces=0 vertices_moved=0
+LOOP_RESULT: loop_id=164 length=9 variant=A_default success=1 n_new_faces=7 patch_area=36.115930163148306 n_patch_vs_existing=29 n_patch_self_intersect=0 n_new_non_manifold_vertices=0 n_degenerate_faces=0 vertices_moved=0
+LOOP_RESULT: loop_id=164 length=9 variant=B_2D_CDT success=1 n_new_faces=7 patch_area=36.115930163148306 n_patch_vs_existing=29 n_patch_self_intersect=0 n_new_non_manifold_vertices=0 n_degenerate_faces=0 vertices_moved=0
+LOOP_RESULT: loop_id=181 length=3 variant=A_default success=1 n_new_faces=1 patch_area=1.5518081360584695 n_patch_vs_existing=17 n_patch_self_intersect=0 n_new_non_manifold_vertices=0 n_degenerate_faces=0 vertices_moved=0
+LOOP_RESULT: loop_id=181 length=3 variant=B_2D_CDT success=1 n_new_faces=1 patch_area=1.5518081360584695 n_patch_vs_existing=17 n_patch_self_intersect=0 n_new_non_manifold_vertices=0 n_degenerate_faces=0 vertices_moved=0
+LOOP_RESULT: loop_id=184 length=18 variant=A_default success=1 n_new_faces=16 patch_area=233.85472023292141 n_patch_vs_existing=38 n_patch_self_intersect=0 n_new_non_manifold_vertices=0 n_degenerate_faces=0 vertices_moved=0
+LOOP_RESULT: loop_id=184 length=18 variant=B_2D_CDT success=1 n_new_faces=16 patch_area=233.85472023292141 n_patch_vs_existing=38 n_patch_self_intersect=0 n_new_non_manifold_vertices=0 n_degenerate_faces=0 vertices_moved=0
+LOOP_RESULT: loop_id=187 length=14 variant=A_default success=1 n_new_faces=12 patch_area=147.40471023044944 n_patch_vs_existing=7 n_patch_self_intersect=0 n_new_non_manifold_vertices=0 n_degenerate_faces=0 vertices_moved=0
+LOOP_RESULT: loop_id=187 length=14 variant=B_2D_CDT success=1 n_new_faces=12 patch_area=147.40471023044944 n_patch_vs_existing=7 n_patch_self_intersect=0 n_new_non_manifold_vertices=0 n_degenerate_faces=0 vertices_moved=0
+Wrote diagnostics/local_repair_experiment_20260817/mayriella_experimentA.csv

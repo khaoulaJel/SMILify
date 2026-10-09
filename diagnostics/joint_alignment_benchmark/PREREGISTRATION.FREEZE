@@ -1,0 +1,10 @@
+2026-09-14T12:26:26+02:00
+14bfb8aa89f81d18469f4d300d02462be71fd28d5857aa516372e7be9c2421d8  PREREGISTRATION.md
+e4713942b5931f9e7552a7fe2102c35b9dd0bd26d0b5e29e29f61964f013961a  tools/gt_registration.py
+a18be80ac18cda7066ea4e4857b2bd304e109f2a4e97e0d8385446f5a496ec5b  tools/model_joints.py
+ad6298aa43311a440f4096f53ed23ebb134615a626499ae5364e568e729c6570  data/gt_joints_fitframe.json
+302d14396998d735992b324899b9e28931ed87c2
+04d27f2127f028dd749116e57a7067f1ef9ce208dbff9a75ef6196c36deab33d  diagnostics/joint_alignment_benchmark/data/code_state_uncommitted.patch
+2026-09-14T13:15:37+02:00
+post-freeze edit: unverified author name replaced by arXiv id in section 11 citation only; no design change
+3345c371fd77ea2d54d0f14227ed0eef40d6adc32c265e2dea3bca2ade6d8891  PREREGISTRATION.md

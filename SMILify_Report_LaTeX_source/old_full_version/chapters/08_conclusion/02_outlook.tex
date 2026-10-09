@@ -1,0 +1,18 @@
+\section{Outlook: future work derived from the failures}
+
+Each direction follows from a diagnosed failure and none was implemented.
+Independent pointwise votes collapse (I15) $\Rightarrow$ a global mechanism:
+\term{functional maps}~\cite{fmaps} or \term{optimal transport}~\cite{ot},
+with partial-transport variants for incomplete scans. The objective lacks an
+explicit anatomical signal (\F{F6}) $\Rightarrow$ skeleton-conditioned
+correspondence. Free deformation absorbs pose error $\Rightarrow$ structured,
+diffeomorphic deformation. The template is assumed fixed $\Rightarrow$ atlas
+refinement. The synthetic-to-real gap $\Rightarrow$ scan-realistic synthetic
+training with holes, missing limbs and disconnected components.
+
+The most ambitious direction is an \emph{anatomical canonical field}: instead
+of a pose or a local descriptor, predict for every observed point
+$g(x)=(\text{part},\text{joint},u,v,w,\text{laterality},c)$, with
+joint-relative coordinates $(u,v,w)$ and confidence $c$, so that
+correspondence becomes mapping a scan into a canonical anatomical coordinate
+field, which is exactly the information the diagnosed objective lacks.

@@ -1,0 +1,15 @@
+{
+  "verdict": "PARTIAL (primary passed, gen/spread did not improve -- proxy without transfer)",
+  "driven_share": {
+    "A_off": 0.0,
+    "B_couple": 0.5471453506136191,
+    "C_jresid": 0.9998699583238436
+  },
+  "gen20": {
+    "A_off": 0.6147471126388933,
+    "B_couple": 0.7036458224227754,
+    "C_jresid": 0.6322261269120317
+  },
+  "open": true,
+  "fit_ok": true
+}

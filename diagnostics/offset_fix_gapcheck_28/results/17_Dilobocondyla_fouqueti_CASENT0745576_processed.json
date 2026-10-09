@@ -1,0 +1,25 @@
+{
+  "specimen": "17_Dilobocondyla_fouqueti_CASENT0745576_processed",
+  "alpha": 6.21988,
+  "pre_gap": 1.5310480035301248,
+  "diag_length": 1532.0613951405974,
+  "old": {
+    "offset": 0.20732933333333334,
+    "relative_alpha": 246.31687349926324,
+    "relative_offset": 7389.506204977897,
+    "gap_after": 6.7299798273269875,
+    "verdict": "preserved",
+    "output_vertices": 193678,
+    "output_faces": 387512
+  },
+  "new": {
+    "offset": 2.487952,
+    "relative_alpha": 246.31687349926324,
+    "relative_offset": 615.7921837481581,
+    "gap_after": 10.109034006122622,
+    "verdict": "preserved",
+    "output_vertices": 42518,
+    "output_faces": 85156
+  },
+  "flipped": false
+}

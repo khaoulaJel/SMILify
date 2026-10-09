@@ -1,0 +1,25 @@
+{
+  "specimen": "42_Strumigenys_alberti_CASENT0878103_processed",
+  "alpha": 17.0802,
+  "pre_gap": 3.8355622411139145,
+  "diag_length": 2003.6991351260422,
+  "old": {
+    "offset": 0.5693400000000001,
+    "relative_alpha": 117.31122206566914,
+    "relative_offset": 3519.336661970074,
+    "gap_after": 10.658048351161364,
+    "verdict": "preserved",
+    "output_vertices": 46104,
+    "output_faces": 92260
+  },
+  "new": {
+    "offset": 6.832080000000001,
+    "relative_alpha": 117.31122206566914,
+    "relative_offset": 293.2780551641728,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 8853,
+    "output_faces": 17734
+  },
+  "flipped": true
+}

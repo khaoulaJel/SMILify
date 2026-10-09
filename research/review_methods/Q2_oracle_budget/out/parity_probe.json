@@ -1,0 +1,26 @@
+{
+ "REALPOSE/deployed": {
+  "leg_correct": 0.7724409118991123,
+  "coverage": 0.24873947091826917
+ },
+ "REALPOSE/generator": {
+  "leg_correct": 0.770465246225976,
+  "coverage": 0.24912732602034018
+ },
+ "REALPOSE/opart": {
+  "leg_correct": 0.9655998647672164,
+  "coverage": 0.24519252120619975
+ },
+ "REALSCALE/deployed": {
+  "leg_correct": 0.7289899999612728,
+  "coverage": 0.23297064440200738
+ },
+ "REALSCALE/generator": {
+  "leg_correct": 0.7324643208934714,
+  "coverage": 0.23251469260262617
+ },
+ "REALSCALE/opart": {
+  "leg_correct": 0.9714729294352117,
+  "coverage": 0.22457402555106512
+ }
+}

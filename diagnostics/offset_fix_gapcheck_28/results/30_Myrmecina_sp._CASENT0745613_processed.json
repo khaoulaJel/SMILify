@@ -1,0 +1,25 @@
+{
+  "specimen": "30_Myrmecina_sp._CASENT0745613_processed",
+  "alpha": 3.58519,
+  "pre_gap": 1.0926281316002477,
+  "diag_length": 800.1187544591444,
+  "old": {
+    "offset": 0.11950633333333333,
+    "relative_alpha": 223.1733198126583,
+    "relative_offset": 6695.199594379749,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 181013,
+    "output_faces": 362206
+  },
+  "new": {
+    "offset": 1.4340760000000001,
+    "relative_alpha": 223.1733198126583,
+    "relative_offset": 557.9332995316457,
+    "gap_after": 4.403844374359486,
+    "verdict": "preserved",
+    "output_vertices": 40384,
+    "output_faces": 80872
+  },
+  "flipped": true
+}

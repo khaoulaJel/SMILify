@@ -1,0 +1,25 @@
+{
+  "specimen": "27_Mayriella_sp._CASENT0745610_processed",
+  "alpha": 3.14014,
+  "pre_gap": 0.30449809623600893,
+  "diag_length": 304.54729740941235,
+  "old": {
+    "offset": 0.10467133333333334,
+    "relative_alpha": 96.98526097862272,
+    "relative_offset": 2909.5578293586814,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 39620,
+    "output_faces": 79300
+  },
+  "new": {
+    "offset": 1.256056,
+    "relative_alpha": 96.98526097862272,
+    "relative_offset": 242.4631524465568,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 10439,
+    "output_faces": 20914
+  },
+  "flipped": false
+}

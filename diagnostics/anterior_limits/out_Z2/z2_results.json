@@ -1,0 +1,9 @@
+{
+  "verdict": "FAIL",
+  "improvement": -0.002838755318994912,
+  "sign_p": 0.3222363203575469,
+  "A_ratio": 0.8201805180588068,
+  "B_ratio": 0.7947947601368839,
+  "check_bind": true,
+  "check_openshape": true
+}

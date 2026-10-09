@@ -1,0 +1,302 @@
+\chapter{Introduction}
+\label{ch:introduction}
+
+\section{Motivation}
+
+Ant scans are valuable because they can turn specimens that are difficult to
+measure repeatedly into a source of comparable three-dimensional traits. Once
+anatomically corresponding models are available, quantities such as head
+width, Weber's length, and appendage proportions can be extracted
+systematically rather than measured by hand under a microscope. The practical
+promise is therefore not only better mesh fitting, but a way to study
+biodiversity at population scale.
+
+In the first week of July 2026, ten preprocessed ant scans were passed through the
+registration pipeline and the resulting loss curves were inspected. All ten
+descended cleanly and converged without incident; by the only quantitative
+signal the system produced, every run had succeeded.
+
+Visual inspection told a different story. Four of the ten fitted meshes were
+not recognisable ants. The template had been deformed into a smooth mass that
+approximately matched the target's silhouette and enclosed volume, but bore no
+anatomical correspondence to it: legs had collapsed into the gaster, and the
+head had been absorbed into the thorax. Critically, the loss on several of
+these four runs was \emph{lower} than on the runs that had visibly succeeded.
+
+\findingmark{Established here; recurs throughout this report as \F{F1}.}%
+This discrepancy is the starting point for the work reported here. The
+objective minimised during fitting is a symmetric point-to-point distance
+between two surfaces. It quantifies whether the fitted mesh \emph{covers} the
+target, not whether vertex $i$ of the template has landed on the anatomical
+point that vertex $i$ is defined to represent. These properties can diverge;
+when they do, the failure produces no exception, no divergent loss curve, and
+no indication in the log that anything is wrong.\footnote{This is recorded as
+\F{F1} in the findings ledger (Section~\ref{sec:ledger}) and motivates the
+correspondence measurement developed later in the investigation.}
+
+This contradiction is the central problem addressed by the internship. In a
+registration method based on numerical optimisation, the objective function is
+not meant to be a visual proxy for biological correctness; it is only one
+surrogate of the desired outcome. When that surrogate rewards global coverage
+without enforcing anatomical identity, the algorithm can converge to a strong
+but biologically meaningless solution. The issue is therefore not merely one of
+optimisation failure but of specification failure: the system was measuring the
+wrong thing, or at least an incomplete version of it.
+
+The project began from a fundamental question: how can a parametric
+mesh be fitted to imperfect animal scans if the pipeline has no objective that
+disambiguates good correspondence from a plausible but wrong deformation? The
+internship addressed this question by moving from a mesh-quality-centred
+hypothesis to a more precise investigation of initialisation, correspondence,
+and constrained optimisation. A method is not considered reliable simply
+because it reaches a numerically stable minimum, but because it reaches a
+biologically meaningful one.
+
+\section{Scope of the internship}
+
+The scope of the internship was intentionally defined around a concrete
+technical bottleneck rather than a broad, open-ended exploration. The initial
+assignment list pointed to preprocessing, segmentation, neural initialisation,
+and hybrid registration as the main design axes. In practice, the early
+experiments showed that the dominant bottleneck was not the raw mesh quality
+alone, but the interaction between poor initialisation and a weak sense of
+anatomical correspondence. This insight re-centred the work away from a
+preprocessing-only narrative and toward the underlying determinants of
+registration quality inside the optimiser itself.
+
+The resulting investigation therefore combined three layers of work. First, it
+examined the assumptions of the project and tested them against real data.
+Second, it developed measurement techniques capable of distinguishing surface
+coverage from true anatomical correspondence. Third, it evaluated candidate
+interventions against explicit criteria and retained only those that improved
+the pipeline in a demonstrable and reproducible way. This report follows that
+sequence because the evidence gathered at each stage changed the direction of
+research and justified the choices that were ultimately retained in the final
+SMILify pipeline.
+
+The internship brief, reproduced in the technical data sheet appended to this
+report, lists six assignments: unify the preprocessing pipeline, stabilise a
+Shape-Diameter-Function-based segmentation, integrate neural initialisation,
+design a hybrid registration framework, benchmark the result, and deliver
+documentation. Read in sequence, this list implies a specific hypothesis about
+the source of registration failure: that the input meshes are the limiting
+factor, and that cleaning them will improve the fits. Section~\ref{sec:turn}
+describes how an early, direct test of that hypothesis produced a null result,
+and how the project was redirected on the basis of that evidence. The present
+chapter sets out why animal shape modelling is a materially harder problem than
+its human counterpart, and what state the project was in at the outset.
+
+\section{Parametric shape modelling for non-human subjects}
+
+Parametric mesh registration deforms a rigged, segmented template mesh until it
+matches a target scan, governed by a shape coefficient vector $\bm\beta$, joint
+rotations $\bm\theta$, and a global translation $\bm\gamma$. A correctly fitted
+template does more than resemble the target visually: because every vertex
+retains a fixed anatomical identity across all fits, the result places
+otherwise unrelated scans into a shared coordinate system in which
+measurement, comparison, and population-level analysis become possible. This
+property, rather than visual resemblance, is what makes the technique useful.
+
+For humans, the underlying recipe is well established. \term{SMPL} (Skinned
+Multi-Person Linear)~\cite{smpl} was learned from thousands of registered scans
+of cooperative human subjects. Animal
+subjects violate the assumptions this recipe depends on: shape variation across
+species substantially exceeds variation within a human population, the
+subjects cannot be instructed to hold a pose, and a representative sample
+cannot practically be brought into a scanning facility. Zuffi et
+al.~\cite{smal} addressed this by learning a shape space, \term{SMAL} (Skinned
+Multi-Animal Linear), from
+scans of toy figurines rather than live animals, and demonstrated that the
+resulting model generalises to photographs of real animals, including species
+absent from the training set.
+
+\term{SMILify} extends this approach to insects, and in doing so removes a
+further set of assumptions. Where a quadruped presents four limbs, an ant
+presents six, plus two antennae and a pair of mandibles, all thin, all
+articulated, and several represented by only a few dozen vertices in the
+template mesh. In ant morphology, the thorax is more precisely the mesosoma;
+the former term is retained here when it refers to the model's part naming.
+The scan data originate from \term{scAnt}, an open-source macro
+photogrammetry scanner~\cite{scant}, and from micro-computed tomography.
+Meshes produced this way commonly contain holes, self-intersections, arbitrary
+global orientation, non-manifold geometry, and missing surface exactly at the
+structures of greatest anatomical interest. The technical data sheet for this
+internship states the resulting problem directly: existing registration
+pipelines are designed for clean, watertight meshes in near-canonical poses,
+and fail or become unstable on input of this kind.
+
+\section{Project state at the outset}
+
+\term{SMILify} is built directly on \term{SMALify}~\cite{smalify}, Biggs et
+al.'s optimisation-based framework for fitting the SMAL quadruped model to
+video and image data, which is itself built on the original SMAL
+model~\cite{smal}. The repository's own framing of its ambition is direct: to
+turn any rigged mesh into a SMAL-compatible parametric model, regardless of
+skeletal topology, with \term{SMIL} (Skinned Multi-Insect Linear) as the
+current insect-focused instance of a more general goal.
+\footnote{\url{https://github.com/FabianPlum/SMILify}, README, accessed
+September 2026.}
+
+The repository on 1 July 2026 was an active codebase rather than a blank
+starting point. \code{fitter\_3d/} contained the mesh registration pipeline
+used to author new parametric models by fitting a template to a collection of
+target \code{.obj} scans; \code{custom\_processing/} held model-preprocessing
+helpers, including mesh registration utilities and beta regressors;
+\code{3D\_model\_prep/} held the Blender addon used to build and edit
+parametric \code{.pkl} models; \code{config.py} held the legacy root
+configuration still required by \code{fitter\_3d}. Fitting jobs were, and
+remain, invoked directly against a YAML configuration, for example:
+\begin{quote}\small\ttfamily
+python -m fitter\_3d.optimise --mesh\_dir <target\_meshes>\\
+\hspace*{1em}--yaml\_src fitter\_3d/ants\_cfg.yaml
+\end{quote}
+A Shape Diameter Function module intended for part-aware segmentation had not
+been validated on incomplete meshes. \term{PointNet}-based predictors for pose
+and shape initialisation were implemented but unevaluated. The available scan
+corpus itself indicated the scale of the data-quality problem: of roughly 380
+raw scans, approximately 250 survived processing and 86 were curated as clean
+enough for registration, meaning that more than three-quarters (approximately
+77\%) of the collected material was discarded before registration was ever
+attempted on it.
+
+The repository's own issue tracker records a longer-term ambition beyond this
+internship's scope: building a SMIL model from the full antscan collection
+rather than a curated subset, tracked as a future objective referred to
+internally as \term{SMILify} Gen2. The registration accuracy work reported
+here, and in particular the elimination of mesh-quality as the dominant
+bottleneck (Section~\ref{sec:turn}), is a direct prerequisite for that objective,
+since a corpus-scale shape space can only be trusted if the registrations
+feeding it are individually reliable.
+
+\section{The redirection of the project}
+\label{sec:turn}
+
+\findingmark{The result that redirected the project; recorded as \F{F2}.}%
+Consistent with the hypothesis implicit in the brief, the first weeks of the
+internship were spent building a unified preprocessing pipeline, with explicit
+diagnostics, reproducibility, and quality classification. That pipeline is
+retained in the delivered system because these outputs make later fitting
+decisions auditable. It was then evaluated directly against the existing
+preprocessing pipeline in a controlled comparison, holding the registration
+stage fixed. The result was a statistical tie: mean Chamfer distance of
+$0.000771$ for the new pipeline against $0.000737$ for the existing one
+(lower is better). The nominal difference favoured the existing pipeline but
+did not reach significance (\needcheck{insert $n$, paired-test statistic, and
+$p$-value}). Cleaner input meshes did not produce more accurate
+registrations.
+
+The null result was informative because it tested the location of the
+bottleneck rather than merely the performance of one implementation. A
+positive result would have supported further preprocessing; this result ruled
+out mesh quality as the dominant explanation and redirected the internship
+toward the question of what was governing registration accuracy.
+
+Answering that question required an instrument that did not yet exist: a
+measurement of anatomical correspondence, as distinct from surface coverage.
+This was constructed from synthetic data generated by the model itself:
+parameters are sampled from the model's own distributions, the template is
+posed accordingly, the result is exported as an anonymous mesh, optionally
+degraded, and passed back through the fitter. Because the mesh originates from
+the model, the true identity of every vertex is known by construction, and
+per-vertex correspondence error becomes directly measurable rather than
+inferred indirectly from surface distance.
+
+This instrument produced two results that determined the shape of the
+remaining investigation. First, it localised the correspondence error:
+approximately 83\% of it does not cross a part boundary (\F{F3}), indicating
+that points are more often placed incorrectly \emph{within} the correct
+anatomical part than assigned to an incorrect part altogether. This finding
+rules out an entire family of proposed interventions aimed at improving
+part-level discrimination, since such interventions target the remaining
+17\%. Second, fitting from the ground-truth pose, rather than from a default
+initialisation, recovers most of the lost accuracy, indicating that the
+dominant failure mode is the optimiser becoming trapped in a poor local
+minimum near a bad starting point, rather than the objective itself being
+poorly shaped (\F{F4}). These two findings jointly reoriented the remaining
+work toward initialisation and within-part correspondence, and away from
+interventions aimed at coarse mesh quality or part-level segmentation.
+
+The same audit also exposed a structural limitation in the sampling scheme:
+thin distal structures receive far less vertex support than proximal body
+parts, independently of pose (\F{F5}). In the evaluated template this meant
+38 vertices for the tarsus and 8 for the pretarsus, compared with hundreds on
+the proximal body. This observation does not by itself identify a successful
+remedy, but it explains why a global surface metric can underweight precisely
+the structures that matter most anatomically.
+
+The remainder of the internship proceeded by systematic elimination.
+Candidate interventions, including robust losses, correspondence changes, and
+sampling strategies, were each tested against a criterion registered in
+advance of the experiment; the complete elimination map is preserved in the
+project diagnostics. The interventions retained for SMILify are joint rotation
+limits consumed as a fitting prior, per-joint scale barriers validated on a
+separate 838-specimen corpus (757 worker specimens plus 81 clean specimens),
+and a staged hierarchical fitting recipe that outperforms the original
+single-pass fitter on every integrity metric measured. The 838 specimens are
+not the 86 curated scans described above; they belong to the larger validation
+run.
+
+The closing phase of the internship shifted from registration accuracy to its
+downstream application. A correctly registered mesh is not an end in itself
+but an instrument: once every specimen occupies a shared parameterisation,
+measurements that entomologists currently extract manually under a
+microscope, including head width, Weber's length, and related proportional
+relationships, become extractable automatically and at population scale.
+The validation work evaluates whether the delivered fits are accurate enough
+to support this claim, including an explicit treatment of where the validation
+sample is not representative and where a reported correlation is measured on
+data selected by the system under evaluation.
+
+\section{Established results}
+\label{sec:ledger}
+
+The results below recur throughout this report and are registered once here;
+each is cited by identifier (\F{F1}, \F{F2}, and so on) at the point where it
+is used. Full evidence for each is preserved in the associated diagnostics
+and experiment records.
+
+\printfindingledger
+
+\section{Contributions}
+
+The results of this internship are summarised below, grouped by their level of
+confidence.
+
+\paragraph{Delivered and validated.} A correspondence-accuracy measurement
+built on synthetic ground truth, where no equivalent measurement previously
+existed; joint rotation limits consumed as a fitting prior in the 3D
+registration path, closing the one fitting path in \term{SMILify} that had
+previously optimised pose without constraint; per-joint scale barriers,
+validated on a separate corpus of 838 specimens and reducing anterior scale
+pathology (unrealistic scaling of anterior body groups) by 58--70\% on the
+affected outlier tail; a unified, configurable
+preprocessing module with diagnostic output and quality classification; a
+staged hierarchical fitting recipe that outperforms the original single-pass
+fitter on every integrity metric measured.
+
+\paragraph{Established.} The five findings listed in Section~\ref{sec:ledger}, each
+independently reproduced, which collectively relocate the primary bottleneck
+of the registration pipeline from mesh input quality, as assumed in the
+original brief, to initialisation and within-part correspondence.
+
+\paragraph{Eliminated.} A documented set of candidate interventions tested
+against pre-registered criteria and rejected, each with the specific evidence
+that determined the outcome. The associated diagnostics remain available so
+that subsequent work is not repeated unnecessarily.
+
+\paragraph{Open.} Three problems that this investigation localised but did
+not resolve: initialisation without prior knowledge of the target pose,
+within-part correspondence on thin articulated geometry, and systematic
+under-representation of distal structures during sampling. These are stated
+explicitly as open problems rather than presented as partial successes.
+
+\section{Structure of this report}
+
+The report begins with the motivation and technical background for parametric
+registration of insect scans. It then situates the project within the host
+organisation, the computational environment, and the research context in
+which the SMILify work was carried out. The appendix maps the original
+internship assignments to the delivered repository. Within this compact
+structure, the central evidence chain remains visible: biological need,
+observed failure, tested hypothesis, measured bottleneck, and interventions
+retained for their value to SMILify.

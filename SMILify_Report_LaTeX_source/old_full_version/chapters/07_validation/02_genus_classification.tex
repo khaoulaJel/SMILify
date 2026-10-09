@@ -1,0 +1,23 @@
+\section{Population-level signal: a provisional result}
+\label{sec:genus}
+
+Whether traits read from fitted models carry biological signal in aggregate
+was tested by \emph{lot-blind nearest-neighbour classification}: each
+specimen is assigned the genus of its nearest neighbour in trait space,
+excluding specimens from the same collection lot so that nest-mates cannot
+leak the answer, and the resulting accuracy is compared with a
+\emph{permutation null} in which genus labels are shuffled. An earlier
+full-corpus analysis reported accuracy well above this null. That corpus
+could not be re-executed in the final computing environment, and the only
+available re-check (22 specimens, 9 genera) was underpowered and is
+directional at most. The result is therefore reported as \textbf{provisional}
+and deliberately excluded from this report's headline claims; the protocol
+details a reader would need to audit it (lot definition, number of
+permutations, treatment of rare genera, scale normalisation, trait selection
+before classification) must accompany the run artifacts before it is cited
+as validated (Table~\ref{tab:evidence}).
+
+What the design does show is why aggregate signal and individual reliability
+are compatible (\S\ref{sec:scale-dependence}): averaging over many specimens
+and vertices suppresses within-part localisation noise (\F{F3}), whereas the
+rank of any single specimen against another does not enjoy that protection.

@@ -1,0 +1,898 @@
+FULL PIPELINE (manifold_external) BATCH RUN - started 2026-08-05T08:48:57+02:00
+
+=================================================================
+SPECIMEN: Acanthomyrmex_cf.ferox_CASENT0878067
+  stl: /home/khaoula/SMILify/custom_processing/antscan_data/Acanthomyrmex_cf.ferox_CASENT0878067/Acanthomyrmex_cf.ferox_CASENT0878067.stl (466M)
+  started: 2026-08-05T08:48:57+02:00
+=================================================================
+Blender 3.0.1
+Info: Removed 755 vertice(s)
+Info: Removed 16791 vertice(s)
+Info: Removed 520331 vertice(s)
+Info: Removed 2619956 vertice(s)
+Info: Removed 1235360 vertice(s)
+SCRIPT_VERSION=2026-08-manifold-external-integration-v1
+mode=manifold_only, stl_path=/home/khaoula/SMILify/custom_processing/antscan_data/Acanthomyrmex_cf.ferox_CASENT0878067/Acanthomyrmex_cf.ferox_CASENT0878067.stl, output_dir=/home/khaoula/SMILify/custom_processing/antscan_processed/manifold_external_full_pipeline/Acanthomyrmex_cf.ferox_CASENT0878067
+Import finished in 28.6933 sec.
+Initial vertex count: 4844557. Reducing vertices...
+Info: Removed 755 vertice(s)
+Iteration 1: Merge distance = 1.000000, Vertices = 4843802
+Info: Removed 16791 vertice(s)
+Iteration 2: Merge distance = 2.000000, Vertices = 4827011
+Info: Removed 520331 vertice(s)
+Iteration 3: Merge distance = 4.000000, Vertices = 4306680
+Info: Removed 2619956 vertice(s)
+Iteration 4: Merge distance = 8.000000, Vertices = 1686724
+Info: Removed 1235360 vertice(s)
+Iteration 5: Merge distance = 16.000000, Vertices = 451364
+Reduced vertex count: 451364
+Cleaning internal geometry...
+Bridged islands (145592 and 32 verts): gap=157.03, path_hops=17, patch_verts=188
+Bridged islands (145592 and 75 verts): gap=69.25, path_hops=4, patch_verts=57
+Bridged islands (145592 and 37 verts): gap=178.51, path_hops=11, patch_verts=103
+Bridged islands (145592 and 33 verts): gap=130.81, path_hops=9, patch_verts=89
+Bridged islands (145592 and 48 verts): gap=27.42, path_hops=1, patch_verts=27
+Bridged islands (145592 and 53 verts): gap=39.17, path_hops=6, patch_verts=48
+Bridged islands (145592 and 44 verts): gap=190.62, path_hops=10, patch_verts=100
+Bridged islands (75 and 48 verts): gap=360.18, path_hops=15, patch_verts=138
+Bridged islands (37 and 44 verts): gap=42.88, path_hops=2, patch_verts=36
+Bridged 9 nearby island pairs via original-mesh shortest path
+Vertices kept (pre-island-filter): 147527
+Total vertices after ray-cast cleaning: 147527
+Removed 78 debris islands (< 4 faces)
+Total vertices after island filtering: 147275
+Applying simplification modifiers...
+Bounding box size: <Vector (4570.4453, 3542.8872, 3984.7705)>, bbox-based threshold: 9.140890625
+Median edge length: 23.804168701171875, local-density-based threshold: 7.1412506103515625
+Using weld_merge_threshold: 7.1412506103515625
+Removed 23528 debris islands (< 4 faces) before Weld
+Weld: 294334 -> 294334 faces (0.0% loss)
+Removed 5 debris islands (< 4 faces) after apply_modifiers
+Applying mesh decimation...
+mesh_integrity_report: {'vertex_count': 113754, 'face_count': 239520, 'boundary_edges': 13417, 'non_manifold_edges': 9627, 'non_manifold_verts': 16573, 'simple_holes': 5327, 'is_watertight': False, 'signed_volume': 7742645868.38}
+Decimation attempt (ratio=0.8000, retry=0): 113754 vertices, boundary_edges=13417, non_manifold_edges=9627
+WARNING: decimation at ratio=0.8000 damaged topology (retry 0).
+report_bad_edges: 23373 bad edges (face count != 2)
+  edge=1 n_faces=4 verts=((2010.8052978515625, -152.751953125, -1801.87353515625), (1994.9976806640625, -168.644775390625, -1799.8187255859375))
+  edge=8 n_faces=3 verts=((1986.090087890625, -228.6474609375, -1793.415283203125), (1970.136474609375, -230.447509765625, -1792.418212890625))
+  edge=10 n_faces=3 verts=((1986.090087890625, -228.6474609375, -1793.415283203125), (2005.410888671875, -219.2103271484375, -1794.8802490234375))
+  edge=12 n_faces=1 verts=((2281.7333984375, -264.2391357421875, -154.24169921875), (2301.88623046875, -271.0140380859375, -154.4176025390625))
+  edge=14 n_faces=4 verts=((983.4261474609375, 600.88232421875, -1231.193603515625), (981.3233642578125, 606.2744140625, -1215.0111083984375))
+  edge=16 n_faces=4 verts=((-393.2117919921875, 32.796142578125, -1170.4283447265625), (-405.520263671875, 32.520263671875, -1159.437255859375))
+  edge=42 n_faces=4 verts=((1415.3746337890625, -178.70263671875, -1077.6214599609375), (1414.614501953125, -172.6387939453125, -1053.95654296875))
+  edge=44 n_faces=4 verts=((1554.2471923828125, 183.2220458984375, -1248.638671875), (1554.179443359375, 197.141845703125, -1231.90576171875))
+  edge=55 n_faces=1 verts=((-766.0882568359375, -355.28125, 177.0823974609375), (-737.0546875, -358.3116455078125, 180.1602783203125))
+  edge=63 n_faces=4 verts=((-713.4711303710938, -586.094482421875, -649.21923828125), (-705.933349609375, -571.968505859375, -646.6025390625))
+  edge=69 n_faces=1 verts=((2241.05126953125, 891.92578125, -1037.43359375), (2240.30615234375, 892.3642578125, -1016.6224365234375))
+  edge=72 n_faces=1 verts=((-960.165283203125, -539.0172119140625, 340.7943115234375), (-970.7466430664062, -526.097900390625, 340.8304443359375))
+  edge=83 n_faces=3 verts=((825.0045776367188, -193.2421875, 80.43017578125), (814.8289794921875, -180.788818359375, 82.6236572265625))
+  edge=96 n_faces=1 verts=((687.4156494140625, 113.872314453125, -407.1881103515625), (691.3145751953125, 118.4234619140625, -389.2452392578125))
+  edge=105 n_faces=4 verts=((1859.085693359375, -95.0042724609375, -1772.86279296875), (1867.9285888671875, -80.0218505859375, -1775.299560546875))
+  edge=121 n_faces=1 verts=((2154.59228515625, -645.4671630859375, 63.2720947265625), (2139.4560546875, -627.379150390625, 63.5272216796875))
+  edge=143 n_faces=4 verts=((1983.0159912109375, -983.9523315429688, -1458.4658203125), (1969.0101318359375, -1001.5390625, -1442.265869140625))
+  edge=148 n_faces=3 verts=((2138.484375, -856.8010864257812, -439.438720703125), (2150.44873046875, -847.3861083984375, -431.876953125))
+  edge=173 n_faces=3 verts=((2195.31591796875, 879.04541015625, -1165.35888671875), (2192.81884765625, 883.077880859375, -1149.245849609375))
+  edge=181 n_faces=4 verts=((-611.5474853515625, -532.70361328125, 591.1517944335938), (-632.798583984375, -524.236572265625, 600.4219970703125))
+  ... and 23353 more
+check_bad_verts_edge_length_percentile: p5_min_edge_length_threshold=16.15 (mesh-wide, n=143,698 pristine verts)
+  2444/46746 bad vertices matched to a pristine vertex at/below that threshold (5.2%)
+    bad_vert=(np.float64(2010.805), np.float64(-152.752), np.float64(-1801.874)) nearest_pristine_dist=0 pristine_min_edge_len=19.96 in_bottom_5pct=no
+    bad_vert=(np.float64(1994.998), np.float64(-168.645), np.float64(-1799.819)) nearest_pristine_dist=0 pristine_min_edge_len=17.06 in_bottom_5pct=no
+    bad_vert=(np.float64(1986.09), np.float64(-228.647), np.float64(-1793.415)) nearest_pristine_dist=0 pristine_min_edge_len=16.09 in_bottom_5pct=YES
+    bad_vert=(np.float64(1970.136), np.float64(-230.448), np.float64(-1792.418)) nearest_pristine_dist=0 pristine_min_edge_len=16.09 in_bottom_5pct=YES
+    bad_vert=(np.float64(1986.09), np.float64(-228.647), np.float64(-1793.415)) nearest_pristine_dist=0 pristine_min_edge_len=16.09 in_bottom_5pct=YES
+    bad_vert=(np.float64(2005.411), np.float64(-219.21), np.float64(-1794.88)) nearest_pristine_dist=0 pristine_min_edge_len=18.69 in_bottom_5pct=no
+    bad_vert=(np.float64(2281.733), np.float64(-264.239), np.float64(-154.242)) nearest_pristine_dist=0 pristine_min_edge_len=21.26 in_bottom_5pct=no
+    bad_vert=(np.float64(2301.886), np.float64(-271.014), np.float64(-154.418)) nearest_pristine_dist=0 pristine_min_edge_len=18.75 in_bottom_5pct=no
+    bad_vert=(np.float64(983.426), np.float64(600.882), np.float64(-1231.194)) nearest_pristine_dist=0 pristine_min_edge_len=16.27 in_bottom_5pct=no
+    bad_vert=(np.float64(981.323), np.float64(606.274), np.float64(-1215.011)) nearest_pristine_dist=0 pristine_min_edge_len=16.91 in_bottom_5pct=no
+    bad_vert=(np.float64(-393.212), np.float64(32.796), np.float64(-1170.428)) nearest_pristine_dist=0 pristine_min_edge_len=16.5 in_bottom_5pct=no
+    bad_vert=(np.float64(-405.52), np.float64(32.52), np.float64(-1159.437)) nearest_pristine_dist=0 pristine_min_edge_len=16.5 in_bottom_5pct=no
+    bad_vert=(np.float64(1415.375), np.float64(-178.703), np.float64(-1077.621)) nearest_pristine_dist=0 pristine_min_edge_len=17 in_bottom_5pct=no
+    bad_vert=(np.float64(1414.615), np.float64(-172.639), np.float64(-1053.957)) nearest_pristine_dist=0 pristine_min_edge_len=17.43 in_bottom_5pct=no
+    bad_vert=(np.float64(1554.247), np.float64(183.222), np.float64(-1248.639)) nearest_pristine_dist=0 pristine_min_edge_len=16.08 in_bottom_5pct=YES
+Retrying decimation with gentler ratio=0.9000...
+mesh_integrity_report: {'vertex_count': 128726, 'face_count': 269459, 'boundary_edges': 13422, 'non_manifold_edges': 9627, 'non_manifold_verts': 16573, 'simple_holes': 5328, 'is_watertight': False, 'signed_volume': 7741919294.55}
+Decimation attempt (ratio=0.9000, retry=1): 128726 vertices, boundary_edges=13422, non_manifold_edges=9627
+WARNING: decimation at ratio=0.9000 damaged topology (retry 1).
+Retrying decimation with gentler ratio=0.9500...
+mesh_integrity_report: {'vertex_count': 136212, 'face_count': 284430, 'boundary_edges': 13423, 'non_manifold_edges': 9627, 'non_manifold_verts': 16573, 'simple_holes': 5327, 'is_watertight': False, 'signed_volume': 7741931532.82}
+Decimation attempt (ratio=0.9500, retry=2): 136212 vertices, boundary_edges=13423, non_manifold_edges=9627
+WARNING: decimation at ratio=0.9500 damaged topology (retry 2).
+Retrying decimation with gentler ratio=0.9750...
+mesh_integrity_report: {'vertex_count': 139955, 'face_count': 291915, 'boundary_edges': 13424, 'non_manifold_edges': 9627, 'non_manifold_verts': 16573, 'simple_holes': 5325, 'is_watertight': False, 'signed_volume': 7741498205.25}
+Decimation attempt (ratio=0.9750, retry=3): 139955 vertices, boundary_edges=13424, non_manifold_edges=9627
+WARNING: decimation at ratio=0.9750 damaged topology (retry 3).
+Retrying decimation with gentler ratio=0.9875...
+mesh_integrity_report: {'vertex_count': 141826, 'face_count': 295657, 'boundary_edges': 13424, 'non_manifold_edges': 9627, 'non_manifold_verts': 16573, 'simple_holes': 5325, 'is_watertight': False, 'signed_volume': 7741548634.79}
+Decimation attempt (ratio=0.9875, retry=4): 141826 vertices, boundary_edges=13424, non_manifold_edges=9627
+WARNING: decimation at ratio=0.9875 damaged topology (retry 4).
+Retrying decimation with gentler ratio=0.9938...
+mesh_integrity_report: {'vertex_count': 142762, 'face_count': 297529, 'boundary_edges': 13424, 'non_manifold_edges': 9627, 'non_manifold_verts': 16573, 'simple_holes': 5324, 'is_watertight': False, 'signed_volume': 7741548152.85}
+Decimation attempt (ratio=0.9938, retry=5): 142762 vertices, boundary_edges=13424, non_manifold_edges=9627
+WARNING: decimation at ratio=0.9938 damaged topology (retry 5).
+Decimation stopped: no non-damaging ratio found after 6 retries (gentlest tried: 0.9938). Keeping mesh at 143698 vertices - further outer-loop iterations would very likely hit the same geometric problem, not a step-size problem.
+DIAGNOSTIC: holes after decimate: 5211, boundary_edges: 13130
+Rebuilding watertight surface via external Manifold tool...
+close_holes_via_manifold_external: exporting current mesh (143698 verts, 276136 faces) to /tmp/_manifold_in_Acanthomyrmex_cf.ferox_CASENT0878067.obj...
+close_holes_via_manifold_external: running /home/khaoula/SMILify/custom_processing/external/Manifold/build/manifold (resolution=20000)...
+close_holes_via_manifold_external: reconstruction complete. stdout: manifold /tmp/_manifold_in_Acanthomyrmex_cf.ferox_CASENT0878067.obj /tmp/_manifold_out_Acanthomyrmex_cf.ferox_CASENT0878067.obj 20000
+
+close_holes_via_manifold_external: mesh state after raw reconstruction:
+STATE[after_manifold_external_reconstruction]
+report_mesh_degeneracy: {'n_verts': 55189, 'n_edges': 165783, 'n_faces': 110522, 'n_zero_length_edges': 0, 'n_zero_area_faces': 0, 'n_duplicate_verts': 0, 'n_duplicate_faces': 0, 'edge_length_percentiles': {0: 0.3489639163017273, 0.1: 8.054964567184449, 1: 14.690387077331543, 5: 24.18583869934082, 50: 45.18511962890625}}
+mesh_integrity_report: {'vertex_count': 55189, 'face_count': 110522, 'boundary_edges': 0, 'non_manifold_edges': 0, 'non_manifold_verts': 24, 'simple_holes': 0, 'is_watertight': False, 'signed_volume': 5844332524.56}
+{'vertex_count': 55189, 'face_count': 110522, 'boundary_edges': 0, 'non_manifold_edges': 0, 'non_manifold_verts': 24, 'simple_holes': 0, 'is_watertight': False, 'signed_volume': 5844332524.56}
+close_holes_via_manifold_external: found 0 non-manifold edges, 24 non-manifold (bowtie) vertices before fix
+close_holes_via_manifold_external: split_nonmanifold_vertex created 24 duplicate vertices across 24 bowtie vertices
+close_holes_via_manifold_external: 0 boundary edges appeared after vertex split (expect 0 - see split_nonmanifold_vertex docstring)
+close_holes_via_manifold_external: forcing a same-session export+reimport round-trip to clear bmesh's stale is_manifold cache after the vertex split...
+
+close_holes_via_manifold_external: mesh state after bowtie-vertex fix:
+STATE[after_manifold_external_bowtie_fix]
+report_mesh_degeneracy: {'n_verts': 55213, 'n_edges': 165783, 'n_faces': 110522, 'n_zero_length_edges': 0, 'n_zero_area_faces': 0, 'n_duplicate_verts': 24, 'n_duplicate_faces': 0, 'edge_length_percentiles': {0: 0.3489639163017273, 0.1: 8.054964567184449, 1: 14.690387077331543, 5: 24.18583869934082, 50: 45.18511962890625}}
+mesh_integrity_report: {'vertex_count': 55213, 'face_count': 110522, 'boundary_edges': 0, 'non_manifold_edges': 0, 'non_manifold_verts': 0, 'simple_holes': 0, 'is_watertight': True, 'signed_volume': 5844332524.56}
+{'vertex_count': 55213, 'face_count': 110522, 'boundary_edges': 0, 'non_manifold_edges': 0, 'non_manifold_verts': 0, 'simple_holes': 0, 'is_watertight': True, 'signed_volume': 5844332524.56}
+close_holes_via_manifold_external stats: {'resolution': 20000, 'n_bad_edges_before': 0, 'n_bad_verts_before': 24, 'n_duplicate_verts_created': 24, 'output_vertices': 55213, 'output_faces': 110522}
+DIAGNOSTIC: holes after manifold_external: 0, boundary_edges: 0
+Aligned model with X-axis based on principal component analysis.
+Flipped model 180 degrees around X-axis to ensure positive Z is up.
+Ensured positive Z is up.
+Rotated model 180 degrees around Z-axis to ensure head is in positive X direction.
+Number of remaining vertices: 55213
+Number of holes in the processed mesh (before capping): 0
+remove_orphan_vertices: removed 0 zero-face orphan vertices
+Coefficient of variation of face sizes: 0.437
+Average angle between face normals: 13.028 degrees
+mesh_integrity_report: {'vertex_count': 55213, 'face_count': 110522, 'boundary_edges': 0, 'non_manifold_edges': 0, 'non_manifold_verts': 0, 'simple_holes': 0, 'is_watertight': True, 'signed_volume': 5844333340.61}
+FINAL_SUMMARY: specimen=Acanthomyrmex_cf.ferox_CASENT0878067 approach=manifold_external vertices=55213 faces=110522 simple_holes=0 boundary_edges=0 non_manifold_edges=0 non_manifold_verts=0 is_watertight=True signed_volume=5844333340.61 face_size_cov=0.437 mesh_smoothness=13.028 time_sec=424.8
+Exporting the processed mesh to /home/khaoula/SMILify/custom_processing/antscan_processed/manifold_external_full_pipeline/Acanthomyrmex_cf.ferox_CASENT0878067/manifold_external/Acanthomyrmex_cf.ferox_CASENT0878067_processed.obj...
+Mesh exported successfully.
+Updating JSON file: /home/khaoula/SMILify/custom_processing/antscan_data/Acanthomyrmex_cf.ferox_CASENT0878067/Acanthomyrmex_cf.ferox_CASENT0878067.json
+JSON file updated successfully.
+Total processing time: 425.06 seconds
+
+Blender quit
+elapsed=427s
+
+=================================================================
+SPECIMEN: Bothroponera_fugax_CASENT0744924
+  stl: /home/khaoula/SMILify/custom_processing/antscan_data/Bothroponera_fugax_CASENT0744924/Bothroponera_fugax_CASENT0744924.stl (185M)
+  started: 2026-08-05T08:56:04+02:00
+=================================================================
+SCRIPT_VERSION=2026-08-manifold-external-integration-v1
+mode=manifold_only, stl_path=/home/khaoula/SMILify/custom_processing/antscan_data/Bothroponera_fugax_CASENT0744924/Bothroponera_fugax_CASENT0744924.stl, output_dir=/home/khaoula/SMILify/custom_processing/antscan_processed/manifold_external_full_pipeline/Bothroponera_fugax_CASENT0744924
+Import finished in 10.5770 sec.
+Cleaning internal geometry...
+Bridged islands (1667013 and 74 verts): gap=0.00, path_hops=1, patch_verts=38
+Bridged islands (1667013 and 135 verts): gap=0.00, path_hops=1, patch_verts=34
+Bridged islands (1667013 and 55 verts): gap=15.95, path_hops=3, patch_verts=36
+Bridged islands (1667013 and 52 verts): gap=6.83, path_hops=2, patch_verts=30
+Bridged islands (1667013 and 43 verts): gap=0.00, path_hops=1, patch_verts=27
+Bridged islands (1667013 and 141 verts): gap=53.33, path_hops=6, patch_verts=87
+Bridged islands (1667013 and 42 verts): gap=9.45, path_hops=1, patch_verts=35
+Bridged islands (1667013 and 103 verts): gap=12.04, path_hops=2, patch_verts=33
+Bridged islands (1667013 and 58 verts): gap=0.00, path_hops=1, patch_verts=60
+Bridged islands (1667013 and 175 verts): gap=7.02, path_hops=1, patch_verts=31
+Bridged islands (1667013 and 47 verts): gap=14.91, path_hops=2, patch_verts=43
+Bridged islands (1667013 and 98 verts): gap=0.00, path_hops=1, patch_verts=28
+Bridged islands (1667013 and 44 verts): gap=18.06, path_hops=3, patch_verts=36
+Bridged islands (1667013 and 53 verts): gap=0.00, path_hops=1, patch_verts=32
+Bridged islands (1667013 and 56 verts): gap=9.74, path_hops=2, patch_verts=40
+Bridged islands (1667013 and 133 verts): gap=9.26, path_hops=2, patch_verts=36
+Bridged islands (1667013 and 51 verts): gap=0.00, path_hops=1, patch_verts=36
+Bridged islands (1667013 and 464 verts): gap=12.45, path_hops=2, patch_verts=34
+Bridged islands (1667013 and 85 verts): gap=7.49, path_hops=1, patch_verts=31
+Bridged islands (1667013 and 47 verts): gap=5.04, path_hops=1, patch_verts=28
+Bridged islands (1667013 and 44 verts): gap=0.00, path_hops=1, patch_verts=43
+Bridged islands (1667013 and 51 verts): gap=36.55, path_hops=12, patch_verts=136
+Bridged islands (1667013 and 142 verts): gap=0.00, path_hops=1, patch_verts=30
+Bridged islands (1667013 and 40 verts): gap=29.65, path_hops=4, patch_verts=50
+Bridged islands (1667013 and 64 verts): gap=115.65, path_hops=16, patch_verts=149
+Bridged islands (1667013 and 53 verts): gap=28.92, path_hops=5, patch_verts=60
+Bridged islands (1667013 and 70 verts): gap=106.15, path_hops=10, patch_verts=106
+Bridged islands (1667013 and 88 verts): gap=20.01, path_hops=3, patch_verts=63
+Bridged islands (1667013 and 54 verts): gap=8.32, path_hops=2, patch_verts=35
+Bridged islands (1667013 and 48 verts): gap=66.62, path_hops=10, patch_verts=99
+Bridged islands (1667013 and 180 verts): gap=35.79, path_hops=6, patch_verts=66
+Bridged islands (1667013 and 44 verts): gap=90.90, path_hops=13, patch_verts=141
+Bridged islands (1667013 and 40 verts): gap=60.99, path_hops=11, patch_verts=105
+Bridged islands (1667013 and 81 verts): gap=0.00, path_hops=1, patch_verts=34
+Bridged islands (1667013 and 39 verts): gap=59.24, path_hops=11, patch_verts=125
+Bridged islands (1667013 and 43 verts): gap=55.14, path_hops=8, patch_verts=107
+Bridged islands (1667013 and 37 verts): gap=8.46, path_hops=2, patch_verts=32
+Bridged islands (1667013 and 39 verts): gap=0.00, path_hops=1, patch_verts=26
+Bridged islands (1667013 and 135 verts): gap=23.45, path_hops=9, patch_verts=94
+Bridged islands (1667013 and 46 verts): gap=0.00, path_hops=1, patch_verts=28
+Bridged islands (1667013 and 90 verts): gap=0.00, path_hops=1, patch_verts=26
+Bridged islands (1667013 and 58 verts): gap=5.43, path_hops=1, patch_verts=32
+Bridged islands (1667013 and 39 verts): gap=0.00, path_hops=1, patch_verts=28
+Bridged islands (1667013 and 84 verts): gap=0.00, path_hops=1, patch_verts=34
+Bridged islands (1667013 and 72 verts): gap=0.00, path_hops=1, patch_verts=24
+Bridged islands (1667013 and 39 verts): gap=28.36, path_hops=4, patch_verts=59
+Bridged islands (1667013 and 40 verts): gap=23.58, path_hops=4, patch_verts=63
+Bridged islands (90385 and 135 verts): gap=49.26, path_hops=11, patch_verts=93
+Bridged islands (90385 and 175 verts): gap=44.19, path_hops=10, patch_verts=96
+Bridged islands (90385 and 57 verts): gap=0.00, path_hops=1, patch_verts=26
+Bridged islands (90385 and 40 verts): gap=10.78, path_hops=2, patch_verts=34
+Bridged islands (90385 and 75 verts): gap=0.00, path_hops=1, patch_verts=33
+Bridged islands (90385 and 52 verts): gap=0.00, path_hops=1, patch_verts=30
+Bridged islands (90385 and 48 verts): gap=14.94, path_hops=2, patch_verts=39
+Bridged islands (135 and 175 verts): gap=112.32, path_hops=17, patch_verts=164
+Bridged islands (55 and 464 verts): gap=13.04, path_hops=3, patch_verts=40
+Bridged islands (55 and 88 verts): gap=167.67, path_hops=20, patch_verts=187
+Bridged islands (52 and 43 verts): gap=79.86, path_hops=10, patch_verts=118
+Bridged islands (52 and 39 verts): gap=113.87, path_hops=13, patch_verts=114
+Bridged islands (141 and 53 verts): gap=12.85, path_hops=2, patch_verts=44
+Bridged islands (141 and 135 verts): gap=8.54, path_hops=1, patch_verts=29
+Bridged islands (42 and 40 verts): gap=60.81, path_hops=10, patch_verts=89
+Bridged islands (103 and 58 verts): gap=8.70, path_hops=1, patch_verts=29
+Bridged islands (103 and 175 verts): gap=27.68, path_hops=7, patch_verts=67
+Bridged islands (103 and 48 verts): gap=20.12, path_hops=3, patch_verts=46
+Bridged islands (58 and 175 verts): gap=87.96, path_hops=15, patch_verts=148
+Bridged islands (58 and 48 verts): gap=0.00, path_hops=1, patch_verts=38
+Bridged islands (47 and 48 verts): gap=79.35, path_hops=20, patch_verts=186
+Bridged islands (98 and 56 verts): gap=45.54, path_hops=11, patch_verts=94
+Bridged islands (44 and 81 verts): gap=128.78, path_hops=17, patch_verts=158
+Bridged islands (44 and 39 verts): gap=84.96, path_hops=12, patch_verts=110
+Bridged islands (464 and 64 verts): gap=146.08, path_hops=19, patch_verts=207
+Bridged islands (464 and 88 verts): gap=19.65, path_hops=3, patch_verts=38
+Bridged islands (464 and 180 verts): gap=0.00, path_hops=1, patch_verts=31
+Bridged islands (464 and 40 verts): gap=15.25, path_hops=3, patch_verts=49
+Bridged islands (44 and 51 verts): gap=39.98, path_hops=17, patch_verts=176
+Bridged islands (51 and 40 verts): gap=76.86, path_hops=10, patch_verts=128
+Bridged islands (52 and 41 verts): gap=66.96, path_hops=10, patch_verts=99
+Bridged islands (41 and 64 verts): gap=157.14, path_hops=16, patch_verts=159
+Bridged islands (64 and 88 verts): gap=62.89, path_hops=7, patch_verts=93
+Bridged islands (53 and 135 verts): gap=95.34, path_hops=9, patch_verts=136
+Bridged islands (70 and 44 verts): gap=85.91, path_hops=12, patch_verts=119
+Bridged islands (70 and 39 verts): gap=90.71, path_hops=18, patch_verts=170
+Bridged islands (88 and 180 verts): gap=145.78, path_hops=19, patch_verts=178
+Bridged islands (88 and 40 verts): gap=68.46, path_hops=9, patch_verts=98
+Bridged islands (180 and 40 verts): gap=18.31, path_hops=3, patch_verts=48
+Bridged islands (44 and 81 verts): gap=101.32, path_hops=9, patch_verts=137
+Bridged islands (44 and 39 verts): gap=0.00, path_hops=1, patch_verts=32
+Bridged islands (81 and 39 verts): gap=59.08, path_hops=2, patch_verts=81
+Bridged islands (57 and 40 verts): gap=79.82, path_hops=18, patch_verts=147
+Bridged islands (57 and 75 verts): gap=80.15, path_hops=18, patch_verts=184
+Bridged islands (43 and 37 verts): gap=104.69, path_hops=13, patch_verts=131
+Bridged islands (43 and 39 verts): gap=42.61, path_hops=10, patch_verts=104
+Bridged islands (37 and 39 verts): gap=38.62, path_hops=8, patch_verts=86
+Bridged islands (40 and 75 verts): gap=11.52, path_hops=2, patch_verts=29
+Bridged islands (39 and 39 verts): gap=81.52, path_hops=16, patch_verts=157
+Bridged islands (75 and 52 verts): gap=116.48, path_hops=13, patch_verts=118
+Bridged islands (84 and 72 verts): gap=31.34, path_hops=5, patch_verts=51
+Bridged 98 nearby island pairs via original-mesh shortest path
+Vertices kept (pre-island-filter): 1775372
+Total vertices after ray-cast cleaning: 1775372
+Removed 7 debris islands (< 4 faces)
+Total vertices after island filtering: 1775351
+Applying simplification modifiers...
+Bounding box size: <Vector (3664.8359, 4633.8828, 5493.6377)>, bbox-based threshold: 10.987275390625
+Median edge length: 6.882533550262451, local-density-based threshold: 2.0647600650787354
+Using weld_merge_threshold: 2.0647600650787354
+Removed 652 debris islands (< 4 faces) before Weld
+Weld: 3472260 -> 3464708 faces (0.2% loss)
+Removed 0 debris islands (< 4 faces) after apply_modifiers
+Applying mesh decimation...
+mesh_integrity_report: {'vertex_count': 1410052, 'face_count': 2794863, 'boundary_edges': 25378, 'non_manifold_edges': 693, 'non_manifold_verts': 1610, 'simple_holes': 10595, 'is_watertight': False, 'signed_volume': 12818968500.82}
+Decimation attempt (ratio=0.8000, retry=0): 1410052 vertices, boundary_edges=25378, non_manifold_edges=693
+WARNING: decimation at ratio=0.8000 damaged topology (retry 0).
+report_bad_edges: 26240 bad edges (face count != 2)
+  edge=107 n_faces=1 verts=((-106.1904296875, -1024.5272216796875, 1264.6328125), (-91.96337890625, -1025.87158203125, 1265.82373046875))
+  edge=111 n_faces=1 verts=((-318.216552734375, -535.5042724609375, 135.10498046875), (-310.978271484375, -545.645263671875, 136.296142578125))
+  edge=186 n_faces=1 verts=((-202.5009765625, 2162.404296875, -395.61767578125), (-201.447509765625, 2167.6240234375, -394.9326171875))
+  edge=323 n_faces=1 verts=((211.169189453125, -876.8101806640625, 1310.1689453125), (209.76953125, -872.0714111328125, 1309.378662109375))
+  edge=604 n_faces=1 verts=((-590.2208251953125, 2363.35009765625, -1455.7952880859375), (-605.3552856445312, 2364.04736328125, -1436.9356689453125))
+  edge=764 n_faces=1 verts=((-106.1904296875, -1024.5272216796875, 1264.6328125), (-110.46944427490234, -1021.45703125, 1262.9957275390625))
+  edge=809 n_faces=1 verts=((-667.0703125, 215.26611328125, 1384.497314453125), (-665.527587890625, 220.677001953125, 1383.960205078125))
+  edge=1085 n_faces=1 verts=((170.350341796875, -392.202880859375, 1605.0205078125), (171.121337890625, -396.6383056640625, 1607.35205078125))
+  edge=1417 n_faces=1 verts=((1201.094970703125, -1056.650390625, 841.7861328125), (1198.9775390625, -1055.1729736328125, 854.196044921875))
+  edge=1704 n_faces=1 verts=((40.533447265625, 760.847412109375, 917.64599609375), (42.073974609375, 757.317138671875, 923.318359375))
+  edge=1715 n_faces=1 verts=((449.113525390625, -361.5081787109375, 1695.50341796875), (454.3935546875, -359.0921630859375, 1697.80615234375))
+  edge=1744 n_faces=1 verts=((178.68017578125, -510.5986328125, 1093.2392578125), (168.63671875, -524.0777587890625, 1097.400390625))
+  edge=1784 n_faces=1 verts=((-318.216552734375, -535.5042724609375, 135.10498046875), (-324.43359375, -520.871337890625, 133.64697265625))
+  edge=1819 n_faces=1 verts=((-10.733154296875, -366.267333984375, 1324.0322265625), (-9.626708984375, -352.0396728515625, 1327.165771484375))
+  edge=1930 n_faces=1 verts=((264.79168701171875, -449.0391540527344, 1011.2550659179688), (260.013916015625, -454.4443359375, 1012.880859375))
+  edge=1996 n_faces=1 verts=((621.021484375, -200.076416015625, 2863.4423828125), (619.921630859375, -203.12841796875, 2866.68115234375))
+  edge=2204 n_faces=1 verts=((414.0087890625, -367.584228515625, 1693.76611328125), (407.49072265625, -373.0693359375, 1699.61865234375))
+  edge=2205 n_faces=1 verts=((414.0087890625, -367.584228515625, 1693.76611328125), (421.22509765625, -369.9537353515625, 1696.04443359375))
+  edge=2366 n_faces=1 verts=((-171.241455078125, -1030.1309814453125, 1517.715576171875), (-172.34228515625, -1029.53173828125, 1521.836181640625))
+  edge=2498 n_faces=3 verts=((-102.0048828125, -566.378173828125, 135.740234375), (-107.774169921875, -564.3233642578125, 138.830078125))
+  ... and 26220 more
+check_bad_verts_edge_length_percentile: p5_min_edge_length_threshold=2.921 (mesh-wide, n=1,759,416 pristine verts)
+  1143/52480 bad vertices matched to a pristine vertex at/below that threshold (2.2%)
+    bad_vert=(np.float64(-106.19), np.float64(-1024.527), np.float64(1264.633)) nearest_pristine_dist=0 pristine_min_edge_len=5.526 in_bottom_5pct=no
+    bad_vert=(np.float64(-91.963), np.float64(-1025.872), np.float64(1265.824)) nearest_pristine_dist=0 pristine_min_edge_len=9.669 in_bottom_5pct=no
+    bad_vert=(np.float64(-318.217), np.float64(-535.504), np.float64(135.105)) nearest_pristine_dist=0 pristine_min_edge_len=4.279 in_bottom_5pct=no
+    bad_vert=(np.float64(-310.978), np.float64(-545.645), np.float64(136.296)) nearest_pristine_dist=0 pristine_min_edge_len=3.437 in_bottom_5pct=no
+    bad_vert=(np.float64(-202.501), np.float64(2162.404), np.float64(-395.618)) nearest_pristine_dist=0 pristine_min_edge_len=3.105 in_bottom_5pct=no
+    bad_vert=(np.float64(-201.448), np.float64(2167.624), np.float64(-394.933)) nearest_pristine_dist=0 pristine_min_edge_len=4.042 in_bottom_5pct=no
+    bad_vert=(np.float64(211.169), np.float64(-876.81), np.float64(1310.169)) nearest_pristine_dist=0 pristine_min_edge_len=5.004 in_bottom_5pct=no
+    bad_vert=(np.float64(209.77), np.float64(-872.071), np.float64(1309.379)) nearest_pristine_dist=0 pristine_min_edge_len=4.962 in_bottom_5pct=no
+    bad_vert=(np.float64(-590.221), np.float64(2363.35), np.float64(-1455.795)) nearest_pristine_dist=0 pristine_min_edge_len=5.912 in_bottom_5pct=no
+    bad_vert=(np.float64(-605.355), np.float64(2364.047), np.float64(-1436.936)) nearest_pristine_dist=0.06454 pristine_min_edge_len=3.374 in_bottom_5pct=no
+    bad_vert=(np.float64(-106.19), np.float64(-1024.527), np.float64(1264.633)) nearest_pristine_dist=0 pristine_min_edge_len=5.526 in_bottom_5pct=no
+    bad_vert=(np.float64(-110.469), np.float64(-1021.457), np.float64(1262.996)) nearest_pristine_dist=0.02428 pristine_min_edge_len=3.788 in_bottom_5pct=no
+    bad_vert=(np.float64(-667.07), np.float64(215.266), np.float64(1384.497)) nearest_pristine_dist=0 pristine_min_edge_len=4.743 in_bottom_5pct=no
+    bad_vert=(np.float64(-665.528), np.float64(220.677), np.float64(1383.96)) nearest_pristine_dist=0 pristine_min_edge_len=5.652 in_bottom_5pct=no
+    bad_vert=(np.float64(170.35), np.float64(-392.203), np.float64(1605.021)) nearest_pristine_dist=0 pristine_min_edge_len=4.771 in_bottom_5pct=no
+Retrying decimation with gentler ratio=0.9000...
+mesh_integrity_report: {'vertex_count': 1584736, 'face_count': 3144220, 'boundary_edges': 25389, 'non_manifold_edges': 693, 'non_manifold_verts': 1610, 'simple_holes': 10575, 'is_watertight': False, 'signed_volume': 12818998676.2}
+Decimation attempt (ratio=0.9000, retry=1): 1584736 vertices, boundary_edges=25389, non_manifold_edges=693
+WARNING: decimation at ratio=0.9000 damaged topology (retry 1).
+Retrying decimation with gentler ratio=0.9500...
+mesh_integrity_report: {'vertex_count': 1672076, 'face_count': 3318899, 'boundary_edges': 25390, 'non_manifold_edges': 693, 'non_manifold_verts': 1610, 'simple_holes': 10575, 'is_watertight': False, 'signed_volume': 12819017095.49}
+Decimation attempt (ratio=0.9500, retry=2): 1672076 vertices, boundary_edges=25390, non_manifold_edges=693
+WARNING: decimation at ratio=0.9500 damaged topology (retry 2).
+Retrying decimation with gentler ratio=0.9750...
+mesh_integrity_report: {'vertex_count': 1715746, 'face_count': 3406239, 'boundary_edges': 25390, 'non_manifold_edges': 693, 'non_manifold_verts': 1610, 'simple_holes': 10572, 'is_watertight': False, 'signed_volume': 12819017271.42}
+Decimation attempt (ratio=0.9750, retry=3): 1715746 vertices, boundary_edges=25390, non_manifold_edges=693
+WARNING: decimation at ratio=0.9750 damaged topology (retry 3).
+Retrying decimation with gentler ratio=0.9875...
+mesh_integrity_report: {'vertex_count': 1737581, 'face_count': 3449909, 'boundary_edges': 25390, 'non_manifold_edges': 693, 'non_manifold_verts': 1610, 'simple_holes': 10565, 'is_watertight': False, 'signed_volume': 12819017791.58}
+Decimation attempt (ratio=0.9875, retry=4): 1737581 vertices, boundary_edges=25390, non_manifold_edges=693
+WARNING: decimation at ratio=0.9875 damaged topology (retry 4).
+Retrying decimation with gentler ratio=0.9938...
+mesh_integrity_report: {'vertex_count': 1748498, 'face_count': 3471743, 'boundary_edges': 25390, 'non_manifold_edges': 693, 'non_manifold_verts': 1610, 'simple_holes': 10558, 'is_watertight': False, 'signed_volume': 12819018066.86}
+Decimation attempt (ratio=0.9938, retry=5): 1748498 vertices, boundary_edges=25390, non_manifold_edges=693
+WARNING: decimation at ratio=0.9938 damaged topology (retry 5).
+Decimation stopped: no non-damaging ratio found after 6 retries (gentlest tried: 0.9938). Keeping mesh at 1759416 vertices - further outer-loop iterations would very likely hit the same geometric problem, not a step-size problem.
+DIAGNOSTIC: holes after decimate: 10127, boundary_edges: 24110
+Rebuilding watertight surface via external Manifold tool...
+close_holes_via_manifold_external: exporting current mesh (1759416 verts, 3079197 faces) to /tmp/_manifold_in_Bothroponera_fugax_CASENT0744924.obj...
+close_holes_via_manifold_external: running /home/khaoula/SMILify/custom_processing/external/Manifold/build/manifold (resolution=20000)...
+close_holes_via_manifold_external: reconstruction complete. stdout: manifold /tmp/_manifold_in_Bothroponera_fugax_CASENT0744924.obj /tmp/_manifold_out_Bothroponera_fugax_CASENT0744924.obj 20000
+
+close_holes_via_manifold_external: mesh state after raw reconstruction:
+STATE[after_manifold_external_reconstruction]
+report_mesh_degeneracy: {'n_verts': 31602, 'n_edges': 94923, 'n_faces': 63282, 'n_zero_length_edges': 0, 'n_zero_area_faces': 0, 'n_duplicate_verts': 0, 'n_duplicate_faces': 0, 'edge_length_percentiles': {0: 3.278067111968994, 0.1: 9.053086400985718, 1: 17.566379776000975, 5: 29.632042121887206, 50: 54.61811065673828}}
+mesh_integrity_report: {'vertex_count': 31602, 'face_count': 63282, 'boundary_edges': 0, 'non_manifold_edges': 0, 'non_manifold_verts': 3, 'simple_holes': 0, 'is_watertight': False, 'signed_volume': 16716612083.91}
+{'vertex_count': 31602, 'face_count': 63282, 'boundary_edges': 0, 'non_manifold_edges': 0, 'non_manifold_verts': 3, 'simple_holes': 0, 'is_watertight': False, 'signed_volume': 16716612083.91}
+close_holes_via_manifold_external: found 0 non-manifold edges, 3 non-manifold (bowtie) vertices before fix
+close_holes_via_manifold_external: split_nonmanifold_vertex created 3 duplicate vertices across 3 bowtie vertices
+close_holes_via_manifold_external: 0 boundary edges appeared after vertex split (expect 0 - see split_nonmanifold_vertex docstring)
+close_holes_via_manifold_external: forcing a same-session export+reimport round-trip to clear bmesh's stale is_manifold cache after the vertex split...
+
+close_holes_via_manifold_external: mesh state after bowtie-vertex fix:
+STATE[after_manifold_external_bowtie_fix]
+report_mesh_degeneracy: {'n_verts': 31605, 'n_edges': 94923, 'n_faces': 63282, 'n_zero_length_edges': 0, 'n_zero_area_faces': 0, 'n_duplicate_verts': 3, 'n_duplicate_faces': 0, 'edge_length_percentiles': {0: 3.278067111968994, 0.1: 9.053086400985718, 1: 17.566379776000975, 5: 29.632042121887206, 50: 54.61811065673828}}
+mesh_integrity_report: {'vertex_count': 31605, 'face_count': 63282, 'boundary_edges': 0, 'non_manifold_edges': 0, 'non_manifold_verts': 0, 'simple_holes': 0, 'is_watertight': True, 'signed_volume': 16716612083.91}
+{'vertex_count': 31605, 'face_count': 63282, 'boundary_edges': 0, 'non_manifold_edges': 0, 'non_manifold_verts': 0, 'simple_holes': 0, 'is_watertight': True, 'signed_volume': 16716612083.91}
+close_holes_via_manifold_external stats: {'resolution': 20000, 'n_bad_edges_before': 0, 'n_bad_verts_before': 3, 'n_duplicate_verts_created': 3, 'output_vertices': 31605, 'output_faces': 63282}
+DIAGNOSTIC: holes after manifold_external: 0, boundary_edges: 0
+Aligned model with X-axis based on principal component analysis.
+Ensured positive Z is up.
+Rotated model 180 degrees around Z-axis to ensure head is in positive X direction.
+Number of remaining vertices: 31605
+Number of holes in the processed mesh (before capping): 0
+remove_orphan_vertices: removed 0 zero-face orphan vertices
+Coefficient of variation of face sizes: 0.426
+Average angle between face normals: 13.919 degrees
+mesh_integrity_report: {'vertex_count': 31605, 'face_count': 63282, 'boundary_edges': 0, 'non_manifold_edges': 0, 'non_manifold_verts': 0, 'simple_holes': 0, 'is_watertight': True, 'signed_volume': 16716612525.86}
+FINAL_SUMMARY: specimen=Bothroponera_fugax_CASENT0744924 approach=manifold_external vertices=31605 faces=63282 simple_holes=0 boundary_edges=0 non_manifold_edges=0 non_manifold_verts=0 is_watertight=True signed_volume=16716612525.86 face_size_cov=0.426 mesh_smoothness=13.919 time_sec=2425.7
+Exporting the processed mesh to /home/khaoula/SMILify/custom_processing/antscan_processed/manifold_external_full_pipeline/Bothroponera_fugax_CASENT0744924/manifold_external/Bothroponera_fugax_CASENT0744924_processed.obj...
+Mesh exported successfully.
+Updating JSON file: /home/khaoula/SMILify/custom_processing/antscan_data/Bothroponera_fugax_CASENT0744924/Bothroponera_fugax_CASENT0744924.json
+JSON file updated successfully.
+Total processing time: 2425.85 seconds
+Blender 3.0.1
+
+Blender quit
+elapsed=2426s
+
+=================================================================
+SPECIMEN: Cephalotes_depressus_CASENT0744569
+  stl: /home/khaoula/SMILify/custom_processing/antscan_data/Cephalotes_depressus_CASENT0744569/Cephalotes_depressus_CASENT0744569.stl (117M)
+  started: 2026-08-05T09:36:30+02:00
+=================================================================
+SCRIPT_VERSION=2026-08-manifold-external-integration-v1
+mode=manifold_only, stl_path=/home/khaoula/SMILify/custom_processing/antscan_data/Cephalotes_depressus_CASENT0744569/Cephalotes_depressus_CASENT0744569.stl, output_dir=/home/khaoula/SMILify/custom_processing/antscan_processed/manifold_external_full_pipeline/Cephalotes_depressus_CASENT0744569
+Import finished in 6.7345 sec.
+Cleaning internal geometry...
+Bridged islands (321697 and 20408 verts): gap=8.60, path_hops=2, patch_verts=72
+Bridged islands (321697 and 10331 verts): gap=3.02, path_hops=3, patch_verts=52
+Bridged islands (321697 and 50772 verts): gap=4.25, path_hops=19, patch_verts=188
+Bridged islands (321697 and 61 verts): gap=3.40, path_hops=2, patch_verts=35
+Bridged islands (321697 and 259 verts): gap=2.56, path_hops=3, patch_verts=62
+Bridged islands (321697 and 54 verts): gap=4.10, path_hops=7, patch_verts=65
+Bridged islands (321697 and 232 verts): gap=2.69, path_hops=7, patch_verts=95
+Bridged islands (321697 and 287 verts): gap=1.75, path_hops=3, patch_verts=45
+Bridged islands (321697 and 100 verts): gap=14.34, path_hops=3, patch_verts=44
+Bridged islands (321697 and 186 verts): gap=2.25, path_hops=1, patch_verts=34
+Bridged islands (321697 and 85 verts): gap=42.03, path_hops=10, patch_verts=89
+Bridged islands (321697 and 193 verts): gap=19.20, path_hops=7, patch_verts=81
+Bridged islands (321697 and 184 verts): gap=2.22, path_hops=1, patch_verts=29
+Bridged islands (321697 and 64 verts): gap=0.00, path_hops=1, patch_verts=38
+Bridged islands (321697 and 55 verts): gap=12.90, path_hops=4, patch_verts=68
+Bridged islands (321697 and 104 verts): gap=0.00, path_hops=1, patch_verts=41
+Bridged islands (321697 and 71 verts): gap=3.01, path_hops=2, patch_verts=45
+Bridged islands (321697 and 60 verts): gap=21.05, path_hops=8, patch_verts=86
+Bridged islands (321697 and 99 verts): gap=4.81, path_hops=3, patch_verts=35
+Bridged islands (321697 and 54 verts): gap=0.00, path_hops=1, patch_verts=36
+Bridged islands (321697 and 38 verts): gap=3.16, path_hops=12, patch_verts=117
+Bridged islands (321697 and 267 verts): gap=1.96, path_hops=4, patch_verts=60
+Bridged islands (321697 and 87 verts): gap=4.49, path_hops=8, patch_verts=89
+Bridged islands (321697 and 214 verts): gap=0.00, path_hops=1, patch_verts=34
+Bridged islands (321697 and 49 verts): gap=0.00, path_hops=1, patch_verts=43
+Bridged islands (321697 and 57 verts): gap=26.13, path_hops=14, patch_verts=151
+Bridged islands (321697 and 56 verts): gap=0.00, path_hops=1, patch_verts=48
+Bridged islands (321697 and 324 verts): gap=4.35, path_hops=6, patch_verts=69
+Bridged islands (321697 and 82 verts): gap=4.58, path_hops=18, patch_verts=179
+Bridged islands (321697 and 80 verts): gap=16.75, path_hops=18, patch_verts=178
+Bridged islands (321697 and 102 verts): gap=10.06, path_hops=7, patch_verts=86
+Bridged islands (321697 and 387 verts): gap=4.36, path_hops=8, patch_verts=103
+Bridged islands (321697 and 60 verts): gap=0.00, path_hops=1, patch_verts=31
+Bridged islands (321697 and 181 verts): gap=15.33, path_hops=10, patch_verts=137
+Bridged islands (321697 and 160 verts): gap=0.00, path_hops=1, patch_verts=36
+Bridged islands (321697 and 49 verts): gap=4.25, path_hops=1, patch_verts=30
+Bridged islands (321697 and 52 verts): gap=11.69, path_hops=13, patch_verts=123
+Bridged islands (321697 and 290 verts): gap=9.88, path_hops=10, patch_verts=109
+Bridged islands (321697 and 108 verts): gap=6.65, path_hops=5, patch_verts=67
+Bridged islands (321697 and 155 verts): gap=0.00, path_hops=1, patch_verts=29
+Bridged islands (321697 and 92 verts): gap=5.87, path_hops=9, patch_verts=92
+Bridged islands (321697 and 115 verts): gap=0.00, path_hops=1, patch_verts=34
+Bridged islands (321697 and 61 verts): gap=17.51, path_hops=11, patch_verts=145
+Bridged islands (321697 and 524 verts): gap=0.00, path_hops=1, patch_verts=52
+Bridged islands (321697 and 81 verts): gap=4.11, path_hops=3, patch_verts=67
+Bridged islands (321697 and 118 verts): gap=0.00, path_hops=1, patch_verts=40
+Bridged islands (321697 and 73 verts): gap=7.57, path_hops=15, patch_verts=150
+Bridged islands (321697 and 51 verts): gap=15.11, path_hops=6, patch_verts=62
+Bridged islands (321697 and 82 verts): gap=11.57, path_hops=9, patch_verts=98
+Bridged islands (321697 and 42 verts): gap=8.51, path_hops=3, patch_verts=45
+Bridged islands (321697 and 40 verts): gap=3.38, path_hops=2, patch_verts=37
+Bridged islands (321697 and 111 verts): gap=6.59, path_hops=3, patch_verts=54
+Bridged islands (321697 and 50 verts): gap=0.00, path_hops=1, patch_verts=28
+Bridged islands (321697 and 51 verts): gap=3.18, path_hops=4, patch_verts=61
+Bridged islands (321697 and 65 verts): gap=0.00, path_hops=1, patch_verts=40
+Bridged islands (321697 and 208 verts): gap=2.41, path_hops=9, patch_verts=95
+Bridged islands (321697 and 165 verts): gap=2.48, path_hops=1, patch_verts=41
+Bridged islands (321697 and 43 verts): gap=31.12, path_hops=9, patch_verts=73
+Bridged islands (321697 and 89 verts): gap=28.65, path_hops=9, patch_verts=96
+Bridged islands (321697 and 150 verts): gap=0.00, path_hops=1, patch_verts=27
+Bridged islands (321697 and 43 verts): gap=31.91, path_hops=11, patch_verts=109
+Bridged islands (321697 and 36 verts): gap=10.26, path_hops=14, patch_verts=135
+Bridged islands (321697 and 142 verts): gap=8.36, path_hops=2, patch_verts=32
+Bridged islands (321697 and 38 verts): gap=3.87, path_hops=1, patch_verts=37
+Bridged islands (321697 and 102 verts): gap=9.33, path_hops=3, patch_verts=46
+Bridged islands (321697 and 74 verts): gap=0.00, path_hops=1, patch_verts=30
+Bridged islands (321697 and 52 verts): gap=5.36, path_hops=3, patch_verts=53
+Bridged islands (321697 and 60 verts): gap=5.57, path_hops=2, patch_verts=41
+Bridged islands (321697 and 157 verts): gap=34.96, path_hops=12, patch_verts=96
+Bridged islands (321697 and 51 verts): gap=22.43, path_hops=17, patch_verts=177
+Bridged islands (321697 and 53 verts): gap=0.00, path_hops=1, patch_verts=34
+Bridged islands (321697 and 46 verts): gap=19.63, path_hops=11, patch_verts=103
+Bridged islands (321697 and 41 verts): gap=0.00, path_hops=1, patch_verts=34
+Bridged islands (321697 and 43 verts): gap=0.00, path_hops=1, patch_verts=44
+Bridged islands (321697 and 35 verts): gap=5.85, path_hops=18, patch_verts=170
+Bridged islands (321697 and 57 verts): gap=9.07, path_hops=15, patch_verts=140
+Bridged islands (321697 and 125 verts): gap=0.00, path_hops=1, patch_verts=33
+Bridged islands (321697 and 39 verts): gap=0.00, path_hops=1, patch_verts=33
+Bridged islands (321697 and 91 verts): gap=1.70, path_hops=5, patch_verts=60
+Bridged islands (321697 and 31 verts): gap=8.69, path_hops=2, patch_verts=29
+Bridged islands (321697 and 51 verts): gap=24.08, path_hops=14, patch_verts=204
+Bridged islands (321697 and 114 verts): gap=4.79, path_hops=1, patch_verts=33
+Bridged islands (321697 and 52 verts): gap=10.07, path_hops=19, patch_verts=208
+Bridged islands (321697 and 39 verts): gap=5.42, path_hops=2, patch_verts=35
+Bridged islands (321697 and 42 verts): gap=0.00, path_hops=1, patch_verts=33
+Bridged islands (321697 and 78 verts): gap=0.00, path_hops=1, patch_verts=45
+Bridged islands (321697 and 45 verts): gap=3.41, path_hops=12, patch_verts=152
+Bridged islands (321697 and 56 verts): gap=7.36, path_hops=2, patch_verts=31
+Bridged islands (321697 and 90 verts): gap=0.00, path_hops=1, patch_verts=34
+Bridged islands (321697 and 71 verts): gap=7.65, path_hops=2, patch_verts=52
+Bridged islands (321697 and 57 verts): gap=6.64, path_hops=2, patch_verts=31
+Bridged islands (321697 and 47 verts): gap=16.21, path_hops=4, patch_verts=61
+Bridged islands (321697 and 122 verts): gap=5.09, path_hops=20, patch_verts=168
+Bridged islands (321697 and 53 verts): gap=0.00, path_hops=1, patch_verts=26
+Bridged islands (321697 and 83 verts): gap=5.68, path_hops=7, patch_verts=65
+Bridged islands (321697 and 60 verts): gap=15.86, path_hops=18, patch_verts=184
+Bridged islands (321697 and 41 verts): gap=24.27, path_hops=7, patch_verts=70
+Bridged islands (321697 and 161 verts): gap=0.00, path_hops=1, patch_verts=35
+Bridged islands (321697 and 69 verts): gap=5.22, path_hops=2, patch_verts=33
+Bridged islands (321697 and 44 verts): gap=13.46, path_hops=7, patch_verts=93
+Bridged islands (321697 and 41 verts): gap=7.95, path_hops=2, patch_verts=32
+Bridged islands (321697 and 37 verts): gap=7.78, path_hops=4, patch_verts=76
+Bridged islands (321697 and 48 verts): gap=5.45, path_hops=2, patch_verts=37
+Bridged islands (321697 and 35 verts): gap=0.00, path_hops=1, patch_verts=31
+Bridged islands (321697 and 65 verts): gap=0.00, path_hops=1, patch_verts=42
+Bridged islands (321697 and 55 verts): gap=3.06, path_hops=2, patch_verts=39
+Bridged islands (321697 and 59 verts): gap=3.61, path_hops=2, patch_verts=55
+Bridged islands (321697 and 35 verts): gap=3.04, path_hops=2, patch_verts=46
+Bridged islands (321697 and 107 verts): gap=37.15, path_hops=14, patch_verts=119
+Bridged islands (321697 and 67 verts): gap=12.58, path_hops=3, patch_verts=79
+Bridged islands (321697 and 54 verts): gap=0.00, path_hops=1, patch_verts=31
+Bridged islands (321697 and 44 verts): gap=1.68, path_hops=2, patch_verts=47
+Bridged islands (20408 and 55 verts): gap=19.49, path_hops=11, patch_verts=76
+Bridged islands (20408 and 36 verts): gap=63.48, path_hops=19, patch_verts=172
+Bridged islands (10331 and 267 verts): gap=7.80, path_hops=5, patch_verts=67
+Bridged islands (10331 and 102 verts): gap=17.15, path_hops=11, patch_verts=107
+Bridged islands (10331 and 65 verts): gap=29.63, path_hops=18, patch_verts=177
+Bridged islands (10331 and 94 verts): gap=16.12, path_hops=6, patch_verts=86
+Bridged islands (10331 and 38 verts): gap=3.17, path_hops=7, patch_verts=81
+Bridged islands (46 and 180 verts): gap=10.68, path_hops=14, patch_verts=181
+Bridged islands (46 and 51 verts): gap=16.08, path_hops=12, patch_verts=167
+Bridged islands (46 and 40 verts): gap=33.48, path_hops=20, patch_verts=219
+Bridged islands (46 and 61 verts): gap=6.48, path_hops=2, patch_verts=48
+Bridged islands (50772 and 205 verts): gap=16.51, path_hops=16, patch_verts=135
+Bridged islands (50772 and 53 verts): gap=60.82, path_hops=20, patch_verts=190
+Bridged islands (50772 and 4335 verts): gap=5.00, path_hops=12, patch_verts=138
+Bridged islands (50772 and 121 verts): gap=10.06, path_hops=8, patch_verts=89
+Bridged islands (50772 and 37 verts): gap=34.22, path_hops=20, patch_verts=200
+Bridged islands (50772 and 57 verts): gap=6.91, path_hops=1, patch_verts=35
+Bridged islands (50772 and 117 verts): gap=40.86, path_hops=12, patch_verts=112
+Bridged islands (50772 and 60 verts): gap=24.74, path_hops=6, patch_verts=74
+Bridged islands (50772 and 82 verts): gap=4.63, path_hops=2, patch_verts=41
+Bridged islands (50772 and 80 verts): gap=14.95, path_hops=2, patch_verts=35
+Bridged islands (50772 and 88 verts): gap=28.15, path_hops=8, patch_verts=86
+Bridged islands (50772 and 55 verts): gap=2.57, path_hops=8, patch_verts=96
+Bridged islands (50772 and 45 verts): gap=8.49, path_hops=2, patch_verts=34
+Bridged islands (50772 and 53 verts): gap=25.20, path_hops=13, patch_verts=122
+Bridged islands (57 and 68 verts): gap=51.26, path_hops=13, patch_verts=144
+Bridged islands (71 and 61 verts): gap=36.96, path_hops=17, patch_verts=192
+Bridged islands (71 and 60 verts): gap=18.46, path_hops=13, patch_verts=149
+Bridged islands (75 and 45 verts): gap=21.68, path_hops=8, patch_verts=74
+Bridged islands (75 and 117 verts): gap=60.06, path_hops=10, patch_verts=94
+Bridged islands (259 and 287 verts): gap=21.20, path_hops=5, patch_verts=56
+Bridged islands (259 and 81 verts): gap=48.53, path_hops=17, patch_verts=148
+Bridged islands (259 and 90 verts): gap=5.14, path_hops=1, patch_verts=46
+Bridged islands (259 and 44 verts): gap=23.53, path_hops=14, patch_verts=180
+Bridged islands (205 and 53 verts): gap=0.00, path_hops=1, patch_verts=36
+Bridged islands (232 and 287 verts): gap=27.16, path_hops=7, patch_verts=69
+Bridged islands (232 and 290 verts): gap=32.67, path_hops=18, patch_verts=176
+Bridged islands (232 and 118 verts): gap=33.04, path_hops=9, patch_verts=84
+Bridged islands (232 and 31 verts): gap=72.60, path_hops=20, patch_verts=215
+Bridged islands (287 and 81 verts): gap=52.62, path_hops=16, patch_verts=169
+Bridged islands (287 and 118 verts): gap=44.13, path_hops=14, patch_verts=122
+Bridged islands (287 and 31 verts): gap=46.76, path_hops=20, patch_verts=224
+Bridged islands (287 and 90 verts): gap=68.89, path_hops=17, patch_verts=163
+Bridged islands (39 and 706 verts): gap=0.00, path_hops=1, patch_verts=18
+Bridged islands (100 and 155 verts): gap=36.60, path_hops=11, patch_verts=89
+Bridged islands (100 and 51 verts): gap=10.80, path_hops=4, patch_verts=49
+Bridged islands (186 and 43 verts): gap=16.89, path_hops=5, patch_verts=50
+Bridged islands (49 and 85 verts): gap=11.21, path_hops=4, patch_verts=74
+Bridged islands (49 and 43 verts): gap=36.78, path_hops=18, patch_verts=158
+Bridged islands (49 and 102 verts): gap=59.42, path_hops=15, patch_verts=129
+Bridged islands (49 and 83 verts): gap=29.19, path_hops=9, patch_verts=82
+Bridged islands (49 and 71 verts): gap=39.43, path_hops=9, patch_verts=76
+Bridged islands (49 and 107 verts): gap=4.81, path_hops=1, patch_verts=27
+Bridged islands (85 and 193 verts): gap=37.10, path_hops=18, patch_verts=187
+Bridged islands (85 and 214 verts): gap=36.38, path_hops=9, patch_verts=108
+Bridged islands (85 and 89 verts): gap=35.92, path_hops=14, patch_verts=131
+Bridged islands (85 and 83 verts): gap=41.52, path_hops=13, patch_verts=101
+Bridged islands (85 and 71 verts): gap=14.60, path_hops=5, patch_verts=59
+Bridged islands (85 and 107 verts): gap=5.86, path_hops=2, patch_verts=35
+Bridged islands (133 and 387 verts): gap=22.29, path_hops=17, patch_verts=182
+Bridged islands (133 and 67 verts): gap=5.50, path_hops=7, patch_verts=88
+Bridged islands (193 and 214 verts): gap=5.44, path_hops=3, patch_verts=40
+Bridged islands (193 and 115 verts): gap=7.46, path_hops=4, patch_verts=49
+Bridged islands (193 and 89 verts): gap=2.71, path_hops=1, patch_verts=28
+Bridged islands (193 and 46 verts): gap=61.05, path_hops=16, patch_verts=138
+Bridged islands (193 and 83 verts): gap=67.34, path_hops=16, patch_verts=131
+Bridged islands (193 and 41 verts): gap=55.77, path_hops=15, patch_verts=125
+Bridged islands (193 and 71 verts): gap=16.25, path_hops=7, patch_verts=70
+Bridged islands (193 and 107 verts): gap=44.85, path_hops=16, patch_verts=141
+Bridged islands (53 and 30 verts): gap=8.67, path_hops=5, patch_verts=44
+Bridged islands (53 and 36 verts): gap=0.00, path_hops=1, patch_verts=28
+Bridged islands (53 and 146 verts): gap=7.05, path_hops=3, patch_verts=35
+Bridged islands (53 and 35 verts): gap=6.71, path_hops=3, patch_verts=31
+Bridged islands (30 and 36 verts): gap=27.90, path_hops=12, patch_verts=94
+Bridged islands (30 and 146 verts): gap=3.33, path_hops=2, patch_verts=26
+Bridged islands (30 and 35 verts): gap=36.12, path_hops=16, patch_verts=100
+Bridged islands (184 and 56 verts): gap=11.43, path_hops=3, patch_verts=59
+Bridged islands (184 and 40 verts): gap=7.30, path_hops=3, patch_verts=51
+Bridged islands (184 and 165 verts): gap=58.05, path_hops=16, patch_verts=191
+Bridged islands (184 and 52 verts): gap=31.15, path_hops=8, patch_verts=130
+Bridged islands (184 and 125 verts): gap=6.38, path_hops=2, patch_verts=45
+Bridged islands (184 and 135 verts): gap=8.60, path_hops=3, patch_verts=55
+Bridged islands (184 and 45 verts): gap=11.52, path_hops=8, patch_verts=106
+Bridged islands (64 and 55 verts): gap=2.37, path_hops=1, patch_verts=34
+Bridged islands (64 and 50 verts): gap=53.79, path_hops=15, patch_verts=164
+Bridged islands (64 and 65 verts): gap=46.33, path_hops=14, patch_verts=197
+Bridged islands (55 and 50 verts): gap=30.89, path_hops=10, patch_verts=122
+Bridged islands (55 and 51 verts): gap=53.68, path_hops=20, patch_verts=243
+Bridged islands (55 and 65 verts): gap=20.99, path_hops=6, patch_verts=104
+Bridged islands (104 and 108 verts): gap=3.03, path_hops=1, patch_verts=39
+Bridged islands (104 and 42 verts): gap=30.69, path_hops=10, patch_verts=146
+Bridged islands (104 and 114 verts): gap=45.46, path_hops=14, patch_verts=163
+Bridged islands (104 and 38 verts): gap=14.12, path_hops=4, patch_verts=86
+Bridged islands (104 and 42 verts): gap=37.82, path_hops=11, patch_verts=149
+Bridged islands (104 and 55 verts): gap=31.62, path_hops=11, patch_verts=167
+Bridged islands (104 and 59 verts): gap=5.24, path_hops=3, patch_verts=48
+Bridged islands (71 and 60 verts): gap=6.81, path_hops=3, patch_verts=46
+Bridged islands (71 and 39 verts): gap=12.31, path_hops=5, patch_verts=80
+Bridged islands (71 and 55 verts): gap=37.20, path_hops=12, patch_verts=144
+Bridged islands (71 and 59 verts): gap=65.45, path_hops=18, patch_verts=242
+Bridged islands (84 and 42 verts): gap=0.00, path_hops=1, patch_verts=54
+Bridged islands (84 and 99 verts): gap=5.55, path_hops=2, patch_verts=85
+Bridged islands (84 and 54 verts): gap=27.76, path_hops=19, patch_verts=229
+Bridged islands (42 and 99 verts): gap=9.83, path_hops=4, patch_verts=104
+Bridged islands (42 and 54 verts): gap=35.83, path_hops=19, patch_verts=217
+Bridged islands (42 and 71 verts): gap=21.66, path_hops=20, patch_verts=197
+Bridged islands (60 and 39 verts): gap=35.52, path_hops=12, patch_verts=143
+Bridged islands (99 and 54 verts): gap=9.10, path_hops=8, patch_verts=103
+Bridged islands (99 and 60 verts): gap=15.23, path_hops=7, patch_verts=94
+Bridged islands (99 and 71 verts): gap=10.73, path_hops=13, patch_verts=133
+Bridged islands (54 and 60 verts): gap=14.01, path_hops=5, patch_verts=73
+Bridged islands (54 and 50 verts): gap=62.70, path_hops=13, patch_verts=192
+Bridged islands (54 and 51 verts): gap=74.04, path_hops=17, patch_verts=207
+Bridged islands (54 and 39 verts): gap=62.88, path_hops=17, patch_verts=198
+Bridged islands (54 and 71 verts): gap=14.59, path_hops=6, patch_verts=89
+Bridged islands (54 and 65 verts): gap=76.55, path_hops=19, patch_verts=244
+Bridged islands (38 and 87 verts): gap=53.10, path_hops=16, patch_verts=157
+Bridged islands (267 and 102 verts): gap=22.87, path_hops=12, patch_verts=128
+Bridged islands (267 and 65 verts): gap=11.60, path_hops=6, patch_verts=56
+Bridged islands (94 and 51 verts): gap=3.94, path_hops=3, patch_verts=55
+Bridged islands (214 and 115 verts): gap=84.46, path_hops=18, patch_verts=152
+Bridged islands (214 and 89 verts): gap=63.07, path_hops=13, patch_verts=124
+Bridged islands (214 and 71 verts): gap=83.15, path_hops=14, patch_verts=149
+Bridged islands (49 and 82 verts): gap=27.87, path_hops=19, patch_verts=181
+Bridged islands (49 and 74 verts): gap=44.18, path_hops=13, patch_verts=152
+Bridged islands (49 and 51 verts): gap=56.34, path_hops=13, patch_verts=174
+Bridged islands (49 and 51 verts): gap=25.34, path_hops=15, patch_verts=196
+Bridged islands (192 and 111 verts): gap=7.68, path_hops=2, patch_verts=37
+Bridged islands (192 and 36 verts): gap=0.00, path_hops=1, patch_verts=35
+Bridged islands (57 and 60 verts): gap=64.67, path_hops=20, patch_verts=170
+Bridged islands (57 and 82 verts): gap=27.20, path_hops=8, patch_verts=94
+Bridged islands (57 and 80 verts): gap=13.11, path_hops=3, patch_verts=46
+Bridged islands (36 and 146 verts): gap=9.18, path_hops=6, patch_verts=54
+Bridged islands (36 and 35 verts): gap=13.49, path_hops=4, patch_verts=53
+Bridged islands (56 and 40 verts): gap=4.87, path_hops=2, patch_verts=39
+Bridged islands (56 and 125 verts): gap=18.06, path_hops=7, patch_verts=80
+Bridged islands (56 and 135 verts): gap=56.43, path_hops=16, patch_verts=189
+Bridged islands (56 and 45 verts): gap=9.90, path_hops=11, patch_verts=153
+Bridged islands (60 and 82 verts): gap=21.11, path_hops=10, patch_verts=77
+Bridged islands (60 and 92 verts): gap=33.76, path_hops=15, patch_verts=134
+Bridged islands (60 and 36 verts): gap=13.48, path_hops=5, patch_verts=62
+Bridged islands (324 and 181 verts): gap=8.38, path_hops=7, patch_verts=76
+Bridged islands (324 and 81 verts): gap=11.59, path_hops=6, patch_verts=56
+Bridged islands (324 and 160 verts): gap=15.43, path_hops=13, patch_verts=145
+Bridged islands (324 and 90 verts): gap=5.15, path_hops=17, patch_verts=199
+Bridged islands (102 and 65 verts): gap=51.01, path_hops=18, patch_verts=177
+Bridged islands (387 and 52 verts): gap=7.14, path_hops=1, patch_verts=28
+Bridged islands (387 and 67 verts): gap=11.48, path_hops=10, patch_verts=95
+Bridged islands (60 and 39 verts): gap=23.42, path_hops=7, patch_verts=82
+Bridged islands (60 and 71 verts): gap=36.45, path_hops=10, patch_verts=154
+Bridged islands (181 and 81 verts): gap=10.39, path_hops=20, patch_verts=202
+Bridged islands (181 and 160 verts): gap=18.76, path_hops=10, patch_verts=126
+Bridged islands (181 and 167 verts): gap=9.07, path_hops=8, patch_verts=85
+Bridged islands (181 and 90 verts): gap=15.99, path_hops=14, patch_verts=178
+Bridged islands (160 and 73 verts): gap=15.00, path_hops=14, patch_verts=144
+Bridged islands (160 and 160 verts): gap=6.86, path_hops=2, patch_verts=46
+Bridged islands (160 and 167 verts): gap=49.45, path_hops=14, patch_verts=177
+Bridged islands (52 and 42 verts): gap=61.67, path_hops=13, patch_verts=125
+Bridged islands (706 and 36 verts): gap=62.39, path_hops=13, patch_verts=123
+Bridged islands (290 and 161 verts): gap=16.93, path_hops=14, patch_verts=150
+Bridged islands (92 and 36 verts): gap=10.44, path_hops=15, patch_verts=139
+Bridged islands (115 and 89 verts): gap=13.13, path_hops=4, patch_verts=53
+Bridged islands (115 and 46 verts): gap=31.54, path_hops=9, patch_verts=84
+Bridged islands (115 and 51 verts): gap=47.58, path_hops=15, patch_verts=179
+Bridged islands (115 and 83 verts): gap=71.41, path_hops=17, patch_verts=119
+Bridged islands (115 and 41 verts): gap=0.00, path_hops=1, patch_verts=29
+Bridged islands (115 and 71 verts): gap=33.85, path_hops=14, patch_verts=122
+Bridged islands (61 and 60 verts): gap=7.04, path_hops=2, patch_verts=30
+Bridged islands (61 and 47 verts): gap=26.64, path_hops=9, patch_verts=101
+Bridged islands (61 and 122 verts): gap=57.77, path_hops=17, patch_verts=155
+Bridged islands (524 and 51 verts): gap=20.47, path_hops=11, patch_verts=125
+Bridged islands (524 and 41 verts): gap=71.07, path_hops=20, patch_verts=179
+Bridged islands (81 and 90 verts): gap=16.44, path_hops=7, patch_verts=93
+Bridged islands (118 and 31 verts): gap=22.64, path_hops=15, patch_verts=169
+Bridged islands (118 and 161 verts): gap=32.03, path_hops=18, patch_verts=241
+Bridged islands (73 and 160 verts): gap=16.96, path_hops=6, patch_verts=56
+Bridged islands (73 and 167 verts): gap=40.27, path_hops=12, patch_verts=105
+Bridged islands (88 and 45 verts): gap=56.73, path_hops=16, patch_verts=162
+Bridged islands (82 and 51 verts): gap=42.40, path_hops=18, patch_verts=174
+Bridged islands (42 and 57 verts): gap=34.49, path_hops=11, patch_verts=112
+Bridged islands (146 and 36 verts): gap=13.49, path_hops=9, patch_verts=57
+Bridged islands (146 and 35 verts): gap=36.52, path_hops=12, patch_verts=90
+Bridged islands (40 and 52 verts): gap=72.01, path_hops=20, patch_verts=243
+Bridged islands (40 and 125 verts): gap=4.93, path_hops=2, patch_verts=46
+Bridged islands (40 and 135 verts): gap=36.64, path_hops=10, patch_verts=130
+Bridged islands (40 and 45 verts): gap=18.52, path_hops=16, patch_verts=190
+Bridged islands (111 and 36 verts): gap=24.36, path_hops=5, patch_verts=85
+Bridged islands (50 and 51 verts): gap=59.39, path_hops=16, patch_verts=159
+Bridged islands (50 and 65 verts): gap=17.80, path_hops=5, patch_verts=74
+Bridged islands (51 and 65 verts): gap=24.31, path_hops=13, patch_verts=119
+Bridged islands (108 and 42 verts): gap=29.17, path_hops=8, patch_verts=142
+Bridged islands (108 and 39 verts): gap=41.72, path_hops=13, patch_verts=178
+Bridged islands (108 and 38 verts): gap=6.83, path_hops=2, patch_verts=51
+Bridged islands (108 and 42 verts): gap=67.49, path_hops=20, patch_verts=271
+Bridged islands (108 and 55 verts): gap=25.00, path_hops=9, patch_verts=135
+Bridged islands (108 and 59 verts): gap=10.48, path_hops=5, patch_verts=79
+Bridged islands (165 and 42 verts): gap=28.09, path_hops=11, patch_verts=123
+Bridged islands (165 and 52 verts): gap=10.62, path_hops=3, patch_verts=56
+Bridged islands (165 and 41 verts): gap=0.00, path_hops=1, patch_verts=35
+Bridged islands (165 and 125 verts): gap=60.41, path_hops=16, patch_verts=169
+Bridged islands (165 and 135 verts): gap=23.28, path_hops=7, patch_verts=97
+Bridged islands (165 and 38 verts): gap=52.78, path_hops=18, patch_verts=236
+Bridged islands (165 and 78 verts): gap=42.25, path_hops=15, patch_verts=177
+Bridged islands (55 and 53 verts): gap=78.76, path_hops=20, patch_verts=188
+Bridged islands (89 and 46 verts): gap=38.00, path_hops=11, patch_verts=104
+Bridged islands (89 and 83 verts): gap=39.37, path_hops=11, patch_verts=93
+Bridged islands (89 and 41 verts): gap=47.47, path_hops=14, patch_verts=125
+Bridged islands (89 and 71 verts): gap=5.79, path_hops=2, patch_verts=35
+Bridged islands (89 and 107 verts): gap=30.62, path_hops=10, patch_verts=101
+Bridged islands (150 and 44 verts): gap=34.20, path_hops=10, patch_verts=95
+Bridged islands (43 and 83 verts): gap=71.24, path_hops=18, patch_verts=163
+Bridged islands (43 and 48 verts): gap=41.55, path_hops=9, patch_verts=81
+Bridged islands (43 and 107 verts): gap=37.46, path_hops=14, patch_verts=134
+Bridged islands (134 and 46 verts): gap=8.00, path_hops=9, patch_verts=48
+Bridged islands (142 and 114 verts): gap=6.15, path_hops=2, patch_verts=31
+Bridged islands (142 and 42 verts): gap=49.75, path_hops=18, patch_verts=138
+Bridged islands (142 and 69 verts): gap=72.83, path_hops=18, patch_verts=143
+Bridged islands (142 and 44 verts): gap=0.00, path_hops=1, patch_verts=29
+Bridged islands (142 and 55 verts): gap=71.12, path_hops=20, patch_verts=202
+Bridged islands (102 and 56 verts): gap=0.00, path_hops=1, patch_verts=28
+Bridged islands (102 and 48 verts): gap=47.31, path_hops=18, patch_verts=162
+Bridged islands (42 and 41 verts): gap=27.59, path_hops=11, patch_verts=105
+Bridged islands (42 and 38 verts): gap=3.70, path_hops=1, patch_verts=43
+Bridged islands (42 and 59 verts): gap=56.51, path_hops=18, patch_verts=226
+Bridged islands (74 and 51 verts): gap=6.23, path_hops=2, patch_verts=32
+Bridged islands (74 and 91 verts): gap=84.69, path_hops=20, patch_verts=218
+Bridged islands (74 and 60 verts): gap=47.96, path_hops=20, patch_verts=213
+Bridged islands (52 and 41 verts): gap=49.03, path_hops=14, patch_verts=152
+Bridged islands (52 and 125 verts): gap=41.16, path_hops=15, patch_verts=153
+Bridged islands (52 and 135 verts): gap=0.00, path_hops=1, patch_verts=36
+Bridged islands (60 and 47 verts): gap=15.04, path_hops=6, patch_verts=80
+Bridged islands (60 and 122 verts): gap=51.22, path_hops=14, patch_verts=134
+Bridged islands (53 and 114 verts): gap=73.95, path_hops=16, patch_verts=178
+Bridged islands (53 and 42 verts): gap=71.55, path_hops=11, patch_verts=138
+Bridged islands (53 and 69 verts): gap=31.65, path_hops=12, patch_verts=112
+Bridged islands (46 and 51 verts): gap=33.75, path_hops=10, patch_verts=106
+Bridged islands (46 and 83 verts): gap=10.97, path_hops=3, patch_verts=35
+Bridged islands (46 and 41 verts): gap=35.10, path_hops=9, patch_verts=99
+Bridged islands (46 and 71 verts): gap=48.75, path_hops=16, patch_verts=118
+Bridged islands (46 and 107 verts): gap=58.76, path_hops=14, patch_verts=113
+Bridged islands (41 and 135 verts): gap=59.13, path_hops=16, patch_verts=203
+Bridged islands (41 and 38 verts): gap=58.89, path_hops=20, patch_verts=224
+Bridged islands (125 and 135 verts): gap=3.96, path_hops=1, patch_verts=36
+Bridged islands (125 and 78 verts): gap=74.32, path_hops=16, patch_verts=197
+Bridged islands (135 and 78 verts): gap=52.61, path_hops=17, patch_verts=185
+Bridged islands (39 and 55 verts): gap=43.05, path_hops=15, patch_verts=174
+Bridged islands (39 and 59 verts): gap=55.46, path_hops=18, patch_verts=234
+Bridged islands (91 and 60 verts): gap=4.34, path_hops=3, patch_verts=42
+Bridged islands (31 and 161 verts): gap=46.18, path_hops=14, patch_verts=114
+Bridged islands (51 and 41 verts): gap=27.68, path_hops=11, patch_verts=145
+Bridged islands (160 and 167 verts): gap=3.91, path_hops=2, patch_verts=36
+Bridged islands (114 and 42 verts): gap=2.91, path_hops=1, patch_verts=32
+Bridged islands (114 and 44 verts): gap=47.83, path_hops=14, patch_verts=117
+Bridged islands (114 and 55 verts): gap=43.26, path_hops=13, patch_verts=139
+Bridged islands (114 and 59 verts): gap=45.43, path_hops=16, patch_verts=161
+Bridged islands (40 and 61 verts): gap=6.41, path_hops=15, patch_verts=165
+Bridged islands (38 and 55 verts): gap=57.61, path_hops=18, patch_verts=244
+Bridged islands (38 and 59 verts): gap=36.99, path_hops=12, patch_verts=176
+Bridged islands (52 and 67 verts): gap=46.42, path_hops=20, patch_verts=188
+Bridged islands (42 and 55 verts): gap=66.45, path_hops=16, patch_verts=180
+Bridged islands (42 and 59 verts): gap=51.34, path_hops=15, patch_verts=195
+Bridged islands (90 and 44 verts): gap=22.15, path_hops=16, patch_verts=179
+Bridged islands (57 and 37 verts): gap=14.10, path_hops=5, patch_verts=81
+Bridged islands (47 and 122 verts): gap=17.14, path_hops=8, patch_verts=88
+Bridged islands (83 and 41 verts): gap=83.72, path_hops=19, patch_verts=153
+Bridged islands (83 and 71 verts): gap=18.49, path_hops=6, patch_verts=54
+Bridged islands (83 and 107 verts): gap=6.77, path_hops=2, patch_verts=38
+Bridged islands (69 and 41 verts): gap=34.30, path_hops=6, patch_verts=59
+Bridged islands (71 and 107 verts): gap=3.65, path_hops=1, patch_verts=28
+Bridged islands (55 and 59 verts): gap=8.20, path_hops=3, patch_verts=78
+Bridged 382 nearby island pairs via original-mesh shortest path
+Vertices kept (pre-island-filter): 458847
+Total vertices after ray-cast cleaning: 458847
+Removed 1032 debris islands (< 4 faces)
+Total vertices after island filtering: 455665
+Applying simplification modifiers...
+Bounding box size: <Vector (836.8054, 848.9456, 1817.4503)>, bbox-based threshold: 3.634900634765625
+Median edge length: 3.6167733669281006, local-density-based threshold: 1.08503201007843
+Using weld_merge_threshold: 1.08503201007843
+Removed 29780 debris islands (< 4 faces) before Weld
+Weld: 841789 -> 830596 faces (1.3% loss)
+Removed 131 debris islands (< 4 faces) after apply_modifiers
+Applying mesh decimation...
+mesh_integrity_report: {'vertex_count': 349565, 'face_count': 679932, 'boundary_edges': 42839, 'non_manifold_edges': 12985, 'non_manifold_verts': 23259, 'simple_holes': 17307, 'is_watertight': False, 'signed_volume': 99076792.19}
+Decimation attempt (ratio=0.8000, retry=0): 349565 vertices, boundary_edges=42839, non_manifold_edges=12985
+WARNING: decimation at ratio=0.8000 damaged topology (retry 0).
+report_bad_edges: 56812 bad edges (face count != 2)
+  edge=7 n_faces=3 verts=((143.52166748046875, -158.544189453125, -576.8405151367188), (143.59994506835938, -158.4332275390625, -575.072265625))
+  edge=10 n_faces=1 verts=((16.20947265625, -267.1134033203125, -37.8939208984375), (21.1103515625, -267.11456298828125, -37.1607666015625))
+  edge=15 n_faces=1 verts=((126.0994873046875, -213.10983276367188, -456.1993408203125), (124.145263671875, -213.76968383789062, -452.9442138671875))
+  edge=22 n_faces=1 verts=((111.73541259765625, -117.37118530273438, 203.56890869140625), (111.05731201171875, -118.33712768554688, 203.33261108398438))
+  edge=51 n_faces=1 verts=((106.34197998046875, 57.316741943359375, 355.3955078125), (104.80029296875, 58.674591064453125, 357.2628173828125))
+  edge=69 n_faces=3 verts=((-109.65335083007812, -207.11097717285156, -373.625244140625), (-113.00537109375, -206.84869384765625, -372.8333740234375))
+  edge=73 n_faces=1 verts=((16.20947265625, -267.1134033203125, -37.8939208984375), (11.0679931640625, -267.0928955078125, -33.108642578125))
+  edge=104 n_faces=1 verts=((150.6759033203125, 200.58096313476562, -979.6846313476562), (149.5584716796875, 201.73104858398438, -979.812744140625))
+  edge=105 n_faces=1 verts=((-124.30081176757812, 100.97348022460938, 376.303466796875), (-122.56735229492188, 102.41464233398438, 377.327880859375))
+  edge=131 n_faces=0 verts=((105.0784912109375, -220.0993194580078, -420.637451171875), (100.50482177734375, -220.1273193359375, -418.5211181640625))
+  edge=138 n_faces=3 verts=((89.89862060546875, -221.24606323242188, -451.9324951171875), (90.82501220703125, -221.09078979492188, -445.6029052734375))
+  edge=146 n_faces=1 verts=((-111.82748413085938, 247.54580688476562, 742.8128662109375), (-114.214111328125, 253.11300659179688, 742.7303466796875))
+  edge=161 n_faces=1 verts=((143.52166748046875, -158.544189453125, -576.8405151367188), (142.38623046875, -158.385498046875, -576.6624145507812))
+  edge=178 n_faces=1 verts=((126.0994873046875, -213.10983276367188, -456.1993408203125), (126.5137939453125, -213.561279296875, -454.01806640625))
+  edge=237 n_faces=1 verts=((-178.94573974609375, 252.14535522460938, 522.3153076171875), (-180.41909790039062, 253.47952270507812, 523.7822265625))
+  edge=265 n_faces=1 verts=((26.68084716796875, -255.09585571289062, -298.5887451171875), (28.94818115234375, -255.1024169921875, -294.2314453125))
+  edge=293 n_faces=3 verts=((101.01104736328125, -210.14280700683594, -490.83746337890625), (101.0594711303711, -211.112548828125, -487.9668884277344))
+  edge=306 n_faces=1 verts=((73.2108154296875, 121.75283813476562, 407.6431884765625), (75.6824951171875, 120.26284790039062, 407.368896484375))
+  edge=331 n_faces=3 verts=((-174.50570678710938, -221.50881958007812, 13.719279289245605), (-176.93960571289062, -221.2752227783203, 10.8209228515625))
+  edge=333 n_faces=1 verts=((244.73907470703125, 9.17291259765625, -766.8654174804688), (243.68017578125, 8.56451416015625, -765.3079223632812))
+  ... and 56792 more
+check_bad_verts_edge_length_percentile: p5_min_edge_length_threshold=1.449 (mesh-wide, n=434,573 pristine verts)
+  10146/113624 bad vertices matched to a pristine vertex at/below that threshold (8.9%)
+    bad_vert=(np.float64(143.522), np.float64(-158.544), np.float64(-576.841)) nearest_pristine_dist=0 pristine_min_edge_len=1.16 in_bottom_5pct=YES
+    bad_vert=(np.float64(143.6), np.float64(-158.433), np.float64(-575.072)) nearest_pristine_dist=0 pristine_min_edge_len=1.773 in_bottom_5pct=no
+    bad_vert=(np.float64(16.209), np.float64(-267.113), np.float64(-37.894)) nearest_pristine_dist=0 pristine_min_edge_len=1.399 in_bottom_5pct=YES
+    bad_vert=(np.float64(21.11), np.float64(-267.115), np.float64(-37.161)) nearest_pristine_dist=0 pristine_min_edge_len=3.134 in_bottom_5pct=no
+    bad_vert=(np.float64(126.099), np.float64(-213.11), np.float64(-456.199)) nearest_pristine_dist=0 pristine_min_edge_len=2.166 in_bottom_5pct=no
+    bad_vert=(np.float64(124.145), np.float64(-213.77), np.float64(-452.944)) nearest_pristine_dist=0 pristine_min_edge_len=2.345 in_bottom_5pct=no
+    bad_vert=(np.float64(111.735), np.float64(-117.371), np.float64(203.569)) nearest_pristine_dist=0 pristine_min_edge_len=1.204 in_bottom_5pct=YES
+    bad_vert=(np.float64(111.057), np.float64(-118.337), np.float64(203.333)) nearest_pristine_dist=0 pristine_min_edge_len=1.204 in_bottom_5pct=YES
+    bad_vert=(np.float64(106.342), np.float64(57.317), np.float64(355.396)) nearest_pristine_dist=0 pristine_min_edge_len=1.975 in_bottom_5pct=no
+    bad_vert=(np.float64(104.8), np.float64(58.675), np.float64(357.263)) nearest_pristine_dist=0 pristine_min_edge_len=2.776 in_bottom_5pct=no
+    bad_vert=(np.float64(-109.653), np.float64(-207.111), np.float64(-373.625)) nearest_pristine_dist=0 pristine_min_edge_len=1.835 in_bottom_5pct=no
+    bad_vert=(np.float64(-113.005), np.float64(-206.849), np.float64(-372.833)) nearest_pristine_dist=0 pristine_min_edge_len=1.562 in_bottom_5pct=no
+    bad_vert=(np.float64(16.209), np.float64(-267.113), np.float64(-37.894)) nearest_pristine_dist=0 pristine_min_edge_len=1.399 in_bottom_5pct=YES
+    bad_vert=(np.float64(11.068), np.float64(-267.093), np.float64(-33.109)) nearest_pristine_dist=0 pristine_min_edge_len=1.625 in_bottom_5pct=no
+    bad_vert=(np.float64(150.676), np.float64(200.581), np.float64(-979.685)) nearest_pristine_dist=0 pristine_min_edge_len=1.609 in_bottom_5pct=no
+Retrying decimation with gentler ratio=0.9000...
+mesh_integrity_report: {'vertex_count': 392075, 'face_count': 764923, 'boundary_edges': 42868, 'non_manifold_edges': 12985, 'non_manifold_verts': 23259, 'simple_holes': 17269, 'is_watertight': False, 'signed_volume': 99076605.15}
+Decimation attempt (ratio=0.9000, retry=1): 392075 vertices, boundary_edges=42868, non_manifold_edges=12985
+WARNING: decimation at ratio=0.9000 damaged topology (retry 1).
+Retrying decimation with gentler ratio=0.9500...
+mesh_integrity_report: {'vertex_count': 413324, 'face_count': 807419, 'boundary_edges': 42870, 'non_manifold_edges': 12985, 'non_manifold_verts': 23259, 'simple_holes': 17259, 'is_watertight': False, 'signed_volume': 99075373.43}
+Decimation attempt (ratio=0.9500, retry=2): 413324 vertices, boundary_edges=42870, non_manifold_edges=12985
+WARNING: decimation at ratio=0.9500 damaged topology (retry 2).
+Retrying decimation with gentler ratio=0.9750...
+mesh_integrity_report: {'vertex_count': 423949, 'face_count': 828668, 'boundary_edges': 42871, 'non_manifold_edges': 12985, 'non_manifold_verts': 23259, 'simple_holes': 17255, 'is_watertight': False, 'signed_volume': 99075555.89}
+Decimation attempt (ratio=0.9750, retry=3): 423949 vertices, boundary_edges=42871, non_manifold_edges=12985
+WARNING: decimation at ratio=0.9750 damaged topology (retry 3).
+Retrying decimation with gentler ratio=0.9875...
+mesh_integrity_report: {'vertex_count': 429261, 'face_count': 839292, 'boundary_edges': 42871, 'non_manifold_edges': 12985, 'non_manifold_verts': 23259, 'simple_holes': 17246, 'is_watertight': False, 'signed_volume': 99076568.06}
+Decimation attempt (ratio=0.9875, retry=4): 429261 vertices, boundary_edges=42871, non_manifold_edges=12985
+WARNING: decimation at ratio=0.9875 damaged topology (retry 4).
+Retrying decimation with gentler ratio=0.9938...
+mesh_integrity_report: {'vertex_count': 431917, 'face_count': 844604, 'boundary_edges': 42871, 'non_manifold_edges': 12985, 'non_manifold_verts': 23259, 'simple_holes': 17244, 'is_watertight': False, 'signed_volume': 99072643.04}
+Decimation attempt (ratio=0.9938, retry=5): 431917 vertices, boundary_edges=42871, non_manifold_edges=12985
+WARNING: decimation at ratio=0.9938 damaged topology (retry 5).
+Decimation stopped: no non-damaging ratio found after 6 retries (gentlest tried: 0.9938). Keeping mesh at 434573 vertices - further outer-loop iterations would very likely hit the same geometric problem, not a step-size problem.
+DIAGNOSTIC: holes after decimate: 16353, boundary_edges: 40192
+Rebuilding watertight surface via external Manifold tool...
+close_holes_via_manifold_external: exporting current mesh (434573 verts, 746255 faces) to /tmp/_manifold_in_Cephalotes_depressus_CASENT0744569.obj...
+close_holes_via_manifold_external: running /home/khaoula/SMILify/custom_processing/external/Manifold/build/manifold (resolution=20000)...
+close_holes_via_manifold_external: reconstruction complete. stdout: manifold /tmp/_manifold_in_Cephalotes_depressus_CASENT0744569.obj /tmp/_manifold_out_Cephalotes_depressus_CASENT0744569.obj 20000
+
+close_holes_via_manifold_external: mesh state after raw reconstruction:
+STATE[after_manifold_external_reconstruction]
+report_mesh_degeneracy: {'n_verts': 108039, 'n_edges': 325065, 'n_faces': 216710, 'n_zero_length_edges': 0, 'n_zero_area_faces': 0, 'n_duplicate_verts': 5, 'n_duplicate_faces': 0, 'edge_length_percentiles': {0: 0.005479668732732534, 0.1: 1.3350801048278809, 1: 2.681228828430176, 5: 4.441667652130127, 50: 8.752532958984375}}
+mesh_integrity_report: {'vertex_count': 108039, 'face_count': 216710, 'boundary_edges': 0, 'non_manifold_edges': 0, 'non_manifold_verts': 56, 'simple_holes': 0, 'is_watertight': False, 'signed_volume': 74276161.67}
+{'vertex_count': 108039, 'face_count': 216710, 'boundary_edges': 0, 'non_manifold_edges': 0, 'non_manifold_verts': 56, 'simple_holes': 0, 'is_watertight': False, 'signed_volume': 74276161.67}
+close_holes_via_manifold_external: found 0 non-manifold edges, 56 non-manifold (bowtie) vertices before fix
+close_holes_via_manifold_external: split_nonmanifold_vertex created 56 duplicate vertices across 56 bowtie vertices
+close_holes_via_manifold_external: 0 boundary edges appeared after vertex split (expect 0 - see split_nonmanifold_vertex docstring)
+close_holes_via_manifold_external: forcing a same-session export+reimport round-trip to clear bmesh's stale is_manifold cache after the vertex split...
+
+close_holes_via_manifold_external: mesh state after bowtie-vertex fix:
+STATE[after_manifold_external_bowtie_fix]
+report_mesh_degeneracy: {'n_verts': 108095, 'n_edges': 325065, 'n_faces': 216710, 'n_zero_length_edges': 0, 'n_zero_area_faces': 0, 'n_duplicate_verts': 61, 'n_duplicate_faces': 0, 'edge_length_percentiles': {0: 0.005479668732732534, 0.1: 1.3350801048278809, 1: 2.681228828430176, 5: 4.441667652130127, 50: 8.752532958984375}}
+mesh_integrity_report: {'vertex_count': 108095, 'face_count': 216710, 'boundary_edges': 0, 'non_manifold_edges': 0, 'non_manifold_verts': 0, 'simple_holes': 0, 'is_watertight': True, 'signed_volume': 74276161.67}
+{'vertex_count': 108095, 'face_count': 216710, 'boundary_edges': 0, 'non_manifold_edges': 0, 'non_manifold_verts': 0, 'simple_holes': 0, 'is_watertight': True, 'signed_volume': 74276161.67}
+close_holes_via_manifold_external stats: {'resolution': 20000, 'n_bad_edges_before': 0, 'n_bad_verts_before': 56, 'n_duplicate_verts_created': 56, 'output_vertices': 108095, 'output_faces': 216710}
+DIAGNOSTIC: holes after manifold_external: 0, boundary_edges: 0
+Aligned model with X-axis based on principal component analysis.
+Flipped model 180 degrees around X-axis to ensure positive Z is up.
+Ensured positive Z is up.
+Number of remaining vertices: 108095
+Number of holes in the processed mesh (before capping): 0
+remove_orphan_vertices: removed 0 zero-face orphan vertices
+Coefficient of variation of face sizes: 0.455
+Average angle between face normals: 17.187 degrees
+mesh_integrity_report: {'vertex_count': 108095, 'face_count': 216710, 'boundary_edges': 0, 'non_manifold_edges': 0, 'non_manifold_verts': 0, 'simple_holes': 0, 'is_watertight': True, 'signed_volume': 74276165.06}
+FINAL_SUMMARY: specimen=Cephalotes_depressus_CASENT0744569 approach=manifold_external vertices=108095 faces=216710 simple_holes=0 boundary_edges=0 non_manifold_edges=0 non_manifold_verts=0 is_watertight=True signed_volume=74276165.06 face_size_cov=0.455 mesh_smoothness=17.187 time_sec=1114.4
+Exporting the processed mesh to /home/khaoula/SMILify/custom_processing/antscan_processed/manifold_external_full_pipeline/Cephalotes_depressus_CASENT0744569/manifold_external/Cephalotes_depressus_CASENT0744569_processed.obj...
+Mesh exported successfully.
+Updating JSON file: /home/khaoula/SMILify/custom_processing/antscan_data/Cephalotes_depressus_CASENT0744569/Cephalotes_depressus_CASENT0744569.json
+JSON file updated successfully.
+Total processing time: 1114.96 seconds
+Blender 3.0.1
+
+Blender quit
+elapsed=1116s
+
+=================================================================
+SPECIMEN: Dorylus_sp._CASENT0744703
+  stl: /home/khaoula/SMILify/custom_processing/antscan_data/Dorylus_sp._CASENT0744703/Dorylus_sp._CASENT0744703.stl (167M)
+  started: 2026-08-05T09:55:06+02:00
+=================================================================

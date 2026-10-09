@@ -1,0 +1,5 @@
+The 14 of 50 bench50 specimens whose cycle-consistency ratio vs the synthetic reference is <=2.0x.
+Selection variable is aspect_ratio-correlated (rho=-0.502), so this subset is systematically MORE
+ELONGATED than bench50 as a whole (aspect mean 2.23 vs 1.86, min 1.69 vs 1.05). Diversity within
+the subset is otherwise high: 14 distinct genera in 14 specimens, 15x size range, covariate CVs
+close to the full set. Transfer to COMPACT specimens is untested by construction.

@@ -1,0 +1,96 @@
+{
+  "production_median_R": -0.05913039761734404,
+  "lambda": 0.1,
+  "rows": [
+    {
+      "sigma": null,
+      "arm": "P production",
+      "median_R": -0.05913039761734404,
+      "blocks": {
+        "gaster": -0.2089529323640584,
+        "leg_prox": -0.07012577901316971,
+        "leg_distal": 0.1991228623816323
+      }
+    },
+    {
+      "sigma": 0.0,
+      "arm": "T targets direct",
+      "median_R": 0.9999999999999891,
+      "blocks": {
+        "gaster": 0.9999999999999984,
+        "leg_prox": 0.9999999999999861,
+        "leg_distal": 0.9999999999999907
+      }
+    },
+    {
+      "sigma": 0.0,
+      "arm": "J joint-constrained fit",
+      "median_R": 0.5068633814405201,
+      "blocks": {
+        "gaster": 0.795315092697944,
+        "leg_prox": 0.42393490770318615,
+        "leg_distal": 0.5534867214224474
+      }
+    },
+    {
+      "sigma": 10.0,
+      "arm": "T targets direct",
+      "median_R": 0.5059393978751088,
+      "blocks": {
+        "gaster": 0.8021480097452565,
+        "leg_prox": 0.36177931317982925,
+        "leg_distal": 0.6460417396423815
+      }
+    },
+    {
+      "sigma": 10.0,
+      "arm": "J joint-constrained fit",
+      "median_R": 0.4608080178512657,
+      "blocks": {
+        "gaster": 0.6690800341348286,
+        "leg_prox": 0.2990778876410775,
+        "leg_distal": 0.5591244058561341
+      }
+    },
+    {
+      "sigma": 15.0,
+      "arm": "T targets direct",
+      "median_R": 0.33561915583969204,
+      "blocks": {
+        "gaster": 0.45379125606921006,
+        "leg_prox": 0.21799884205925624,
+        "leg_distal": 0.6152219679501627
+      }
+    },
+    {
+      "sigma": 15.0,
+      "arm": "J joint-constrained fit",
+      "median_R": 0.17123388459884228,
+      "blocks": {
+        "gaster": 0.4408172372857573,
+        "leg_prox": 0.10375035620135714,
+        "leg_distal": 0.5002942124920245
+      }
+    },
+    {
+      "sigma": 20.0,
+      "arm": "T targets direct",
+      "median_R": 0.12313159801767035,
+      "blocks": {
+        "gaster": 0.3254153739764501,
+        "leg_prox": 0.03128034213480379,
+        "leg_distal": 0.22872023941626704
+      }
+    },
+    {
+      "sigma": 20.0,
+      "arm": "J joint-constrained fit",
+      "median_R": 0.15322833248713924,
+      "blocks": {
+        "gaster": 0.4891119893471162,
+        "leg_prox": 0.0974010844171607,
+        "leg_distal": 0.11890629860231927
+      }
+    }
+  ]
+}

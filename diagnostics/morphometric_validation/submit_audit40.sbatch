@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#SBATCH --account=rwth2151
+#SBATCH --partition=c25g
+#SBATCH --job-name=AUDIT40_fit
+#SBATCH --cpus-per-task=4
+#SBATCH --gres=gpu:1
+#SBATCH --mem=24G
+#SBATCH --time=00:20:00
+#SBATCH --output=diagnostics/morphometric_validation/sbatch_logs/audit40_%j.log
+#SBATCH --error=diagnostics/morphometric_validation/sbatch_logs/audit40_%j.log
+set -eo pipefail
+cd "$SLURM_SUBMIT_DIR"
+CONDA_SH=/home/nao48500/miniforge3/etc/profile.d/conda.sh \
+REPO_DIR=$SLURM_SUBMIT_DIR \
+W=/hpcwork/nao48500/audit40 \
+CHUNK=40 \
+SKIP_CLEAN=1 \
+TAG_PREFIX=AUDIT40_ \
+STAGE=diagnostics/morphometric_validation/stage_audit40 \
+bash diagnostics/morphometrics/run_m1_fit_all.sh

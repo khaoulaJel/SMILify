@@ -1,0 +1,69 @@
+# D1_PROD — the production baseline recipe (tag MORPH_BASELINE_D1 in diagnostics/INVENTORY_V2.md).
+# Identical to D1_SYN.yaml (the corrected D1 recipe: w_limit present, unlike D1_low.yaml's
+# known defect, which is why run_m1_fit_all.sh no longer points at D1_low.yaml). w_offset
+# 5.0/2.0 confirmed optimal by full grid sweep (T0.1, diagnostics/V2_CHANGELOG.md). edge_mode:
+# shrink kept as-is — rest-edge loss was tested combined with this recipe and REJECTED
+# (correctness collapsed to 1.52%), not reopened. w_trans NOT added — never meaningfully
+# engaged in testing, deprioritized.
+#
+# w_scale (scale_cap) = 0.052, PROMOTED 2026-08-13 after the full-corpus A/B (execution plan
+# §4, diagnostics/morphometrics/ab_scale_cap/SCHEMA.md) passed its pre-registered §4.4 decision
+# rule on all three conjunctive conditions, 838 specimens (757 worker + 81 ALL_ANTS_CLEAN):
+#   1. genus non-inferior: lot-blind LOO-1NN 11.4% (B) vs 11.7% (A), LIFT 5.3x vs 5.4x — a
+#      0.3pp gap smaller than the null's own +-0.7% spread, i.e. flat, not a drop.
+#   2. integrity not worse: every metrics.py term moved <1% (edge_logratio -0.3%, deform_mag
+#      +0.3-0.6%, folded_face -0.7%, tri_quality +0.2%).
+#   3. anterior pathology measurably reduced: mean anterior joint-scale ratio down 4.9-14.2%
+#      (head/mandible/antenna); the outlier TAIL this term was built for drops hard — max ratio
+#      head 8.91x->3.77x (-58%), mandible 10.56x->4.09x (-61%), antenna 13.57x->4.08x (-70%),
+#      replicating bench50_clean's original 22-specimen directional finding at full power.
+# Full numbers: diagnostics/morphometrics/ab_scale_cap/analyse_{A,B}.log,
+# integrity_anterior_full_corpus.json. See diagnostics/EXECUTION_PLAN.md §5 for the conclusion
+# block this promotion is recorded against. D1_PROD_SCALECAP.yaml is now redundant with this
+# file (kept for audit trail, not a separate candidate).
+#
+# This is the file run_m1_fit_all.sh's --yaml_src points to; it is not a diagnostics-only
+# artifact.
+stages:
+  Stage_2_deform_coarse:
+    scheme: all
+    nits: 1000
+    lr: 0.002
+    n_sample: 6000
+    edge_mode: shrink
+    lr_decay: false
+    loss_weights:
+      w_chamfer: 1.0
+      w_edge: 0.8
+      w_normal: 0.005
+      w_laplacian: 0.01
+      w_offset: 5.0
+      w_sym: 0.5
+      w_beta_prior: 0.0
+      w_midline: 2.0
+      w_limit: 0.006
+      w_scale: 0.052
+    custom_lrs:
+      joint_rot: 0.002
+  Stage_3_deform_fine:
+    scheme: all
+    nits: 1000
+    lr: 0.0005
+    n_sample: 6000
+    edge_mode: shrink
+    lr_decay: false
+    loss_weights:
+      w_chamfer: 0.5
+      w_edge: 0.2
+      w_normal: 0.002
+      w_laplacian: 0.001
+      w_offset: 2.0
+      w_sym: 0.5
+      w_beta_prior: 0.0
+      w_midline: 2.0
+      w_limit: 0.006
+      w_scale: 0.052
+    custom_lrs:
+      joint_rot: 0.002
+args:
+  results_dir: diagnostics/moonshot/runs/PROD

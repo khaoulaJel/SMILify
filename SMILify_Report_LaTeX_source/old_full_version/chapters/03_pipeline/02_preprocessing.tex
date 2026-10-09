@@ -1,0 +1,60 @@
+\section{Preprocessing}
+\label{sec:preprocessing}
+
+Real Antscan meshes (photogrammetry via \term{scAnt}~\cite{scant}, or
+micro-CT) arrive with a wide range of defects: holes, disconnected
+fragments, non-manifold edges and vertices, small debris, self-intersecting
+and fused geometry, thin appendages that vanish under naïve simplification,
+and highly variable pose and orientation. Two complementary repair
+strategies were evaluated rather than assumed:
+
+\begin{itemize}
+\item \textbf{Alpha Wrap}~\cite{alphawrap} constructs an entirely new, watertight envelope
+around the input geometry, regardless of how damaged the input is. Its
+single scale parameter trades off two failure directions: too coarse an
+envelope and thin anatomical structures (legs, antennae) disappear
+into it; too fine, and the noise and defects the envelope was meant to
+remove survive into the output.
+\item \textbf{ManifoldPlus}~\cite{manifoldplus} instead repairs and regularises the input
+surface directly, and was used as a fallback specifically for cases Alpha
+Wrap's envelope construction did not adequately resolve.
+\item \textbf{Conservative cleanup and reduction.} Before and after repair,
+duplicate vertices, degenerate faces and loose vertices are removed and
+normals recomputed, and topology-preserving quadric-error-metric (QEM)
+reduction~\cite{qem} lowers face count without collapsing thin appendages.
+\end{itemize}
+
+\begin{investigation}{I12}{Does the rebuilt preprocessing pipeline actually
+produce more reliably watertight, better-conditioned meshes?}
+\invQuestion{Benchmarked against the existing pipeline on the same corpus,
+does the Alpha-Wrap-plus-ManifoldPlus pipeline improve mesh topology?}
+\invMethod{Watertightness and connected-component count across 44 processed
+specimens, compared against the existing preprocessing pipeline; Alpha
+Wrap's scale parameter swept toward progressively finer offsets.}
+\invResult{$44$ of $44$ processed meshes were watertight, and $29$ of $44$
+were reduced to a single connected component, both a substantial
+improvement in topology over the existing pipeline. Some configurations at
+the finest offsets encountered memory limitations at $32$\,GB.}
+\invVerdict{ADOPT}{Retained as the production preprocessing pipeline.
+Whether this translated into more accurate downstream registration is a
+separate question, answered in \S\ref{sec:prep-null}: it did not, to a
+measurable degree (\F{F2}): watertightness is a precondition for reliable
+fitting, not, on its own, a source of anatomical accuracy.}
+\end{investigation}
+
+This preprocessing stage is wrapped in a production data-preparation module,
+\allowbreak\texttt{prepare\_antscan\_\allowbreak data\_for\_mesh\_\allowbreak
+fitting.py}, which converts raw
+Antscan exports into a fitting-ready corpus: consistent scale and
+orientation, organised clean/processed variants, and batch-ready input for
+the registration stage proper. The registration stage itself, run through
+\texttt{fitter\_3d/\allowbreak optimise.py}, preserves every intermediate optimisation
+stage (\texttt{Stage\_0\_init}, \texttt{Stage\_1\_default},
+\texttt{Stage\_2\_deform\_coarse}, \texttt{Stage\_3\_deform\_fine}) along
+with per-specimen parameter files, reconstructed meshes, and loss curves,
+so that any registration result in this report can be re-inspected or
+re-run rather than taken on trust. This reproducibility infrastructure is
+what made the controlled comparisons throughout Chapters~\ref{ch:structure}
+and~\ref{ch:diagnostics} possible in the first place: a controlled variant
+is only informative if the configuration that produced it is preserved
+exactly.

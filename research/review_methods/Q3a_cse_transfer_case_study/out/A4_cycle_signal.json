@@ -1,0 +1,168 @@
+{
+ "ckpt_epoch": 115,
+ "real": {
+  "Aenictus_ceylonicus_CASENT0878084": {
+   "n": 5821,
+   "cycle_median": 0.022086042910814285,
+   "leg_acc_all": 0.7938498539769799,
+   "leg_acc_cyclekept50": 0.8917897629680522,
+   "auc_neg_cycle": 0.7086601024309312
+  },
+  "Aphaenogaster_gracillima_OKENT0105348": {
+   "n": 6480,
+   "cycle_median": 0.04792570322751999,
+   "leg_acc_all": 0.6580246913580247,
+   "leg_acc_cyclekept50": 0.8095679012345679,
+   "auc_neg_cycle": 0.7338148363259528
+  },
+  "Cataglyphis_iberica_CASENT0745158": {
+   "n": 5746,
+   "cycle_median": 0.044812291860580444,
+   "leg_acc_all": 0.6407935955447268,
+   "leg_acc_cyclekept50": 0.7372084928646014,
+   "auc_neg_cycle": 0.6681504195983814
+  },
+  "Cephalotes_atratus_CASENT0744612": {
+   "n": 9617,
+   "cycle_median": 0.2599145472049713,
+   "leg_acc_all": 0.25902048455859417,
+   "leg_acc_cyclekept50": 0.35308796007485965,
+   "auc_neg_cycle": 0.6496390091615812
+  },
+  "Cyphomyrmex_major_CASENT0745147": {
+   "n": 7043,
+   "cycle_median": 0.07002495229244232,
+   "leg_acc_all": 0.559420701405651,
+   "leg_acc_cyclekept50": 0.663259511641113,
+   "auc_neg_cycle": 0.6395216844350726
+  },
+  "Discothyrea_patrizii_CASENT0744991": {
+   "n": 8387,
+   "cycle_median": 0.1615094244480133,
+   "leg_acc_all": 0.26338380827471086,
+   "leg_acc_cyclekept50": 0.382689556509299,
+   "auc_neg_cycle": 0.6862358306120185
+  },
+  "Eciton_burchellii_CASENT0744558": {
+   "n": 6706,
+   "cycle_median": 0.07451336085796356,
+   "leg_acc_all": 0.38204592901878914,
+   "leg_acc_cyclekept50": 0.3987473903966597,
+   "auc_neg_cycle": 0.5307983627655759
+  },
+  "Formica_cf.fusca_CASENT0878139": {
+   "n": 5905,
+   "cycle_median": 0.030482802540063858,
+   "leg_acc_all": 0.6648602878916172,
+   "leg_acc_cyclekept50": 0.7839485269217744,
+   "auc_neg_cycle": 0.7118097126295795
+  },
+  "Gigantiops_destructor_CASENT0745031": {
+   "n": 5349,
+   "cycle_median": 0.02851545438170433,
+   "leg_acc_all": 0.803888577304169,
+   "leg_acc_cyclekept50": 0.8545794392523365,
+   "auc_neg_cycle": 0.6304227725186778
+  },
+  "Leptogenys_peuqueti_CASENT0741327": {
+   "n": 4552,
+   "cycle_median": 0.04613809660077095,
+   "leg_acc_all": 0.23198594024604569,
+   "leg_acc_cyclekept50": 0.24121265377855888,
+   "auc_neg_cycle": 0.538796503363151
+  },
+  "Odontomachus_bauri_CASENT0878072": {
+   "n": 5144,
+   "cycle_median": 0.03381708264350891,
+   "leg_acc_all": 0.6080870917573873,
+   "leg_acc_cyclekept50": 0.6893468118195957,
+   "auc_neg_cycle": 0.6199504824574757
+  }
+ },
+ "synthetic": {
+  "synth_000": {
+   "n": 5625,
+   "cycle_median": 0.022499000653624535,
+   "leg_acc_all": 0.9258666666666666,
+   "leg_acc_cyclekept50": 0.966228226093139,
+   "auc_neg_cycle": 0.7418489171796203
+  },
+  "synth_004": {
+   "n": 6069,
+   "cycle_median": 0.014174890704452991,
+   "leg_acc_all": 0.9777558082056352,
+   "leg_acc_cyclekept50": 0.9920922570016475,
+   "auc_neg_cycle": 0.7857949793406483
+  },
+  "synth_008": {
+   "n": 4072,
+   "cycle_median": 0.013307429850101471,
+   "leg_acc_all": 0.956532416502947,
+   "leg_acc_cyclekept50": 0.9729862475442044,
+   "auc_neg_cycle": 0.6897231710943336
+  },
+  "synth_012": {
+   "n": 4564,
+   "cycle_median": 0.013141950592398643,
+   "leg_acc_all": 0.9754601226993865,
+   "leg_acc_cyclekept50": 0.9912357581069238,
+   "auc_neg_cycle": 0.783465095944038
+  },
+  "synth_016": {
+   "n": 6570,
+   "cycle_median": 0.01838749833405018,
+   "leg_acc_all": 0.9756468797564688,
+   "leg_acc_cyclekept50": 0.9942161339421614,
+   "auc_neg_cycle": 0.8511598088923557
+  },
+  "synth_020": {
+   "n": 4374,
+   "cycle_median": 0.01623421162366867,
+   "leg_acc_all": 0.9236396890717878,
+   "leg_acc_cyclekept50": 0.9657064471879286,
+   "auc_neg_cycle": 0.7487897966443351
+  },
+  "synth_024": {
+   "n": 4425,
+   "cycle_median": 0.015576670877635479,
+   "leg_acc_all": 0.992090395480226,
+   "leg_acc_cyclekept50": 0.9954812471757795,
+   "auc_neg_cycle": 0.7166742596810934
+  },
+  "synth_028": {
+   "n": 5991,
+   "cycle_median": 0.01634676568210125,
+   "leg_acc_all": 0.8589550993156402,
+   "leg_acc_cyclekept50": 0.9309078771695594,
+   "auc_neg_cycle": 0.7619083702628802
+  },
+  "synth_032": {
+   "n": 4268,
+   "cycle_median": 0.01885375939309597,
+   "leg_acc_all": 0.9522024367385192,
+   "leg_acc_cyclekept50": 0.9901593252108716,
+   "auc_neg_cycle": 0.8944100277906438
+  },
+  "synth_036": {
+   "n": 5782,
+   "cycle_median": 0.01565292850136757,
+   "leg_acc_all": 0.9768246281563473,
+   "leg_acc_cyclekept50": 0.9844344517468004,
+   "auc_neg_cycle": 0.6787477273688216
+  },
+  "synth_040": {
+   "n": 6206,
+   "cycle_median": 0.017289919778704643,
+   "leg_acc_all": 0.9133097002900419,
+   "leg_acc_cyclekept50": 0.9684176603287141,
+   "auc_neg_cycle": 0.8317771720452393
+  },
+  "synth_044": {
+   "n": 4879,
+   "cycle_median": 0.016813388094305992,
+   "leg_acc_all": 0.8743594998975199,
+   "leg_acc_cyclekept50": 0.9471311475409836,
+   "auc_neg_cycle": 0.7947751063265136
+  }
+ }
+}

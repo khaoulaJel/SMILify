@@ -1,0 +1,14 @@
+{
+ "0.0": {
+  "frac_leg_vertices_corrupted": 0.0,
+  "mean_target_displacement_normalised": 0.0
+ },
+ "0.2": {
+  "frac_leg_vertices_corrupted": 0.21599200070323488,
+  "mean_target_displacement_normalised": 0.5244292142486737
+ },
+ "0.4": {
+  "frac_leg_vertices_corrupted": 0.4268470903656822,
+  "mean_target_displacement_normalised": 0.5524147979204341
+ }
+}

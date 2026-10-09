@@ -1,0 +1,108 @@
+{
+  "provenance": "v4_annotation_targets.py; severity = max fractional overshoot past T1 bounds; flag set verified identical to V2",
+  "n_flagged": 69,
+  "strata_bounds": {
+    "p33": 0.10600848899722194,
+    "p67": 0.23945546761835357
+  },
+  "targets": {
+    "A_just_over": [
+      {
+        "specimen": "Hypoponera_sp._CASENT0744151_processed.obj",
+        "severity": 0.007,
+        "worst_ratio": "ML/HL",
+        "value": 2.013
+      },
+      {
+        "specimen": "Ooceraea_biroi_CASENT0741392_processed.obj",
+        "severity": 0.013,
+        "worst_ratio": "ML/HL",
+        "value": 2.026
+      },
+      {
+        "specimen": "Tetramorium_pacificum_CASENT0745543_processed.obj",
+        "severity": 0.05,
+        "worst_ratio": "HW/HL",
+        "value": 2.081
+      }
+    ],
+    "B_medium": [
+      {
+        "specimen": "Tetramorium_semilaeve_CASENT0745233_processed.obj",
+        "severity": 0.175,
+        "worst_ratio": "ML/HL",
+        "value": 2.333
+      },
+      {
+        "specimen": "Pheidole_oxyops_CASENT0744571_processed.obj",
+        "severity": 0.178,
+        "worst_ratio": "ML/HL",
+        "value": 2.339
+      },
+      {
+        "specimen": "Cephalotes_simillimus_CASENT0744408_processed.obj",
+        "severity": 0.235,
+        "worst_ratio": "HW/HL",
+        "value": 2.376
+      },
+      {
+        "specimen": "Pheidole_midas_CASENT0744257_processed.obj",
+        "severity": 0.238,
+        "worst_ratio": "ML/HL",
+        "value": 2.453
+      }
+    ],
+    "C_extreme": [
+      {
+        "specimen": "Temnothorax_nylanderi_CASENT0878032_processed.obj",
+        "severity": 0.399,
+        "worst_ratio": "HW/HL",
+        "value": 2.638
+      },
+      {
+        "specimen": "Eciton_burchellii_CASENT0744558_processed.obj",
+        "severity": 0.603,
+        "worst_ratio": "HW/HL",
+        "value": 2.964
+      },
+      {
+        "specimen": "Parasyscia_sp._cribrinodis_group_CASENT0709293_processed.obj",
+        "severity": 0.722,
+        "worst_ratio": "HW/HL",
+        "value": 3.155
+      }
+    ],
+    "D_healthy_controls": [
+      {
+        "specimen": "Polyergus_rufescens_CASENT0878121_processed.obj",
+        "severity": 0.0,
+        "worst_ratio": "-",
+        "value": null
+      },
+      {
+        "specimen": "Myrmecia_croslandi_CASENT0745598_processed.obj",
+        "severity": 0.0,
+        "worst_ratio": "-",
+        "value": null
+      },
+      {
+        "specimen": "Dolichoderus_sibiricus_OKENT0105315_processed.obj",
+        "severity": 0.0,
+        "worst_ratio": "-",
+        "value": null
+      },
+      {
+        "specimen": "Pheidole_sp._CASENT0744854_processed.obj",
+        "severity": 0.0,
+        "worst_ratio": "-",
+        "value": null
+      },
+      {
+        "specimen": "Typhlomyrmex_rogenhoferi_CASENT0745144_processed.obj",
+        "severity": 0.0,
+        "worst_ratio": "-",
+        "value": null
+      }
+    ]
+  }
+}

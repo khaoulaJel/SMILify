@@ -1,0 +1,25 @@
+{
+  "specimen": "38_Pseudolasius_sp._CASENT0878065_processed",
+  "alpha": 31.1643,
+  "pre_gap": 4.986291256513399,
+  "diag_length": 3712.93000668884,
+  "old": {
+    "offset": 1.03881,
+    "relative_alpha": 119.1404910968268,
+    "relative_offset": 3574.2147329048044,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 51728,
+    "output_faces": 103484
+  },
+  "new": {
+    "offset": 12.465720000000001,
+    "relative_alpha": 119.1404910968268,
+    "relative_offset": 297.851227742067,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 8535,
+    "output_faces": 17102
+  },
+  "flipped": false
+}

@@ -1,0 +1,98 @@
+% !TEX program = xelatex
+% !TEX encoding = UTF-8
+%% ===========================================================================
+%%  Mesh Registration from Scan-Derived 3D Data
+%%  Internship report -- Forschungszentrum Juelich (IAS-7), July-Sept. 2026
+%%  Khaoula Jellal
+%%
+%%  Build (XeLaTeX, Calibri 12 pt; falls back to the metric-identical Carlito):
+%%     xelatex main && bibtex main && xelatex main && xelatex main
+%% ===========================================================================
+\documentclass[12pt,a4paper,toc=listof,toc=bibliography]{scrartcl}
+
+\usepackage{style/report}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit}
+\usepackage{pgfplots}\pgfplotsset{compat=1.16}
+
+\usepackage[numbers,sort&compress]{natbib}
+\bibliographystyle{unsrtnat}
+\setlength{\bibsep}{2pt}
+
+\hypersetup{
+  pdftitle={Mesh Registration from Scan-Derived 3D Data: Correspondence and Optimization in Articulated Parametric Models},
+  pdfauthor={Khaoula Jellal}
+}
+
+% ===========================================================================
+%  FINDINGS LEDGER: each load-bearing result is declared once and cited
+%  anywhere as \F{F1}; Table~\ref{tab:findings} builds itself.
+% ===========================================================================
+\DeclareFinding{F1}
+  {Surface agreement is not anatomical correctness: a fit can have a lower
+   Chamfer distance and a worse skeleton.}
+  {Constraints removed: $0.45\times$ Chamfer but $1.25\times$ joint error;
+   worse in 8 of 11 expert specimens.}
+  {Validated}
+\DeclareFinding{F2}
+  {Better mesh topology does not improve the downstream fit: mesh
+   conditioning alone does not explain the correspondence failures.}
+  {44/44 watertight; Chamfer $0.000771$ (new) vs.\ $0.000737$ (existing).}
+  {Validated}
+\DeclareFinding{F3}
+  {Regional identity and within-region localisation are distinct problems.}
+  {Regional-identity oracle: leg accuracy $0.867\to0.937$; large residual
+   error inside correct structures.}
+  {Validated (synthetic)}
+\DeclareFinding{F4}
+  {Initialisation sensitivity is anatomically heterogeneous: it helps the
+   distal chain but not the coxa.}
+  {Ground-truth start: pretarsus error $0.1717\to0.0140$; coxa unchanged
+   ($p=0.47$).}
+  {Validated (synthetic)}
+\DeclareFinding{F5}
+  {Thin distal structures are under-supported by the sampling scheme,
+   independently of pose.}
+  {Template support: 38 tarsus and 8 pretarsus vertices vs.\ hundreds
+   proximally.}
+  {Validated}
+\DeclareFinding{F6}
+  {The objective has no term observing joint location, so different
+   skeletons can yield similar surfaces; supervision does not propagate.}
+  {11 expert specimens, 396 fits: production $25.1\%$ of Weber's length,
+   $17.4\%$ with expert supervision.}
+  {Validated}
+\DeclareFinding{F7}
+  {An early annotation set used another coordinate convention than the
+   scans; all conclusions drawn from it were discarded.}
+  {Axis map $(x,y,z)\mapsto(x,z,-y)$; apparent error $42.7\%\to25.1\%$.}
+  {Validated}
+\DeclareFinding{F8}
+  {Registration error is structured by joint and specimen, not by optimiser
+   seed.}
+  {Log-scale variance: joint $0.36$, specimen $0.17$, seed $0.02$.}
+  {Validated}
+
+\begin{document}
+
+\input{chapters/00_cover}
+
+\clearpage
+\tableofcontents
+\clearpage
+\listoffigures
+\vspace{1.5em}
+\listoftables
+\clearpage
+
+\input{chapters/01_introduction}
+\input{chapters/02_host_organisation}
+\input{chapters/03_work}
+\input{chapters/04_conclusion}
+
+\bibliography{bib/references}
+
+\clearpage
+\input{chapters/05_back_cover}
+
+\end{document}

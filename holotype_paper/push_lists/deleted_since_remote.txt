@@ -1,0 +1,10 @@
+diagnostics/khaoula_v2/smoke3/synth_000.obj
+diagnostics/khaoula_v2/smoke3/synth_001.obj
+diagnostics/khaoula_v2/smoke3/synth_002.obj
+fit3d_results_all_baseline
+fit3d_results_all_gentle
+fit3d_results_all_offset_baseline
+fit3d_results_all_offset_gentle
+fit3d_results_all_offset_gentle_pairscoped
+fit3d_results_full_gentle
+fit3d_results_seeded

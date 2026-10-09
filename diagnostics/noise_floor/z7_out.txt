@@ -1,0 +1,90 @@
+measured 50 specimens, 66 length traits, 5 shape-deviation traits
+resolved 25/25 conspecific pairs
+
+============================================================================================
+TRAIT REPEATABILITY on worker registrations   (25 conspecific pairs, n=50)
+R = 1 - within-pair var / total var.  R<=0 means the trait cannot distinguish a
+nest-mate from a random ant -- it is measuring noise.
+============================================================================================
+trait                                     R   within sd   total sd
+head_wid                              0.691     0.14129    0.25409
+mandible_r_len                        0.613     0.20008    0.32174
+shapedev_mesosoma                     0.607     0.03011    0.04800
+attach_an_1_l                         0.568     0.11328    0.17229
+shapedev_gaster                       0.559     0.11093    0.16696
+attach_an_1_r                         0.546     0.11654    0.17301
+seg_b_a_1                             0.538     0.33610    0.49432
+shapedev_head                         0.535     0.05336    0.07829
+mesosoma_len                          0.498     0.13981    0.19728  <- weak
+attach_l_1_co_r                       0.493     0.28228    0.39662  <- weak
+mandible_l_hei                        0.486     0.27806    0.38784  <- weak
+leaflen_ma_l                          0.478     0.27851    0.38554  <- weak
+attach_l_1_co_l                       0.450     0.30451    0.41076  <- weak
+leaflen_ma_r                          0.429     0.29954    0.39657  <- weak
+mandible_r_hei                        0.429     0.29932    0.39615  <- weak
+seg_l_3_ta_l                          0.421     0.58009    0.76250  <- weak
+seg_l_3_ta_r                          0.403     0.57575    0.74497  <- weak
+seg_l_2_ti_l                          0.374     0.29011    0.36669  <- weak
+seg_an_1_l                            0.348     0.30444    0.37708  <- weak
+shapedev_mandible_l                   0.346     0.08044    0.09951  <- weak
+seg_l_2_fe_l                          0.344     0.19173    0.23666  <- weak
+seg_b_a_2                             0.298     0.39231    0.46834  <- weak
+attach_l_2_co_l                       0.280     0.25660    0.30249  <- weak
+mandible_r_wid                        0.274     0.46004    0.53976  <- weak
+head_len                              0.271     0.17417    0.20404  <- weak
+seg_l_2_fe_r                          0.260     0.23426    0.27234  <- weak
+attach_l_2_co_r                       0.258     0.26211    0.30423  <- weak
+seg_l_1_ta_l                          0.256     0.54241    0.62888  <- weak
+mandible_l_len                        0.254     0.24798    0.28704  <- weak
+mandible_l_wid                        0.252     0.40906    0.47290  <- weak
+gaster_hei                            0.237     0.23581    0.26988  <- weak
+seg_an_2_l                            0.236     0.28307    0.32396  <- weak
+seg_l_1_ta_r                          0.232     0.51508    0.58763  <- weak
+shapedev_mandible_r                   0.229     0.06529    0.07437  <- weak
+gaster_wid                            0.219     0.28379    0.32108  <- weak
+seg_l_1_co_l                          0.217     0.36650    0.41427  <- weak
+attach_ma_r                           0.213     0.11285    0.12719  <- weak
+seg_l_3_fe_r                          0.212     0.22297    0.25120  <- weak
+seg_l_2_ti_r                          0.204     0.37798    0.42364  <- weak
+seg_l_1_co_r                          0.201     0.37987    0.42500  <- weak
+seg_l_3_ti_l                          0.200     0.26390    0.29504  <- NOISE
+seg_l_1_tr_r                          0.195     0.16539    0.18429  <- NOISE
+attach_l_3_co_r                       0.176     0.27033    0.29773  <- NOISE
+seg_l_2_co_r                          0.169     0.46526    0.51035  <- NOISE
+attach_l_3_co_l                       0.167     0.27373    0.29989  <- NOISE
+seg_an_1_r                            0.166     0.34603    0.37885  <- NOISE
+head_hei                              0.147     0.18331    0.19853  <- NOISE
+seg_l_3_ti_r                          0.142     0.26780    0.28909  <- NOISE
+attach_ma_l                           0.135     0.12916    0.13886  <- NOISE
+seg_l_2_tr_l                          0.132     0.17356    0.18632  <- NOISE
+attach_b_a_1                          0.112     0.26763    0.28402  <- NOISE
+seg_l_1_tr_l                          0.108     0.17905    0.18960  <- NOISE
+seg_an_2_r                            0.100     0.30682    0.32334  <- NOISE
+seg_l_3_fe_l                          0.070     0.25515    0.26459  <- NOISE
+seg_l_2_co_l                          0.068     0.51966    0.53820  <- NOISE
+seg_l_1_ti_l                          0.067     0.41074    0.42528  <- NOISE
+seg_l_2_ta_l                          0.060     0.46339    0.47782  <- NOISE
+seg_l_3_co_l                          0.056     0.55802    0.57441  <- NOISE
+seg_l_3_co_r                          0.055     0.50135    0.51564  <- NOISE
+mesosoma_wid                          0.052     0.18098    0.18589  <- NOISE
+mesosoma_hei                          0.043     0.18085    0.18483  <- NOISE
+seg_l_2_ta_r                          0.016     0.48667    0.49070  <- NOISE
+seg_l_3_tr_r                          0.008     0.19326    0.19402  <- NOISE
+seg_l_2_tr_r                         -0.041     0.19404    0.19020  <- NOISE
+gaster_len                           -0.049     0.26575    0.25945  <- NOISE
+seg_l_1_fe_l                         -0.079     0.36989    0.35613  <- NOISE
+seg_b_a_4                            -0.125     0.45840    0.43225  <- NOISE
+seg_l_3_tr_l                         -0.134     0.20633    0.19379  <- NOISE
+seg_l_1_fe_r                         -0.145     0.37068    0.34646  <- NOISE
+seg_l_1_ti_r                         -0.187     0.51968    0.47706  <- NOISE
+seg_b_a_3                            -0.325     0.41632    0.36163  <- NOISE
+
+============================================================================================
+traits measured           : 71
+  R >= 0.5  (usable)      : 8
+  0.2 <= R < 0.5 (weak)   : 32
+  R < 0.2   (noise)       : 31
+  median R                : 0.217
+============================================================================================
+
+wrote /rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/noise_floor/out_Z7/z7_repeatability.json

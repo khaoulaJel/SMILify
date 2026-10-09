@@ -1,0 +1,50 @@
+{
+ "O0_control": {
+  "lam": 0.0,
+  "heldout_region": null,
+  "n_supervised": 524,
+  "iters": 800
+ },
+ "O1_all": {
+  "lam": 0.03,
+  "heldout_region": null,
+  "n_supervised": 524,
+  "iters": 800
+ },
+ "O2_heldout_body_axis": {
+  "lam": 0.03,
+  "heldout_region": "body_axis",
+  "n_supervised": 459,
+  "iters": 800
+ },
+ "O2_heldout_coxa": {
+  "lam": 0.03,
+  "heldout_region": "coxa",
+  "n_supervised": 458,
+  "iters": 800
+ },
+ "O2_heldout_leg_proximal": {
+  "lam": 0.03,
+  "heldout_region": "leg_proximal",
+  "n_supervised": 392,
+  "iters": 800
+ },
+ "O2_heldout_leg_distal": {
+  "lam": 0.03,
+  "heldout_region": "leg_distal",
+  "n_supervised": 344,
+  "iters": 800
+ },
+ "O2_heldout_mandible": {
+  "lam": 0.03,
+  "heldout_region": "mandible",
+  "n_supervised": 502,
+  "iters": 800
+ },
+ "O2_heldout_antenna": {
+  "lam": 0.03,
+  "heldout_region": "antenna",
+  "n_supervised": 465,
+  "iters": 800
+ }
+}

@@ -1,0 +1,86 @@
+{
+ "clypeal_ant_mid": {
+  "vertex": 5676,
+  "n": 12,
+  "agreement_pct_diag": 6.442840099405491,
+  "old_vertex": 5089,
+  "moved_pct_diag": 6.395948403034129
+ },
+ "cephalic_post_mid": {
+  "vertex": 917,
+  "n": 12,
+  "agreement_pct_diag": 7.250973768846057,
+  "old_vertex": 5096,
+  "moved_pct_diag": 9.30696589598574
+ },
+ "mandibular_apex_r": {
+  "vertex": 6125,
+  "n": 12,
+  "agreement_pct_diag": 7.932012220642624,
+  "old_vertex": 1664,
+  "moved_pct_diag": 12.630361713912494
+ },
+ "mandibular_apex_l": {
+  "vertex": 6067,
+  "n": 12,
+  "agreement_pct_diag": 7.936196261552331,
+  "old_vertex": 6861,
+  "moved_pct_diag": 11.928127692033808
+ },
+ "antennal_insertion_r": {
+  "vertex": 5685,
+  "n": 11,
+  "agreement_pct_diag": 8.399624329137358,
+  "old_vertex": 678,
+  "moved_pct_diag": 5.012972587343623
+ },
+ "antennal_insertion_l": {
+  "vertex": 5502,
+  "n": 11,
+  "agreement_pct_diag": 8.98644504095399,
+  "old_vertex": 5891,
+  "moved_pct_diag": 3.9863455082789954
+ },
+ "scape_apex_r": {
+  "vertex": 1498,
+  "n": 11,
+  "agreement_pct_diag": 17.03858191946492,
+  "old_vertex": 1802,
+  "moved_pct_diag": 14.649987907800051
+ },
+ "scape_apex_l": {
+  "vertex": 170,
+  "n": 11,
+  "agreement_pct_diag": 15.504757766402868,
+  "old_vertex": 6999,
+  "moved_pct_diag": 20.6788251386852
+ },
+ "wl_anterior_r": {
+  "vertex": 1368,
+  "n": 12,
+  "agreement_pct_diag": 8.929893036816711,
+  "old_vertex": 832,
+  "moved_pct_diag": 7.771849264322076
+ },
+ "wl_posterior_r": {
+  "vertex": 3194,
+  "n": 12,
+  "agreement_pct_diag": 7.910167172351821,
+  "old_vertex": 2386,
+  "moved_pct_diag": 5.366776735738589
+ },
+ "head_width_r": {
+  "vertex": 6263,
+  "n": 12,
+  "agreement_pct_diag": 11.009212280005611,
+  "old_vertex": null,
+  "moved_pct_diag": NaN
+ },
+ "head_width_l": {
+  "vertex": 250,
+  "n": 12,
+  "agreement_pct_diag": 8.368099585193479,
+  "old_vertex": null,
+  "moved_pct_diag": NaN
+ }
+}

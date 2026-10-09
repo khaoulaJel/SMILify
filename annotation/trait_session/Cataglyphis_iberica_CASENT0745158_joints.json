@@ -1,0 +1,528 @@
+{
+  "specimen_id": "Cataglyphis_iberica_CASENT0745158_edited",
+  "n_joints_total": 55,
+  "n_joints_annotated": 55,
+  "known_mesh_defects": "",
+  "frame_joints": {
+    "origin": "b_t",
+    "forward": "b_h",
+    "lateral_r": "l_2_co_r",
+    "lateral_l": "l_2_co_l"
+  },
+  "joints": [
+    {
+      "joint_index": 0,
+      "joint_name": "b_t",
+      "visibility": "clear",
+      "position": [
+        0.04382805526256561,
+        48.22795486450195,
+        13.7203950881958
+      ]
+    },
+    {
+      "joint_index": 1,
+      "joint_name": "b_a_1",
+      "visibility": "clear",
+      "position": [
+        1.3646721839904785,
+        -33.085205078125,
+        3.863330841064453
+      ]
+    },
+    {
+      "joint_index": 2,
+      "joint_name": "b_a_2",
+      "visibility": "clear",
+      "position": [
+        1.6604294776916504,
+        -47.54313278198242,
+        1.6108131408691406
+      ]
+    },
+    {
+      "joint_index": 3,
+      "joint_name": "b_a_3",
+      "visibility": "clear",
+      "position": [
+        -0.49417632818222046,
+        -73.30838775634766,
+        24.686767578125
+      ]
+    },
+    {
+      "joint_index": 4,
+      "joint_name": "b_a_4",
+      "visibility": "clear",
+      "position": [
+        -0.6138877272605896,
+        -87.22441101074219,
+        26.76309585571289
+      ]
+    },
+    {
+      "joint_index": 5,
+      "joint_name": "b_a_5",
+      "visibility": "not_present",
+      "not_present_reason": "scan_capture_gap",
+      "position": null
+    },
+    {
+      "joint_index": 6,
+      "joint_name": "l_1_co_r",
+      "visibility": "clear",
+      "position": [
+        9.41647720336914,
+        13.544241905212402,
+        5.053844451904297
+      ]
+    },
+    {
+      "joint_index": 7,
+      "joint_name": "l_1_tr_r",
+      "visibility": "clear",
+      "position": [
+        7.069307327270508,
+        -5.1429548263549805,
+        -13.358602523803711
+      ]
+    },
+    {
+      "joint_index": 8,
+      "joint_name": "l_1_fe_r",
+      "visibility": "clear",
+      "position": [
+        37.523895263671875,
+        -9.14599609375,
+        -66.1581039428711
+      ]
+    },
+    {
+      "joint_index": 9,
+      "joint_name": "l_1_ti_r",
+      "visibility": "clear",
+      "position": [
+        10.568329811096191,
+        -49.25292205810547,
+        -62.73999786376953
+      ]
+    },
+    {
+      "joint_index": 10,
+      "joint_name": "l_1_ta_r",
+      "visibility": "not_present",
+      "not_present_reason": "scan_capture_gap",
+      "position": null
+    },
+    {
+      "joint_index": 11,
+      "joint_name": "l_1_pt_r",
+      "visibility": "not_present",
+      "not_present_reason": "scan_capture_gap",
+      "position": null
+    },
+    {
+      "joint_index": 12,
+      "joint_name": "l_2_co_r",
+      "visibility": "clear",
+      "position": [
+        7.934643268585205,
+        -13.803107261657715,
+        -4.060885429382324
+      ]
+    },
+    {
+      "joint_index": 13,
+      "joint_name": "l_2_tr_r",
+      "visibility": "clear",
+      "position": [
+        18.91419792175293,
+        -24.291149139404297,
+        -10.898366928100586
+      ]
+    },
+    {
+      "joint_index": 14,
+      "joint_name": "l_2_fe_r",
+      "visibility": "clear",
+      "position": [
+        74.20623016357422,
+        -35.49699020385742,
+        26.567867279052734
+      ]
+    },
+    {
+      "joint_index": 15,
+      "joint_name": "l_2_ti_r",
+      "visibility": "clear",
+      "position": [
+        45.2075309753418,
+        -41.92727279663086,
+        -21.24711799621582
+      ]
+    },
+    {
+      "joint_index": 16,
+      "joint_name": "l_2_ta_r",
+      "visibility": "clear",
+      "position": [
+        7.142773151397705,
+        -32.600006103515625,
+        -32.27842712402344
+      ]
+    },
+    {
+      "joint_index": 17,
+      "joint_name": "l_2_pt_r",
+      "visibility": "clear",
+      "position": [
+        -17.445756912231445,
+        -23.189992904663086,
+        -16.158294677734375
+      ]
+    },
+    {
+      "joint_index": 18,
+      "joint_name": "l_3_co_r",
+      "visibility": "clear",
+      "position": [
+        10.740080833435059,
+        -28.803855895996094,
+        -3.1793243885040283
+      ]
+    },
+    {
+      "joint_index": 19,
+      "joint_name": "l_3_tr_r",
+      "visibility": "clear",
+      "position": [
+        20.77780532836914,
+        -41.26805877685547,
+        -7.738979339599609
+      ]
+    },
+    {
+      "joint_index": 20,
+      "joint_name": "l_3_fe_r",
+      "visibility": "clear",
+      "position": [
+        69.78861236572266,
+        -76.82076263427734,
+        55.54523468017578
+      ]
+    },
+    {
+      "joint_index": 21,
+      "joint_name": "l_3_ti_r",
+      "visibility": "clear",
+      "position": [
+        44.33368682861328,
+        -71.64888000488281,
+        -16.840160369873047
+      ]
+    },
+    {
+      "joint_index": 22,
+      "joint_name": "l_3_ta_r",
+      "visibility": "clear",
+      "position": [
+        10.370695114135742,
+        -70.07472229003906,
+        -51.328773498535156
+      ]
+    },
+    {
+      "joint_index": 23,
+      "joint_name": "l_3_pt_r",
+      "visibility": "not_present",
+      "not_present_reason": "scan_capture_gap",
+      "position": null
+    },
+    {
+      "joint_index": 24,
+      "joint_name": "w_1_r",
+      "visibility": "not_present",
+      "not_present_reason": "biological",
+      "position": null
+    },
+    {
+      "joint_index": 25,
+      "joint_name": "w_2_r",
+      "visibility": "not_present",
+      "not_present_reason": "biological",
+      "position": null
+    },
+    {
+      "joint_index": 26,
+      "joint_name": "l_1_co_l",
+      "visibility": "clear",
+      "position": [
+        -7.518947124481201,
+        14.704301834106445,
+        7.3427276611328125
+      ]
+    },
+    {
+      "joint_index": 27,
+      "joint_name": "l_1_tr_l",
+      "visibility": "clear",
+      "position": [
+        -7.041720867156982,
+        -6.597287178039551,
+        -11.603511810302734
+      ]
+    },
+    {
+      "joint_index": 28,
+      "joint_name": "l_1_fe_l",
+      "visibility": "clear",
+      "position": [
+        -36.3879280090332,
+        -32.93342971801758,
+        -58.494346618652344
+      ]
+    },
+    {
+      "joint_index": 29,
+      "joint_name": "l_1_ti_l",
+      "visibility": "not_present",
+      "not_present_reason": "scan_capture_gap",
+      "position": null
+    },
+    {
+      "joint_index": 30,
+      "joint_name": "l_1_ta_l",
+      "visibility": "not_present",
+      "not_present_reason": "scan_capture_gap",
+      "position": null
+    },
+    {
+      "joint_index": 31,
+      "joint_name": "l_1_pt_l",
+      "visibility": "not_present",
+      "not_present_reason": "scan_capture_gap",
+      "position": null
+    },
+    {
+      "joint_index": 32,
+      "joint_name": "l_2_co_l",
+      "visibility": "clear",
+      "position": [
+        -7.248515605926514,
+        -15.75668716430664,
+        -1.0820541381835938
+      ]
+    },
+    {
+      "joint_index": 33,
+      "joint_name": "l_2_tr_l",
+      "visibility": "clear",
+      "position": [
+        -17.101654052734375,
+        -26.842851638793945,
+        -5.054840087890625
+      ]
+    },
+    {
+      "joint_index": 34,
+      "joint_name": "l_2_fe_l",
+      "visibility": "clear",
+      "position": [
+        -53.46824264526367,
+        -28.533998489379883,
+        52.29872131347656
+      ]
+    },
+    {
+      "joint_index": 35,
+      "joint_name": "l_2_ti_l",
+      "visibility": "clear",
+      "position": [
+        -47.51885986328125,
+        -44.89431381225586,
+        3.394533157348633
+      ]
+    },
+    {
+      "joint_index": 36,
+      "joint_name": "l_2_ta_l",
+      "visibility": "clear",
+      "position": [
+        -30.015460968017578,
+        -50.58468246459961,
+        -38.75782775878906
+      ]
+    },
+    {
+      "joint_index": 37,
+      "joint_name": "l_2_pt_l",
+      "visibility": "clear",
+      "position": [
+        -16.459884643554688,
+        -48.43721389770508,
+        -58.929100036621094
+      ]
+    },
+    {
+      "joint_index": 38,
+      "joint_name": "l_3_co_l",
+      "visibility": "clear",
+      "position": [
+        -2.9671854972839355,
+        -30.417217254638672,
+        -5.085472106933594
+      ]
+    },
+    {
+      "joint_index": 39,
+      "joint_name": "l_3_tr_l",
+      "visibility": "clear",
+      "position": [
+        -19.41958999633789,
+        -42.047218322753906,
+        -2.1087684631347656
+      ]
+    },
+    {
+      "joint_index": 40,
+      "joint_name": "l_3_fe_l",
+      "visibility": "clear",
+      "position": [
+        -12.032112121582031,
+        -43.93618392944336,
+        83.60224151611328
+      ]
+    },
+    {
+      "joint_index": 41,
+      "joint_name": "l_3_ti_l",
+      "visibility": "clear",
+      "position": [
+        -32.550846099853516,
+        -52.16996383666992,
+        14.134078979492188
+      ]
+    },
+    {
+      "joint_index": 42,
+      "joint_name": "l_3_ta_l",
+      "visibility": "clear",
+      "position": [
+        -47.368324279785156,
+        -62.9431037902832,
+        -30.658935546875
+      ]
+    },
+    {
+      "joint_index": 43,
+      "joint_name": "l_3_pt_l",
+      "visibility": "not_present",
+      "not_present_reason": "scan_capture_gap",
+      "position": null
+    },
+    {
+      "joint_index": 44,
+      "joint_name": "w_1_l",
+      "visibility": "not_present",
+      "not_present_reason": "biological",
+      "position": null
+    },
+    {
+      "joint_index": 45,
+      "joint_name": "w_2_l",
+      "visibility": "not_present",
+      "not_present_reason": "biological",
+      "position": null
+    },
+    {
+      "joint_index": 46,
+      "joint_name": "b_h",
+      "visibility": "clear",
+      "position": [
+        0.030987784266471863,
+        48.273826599121094,
+        13.683980941772461
+      ]
+    },
+    {
+      "joint_index": 47,
+      "joint_name": "ma_r",
+      "visibility": "clear",
+      "position": [
+        14.166257858276367,
+        71.78057861328125,
+        -19.781776428222656
+      ]
+    },
+    {
+      "joint_index": 48,
+      "joint_name": "an_1_r",
+      "visibility": "clear",
+      "position": [
+        5.311919689178467,
+        76.4508056640625,
+        -10.388147354125977
+      ]
+    },
+    {
+      "joint_index": 49,
+      "joint_name": "an_2_r",
+      "visibility": "clear",
+      "position": [
+        53.883541107177734,
+        87.19447326660156,
+        -43.463722229003906
+      ]
+    },
+    {
+      "joint_index": 50,
+      "joint_name": "an_3_r",
+      "visibility": "clear",
+      "position": [
+        -13.188576698303223,
+        46.262550354003906,
+        -33.175838470458984
+      ]
+    },
+    {
+      "joint_index": 51,
+      "joint_name": "ma_l",
+      "visibility": "clear",
+      "position": [
+        -5.0704345703125,
+        66.62666320800781,
+        -25.178787231445312
+      ]
+    },
+    {
+      "joint_index": 52,
+      "joint_name": "an_1_l",
+      "visibility": "clear",
+      "position": [
+        -9.991279602050781,
+        73.10466003417969,
+        -13.529949188232422
+      ]
+    },
+    {
+      "joint_index": 53,
+      "joint_name": "an_2_l",
+      "visibility": "clear",
+      "position": [
+        -58.626060485839844,
+        43.644901275634766,
+        -27.863012313842773
+      ]
+    },
+    {
+      "joint_index": 54,
+      "joint_name": "an_3_l",
+      "visibility": "clear",
+      "position": [
+        6.24591588973999,
+        81.29985809326172,
+        -12.760358810424805
+      ]
+    }
+  ]
+}

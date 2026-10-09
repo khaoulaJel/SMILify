@@ -1,0 +1,81 @@
+{
+ "Aenictus_ceylonicus_CASENT0878084": {
+  "n": 23,
+  "median": 29.55742004081948,
+  "p90": 66.71893048873365,
+  "frac_beyond_train_p99": 0.391304347826087
+ },
+ "Aphaenogaster_gracillima_OKENT0105348": {
+  "n": 24,
+  "median": 31.46319918398264,
+  "p90": 56.70094243009137,
+  "frac_beyond_train_p99": 0.3333333333333333
+ },
+ "Cataglyphis_iberica_CASENT0745158": {
+  "n": 17,
+  "median": 29.686696639055143,
+  "p90": 75.18134169352736,
+  "frac_beyond_train_p99": 0.4117647058823529
+ },
+ "Cephalotes_atratus_CASENT0744612": {
+  "n": 24,
+  "median": 29.479956327189587,
+  "p90": 66.74296891753578,
+  "frac_beyond_train_p99": 0.3333333333333333
+ },
+ "Cyphomyrmex_major_CASENT0745147": {
+  "n": 24,
+  "median": 25.925080362076017,
+  "p90": 54.951807358661476,
+  "frac_beyond_train_p99": 0.3333333333333333
+ },
+ "Discothyrea_patrizii_CASENT0744991": {
+  "n": 24,
+  "median": 29.7986617273992,
+  "p90": 49.45833680234193,
+  "frac_beyond_train_p99": 0.3333333333333333
+ },
+ "Eciton_burchellii_CASENT0744558": {
+  "n": 17,
+  "median": 38.15921340267898,
+  "p90": 70.45968900906888,
+  "frac_beyond_train_p99": 0.4117647058823529
+ },
+ "Formica_cf.fusca_CASENT0878139": {
+  "n": 24,
+  "median": 18.148833336402433,
+  "p90": 69.13447303239154,
+  "frac_beyond_train_p99": 0.3333333333333333
+ },
+ "Gigantiops_destructor_CASENT0745031": {
+  "n": 21,
+  "median": 30.4290771592945,
+  "p90": 55.14211023608129,
+  "frac_beyond_train_p99": 0.42857142857142855
+ },
+ "Leptogenys_peuqueti_CASENT0741327": {
+  "n": 24,
+  "median": 27.354415958952814,
+  "p90": 75.9191737492962,
+  "frac_beyond_train_p99": 0.375
+ },
+ "Odontomachus_bauri_CASENT0878072": {
+  "n": 24,
+  "median": 31.670225550577694,
+  "p90": 57.926347199079345,
+  "frac_beyond_train_p99": 0.375
+ },
+ "_train": {
+  "per_specimen_median_pct": [
+   7.558651161193848,
+   10.87695598602295,
+   15.364344072341918,
+   18.9545955657959
+  ],
+  "all_joints_p50_p95_p99": [
+   10.83096694946289,
+   29.91259326934813,
+   39.64756932258607
+  ]
+ }
+}

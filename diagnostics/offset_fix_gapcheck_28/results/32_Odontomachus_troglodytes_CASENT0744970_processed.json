@@ -1,0 +1,25 @@
+{
+  "specimen": "32_Odontomachus_troglodytes_CASENT0744970_processed",
+  "alpha": 9.12629,
+  "pre_gap": 2.3599307369700786,
+  "diag_length": 1993.2789358786254,
+  "old": {
+    "offset": 0.30420966666666666,
+    "relative_alpha": 218.4106505358284,
+    "relative_offset": 6552.319516074852,
+    "gap_after": 5.361197729891287,
+    "verdict": "preserved",
+    "output_vertices": 122999,
+    "output_faces": 246038
+  },
+  "new": {
+    "offset": 3.6505159999999997,
+    "relative_alpha": 218.4106505358284,
+    "relative_offset": 546.0266263395711,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 16876,
+    "output_faces": 33772
+  },
+  "flipped": true
+}

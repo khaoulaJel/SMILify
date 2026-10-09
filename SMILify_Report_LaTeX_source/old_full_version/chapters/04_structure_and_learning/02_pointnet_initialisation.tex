@@ -1,0 +1,51 @@
+\section{A learned pose initialiser, and where it breaks}
+\label{sec:pointnet-init}
+
+\S\ref{sec:init-stage} introduced a \term{PointNet}-style~\cite{pointnet}
+initialiser: a point-cloud encoder that reads the raw target points,
+extracts a permutation-invariant feature per point, pools them into one
+global descriptor, and regresses an initial pose and shape directly from
+it, replacing a fixed canonical starting pose with a learned, input-aware
+one. The motivation follows from \F{F4}: for the distal chain, initialisation determines
+which target surface region becomes each vertex's first attractor, so a
+better starting point should, in principle, reduce how often the optimiser
+locks onto the wrong one.
+
+\input{chapters/04_structure_and_learning/02b_pointnet_arch}
+
+\begin{investigation}{I11}{Does the learned initialiser improve registration,
+and does a synthetic improvement transfer to real specimens?}
+\invQuestion{Under controlled, exact synthetic ground truth, does the
+learned initialiser outperform the existing default; and does that
+advantage hold on real scans?}
+\invMethod{Synthetic benchmark: learned vs.\ default initialisation, exact
+ground truth known. Real-data benchmark: 50 real specimens, learned vs.\
+zero (default) initialisation at three levels of synthetic pose
+perturbation used during training ($\approx\!23^\circ$, then retrained at
+$\approx\!13.8^\circ$ and $\approx\!8.85^\circ$).}
+\invResult{On synthetic data the learned initialiser wins clearly: leg
+accuracy improves from $0.857$ to $0.901$ and Chamfer distance from
+$0.000264$ to $0.000226$. On the 50-specimen real benchmark at the
+$23^\circ$ training regime, this reverses: learned initialisation
+($0.000697$ mean Chamfer) is \emph{worse} than the zero-initialised default
+($0.000637$), winning only 20 of 50 specimens. Retraining at smaller
+perturbation magnitudes moves the comparison toward parity rather than
+robust superiority.}
+\invVerdict{REJECT}{The observed failure is consistent with a
+synthetic-to-real distribution mismatch: performance did not transfer from
+the tested synthetic training regime to real scans, and the
+perturbation-magnitude sweep supports that interpretation. The experiments
+do not establish whether the architecture itself would generalise under a
+more representative training distribution, only that it did not under the
+one tested. Not deployed in production as evaluated. The general lesson is
+retained as a standing caution: a better initialiser can, in principle,
+improve optimisation without addressing correspondence at all, and a
+synthetic evaluation cannot certify real-world transfer by itself.}
+\end{investigation}
+
+A controlled follow-up sweep, holding total pose-error magnitude fixed and
+varying only where along the kinematic chain it was placed, is what produced
+the proximal/distal result reported as \F{F4} in \S\ref{sec:articulation}:
+the same error placed proximally degrades leg accuracy far more (to $0.768$)
+than the identical error placed distally ($0.939$), because a proximal
+mistake propagates through every joint downstream of it.

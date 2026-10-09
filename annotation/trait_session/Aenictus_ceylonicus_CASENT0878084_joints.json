@@ -1,0 +1,546 @@
+{
+  "specimen_id": "Aenictus_ceylonicus_CASENT0878084_edited",
+  "n_joints_total": 55,
+  "n_joints_annotated": 55,
+  "known_mesh_defects": "",
+  "frame_joints": {
+    "origin": "b_t",
+    "forward": "b_h",
+    "lateral_r": "l_2_co_r",
+    "lateral_l": "l_2_co_l"
+  },
+  "joints": [
+    {
+      "joint_index": 0,
+      "joint_name": "b_t",
+      "visibility": "clear",
+      "position": [
+        -0.5956856608390808,
+        0.6570649147033691,
+        1.4544373750686646
+      ]
+    },
+    {
+      "joint_index": 1,
+      "joint_name": "b_a_1",
+      "visibility": "clear",
+      "position": [
+        0.06277182698249817,
+        -8.94083023071289,
+        4.0273637771606445
+      ]
+    },
+    {
+      "joint_index": 2,
+      "joint_name": "b_a_2",
+      "visibility": "clear",
+      "position": [
+        -0.18816566467285156,
+        -11.105825424194336,
+        3.8131771087646484
+      ]
+    },
+    {
+      "joint_index": 3,
+      "joint_name": "b_a_3",
+      "visibility": "clear",
+      "position": [
+        -0.4098320007324219,
+        -12.18276596069336,
+        2.2002687454223633
+      ]
+    },
+    {
+      "joint_index": 4,
+      "joint_name": "b_a_4",
+      "visibility": "clear",
+      "position": [
+        -0.7088899612426758,
+        -10.574159622192383,
+        -4.253536701202393
+      ]
+    },
+    {
+      "joint_index": 5,
+      "joint_name": "b_a_5",
+      "visibility": "clear",
+      "position": [
+        -1.20054292678833,
+        -8.615396499633789,
+        -7.133379936218262
+      ]
+    },
+    {
+      "joint_index": 6,
+      "joint_name": "l_1_co_r",
+      "visibility": "clear",
+      "position": [
+        0.7509491443634033,
+        -2.60532283782959,
+        3.4809470176696777
+      ]
+    },
+    {
+      "joint_index": 7,
+      "joint_name": "l_1_tr_r",
+      "visibility": "clear",
+      "position": [
+        1.666632056236267,
+        -4.746068954467773,
+        1.8120958805084229
+      ]
+    },
+    {
+      "joint_index": 8,
+      "joint_name": "l_1_fe_r",
+      "visibility": "clear",
+      "position": [
+        8.215597152709961,
+        -1.830438494682312,
+        0.4927384555339813
+      ]
+    },
+    {
+      "joint_index": 9,
+      "joint_name": "l_1_ti_r",
+      "visibility": "clear",
+      "position": [
+        12.360764503479004,
+        -0.7985405921936035,
+        -2.1980652809143066
+      ]
+    },
+    {
+      "joint_index": 10,
+      "joint_name": "l_1_ta_r",
+      "visibility": "clear",
+      "position": [
+        -0.21301622688770294,
+        -0.09842469543218613,
+        -1.0410229833723861e-07
+      ]
+    },
+    {
+      "joint_index": 11,
+      "joint_name": "l_1_pt_r",
+      "visibility": "not_present",
+      "not_present_reason": "scan_capture_gap",
+      "position": null
+    },
+    {
+      "joint_index": 12,
+      "joint_name": "l_2_co_r",
+      "visibility": "clear",
+      "position": [
+        1.118570327758789,
+        -5.9286017417907715,
+        2.8576958179473877
+      ]
+    },
+    {
+      "joint_index": 13,
+      "joint_name": "l_2_tr_r",
+      "visibility": "clear",
+      "position": [
+        2.7399959564208984,
+        -6.350560665130615,
+        2.25960111618042
+      ]
+    },
+    {
+      "joint_index": 14,
+      "joint_name": "l_2_fe_r",
+      "visibility": "clear",
+      "position": [
+        8.526025772094727,
+        -7.121362686157227,
+        -1.7169718742370605
+      ]
+    },
+    {
+      "joint_index": 15,
+      "joint_name": "l_2_ti_r",
+      "visibility": "clear",
+      "position": [
+        11.467745780944824,
+        -7.994687080383301,
+        -6.212688446044922
+      ]
+    },
+    {
+      "joint_index": 16,
+      "joint_name": "l_2_ta_r",
+      "visibility": "clear",
+      "position": [
+        14.136648178100586,
+        -8.048200607299805,
+        -7.90494441986084
+      ]
+    },
+    {
+      "joint_index": 17,
+      "joint_name": "l_2_pt_r",
+      "visibility": "clear",
+      "position": [
+        15.076566696166992,
+        -8.621025085449219,
+        -11.75395393371582
+      ]
+    },
+    {
+      "joint_index": 18,
+      "joint_name": "l_3_co_r",
+      "visibility": "clear",
+      "position": [
+        1.070021390914917,
+        -8.069124221801758,
+        3.4800496101379395
+      ]
+    },
+    {
+      "joint_index": 19,
+      "joint_name": "l_3_tr_r",
+      "visibility": "clear",
+      "position": [
+        3.046283721923828,
+        -8.139930725097656,
+        2.1012628078460693
+      ]
+    },
+    {
+      "joint_index": 20,
+      "joint_name": "l_3_fe_r",
+      "visibility": "clear",
+      "position": [
+        10.203239440917969,
+        -9.485895156860352,
+        -2.0906927585601807
+      ]
+    },
+    {
+      "joint_index": 21,
+      "joint_name": "l_3_ti_r",
+      "visibility": "clear",
+      "position": [
+        13.578420639038086,
+        -11.150524139404297,
+        -8.826021194458008
+      ]
+    },
+    {
+      "joint_index": 22,
+      "joint_name": "l_3_ta_r",
+      "visibility": "clear",
+      "position": [
+        17.603456497192383,
+        -12.887165069580078,
+        -11.934138298034668
+      ]
+    },
+    {
+      "joint_index": 23,
+      "joint_name": "l_3_pt_r",
+      "visibility": "clear",
+      "position": [
+        17.972646713256836,
+        -12.126579284667969,
+        -17.70145034790039
+      ]
+    },
+    {
+      "joint_index": 24,
+      "joint_name": "w_1_r",
+      "visibility": "not_present",
+      "not_present_reason": "biological",
+      "position": null
+    },
+    {
+      "joint_index": 25,
+      "joint_name": "w_2_r",
+      "visibility": "not_present",
+      "not_present_reason": "biological",
+      "position": null
+    },
+    {
+      "joint_index": 26,
+      "joint_name": "l_1_co_l",
+      "visibility": "clear",
+      "position": [
+        -1.1645290851593018,
+        -2.55497407913208,
+        3.3947300910949707
+      ]
+    },
+    {
+      "joint_index": 27,
+      "joint_name": "l_1_tr_l",
+      "visibility": "clear",
+      "position": [
+        -1.0679528713226318,
+        -4.919306755065918,
+        1.4765703678131104
+      ]
+    },
+    {
+      "joint_index": 28,
+      "joint_name": "l_1_fe_l",
+      "visibility": "clear",
+      "position": [
+        -7.086968421936035,
+        -2.702652931213379,
+        -1.649350881576538
+      ]
+    },
+    {
+      "joint_index": 29,
+      "joint_name": "l_1_ti_l",
+      "visibility": "clear",
+      "position": [
+        -10.52264404296875,
+        -1.78916597366333,
+        -5.714819431304932
+      ]
+    },
+    {
+      "joint_index": 30,
+      "joint_name": "l_1_ta_l",
+      "visibility": "clear",
+      "position": [
+        -12.703303337097168,
+        -1.1377534866333008,
+        -7.385610580444336
+      ]
+    },
+    {
+      "joint_index": 31,
+      "joint_name": "l_1_pt_l",
+      "visibility": "clear",
+      "position": [
+        -13.381799697875977,
+        -1.6145906448364258,
+        -9.376304626464844
+      ]
+    },
+    {
+      "joint_index": 32,
+      "joint_name": "l_2_co_l",
+      "visibility": "clear",
+      "position": [
+        -0.6902585029602051,
+        -6.16855525970459,
+        2.570594549179077
+      ]
+    },
+    {
+      "joint_index": 33,
+      "joint_name": "l_2_tr_l",
+      "visibility": "clear",
+      "position": [
+        -2.02117919921875,
+        -6.607724189758301,
+        1.051894187927246
+      ]
+    },
+    {
+      "joint_index": 34,
+      "joint_name": "l_2_fe_l",
+      "visibility": "clear",
+      "position": [
+        -5.840062141418457,
+        -8.241714477539062,
+        -3.9502992630004883
+      ]
+    },
+    {
+      "joint_index": 35,
+      "joint_name": "l_2_ti_l",
+      "visibility": "clear",
+      "position": [
+        -6.854696273803711,
+        -9.670616149902344,
+        -9.066215515136719
+      ]
+    },
+    {
+      "joint_index": 36,
+      "joint_name": "l_2_ta_l",
+      "visibility": "clear",
+      "position": [
+        -8.649612426757812,
+        -10.259183883666992,
+        -11.728662490844727
+      ]
+    },
+    {
+      "joint_index": 37,
+      "joint_name": "l_2_pt_l",
+      "visibility": "clear",
+      "position": [
+        -7.4651665687561035,
+        -11.206748962402344,
+        -15.754770278930664
+      ]
+    },
+    {
+      "joint_index": 38,
+      "joint_name": "l_3_co_l",
+      "visibility": "clear",
+      "position": [
+        -0.47234058380126953,
+        -8.200033187866211,
+        2.8121824264526367
+      ]
+    },
+    {
+      "joint_index": 39,
+      "joint_name": "l_3_tr_l",
+      "visibility": "clear",
+      "position": [
+        -1.5504932403564453,
+        -9.952239990234375,
+        1.9377391338348389
+      ]
+    },
+    {
+      "joint_index": 40,
+      "joint_name": "l_3_fe_l",
+      "visibility": "clear",
+      "position": [
+        -6.415979385375977,
+        -16.60426139831543,
+        2.508270740509033
+      ]
+    },
+    {
+      "joint_index": 41,
+      "joint_name": "l_3_ti_l",
+      "visibility": "clear",
+      "position": [
+        -9.098715782165527,
+        -23.060745239257812,
+        -0.3503648042678833
+      ]
+    },
+    {
+      "joint_index": 42,
+      "joint_name": "l_3_ta_l",
+      "visibility": "clear",
+      "position": [
+        -11.430122375488281,
+        -27.90545082092285,
+        -0.6694869995117188
+      ]
+    },
+    {
+      "joint_index": 43,
+      "joint_name": "l_3_pt_l",
+      "visibility": "clear",
+      "position": [
+        -12.158374786376953,
+        -30.78598403930664,
+        -5.834070205688477
+      ]
+    },
+    {
+      "joint_index": 44,
+      "joint_name": "w_1_l",
+      "visibility": "not_present",
+      "not_present_reason": "biological",
+      "position": null
+    },
+    {
+      "joint_index": 45,
+      "joint_name": "w_2_l",
+      "visibility": "not_present",
+      "not_present_reason": "biological",
+      "position": null
+    },
+    {
+      "joint_index": 46,
+      "joint_name": "b_h",
+      "visibility": "clear",
+      "position": [
+        -0.3011355996131897,
+        1.104675531387329,
+        2.2320966720581055
+      ]
+    },
+    {
+      "joint_index": 47,
+      "joint_name": "ma_r",
+      "visibility": "clear",
+      "position": [
+        -1.8773932456970215,
+        1.639493465423584,
+        -0.9574377536773682
+      ]
+    },
+    {
+      "joint_index": 48,
+      "joint_name": "an_1_r",
+      "visibility": "clear",
+      "position": [
+        0.836438775062561,
+        2.169996738433838,
+        -0.6911368370056152
+      ]
+    },
+    {
+      "joint_index": 49,
+      "joint_name": "an_2_r",
+      "visibility": "clear",
+      "position": [
+        2.4672605991363525,
+        6.624632358551025,
+        -1.2720720767974854
+      ]
+    },
+    {
+      "joint_index": 50,
+      "joint_name": "an_3_r",
+      "visibility": "not_present",
+      "not_present_reason": "scan_capture_gap",
+      "position": null
+    },
+    {
+      "joint_index": 51,
+      "joint_name": "ma_l",
+      "visibility": "clear",
+      "position": [
+        2.146152973175049,
+        1.2294926643371582,
+        -0.609747052192688
+      ]
+    },
+    {
+      "joint_index": 52,
+      "joint_name": "an_1_l",
+      "visibility": "clear",
+      "position": [
+        -0.7669345140457153,
+        2.421546697616577,
+        -0.847480058670044
+      ]
+    },
+    {
+      "joint_index": 53,
+      "joint_name": "an_2_l",
+      "visibility": "clear",
+      "position": [
+        -1.6456618309020996,
+        6.970244407653809,
+        -0.7427018880844116
+      ]
+    },
+    {
+      "joint_index": 54,
+      "joint_name": "an_3_l",
+      "visibility": "clear",
+      "position": [
+        -5.4685821533203125,
+        9.688669204711914,
+        -5.458083629608154
+      ]
+    }
+  ]
+}

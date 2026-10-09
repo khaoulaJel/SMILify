@@ -1,0 +1,12 @@
+\section{Implementation and computational infrastructure}
+\label{sec:infrastructure}
+
+The stack is Python, PyTorch~2.3.1, PyTorch3D~0.7.8~\cite{pytorch3d}, NumPy,
+SciPy, Trimesh, Blender, and CGAL-based Alpha Wrap, with configuration-driven
+YAML experiments under Git. Each fit is a non-linear optimisation over
+$\approx10^4$ vertices and several latent variables, and the study comprised
+many ablations over many specimens and seeds, which is why it ran on
+J\"ulich's JURECA (CUDA~11.8) and an RWTH allocation with H100 GPUs
+(CUDA~13.0), several thousand GPU-hours in total, using batch jobs with
+recorded seeds, preserved checkpoints and intermediate fitting stages, and a
+hash-frozen benchmark.

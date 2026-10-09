@@ -1,0 +1,27 @@
+{
+  "eps": 0.05,
+  "tau": 1.0,
+  "n_specimens": 40,
+  "void_control_lowreg_agreement_with_argmax": 1.0,
+  "mean_assignment_entropy": 4.311835622787475,
+  "vertex_coverage_ratio_ot_over_argmax": 1.1855842488841588,
+  "tr": {
+    "argmax": 0.06517127756576871,
+    "ot": 0.06237750504472887,
+    "rel_pct": 4.2868156423977615,
+    "better": 35,
+    "n": 40,
+    "sign_p": 1.382612026645802e-06,
+    "passes": false
+  },
+  "fe": {
+    "argmax": 0.08084887087224846,
+    "ot": 0.07724262832076363,
+    "rel_pct": 4.460473612777041,
+    "better": 33,
+    "n": 40,
+    "sign_p": 4.255962267052382e-06,
+    "passes": false
+  },
+  "verdict": "FAIL"
+}

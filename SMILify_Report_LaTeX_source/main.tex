@@ -1,0 +1,61 @@
+% !TEX program = xelatex
+% !TEX encoding = UTF-8
+%% ===========================================================================
+%%  Mesh Registration from Scan-Derived 3D Data
+%%  Internship report -- Forschungszentrum Juelich (IAS-7), July-Sept. 2026
+%%  Khaoula Jellal
+%%
+%%  Build (XeLaTeX, Calibri 12 pt; falls back to the metric-identical Carlito):
+%%     xelatex main && bibtex main && xelatex main && xelatex main
+%% ===========================================================================
+\documentclass[12pt,a4paper,toc=listof,toc=bibliography]{scrartcl}
+
+\usepackage{style/report}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit}
+\usepackage{pgfplots}\pgfplotsset{compat=1.16}
+
+\usepackage[numbers,sort&compress]{natbib}
+\bibliographystyle{unsrtnat}
+\setlength{\bibsep}{0pt}
+% DOIs as plain text (the default \Url math-mode formatting clashes with the maths font)
+\newcommand{\doi}[1]{doi:~#1}
+
+\hypersetup{
+  pdftitle={Mesh Registration from Scan-Derived 3D Data: Correspondence and Optimization in Articulated Parametric Models},
+  pdfauthor={Khaoula Jellal}
+}
+
+% ===========================================================================
+%  FINDINGS LEDGER: each load-bearing result is declared once and cited
+%  anywhere as \F{F1}; Table~\ref{tab:findings} builds itself.
+% ===========================================================================
+\begin{document}
+
+\input{chapters/00_cover}
+
+\clearpage
+\input{chapters/00b_abstract}
+
+\clearpage
+{\linespread{0.82}\setlength{\parskip}{0pt}\tableofcontents}
+\clearpage
+\listoffigures
+\vspace{1.5em}
+\listoftables
+\clearpage
+
+\input{chapters/01_introduction}
+\input{chapters/02_context}
+\input{chapters/03_framework}
+\input{chapters/04_algorithms}
+\input{chapters/05_validity}
+\input{chapters/06_discussion}
+\input{chapters/07_conclusion}
+
+\bibliography{bib/references}
+
+\clearpage
+\input{chapters/05_back_cover}
+
+\end{document}

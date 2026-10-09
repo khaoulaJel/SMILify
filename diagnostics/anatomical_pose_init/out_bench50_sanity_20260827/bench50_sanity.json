@@ -1,0 +1,90 @@
+{
+  "config": {
+    "c3_ckpt": "diagnostics/anatomical_pose_init/out_C3_cse_head_20260826/best_model.pt",
+    "real_dir": "diagnostics/moonshot/bench50_clean",
+    "synth_dir": "diagnostics/moonshot/synth_clean",
+    "n_real": 8,
+    "n_synth": 8,
+    "n_points": 2048,
+    "seed": 0,
+    "device": "cpu",
+    "out_dir": "diagnostics/anatomical_pose_init/out_bench50_sanity_20260827"
+  },
+  "synth": {
+    "vertex_coverage": {
+      "mean": 0.10481191988275526,
+      "std": 0.003253978179521313
+    },
+    "top1_share": {
+      "mean": 0.00653076171875,
+      "std": 0.0015234355437437359
+    },
+    "retrieval_entropy": {
+      "mean": 0.7320534445338404,
+      "std": 0.004834117626332791
+    },
+    "cycle_mean": {
+      "mean": 0.010486908508640118,
+      "std": 0.00385544089564656
+    },
+    "embed_norm_std": {
+      "mean": 0.47336409613490105,
+      "std": 0.0485245169312581
+    },
+    "cosine_mean": {
+      "mean": 0.8921041637659073,
+      "std": 0.006787797030372636
+    },
+    "segment_share": {
+      "body": 0.58868408203125,
+      "co": 0.0943603515625,
+      "tr": 0.1710205078125,
+      "fe": 0.09393310546875,
+      "ti": 0.02777099609375,
+      "ta": 0.02313232421875,
+      "pt": 0.0010986328125
+    }
+  },
+  "real": {
+    "vertex_coverage": {
+      "mean": 0.0918905715681485,
+      "std": 0.008652318432157993
+    },
+    "top1_share": {
+      "mean": 0.0091552734375,
+      "std": 0.002260773825372575
+    },
+    "retrieval_entropy": {
+      "mean": 0.7112245251878806,
+      "std": 0.014386159002334548
+    },
+    "cycle_mean": {
+      "mean": 0.0275220829223431,
+      "std": 0.013062487305485163
+    },
+    "embed_norm_std": {
+      "mean": 0.45349231362342834,
+      "std": 0.026618893422796986
+    },
+    "cosine_mean": {
+      "mean": 0.8612016066908836,
+      "std": 0.024818801156857383
+    },
+    "segment_share": {
+      "body": 0.5928955078125,
+      "co": 0.0445556640625,
+      "tr": 0.18768310546875,
+      "fe": 0.11260986328125,
+      "ti": 0.03131103515625,
+      "ta": 0.02972412109375,
+      "pt": 0.001220703125
+    }
+  },
+  "verdict": {
+    "vertex_coverage": true,
+    "top1_share": true,
+    "retrieval_entropy": true,
+    "cycle_mean": false
+  },
+  "pass": false
+}

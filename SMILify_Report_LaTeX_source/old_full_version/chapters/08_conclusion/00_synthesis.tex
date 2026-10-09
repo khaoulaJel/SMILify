@@ -1,0 +1,40 @@
+\section{Discussion}
+
+\textbf{What the experiments collectively establish.} The internship began
+by assuming input quality was the limit and found it was not (\F{F2}).
+Surface proximity was then shown to be an unreliable proxy for anatomy
+(\F{F1}); correspondence splits into identity and localisation (\F{F3});
+initialisation matters for distal segments but not at the coxa (\F{F4});
+and the objective has no explicit joint observation term (\F{F6}), so
+anatomically different configurations can produce similar surfaces. Error is
+structured by joint and specimen, not by seed (\F{F8}).
+
+\textbf{Why this is a non-identifiability problem.} The scan supplies
+surface geometry; the optimiser explicitly recovers shape, pose, scale and
+deformation, and anatomical correspondence is an intended consequence of
+those recovered parameters rather than an independently observed quantity.
+Several latent configurations give geometrically similar surfaces, so the
+surface observation does not uniquely determine the underlying anatomical
+state: the inverse map is non-identifiable in the configurations tested here.
+Each mechanism studied acts on that ambiguity: free deformation $\mathbf d$
+can absorb a pose error (\S\ref{sec:deformation-freedom}); pointwise learned
+votes can be locally right and globally inconsistent
+(\S\ref{sec:learned-correspondence}), a mismatch between a pairwise
+retrieval objective and a deployment problem that is really a globally
+coupled assignment; and supervision at one place does not constrain another.
+
+\textbf{Synthetic-to-real limits.} Learned components trained on synthetic
+targets did not transfer at the trained perturbation regime
+(\S\ref{sec:pointnet-init}), and the project's own synthetic reliability
+estimate did not survive expert ground truth (\S\ref{sec:reliability}).
+
+\textbf{Four distinctions.} Representability is not recoverability;
+identity is not location; plausibility is not correspondence; fit quality is
+not measurement validity. Each was the concrete reason a plausible
+intervention failed. The central outcome is therefore not one configuration
+but experimentally validated distinctions between geometric proximity,
+anatomical correspondence, parameter recovery and measurement validity: a
+diagnostic framework for SMILify and a design criterion for future
+body-plan-agnostic models. A useful parametric representation is defined not
+only by what it can represent, but by what anatomical meaning survives its
+recovery from data. A reconstruction is not yet a phenotype.

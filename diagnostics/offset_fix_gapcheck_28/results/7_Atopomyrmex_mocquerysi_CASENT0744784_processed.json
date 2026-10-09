@@ -1,0 +1,25 @@
+{
+  "specimen": "7_Atopomyrmex_mocquerysi_CASENT0744784_processed",
+  "alpha": 83.2722,
+  "pre_gap": 13.323557625583382,
+  "diag_length": 7222.2908299394485,
+  "old": {
+    "offset": 2.77574,
+    "relative_alpha": 86.73111590590196,
+    "relative_offset": 2601.9334771770586,
+    "gap_after": 44.53060789049018,
+    "verdict": "preserved",
+    "output_vertices": 11510,
+    "output_faces": 23044
+  },
+  "new": {
+    "offset": 33.30888,
+    "relative_alpha": 86.73111590590196,
+    "relative_offset": 216.82778976475487,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 2807,
+    "output_faces": 5642
+  },
+  "flipped": true
+}

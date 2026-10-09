@@ -1,0 +1,5 @@
+relationship,dataset,exponent,ci95_halfwidth,ci95_low,ci95_high,intercept_log10,r_squared
+head_width~body_length,reference,1.2352,0.0708,1.1644,1.3060,-0.5019,0.9868
+head_width~body_length,replicated,1.1888,0.0670,1.1219,1.2558,-0.4700,0.9872
+head_width~mass,reference,0.3949,0.0177,0.3772,0.4125,-0.0047,0.9919
+head_width~mass,replicated,0.3802,0.0160,0.3642,0.3961,0.0085,0.9929

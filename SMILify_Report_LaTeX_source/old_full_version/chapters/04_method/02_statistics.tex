@@ -1,0 +1,12 @@
+\section{Statistical testing and reproducibility}
+
+Paired comparisons across specimens use bootstrap confidence intervals and
+sign or Friedman tests where several configurations are ranked; variance is
+attributed to joint, specimen and optimiser seed on the log scale. Leave-one-region-out
+evaluation withholds supervision for one anatomical region at a time to test
+whether supervision propagates. Every reported run uses recorded seeds,
+preserved configuration files, checkpoints and intermediate fitting stages
+(\texttt{Stage\_0}--\texttt{Stage\_3}), so a controlled comparison can be
+re-run rather than trusted. Results whose run artifacts could not be
+reproduced in the final environment are labelled as such in
+Table~\ref{tab:evidence}.

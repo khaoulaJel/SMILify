@@ -1,0 +1,26 @@
+[
+  {
+    "specimen": "1_Acanthostichus_aff.brevicornis_CASENT0744328_processed",
+    "alpha": 44.4061,
+    "pre_gap": 8.881217113181744,
+    "offset": 17.76244,
+    "relative_alpha": 105.03614165267278,
+    "relative_offset": 262.590354131682,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 3973,
+    "output_faces": 7962
+  },
+  {
+    "specimen": "2_Acromyrmex_coronatus_CASENT0744365_processed",
+    "alpha": 50.2882,
+    "pre_gap": 8.046111515083705,
+    "offset": 20.115280000000002,
+    "relative_alpha": 170.56332197337557,
+    "relative_offset": 426.40830493343896,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 14751,
+    "output_faces": 29530
+  }
+]

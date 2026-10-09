@@ -1,0 +1,76 @@
+\chapter{Host organisation and research context}
+\label{ch:host}
+
+\section{Forschungszentrum Jülich and IAS-7}
+
+The internship was carried out at Forschungszentrum Jülich, a member of the
+Helmholtz Association, at IAS-7 (Civil Safety Research), part of the
+Institute for Advanced Simulation and directed by Prof.\ Dr.\ Armin Seyfried.
+IAS-7 works on pedestrian and fire dynamics through combined experimental and
+simulation approaches. The link between an insect registration pipeline and
+an institute concerned with crowd safety runs through method, not subject
+matter: IAS-7's long-running tool \term{PeTrack} recovers pedestrian
+trajectories from video automatically, because manual extraction cannot keep
+pace with the institute's experimental series, but a trajectory is only a
+point per person per frame. \term{smilify} is designed to give the same kind
+of automated recovery a richer target: full three-dimensional pose and
+shape, species-agnostic, from monocular or multi-view RGB video, and ants
+serve as a demanding test case for it: thinner structures, more limbs,
+greater articulation, and worse input data than a human subject in a
+laboratory corridor. A registration method proven on a six-legged,
+few-millimetre specimen from imperfect photogrammetry is tested well beyond
+the conditions of its eventual deployment.
+
+Shared allocation on the Jülich Supercomputing Centre's own machines could
+not absorb the internship's full compute demand; the more resource-intensive
+experiments in this report were instead run on external HPC infrastructure
+(\S\ref{sec:infrastructure}), so the computational scale of the work was not
+a direct consequence of being hosted at Jülich.
+
+\section{Research context: parametric models beyond human subjects}
+
+This internship extends parametric three-dimensional shape models to species
+outside the small set computer vision has historically addressed.
+\term{SMPL}~\cite{smpl} assumes a cooperative subject, a large scan corpus,
+and a fixed body topology; \term{SMAL}~\cite{smal} relaxed the first two
+assumptions for quadrupeds by learning a shape space from toy figurines.
+\term{smilify} continues this progression to insects, where the body plan
+itself differs and the structures of interest are thin, numerous, and
+highly articulated (Chapter~\ref{ch:pipeline} traces this lineage in full).
+Upstream sits \term{scAnt}~\cite{scant}, an open-source macro photogrammetry
+scanner by the same author, which makes high-resolution 3D capture of small
+specimens accessible without dedicated scanning infrastructure: an
+affordable scanner producing abundant imperfect data, and a robust
+registration pipeline converting it into comparable measurements; neither
+has much independent value without the other, and the failure mode
+identified in Chapter~\ref{ch:introduction} sits exactly at their junction.
+
+\section{Supervision and working arrangement}
+
+The internship was supervised by Dr.\ Fabian Plum, postdoctoral researcher
+at IAS-7 and author of \term{scAnt}~\cite{scant}, \term{replicAnt}~\cite{replicant},
+\term{OmniTrax}~\cite{omnitrax}, and \term{smilify}, and ran on site from 1
+July to 25 September 2026. Two aspects of that arrangement shaped the work.
+First, the technical data sheet's assignments were an initial hypothesis
+about where effort would be valuable, not a fixed specification: when the
+controlled comparison in \S\ref{sec:turn} showed mesh input quality was not
+the limiting factor, redirecting the remaining work toward initialisation
+and correspondence was the correct response to the evidence. Second,
+development took place on a live, shared repository under standard
+pull-request review, with the supervisor running related experiments on
+adjacent branches; several results reported later in this document were
+revised following that review, and the pre-registration discipline used
+throughout the report follows directly from it. Beyond ants, the same
+pipeline has since been used to build parametric models of other species,
+context worth noting since the problems investigated here are not specific
+to Formicidae.
+
+\section{Academic framing}
+
+This internship forms part of the second year of the engineering cycle at
+Universit\'e Mohammed VI Polytechnique, and this report is the corresponding
+academic deliverable. It documents both the technical contributions produced
+and the evidence behind the decisions that shaped the work's direction,
+inseparable here, since the most consequential decisions taken during the
+internship concerned which lines of investigation to discontinue, and those
+decisions are only defensible alongside the evidence that motivated them.

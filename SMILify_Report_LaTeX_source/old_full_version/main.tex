@@ -1,0 +1,141 @@
+%% ===========================================================================
+%%  Mesh Registration from Scan-Derived 3D Data
+%%  Internship report — Forschungszentrum Jülich, July–September 2026
+%%  Khaoula Jellal
+%%
+%%  Build:  latexmk -pdf main.tex          (pdfLaTeX)
+%%      or  latexmk -lualatex main.tex     (better fonts, if Libertinus present)
+%% ===========================================================================
+\documentclass[
+  10pt,
+  twoside,
+  open=any,
+  numbers=noenddot,
+  chapterprefix=false,
+  parskip=never
+]{scrbook}
+
+\usepackage{style/notebook}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\usepackage{pgfplots}\pgfplotsset{compat=1.16}
+\newtcolorbox{algbox}[2][]{enhanced,breakable,colback=white,colframe=rule,boxrule=0.4pt,arc=0pt,
+  left=6pt,right=6pt,top=3pt,bottom=3pt,fontupper=\small,
+  title={\textbf{Algorithm #2}},coltitle=black,colbacktitle=gray!12,fonttitle=\small,#1}
+
+% == Bibliography ==
+% natbib + plain bibtex, deliberately, not biblatex+biber: biber is a
+% separate Perl subprocess with real startup cost, and on a throttled
+% free-tier compile server that overhead is enough on its own to trip a
+% timeout even when everything else compiles quickly. Five references do
+% not need biblatex's extra machinery.
+\usepackage[numbers,sort&compress]{natbib}
+\bibliographystyle{unsrtnat}
+
+% == Metadata ==
+\hypersetup{
+  pdftitle={Mesh Registration from Scan-Derived 3D Data: Correspondence and Optimization in Articulated Parametric Models},
+  pdfauthor={Khaoula Jellal}
+}
+
+% ===========================================================================
+%  FINDINGS LEDGER — declare every load-bearing result here, once.
+%  Cite anywhere with \F{F1}. The ledger table in Chapter 1 builds itself.
+%  (Fill in / correct as you consolidate your session notes.)
+% ===========================================================================
+\DeclareFinding{F1}
+  {Surface agreement is not anatomical correctness: a fit can score a lower
+   Chamfer distance while its skeleton is worse.}
+  {Removing the offset and normal penalties gives $0.45\times$ Chamfer but
+   $1.25\times$ joint error, worse in 8 of 11 expert specimens.}
+  {Validated}
+
+\DeclareFinding{F2}
+  {A rebuilt preprocessing pipeline substantially improves mesh topology, but
+   this does not translate into a measurable improvement in the downstream
+   surface-fit metric: within the tested pipeline, mesh conditioning alone
+   does not explain the observed correspondence failures.}
+  {Watertightness 44/44 vs.\ existing pipeline (\S3.3); head-to-head Chamfer
+   0.000771 vs.\ 0.000737 with registration held fixed.}
+  {Validated}
+
+\DeclareFinding{F3}
+  {Regional identity and within-region localisation are distinct
+   correspondence problems: supplying the correct anatomical region
+   recovers only part of the error.}
+  {Regional-identity oracle: leg accuracy $0.867\to0.937$, with substantial
+   error remaining inside correctly identified structures.}
+  {Validated (synthetic)}
+
+\DeclareFinding{F4}
+  {Initialisation sensitivity is anatomically heterogeneous: it strongly
+   affects distal recovery but does not resolve the coxa failure.}
+  {Ground-truth vs.\ default initialisation: pretarsus improves twelvefold;
+   coxa indistinguishable ($p=0.47$), optimiser moves it away from the
+   correct pose.}
+  {Validated (synthetic)}
+
+\DeclareFinding{F5}
+  {Thin distal structures are under-supported by the sampling scheme,
+   independently of pose.}
+  {Template vertex-support audit: 38 tarsus / 8 pretarsus vertices vs.\
+   hundreds proximally.}
+  {Validated}
+
+\DeclareFinding{F6}
+  {The production objective has no explicit observation term for joint
+   location. Its surface terms constrain the skeleton only indirectly, so
+   anatomically different configurations can produce similar surfaces.}
+  {Corrected Joint Alignment Benchmark (11 expert specimens, 396 fits):
+   production error 25.1\% of Weber's length (95\% CI 17.5--44.8\%); expert
+   supervision 17.4\%; no single existing term reliably helps; supervision
+   does not propagate to held-out regions.}
+  {Validated}
+
+\DeclareFinding{F7}
+  {An early ground-truth annotation set used a different 3D coordinate
+   convention from the scan meshes; every conclusion drawn from it was
+   discarded and replaced by a re-derived, frozen benchmark.}
+  {Axis convention $(x,y,z)\mapsto(x,z,-y)$; apparent production error
+   changed from 42.7\% to 25.1\%.}
+  {Validated}
+
+\DeclareFinding{F8}
+  {Registration error is not primarily optimiser randomness: joint and
+   specimen explain far more variance than the random seed.}
+  {Log-scale variance decomposition: joint $0.36$, specimen $0.17$, seed
+   $0.02$.}
+  {Validated}
+
+\begin{document}
+
+\frontmatter
+\input{chapters/00_titlepage}
+\clearpage
+\input{chapters/00b_abstract}
+\tableofcontents
+\clearpage
+
+\let\cleardoublepage\clearpage
+\mainmatter
+
+\input{chapters/01_introduction}
+\input{chapters/02_host_organisation}
+\input{chapters/02b_related_work}
+\input{chapters/03_pipeline}
+\input{chapters/04_method}
+\input{chapters/04b_structure_and_learning}
+\input{chapters/05_diagnostics}
+\input{chapters/06_interventions}
+\input{chapters/07_validation}
+\input{chapters/08_conclusion}
+
+\appendix
+\input{chapters/B_contribution_map}
+
+\backmatter
+\addcontentsline{toc}{chapter}{References}
+\bibliography{bib/references}
+
+\end{document}

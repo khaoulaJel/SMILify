@@ -106,10 +106,92 @@ def loo_1nn(F, y, groups=None):
     return float((y[D[ok].argmin(1)] == y[ok]).mean())
 
 
-def perm_test(F, y, n=400, seed=0, groups=None):
+def lda_shrinkage():
+    """The classifier Z12 measured as best on this corpus. Lazy import, like logistic_l2()."""
+    from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+    from sklearn.pipeline import make_pipeline
+    from sklearn.preprocessing import StandardScaler
+    return lambda: make_pipeline(
+        StandardScaler(), LinearDiscriminantAnalysis(solver="lsqr", shrinkage="auto"))
+
+
+def features_with_betas(rows, cols, dev, repeatability=None, r_min=0.1):
+    """The Z12 recommended feature matrix: measured traits (filtered) PLUS the shape-space betas.
+
+    `features()` above uses measurements taken off the fitted mesh only. `measure_run` has always
+    stored `betas` on each row and no classifier had ever used them, even though they are the one
+    channel that transfers across specimens (Z4: gen@20/spread 0.2936, against deform_verts'
+    0.9885). They are COMPLEMENTARY rather than a replacement -- lot-blind genus top-1 on 83
+    genera, LDA shrinkage: traits 0.145, betas alone 0.120, together **0.179**. The traits carry
+    the free-form field's noise; the betas do not, so pooling the two error structures helps.
+    `log_beta_scales` was tested in the same sweep and adds nothing.
+
+    `repeatability` maps trait name -> R (diagnostics/full_corpus/out_Z8/z8_repeatability.json).
+    Passing it applies the mild R >= r_min filter, which beat both the full set and aggressive
+    filtering under every model tried. Omit it to keep all traits.
+
+    Size note: the traits are Mosimann log-shape-ratios and so size-free; the betas are not, and
+    61% of log-size is predictable from them. That was checked rather than assumed -- residualising
+    the betas against log-size leaves top-1 unchanged at 0.179, so the gain is shape, not the
+    arbitrary per-scan scale.
+    """
+    F, Z, size, X = features(rows, cols, dev)
+    names = list(cols) + list(dev)
+    if repeatability is not None:
+        sel = [i for i, n in enumerate(names) if repeatability.get(n, -9) >= r_min]
+        F = F[:, sel]
+        names = [names[i] for i in sel]
+    B = np.array([r["betas"] for r in rows], dtype=np.float64)
+    return np.hstack([F, B]), names + [f"beta{i}" for i in range(B.shape[1])]
+
+
+def lot_blind_model_acc(make_model, F, y, groups):
+    """Leave-one-GROUP-out accuracy for a fitted classifier, the lot-blind analogue of loo_1nn.
+
+    WHY THIS EXISTS. This module's header explains that 1-NN was chosen because "with ~60-150
+    specimens spread over dozens of genera, most classifiers cannot be fit honestly". That was
+    right for the corpus it was written for. On the full 757-worker corpus it is no longer
+    binding, and 1-NN measurably understates the signal: on 83 lot-blind genera, R>=0.1 features,
+    1-NN reaches 0.113 accuracy at 5.17x lift while L2 logistic reaches 0.163 at **7.21x** -- a
+    44% relative gain (diagnostics/full_corpus/RESULTS_Z10_20260831.md).
+
+    A fresh model is fitted per held-out lot, so nothing crosses the lot boundary. Use with
+    perm_test's `model` argument, never against 1-NN's null: a stronger model has a HIGHER chance
+    baseline because it can exploit class priors, so scoring it against the 1-NN null would
+    manufacture a win. perm_test recomputes the null under the same model for this reason.
+    """
+    correct = total = 0
+    for g in np.unique(groups):
+        te = groups == g
+        tr = ~te
+        if len(np.unique(y[tr])) < 2:
+            continue
+        m = make_model()
+        m.fit(F[tr], y[tr])
+        correct += int((m.predict(F[te]) == y[te]).sum())
+        total += int(te.sum())
+    return correct / total if total else float("nan")
+
+
+def logistic_l2(C=1.0):
+    """The classifier Z10 measured as best. Imported lazily so this module keeps working
+    unchanged where scikit-learn is absent -- every existing code path stays 1-NN."""
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.pipeline import make_pipeline
+    from sklearn.preprocessing import StandardScaler
+    return lambda: make_pipeline(StandardScaler(),
+                                 LogisticRegression(max_iter=2000, C=C))
+
+
+def perm_test(F, y, n=400, seed=0, groups=None, model=None):
+    """Accuracy against a permutation null. `model` (a zero-arg factory, e.g. logistic_l2())
+    swaps 1-NN for a fitted classifier; the null is recomputed UNDER THAT MODEL, which is what
+    makes the lift comparable across models of different strength."""
     rng = np.random.default_rng(seed)
-    a = loo_1nn(F, y, groups)
-    null = np.array([loo_1nn(F, rng.permutation(y), groups) for _ in range(n)])
+    score = (lambda yy: loo_1nn(F, yy, groups)) if model is None else \
+        (lambda yy: lot_blind_model_acc(model, F, yy, groups))
+    a = score(y)
+    null = np.array([score(rng.permutation(y)) for _ in range(n)])
     return a, float(null.mean()), float(null.std()), float((null >= a).mean())
 
 

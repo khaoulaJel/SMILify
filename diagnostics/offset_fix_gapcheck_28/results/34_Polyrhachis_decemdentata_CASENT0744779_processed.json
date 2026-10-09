@@ -1,0 +1,25 @@
+{
+  "specimen": "34_Polyrhachis_decemdentata_CASENT0744779_processed",
+  "alpha": 3.51588,
+  "pre_gap": 1.07150584814147,
+  "diag_length": 1708.3532322657177,
+  "old": {
+    "offset": 0.11719600000000001,
+    "relative_alpha": 485.89634238532534,
+    "relative_offset": 14576.89027155976,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 1134070,
+    "output_faces": 2269028
+  },
+  "new": {
+    "offset": 1.406352,
+    "relative_alpha": 485.89634238532534,
+    "relative_offset": 1214.7408559633134,
+    "gap_after": 3.5469020390917576,
+    "verdict": "preserved",
+    "output_vertices": 231532,
+    "output_faces": 463756
+  },
+  "flipped": true
+}

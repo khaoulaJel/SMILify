@@ -1,0 +1,44 @@
+{
+  "method": "retrieval_pca_cylindrical_histogram_leave_one_out",
+  "n_specimens": 12,
+  "per_specimen_leg_rot_err_deg": {
+    "synth_000": 30.9028047560852,
+    "synth_001": 33.99906300509061,
+    "synth_002": 29.559083246431896,
+    "synth_003": 33.37234665908085,
+    "synth_004": 29.959168388288333,
+    "synth_005": 34.08111437635339,
+    "synth_006": 28.69448233439256,
+    "synth_007": 33.233654725528226,
+    "synth_008": 33.99906300509061,
+    "synth_009": 33.12975157336155,
+    "synth_010": 29.959168388288333,
+    "synth_011": 33.58870542755592
+  },
+  "retrieved_from": {
+    "synth_000": "synth_001",
+    "synth_001": "synth_008",
+    "synth_002": "synth_001",
+    "synth_003": "synth_010",
+    "synth_004": "synth_010",
+    "synth_005": "synth_003",
+    "synth_006": "synth_002",
+    "synth_007": "synth_000",
+    "synth_008": "synth_001",
+    "synth_009": "synth_007",
+    "synth_010": "synth_004",
+    "synth_011": "synth_002"
+  },
+  "summary": {
+    "mean_leg_rot_err_deg": 32.03986715712895,
+    "median_leg_rot_err_deg": 33.181703149444886,
+    "frac_specimens_under_15deg": 0.0
+  },
+  "comparison": {
+    "zero_init_mean_deg": 23.087,
+    "cheap_pca_heuristic_init_mean_deg": 28.52,
+    "gt_init_mean_deg": 0.0,
+    "robust_basin_upper_bound_deg": 15.0
+  },
+  "note": "Leave-one-out nearest-neighbor retrieval over the 12-specimen synth_clean corpus is a small-library test -- treat this as a feasibility check, not a claim about retrieval at scale. If mean error is well under ~15 deg, retrieval is a viable next step (e.g. grown to a larger synthetic library); if it is similar to or worse than the cheap heuristic, raw shape descriptors alone are not separating poses well enough and a learned initializer becomes the more justified next step."
+}

@@ -1,0 +1,22 @@
+{
+ "sid": "Aenictus_ceylonicus_CASENT0878084",
+ "side_key": "mandibular_apex_r",
+ "old_idx": 1664,
+ "floor_idx": 6432,
+ "d_old_pct_WL": 54.7049301364549,
+ "d_floor_pct_WL": 11.86857792726393,
+ "ratio": 4.609223655244269,
+ "human_landmark_raw": [
+  502.5545349121094,
+  297.2607727050781,
+  40.26051330566406
+ ],
+ "center": [
+  -7.610191926585735,
+  58.0256497704021,
+  -101.2821559238199
+ ],
+ "scale": 2519.0672983077893,
+ "WL_fitter_units": 0.3335529278078659,
+ "specimen_index": 0
+}

@@ -1,0 +1,25 @@
+\section{The Shape Diameter Function as an anatomical prior}
+
+A separate line of investigation asked whether a local-thickness descriptor could
+support anatomical assignment more robustly than surface-based rules. The
+\term{shape diameter function}~\cite{sdf} assigns every surface point a
+value related to the local thickness of the solid behind it: the value $\mathrm{SDF}(x)$ is obtained by casting rays into the solid
+behind a surface point and taking a robust average of chord lengths, so thin
+structures (legs, antennae) take small values, the bulky body takes large
+ones, independently of pose; and, unlike the model's own vertex
+correspondence, it is computable directly on a raw, unregistered scan. It
+proved reliable for one purpose and unreliable for another. It reproduces
+well across real scans (correlation $r\approx0.77$--$0.94$, $87$--$95\%$
+agreement, under $1.3$\,s per specimen) and separates body from appendage on
+the template with high accuracy (AUC $\approx0.973$, balanced accuracy
+$\approx95.1\%$). But thresholding the field to separate \emph{individual}
+appendage instances (one leg from its neighbour, left mandible from right)
+fails on real scans: only $2$ of $12$ specimens had all four
+expert-identified landmarks fall into distinct connected components, with
+the two mandibles merged into one component in $9$ of $12$. The descriptor
+is retained as a reliable, cheap semantic signal for \emph{which class of
+structure} a region belongs to; it is not a mechanism for separating
+individual instances of a repeated structure, because connected components cannot separate two
+structures that are physically fused in the scan (laterality is not encoded in local
+thickness). This is the instance-level correspondence problem this report's other sections address by different
+means.

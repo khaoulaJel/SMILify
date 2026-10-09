@@ -84,6 +84,39 @@ def undo_chumpy(x):
         return x
 
 
+def compose_log_scale(betas, scaledirs, free_log_scale):
+    """Total per-joint log-scale: what the shape space drives, plus the free residual.
+
+    The model's 25-D shape space has THREE channels indexed by the same betas -- `shapedirs`
+    (vertices), `scaledirs` (per-joint scale) and `transdirs` (per-joint translation). Only
+    `shapedirs` was ever read, so joint scale was a free per-specimen parameter with no model
+    behind it (REPORT.md 6.6). Scale composes multiplicatively, so it is summed in log space.
+
+    This is the single implementation; `fitter_3d/joint_limits.composed_log_scale` wraps it so
+    the barrier judges the same quantity the model applies.
+    """
+    if scaledirs is None:
+        return free_log_scale
+    nb = betas.shape[1]
+    driven = torch.einsum("bk,kjc->bjc", betas, scaledirs[:nb])
+    driven = torch.log(torch.clamp(1.0 + driven, min=config.COUPLE_MIN_SCALE))
+    return driven if free_log_scale is None else free_log_scale + driven
+
+
+def compose_trans(betas, transdirs, free_trans):
+    """Total per-joint translation: shape-space contribution plus the free residual.
+
+    Translation composes ADDITIVELY, unlike scale. `transdirs` is in model world units -- the
+    same units as `shapedirs` -- so config.COUPLE_TRANSLATION_FACTOR is 1.0 for .pkl-native
+    models; see the derivation in config.py.
+    """
+    if transdirs is None:
+        return free_trans
+    nb = betas.shape[1]
+    driven = torch.einsum("bk,kjc->bjc", betas, transdirs[:nb]) * config.COUPLE_TRANSLATION_FACTOR
+    return driven if free_trans is None else free_trans + driven
+
+
 class SMAL(nn.Module):
     def __init__(self, device, shape_family_id=-1, dtype=torch.float):
         super(SMAL, self).__init__()
@@ -102,6 +135,15 @@ class SMAL(nn.Module):
                 print(value)
 
         self.f = dd["f"]
+
+        # The joint-blendshape channels of the same 25-D shape space. Present in every OmniAnt
+        # .pkl and, until now, never read by the fitter -- which is why per-joint scale and
+        # translation were 330 unmodelled free parameters per specimen (REPORT.md 6.6).
+        self.scaledirs, self.transdirs = None, None
+        for _name in ("scaledirs", "transdirs"):
+            if _name in dd:
+                _arr = np.asarray(undo_chumpy(dd[_name]), dtype=np.float32)
+                setattr(self, _name, Variable(torch.Tensor(_arr), requires_grad=False).to(device))
 
         self.faces = torch.from_numpy(self.f.astype(int)).to(device)
 
@@ -303,6 +345,13 @@ class SMAL(nn.Module):
         # 4. Get the global joint location
         # DEBUG - delete once betas are provided
         # betas_logscale = None
+
+        # Drive per-joint scale/translation from the betas via the model's own blendshapes,
+        # keeping the free parameters as a residual on top. Off by default so every previously
+        # scored experiment stays byte-comparable (config.COUPLE_JOINT_BLENDSHAPES).
+        if getattr(config, "COUPLE_JOINT_BLENDSHAPES", False):
+            betas_logscale = compose_log_scale(beta, self.scaledirs, betas_logscale)
+            betas_trans = compose_trans(beta, self.transdirs, betas_trans)
 
         self.J_transformed, A = batch_global_rigid_transformation(
             Rs,

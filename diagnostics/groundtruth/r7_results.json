@@ -1,0 +1,25 @@
+[
+  {
+    "specimen": "Cephalotes_atratus_CASENT0744612",
+    "n_body": 23941,
+    "n_app": 22790,
+    "n_unreachable": 244,
+    "midline_ok": true,
+    "result": {
+      "mandibular": false
+    },
+    "secs": 3.307499885559082
+  },
+  {
+    "specimen": "Formica_cf.fusca_CASENT0878139",
+    "n_body": 21139,
+    "n_app": 27353,
+    "n_unreachable": 373,
+    "midline_ok": true,
+    "result": {
+      "mandibular": false,
+      "scape": true
+    },
+    "secs": 3.385664939880371
+  }
+]

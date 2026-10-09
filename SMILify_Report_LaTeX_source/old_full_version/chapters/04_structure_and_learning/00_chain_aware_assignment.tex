@@ -1,0 +1,30 @@
+\section{Chain-aware anatomical assignment}
+\label{sec:chain-aware}
+
+Several downstream analyses in this report (the per-part correspondence
+audit, the multi-level evaluation suite in \S\ref{sec:eval-suite})
+depend on a prior step: deciding which anatomical structure a given surface
+point belongs to. A naïve nearest-segment rule, which assigns each point to
+whichever skeleton bone is geometrically closest, fails systematically on an
+articulated body plan: a point on a middle leg can sit closer in raw
+distance to the wrong leg, or to the body, than to its own leg, because the
+rule treats every bone independently rather than as part of a connected
+kinematic chain. A \textbf{chain-aware} rule, which resolves ambiguous
+points by their position along the connected chain rather than by raw
+distance, was tested against it on the same labelled template and adopted:
+macro-averaged F1 improves from $0.656$ to $0.831$, concentrated exactly
+where the naïve rule was weakest (middle-leg recall $0.349\to0.768$,
+body/core recall $0.366\to0.663$). The lesson generalises beyond this one
+rule: an articulated body plan is not a set of independent parts, and
+geometric rules that treat it as one will fail systematically at the joints
+between parts.
+
+\begin{algbox}{2: Chain-aware anatomical assignment}
+\begin{enumerate}[nosep,leftmargin=1.4em]
+\item For each surface point $p$, compute distance to every bone segment.
+\item Group segments into kinematic chains (each leg, antenna, mandible, body axis).
+\item Assign $p$ to the chain whose segments are collectively closest, using
+the chain's connected extent rather than the single nearest segment.
+\item Within that chain, assign to the nearest segment.
+\end{enumerate}
+\end{algbox}

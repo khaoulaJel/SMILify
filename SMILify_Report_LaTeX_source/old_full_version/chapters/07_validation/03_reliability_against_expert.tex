@@ -1,0 +1,65 @@
+\section{What the fits can, and cannot, be trusted for}
+\label{sec:reliability}
+
+\begin{investigation}{I8}{Do the delivered fits rank individual specimens
+correctly, or only describe them correctly on average?}
+\invQuestion{Against expert-corrected joint annotations, how many
+joint-derived features reliably distinguish one specimen from another?}
+\invMethod{Correlation of 49 joint-derived features against expert ground
+truth; a parallel comparison of surface-landmark-derived traits against
+rig-joint-derived traits at genus level.}
+\invResult{Of 49 joint-derived features, only one reaches a correlation of
+$0.5$ with expert ground truth. Registration of an independent
+ethanol-preserved worker corpus sits at a measurable noise floor, at which
+conspecific nest-mates are only $7\%$ closer than unrelated specimens; the
+traits that fail the reliability threshold are precisely the distal leg and
+antenna segment lengths that \F{F5} identified as under-sampled. On the same
+fits, anatomical landmarks placed directly on the mesh surface carry more
+genus-level signal than rig-derived joint distances in the earlier (provisional, \S\ref{sec:genus}) analysis, since a
+rig joint is a rotation pivot rather than an anatomically defined point.}
+\invVerdict{HOLD}{Population-level aggregates over many specimens are
+supported by the current fits; per-specimen and comparative claims from
+joint-derived measurements are not. For this reason the delivered
+measurement layer reports surface-derived traits rather than rig lengths.}
+\end{investigation}
+
+A further consequence concerns the validation instrument itself, not only
+the fitting pipeline: the project's own synthetic reliability estimate did
+not survive contact with this expert ground truth. This is a second, more
+consequential instance of the metric-versus-mechanism pattern in
+\S\ref{sec:methodological-discipline}, here applied to the validation
+instrument rather than to a fitting intervention, and it is the reason
+this report treats expert-verified ground truth, wherever available, as the
+higher-authority reference throughout.
+
+\section{Validity is scale-dependent}
+\label{sec:scale-dependence}
+
+Taken together, the results of this chapter show that ``the registration is
+valid'' is not one claim but four, holding at different scales and by
+different evidence:
+
+\begin{center}
+\small
+\begin{tabular}{@{}p{0.19\linewidth}p{0.36\linewidth}p{0.33\linewidth}@{}}
+\toprule
+\textbf{Level} & \textbf{Question} & \textbf{Evidence in this report} \\
+\midrule
+Surface correspondence & Are the two surfaces geometrically close? &
+  Chamfer, F-score (misleading alone, \F{F1}) \\
+Anatomical correspondence & Does model location $i$ mark the same structure
+  across specimens? & Synthetic oracle, corrected expert benchmark
+  (\F{F3}, \F{F6}) \\
+Parametric correspondence & Do recovered $\bm\beta,\bm\theta$ mean the same
+  thing across specimens? & Only partially established: 1 of 49
+  joint-derived features reaches $r=0.5$ \\
+Measurement validity & Does a derived measurement match an independent one? &
+  Atta head width, allometric slopes (\S\ref{sec:measurement}) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+A model can therefore give accurate population-level and head-width
+measurements while failing to preserve the individual-level correspondence
+needed for specimen-by-specimen comparison of distal segment lengths. Both
+statements are true, and each is supported only at its own level.

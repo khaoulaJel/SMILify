@@ -45,8 +45,15 @@ PART_GROUPS_COARSE = {
     "mandible": [47, 51],
     "antenna":  [48, 49, 50, 52, 53, 54],
     "thorax":   [0],
-    "waist":    [24, 25, 44, 45],
-    "gaster":   [1, 2, 3, 4, 5],
+    # j24/25/44/45 are `w_*` = WING joints: bilateral, dorsal, parented to the thorax, one
+    # pair on the mesothorax, one on the metathorax. Workers are wingless and the template
+    # carries no wing geometry, so they hold 0.0002% of all skinning mass and deform
+    # nothing. They were previously labelled "waist", which is wrong: the true waist is the
+    # petiole (b_a_1, j1) and postpetiole (b_a_2, j2), both normally bound, both of which
+    # used to be lumped into "gaster".
+    "wing":     [24, 25, 44, 45],
+    "waist":    [1, 2],
+    "gaster":   [3, 4, 5],
     "legs":     [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23,
                  26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43],
 }
@@ -57,11 +64,12 @@ PART_GROUPS_COARSE = {
 # would blend six different articulations into one baseline).
 PART_GROUPS_FINE = {
     "thorax":    [0],
-    "gaster":    [1, 2, 3, 4, 5],
+    "gaster":    [3, 4, 5],
     "leg1_r":    [6, 7, 8, 9, 10, 11],
     "leg2_r":    [12, 13, 14, 15, 16, 17],
     "leg3_r":    [18, 19, 20, 21, 22, 23],
-    "waist":     [24, 25, 44, 45],
+    "wing":      [24, 25, 44, 45],   # see PART_GROUPS_COARSE: wings, not waist
+    "waist":     [1, 2],             # petiole b_a_1 + postpetiole b_a_2
     "leg1_l":    [26, 27, 28, 29, 30, 31],
     "leg2_l":    [32, 33, 34, 35, 36, 37],
     "leg3_l":    [38, 39, 40, 41, 42, 43],

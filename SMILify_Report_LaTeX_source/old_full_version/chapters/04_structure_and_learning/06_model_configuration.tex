@@ -1,0 +1,34 @@
+\section{Model configuration: joint limits and the shape prior}
+\label{sec:model-configuration}
+
+The production template used throughout this report is a joint-limited
+SMIL model: $10{,}235$ vertices, $55$ joints, a $25$-dimensional shape space,
+with an accompanying joint regressor, kinematic tree, skinning weights,
+bilateral symmetry mapping, and, as the specific addition evaluated here,
+authored per-joint rotation limits. Consuming these limits as a hard prior
+during optimisation is the rotation-limit intervention already reported as
+adopted in \S\ref{sec:eval-suite} and analysed mechanistically in \F{F1};
+this section reports two related configuration choices tested alongside it.
+
+\textbf{Joint limits and bilateral symmetry improve plausibility, not
+correspondence.} Constraining joint rotation to anatomically authored ranges
+measurably improves physical plausibility (fewer anatomically impossible
+poses), and a companion bilateral (midline) symmetry constraint measurably
+improves left/right consistency. Neither, on its own, resolves the
+underlying correspondence problem characterised in \F{F1}, \F{F3}, and
+\F{F6}: a pose can be entirely plausible, and entirely symmetric, while
+still assigning the wrong vertex to the wrong anatomical location. This is
+the same distinction as \F{F1} applied to a different pair of constraints:
+plausible articulation is not the same property as correct articulation.
+
+\textbf{A shape prior was added, then removed.} A Gaussian penalty on the
+shape parameters $\bm\beta$ was tested as a stabiliser, on the standard
+assumption that penalising extreme shape values improves numerical
+robustness. It was subsequently removed after being found to suppress
+genuine, biologically meaningful shape variation, the same variation
+Chapter~\ref{ch:validation} depends on to distinguish specimens from one
+another at all. This is reported as a deliberate reversal rather than an
+oversight: a regularisation term can improve an optimisation diagnostic
+while actively damaging the property the model exists to preserve, and for
+a morphology-measurement pipeline specifically, that trade-off is not worth
+making.

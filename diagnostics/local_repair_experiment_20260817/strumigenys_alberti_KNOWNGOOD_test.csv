@@ -1,0 +1,7 @@
+v1,v2,distance,deg_v1,deg_v2,is_border_v1,is_border_v2,cc_v1,cc_v2,same_component,normal_dot,chain_match_length,chain_direction,one_ring_position_match_fraction,near_genuine_near_touch,near_touch_min_dist,in_mindist0_loop_v1,in_mindist0_loop_v2,classification,classification_reason
+v33197,v49286,0,7,5,True,True,0,0,True,0.819027,200,reversed,0.285714,False,324.701,False,False,A,reversed_border_chain_matches_for_200_consecutive_steps
+v49287,v49288,0,5,3,True,True,0,0,True,0.942203,200,reversed,0.4,False,324.701,False,False,A,reversed_border_chain_matches_for_200_consecutive_steps
+v5543,v48833,0,5,3,True,True,0,0,True,-0.836668,6,same_direction,0.4,False,428.735,False,False,A,reversed_border_chain_matches_for_6_consecutive_steps
+v48831,v48832,0,5,5,True,True,0,0,True,-0.992047,6,same_direction,0.4,False,428.735,False,False,A,reversed_border_chain_matches_for_6_consecutive_steps
+v48834,v5658,0,6,5,True,True,0,0,True,-0.85917,6,same_direction,0.333333,False,424.66,False,False,A,reversed_border_chain_matches_for_6_consecutive_steps
+v48932,v12320,0,2,5,True,True,0,0,True,-0.953218,6,same_direction,1,False,21.6703,False,False,A,reversed_border_chain_matches_for_6_consecutive_steps

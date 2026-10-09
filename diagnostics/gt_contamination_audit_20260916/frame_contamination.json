@@ -1,0 +1,238 @@
+[
+ {
+  "sid": "Aenictus_ceylonicus_CASENT0878084",
+  "n": 12,
+  "wl": 840.2422726956138,
+  "median": 54.319513112687225,
+  "mx": 74.44475322742082,
+  "sup_median": 51.611808416976714,
+  "sup": {
+   "clypeal_ant_mid": 37.89469749592415,
+   "cephalic_post_mid": 62.805117939288614,
+   "head_width_r": 55.904230675882275,
+   "head_width_l": 46.25588192128112,
+   "mandibular_apex_r": 50.48882128446126,
+   "mandibular_apex_l": 56.95829001477678,
+   "antennal_insertion_r": 40.47974526648338,
+   "antennal_insertion_l": 38.406121727334856,
+   "scape_apex_r": 52.734795549492176,
+   "scape_apex_l": 63.885551471216
+  }
+ },
+ {
+  "sid": "Aphaenogaster_gracillima_OKENT0105348",
+  "n": 12,
+  "wl": 1867.285154125297,
+  "median": 44.04148425698408,
+  "mx": 135.5900401850571,
+  "sup_median": 47.33530384853246,
+  "sup": {
+   "clypeal_ant_mid": 32.58617468418195,
+   "cephalic_post_mid": 51.00390244843833,
+   "head_width_r": 34.0190168549877,
+   "head_width_l": 43.6667052486266,
+   "mandibular_apex_r": 75.67751170061466,
+   "mandibular_apex_l": 76.4421131770451,
+   "antennal_insertion_r": 19.216344147841752,
+   "antennal_insertion_l": 29.316062700813116,
+   "scape_apex_r": 135.5900401850571,
+   "scape_apex_l": 108.37166119279678
+  }
+ },
+ {
+  "sid": "Cataglyphis_iberica_CASENT0745158",
+  "n": 12,
+  "wl": 498.233654441773,
+  "median": 41.90598980501745,
+  "mx": 126.22568032579767,
+  "sup_median": 47.18809929566673,
+  "sup": {
+   "clypeal_ant_mid": 40.288584065653495,
+   "cephalic_post_mid": 37.32859703506922,
+   "head_width_r": 43.5233955443814,
+   "head_width_l": 50.85280304695207,
+   "mandibular_apex_r": 70.02479364830266,
+   "mandibular_apex_l": 63.94756669081375,
+   "antennal_insertion_r": 12.879168827616635,
+   "antennal_insertion_l": 18.752275297748096,
+   "scape_apex_r": 126.22568032579767,
+   "scape_apex_l": 121.9310045327771
+  }
+ },
+ {
+  "sid": "Cephalotes_atratus_CASENT0744612",
+  "n": 8,
+  "wl": 500.23035588207546,
+  "median": 65.00647843965206,
+  "mx": 74.50475373740741,
+  "sup_median": 65.00647843965206,
+  "sup": {
+   "clypeal_ant_mid": 54.747626698271226,
+   "cephalic_post_mid": 60.37396422844511,
+   "head_width_r": 72.9753116655585,
+   "head_width_l": 71.69222582647771,
+   "mandibular_apex_r": 61.587440774891434,
+   "mandibular_apex_l": 68.4255161044127
+  }
+ },
+ {
+  "sid": "Cyphomyrmex_major_CASENT0745147",
+  "n": 12,
+  "wl": 227.46293071214458,
+  "median": 61.000697146870394,
+  "mx": 78.75327547503007,
+  "sup_median": 62.01462404650667,
+  "sup": {
+   "clypeal_ant_mid": 60.0414577237904,
+   "cephalic_post_mid": 32.56506103177808,
+   "head_width_r": 61.95993656995039,
+   "head_width_l": 62.06931152306295,
+   "mandibular_apex_r": 73.4653832728079,
+   "mandibular_apex_l": 72.01018626199448,
+   "antennal_insertion_r": 57.97245954105315,
+   "antennal_insertion_l": 58.083640042360216,
+   "scape_apex_r": 78.75327547503007,
+   "scape_apex_l": 67.11068655263492
+  }
+ },
+ {
+  "sid": "Discothyrea_patrizii_CASENT0744991",
+  "n": 12,
+  "wl": 106.88866479219745,
+  "median": 64.16479898550786,
+  "mx": 97.21520576766032,
+  "sup_median": 75.86303035145082,
+  "sup": {
+   "clypeal_ant_mid": 91.83063612391588,
+   "cephalic_post_mid": 48.03558238659189,
+   "head_width_r": 65.15903689625696,
+   "head_width_l": 61.30259827362221,
+   "mandibular_apex_r": 97.21520576766032,
+   "mandibular_apex_l": 95.41535584434206,
+   "antennal_insertion_r": 86.97411711480146,
+   "antennal_insertion_l": 86.56702380664466,
+   "scape_apex_r": 63.170561074758744,
+   "scape_apex_l": 30.64023191565242
+  }
+ },
+ {
+  "sid": "Dolichoderus_cf.bidens_CASENT0744033",
+  "n": 12,
+  "wl": 459.5700479746788,
+  "median": 42.888617188178706,
+  "mx": 111.80402161043794,
+  "sup_median": 41.423496625708964,
+  "sup": {
+   "clypeal_ant_mid": 32.467844025602474,
+   "cephalic_post_mid": 33.52022605843379,
+   "head_width_r": 43.92282121786389,
+   "head_width_l": 38.92417203355403,
+   "mandibular_apex_r": 64.2883936642575,
+   "mandibular_apex_l": 69.6538580051747,
+   "antennal_insertion_r": 18.087732006376985,
+   "antennal_insertion_l": 14.935522852342967,
+   "scape_apex_r": 111.80402161043794,
+   "scape_apex_l": 104.1034320369929
+  }
+ },
+ {
+  "sid": "Eciton_burchellii_CASENT0744558",
+  "n": 12,
+  "wl": 515.1264193970705,
+  "median": 80.25080523455372,
+  "mx": 125.85705222870548,
+  "sup_median": 85.15684836984457,
+  "sup": {
+   "clypeal_ant_mid": 17.07157295516567,
+   "cephalic_post_mid": 90.09151365706118,
+   "head_width_r": 80.90989283337214,
+   "head_width_l": 105.61730715417201,
+   "mandibular_apex_r": 89.40380390631701,
+   "mandibular_apex_l": 79.59171763573532,
+   "antennal_insertion_r": 23.561201884810234,
+   "antennal_insertion_l": 37.90474310615141,
+   "scape_apex_r": 123.37291971640765,
+   "scape_apex_l": 125.85705222870548
+  }
+ },
+ {
+  "sid": "Formica_cf.fusca_CASENT0878139",
+  "n": 12,
+  "wl": 2007.2312413439913,
+  "median": 40.345736242970396,
+  "mx": 113.10675937538468,
+  "sup_median": 43.294071652109814,
+  "sup": {
+   "clypeal_ant_mid": 21.536811387087916,
+   "cephalic_post_mid": 42.09376041740751,
+   "head_width_r": 38.59771206853328,
+   "head_width_l": 67.8834933310911,
+   "mandibular_apex_r": 44.49438288681212,
+   "mandibular_apex_l": 46.87141887326401,
+   "antennal_insertion_r": 12.455456263370154,
+   "antennal_insertion_l": 21.540715333487356,
+   "scape_apex_r": 84.82649937103628,
+   "scape_apex_l": 113.10675937538468
+  }
+ },
+ {
+  "sid": "Gigantiops_destructor_CASENT0745031",
+  "n": 12,
+  "wl": 507.25776813698633,
+  "median": 55.1597160586832,
+  "mx": 66.28960011670428,
+  "sup_median": 55.1597160586832,
+  "sup": {
+   "clypeal_ant_mid": 36.35996035303315,
+   "cephalic_post_mid": 54.17461714362123,
+   "head_width_r": 61.498666841333495,
+   "head_width_l": 66.28960011670428,
+   "mandibular_apex_r": 56.144814973745184,
+   "mandibular_apex_l": 64.21978932985027,
+   "antennal_insertion_r": 18.97724151002093,
+   "antennal_insertion_l": 19.144683782878268,
+   "scape_apex_r": 57.16641192743903,
+   "scape_apex_l": 50.316404026824515
+  }
+ },
+ {
+  "sid": "Leptogenys_peuqueti_CASENT0741327",
+  "n": 12,
+  "wl": 393.9592860237508,
+  "median": 25.828380985116844,
+  "mx": 52.50954755479409,
+  "sup_median": 29.990029168438447,
+  "sup": {
+   "clypeal_ant_mid": 15.880563852222593,
+   "cephalic_post_mid": 8.462154265491172,
+   "head_width_r": 33.277981249367734,
+   "head_width_l": 30.64067031966009,
+   "mandibular_apex_r": 33.806267466182035,
+   "mandibular_apex_l": 29.339388017216805,
+   "antennal_insertion_r": 22.317373953016883,
+   "antennal_insertion_l": 18.556582747397123,
+   "scape_apex_r": 52.50954755479409,
+   "scape_apex_l": 47.02312484703335
+  }
+ },
+ {
+  "sid": "Odontomachus_bauri_CASENT0878072",
+  "n": 12,
+  "wl": 3463.038141190316,
+  "median": 48.970208225301015,
+  "mx": 87.77496728776111,
+  "sup_median": 48.970208225301015,
+  "sup": {
+   "clypeal_ant_mid": 4.032053708630437,
+   "cephalic_post_mid": 49.56424996789125,
+   "head_width_r": 53.82449930486901,
+   "head_width_l": 49.94800232454901,
+   "mandibular_apex_r": 48.84259498967496,
+   "mandibular_apex_l": 49.09782146092707,
+   "antennal_insertion_r": 24.77599439272868,
+   "antennal_insertion_l": 25.813305821325795,
+   "scape_apex_r": 17.57066752529027,
+   "scape_apex_l": 87.77496728776111
+  }
+ }
+]

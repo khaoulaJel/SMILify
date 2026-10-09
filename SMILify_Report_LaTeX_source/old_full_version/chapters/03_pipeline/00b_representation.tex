@@ -1,0 +1,43 @@
+\section{The SMIL representation}
+\label{sec:representation}
+
+The model has a fixed-topology template of $10{,}235$ vertices, a kinematic
+tree of $55$ joints with a joint regressor, per-vertex skinning weights, a
+$25$-dimensional shape basis, a bilateral symmetry map and authored joint
+rotation limits. Fixed topology is what makes correspondence possible at all:
+vertex $i$ denotes the same anatomical locus in every fit, so a registered
+corpus lives in one coordinate system.
+
+A shaped vertex is $\bar{\mathbf v}_i(\bm\beta)=\mathbf v^{0}_i+\sum_k\beta_k\mathbf s_{ik}$
+and is posed by \term{linear blend skinning}:
+\begin{equation}
+\mathbf v_i(\bm\beta,\bm\theta)=\sum_{j=1}^{55} w_{ij}\,G_j(\bm\theta)\,\bar{\mathbf v}_i(\bm\beta),
+\qquad G_j(\bm\theta)=\prod_{k\in\mathrm{anc}(j)}\big[R(\theta_k)\,|\,\mathbf t_k\big],
+\label{eq:lbs}
+\end{equation}
+where $w_{ij}$ are skinning weights and $G_j$ composes the transforms of all
+ancestors of joint $j$ along the kinematic chain. Two consequences drive
+later results. A rotation error at a proximal joint changes $G_j$ for every
+descendant, so it displaces every downstream vertex (the proximal/distal
+sensitivity of \S\ref{sec:articulation}). And the surface depends on joint
+\emph{positions} only through $G_j$, which is why a surface can look right
+while the skeleton inside it is wrong (\F{F6}).
+
+\begin{figure}[!htb]
+\centering
+\begin{tikzpicture}[node distance=7mm and 6mm, every node/.style={font=\scriptsize},
+ box/.style={draw,rounded corners=2pt,minimum height=8mm,align=center,fill=white},
+ arr/.style={-{Stealth[length=1.6mm]}}]
+\node[box] (b) {shape $\bm\beta$};
+\node[box,right=of b] (t) {template $+$ shape basis\\$\bar{\mathbf v}(\bm\beta)$};
+\node[box,right=of t] (l) {linear blend skinning\\weights $w_{ij}$, tree $G_j(\bm\theta)$};
+\node[box,right=of l] (m) {posed mesh\\$M(\bm\beta,\bm\theta,s,\mathbf d)$};
+\node[box,below=of l] (p) {pose $\bm\theta$, scale $s$};
+\node[box,right=of p] (d) {residual deformation $\mathbf d$};
+\draw[arr] (b)--(t); \draw[arr] (t)--(l); \draw[arr] (l)--(m);
+\draw[arr] (p)--(l); \draw[arr] (d)--(m);
+\end{tikzpicture}
+\caption{The SMIL forward model. Registration inverts it from surface samples
+alone.}
+\label{fig:forward-model}
+\end{figure}

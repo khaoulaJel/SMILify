@@ -33,6 +33,7 @@ os.environ.setdefault("SMILIFY_SMAL_FILE", "3D_model_prep/OmniAnt_25PCs_joint_li
 
 from fitter_3d.pointcloud2smil.sample_smil_model import (  # noqa: E402
     export_mesh_to_obj,
+    generate_correlated_chain_parameters,
     generate_random_parameters,
 )
 from fitter_3d.trainer import SMAL3DFitter  # noqa: E402
@@ -47,6 +48,12 @@ def main():
     ap.add_argument("--shape_scale", type=float, default=1.0)
     ap.add_argument("--scale_scale", type=float, default=0.10, help="per-joint log-scale sd")
     ap.add_argument("--out", default="synth")
+    ap.add_argument("--sampler", choices=["iid", "correlated"], default="iid",
+                     help="iid = generate_random_parameters (default, unchanged legacy behavior); "
+                          "correlated = generate_correlated_chain_parameters (A1 corrected sampler, "
+                          "lag-1 AR(1) whole-chain leg-pose coupling, see sample_smil_model.py)")
+    ap.add_argument("--rho", type=float, default=0.4,
+                     help="lag-1 AR(1) coupling coefficient, only used when --sampler correlated")
     args = ap.parse_args()
 
     dev = "cuda" if torch.cuda.is_available() else "cpu"
@@ -54,8 +61,7 @@ def main():
     os.makedirs(outdir, exist_ok=True)
 
     fitter = SMAL3DFitter(batch_size=args.n, device=dev, shape_family=-1)
-    generate_random_parameters(
-        fitter,
+    sample_kwargs = dict(
         seed=args.seed,
         random_dist="normal",
         shape_scale=args.shape_scale,
@@ -64,6 +70,10 @@ def main():
         scale_scale=args.scale_scale,
         global_rot_scale=0.0,  # scans are canonically aligned (§4), so keep the synthetic set so too
     )
+    if args.sampler == "correlated":
+        generate_correlated_chain_parameters(fitter, rho=args.rho, **sample_kwargs)
+    else:
+        generate_random_parameters(fitter, **sample_kwargs)
     with torch.no_grad():
         verts = fitter()  # (n, V, 3) -- GROUND TRUTH, index i is anatomical point i
     faces = fitter.faces

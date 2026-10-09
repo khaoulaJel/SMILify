@@ -1,0 +1,25 @@
+{
+  "specimen": "16_Cyphomyrmex_cf.minutus_CASENT0744280_processed",
+  "alpha": 3.43622,
+  "pre_gap": 1.0472295521512813,
+  "diag_length": 496.7363408722934,
+  "old": {
+    "offset": 0.11454066666666667,
+    "relative_alpha": 144.55894583940884,
+    "relative_offset": 4336.768375182265,
+    "gap_after": 2.8645013992392445,
+    "verdict": "preserved",
+    "output_vertices": 111813,
+    "output_faces": 223774
+  },
+  "new": {
+    "offset": 1.3744880000000002,
+    "relative_alpha": 144.55894583940884,
+    "relative_offset": 361.397364598522,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 24520,
+    "output_faces": 49156
+  },
+  "flipped": true
+}

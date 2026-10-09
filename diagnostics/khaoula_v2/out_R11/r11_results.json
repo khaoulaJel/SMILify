@@ -1,0 +1,113 @@
+{
+  "classes": [
+    "antenna_L",
+    "antenna_R",
+    "foreleg_L",
+    "foreleg_R",
+    "gaster",
+    "head",
+    "hindleg_L",
+    "hindleg_R",
+    "mandible_L",
+    "mandible_R",
+    "midleg_L",
+    "midleg_R",
+    "thorax"
+  ],
+  "label_checks": {
+    "mandible": {
+      "n_L": 184,
+      "n_R": 195,
+      "balanced": true
+    },
+    "antenna": {
+      "n_L": 181,
+      "n_R": 181,
+      "balanced": true
+    },
+    "foreleg": {
+      "n_L": 753,
+      "n_R": 756,
+      "balanced": true
+    },
+    "midleg": {
+      "n_L": 669,
+      "n_R": 669,
+      "balanced": true
+    },
+    "hindleg": {
+      "n_L": 931,
+      "n_R": 931,
+      "balanced": true
+    }
+  },
+  "template_coverage": 0.9259404005862237,
+  "per_specimen": [
+    {
+      "specimen": "synth_000",
+      "coverage": 0.8085002442598925,
+      "n_lateral": 4256,
+      "lateral_acc": 0.7596334586466166,
+      "part_acc": 0.4041087613293051,
+      "mirror_confusion": 0.09369236444116562,
+      "geometric_baseline_lateral": 0.8294172932330827,
+      "shuffled_control_lateral": 0.48872180451127817
+    },
+    {
+      "specimen": "synth_001",
+      "coverage": 0.8955544699560333,
+      "n_lateral": 4890,
+      "lateral_acc": 0.8343558282208589,
+      "part_acc": 0.6027711106262273,
+      "mirror_confusion": 0.03152818991097923,
+      "geometric_baseline_lateral": 0.8770961145194274,
+      "shuffled_control_lateral": 0.4147239263803681
+    },
+    {
+      "specimen": "synth_002",
+      "coverage": 0.8501221299462628,
+      "n_lateral": 4715,
+      "lateral_acc": 0.8148462354188759,
+      "part_acc": 0.44960349385128145,
+      "mirror_confusion": 0.07379468678255166,
+      "geometric_baseline_lateral": 0.840084835630965,
+      "shuffled_control_lateral": 0.5211028632025451
+    },
+    {
+      "specimen": "synth_003",
+      "coverage": 0.8823644357596483,
+      "n_lateral": 4968,
+      "lateral_acc": 0.8723832528180354,
+      "part_acc": 0.6051378584874322,
+      "mirror_confusion": 0.030662305805396566,
+      "geometric_baseline_lateral": 0.9094202898550725,
+      "shuffled_control_lateral": 0.48711755233494364
+    },
+    {
+      "specimen": "synth_004",
+      "coverage": 0.8507083536883244,
+      "n_lateral": 4524,
+      "lateral_acc": 0.8200707338638373,
+      "part_acc": 0.5399104169059378,
+      "mirror_confusion": 0.10423452768729642,
+      "geometric_baseline_lateral": 0.8660477453580901,
+      "shuffled_control_lateral": 0.39080459770114945
+    },
+    {
+      "specimen": "synth_005",
+      "coverage": 0.906790425012213,
+      "n_lateral": 5037,
+      "lateral_acc": 0.8546754020250149,
+      "part_acc": 0.512337032647344,
+      "mirror_confusion": 0.13432203389830508,
+      "geometric_baseline_lateral": 0.8409767718880286,
+      "shuffled_control_lateral": 0.5757395274965257
+    }
+  ],
+  "mean_lateral_acc": 0.8259941518322066,
+  "mean_geometric_baseline": 0.8605071750807777,
+  "mean_mirror_confusion": 0.07803901808761576,
+  "binomial_p_vs_chance": 0.0,
+  "beats_geometric_baseline": false,
+  "verdict": "FAIL"
+}

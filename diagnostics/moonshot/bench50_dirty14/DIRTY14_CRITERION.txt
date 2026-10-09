@@ -1,0 +1,4 @@
+The 14 MOST degraded bench50 specimens by cycle-consistency ratio (all >2.0x, worst first).
+Counterpart to bench50_clean14. Purpose: test whether the 36 excluded specimens are genuinely
+unusable, or merely have worse cycle-consistency while still benefiting from the CSE term.
+This is the experiment that decides whether method coverage is 28%% or ~100%% of bench50.

@@ -1,0 +1,39 @@
+\section{Eliminated candidates}
+\label{sec:eliminated}
+
+\begin{center}
+\begin{tabular}{@{}p{0.34\linewidth}p{0.52\linewidth}@{}}
+\toprule
+\textbf{Candidate} & \textbf{Reason for rejection} \\
+\midrule
+Part-level segmentation refinements (SDF-based~\cite{sdf} and other
+  intrinsic geometric descriptors) & Address part identity only;
+  \F{F3} shows that correct regional identity recovers just part of the error \\
+Reweighting existing objective terms (surface, edge, normal, Laplacian,
+  offset, symmetry, midline) & None observes joint location explicitly
+  (\F{F6}); reweighting a term that does not measure the missing quantity
+  cannot recover it; single-factor sweep found no reliable gain \\
+Partition-based split of the objective (anterior/posterior) & Null result on
+  the anterior deformation statistic it targeted \\
+Correspondence-confidence probe using an untrained auxiliary network & Its
+  apparent failure pattern was traced to the network silently failing to
+  load its pretrained weights, not to a property of the correspondence
+  problem itself \\
+An additional shape-prior penalty term & Quadrupled the cost it was meant to
+  control, rather than reducing it \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Two rejected candidates left a positive residual worth recording rather than
+discarding outright. \textbf{Extrinsic learned image features} (descriptors
+trained on image context rather than intrinsic mesh geometry) carried real
+anatomical correspondence signal where every intrinsic geometric descriptor
+tested, including the Shape Diameter Function~\cite{sdf}, carried
+none. A \textbf{context-trained descriptor} specifically outperformed rigid
+nearest-surface matching at the coxa, the joint at which \F{F4} shows
+initialisation does not help. Neither candidate was deployable
+within the internship's timeframe, but together they identify extrinsic
+learned features as the one candidate family not bounded by the within-part
+within-part localisation ceiling in \F{F3}, and therefore the most promising
+direction for future work on this problem (Chapter~\ref{ch:conclusion}).

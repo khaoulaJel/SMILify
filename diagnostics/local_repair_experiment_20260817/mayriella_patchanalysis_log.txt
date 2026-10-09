@@ -1,0 +1,8 @@
+MESH_AFTER_CONVERSION: n_vertices=13624 n_faces=25544
+ORIGINAL_COMPONENTS: n=15
+N_BOUNDARY_LOOPS_FOUND: 188
+N_PATCHES_CREATED: 96
+N_FACES_AFTER_REPAIR: 27302
+TOTAL_SELF_INTERSECTION_PAIRS: 39090
+CLASSIFICATION: ORIG_ORIG(pre-existing,excluded-from-new-count)=19007 A_patch_vs_existing=15636 A_diff_component=92 A_same_component=15544 B_same_patch=2964 B_cross_patch=1483 RECONCILE_TOTAL=39090 (should equal TOTAL_SELF_INTERSECTION_PAIRS above)
+Wrote mayriella_patches.csv and mayriella_pairs.csv

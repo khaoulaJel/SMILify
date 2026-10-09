@@ -139,6 +139,10 @@ def main():
             f"{np.nanmedian(list(snr.values())):>12.2f}{100 * np.nanmedian(list(bias.values())):>14.1f}%"
         )
 
+    if out:
+        json.dump(out, open(os.path.join(OUT, "feature_reliability_all_runs.json"), "w"), indent=1)
+        print(f"\nwrote {OUT}/feature_reliability_all_runs.json (R/snr/bias for every --runs entry, not just --primary)")
+
     prim = out.get(args.primary) or (list(out.values())[0] if out else None)
     if prim:
         R = prim["R"]

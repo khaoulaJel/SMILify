@@ -1,0 +1,36 @@
+13_Crematogaster_nawai_OKENT0105046_processed:
+  - original is heavily fragmented (37 components) - thickness_p1_ratio below is computed on original's LARGEST component only, not this debris field, but treat with extra caution
+12_Cephalotes_spinosus_CASENT0744158_processed:
+  - original is heavily fragmented (43 components) - thickness_p1_ratio below is computed on original's LARGEST component only, not this debris field, but treat with extra caution
+18_Dorylus_fulvus_CASENT0745678_processed:
+  - alphawrap has 5 components (expected 1)
+  - original is heavily fragmented (17 components) - thickness_p1_ratio below is computed on original's LARGEST component only, not this debris field, but treat with extra caution
+  - thin-feature collapse: p5 thickness ratio=0.093 (alphawrap thinnest features are <0.5x original's)
+43_Strumigenys_canina_OKENT0105288_processed:
+  - alphawrap has 4 components (expected 1)
+  - original is heavily fragmented (11 components) - thickness_p1_ratio below is computed on original's LARGEST component only, not this debris field, but treat with extra caution
+26_Lioponera_daikoku_OKENT0105067_processed:
+  - original is heavily fragmented (9 components) - thickness_p1_ratio below is computed on original's LARGEST component only, not this debris field, but treat with extra caution
+35_Polyrhachis_dives_CASENT0878093_processed:
+  - original is heavily fragmented (35 components) - thickness_p1_ratio below is computed on original's LARGEST component only, not this debris field, but treat with extra caution
+  - chamfer distance outlier: 324 vs batch median 40.6 (11.0 MADs)
+40_Solenopsis_invicta_CASENT0744384_processed:
+  - alphawrap has 3 components (expected 1)
+  - original is heavily fragmented (18 components) - thickness_p1_ratio below is computed on original's LARGEST component only, not this debris field, but treat with extra caution
+44_Strumigenys_crassicornis_CASENT0744273_processed:
+  - original is heavily fragmented (16 components) - thickness_p1_ratio below is computed on original's LARGEST component only, not this debris field, but treat with extra caution
+45_Strumigenys_sp._appretiata_group_CASENT0744156_processed:
+  - alphawrap has 3 components (expected 1)
+  - original is heavily fragmented (7 components) - thickness_p1_ratio below is computed on original's LARGEST component only, not this debris field, but treat with extra caution
+50_Tetramorium_kraepelini_CASENT0744084_processed:
+  - alphawrap has 2 components (expected 1)
+  - original is heavily fragmented (14 components) - thickness_p1_ratio below is computed on original's LARGEST component only, not this debris field, but treat with extra caution
+8_Carebara_trechideros_CASENT0877591_processed:
+  - original is heavily fragmented (62 components) - thickness_p1_ratio below is computed on original's LARGEST component only, not this debris field, but treat with extra caution
+  - thin-feature collapse: p5 thickness ratio=0.320 (alphawrap thinnest features are <0.5x original's)
+47_Syllophopsis_sechellensis_OKENT0105212_processed:
+  - original is heavily fragmented (52 components) - thickness_p1_ratio below is computed on original's LARGEST component only, not this debris field, but treat with extra caution
+  - thin-feature collapse: p5 thickness ratio=0.191 (alphawrap thinnest features are <0.5x original's)
+49_Temnothorax_sp._OKENT0105336_processed:
+  - alphawrap has 5 components (expected 1)
+  - original is heavily fragmented (13 components) - thickness_p1_ratio below is computed on original's LARGEST component only, not this debris field, but treat with extra caution

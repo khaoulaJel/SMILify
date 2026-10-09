@@ -57,6 +57,53 @@ def main():
         "~600 wasted iterations/specimen. Explicit flag so this isn't tribal knowledge.",
     )
     ap.add_argument(
+        "--freeze_joint_rot",
+        action="store_true",
+        help="E1 representability test: hard-freeze every joint_rot row in EVERY stage, so the "
+             "pose the fit is seeded with (see --init_joint_rot_from) is the pose it keeps. This "
+             "is a true freeze, unlike --init_joint_rot_from alone, which only SEEDS pose and "
+             "lets the optimizer walk away from it (measured drift on C14p: co 0.222 rad).",
+    )
+    ap.add_argument(
+        "--init_log_beta_scales_from",
+        help="npz with 'names' and 'log_beta_scales' (N, n_joints, 3) -- seed the per-joint scale "
+             "block, same contract as --init_joint_rot_from. Pair with --freeze_log_beta_scales "
+             "to hold it there.",
+    )
+    ap.add_argument(
+        "--freeze_log_beta_scales",
+        action="store_true",
+        help="hard-freeze log_beta_scales in every stage (E2: is the per-joint scale block CAUSAL "
+             "for coxal placement, or a compensating symptom?).",
+    )
+    ap.add_argument(
+        "--init_joint_rot_from",
+        default="",
+        help="path to an npz with joint_rot (N,54,3) axis-angle + names (N,), matched to "
+        "--mesh_dir by basename (extension stripped). Seeds smal.joint_rot before H0 instead "
+        "of the zero default. Convention shared by cheap_init.npz/learned_init.npz and every "
+        "diagnostics/anatomical_pose_init generator script.",
+    )
+    ap.add_argument(
+        "--init_anchor_weight",
+        type=float,
+        default=0.0,
+        help="weight on an L2 penalty pulling joint_rot back toward its initial value (the "
+        "--init_joint_rot_from seed, or zero if that is not given) every iteration, instead of "
+        "letting the optimizer drift arbitrarily far from it. SMPLify-X-style (Pavlakos et al. "
+        "2019 anchor pose to a regressed init). 0 = off (previous behaviour, unchanged).",
+    )
+    ap.add_argument(
+        "--init_anchor_proximal_mult",
+        type=float,
+        default=1.0,
+        help="multiplier on --init_anchor_weight applied only to proximal leg joints "
+        "(coxa/trochanter/femur). RESULTS_ABC_DEF.md's D/E/F experiment found proximal "
+        "initialization error far more damaging to the optimizer's basin than distal error of "
+        "the same magnitude, so >1 lets proximal joints be held closer to their init than "
+        "distal ones instead of anchoring the whole chain uniformly. 1.0 = uniform (no effect).",
+    )
+    ap.add_argument(
         "--midline",
         type=float,
         default=0.0,
@@ -87,6 +134,66 @@ def main():
         help="path to a trained part-field checkpoint. Replaces the fit-derived "
         "partition with a frozen, TARGET-derived one and drops points the "
         "field calls debris from every data term. Requires --split_distal.",
+    )
+    ap.add_argument(
+        "--oracle_gt_partition_from",
+        default="",
+        help="path to a ground_truth.npz (must have 'names' and 'verts', verts in the "
+        "TEMPLATE's own vertex order/topology -- true of synth_clean/synth_noisy by "
+        "construction). Replaces the fit-derived partition with a frozen, GROUND-TRUTH "
+        "one: every resampled target point is assigned the anatomical group of its nearest "
+        "TRUE (not fitted) vertex. Reuses PartFieldPartition unmodified (2026-08-25 "
+        "correspondence-oracle test, Phase 10 design doc step 1) -- answers whether "
+        "perfect correspondence, fed through the exact hook a learned network would use, "
+        "moves leg_acc beyond what the current recipe already gets, before any network is "
+        "built. Mutually exclusive with --part_field/--hull_partition.",
+    )
+    ap.add_argument(
+        "--dense_gt_correspondence_from",
+        default="",
+        help="path to a ground_truth.npz ('names'+'verts', template order/topology). Adds a "
+        "DENSE per-vertex correspondence oracle term ON TOP OF the existing chamfer term "
+        "(additive, not a replacement -- unlike --oracle_gt_partition_from, which only fixes "
+        "group/leg-level assignment): each resampled target point is matched directly to the "
+        "FITTED mesh's own vertex at its TRUE corresponding index. Weight via "
+        "--w_dense_gt_correspondence. 0.0 weight (the default) is byte-identical to every "
+        "existing arm -- see trainer_hierarchical.py's w_dense_gt block.",
+    )
+    ap.add_argument(
+        "--w_dense_gt_correspondence",
+        type=float,
+        default=1.0,
+        help="weight on the --dense_gt_correspondence_from term, same scale as w_chamfer.",
+    )
+    ap.add_argument(
+        "--cse_correspondence_from",
+        default="",
+        help="path to a cse_correspondence.npz ('names'+'verts'+'mask', template order/topology) "
+        "produced by diagnostics/anatomical_pose_init/generate_cse_correspondence_20260827.py. "
+        "Adds a PREDICTED dense per-vertex correspondence term ON TOP OF the existing chamfer "
+        "term, using the same mechanism as --dense_gt_correspondence_from but with the C3 CSE "
+        "head's predictions instead of ground truth, and masked to the vertices it actually "
+        "predicted. Weight via --w_cse_correspondence. 0.0 weight (the default) is "
+        "byte-identical to every existing arm -- see trainer_hierarchical.py's w_cse_corr block.",
+    )
+    ap.add_argument(
+        "--w_cse_correspondence",
+        type=float,
+        default=1.0,
+        help="weight on the --cse_correspondence_from term, same scale as w_chamfer.",
+    )
+    ap.add_argument(
+        "--cse_tolerance_weighting",
+        choices=["none", "invtol", "invtol2"],
+        default="none",
+        help="C13 (2026-08-28): per-vertex weighting of the --cse_correspondence_from term by "
+        "INVERSE MEASURED INTER-LEG TOLERANCE, so the term optimises risk (error relative to "
+        "the distance to the nearest other leg) instead of absolute error. 'none' (default) is "
+        "byte-identical to every existing arm. Motivation: the coxa carries 57.8% of the "
+        "addressable leg-level residual while being the BEST-placed segment in absolute terms, "
+        "because its risk ratio is 0.995 vs ~0.21 everywhere else -- an unweighted L2 gives it "
+        "the least gradient exactly where tolerance is tightest. Same construction as COCO OKS "
+        "per-keypoint sigmas. See PREREGISTRATION_C13_tolerance_weighting_20260828.md.",
     )
     ap.add_argument(
         "--pf_init",
@@ -287,6 +394,72 @@ def main():
 
     smal = SMAL3DFitter(batch_size=len(targets), device=device, shape_family=-1)
 
+    if args.init_joint_rot_from:
+        stems = [os.path.splitext(n)[0] for n in names]
+        d = np.load(args.init_joint_rot_from, allow_pickle=True)
+        init_names = list(d["names"])
+        missing = [s for s in stems if s not in init_names]
+        if missing:
+            raise SystemExit(
+                f"--init_joint_rot_from {args.init_joint_rot_from}: {len(missing)} of "
+                f"{len(stems)} mesh_dir specimens have no matching entry (e.g. {missing[:3]})"
+            )
+        if d["joint_rot"].shape[1:] != (config.N_POSE, 3):
+            raise SystemExit(
+                f"--init_joint_rot_from {args.init_joint_rot_from}: joint_rot shape "
+                f"{d['joint_rot'].shape} does not match (N, {config.N_POSE}, 3)"
+            )
+        idx = [init_names.index(s) for s in stems]
+        init_jr = torch.tensor(d["joint_rot"][idx], dtype=torch.float32, device=device)
+        with torch.no_grad():
+            smal.joint_rot.copy_(init_jr)
+        print(f"[hier] joint_rot seeded from {args.init_joint_rot_from} for {len(stems)} specimens", flush=True)
+
+    if args.init_log_beta_scales_from:
+        stems = [os.path.splitext(n)[0] for n in names]
+        d = np.load(args.init_log_beta_scales_from, allow_pickle=True)
+        init_names = list(d["names"])
+        missing = [s for s in stems if s not in init_names]
+        if missing:
+            raise SystemExit(
+                f"--init_log_beta_scales_from {args.init_log_beta_scales_from}: {len(missing)} of "
+                f"{len(stems)} mesh_dir specimens have no matching entry (e.g. {missing[:3]})"
+            )
+        if d["log_beta_scales"].shape[1:] != tuple(smal.log_beta_scales.shape[1:]):
+            raise SystemExit(
+                f"--init_log_beta_scales_from {args.init_log_beta_scales_from}: log_beta_scales "
+                f"shape {d['log_beta_scales'].shape} does not match "
+                f"(N, {tuple(smal.log_beta_scales.shape[1:])})"
+            )
+        idx = [init_names.index(s) for s in stems]
+        with torch.no_grad():
+            smal.log_beta_scales.copy_(
+                torch.tensor(d["log_beta_scales"][idx], dtype=torch.float32, device=device)
+            )
+        print(f"[hier] log_beta_scales seeded from {args.init_log_beta_scales_from} "
+              f"for {len(stems)} specimens", flush=True)
+
+    if args.freeze_joint_rot:
+        print("[hier] joint_rot HARD-FROZEN in every stage", flush=True)
+    if args.freeze_log_beta_scales:
+        print("[hier] log_beta_scales HARD-FROZEN in every stage", flush=True)
+
+    init_joint_rot = None
+    init_anchor_joint_weight = None
+    if args.init_anchor_weight > 0:
+        init_joint_rot = smal.joint_rot.detach().clone()
+        PROXIMAL = {"co", "tr", "fe"}
+        init_anchor_joint_weight = torch.ones(config.N_POSE, device=device)
+        for j, nm in enumerate(jnames):
+            if nm.startswith("l_") and nm.split("_")[2] in PROXIMAL:
+                init_anchor_joint_weight[j] = args.init_anchor_proximal_mult
+        print(
+            f"[hier] init-anchor active: weight={args.init_anchor_weight} "
+            f"proximal_mult={args.init_anchor_proximal_mult} "
+            f"({int((init_anchor_joint_weight > 1).sum())} proximal joint rows up-weighted)",
+            flush=True,
+        )
+
     part_scale = None
     if args.part_robust > 0:
         from fitter_3d.trainer_hierarchical import part_thickness
@@ -360,6 +533,144 @@ def main():
             flush=True,
         )
 
+    # ------------------------------------------------------------------ oracle GT partition
+    # Correspondence-oracle test (2026-08-25): is perfect correspondence, fed through the SAME
+    # partition-injection hook --part_field already uses, worth anything before a network exists
+    # to predict it? PartFieldPartition is reused UNCHANGED -- the only difference from the
+    # learned case is what ref_pts/ref_label are computed from.
+    if args.oracle_gt_partition_from:
+        if partition is not None:
+            raise SystemExit("--oracle_gt_partition_from and --part_field/--hull_partition are alternative partitions; pick one")
+        stems = [os.path.splitext(n)[0] for n in names]
+        d = np.load(args.oracle_gt_partition_from, allow_pickle=True)
+        gt_names = list(d["names"])
+        missing = [s for s in stems if s not in gt_names]
+        if missing:
+            raise SystemExit(
+                f"--oracle_gt_partition_from {args.oracle_gt_partition_from}: {len(missing)} of "
+                f"{len(stems)} mesh_dir specimens have no matching entry (e.g. {missing[:3]})"
+            )
+        n_verts_template = int(np.asarray(dd["v_template"]).shape[0])
+        if d["verts"].shape[1:] != (n_verts_template, 3):
+            raise SystemExit(
+                f"--oracle_gt_partition_from {args.oracle_gt_partition_from}: verts shape "
+                f"{d['verts'].shape} does not match (N, {n_verts_template}, 3) -- this corpus's "
+                "ground truth is not in the template's own vertex order/topology, so nearest-"
+                "TRUE-vertex group lookup would be meaningless."
+            )
+        idx = [gt_names.index(s) for s in stems]
+        gt_verts = torch.tensor(d["verts"][idx], dtype=torch.float32, device=device)  # (B, V, 3)
+        vg_t = torch.as_tensor(vg, device=device)
+        ref_label = vg_t.unsqueeze(0).expand(gt_verts.shape[0], -1).contiguous()  # (B, V) -- same group per vertex row for every specimen, since vg is a fixed template-level array
+        partition = PartFieldPartition(gt_verts, ref_label, len(gnames), device)
+        print(
+            f"[hier] ORACLE GT partition active: {len(stems)} specimens, {n_verts_template} "
+            "true vertices each, group assignment from nearest TRUE (not fitted) vertex every "
+            "reassignment. This is a correspondence CEILING test, not a deployable arm.",
+            flush=True,
+        )
+
+    # ------------------------------------------------------------- dense GT correspondence oracle
+    # Dense-per-vertex follow-up (2026-08-25) to the group-level oracle above: FINAL_REPORT.md's
+    # own measurement caps any GROUP/partition-shaped intervention at 16.7% of total
+    # correspondence error (83.3% is within-part). This term is not a partition -- it assigns
+    # each point its own true vertex directly -- so it is the one test capable of showing whether
+    # that larger 83.3% slice is addressable by correspondence information at all.
+    dense_gt_verts = None
+    if args.dense_gt_correspondence_from:
+        stems = [os.path.splitext(n)[0] for n in names]
+        d = np.load(args.dense_gt_correspondence_from, allow_pickle=True)
+        gt_names = list(d["names"])
+        missing = [s for s in stems if s not in gt_names]
+        if missing:
+            raise SystemExit(
+                f"--dense_gt_correspondence_from {args.dense_gt_correspondence_from}: {len(missing)} "
+                f"of {len(stems)} mesh_dir specimens have no matching entry (e.g. {missing[:3]})"
+            )
+        n_verts_template = int(np.asarray(dd["v_template"]).shape[0])
+        if d["verts"].shape[1:] != (n_verts_template, 3):
+            raise SystemExit(
+                f"--dense_gt_correspondence_from {args.dense_gt_correspondence_from}: verts shape "
+                f"{d['verts'].shape} does not match (N, {n_verts_template}, 3) -- this corpus's "
+                "ground truth is not in the template's own vertex order/topology."
+            )
+        idx = [gt_names.index(s) for s in stems]
+        dense_gt_verts = torch.tensor(d["verts"][idx], dtype=torch.float32, device=device)  # (B, V, 3)
+        print(
+            f"[hier] DENSE GT correspondence oracle active: {len(stems)} specimens, "
+            f"weight={args.w_dense_gt_correspondence}. This is a correspondence CEILING test, "
+            "not a deployable arm.",
+            flush=True,
+        )
+    dense_w = args.w_dense_gt_correspondence if args.dense_gt_correspondence_from else 0.0
+
+    # PREDICTED (C3 CSE head) dense correspondence -- same load-and-validate discipline as the
+    # oracle above: fail loudly on a name or topology mismatch rather than silently fitting to a
+    # misaligned correspondence set.
+    cse_corr_verts = cse_corr_mask = None
+    if args.cse_correspondence_from:
+        stems = [os.path.splitext(n)[0] for n in names]
+        c = np.load(args.cse_correspondence_from, allow_pickle=True)
+        c_names = [str(x) for x in list(c["names"])]
+        missing = [s for s in stems if s not in c_names]
+        if missing:
+            raise SystemExit(
+                f"--cse_correspondence_from {args.cse_correspondence_from}: {len(missing)} of "
+                f"{len(stems)} mesh_dir specimens have no matching entry (e.g. {missing[:3]})"
+            )
+        n_verts_template = int(np.asarray(dd["v_template"]).shape[0])
+        if c["verts"].shape[1:] != (n_verts_template, 3):
+            raise SystemExit(
+                f"--cse_correspondence_from {args.cse_correspondence_from}: verts shape "
+                f"{c['verts'].shape} does not match (N, {n_verts_template}, 3)."
+            )
+        cidx = [c_names.index(s) for s in stems]
+        cse_corr_verts = torch.tensor(c["verts"][cidx], dtype=torch.float32, device=device)
+        cse_corr_mask = torch.tensor(c["mask"][cidx], dtype=torch.bool, device=device)
+        print(
+            f"[hier] CSE PREDICTED correspondence active: {len(stems)} specimens, "
+            f"weight={args.w_cse_correspondence}, coverage="
+            f"{100.0 * cse_corr_mask.float().mean().item():.1f}% of template vertices. "
+            "These are PREDICTIONS, not ground truth -- this is a deployable arm, not a ceiling.",
+            flush=True,
+        )
+    # C13: per-vertex weight on the dense term. Measured per-segment inter-leg tolerance as a
+    # FRACTION OF BODY DIAGONAL, from diagnostics/correspondence_accuracy/interleg_tolerance_
+    # 20260828.py over all 48 P48 specimens. These are corpus constants, not per-specimen values
+    # derived from a target, so no ground-truth information about the specimen being fitted
+    # enters the fit. Non-leg vertices keep weight 1.0.
+    INTERLEG_TOL = {"co": 0.0202, "tr": 0.0675, "fe": 0.1216,
+                    "ti": 0.1565, "ta": 0.1824, "pt": 0.1926}
+    cse_corr_vw = None
+    if args.cse_tolerance_weighting != "none":
+        if not args.cse_correspondence_from:
+            raise SystemExit("--cse_tolerance_weighting needs --cse_correspondence_from.")
+        import sys as _sys
+        _sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                         "..", "diagnostics", "correspondence_accuracy"))
+        import labels as _lb
+        _vl = _lb.vertex_labels(jnames, np.asarray(dd["weights"]).argmax(axis=1))
+        _vseg = _vl["leg_seg"]
+        pw = 1 if args.cse_tolerance_weighting == "invtol" else 2
+        w = np.ones(len(_vseg), dtype=np.float64)
+        _is_leg = np.zeros(len(_vseg), dtype=bool)
+        for _s, _t in INTERLEG_TOL.items():
+            _m = _vseg == _s
+            w[_m] = (1.0 / _t) ** pw
+            _is_leg |= _m
+        # Normalise among LEG vertices only, and leave non-leg vertices at exactly 1.0. The
+        # inter-leg tolerance argument says nothing about the body, so re-scaling the body's
+        # share of the term would change a second variable: normalising over ALL vertices drives
+        # non-leg weight to 0.11 (invtol) / 0.004 (invtol2), i.e. it would quietly delete the body
+        # from the dense term and confound the coxal contrast this arm exists to measure.
+        w[_is_leg] = w[_is_leg] / w[_is_leg].mean()
+        cse_corr_vw = torch.tensor(w, dtype=torch.float32, device=device)
+        _rep = {_s: float(w[_vseg == _s][0]) for _s in INTERLEG_TOL if (_vseg == _s).any()}
+        print(f"[hier] C13 tolerance weighting '{args.cse_tolerance_weighting}': "
+              f"per-segment weights {  {k: round(v, 2) for k, v in _rep.items()} }", flush=True)
+
+    cse_w = args.w_cse_correspondence if args.cse_correspondence_from else 0.0
+
     # ------------------------------------------------------------------ hull hierarchy
     if args.hull_partition > 0:
         if partition is not None:
@@ -401,6 +712,14 @@ def main():
         part_scale=part_scale,
         soft_partition=args.soft_partition,
         robust_mult=args.part_robust if args.part_robust > 0 else 3.0,
+        init_joint_rot=init_joint_rot,
+        init_anchor_joint_weight=init_anchor_joint_weight,
+        dense_gt_verts=dense_gt_verts,
+        cse_corr_verts=cse_corr_verts,
+        cse_corr_mask=cse_corr_mask,
+        cse_corr_vw=cse_corr_vw,
+        freeze_joint_rot=args.freeze_joint_rot,
+        freeze_log_beta_scales=args.freeze_log_beta_scales,
     )
     partitioned = not args.no_partition
     ANTERIOR = {"head", "mandible", "antenna"}
@@ -438,8 +757,11 @@ def main():
                 "w_midline": args.midline,
                 "w_jresid": args.jresid,
                 "w_limit": args.limit,
+                "w_init_anchor": args.init_anchor_weight,
                 "w_scale": args.scale_cap,
                 "w_trans": args.trans_cap,
+                "w_dense_gt": dense_w,
+                "w_cse_corr": cse_w,
             },
             **common,
         ),
@@ -459,8 +781,11 @@ def main():
                 "w_midline": args.midline,
                 "w_jresid": args.jresid,
                 "w_limit": args.limit,
+                "w_init_anchor": args.init_anchor_weight,
                 "w_scale": args.scale_cap,
                 "w_trans": args.trans_cap,
+                "w_dense_gt": dense_w,
+                "w_cse_corr": cse_w,
             },
             **common,
         ),
@@ -480,8 +805,11 @@ def main():
                 "w_midline": args.midline,
                 "w_jresid": args.jresid,
                 "w_limit": args.limit,
+                "w_init_anchor": args.init_anchor_weight,
                 "w_scale": args.scale_cap,
                 "w_trans": args.trans_cap,
+                "w_dense_gt": dense_w,
+                "w_cse_corr": cse_w,
             },
             **common,
         ),
@@ -501,6 +829,8 @@ def main():
                 "w_sym": 0.5,
                 "w_offset": args.offset,
                 "w_midline": args.midline,
+                "w_dense_gt": dense_w,
+                "w_cse_corr": cse_w,
             },
             **common,
         ),

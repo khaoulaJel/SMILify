@@ -1,0 +1,25 @@
+{
+  "specimen": "29_Myrmecina_ryukyuensis_OKENT0105085_processed",
+  "alpha": 1.43987,
+  "pre_gap": 0.28797388324665696,
+  "diag_length": 660.9566248653804,
+  "old": {
+    "offset": 0.047995666666666666,
+    "relative_alpha": 459.03909718612124,
+    "relative_offset": 13771.172915583636,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 683282,
+    "output_faces": 1366928
+  },
+  "new": {
+    "offset": 0.575948,
+    "relative_alpha": 459.03909718612124,
+    "relative_offset": 1147.597742965303,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 136677,
+    "output_faces": 273610
+  },
+  "flipped": false
+}

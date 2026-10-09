@@ -1,0 +1,113 @@
+Cloning into 'custom_processing/external/torch-mesh-isect'...
+/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+!!
+
+        ********************************************************************************
+        Please consider removing the following classifiers in favor of a SPDX license expression:
+
+        License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+  self._finalize_license_expression()
+running build_ext
+/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/utils/cpp_extension.py:426: UserWarning: There are no /home/khaoula/miniconda3/envs/pytorch3d/bin/x86_64-conda-linux-gnu-c++ version bounds defined for CUDA version 12.4
+  warnings.warn(f'There are no {compiler_name} version bounds defined for CUDA version {cuda_str_version}')
+building 'bvh_cuda' extension
+creating /home/khaoula/SMILify/custom_processing/external/torch-mesh-isect/build/temp.linux-x86_64-cpython-310/src
+/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/utils/cpp_extension.py:1964: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+Emitting ninja build file /home/khaoula/SMILify/custom_processing/external/torch-mesh-isect/build/temp.linux-x86_64-cpython-310/build.ninja...
+Compiling objects...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+[1/2] /home/khaoula/miniconda3/envs/pytorch3d/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/khaoula/SMILify/custom_processing/external/torch-mesh-isect/build/temp.linux-x86_64-cpython-310/src/bvh_cuda_op.o.d -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/TH -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/THC -Iinclude '-I' -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/TH -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/THC -I/home/khaoula/miniconda3/envs/pytorch3d/include -I/home/khaoula/miniconda3/envs/pytorch3d/include/python3.10 -c -c /home/khaoula/SMILify/custom_processing/external/torch-mesh-isect/src/bvh_cuda_op.cu -o /home/khaoula/SMILify/custom_processing/external/torch-mesh-isect/build/temp.linux-x86_64-cpython-310/src/bvh_cuda_op.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -DPRINT_TIMINGS=0 -DDEBUG_PRINT=0 -DERROR_CHECKING=1 -DCOLLISION_ORDERING=1 -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1011"' -DTORCH_EXTENSION_NAME=bvh_cuda -D_GLIBCXX_USE_CXX11_ABI=0 -gencode=arch=compute_86,code=compute_86 -gencode=arch=compute_86,code=sm_86 -ccbin /home/khaoula/miniconda3/envs/pytorch3d/bin/x86_64-conda-linux-gnu-cc -std=c++17
+FAILED: [code=1] /home/khaoula/SMILify/custom_processing/external/torch-mesh-isect/build/temp.linux-x86_64-cpython-310/src/bvh_cuda_op.o 
+/home/khaoula/miniconda3/envs/pytorch3d/bin/nvcc --generate-dependencies-with-compile --dependency-output /home/khaoula/SMILify/custom_processing/external/torch-mesh-isect/build/temp.linux-x86_64-cpython-310/src/bvh_cuda_op.o.d -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/TH -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/THC -Iinclude '-I' -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/TH -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/THC -I/home/khaoula/miniconda3/envs/pytorch3d/include -I/home/khaoula/miniconda3/envs/pytorch3d/include/python3.10 -c -c /home/khaoula/SMILify/custom_processing/external/torch-mesh-isect/src/bvh_cuda_op.cu -o /home/khaoula/SMILify/custom_processing/external/torch-mesh-isect/build/temp.linux-x86_64-cpython-310/src/bvh_cuda_op.o -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -DPRINT_TIMINGS=0 -DDEBUG_PRINT=0 -DERROR_CHECKING=1 -DCOLLISION_ORDERING=1 -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1011"' -DTORCH_EXTENSION_NAME=bvh_cuda -D_GLIBCXX_USE_CXX11_ABI=0 -gencode=arch=compute_86,code=compute_86 -gencode=arch=compute_86,code=sm_86 -ccbin /home/khaoula/miniconda3/envs/pytorch3d/bin/x86_64-conda-linux-gnu-cc -std=c++17
+/home/khaoula/SMILify/custom_processing/external/torch-mesh-isect/src/bvh_cuda_op.cu:37:10: fatal error: double_vec_ops.h: No such file or directory
+   37 | #include "double_vec_ops.h"
+      |          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+[2/2] /home/khaoula/miniconda3/envs/pytorch3d/bin/x86_64-conda-linux-gnu-c++ -MMD -MF /home/khaoula/SMILify/custom_processing/external/torch-mesh-isect/build/temp.linux-x86_64-cpython-310/src/bvh.o.d -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/khaoula/miniconda3/envs/pytorch3d/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem /home/khaoula/miniconda3/envs/pytorch3d/include -fPIC -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/TH -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/THC -Iinclude '-I' -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/TH -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/THC -I/home/khaoula/miniconda3/envs/pytorch3d/include -I/home/khaoula/miniconda3/envs/pytorch3d/include/python3.10 -c -c /home/khaoula/SMILify/custom_processing/external/torch-mesh-isect/src/bvh.cpp -o /home/khaoula/SMILify/custom_processing/external/torch-mesh-isect/build/temp.linux-x86_64-cpython-310/src/bvh.o -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1011"' -DTORCH_EXTENSION_NAME=bvh_cuda -D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+FAILED: [code=1] /home/khaoula/SMILify/custom_processing/external/torch-mesh-isect/build/temp.linux-x86_64-cpython-310/src/bvh.o 
+/home/khaoula/miniconda3/envs/pytorch3d/bin/x86_64-conda-linux-gnu-c++ -MMD -MF /home/khaoula/SMILify/custom_processing/external/torch-mesh-isect/build/temp.linux-x86_64-cpython-310/src/bvh.o.d -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/khaoula/miniconda3/envs/pytorch3d/include -DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem /home/khaoula/miniconda3/envs/pytorch3d/include -fPIC -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/TH -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/THC -Iinclude '-I' -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/TH -I/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/THC -I/home/khaoula/miniconda3/envs/pytorch3d/include -I/home/khaoula/miniconda3/envs/pytorch3d/include/python3.10 -c -c /home/khaoula/SMILify/custom_processing/external/torch-mesh-isect/src/bvh.cpp -o /home/khaoula/SMILify/custom_processing/external/torch-mesh-isect/build/temp.linux-x86_64-cpython-310/src/bvh.o -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1011"' -DTORCH_EXTENSION_NAME=bvh_cuda -D_GLIBCXX_USE_CXX11_ABI=0 -std=c++17
+/home/khaoula/SMILify/custom_processing/external/torch-mesh-isect/src/bvh.cpp: In function 'at::Tensor bvh_forward(at::Tensor, int)':
+/home/khaoula/SMILify/custom_processing/external/torch-mesh-isect/src/bvh.cpp:25:38: warning: 'at::DeprecatedTypeProperties& at::Tensor::type() const' is deprecated: Tensor.type() is deprecated. Instead use Tensor.options(), which in many cases (e.g. in a constructor) is a drop-in replacement. If you were using data from type(), that is now available from Tensor itself, so instead of tensor.type().scalar_type(), use tensor.scalar_type() instead and instead of tensor.type().backend() use tensor.device(). [-Wdeprecated-declarations]
+   25 | #define CHECK_CUDA(x) AT_CHECK(x.type().is_cuda(), #x " must be a CUDA tensor")
+      |                                      ^
+/home/khaoula/SMILify/custom_processing/external/torch-mesh-isect/src/bvh.cpp:27:24: note: in expansion of macro 'CHECK_CUDA'
+   27 | #define CHECK_INPUT(x) CHECK_CUDA(x); CHECK_CONTIGUOUS(x)
+      |                        ^~~~~~~~~~
+/home/khaoula/SMILify/custom_processing/external/torch-mesh-isect/src/bvh.cpp:30:5: note: in expansion of macro 'CHECK_INPUT'
+   30 |     CHECK_INPUT(triangles);
+      |     ^~~~~~~~~~~
+In file included from /home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/ATen/core/Tensor.h:3,
+                 from /home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/ATen/Tensor.h:3,
+                 from /home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/torch/csrc/autograd/function_hook.h:3,
+                 from /home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/torch/csrc/autograd/cpp_hook.h:2,
+                 from /home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/torch/csrc/autograd/variable.h:6,
+                 from /home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/torch/csrc/autograd/autograd.h:3,
+                 from /home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/torch/csrc/api/include/torch/autograd.h:3,
+                 from /home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/torch/csrc/api/include/torch/all.h:7,
+                 from /home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/torch/extension.h:5,
+                 from /home/khaoula/SMILify/custom_processing/external/torch-mesh-isect/src/bvh.cpp:18:
+/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/include/ATen/core/TensorBody.h:225:30: note: declared here
+  225 |   DeprecatedTypeProperties & type() const {
+      |                              ^~~~
+/home/khaoula/SMILify/custom_processing/external/torch-mesh-isect/src/bvh.cpp:25:23: error: 'AT_CHECK' was not declared in this scope; did you mean 'CHECK'?
+   25 | #define CHECK_CUDA(x) AT_CHECK(x.type().is_cuda(), #x " must be a CUDA tensor")
+      |                       ^~~~~~~~
+/home/khaoula/SMILify/custom_processing/external/torch-mesh-isect/src/bvh.cpp:25:23: note: in definition of macro 'CHECK_CUDA'
+   25 | #define CHECK_CUDA(x) AT_CHECK(x.type().is_cuda(), #x " must be a CUDA tensor")
+      |                       ^~~~~~~~
+/home/khaoula/SMILify/custom_processing/external/torch-mesh-isect/src/bvh.cpp:30:5: note: in expansion of macro 'CHECK_INPUT'
+   30 |     CHECK_INPUT(triangles);
+      |     ^~~~~~~~~~~
+ninja: build stopped: subcommand failed.
+Traceback (most recent call last):
+  File "/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/utils/cpp_extension.py", line 2104, in _run_ninja_build
+    subprocess.run(
+  File "/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/subprocess.py", line 526, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['ninja', '-v']' returned non-zero exit status 1.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/khaoula/SMILify/custom_processing/external/torch-mesh-isect/setup.py", line 73, in <module>
+    setup(name=NAME,
+  File "/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/setuptools/__init__.py", line 117, in setup
+    return distutils.core.setup(**attrs)  # type: ignore[return-value]
+  File "/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/setuptools/_distutils/core.py", line 186, in setup
+    return run_commands(dist)
+  File "/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/setuptools/_distutils/core.py", line 202, in run_commands
+    dist.run_commands()
+  File "/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/setuptools/_distutils/dist.py", line 1000, in run_commands
+    self.run_command(cmd)
+  File "/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/setuptools/dist.py", line 1107, in run_command
+    super().run_command(command)
+  File "/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/setuptools/_distutils/dist.py", line 1019, in run_command
+    cmd_obj.run()
+  File "/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/setuptools/command/build_ext.py", line 97, in run
+    _build_ext.run(self)
+  File "/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/setuptools/_distutils/command/build_ext.py", line 367, in run
+    self.build_extensions()
+  File "/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/utils/cpp_extension.py", line 868, in build_extensions
+    build_ext.build_extensions(self)
+  File "/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/setuptools/_distutils/command/build_ext.py", line 483, in build_extensions
+    self._build_extensions_serial()
+  File "/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/setuptools/_distutils/command/build_ext.py", line 509, in _build_extensions_serial
+    self.build_extension(ext)
+  File "/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/setuptools/command/build_ext.py", line 262, in build_extension
+    _build_ext.build_extension(self, ext)
+  File "/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/setuptools/_distutils/command/build_ext.py", line 564, in build_extension
+    objects = self.compiler.compile(
+  File "/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/utils/cpp_extension.py", line 681, in unix_wrap_ninja_compile
+    _write_ninja_file_and_compile_objects(
+  File "/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/utils/cpp_extension.py", line 1784, in _write_ninja_file_and_compile_objects
+    _run_ninja_build(
+  File "/home/khaoula/miniconda3/envs/pytorch3d/lib/python3.10/site-packages/torch/utils/cpp_extension.py", line 2120, in _run_ninja_build
+    raise RuntimeError(message) from e
+RuntimeError: Error compiling objects for extension

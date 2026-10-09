@@ -1,0 +1,160 @@
+\chapter{The host organisation}
+\label{ch:host}
+
+\section{Forschungszentrum Jülich}
+
+Forschungszentrum Jülich GmbH is located between Aachen and Cologne, in North
+Rhine-Westphalia, and is among the largest interdisciplinary research
+institutions in Europe. It is a member of the Helmholtz Association, Germany's
+largest scientific organisation, whose research programmes are organised
+around problems that require infrastructure and continuity beyond what a
+single university group typically sustains.
+\needcheck{Confirm current staff and budget figures against the official FZJ
+institutional profile before submission.}
+
+The centre runs research programmes spanning energy, information technology,
+and the bioeconomy, alongside the physical and computational infrastructure
+these programmes require. This organisational structure was directly relevant
+to the present work: the project combines computer vision and geometry
+processing methods with morphometric analysis intended for use by biologists,
+and was executed in part on a national supercomputing facility located on the
+same campus as the biological collections the resulting measurements are
+intended to serve. Few research environments make this combination of
+disciplines and infrastructure available within a single site.
+
+From the perspective of the internship, the most important feature of the host
+institution is not only its scientific breadth but also its ability to connect
+research questions to the infrastructure required to answer them. The project
+involved scanning, reconstruction, geometry processing, optimisation,
+validation, and downstream morphometric interpretation. Each of these stages
+depends on a different technical ecosystem, and the institute provides a setting
+where those ecosystems coexist under one organisation rather than being spread
+across disconnected partners. This environment was crucial for the method
+development reported here, because the work was not limited to algorithm design
+in isolation; it required access to large-scale computation, scientific data
+handling, and active collaboration across disciplinary boundaries.
+
+\subsection{The Jülich Supercomputing Centre}
+
+The Jülich Supercomputing Centre (JSC) is one of Europe's principal
+high-performance computing facilities, hosting systems in the \term{jureca} and
+\term{juwels} families.
+\needcheck{Confirm current JSC system lineup and any exascale system status at
+time of submission.}
+
+The experimental work reported here was executed on \term{jureca}: the software
+environment was built under Conda on the scratch filesystem, jobs were
+dispatched to GPU-equipped compute nodes, and long-running fits were detached
+under \code{tmux} to allow execution to continue independently of an active
+terminal session. Several of the experiments reported in later chapters, in
+particular the scale-barrier validation at $N=838$ specimens and the
+multi-seed benchmarking described in Chapter~\ref{ch:elimination}, require
+compute resources beyond what a single workstation can provide within the
+timeframe of the internship; their inclusion in this report depended on access
+to this infrastructure.
+
+Working with the cluster also required adapting standard practice for
+reproducible, long-running computation: environment management under Conda,
+job scheduling, checkpointing of intermediate results, and a clear separation
+between login nodes, which are not GPU-equipped and are intended for
+compilation and light interactive work, and compute nodes, on which numerical
+work is actually executed. This distinction was not initially obvious and
+its absence was the direct cause of several early failed job submissions; it
+is recorded here because it materially affected how many experiments could be
+run within the available time, and therefore how much could be established
+empirically over the course of the internship.
+
+\section{Research context: parametric models for non-model species}
+
+The immediate scientific context for this internship is a line of work
+concerned with extending parametric three-dimensional shape models to species
+outside the small set that computer vision research has historically
+addressed.
+
+Behavioural and biomechanical analysis increasingly depends on recovering
+the pose and shape of an animal from imperfect observations. The corresponding
+tooling is well developed for humans and largely unavailable elsewhere.
+\term{smpl}~\cite{smpl} and its successors assume a cooperative subject, a
+large scan corpus, and a fixed, well-understood body topology. \term{smal}~%
+\cite{smal} relaxed the first two of these assumptions for quadrupeds by
+learning a shape space from toy figurines rather than live animals, and
+demonstrated that a model trained in this way generalises to photographs of
+real animals, including species not present during training.
+
+\term{smilify} extends this line of work to insects, where the body plan
+itself differs substantially from the mammalian case and the anatomical
+structures of interest are thin, numerous, and highly articulated. Upstream of
+the registration pipeline is \term{scAnt}~\cite{scant}, an open-source macro
+photogrammetry scanner designed to make high-resolution three-dimensional
+capture of small specimens accessible to laboratories without dedicated
+scanning infrastructure. The two systems are designed to complement one
+another: an affordable scanner produces a large volume of imperfect scan data,
+and a robust registration pipeline is what converts that data into comparable,
+quantitative measurements. Neither component is of substantial independent
+value without the other.
+
+The broader objective underlying both systems, and the reason this project was
+of particular interest, is the extension of quantitative shape and pose
+analysis to research contexts that cannot support the data collection
+requirements of the human-centred literature: specifically, laboratories
+studying non-model species, using affordable equipment, on data that reflects
+the practical limitations of real-world scanning rather than idealised
+laboratory conditions.
+
+\section{Supervision and working arrangement}
+
+The internship was hosted by Dr.\ Fabian Plum, postdoctoral researcher and
+author of both \term{scAnt} and \term{smilify}, and was conducted on site from
+1 July to 25 September 2026.
+\needcheck{Confirm the exact institute or division name within FZJ for the
+title page.}
+
+Two aspects of the working arrangement are relevant to how this report should
+be read. First, the assignments listed in the technical data sheet were
+presented as an initial hypothesis about where effort would be most valuable,
+rather than as a fixed specification. When the controlled comparison described
+in \S\ref{sec:turn} indicated that mesh input quality was not the limiting
+factor, redirecting the remaining work toward initialisation and
+correspondence was treated as the correct response to the evidence, consistent
+with the framing under which the internship was supervised.
+
+Second, the work was conducted on a live, shared repository, with code review
+conducted through standard pull-request practice and with the supervisor
+himself running related experiments on adjacent branches. \term{smilify}
+supports authoring per-joint rotation limits directly in Blender, using
+standard \emph{Limit Rotation} bone constraints on the template armature;
+these are exported into the model file as a \code{joint\_limits} array and
+were, at the start of this internship, consumed as a pose prior by the
+neural-inference fitting path but not by the 3D mesh-registration path in
+\code{fitter\_3d/}. This gap was identified in supervisor review, scoped as
+GitHub Issue~\#97, and closed as part of this internship by adding the
+corresponding hinge-loss term to the registration optimiser, so that limits
+authored once in Blender are now honoured consistently across all of
+\term{smilify}'s fitting paths.
+
+Several results reported in Chapter~\ref{ch:elimination} were revised
+following supervisor review, including corrections to aggregate statistics
+and to an initially incorrect attribution of a failure mode; these corrections
+are noted at the relevant points in that chapter, since the pre-registration
+discipline used throughout this report was adopted in direct response to that
+review process.
+
+Beyond ants, the same registration and neural-inference pipeline has been used
+within the project to build parametric models of other species, including a
+mouse model and a multi-species stick-insect model trained on data from an
+omnidirectional treadmill. This breadth is relevant context for the present
+work: the correspondence and initialisation problems investigated here are not
+specific to Formicidae, and a fix validated on ants is, in principle, a fix
+available to every species the framework is extended to next.
+
+\section{Academic framing}
+
+This internship forms part of the second year of the engineering cycle at
+Université Mohammed VI Polytechnique, and the present report is the
+corresponding academic deliverable. Its purpose is to document both the
+technical contributions produced during the internship and the evidentiary
+basis for the decisions that shaped the direction of the work, since in this
+project the two are not separable: the most consequential decisions taken
+during the internship concerned which lines of investigation to discontinue,
+and these decisions are only defensible if the evidence behind them is
+presented alongside the results.

@@ -1,0 +1,120 @@
+{
+ "model": "3D_model_prep/OmniAnt_25PCs_joint_limited.pkl",
+ "n_vertices": 10235,
+ "n_faces": 20466,
+ "protocol": "LANDMARK_PROTOCOL.md v0.2",
+ "provenance": "Rule-computed candidates on the PRODUCTION model (3D_model_prep/OmniAnt_25PCs_joint_limited.pkl, 10235 verts), the model every fitted result in this project uses. v0.1 of this file was built on SMIL_OmniAnt.pkl (10229 verts) because that is what config.SMAL_FILE names; measure.py line 52 overrides it via SMILIFY_SMAL_FILE and the two topologies are incompatible, so every v0.1 index was void. Validated by validate_landmarks.py. NOT anatomically adjudicated: the validator checks geometry and part membership, it cannot confirm a point is the structure it is named after. Landmarks with source='verify' require expert review before publication.",
+ "unplaced": [],
+ "landmarks": {
+  "clypeal_margin_ant_mid": {
+   "vertex": 5089,
+   "bookstein": "I",
+   "source": "verify",
+   "xyz": [
+    0.5704,
+    0.0,
+    0.0002
+   ],
+   "note": "Anteriormost midline point of the head part. GLAD HL anterior endpoint. Verify it sits on the median clypeal margin, not on a mandible or the labrum."
+  },
+  "cephalic_margin_post_mid": {
+   "vertex": 5096,
+   "bookstein": "II",
+   "source": "verify",
+   "xyz": [
+    0.2893,
+    0.0,
+    0.0549
+   ],
+   "note": "Posteriormost midline point of the head part. GLAD HL posterior endpoint. Verify it is the occipital margin midpoint, not inside the neck/foramen."
+  },
+  "mandibular_apex_r": {
+   "vertex": 1664,
+   "bookstein": "I",
+   "source": "verify",
+   "xyz": [
+    0.5988,
+    -0.0381,
+    -0.1307
+   ],
+   "note": "Vertex furthest from the mandibular articulation = the apical tooth. HIGHEST-RISK point: the template is a mean mandible, and correspondence on trap-jaw (Odontomachus) and long-mandible (Aenictus) forms may not hold."
+  },
+  "antennal_insertion_r": {
+   "vertex": 678,
+   "bookstein": "I",
+   "source": "verify",
+   "xyz": [
+    0.5445,
+    -0.0657,
+    0.0435
+   ],
+   "note": "Head vertex nearest the scape articulation. Torular/antennal insertion."
+  },
+  "scape_apex_r": {
+   "vertex": 1802,
+   "bookstein": "I",
+   "source": "verify",
+   "xyz": [
+    0.5761,
+    -0.309,
+    0.0947
+   ],
+   "note": "Furthest scape vertex from its articulation. NOTE: GLAD SL excludes the basal condyle/neck, so the proximal endpoint is the articulation, not the bulb."
+  },
+  "wl_anterior_r": {
+   "vertex": 832,
+   "bookstein": "III",
+   "source": "rule",
+   "xyz": [
+    0.2468,
+    -0.0588,
+    0.0822
+   ],
+   "note": "Anteriormost mesosoma vertex in the right lateral band -- the front of the pronotum in profile, excluding the neck. Type III constructed."
+  },
+  "wl_posterior_r": {
+   "vertex": 2386,
+   "bookstein": "III",
+   "source": "rule",
+   "xyz": [
+    -0.1276,
+    -0.0564,
+    -0.0056
+   ],
+   "note": "Posteroventral-most mesosoma vertex in the same lateral band -- the posterior basal angle of the metapleuron, behind and below the hind coxa. Type III."
+  },
+  "petiole_ant_mid": {
+   "vertex": 2702,
+   "bookstein": "II",
+   "source": "rule",
+   "xyz": [
+    -0.1508,
+    0.0,
+    0.0049
+   ],
+   "note": "Anterior petiole, VENTRAL midline outline (same-surface rule)."
+  },
+  "petiole_post_mid": {
+   "vertex": 5165,
+   "bookstein": "II",
+   "source": "rule",
+   "xyz": [
+    -0.217,
+    0.0,
+    0.0146
+   ],
+   "note": "Posterior petiole, same VENTRAL outline."
+  },
+  "gaster_apex_mid": {
+   "vertex": 5201,
+   "bookstein": "II",
+   "source": "rule",
+   "xyz": [
+    -0.6944,
+    0.0,
+    -0.0962
+   ],
+   "note": "Posteriormost midline gaster point (TBL endpoint). Taken over b_a_3+b_a_4 because b_a_5 carries no vertices."
+  }
+ }
+}

@@ -79,10 +79,15 @@ STAGE=${STAGE:-diagnostics/morphometrics/stage}
 W=${W:-/media/fabi/Data/SMILify_LEGACY/custom_processing/antscan_proofread_castes/worker}
 CLEAN=${CLEAN:-/media/fabi/Data/SMILify_DATASETS_BACKUP/ALL_ANTS_CLEAN}
 CHUNK=${CHUNK:-64}
+# SKIP_CLEAN=1 fits the WORKER corpus only. Default 0, so every existing invocation behaves
+# exactly as before. Added because ALL_ANTS_CLEAN is not present on the RWTH cluster and the
+# worker corpus is the one the morphometrics questions are about.
+SKIP_CLEAN=${SKIP_CLEAN:-0}
 
-python - "$W" "$CLEAN" "$STAGE" "$CHUNK" <<'PY'
+python - "$W" "$CLEAN" "$STAGE" "$CHUNK" "$SKIP_CLEAN" <<'PY'
 import os, sys, glob, math
 W, CLEAN, STAGE, chunk = sys.argv[1], sys.argv[2], sys.argv[3], int(sys.argv[4])
+skip_clean = len(sys.argv) > 5 and sys.argv[5] == "1"
 work = sorted(f for f in os.listdir(W) if f.endswith(".obj"))
 n = math.ceil(len(work) / chunk)
 for i in range(n):
@@ -93,6 +98,10 @@ for i in range(n):
     for nm in work[i * chunk:(i + 1) * chunk]:
         os.symlink(os.path.join(W, nm), os.path.join(d, nm))
 print(f"[m1] {len(work)} workers in {n} chunks of <= {chunk}")
+if skip_clean:
+    print("[m1] SKIP_CLEAN=1 -- worker corpus only, ALL_ANTS_CLEAN not staged")
+    open(f"{STAGE}/nchunks.txt", "w").write(str(n))
+    raise SystemExit(0)
 d = f"{STAGE}/clean"
 os.makedirs(d, exist_ok=True)
 for f in glob.glob(f"{d}/*.obj"):
@@ -142,7 +151,7 @@ fit () { # fit <gpu> <mesh_dir> <tag>
 }
 
 # GPU0 takes even worker chunks plus the clean corpus, GPU1 the odd ones
-( fit 0 $STAGE/clean ${TAG_PREFIX}CLEAN
+( if [ "$SKIP_CLEAN" != "1" ]; then fit 0 $STAGE/clean ${TAG_PREFIX}CLEAN; fi
   for ((i=0;i<N;i+=2)); do fit 0 $STAGE/w$i ${TAG_PREFIX}W$i; done ) &
 ( for ((i=1;i<N;i+=2)); do fit 1 $STAGE/w$i ${TAG_PREFIX}W$i; done ) &
 wait

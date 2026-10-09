@@ -53,5 +53,46 @@ The `--scheme` choices are the keys of `SMALParamGroup.param_map` in [trainer.py
 
 Results are written to `--results_dir` (default `fit3d_results/`) as per-stage `.npz` files (`<stage>.npz`, plus per-batch `<stage>_batch_<i>.npz`). Use [read_out_fitter_stages.py](read_out_fitter_stages.py) to load and inspect them. SDF-based registration is available via `--use_sdf` / `--sdf_dir`.
 
+## Experimental: hierarchical + moonshot registration chain
+
+`optimise_hierarchical.py` and `optimise_moonshot.py` are an alternative, two-stage
+registration path ported from `feature/registration_moonshot`
+(`diagnostics/FINAL_REPORT.md` §2.2 item 9): a part-anchored placement front-end handed
+off to a standard surface-convergence pass. Not the default `optimise.py` pipeline —
+kept alongside it as an experimental, opt-in path, since bringing it to mainline is a
+product decision, not made here.
+
+```bash
+export SMILIFY_SMAL_FILE=3D_model_prep/OmniAnt_25PCs_joint_limited.pkl  # needs authored joint_limits + sym_verts
+
+python -m fitter_3d.optimise_hierarchical --mesh_dir <mesh_dir> --results_dir <hier_out> \
+    --midline 2.0 --beta_prior 0.0 --limit 0.273 --offset 30.0
+
+python -m fitter_3d.optimise_moonshot --mesh_dir <mesh_dir> \
+    --yaml_src diagnostics/moonshot/cfg/D1_low.yaml \
+    --init_from <hier_out>/H2_joint.npz
+```
+
+The first command places pose by fitting the body, then each leg against only its own
+partitioned target points (removes the six-identical-legs chamfer ambiguity), then
+refines jointly, writing one `.npz` per stage (`H0_body`, `H1_legs`, `H2_joint`,
+`H3_deform`). The second hands `H2_joint.npz`'s pose/shape to the D1-validated
+weight schedule (`w_offset`, `w_midline`, `w_limit`, symmetric sampling) for final
+surface convergence. `--limit`/`w_limit` and `w_midline` both require a model file with
+authored `joint_limits` and `sym_verts` respectively — `OmniAnt_25PCs_joint_limited.pkl`
+has both, `SMIL_OmniAnt.pkl` (the stock default) has neither.
+
+Smoke-tested end-to-end (tiny iteration counts, single mesh) in
+[diagnostics/hierarchical_moonshot_smoke_PROBE_out.txt](../diagnostics/hierarchical_moonshot_smoke_PROBE_out.txt).
+Not benchmarked at full scale here — do that before relying on it for anything beyond
+exploration.
+
+Excluded from this port (do not enable without separately validating first):
+`--hull_partition`/`--part_field` (alternative partitions that lost to the fit-derived
+default per `FINAL_REPORT.md` §5.3, and `fitter_3d/hull_partition.py` isn't ported), any
+`corr_mode` other than the default `chamfer` (mutual-NN / soft-NN / Sinkhorn correspondence
+experiments), `robust_kernel` other than plain `l2`, and `w_sym`/`--jresid`/`COUPLE_JOINT_BLENDSHAPES`
+(superseded or unvalidated — see `diagnostics/FINAL_REPORT.md` §2.2).
+
 
 

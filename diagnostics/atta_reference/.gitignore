@@ -1,0 +1,13 @@
+# Large or regenerable artifacts — deliberately not tracked.
+# This repo has already been through a history purge for large/licensed binaries
+# (upstream #84/#85/#87); keep npz/pkl/blend out of it.
+
+runs/              # fitter output, 4 x 15 MB npz per arm — regenerate via cfg_arm_a_master.yaml
+blender_bundle/    # working copies of the model pkl + fit npz, staged for Blender
+blender_export/    # raw addon export (2.5 MB csv) + 5.2 MB .blend
+measurements/      # the provided 2025 reference CSVs (not ours to redistribute)
+sbatch_logs/
+*.zip
+*.npz
+*.pkl
+*.blend

@@ -1,0 +1,75 @@
+% Front cover: full-bleed design (scan point cloud -> fitted model), no page number
+\begin{titlepage}
+\thispagestyle{empty}
+\definecolor{covnavy}{HTML}{081C2A}
+\definecolor{covblue}{HTML}{14506B}
+\definecolor{covcyan}{HTML}{7FD6E8}
+\definecolor{covgold}{HTML}{E2B04A}
+\pgfmathsetseed{11}
+\begin{tikzpicture}[remember picture,overlay,every node/.style={inner sep=0pt}]
+  % ---- background -------------------------------------------------------
+  \shade[top color=covblue!85!covnavy,bottom color=covnavy]
+    (current page.south west) rectangle (current page.north east);
+  % soft glow behind the model (stacked, very low opacity)
+  \foreach \k in {1,...,16}{
+    \fill[covcyan!60!covblue,opacity=0.028]
+      ([xshift=10.5cm,yshift=12.5cm]current page.south west) ellipse ({11.5cm-\k*0.55cm} and {5.6cm-\k*0.27cm});
+  }
+
+  % ---- scan point cloud (left) resolving into the mesh (right) ------------
+  \foreach \i in {1,...,330}{
+    \pgfmathsetmacro{\px}{rnd*17.5+1.8}
+    \pgfmathsetmacro{\py}{12.5+(rnd-0.5)*8.4}
+    \pgfmathsetmacro{\o}{0.55*(1-\px/19.5)+0.04}
+    \pgfmathsetmacro{\r}{0.035+0.04*rnd}
+    \fill[covcyan,opacity=\o] ([xshift=\px cm,yshift=\py cm]current page.south west) circle (\r cm);
+  }
+  % ---- fitted ant ---------------------------------------------------------
+  \node[opacity=0.97] at ([xshift=10.9cm,yshift=12.5cm]current page.south west)
+    {\includegraphics[width=18.6cm]{figures/cover_ant.png}};
+  % correspondence ticks between scan points and model
+  \foreach \a/\b/\c/\d in {3.2/14.2/6.0/13.6, 3.7/11.6/6.4/12.2, 4.8/15.5/7.4/14.6, 4.2/10.2/6.8/11.4}{
+    \draw[covgold,opacity=0.75,line width=0.5pt,dash pattern=on 2pt off 2pt]
+      ([xshift=\a cm,yshift=\b cm]current page.south west) --
+      ([xshift=\c cm,yshift=\d cm]current page.south west);
+    \fill[covgold] ([xshift=\a cm,yshift=\b cm]current page.south west) circle (0.07cm);
+  }
+
+  % ---- logos -------------------------------------------------------------
+  \node[anchor=north west] at ([xshift=1.8cm,yshift=-1.3cm]current page.north west)
+    {\includegraphics[height=1.85cm]{figures/logos/juelich_white.png}};
+  \node[anchor=north east] at ([xshift=-1.8cm,yshift=-1.2cm]current page.north east)
+    {\includegraphics[height=2.1cm]{figures/logos/coc_white.png}};
+  \draw[covcyan,opacity=0.45,line width=0.4pt]
+    ([xshift=1.8cm,yshift=-3.75cm]current page.north west) --
+    ([xshift=-1.8cm,yshift=-3.75cm]current page.north east);
+  \node[anchor=north west,text=covcyan,font=\small\bfseries,text width=17cm]
+    at ([xshift=1.8cm,yshift=-4.1cm]current page.north west)
+    {FORSCHUNGSZENTRUM J\"ULICH \;$\cdot$\; IAS-7 CIVIL SAFETY RESEARCH};
+  \node[anchor=north west,text=white,opacity=0.8,font=\small,text width=17cm]
+    at ([xshift=1.8cm,yshift=-4.7cm]current page.north west)
+    {College of Computing -- UM6P \;$\cdot$\; Internship report};
+
+  % ---- title --------------------------------------------------------------
+  \fill[covgold] ([xshift=1.8cm,yshift=-6.0cm]current page.north west) rectangle ++(0.13cm,-4.7cm);
+  \node[anchor=north west,text=white,font=\fontsize{46}{50}\selectfont\bfseries,text width=17cm]
+    at ([xshift=2.45cm,yshift=-5.95cm]current page.north west) {Mesh Registration};
+  \node[anchor=north west,text=white,font=\fontsize{29}{34}\selectfont,text width=17cm]
+    at ([xshift=2.45cm,yshift=-7.85cm]current page.north west) {from Scan-Derived 3D Data};
+  \node[anchor=north west,text=covcyan,font=\fontsize{15}{20}\selectfont\itshape,text width=16cm]
+    at ([xshift=2.45cm,yshift=-9.2cm]current page.north west)
+    {Correspondence and optimization in articulated\\ parametric models of insects};
+
+  % ---- author block (right) ------------------------------------------------
+  \fill[covgold] ([xshift=-1.8cm,yshift=7.0cm]current page.south east) rectangle ++(-2.6cm,0.09cm);
+  \node[anchor=north east,text=white,font=\fontsize{22}{26}\selectfont\bfseries,align=right]
+    at ([xshift=-1.8cm,yshift=6.75cm]current page.south east) {Khaoula Jellal};
+  \node[anchor=north east,align=right,text width=9cm,font=\normalsize]
+    at ([xshift=-1.8cm,yshift=5.5cm]current page.south east)
+    {{\footnotesize\bfseries\color{covcyan}COMPANY SUPERVISOR}\\ \textcolor{white}{Dr.\ Fabian Plum}\\[7pt]
+     {\footnotesize\bfseries\color{covcyan}ACADEMIC SUPERVISOR}\\ \textcolor{white}{Prof.\ Ayoub Arraji}\\[7pt]
+     {\footnotesize\bfseries\color{covcyan}INTERNSHIP PERIOD}\\ \textcolor{white}{1 July -- 25 September 2026}};
+  \node[anchor=south west,text=white,opacity=0.6,font=\footnotesize]
+    at ([xshift=1.8cm,yshift=1.3cm]current page.south west) {October 2026};
+\end{tikzpicture}
+\end{titlepage}

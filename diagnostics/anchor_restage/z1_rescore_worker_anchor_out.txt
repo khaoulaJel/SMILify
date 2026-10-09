@@ -1,0 +1,46 @@
+============================================================================================================
+Z1 -- worker gen/spread anchor, re-scored on OPEN-shape-space fits
+published anchor (closed shape space, REPORT 6.4.1): gen@10 0.99-1.00, gen@20 0.98
+best closed-era worker arm BPX_noprior: gen@10 0.9353, gen@20 0.9208
+============================================================================================================
+run                              n  betas sd    |z|     gate    gen@1    gen@5   gen@10   gen@20   gen@25   gen@40
+DIRTY14_cse_all                 14   0.38234  1.172     open   0.8997   0.8391   0.7756   0.7627   0.7627   0.7627
+DIRTY14_trfeco                  14   0.40195  1.256     open   0.9204   0.8671   0.8316   0.8120   0.8120   0.8120
+DIRTY14_zero                    14   0.38737  1.209     open   0.9546   0.8855   0.8350   0.8267   0.8267   0.8267
+REAL14_cse_all                  14   0.24158  0.614     open   0.8614   0.6568   0.5976   0.5826   0.5826   0.5826
+REAL14_trfeco                   14   0.24735  0.632     open   0.8872   0.6780   0.6139   0.5931   0.5931   0.5931
+REAL14_zero                     14   0.26834  0.732     open   0.8999   0.7627   0.7097   0.6886   0.6886   0.6886
+REST22_cse_all                  22   0.30753  0.810     open   0.8373   0.6763   0.5597   0.5152   0.5151   0.5151
+REST22_trfeco                   22   0.32139  0.937     open   0.9541   0.8138   0.7152   0.6179   0.6179   0.6179
+REST22_zero                     22   0.30933  0.899     open   0.9646   0.8071   0.7373   0.6541   0.6541   0.6541
+bench50_G1_learned              50   0.37935  1.103     open   0.8781   0.7597   0.6648   0.5676   0.5445   0.5255
+bench50_G1b_learned_lowpose     50   0.37113  1.095     open   0.8943   0.7658   0.6841   0.5568   0.5407   0.5178
+bench50_G1c_learned_lowpose10   50   0.37342  1.078     open   0.8757   0.7433   0.6624   0.5536   0.5291   0.5066
+bench50_G1d_learned_lowpose05   50   0.37580  1.100     open   0.8664   0.7588   0.6557   0.5448   0.5256   0.5000
+bench50_G3_zero                 50   0.36691  1.065     open   0.8557   0.7210   0.6331   0.5491   0.5329   0.5027
+
+MECHANISM -- what carries the shape, and does it live in the model's span?
+run                             freeform share  in-span frac  gen@20 param  gen@20 free
+DIRTY14_cse_all                          21.0%        0.226%        0.5914       0.9771
+DIRTY14_trfeco                           22.6%        0.145%        0.6184       0.9885
+DIRTY14_zero                             24.8%        0.151%        0.6365       0.9935
+REAL14_cse_all                            8.0%        0.177%        0.4209       0.9438
+REAL14_trfeco                             8.2%        0.142%        0.4239       0.9553
+REAL14_zero                              11.6%        0.168%        0.5025       0.9752
+REST22_cse_all                           10.3%        0.239%        0.2234       0.9646
+REST22_trfeco                            16.0%        0.194%        0.2981       0.9793
+REST22_zero                              17.8%        0.190%        0.2773       0.9770
+bench50_G1_learned                       18.7%        0.166%        0.2538       0.9872
+bench50_G1b_learned_lowpose              17.9%        0.178%        0.2208       0.9850
+bench50_G1c_learned_lowpose10            17.2%        0.168%        0.2512       0.9825
+bench50_G1d_learned_lowpose05            16.9%        0.198%        0.2286       0.9831
+bench50_G3_zero                          17.6%        0.190%        0.2269       0.9824
+
+REFUTE1 R6 reference: worker LIM_0 0.899% in-span, ALL_ANTS_CLEAN 7.268%, CLEAN81_M7 24.442%
+
+============================================================================================================
+open-shape worker runs: n=14  gen@20/spread min 0.5152  median 0.5879  max 0.8267
+published anchor 0.98 -> re-measured median 0.5879
+============================================================================================================
+
+wrote /rwthfs/rz/cluster/home/nao48500/SMILify/diagnostics/anchor_restage/out_Z1/z1_worker_anchor.json

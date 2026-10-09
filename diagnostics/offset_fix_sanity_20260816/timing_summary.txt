@@ -1,0 +1,2 @@
+specimen=Cephalotes_spinosus_CASENT0744158 exit_code=0 seconds=241
+specimen=Dorylus_sp._CASENT0744703 exit_code=0 seconds=2304

@@ -1,0 +1,171 @@
+{
+    "name": "Dorylus sp.",
+    "specimen_code": "CASENT0744703",
+    "status": "unidentified",
+    "collection_code": "TQM2010-wp145-4",
+    "taxon_code": "Dorylus.sp.",
+    "caste": "worker",
+    "caste_detail": "",
+    "genome_associated": "",
+    "doi": "",
+    "problems_det": "",
+    "problems_other": "head truncated",
+    "stained": "unstained",
+    "voxel_size": "2.44 \u00b5m",
+    "filter": "500 \u00b5m Al",
+    "projections": "3000.0",
+    "exposure_time_per_frame": "0.01 s",
+    "family_or_other": "Formicidae",
+    "subfamily": "Dorylinae",
+    "tribe": "",
+    "genus": "Dorylus",
+    "species": "sp.",
+    "genus_authority": "Fabricius, 1793",
+    "located_at": "OIST",
+    "owned_by": "",
+    "antscan_contributor": "Peter G. Hawkes",
+    "determined_by": "",
+    "collected_by": "P.G. Hawkes, J. Fisher",
+    "method": "Hand collected",
+    "date_collected_start": "2010-12-01",
+    "country": "South Africa",
+    "adm1": "Limpopo",
+    "latitude": "-23.22393",
+    "longitude": "28.183",
+    "elevation": "958.0",
+    "processed_vertex_count": 159160,
+    "processed_hole_count": 0,
+    "processed_face_size_cov": 0.265,
+    "processed_mesh_smoothness": 15.811,
+    "processed_mesh_integrity": {
+        "vertex_count": 159160,
+        "face_count": 319608,
+        "boundary_edges": 0,
+        "non_manifold_edges": 0,
+        "non_manifold_verts": 0,
+        "simple_holes": 0,
+        "is_watertight": true,
+        "signed_volume": 1221963641.55
+    },
+    "processed_mesh_degeneracy": {
+        "n_verts": 159160,
+        "n_edges": 479412,
+        "n_faces": 319608,
+        "n_zero_length_edges": 0,
+        "n_zero_area_faces": 0,
+        "n_duplicate_verts": 0,
+        "n_duplicate_faces": 0,
+        "edge_length_percentiles": {
+            "0": 11.009443283081055,
+            "0.1": 12.318596526145935,
+            "1": 15.692694425582886,
+            "5": 19.44713134765625,
+            "50": 24.829429626464844
+        }
+    },
+    "processed_reconstruction_method": "alpha_wrap",
+    "processed_used_weaker_reconstruction_guarantee": false,
+    "processed_fidelity_gate_passed": true,
+    "processed_worst_fidelity_deviation": 33.885350247120506,
+    "processed_end_to_end_worst_deviation": 30.850003577210774,
+    "processed_pre_reconstruction_vertex_count": 967862,
+    "processed_pre_reconstruction_face_count": 1812567,
+    "processed_pre_reconstruction_integrity": {
+        "vertex_count": 967862,
+        "face_count": 1812567,
+        "boundary_edges": 165219,
+        "non_manifold_edges": 19016,
+        "non_manifold_verts": 35460,
+        "simple_holes": 65862,
+        "is_watertight": false,
+        "signed_volume": 3673974424.68
+    },
+    "processed_pre_reconstruction_degeneracy": {
+        "n_verts": 967862,
+        "n_edges": 2792681,
+        "n_faces": 1812567,
+        "n_zero_length_edges": 0,
+        "n_zero_area_faces": 5,
+        "n_duplicate_verts": 0,
+        "n_duplicate_faces": 0,
+        "edge_length_percentiles": {
+            "0": 0.5737894773483276,
+            "0.1": 2.1776585292816164,
+            "1": 3.619889831542969,
+            "5": 4.580419540405273,
+            "50": 7.692058563232422
+        }
+    },
+    "processed_reconstruction_stats": {
+        "alpha": 19.31374097875364,
+        "offset": 7.725496391501456,
+        "relative_alpha": 403.97517368147527,
+        "relative_offset": 1009.9379342036881,
+        "output_vertices": 159160,
+        "output_faces": 319608,
+        "alpha_bisection": {
+            "alpha": 19.31374097875364,
+            "offset": 7.725496391501456,
+            "history": [
+                {
+                    "label": "bound_fused",
+                    "alpha": 45.222417901471935,
+                    "offset": 18.088967160588773,
+                    "verdict": "fused",
+                    "gap_after": 0.0
+                },
+                {
+                    "label": "bound_preserved",
+                    "alpha": 15.074139300490646,
+                    "offset": 6.029655720196258,
+                    "verdict": "preserved",
+                    "gap_after": 16.669282963907794
+                },
+                {
+                    "label": "iter0",
+                    "alpha": 30.148278600981293,
+                    "offset": 12.059311440392516,
+                    "verdict": "fused",
+                    "gap_after": 0.0
+                },
+                {
+                    "label": "iter1",
+                    "alpha": 22.61120895073597,
+                    "offset": 9.044483580294388,
+                    "verdict": "fused",
+                    "gap_after": 0.0
+                },
+                {
+                    "label": "iter2",
+                    "alpha": 18.842674125613307,
+                    "offset": 7.537069650245323,
+                    "verdict": "preserved",
+                    "gap_after": 19.42786157468823
+                },
+                {
+                    "label": "iter3",
+                    "alpha": 20.72694153817464,
+                    "offset": 8.290776615269856,
+                    "verdict": "fused",
+                    "gap_after": 0.0
+                },
+                {
+                    "label": "iter4",
+                    "alpha": 19.78480783189397,
+                    "offset": 7.9139231327575885,
+                    "verdict": "fused",
+                    "gap_after": 0.0
+                },
+                {
+                    "label": "iter5",
+                    "alpha": 19.31374097875364,
+                    "offset": 7.725496391501456,
+                    "verdict": "preserved",
+                    "gap_after": 20.435920069278904
+                }
+            ],
+            "alpha_fused_start": 45.222417901471935,
+            "alpha_preserved_start": 15.074139300490646
+        }
+    }
+}

@@ -15,6 +15,7 @@ stages:
       w_sym: 0.5
       w_beta_prior: 0.0
       w_midline: 2.0
+      w_limit: 0.006
     custom_lrs:
       joint_rot: 0.002
   Stage_3_deform_fine:
@@ -33,6 +34,7 @@ stages:
       w_sym: 0.5
       w_beta_prior: 0.0
       w_midline: 2.0
+      w_limit: 0.006
     custom_lrs:
       joint_rot: 0.002
 args:

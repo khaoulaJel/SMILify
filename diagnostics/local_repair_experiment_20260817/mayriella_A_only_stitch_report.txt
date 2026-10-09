@@ -1,0 +1,22 @@
+=== SELECTION ===
+accepted_pairs=281 rejected_not_A=587 rejected_short_chain=386 rejected_diff_component=0 rejected_near_touch_zone=0
+n_candidate_border_halfedges=399 n_stitched=55
+
+=== BEFORE ===
+n_boundary_edges=2332 n_boundary_loops=188
+n_non_manifold_vertices=0 n_components=15
+n_degenerate_faces=0 n_self_intersecting_pairs=19007
+
+=== AFTER ===
+n_boundary_edges=2222 (delta=-110)
+n_boundary_loops=188 (delta=0)
+n_non_manifold_vertices=0 (delta=0)
+n_components=15 (delta=0)
+n_degenerate_faces=0 (delta=0)
+n_self_intersecting_pairs=18461 (delta=-546)
+vertex_displacement: n_checked=13567 n_moved=0 max_disp=0
+
+=== FORENSIC SAFETY CHECK ===
+n_B_or_C_pairs_touched=0 (MUST be 0)
+n_diffcomponent_pairs_touched=0 (MUST be 0)
+n_near_genuine_touch_pairs_touched=0 (MUST be 0)

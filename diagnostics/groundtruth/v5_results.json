@@ -1,0 +1,156 @@
+[
+  {
+    "lambda": null,
+    "joint": 32.744538374979435,
+    "ant": 37.30828657145862,
+    "post": 24.383582061013172,
+    "chamfer": 0.0008978229016065598,
+    "viol": 1,
+    "per_specimen": {
+      "Aenictus_ceylonicus_CASENT0878084": 38.939850529919404,
+      "Aphaenogaster_gracillima_OKENT0105348": 21.090794145158053,
+      "Cataglyphis_iberica_CASENT0745158": 20.355945723230555,
+      "Cephalotes_atratus_CASENT0744612": 40.371812227321236,
+      "Cyphomyrmex_major_CASENT0745147": 20.844087453438018,
+      "Discothyrea_patrizii_CASENT0744991": 32.26613910489951,
+      "Dolichoderus_cf.bidens_CASENT0744033": 33.22293764505936,
+      "Eciton_burchellii_CASENT0744558": 66.68983039602502,
+      "Formica_cf.fusca_CASENT0878139": 86.78735909844447,
+      "Gigantiops_destructor_CASENT0745031": 9.876066007163569,
+      "Leptogenys_peuqueti_CASENT0741327": 58.78624797482747,
+      "Odontomachus_bauri_CASENT0878072": 31.22879891083471
+    }
+  },
+  {
+    "lambda": 0.0,
+    "joint": 32.33221657666836,
+    "ant": 37.93172093035756,
+    "post": 23.906253987368558,
+    "chamfer": 0.0009151292033493519,
+    "viol": 1,
+    "per_specimen": {
+      "Aenictus_ceylonicus_CASENT0878084": 38.43276157453538,
+      "Aphaenogaster_gracillima_OKENT0105348": 21.2112865433236,
+      "Cataglyphis_iberica_CASENT0745158": 20.613183210667746,
+      "Cephalotes_atratus_CASENT0744612": 39.9739887553593,
+      "Cyphomyrmex_major_CASENT0745147": 20.82204615488513,
+      "Discothyrea_patrizii_CASENT0744991": 32.12178565822621,
+      "Dolichoderus_cf.bidens_CASENT0744033": 32.542647495110515,
+      "Eciton_burchellii_CASENT0744558": 66.76039930490123,
+      "Formica_cf.fusca_CASENT0878139": 86.69467834039378,
+      "Gigantiops_destructor_CASENT0745031": 10.306884650500145,
+      "Leptogenys_peuqueti_CASENT0741327": 59.611159353081945,
+      "Odontomachus_bauri_CASENT0878072": 31.510660340184277
+    }
+  },
+  {
+    "lambda": 0.01,
+    "joint": 25.868004876495625,
+    "ant": 31.768279112433987,
+    "post": 21.4815323713329,
+    "chamfer": 0.0010419012978672981,
+    "viol": 0,
+    "per_specimen": {
+      "Aenictus_ceylonicus_CASENT0878084": 31.017064867105294,
+      "Aphaenogaster_gracillima_OKENT0105348": 18.22169346651286,
+      "Cataglyphis_iberica_CASENT0745158": 16.872713417540023,
+      "Cephalotes_atratus_CASENT0744612": 26.944581870562196,
+      "Cyphomyrmex_major_CASENT0745147": 17.296466563014327,
+      "Discothyrea_patrizii_CASENT0744991": 18.815190472063435,
+      "Dolichoderus_cf.bidens_CASENT0744033": 27.365554117166297,
+      "Eciton_burchellii_CASENT0744558": 51.178979834473296,
+      "Formica_cf.fusca_CASENT0878139": 65.19348793918869,
+      "Gigantiops_destructor_CASENT0745031": 8.256618023296646,
+      "Leptogenys_peuqueti_CASENT0741327": 37.946769493512456,
+      "Odontomachus_bauri_CASENT0878072": 24.79142788242906
+    }
+  },
+  {
+    "lambda": 0.03,
+    "joint": 15.199318100381177,
+    "ant": 21.586818581117207,
+    "post": 12.992477871120972,
+    "chamfer": 0.0013839509338140488,
+    "viol": 0,
+    "per_specimen": {
+      "Aenictus_ceylonicus_CASENT0878084": 22.043665782899367,
+      "Aphaenogaster_gracillima_OKENT0105348": 12.761858007238342,
+      "Cataglyphis_iberica_CASENT0745158": 9.329572524962803,
+      "Cephalotes_atratus_CASENT0744612": 18.12074790812729,
+      "Cyphomyrmex_major_CASENT0745147": 14.494544973051148,
+      "Discothyrea_patrizii_CASENT0744991": 12.107368554423825,
+      "Dolichoderus_cf.bidens_CASENT0744033": 13.434230584131804,
+      "Eciton_burchellii_CASENT0744558": 39.45124387980734,
+      "Formica_cf.fusca_CASENT0878139": 42.62430361697024,
+      "Gigantiops_destructor_CASENT0745031": 6.994848677147816,
+      "Leptogenys_peuqueti_CASENT0741327": 18.333196328810253,
+      "Odontomachus_bauri_CASENT0878072": 15.904091227711206
+    }
+  },
+  {
+    "lambda": 0.1,
+    "joint": 8.029157788253062,
+    "ant": 11.779772320407712,
+    "post": 7.554436846790151,
+    "chamfer": 0.0021296816412359476,
+    "viol": 1,
+    "per_specimen": {
+      "Aenictus_ceylonicus_CASENT0878084": 12.857747689108901,
+      "Aphaenogaster_gracillima_OKENT0105348": 7.183632962276978,
+      "Cataglyphis_iberica_CASENT0745158": 5.403496192896857,
+      "Cephalotes_atratus_CASENT0744612": 8.906470004864381,
+      "Cyphomyrmex_major_CASENT0745147": 7.3739767556210145,
+      "Discothyrea_patrizii_CASENT0744991": 6.123094733725881,
+      "Dolichoderus_cf.bidens_CASENT0744033": 7.519192389416017,
+      "Eciton_burchellii_CASENT0744558": 17.472688654870502,
+      "Formica_cf.fusca_CASENT0878139": 20.739361270851287,
+      "Gigantiops_destructor_CASENT0745031": 4.287062247293596,
+      "Leptogenys_peuqueti_CASENT0741327": 10.94708600780452,
+      "Odontomachus_bauri_CASENT0878072": 8.539123187090109
+    }
+  },
+  {
+    "lambda": 0.3,
+    "joint": 3.248441174612112,
+    "ant": 5.4799806969752645,
+    "post": 3.105802557026662,
+    "chamfer": 0.0029470445588231087,
+    "viol": 1,
+    "per_specimen": {
+      "Aenictus_ceylonicus_CASENT0878084": 5.908080371045873,
+      "Aphaenogaster_gracillima_OKENT0105348": 2.7969755972006562,
+      "Cataglyphis_iberica_CASENT0745158": 2.658623445944784,
+      "Cephalotes_atratus_CASENT0744612": 3.432254763511857,
+      "Cyphomyrmex_major_CASENT0745147": 3.0646275857123673,
+      "Discothyrea_patrizii_CASENT0744991": 3.054050569641592,
+      "Dolichoderus_cf.bidens_CASENT0744033": 2.7845517818366208,
+      "Eciton_burchellii_CASENT0744558": 8.339990699207188,
+      "Formica_cf.fusca_CASENT0878139": 9.245038585014012,
+      "Gigantiops_destructor_CASENT0745031": 2.0018006115118743,
+      "Leptogenys_peuqueti_CASENT0741327": 5.5071456194376855,
+      "Odontomachus_bauri_CASENT0878072": 4.12560245298281
+    }
+  },
+  {
+    "lambda": 1.0,
+    "joint": 1.2768263232608181,
+    "ant": 1.878194596455736,
+    "post": 1.2195821401320885,
+    "chamfer": 0.003911188803613186,
+    "viol": 0,
+    "per_specimen": {
+      "Aenictus_ceylonicus_CASENT0878084": 2.3091170611542218,
+      "Aphaenogaster_gracillima_OKENT0105348": 1.0731734324379258,
+      "Cataglyphis_iberica_CASENT0745158": 0.9365382042164345,
+      "Cephalotes_atratus_CASENT0744612": 1.2595530660688632,
+      "Cyphomyrmex_major_CASENT0745147": 1.2567604507890402,
+      "Discothyrea_patrizii_CASENT0744991": 1.2060911450656968,
+      "Dolichoderus_cf.bidens_CASENT0744033": 1.294099580452773,
+      "Eciton_burchellii_CASENT0744558": 2.795579140994225,
+      "Formica_cf.fusca_CASENT0878139": 3.813093378816286,
+      "Gigantiops_destructor_CASENT0745031": 0.7237269209449088,
+      "Leptogenys_peuqueti_CASENT0741327": 2.2839341056878713,
+      "Odontomachus_bauri_CASENT0878072": 1.625499163283168
+    }
+  }
+]

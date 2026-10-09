@@ -1,0 +1,17 @@
+\section{Metrics and reference standards}
+
+Three kinds of reference are used, at increasing authority. \textbf{Surface
+metrics}: Chamfer distance, F-score, Hausdorff distance and per-part
+variants. \textbf{Integrity metrics}: edge-length distortion, Laplacian and
+as-rigid-as-possible deviation, normal consistency; these need no target and
+so cannot be gamed by fitting it. \textbf{Anatomical references}: exact
+vertex identity on synthetic data, and manual 3D joint annotations by an
+expert on real specimens, for which skeleton error is reported as a
+percentage of \term{Weber's length} (the anatomical length of the mesosoma,
+used as a size-invariant unit).
+
+Because ground truth is software infrastructure as much as data, the
+expert annotations were placed under a validated reference-frame protocol
+(\S\ref{sec:skeleton-underdetermined}): the mesh coordinate convention was
+checked, annotations were re-registered through each mesh to a residual below
+$7\times10^{-8}$, and the benchmark was frozen and hash-verified (SHA-256).

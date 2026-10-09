@@ -1,0 +1,28 @@
+\section{What was built}
+
+\begin{figure}[!htb]
+\centering
+\begin{tikzpicture}[node distance=4mm and 4mm, every node/.style={font=\scriptsize},
+ n/.style={draw,rounded corners=2pt,minimum height=6mm,align=center,fill=white,inner sep=2pt},
+ hdr/.style={font=\scriptsize\bfseries}]
+\node[n,fill=gray!12] (base) {Existing SMILify: preprocessing, initialisation, fitting};
+\node[below=4mm of base,hdr] (ext) {Extensions built during this internship};
+\node[n,below=2mm of ext] (p1) {Preprocessing\\Alpha Wrap, ManifoldPlus,\\QEM, quality audit};
+\node[n,right=3mm of p1] (p2) {Initialisation\\PointNet-style\\pose predictor};
+\node[n,right=3mm of p2] (p3) {Anatomical priors\\chain-aware assign.,\\SDF field, joint limits};
+\node[n,right=3mm of p3] (p4) {Correspondence\\synthetic benchmark,\\W1--W5, oracles};
+\node[n,right=3mm of p4] (p5) {Validation\\corrected JAB,\\morphometrics};
+\node[n,below=4mm of p3,fill=blue!10,minimum width=8.6cm] (diag) {A diagnostic system: measures whether a fit is anatomically
+correct, not only whether it is numerically converged};
+\draw[-{Stealth[length=1.5mm]}] (base)--(ext);
+\foreach \p in {p1,p2,p3,p4,p5}{\draw[-{Stealth[length=1.5mm]}] (\p)--(\p|-diag.north);}
+\end{tikzpicture}
+\caption{Existing SMILify supplied the parametric representation and a
+baseline optimisation-based fitting pipeline. This internship added the
+diagnostic and validation machinery around it: a framework for
+distinguishing numerical convergence, surface agreement, anatomical
+correspondence, and measurement validity, not a system that certifies
+anatomical correctness unconditionally. Every box is implemented and
+evaluated in this report; none of it is a re-run of the existing pipeline.}
+\label{fig:what-built}
+\end{figure}

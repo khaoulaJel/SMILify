@@ -1,0 +1,16 @@
+{
+  "verdict": "FLOOR (LOO 0.6171 >= 0.55) -- per-specimen noise dominates",
+  "results": {
+    "composed shape": {
+      "loo": 0.6170706291334508,
+      "lpo": 0.6275791952501807
+    },
+    "betas only": {
+      "loo": 0.26708101947318325,
+      "lpo": 0.280710902244817
+    }
+  },
+  "spread": 0.012715279312309919,
+  "chamfer": 0.00118,
+  "betas_z": 1.1270404150346751
+}

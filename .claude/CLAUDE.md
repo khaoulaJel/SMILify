@@ -62,4 +62,13 @@ These are rules for Claude, derived from past first-cut bugs and premature clean
 - **Probe before editing.** Before any edit that depends on data shape, channel ordering, dtype, or a struct/config attribute, read the actual artifact (sample file, dataclass definition, function signature) and state the concrete fact in the response before writing. Past misses on this repo: cv2.imread depth swap assuming R=G=B with BGR ordering, helper using `action_dim` off the wrong EnvConfig, sign-flipped canonical-frame projection.
 - **Verify byte-equivalence on I/O swaps.** When swapping I/O libraries (cv2 ↔ PIL ↔ imageio), check channel order and dtype explicitly — don't trust that "an image is an image."
 - **Add empirical probes on data-pipeline changes.** Round-trip equivalence checks, per-view visualizations, and projection sanity asserts go in alongside the change, not after the user asks. Be explicit about producing these elements and review them with feedback from the user.
+- **Verify that a checkpoint actually loaded before trusting anything downstream.** Assert zero
+  missing and zero unexpected keys (`load_state_dict(..., strict=True)`), and additionally compare
+  one named tensor against the raw file after loading. This is its own failure class, distinct from
+  the proxy-vs-mechanism pattern: the experiment never touches what it claims to, fails *silently*,
+  and emits a believable result. Caught 2026-08-28 in `circumferential_feature_probe_20260828.py`,
+  where weights stored under `model_state_dict` were looked up as `model`, `strict=False` matched
+  **nothing** (178 missing keys), and a randomly initialised network produced a plausible
+  "signal at sa1, lost by fp1" pattern. A non-zero-weight check does **not** catch this, because
+  random weights are non-zero.
 - **Preserve diagnostic artifacts.** Scratch scripts, probe outputs, and comparison plots stay on disk under a clearly-named path (`diagnostics/`, `*_PROBE.*`) until the user has reviewed them and signaled OK. No same-turn cleanup.

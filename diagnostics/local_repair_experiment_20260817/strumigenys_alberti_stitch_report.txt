@@ -1,0 +1,23 @@
+=== BEFORE STITCH ===
+n_vertices=49504 n_faces=96216
+n_boundary_edges=2974 n_boundary_loops=63
+n_non_manifold_vertices=0 n_components=1
+n_self_intersecting_pairs=5529
+near_touch_gaps_before: cand_leftfarcluster_A=4.0414856140277653 cand_rightfarcluster_A=4.7961762336338136 cand_rightfarcluster_B=5.0751110744013328 cand_midlower=5.2339370548779121 cand_rightfarcluster_C=5.4825928338293277 cand_nearcore=5.6720166513428678 cand_leftfarcluster_B=5.818008270279277 cand_leftfarcluster_C=5.9532016348881056
+
+=== STITCH_BORDERS CALLED: n_pairs_stitched=47 ===
+
+=== AFTER STITCH ===
+n_vertices=49504 (removed=0) n_faces=96216
+n_boundary_edges=2880 (was 2974) n_boundary_loops=48 (was 63)
+n_non_manifold_vertices=0 (was 0)
+n_components=1 (was 1)
+n_self_intersecting_pairs=5125 (was 5529)
+surviving_vertex_immutability: n_checked=49472 n_moved=0 max_displacement=0
+near_touch_gaps_after: cand_leftfarcluster_A=4.0414856140277653(pre_gap=4.0410000000000004) cand_rightfarcluster_A=4.7961762336338136(pre_gap=4.7960000000000003) cand_rightfarcluster_B=5.0751110744013328(pre_gap=5.0750000000000002) cand_midlower=5.2339370548779121(pre_gap=5.234) cand_rightfarcluster_C=5.4825928338293277(pre_gap=5.4829999999999997) cand_nearcore=5.6720166513428678(pre_gap=5.6719999999999997) cand_leftfarcluster_B=5.818008270279277(pre_gap=5.8179999999999996) cand_leftfarcluster_C=5.9532016348881056(pre_gap=5.9530000000000003)
+near_touch_preserved_count=8/8
+
+=== FORENSIC CROSS-CHECK vs classification (diagnostics/local_repair_experiment_20260817/strumigenys_alberti_dup_pairs.csv) ===
+class A: 17/638 pairs got merged by stitch_borders
+class B: 8/37 pairs got merged by stitch_borders
+class C: 8/51 pairs got merged by stitch_borders

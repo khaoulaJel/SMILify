@@ -1,0 +1,19 @@
+\section{A defect in the staged fitting schedule}
+\label{sec:staged}
+
+The registration stage (\S\ref{sec:registration}) runs as four sequential
+stages (initialisation, posing/transforming, coarse vertex deform, fine
+vertex deform), and the audit around \F{F4} and \F{F6} also exposed
+a defect in how this schedule allocates iterations: pose was held fixed for
+2000 of the refinement stage's 2400 iterations, with only the first 400
+free to adjust joint rotation before vertex deformation took over. Because
+Chamfer distance descends smoothly regardless of when pose freezes relative
+to deformation, this defect produced no visible signature in the loss curve
+and survived undetected until this investigation. A rebuilt schedule
+widening the pose-adjustable window was tested against the stock schedule on
+the full integrity-metric suite of \S\ref{sec:eval-suite}: it improves
+nearly every metric measured, at no additional computational cost, and was
+shipped into the delivered recipe. This is a second, independent instance of
+the pattern in \F{F1}: the objective's own value is not a reliable signal
+for whether the fitting procedure that produced it was sound, caught only
+because integrity metrics, not surface distance alone, were checked.

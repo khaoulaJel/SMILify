@@ -1,0 +1,25 @@
+{
+  "specimen": "3_Acromyrmex_lobicornis_CASENT0878007_processed",
+  "alpha": 74.894,
+  "pre_gap": 10.144378067614658,
+  "diag_length": 8408.877698796821,
+  "old": {
+    "offset": 2.4964666666666666,
+    "relative_alpha": 112.27705422058938,
+    "relative_offset": 3368.3116266176817,
+    "gap_after": 4.180925804737487,
+    "verdict": "preserved",
+    "output_vertices": 32734,
+    "output_faces": 65496
+  },
+  "new": {
+    "offset": 29.957600000000003,
+    "relative_alpha": 112.27705422058938,
+    "relative_offset": 280.6926355514734,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 6153,
+    "output_faces": 12318
+  },
+  "flipped": true
+}

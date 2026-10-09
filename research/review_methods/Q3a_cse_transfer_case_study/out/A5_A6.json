@@ -1,0 +1,321 @@
+{
+ "Aenictus_ceylonicus_CASENT0878084": {
+  "A_prod": {
+   "deform_rms": 0.004377477957556645,
+   "betas_trans": 0.03570101037621498,
+   "log_scales_H2": 0.12481407572825749,
+   "log_scales_S3": 0.18781891961892447,
+   "pose_change_deg": 17.4210690795164,
+   "pivot_drift_pctWL": 13.489086169573234,
+   "betas_maha": 3.315960660509989
+  },
+  "I_cse": {
+   "deform_rms": 0.012641813916464647,
+   "betas_trans": 0.05931269253293673,
+   "log_scales_H2": 0.13858582079410553,
+   "log_scales_S3": 0.20623597502708435,
+   "pose_change_deg": 19.877880253917407,
+   "pivot_drift_pctWL": 14.196712518716517,
+   "betas_maha": 5.056951924757097
+  },
+  "input": {
+   "n_verts": 49554,
+   "n_components": 45,
+   "largest_component_frac": 0.9953787787060581,
+   "aspect_mid_long": 0.7736793163916602,
+   "aspect_short_long": 0.5597127233352599,
+   "n_expert_joints": 49,
+   "tier": "MIRRORED"
+  }
+ },
+ "Aphaenogaster_gracillima_OKENT0105348": {
+  "A_prod": {
+   "deform_rms": 0.007654803028951089,
+   "betas_trans": 0.05512028435866038,
+   "log_scales_H2": 0.12956194579601288,
+   "log_scales_S3": 0.18464548389116922,
+   "pose_change_deg": 22.903523171115467,
+   "pivot_drift_pctWL": 20.902183235394556,
+   "betas_maha": 4.774128460707169
+  },
+  "I_cse": {
+   "deform_rms": 0.030840937048196793,
+   "betas_trans": 0.08542754749457042,
+   "log_scales_H2": 0.21562046806017557,
+   "log_scales_S3": 0.2645004292329152,
+   "pose_change_deg": 26.26500616745771,
+   "pivot_drift_pctWL": 18.97696042064811,
+   "betas_maha": 5.7964421976393465
+  },
+  "input": {
+   "n_verts": 48551,
+   "n_components": 129,
+   "largest_component_frac": 0.7499330600811518,
+   "aspect_mid_long": 0.6088256039371496,
+   "aspect_short_long": 0.4587399019854517,
+   "n_expert_joints": 51,
+   "tier": "MIRRORED"
+  }
+ },
+ "Cataglyphis_iberica_CASENT0745158": {
+  "A_prod": {
+   "deform_rms": 0.007197653719534476,
+   "betas_trans": 0.060108588387568794,
+   "log_scales_H2": 0.17230822642644247,
+   "log_scales_S3": 0.2581394811471303,
+   "pose_change_deg": 21.16523707138829,
+   "pivot_drift_pctWL": 13.620532967202621,
+   "betas_maha": 5.56087823791573
+  },
+  "I_cse": {
+   "deform_rms": 0.03487918774286906,
+   "betas_trans": 0.1571691781282425,
+   "log_scales_H2": 0.23346760869026184,
+   "log_scales_S3": 0.26840562621752423,
+   "pose_change_deg": 26.95050907483133,
+   "pivot_drift_pctWL": 24.391286120405614,
+   "betas_maha": 8.056143817088596
+  },
+  "input": {
+   "n_verts": 47705,
+   "n_components": 142,
+   "largest_component_frac": 0.9762079446598889,
+   "aspect_mid_long": 0.8685403676027573,
+   "aspect_short_long": 0.7454230396047243,
+   "n_expert_joints": 43,
+   "tier": "EXACT"
+  }
+ },
+ "Cephalotes_atratus_CASENT0744612": {
+  "A_prod": {
+   "deform_rms": 0.012146569167574247,
+   "betas_trans": 0.09596122304598491,
+   "log_scales_H2": 0.2666305899620056,
+   "log_scales_S3": 0.32077886660893756,
+   "pose_change_deg": 26.951837050510353,
+   "pivot_drift_pctWL": 22.223818689138724,
+   "betas_maha": 8.955329490599624
+  },
+  "I_cse": {
+   "deform_rms": 0.10545310129721959,
+   "betas_trans": 0.28543739517529804,
+   "log_scales_H2": 0.42819862564404804,
+   "log_scales_S3": 0.4664020935694377,
+   "pose_change_deg": 40.533818999031105,
+   "pivot_drift_pctWL": 34.357824259559926,
+   "betas_maha": 13.0443113200759
+  },
+  "input": {
+   "n_verts": 46731,
+   "n_components": 100,
+   "largest_component_frac": 0.9899210374269757,
+   "aspect_mid_long": 0.9870391204305119,
+   "aspect_short_long": 0.9211064911137576,
+   "n_expert_joints": 45,
+   "tier": "CHAIN"
+  }
+ },
+ "Cyphomyrmex_major_CASENT0745147": {
+  "A_prod": {
+   "deform_rms": 0.008569336806734404,
+   "betas_trans": 0.11429385592540105,
+   "log_scales_H2": 0.17461706201235452,
+   "log_scales_S3": 0.2548982997735341,
+   "pose_change_deg": 21.92382632746116,
+   "pivot_drift_pctWL": 17.69632146615481,
+   "betas_maha": 6.301379101647441
+  },
+  "I_cse": {
+   "deform_rms": 0.05583313976724943,
+   "betas_trans": 0.14247913161913553,
+   "log_scales_H2": 0.27909422914187115,
+   "log_scales_S3": 0.3054363429546356,
+   "pose_change_deg": 30.854757238175353,
+   "pivot_drift_pctWL": 17.039971731764727,
+   "betas_maha": 10.038199678879492
+  },
+  "input": {
+   "n_verts": 49940,
+   "n_components": 20,
+   "largest_component_frac": 0.9965558670404485,
+   "aspect_mid_long": 0.7890301141111284,
+   "aspect_short_long": 0.6885772991925335,
+   "n_expert_joints": 51,
+   "tier": "EXACT"
+  }
+ },
+ "Discothyrea_patrizii_CASENT0744991": {
+  "A_prod": {
+   "deform_rms": 0.01184500784923633,
+   "betas_trans": 0.1318436066309611,
+   "log_scales_H2": 0.23687551418940225,
+   "log_scales_S3": 0.29312769571940106,
+   "pose_change_deg": 25.36530121918356,
+   "pivot_drift_pctWL": 22.30635060242085,
+   "betas_maha": 9.569224986159968
+  },
+  "I_cse": {
+   "deform_rms": 0.07120542724927266,
+   "betas_trans": 0.16648437082767487,
+   "log_scales_H2": 0.3698688745498657,
+   "log_scales_S3": 0.355392982562383,
+   "pose_change_deg": 38.24674241420369,
+   "pivot_drift_pctWL": 25.161814402167522,
+   "betas_maha": 13.83654708310634
+  },
+  "input": {
+   "n_verts": 19551,
+   "n_components": 18,
+   "largest_component_frac": 0.9918674236611938,
+   "aspect_mid_long": 0.6141463863107363,
+   "aspect_short_long": 0.5996800351515246,
+   "n_expert_joints": 51,
+   "tier": "EXACT"
+  }
+ },
+ "Eciton_burchellii_CASENT0744558": {
+  "A_prod": {
+   "deform_rms": 0.014249766245484352,
+   "betas_trans": 0.11242876946926117,
+   "log_scales_H2": 0.22486581405003866,
+   "log_scales_S3": 0.3040063679218292,
+   "pose_change_deg": 25.629567924104226,
+   "pivot_drift_pctWL": 23.85431504714064,
+   "betas_maha": 7.581003847970343
+  },
+  "I_cse": {
+   "deform_rms": 0.06967657307783763,
+   "betas_trans": 0.1424152155717214,
+   "log_scales_H2": 0.3674153685569763,
+   "log_scales_S3": 0.40149350961049396,
+   "pose_change_deg": 36.94052852009816,
+   "pivot_drift_pctWL": 34.41707482320356,
+   "betas_maha": 14.610617062080903
+  },
+  "input": {
+   "n_verts": 48408,
+   "n_components": 129,
+   "largest_component_frac": 0.9858287886299785,
+   "aspect_mid_long": 0.947039104098895,
+   "aspect_short_long": 0.7788402423806101,
+   "n_expert_joints": 44,
+   "tier": "EXACT"
+  }
+ },
+ "Formica_cf.fusca_CASENT0878139": {
+  "A_prod": {
+   "deform_rms": 0.007258817243079345,
+   "betas_trans": 0.05419348801175753,
+   "log_scales_H2": 0.14588124056657156,
+   "log_scales_S3": 0.22169083853562674,
+   "pose_change_deg": 20.799794870375926,
+   "pivot_drift_pctWL": 19.766857749892335,
+   "betas_maha": 3.4410784767211613
+  },
+  "I_cse": {
+   "deform_rms": 0.01752475028236707,
+   "betas_trans": 0.06139727681875229,
+   "log_scales_H2": 0.2094048708677292,
+   "log_scales_S3": 0.28215403358141583,
+   "pose_change_deg": 23.132572470639488,
+   "pivot_drift_pctWL": 12.786689852804251,
+   "betas_maha": 5.4621255321339985
+  },
+  "input": {
+   "n_verts": 48492,
+   "n_components": 193,
+   "largest_component_frac": 0.9224408149797905,
+   "aspect_mid_long": 0.9685930913812403,
+   "aspect_short_long": 0.7301866966737937,
+   "n_expert_joints": 51,
+   "tier": "EXACT"
+  }
+ },
+ "Gigantiops_destructor_CASENT0745031": {
+  "A_prod": {
+   "deform_rms": 0.003722055582329631,
+   "betas_trans": 0.05219558750589689,
+   "log_scales_H2": 0.15980209410190582,
+   "log_scales_S3": 0.2216308911641439,
+   "pose_change_deg": 17.09687713855777,
+   "pivot_drift_pctWL": 18.674989337791317,
+   "betas_maha": 4.184232472272267
+  },
+  "I_cse": {
+   "deform_rms": 0.015017762159307798,
+   "betas_trans": 0.042715961734453835,
+   "log_scales_H2": 0.1640778680642446,
+   "log_scales_S3": 0.22061707576115927,
+   "pose_change_deg": 23.47791808905583,
+   "pivot_drift_pctWL": 10.953936557307877,
+   "betas_maha": 5.548696383057407
+  },
+  "input": {
+   "n_verts": 48713,
+   "n_components": 78,
+   "largest_component_frac": 0.9909469751401063,
+   "aspect_mid_long": 0.33822212276363073,
+   "aspect_short_long": 0.2822859912716976,
+   "n_expert_joints": 48,
+   "tier": "EXACT"
+  }
+ },
+ "Leptogenys_peuqueti_CASENT0741327": {
+  "A_prod": {
+   "deform_rms": 0.0032421511908372245,
+   "betas_trans": 0.04191311324636141,
+   "log_scales_H2": 0.10834659387667973,
+   "log_scales_S3": 0.16200275222460428,
+   "pose_change_deg": 16.125258578882242,
+   "pivot_drift_pctWL": 20.398556305985622,
+   "betas_maha": 3.2626106990493473
+  },
+  "I_cse": {
+   "deform_rms": 0.019767313574751217,
+   "betas_trans": 0.08542321374018987,
+   "log_scales_H2": 0.13471695284048715,
+   "log_scales_S3": 0.2775820891062419,
+   "pose_change_deg": 23.15648965187171,
+   "pivot_drift_pctWL": 21.607744626994275,
+   "betas_maha": 7.024413493454399
+  },
+  "input": {
+   "n_verts": 46047,
+   "n_components": 72,
+   "largest_component_frac": 0.9874910417616782,
+   "aspect_mid_long": 0.1335618889036636,
+   "aspect_short_long": 0.12838086675905322,
+   "n_expert_joints": 51,
+   "tier": "MIRRORED"
+  }
+ },
+ "Odontomachus_bauri_CASENT0878072": {
+  "A_prod": {
+   "deform_rms": 0.005739011025677125,
+   "betas_trans": 0.05475420877337456,
+   "log_scales_H2": 0.0852272758881251,
+   "log_scales_S3": 0.16415143509705862,
+   "pose_change_deg": 17.448135729458034,
+   "pivot_drift_pctWL": 12.810618105456049,
+   "betas_maha": 2.367736330605483
+  },
+  "I_cse": {
+   "deform_rms": 0.0218717015037934,
+   "betas_trans": 0.07957419504721959,
+   "log_scales_H2": 0.21321419874827066,
+   "log_scales_S3": 0.295432984828949,
+   "pose_change_deg": 23.10555564576614,
+   "pivot_drift_pctWL": 17.170608670776627,
+   "betas_maha": 4.363542703287612
+  },
+  "input": {
+   "n_verts": 49654,
+   "n_components": 17,
+   "largest_component_frac": 0.9985499657630805,
+   "aspect_mid_long": 0.34616240437987916,
+   "aspect_short_long": 0.34506678033346333,
+   "n_expert_joints": 51,
+   "tier": "MIRRORED"
+  }
+ }
+}

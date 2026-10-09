@@ -1,0 +1,27 @@
+=== TASK 2 (w_offset 5.0/2.0 added, unseeded, n=50) ===
+gaster-legs count   baseline 418.94  gentle 334.46  delta -84.48 (-20.2%)
+all-pairs count     baseline 560.88  gentle 591.08  delta +30.20 (+5.4%)
+fscore@0.01 delta   mean -0.0032  median -0.0009  min -0.1125  max +0.0640
+deform_mag delta    mean +0.00027 (+5.72%)
+edge_logratio delta mean +0.01206 (+6.44%)
+
+--- vs TASK 1 (no offset penalty), unseeded ---
+TASK1: gaster-legs -20.8%, all-pairs +16.8%, fscore mean -0.0048, deform_mag +4.13%, edge_logratio +5.63%
+
+=== absolute integrity level (baseline arm only): does w_offset itself cost integrity vs TASK1's baseline? ===
+TASK2 offset-baseline deform_mag mean: 0.00474
+TASK2 offset-baseline edge_logratio mean: 0.18723
+
+=== OUTLIER FLAGS (top 5 by |delta gaster-legs count| and |delta fscore@0.01|) ===
+  top 5 by |delta count|:
+    Lasius_nr._fuliginosus_CASENT0878037_processed.obj      d_count=  -636.0  d_fscore01=-0.0148
+    Temnothorax_congruus_OKENT0105443_processed.obj         d_count=  -571.0  d_fscore01=+0.0464
+    Eciton_hamatum_CASENT0744580_processed.obj              d_count=  +528.0  d_fscore01=+0.0002
+    Mayriella_sp._CASENT0745610_processed.obj               d_count=  -520.0  d_fscore01=-0.0151
+    Aphaenogaster_pallida_CASENT0745235_processed.obj       d_count=  -447.0  d_fscore01=+0.0283
+  top 5 by |delta fscore|:
+    Ectatomma_brunneum_CASENT0744575_processed.obj          d_count=  +143.0  d_fscore01=-0.1125
+    Myrmecina_sp._CASENT0745613_processed.obj               d_count=  -137.0  d_fscore01=-0.0687
+    Strumigenys_canina_OKENT0105288_processed.obj           d_count=  -153.0  d_fscore01=+0.0640
+    Temnothorax_congruus_OKENT0105443_processed.obj         d_count=  -571.0  d_fscore01=+0.0464
+    Tetramorium_kraepelini_CASENT0744084_processed.obj      d_count=  -376.0  d_fscore01=+0.0398

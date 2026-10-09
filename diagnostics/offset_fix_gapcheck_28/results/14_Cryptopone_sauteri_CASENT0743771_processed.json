@@ -1,0 +1,25 @@
+{
+  "specimen": "14_Cryptopone_sauteri_CASENT0743771_processed",
+  "alpha": 3.22409,
+  "pre_gap": 0.2679760708720564,
+  "diag_length": 834.7347346692068,
+  "old": {
+    "offset": 0.10746966666666666,
+    "relative_alpha": 258.9055313807018,
+    "relative_offset": 7767.1659414210535,
+    "gap_after": 1.0473367059905325,
+    "verdict": "preserved",
+    "output_vertices": 251355,
+    "output_faces": 503054
+  },
+  "new": {
+    "offset": 1.289636,
+    "relative_alpha": 258.9055313807018,
+    "relative_offset": 647.2638284517544,
+    "gap_after": 0.0,
+    "verdict": "fused",
+    "output_vertices": 55085,
+    "output_faces": 110434
+  },
+  "flipped": true
+}

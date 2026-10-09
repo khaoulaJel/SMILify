@@ -1,0 +1,61 @@
+\chapter{Related work and research context}
+\label{ch:related}
+
+This chapter positions the investigation within four lines of existing work,
+not as a survey but to establish which parts of the problem are recognised
+open questions elsewhere and which parts this report investigates directly.
+
+\textbf{Parametric articulated models.} \term{SMPL}~\cite{smpl} learns a
+human shape and pose space from a large registered scan corpus under a fixed
+body topology. \term{SMAL}~\cite{smal}, from the same \emph{3D Menagerie}
+line of work, relaxes the cooperative-subject and topology assumptions for
+quadrupeds by learning a shape space from toy figurines and fitting it to
+images and video~\cite{smalify}. \term{smilify} continues this progression
+to insects, where the body plan itself differs and every structure of
+interest is thin and articulated (Chapter~\ref{ch:pipeline}).
+
+\textbf{Point-cloud and mesh registration.} Classical iterative closest
+point and its variants align point sets by alternating nearest-neighbour
+correspondence and rigid transformation estimation, and are known to
+converge to spurious local optima under poor initialisation or partial
+overlap. Learning-based registration addresses this directly: \term{Deep
+Closest Point}~\cite{dcp} learns point embeddings for closest-point
+matching end-to-end; \term{PREDATOR}~\cite{predator} predicts an overlap
+region between two point clouds before matching, specifically to handle
+low-overlap pairs; and \term{GeoTransformer}~\cite{geotransformer} combines
+geometric attention with coarse-to-fine matching for dense correspondence.
+These methods establish that initialisation, overlap, and correspondence
+are recognised as separable, fundamental difficulties in point-cloud
+registration generally. This report studies a harder, model-based variant:
+registration constrained to the image of a parametric articulated model
+rather than a free rigid or non-rigid point-set alignment, where the
+nearest-surface matching implicit in a Chamfer-style objective is the local
+matching mechanism and the open question is what information that mechanism
+lacks (\S\ref{sec:registration}).
+
+\textbf{Shape correspondence.} Beyond point-to-point matching,
+\term{functional maps}~\cite{fmaps} represent a correspondence between two
+shapes as a compact linear map between functions defined on them, and a
+substantial subsequent literature extends this to partial and non-isometric
+settings; \term{optimal transport}~\cite{ot} provides a complementary
+globally-consistent matching formulation under an explicit transport cost,
+with partial-transport variants suited to incomplete observations. These
+are the two directions this report's outlook (\S\ref{sec:learned-correspondence},
+Chapter~\ref{ch:conclusion}) points to for closing the local-to-global gap
+exposed by the learned-descriptor experiments.
+
+\textbf{Defective mesh repair.} \term{Alpha Wrap}~\cite{alphawrap}
+constructs a watertight offset surface enclosing arbitrarily defective
+input, with an explicit offset parameter trading fidelity against
+robustness; \term{ManifoldPlus}~\cite{manifoldplus} instead repairs a given
+triangle soup directly into a watertight manifold. Both target exactly the
+defect classes (holes, self-intersections, non-manifold geometry)
+present in the scan corpus this report works with (\S\ref{sec:preprocessing}).
+
+None of these methods is claimed to solve the problem studied here; they are
+cited to establish that each mechanism this report investigates
+(initialisation, correspondence, overlap-like partiality, and defective
+input) is an independently recognised difficulty in 3D registration, and
+that this report's contribution is to characterise how these difficulties
+interact specifically for an articulated, model-based, biological fitting
+problem.
