@@ -85,7 +85,7 @@ def main():
         r = rows[st]
         vals = [("chamfer", sci(float(r["chamfer_l2"]))),
                 (r"F$_{0.01}$", f"{float(r['fscore@0.01']):.3f}"),
-                ("penetration", f"{int(round(float(r['pen_hard_triples'])))}")]
+                ("intersections", f"{int(round(float(r['intersecting_tri_pairs'])))}")]
         cx = x + pw / 2
         for k, (name, v) in enumerate(vals):
             yy = top + ph + 0.07 + k * 0.115
