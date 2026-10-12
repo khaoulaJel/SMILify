@@ -10,7 +10,7 @@ per-joint scale and translation are free throughout.
 | Code | `fitter_3d.optimise_hierarchical`, then `fitter_3d.optimise_moonshot`; branch `feature/investigation` (the code and configuration paths on this page are on that branch; they are not on `master`) |
 | Scan normalisation | centred on the vertex mean; maximum absolute coordinate scaled to 1 |
 | Optimiser | Adam; cosine-annealed learning rate in the skeleton stages, constant in the surface stages |
-| Cost; repeatability | 30–45 s per specimen on one NVIDIA H100; seeded, not bit-reproducible on GPU: F@0.01 varies by 0.001 and joint positions by 2.2% of Weber's length (WL) between seeds |
+| Cost; repeatability | 30–47 s per specimen on one NVIDIA H100; seeded, not bit-reproducible on GPU: between seeds F@0.01 varies by 0.001 and joint error by 2.2% of Weber's length (WL) (per-specimen SD, medians) |
 
 ## Table 1. Stages and loss weights
 
@@ -54,7 +54,7 @@ F@0.01 changes are at an absolute threshold of 0.01 on 64 AntScan workers.
 | Term | Tested | Result | Evidence |
 |---|---|---|---|
 | Penetration loss | earlier single-trainer pipeline (`fitter_3d.optimise`) and model (`SMIL_OmniAnt.pkl`), 50 AntScan scans × 3 seeds; not implemented in the recipe's trainers | Halves the leg vertices contained in the gaster (194 → 83) while the two surfaces cross along a boundary several times longer (102 → 691 intersecting triangle pairs) and F@0.01 falls by 0.03; no variant passes its pre-set bars in any seed | `evidence/penetration_loss.csv`, `evidence/penetration_loss_preset_bars.csv` |
-| `edge_mode: rest` in Stage_2/3 | inside the recipe, 3 seeds | Worse: +7.0 (2.6 to 14.6), 10 of 11 scans; chamfer ×2.3 | `evidence/variants_inside_recipe.csv` |
+| `edge_mode: rest` in Stage_2/3 | inside the recipe, 3 seeds | Joints +7.0 (2.6 to 14.6), 10 of 11 scans worse (p = 0.014; 0.11 after correction for the eight variants tested together); chamfer ×2.3; F@0.01 −0.14, lower in 63 of 64 workers | `evidence/variants_inside_recipe.csv` |
 | `w_geocoh` 1.0 | inside the recipe, 3 seeds | Holds the fit near the template: chamfer ×2.0; joints +2.4 (−0.9 to 5.9), 8 of 11 worse; F@0.01 −0.23, lower in 64 of 64 workers | `evidence/geodesic_coherence.csv` |
 | `w_trans` 0.02 / 0.2 | inside the recipe, 3 seeds | Joints equivalent (−0.5, −0.1); F@0.01 −0.003, −0.014 | `evidence/variants_inside_recipe.csv` |
 | `w_beta_prior` 2·10⁻⁶ / 2·10⁻⁵ | inside the recipe, 3 seeds | Joints equivalent (+0.1, +0.6); F@0.01 −0.007, −0.022 | `evidence/variants_inside_recipe.csv` |
