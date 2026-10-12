@@ -1,0 +1,7 @@
+variant,change_to_default_command,n_scans,seeds,default_joint_error_pct_WL,variant_joint_error_pct_WL,shift_pct_WL,ci95_low,ci95_high,ci90_low,ci90_high,scans_better,scans_worse,chamfer_ratio_expert_scans,F001_abs_default_64workers,F001_abs_variant_64workers,F001_paired_median_change,workers_F_higher,workers_F_lower,scale_ratio_default_64workers,scale_ratio_variant_64workers
+edge_mode: rest in Stage_2/3,variant_configs/edge_mode_rest.yaml,11,"0,1,2",25.38,33.32,7.02,2.59,14.56,3.24,12.22,1,10,2.32,0.522,0.331,-0.1436,1,63,2.02,2.04
+w_trans 0.02 (all stages),--trans_cap 0.02; variant_configs/w_trans_0.02.yaml,11,"0,1,2",25.38,25.41,-0.53,-2.17,0.52,-1.99,0.44,7,4,1.01,0.522,0.525,-0.0026,20,44,2.02,2.02
+w_trans 0.2 (all stages),--trans_cap 0.2; variant_configs/w_trans_0.2.yaml,11,"0,1,2",25.38,24.76,-0.1,-1.54,1.38,-1.34,1.08,6,5,1.05,0.522,0.513,-0.0136,10,54,2.02,2.03
+w_beta_prior 2e-6 (all stages),--beta_prior 2e-6; variant_configs/w_beta_prior_2e-6.yaml,11,"0,1,2",25.38,25.38,0.13,-1.21,1.65,-0.97,1.49,5,6,1.03,0.522,0.501,-0.0071,14,50,2.02,2.02
+w_beta_prior 2e-5 (all stages),--beta_prior 2e-5; variant_configs/w_beta_prior_2e-5.yaml,11,"0,1,2",25.38,25.92,0.6,-1.59,1.58,-1.02,1.33,3,8,1.06,0.522,0.488,-0.0218,6,58,2.02,2.02
+w_scale 0.052 also in H0-H2,--scale_cap 0.052,11,"0,1,2",25.38,26.99,0.18,-1.27,1.55,-1.06,1.37,6,5,1.0,0.522,0.52,0.0011,36,28,2.02,2.03
