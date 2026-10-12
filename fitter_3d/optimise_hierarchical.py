@@ -109,7 +109,7 @@ def main():
         default=0.0,
         help="weight for the midsagittal-planarity penalty. The M5 arm improved 8 of "
         "11 metrics over the stock pipeline but regressed bilateral midline "
-        "deviation 43.8%; per-leg independent fitting plus out-of-plane body "
+        "deviation 43.8%%; per-leg independent fitting plus out-of-plane body "
         "rotation is the cause, and symmetry_penalty (joint scales) cannot see it.",
     )
     ap.add_argument(
@@ -189,7 +189,7 @@ def main():
         help="C13 (2026-08-28): per-vertex weighting of the --cse_correspondence_from term by "
         "INVERSE MEASURED INTER-LEG TOLERANCE, so the term optimises risk (error relative to "
         "the distance to the nearest other leg) instead of absolute error. 'none' (default) is "
-        "byte-identical to every existing arm. Motivation: the coxa carries 57.8% of the "
+        "byte-identical to every existing arm. Motivation: the coxa carries 57.8%% of the "
         "addressable leg-level residual while being the BEST-placed segment in absolute terms, "
         "because its risk ratio is 0.995 vs ~0.21 everywhere else -- an unweighted L2 gives it "
         "the least gradient exactly where tolerance is tightest. Same construction as COCO OKS "
@@ -299,7 +299,7 @@ def main():
         help="weight on the authored per-joint rotation-limit hinge. Requires a model that "
         "carries 'joint_limits' (e.g. 3D_model_prep/OmniAnt_25PCs_joint_limited.pkl via "
         "SMILIFY_SMAL_FILE). Constrains the distal leg joints that §4 shows the area-sampled "
-        "data term cannot reach: M7/BPX put 37 of 96 constrained axes out of range on 100% of "
+        "data term cannot reach: M7/BPX put 37 of 96 constrained axes out of range on 100%% of "
         "specimens, median 19.4 deg. Judge it with probe_19, not with surface metrics.",
     )
     ap.add_argument(
@@ -325,8 +325,8 @@ def main():
         type=float,
         default=3.0,
         help="w_offset in the H3_deform stage: the L2 penalty on free-form deform_verts. "
-        "REPORT_HULL §5 measured that 83% of correspondence error is WITHIN a part, and "
-        "§6.6 that free-form offsets carry 100% of the rest-space shape variance while "
+        "REPORT_HULL §5 measured that 83%% of correspondence error is WITHIN a part, and "
+        "§6.6 that free-form offsets carry 100%% of the rest-space shape variance while "
         "generalising at 0.98 -- i.e. they are per-specimen noise that papers over pose "
         "error. Raising this trades surface proximity for correspondence consistency. "
         "Very large values (>=100) pin deform at ~0 while leaving every other parameter "

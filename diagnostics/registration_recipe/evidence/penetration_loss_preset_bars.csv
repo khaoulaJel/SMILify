@@ -1,0 +1,13 @@
+variant,seed,proximity_count_gaster_legs_change_pct,proximity_count_all_pairs_change_pct,F001_bbox_mean_change,F001_bbox_worst_change,bar_gaster_legs_le_minus15pct,bar_all_pairs_le_0pct,bar_F_mean_ge_minus0.01,bar_F_worst_ge_minus0.08,passes_all_bars
+"proximity loss 0.02/0.05, all part pairs (ants_cfg_all_penetration_gentle.yaml vs ants_cfg_all_baseline.yaml)",0,-1.0338,15.5784,-0.0054,-0.0277,False,False,True,True,False
+"proximity loss 0.02/0.05, all part pairs (ants_cfg_all_penetration_gentle.yaml vs ants_cfg_all_baseline.yaml)",1,-10.0312,12.7485,-0.0054,-0.0309,False,False,True,True,False
+"proximity loss 0.02/0.05, all part pairs (ants_cfg_all_penetration_gentle.yaml vs ants_cfg_all_baseline.yaml)",2,-5.5395,10.6025,-0.0043,-0.0365,False,False,True,True,False
+same with offset penalty (ants_cfg_all_offset_gentle.yaml vs ants_cfg_all_offset_baseline.yaml),0,-6.0139,24.9938,0.0004,-0.0141,False,False,True,True,False
+same with offset penalty (ants_cfg_all_offset_gentle.yaml vs ants_cfg_all_offset_baseline.yaml),1,-1.2421,15.5425,0.0033,-0.0273,False,False,True,True,False
+same with offset penalty (ants_cfg_all_offset_gentle.yaml vs ants_cfg_all_offset_baseline.yaml),2,-9.0339,17.3422,-0.0001,-0.0639,False,False,True,True,False
+loss on gaster-legs only (ants_cfg_all_offset_gentle_pairscoped.yaml vs ants_cfg_all_offset_baseline.yaml),0,-22.9002,-18.2795,-0.0109,-0.0573,True,True,False,True,False
+loss on gaster-legs only (ants_cfg_all_offset_gentle_pairscoped.yaml vs ants_cfg_all_offset_baseline.yaml),1,-7.2828,-5.2255,-0.0079,-0.0455,False,True,True,True,False
+loss on gaster-legs only (ants_cfg_all_offset_gentle_pairscoped.yaml vs ants_cfg_all_offset_baseline.yaml),2,-10.4071,-7.6962,-0.0117,-0.0603,False,True,False,True,False
+gaster-legs only with scale and translation barriers (ants_cfg_all_offset_gentle_pairscoped_scalecap.yaml vs ants_cfg_all_offset_baseline.yaml),0,-17.2397,-20.4619,-0.0189,-0.1088,True,True,False,False,False
+gaster-legs only with scale and translation barriers (ants_cfg_all_offset_gentle_pairscoped_scalecap.yaml vs ants_cfg_all_offset_baseline.yaml),1,-15.9778,-19.2059,-0.0171,-0.0765,True,True,False,True,False
+gaster-legs only with scale and translation barriers (ants_cfg_all_offset_gentle_pairscoped_scalecap.yaml vs ants_cfg_all_offset_baseline.yaml),2,-26.2721,-24.9328,-0.0193,-0.0842,True,True,False,False,False

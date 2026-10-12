@@ -1,0 +1,2 @@
+variant,entry_point,n_scans,seeds,default_joint_error_pct_WL,variant_joint_error_pct_WL,shift_pct_WL,ci95_low,ci95_high,scans_better,scans_worse,chamfer_ratio_expert_scans
+w_geocoh 1.0 in Stage_2/3,"diagnostics/khaoula_v2/optimise_geocoherence.py with variant_configs/w_geocoh_1.0.yaml (500 anchors, sigma 0.05 of the geodesic diameter)",11,"0,1,2",25.0,26.61,2.42,-0.9,5.93,3,8,2.02
