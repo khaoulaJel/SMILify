@@ -6,7 +6,7 @@ Tables behind `../README.md`. One row per variant; all fits use the code of bran
 |---|---|
 | `resolved_stage_weights.csv` | Every stage of the default recipe as the two entry points resolve it: iterations, learning rates, data term and all loss weights. |
 | `variants_inside_recipe.csv` | Variants of the default recipe: `edge_mode: rest`, `w_trans`, `w_beta_prior`, and `w_scale` in the skeleton stages. Joint error on 11 expert-annotated AntScan scans (seeds 0–2) against a default fitted in the same batch, and surface fit on 64 AntScan workers (seed 0). |
-| `geodesic_coherence.csv` | `w_geocoh` 1.0 in the surface stages, same joint-error protocol. |
+| `geodesic_coherence.csv` | `w_geocoh` 1.0 in the surface stages, same joint-error protocol; surface fit on the 64 AntScan workers (seed 0) against a default fitted in a separate batch. |
 | `dense_correspondence.csv` | Correspondence targets supplied to the fitter: learned surface embedding, GBCPD and NICP; same joint-error protocol. |
 | `penetration_loss.csv` | Proximity penetration loss in the earlier single-trainer pipeline (`fitter_3d.optimise`, model `SMIL_OmniAnt.pkl`), 50 AntScan scans × 3 seeds: three measures of gaster–leg self-intersection, surface fit and free-form offset, each variant against its reference. |
 | `penetration_loss_preset_bars.csv` | The same variants against the bars fixed before the runs, per seed. |

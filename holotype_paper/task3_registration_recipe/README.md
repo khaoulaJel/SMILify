@@ -55,7 +55,7 @@ F@0.01 changes are at an absolute threshold of 0.01 on 64 AntScan workers.
 |---|---|---|---|
 | Penetration loss | earlier single-trainer pipeline (`fitter_3d.optimise`) and model (`SMIL_OmniAnt.pkl`), 50 AntScan scans × 3 seeds; not implemented in the recipe's trainers | Halves the leg vertices contained in the gaster (194 → 83) while the two surfaces cross along a boundary several times longer (102 → 691 intersecting triangle pairs) and F@0.01 falls by 0.03; no variant passes its pre-set bars in any seed | `evidence/penetration_loss.csv`, `evidence/penetration_loss_preset_bars.csv` |
 | `edge_mode: rest` in Stage_2/3 | inside the recipe, 3 seeds | Worse: +7.0 (2.6 to 14.6), 10 of 11 scans; chamfer ×2.3 | `evidence/variants_inside_recipe.csv` |
-| `w_geocoh` 1.0 | inside the recipe, 3 seeds | Holds the fit near the template: chamfer ×2.0; joints +2.4 (−0.9 to 5.9), 8 of 11 worse | `evidence/geodesic_coherence.csv` |
+| `w_geocoh` 1.0 | inside the recipe, 3 seeds | Holds the fit near the template: chamfer ×2.0; joints +2.4 (−0.9 to 5.9), 8 of 11 worse; F@0.01 −0.23, lower in 64 of 64 workers | `evidence/geodesic_coherence.csv` |
 | `w_trans` 0.02 / 0.2 | inside the recipe, 3 seeds | Joints equivalent (−0.5, −0.1); F@0.01 −0.003, −0.014 | `evidence/variants_inside_recipe.csv` |
 | `w_beta_prior` 2·10⁻⁶ / 2·10⁻⁵ | inside the recipe, 3 seeds | Joints equivalent (+0.1, +0.6); F@0.01 −0.007, −0.022 | `evidence/variants_inside_recipe.csv` |
 | Dense correspondence (learned surface embedding as vertex targets) | inside the recipe, 3 seeds | No gain on real scans: +2.3 (−11.2 to 11.9), single scans from −30 to +46; chamfer ×3.0. Targets from standard non-rigid registration are no better (GBCPD +10.4, NICP +35.6) | `evidence/dense_correspondence.csv` |
