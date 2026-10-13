@@ -1,0 +1,6 @@
+fit,joint_error_median_pct_WL,chamfer_median,mahalanobis2_median,mahalanobis2_max,share_outside_shape_prior_95
+default fit (start of every supervised fit),26.94546,0.00047,23.3017,90.47692,0.36364
+"control: no supervision, continued for the same iterations",30.04029,0.00045,25.0271,115.43253,0.36364
+"expert joints supervised, all parameters free, no shape prior",8.67869,0.00057,41.49167,213.20624,0.63636
+"expert joints supervised, shape coefficients fixed",6.22755,0.00055,23.3017,90.47692,0.36364
+"expert joints supervised, all parameters free, shape prior on",6.15668,0.0005,0.35577,3.1751,0.0

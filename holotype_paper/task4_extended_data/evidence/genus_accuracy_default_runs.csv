@@ -1,0 +1,3 @@
+run,n_workers,n_genera,n_lots,genus_accuracy,permutation_null,times_null
+"default, refit in the comparison batch",616,82,34,0.1088,0.0216,5.0338
+"default, first run",616,82,34,0.1136,0.021,5.4023

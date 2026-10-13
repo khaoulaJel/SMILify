@@ -1,0 +1,13 @@
+strategy,n,seeds,default_joint_error_pct_WL,strategy_joint_error_pct_WL,shift_pct_WL,ci95_low,ci95_high,scans_better,scans_worse,chamfer_ratio
+no hierarchy (surface stages only),11,3,25.08,37.878,8.153,3.121,13.837,1,10,1.19
+no part partition,11,3,25.08,25.971,0.471,-2.606,3.899,5,6,0.971
+no joint limits,11,3,25.08,29.925,3.985,0.795,7.053,2,9,0.962
+no scale cap,11,3,25.08,26.033,0.486,-0.261,1.418,4,7,0.996
+allometric prior in place of the scale cap,11,3,25.08,25.793,0.009,-1.291,1.846,6,5,1.001
+learned pose initialisation,11,3,25.08,38.212,0.681,-1.198,15.177,4,7,0.996
+learned surface embedding as correspondence targets,11,3,25.08,25.259,2.319,-11.185,11.91,3,8,2.966
+no offset and normal terms,11,3,25.08,32.696,4.956,-0.278,9.801,3,8,0.454
+GBCPD targets (geodesic-based Bayesian coherent point drift),11,3,25.4,37.64,10.37,-0.46,21.18,4,7,1.6
+NICP targets (Amberg et al.),11,3,25.4,66.92,35.62,19.32,45.89,1,10,3.44
+earlier recipe (fitter_3d.optimise),11,1,25.08,38.52,6.9,-0.45,17.35,3,8,1.51
+data weight doubled,11,3,25.41,25.98,-0.27,-1.72,0.91,6,5,0.77

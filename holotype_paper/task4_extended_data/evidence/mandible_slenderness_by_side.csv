@@ -1,0 +1,16 @@
+sides,genus,n_workers,rank_of,rank,slenderness_workers,slenderness_cleaned
+left and right averaged,myrmoteras,3,82,1,7.104,
+left and right averaged,odontomachus,9,82,2,5.278,2.112
+left and right averaged,strumigenys,33,82,3,4.674,7.288
+left and right averaged,anochetus,6,82,7,3.656,
+left and right averaged,mayaponera,4,82,5,4.091,
+right mandible,myrmoteras,3,82,1,6.54,
+right mandible,odontomachus,9,82,4,3.903,3.463
+right mandible,strumigenys,33,82,3,4.167,6.572
+right mandible,anochetus,6,82,24,3.135,
+right mandible,mayaponera,4,82,2,4.648,
+left mandible (defective skinning weights),myrmoteras,3,82,1,7.807,
+left mandible (defective skinning weights),odontomachus,9,82,2,6.977,1.59
+left mandible (defective skinning weights),strumigenys,33,82,3,5.272,7.998
+left mandible (defective skinning weights),anochetus,6,82,6,4.186,
+left mandible (defective skinning weights),mayaponera,4,82,14,3.818,

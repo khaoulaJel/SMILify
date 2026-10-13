@@ -1,0 +1,11 @@
+synthetic_set,restored_information,share_of_gap_closed,ci95_low,ci95_high,specimens_better,n
+real-level articulation,true part membership,0.3748,0.3213,0.425,33,33
+real-level articulation,true dense correspondence,0.6051,0.5687,0.6395,33,33
+real-level articulation,true joint positions,0.3111,0.268,0.3516,32,33
+real-level articulation,"true articulation (pose), then re-optimised",0.0148,-0.0217,0.0492,17,33
+real-level articulation,true shape,0.0484,-0.005,0.0997,25,33
+real-level articulation and per-joint scale,true part membership,0.3512,0.2868,0.4111,31,33
+real-level articulation and per-joint scale,true dense correspondence,0.6194,0.5815,0.6567,33,33
+real-level articulation and per-joint scale,true joint positions,0.301,0.2727,0.3301,33,33
+real-level articulation and per-joint scale,"true articulation (pose), then re-optimised",0.0192,-0.0182,0.0548,20,33
+real-level articulation and per-joint scale,true shape,0.1717,0.1112,0.2222,28,33

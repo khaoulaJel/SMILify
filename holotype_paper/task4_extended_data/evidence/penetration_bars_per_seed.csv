@@ -1,0 +1,13 @@
+attempt,seed,gaster_legs_proximity_count_change_pct,all_pairs_proximity_count_change_pct,F001_diag_mean_change,F001_diag_worst_change,pass_gaster_legs,pass_all_pairs,pass_F_mean,pass_F_worst,passes_all
+"T1 proximity loss, all part pairs",0,-1.0338,15.5784,-0.0054,-0.0277,False,False,True,True,False
+"T1 proximity loss, all part pairs",1,-10.0312,12.7485,-0.0054,-0.0309,False,False,True,True,False
+"T1 proximity loss, all part pairs",2,-5.5395,10.6025,-0.0043,-0.0365,False,False,True,True,False
+"T2 same, with offset penalty",0,-6.0139,24.9938,0.0004,-0.0141,False,False,True,True,False
+"T2 same, with offset penalty",1,-1.2421,15.5425,0.0033,-0.0273,False,False,True,True,False
+"T2 same, with offset penalty",2,-9.0339,17.3422,-0.0001,-0.0639,False,False,True,True,False
+T4 loss on gaster-legs only,0,-22.9002,-18.2795,-0.0109,-0.0573,True,True,False,True,False
+T4 loss on gaster-legs only,1,-7.2828,-5.2255,-0.0079,-0.0455,False,True,True,True,False
+T4 loss on gaster-legs only,2,-10.4071,-7.6962,-0.0117,-0.0603,False,True,False,True,False
+T5 T4 with scale and translation barriers,0,-17.2397,-20.4619,-0.0189,-0.1088,True,True,False,False,False
+T5 T4 with scale and translation barriers,1,-15.9778,-19.2059,-0.0171,-0.0765,True,True,False,True,False
+T5 T4 with scale and translation barriers,2,-26.2721,-24.9328,-0.0193,-0.0842,True,True,False,False,False

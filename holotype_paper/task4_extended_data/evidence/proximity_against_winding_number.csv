@@ -1,0 +1,2 @@
+n,n_worsen_gaster_to_legs,n_improve_legs_to_gaster,pearson_asymmetry_vs_delta,spearman,mean_asymmetry_worsening,mean_asymmetry_not_worsening,p_mannwhitney,median_rate_gaster_to_legs,median_rate_legs_to_gaster
+50,44,37,0.947,0.9354,0.0824,-0.007,0.0004,0.0691,0.0071

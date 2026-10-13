@@ -1,0 +1,3 @@
+set,median_leg_bend_deg_min,median_leg_bend_deg_max
+11 expert-annotated scans: smallest and largest per-scan median leg bend,18.15,38.16
+synthetic training specimens: lowest and highest reported percentile of the per-specimen median leg bend,7.56,18.95

@@ -1,0 +1,4 @@
+specimen,winding_number_loss_tri_pairs_all,winding_number_loss_tri_pairs_gaster_legs,winding_number_loss_F001_diag,no_loss_tri_pairs_all_seed_mean,no_loss_tri_pairs_gaster_legs_seed_mean,no_loss_F001_diag_seed_mean,proximity_loss_tri_pairs_all_seed_mean,proximity_loss_tri_pairs_gaster_legs_seed_mean,proximity_loss_F001_diag_seed_mean
+Acanthostichus_aff.brevicornis_CASENT074,908,392,0.9458,903.6667,298.3333,0.9488,1560.3333,584.6667,0.9476
+Acromyrmex_coronatus_CASENT0744365,721,379,0.9104,647.6667,335.3333,0.8618,1829.0,539.6667,0.8608
+Solenopsis_invicta_CASENT0744384,96,68,0.8768,273.3333,182.0,0.8532,1108.0,328.3333,0.845

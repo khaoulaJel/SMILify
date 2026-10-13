@@ -1,0 +1,15 @@
+configuration,stage,n,median_joint_error_pct_body_length,mean_pct_body_length,specimens_better_than_default,specimens_worse_than_default
+"default, no correspondence targets",end of skeleton stages,48,3.516912180751546,3.6595477950631192,,
+"default, no correspondence targets",final,48,2.433754369977502,2.9554647328025587,,
+"targets in all stages, wrong-leg share 0.0",end of skeleton stages,48,1.9282569906676996,1.986804797205152,,
+"targets in all stages, wrong-leg share 0.0",final,48,0.8880542205206056,0.8673768198839616,48.0,0.0
+"targets in all stages, wrong-leg share 0.2",end of skeleton stages,48,3.209029133416108,3.398941820849905,,
+"targets in all stages, wrong-leg share 0.2",final,48,3.164723274486003,3.054876432870591,26.0,22.0
+"targets in all stages, wrong-leg share 0.4",end of skeleton stages,48,4.850973155041275,4.865995089239633,,
+"targets in all stages, wrong-leg share 0.4",final,48,4.570695016063745,4.773857793685629,7.0,41.0
+"targets in skeleton stages only, wrong-leg share 0.0",end of skeleton stages,48,1.928714231733328,1.9856701729224864,,
+"targets in skeleton stages only, wrong-leg share 0.0",final,48,1.7698923391483496,1.891561605670992,42.0,6.0
+"targets in skeleton stages only, wrong-leg share 0.2",end of skeleton stages,48,3.2090438819667213,3.400479562403621,,
+"targets in skeleton stages only, wrong-leg share 0.2",final,48,2.2544747865432666,2.54797409057614,26.0,22.0
+"targets in skeleton stages only, wrong-leg share 0.4",end of skeleton stages,48,4.859911273952056,4.861120157497881,,
+"targets in skeleton stages only, wrong-leg share 0.4",final,48,3.4939222923526163,3.957046408635187,13.0,35.0

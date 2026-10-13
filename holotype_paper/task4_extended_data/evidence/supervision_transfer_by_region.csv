@@ -1,0 +1,7 @@
+region,n,unsupervised_pct_WL,all_other_regions_supervised_pct_WL,region_supervised_pct_WL,held_out_minus_control_paired_median,held_out_better,held_out_worse,p_wilcoxon
+antenna,10,54.504,51.927,28.859,-0.323,5,5,0.922
+body_axis,11,25.955,24.284,20.607,-0.187,6,5,0.966
+coxa,11,12.93,12.822,11.631,0.59,4,7,0.278
+leg_distal,11,53.148,48.856,19.659,-1.957,7,4,0.24
+leg_proximal,11,13.021,16.127,12.373,0.357,4,7,0.465
+mandible,11,38.913,35.987,32.847,-2.251,8,3,0.32

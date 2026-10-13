@@ -1,0 +1,3 @@
+posture_measure,n_expert_scans,spearman_with_expert_leg_bend,p,cleaned_median,antscan_median,p_cleaned_vs_antscan,antscan_workers_inside_cleaned_range_on_all_five_measures
+lateral_spread,11,-0.127,0.709,0.644,0.646,0.18,14
+hull_ratio,11,0.191,0.574,2.733,1.112,7.8e-44,14

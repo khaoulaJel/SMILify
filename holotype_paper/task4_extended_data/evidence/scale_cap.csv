@@ -1,0 +1,9 @@
+configuration,quantity,value,null,lift,n,n_genus,mean,median,p90,max
+without scale cap,genus accuracy (lot-blind 1-NN),0.1169,0.0216,5.4064,616,82.0,,,,
+without scale cap,head scale ratio,,,,838,,1.6069,1.3874,2.1849,8.9114
+without scale cap,mandible scale ratio,,,,838,,2.1811,1.6344,3.9376,10.5638
+without scale cap,antenna scale ratio,,,,838,,2.4325,2.127,3.6409,13.5734
+with scale cap (default),genus accuracy (lot-blind 1-NN),0.1136,0.0213,5.3343,616,82.0,,,,
+with scale cap (default),head scale ratio,,,,838,,1.529,1.3853,2.1168,3.7735
+with scale cap (default),mandible scale ratio,,,,838,,1.9196,1.6229,3.3361,4.09
+with scale cap (default),antenna scale ratio,,,,838,,2.0876,2.0424,2.7731,4.085

@@ -1,0 +1,8 @@
+region,n_scans,median_joint_error_pct_WL,min,max,seed_sd_per_scan_median
+antenna,10,54.92,12.71,91.49,
+body_axis,11,24.07,15.41,75.59,
+coxa,11,11.56,5.78,56.01,
+leg_distal,11,56.28,14.02,157.54,
+leg_proximal,11,12.88,6.23,71.4,
+mandible,11,42.81,7.93,61.89,
+all joints,11,25.08,13.35,68.64,2.18
