@@ -1,0 +1,6 @@
+measure,n,reference_median,with_loss_median,ratio_of_medians,specimens_higher,specimens_lower,p_wilcoxon
+length of the gaster-legs intersection curve (normalised units),50,0.295301,4.017602,13.605094,47,0,0.0
+"intersecting triangle pairs, gaster-legs",50,101.833333,691.333333,6.788871,47,0,0.0
+leg vertices contained in the gaster (winding number),50,192.166667,96.666667,0.503036,11,36,4e-06
+mean depth of the contained leg vertices,44,0.02356,0.014715,0.624576,7,37,0.0
+curve length per intersecting triangle pair,44,0.002958,0.005686,1.922114,42,2,

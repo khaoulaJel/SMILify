@@ -53,7 +53,7 @@ F@0.01 changes are at an absolute threshold of 0.01 on 64 AntScan workers.
 
 | Term | Tested | Result | Evidence |
 |---|---|---|---|
-| Penetration loss | earlier single-trainer pipeline (`fitter_3d.optimise`) and model (`SMIL_OmniAnt.pkl`), 50 AntScan scans × 3 seeds; not implemented in the recipe's trainers | Halves the leg vertices contained in the gaster (194 → 83) while the two surfaces cross along a boundary several times longer (102 → 691 intersecting triangle pairs) and F@0.01 falls by 0.03; no variant passes its pre-set bars in any seed | `evidence/penetration_loss.csv`, `evidence/penetration_loss_preset_bars.csv` |
+| Penetration loss | earlier single-trainer pipeline (`fitter_3d.optimise`) and model (`SMIL_OmniAnt.pkl`), 50 AntScan scans × 3 seeds; not implemented in the recipe's trainers | Halves the leg vertices contained in the gaster (194 → 83) while the two surfaces cross along a boundary 14 times longer (curve length 0.30 → 4.02; 102 → 691 intersecting triangle pairs) and F@0.01 falls by 0.03; no variant passes its pre-set bars in any seed | `evidence/penetration_loss.csv`, `evidence/penetration_loss_preset_bars.csv`, `evidence/penetration_loss_intersection_curve.csv` |
 | `edge_mode: rest` in Stage_2/3 | inside the recipe, 3 seeds | Joints +7.0 (2.6 to 14.6), 10 of 11 scans worse (p = 0.014; 0.11 after correction for the eight variants tested together); chamfer ×2.3; F@0.01 −0.14, lower in 63 of 64 workers | `evidence/variants_inside_recipe.csv` |
 | `w_geocoh` 1.0 | inside the recipe, 3 seeds | Holds the fit near the template: chamfer ×2.0; joints +2.4 (−0.9 to 5.9), 8 of 11 worse; F@0.01 −0.23, lower in 64 of 64 workers | `evidence/geodesic_coherence.csv` |
 | `w_trans` 0.02 / 0.2 | inside the recipe, 3 seeds | Joints equivalent (−0.5, −0.1); F@0.01 −0.003, −0.014 | `evidence/variants_inside_recipe.csv` |
@@ -63,14 +63,70 @@ F@0.01 changes are at an absolute threshold of 0.01 on 64 AntScan workers.
 
 ## The cleaned scans
 
-*To be written.*
+The 81 cleaned scans of the shape space (61 artist-cleaned, one of them an *Atta*; 20 *Atta vollenweideri* from
+scAnt) run through this recipe unchanged: same model, stages, weights and command. The model file is an input of the
+recipe, so these are refits of the scans the shape space was built from.
+
+| Fit set (default recipe, seed 0) | n | F@0.01, 1% of diagonal | F@0.01, absolute | Gaster and legs intersect | Any intersecting parts | Inside 95% region of shape prior |
+|---|---|---|---|---|---|---|
+| Cleaned scans | 81 | 0.994 | 0.906 | 0 of 81 | 1 of 81 | 91% |
+| Cleaned scans, *Atta* | 21 | 0.996 | 0.934 | 0 of 21 | — | 100% |
+| Cleaned scans, other genera | 60 | 0.994 | 0.898 | 0 of 60 | — | 88% |
+| Uncleaned AntScan workers | 757 | 0.823 | 0.460 | 50% | 89% | 47% |
+
+Cleaned scans, seeds 1 and 2: F@0.01 (absolute) 0.910 and 0.909, no gaster–leg intersection. *Atta* is a quarter of
+the shape space and fits slightly closer than the other genera, which still fit far above the AntScan level.
+
+The earlier recipe (`fitter_3d.optimise` as on `master`: pose and shape for 100 and 300 iterations, then free-form
+offsets alone for 2 × 1000 iterations; no hierarchy and no symmetry, midline, offset, joint-limit or scale terms)
+reaches a higher F@0.01 by letting the per-joint scale and the free-form offset grow:
+
+| Default against earlier recipe | F@0.01, absolute | Per-joint scale ratio | Free-form offset | Gaster and legs intersect |
+|---|---|---|---|---|
+| 81 cleaned scans | 0.906 / 0.947 | 1.6 / 8.7 | earlier 8.4 times larger | 0 / 0 of 81 |
+| 757 AntScan workers | 0.464 / 0.636 | 2.0 / 55 | earlier 8.5 times larger | 51% / 84% |
+
+On the cleaned scans each of these differences has the same sign in 81 of 81 specimens. The AntScan row uses the
+default refitted in the same batch as the earlier recipe; two runs of the default on the 757 workers agree in every
+measure (paired tests, p ≥ 0.07). Evidence: `evidence/fit_quality_by_corpus.csv`.
 
 ## Candidates (tested inside the recipe; not in the defaults)
 
-*To be written.*
+Joint error as in Table 2. Surface distance is the symmetric exact point-to-surface distance between scan and fit. On the
+757 workers each candidate is compared with the default refitted in the same batch. Genus accuracy is the
+collection-lot-blind nearest-neighbour accuracy on 616 workers of 82 genera.
+
+1. **Closer surface at unchanged skeleton.** Exact point-to-surface distance as the data term (`corr_mode: p2s`),
+   `w_chamfer` 2.0 / 1.0 and, in Stage_2/3, `w_limit` 0.273, `w_trans` 0.02, `w_beta_prior` 2·10⁻⁶. Surface distance
+   −25% on AntScan (lower in 738 of 757) and −37% on the cleaned scans (81 of 81); F@0.01 (absolute) 0.464 → 0.528 and
+   0.906 → 0.942; every fit inside the shape prior (default: 47% and 91%); genus accuracy 10.6% against 10.9%
+   (p = 0.89). Joints equivalent: −0.9 (−1.9 to 0.3), eight seeds. Costs: free-form offset 25% larger on AntScan;
+   intersecting triangle pairs on AntScan 156 against 152 (median).
+2. **Joint-limit, translation and shape-prior terms alone** (the three weights of candidate 1 with the default data
+   term). AntScan: fits outside the shape prior 53% → 0%, joint-limit violations above 5° 7% → 0%, genus accuracy
+   12.8% against 10.9% (p = 0.13). Joints equivalent (−0.2). Cost: surface distance +10% on AntScan and +12% on the
+   cleaned scans.
+3. **Model with normalised skinning weights.** In the model above, 134 vertices of the left mandible have skinning
+   weights that sum to less than 1 (minimum 0.40). Every fit therefore has a distorted left mandible: the left–right
+   mismatch is 0.43 of mandible size on the cleaned scans and 0.33 on AntScan, and the left mandible measures 31% and
+   5% longer than the right. Dividing each vertex's weights by their sum removes the distortion (mismatch 0.03 and
+   0.09; lengths within 2–3%) with joints equivalent (+0.2), alone and together with candidate 1. Until the model is
+   repaired, mandible measurements should be taken on the right side.
+4. **Area sampling of the template in H1/H2** (the symmetric chamfer sampling of the earlier pipeline) shows no
+   benefit inside the recipe: joints −1.2 (equivalent); F@0.01 on 64 workers not different (higher in 38, lower in
+   26). Its earlier F-score gain belongs to a pipeline whose data term sampled the template by vertex.
+
+Neither the sixteen variants of the objective tested nor `w_geocoh` improves joint accuracy.
+
+Availability. Candidate 2 runs on the branch as it is (`evidence/variant_configs/candidate2_plausibility_terms.yaml`).
+Candidates 1 and 4 use options that are not yet on the branch (`corr_mode: p2s`; area sampling in the skeleton
+stages), and the repaired model file of candidate 3 is not in the repository. Evidence:
+`evidence/candidates_surface_and_plausibility.csv`, `evidence/candidates_joint_error.csv`,
+`evidence/candidates_genus_accuracy.csv`, `evidence/skinning_weight_defect.csv`.
 
 *Provenance.* Configuration `diagnostics/moonshot/cfg/D1_PROD.yaml`; resolved per-stage settings in
-`evidence/resolved_stage_weights.csv`. Sets: 757 AntScan workers (seed 0); 11 expert-annotated AntScan scans
-(seeds 0–2); 64 AntScan workers (seed 0); 50 AntScan scans for the penetration loss (seeds 0–2). Intersection =
+`evidence/resolved_stage_weights.csv`. Sets: 757 AntScan workers (seed 0); 81 cleaned scans (seeds 0–2);
+11 expert-annotated AntScan scans (seeds 0–2; eight seeds for candidate 1); 64 AntScan workers (seed 0); 50 AntScan
+scans for the penetration loss (seeds 0–2). Intersection =
 intersecting triangle pairs between anatomically non-adjacent body parts (exact test). The configuration of every
 variant is in `evidence/variant_configs/` and described in `evidence/README.md`.

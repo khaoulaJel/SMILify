@@ -1,0 +1,5 @@
+candidate,fit_set,n,surface_distance_default,surface_distance_candidate,surface_distance_change_pct,specimens_lower,specimens_higher,F001_abs_default,F001_abs_candidate,pct_inside_prior_default,pct_inside_prior_candidate,pct_limit_over_5deg_default,pct_limit_over_5deg_candidate,freeform_offset_change_pct,tri_pairs_all_default,tri_pairs_all_candidate
+"1 point-to-surface, data weight x2, plausibility terms",757 AntScan workers,757,0.0004779,0.0003599,-24.7,738,19,0.4642,0.5277,47.0,100.0,6.7,0.0,25.2,152.0,156.0
+"1 point-to-surface, data weight x2, plausibility terms",81 cleaned scans,81,5.189e-05,3.281e-05,-36.8,81,0,0.9061,0.9425,91.4,100.0,0.0,0.0,16.8,0.0,0.0
+2 plausibility terms alone,757 AntScan workers,757,0.0004779,0.0005241,9.7,61,696,0.4642,0.4495,47.0,100.0,6.7,0.0,0.1,152.0,143.0
+2 plausibility terms alone,81 cleaned scans,81,5.189e-05,5.812e-05,12.0,0,81,0.9061,0.8934,91.4,100.0,0.0,0.0,2.9,0.0,0.0

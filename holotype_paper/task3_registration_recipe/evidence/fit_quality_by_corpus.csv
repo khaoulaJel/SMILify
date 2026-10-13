@@ -1,0 +1,10 @@
+fit_set,recipe,seed,n,F001_diag_median,F001_abs_median,surface_distance_median,scale_ratio_median,freeform_offset_median,mahalanobis2_median,pct_inside_shape_prior_95,pct_joint_limit_over_5deg,pct_gaster_legs_intersect,pct_any_parts_intersect,tri_pairs_all_median
+81 cleaned scans,default,0,81,0.9945,0.9061,5.189e-05,1.64,0.001725,11.41,91.4,0.0,0.0,1.2,0.0
+81 cleaned scans,default,1,81,0.9944,0.9099,5.175e-05,1.65,0.001726,11.66,90.1,0.0,0.0,2.5,0.0
+81 cleaned scans,default,2,81,0.9942,0.9089,5.236e-05,1.62,0.001728,11.2,91.4,0.0,0.0,2.5,0.0
+cleaned: 21 Atta,default,0,21,0.9959,0.9339,4.843e-05,1.52,0.001611,8.26,100.0,0.0,,,
+cleaned: 60 other genera,default,0,60,0.9936,0.8978,5.342e-05,1.66,0.001784,14.38,88.3,0.0,,,
+81 cleaned scans,earlier recipe (fitter_3d.optimise),0,81,0.9978,0.9467,3.239e-05,8.66,0.01455,1.59,100.0,4.9,0.0,4.9,0.0
+"757 AntScan workers, first run",default,0,757,0.8235,0.4599,0.0004798,2.02,0.004799,41.84,47.0,7.1,50.3,88.6,142.0
+"757 AntScan workers, refit in the comparison batch",default,0,757,0.8235,0.4642,0.0004779,2.02,0.004778,40.94,47.0,6.7,51.1,88.9,152.0
+757 AntScan workers,earlier recipe (fitter_3d.optimise),0,757,0.8941,0.6362,0.0003923,55.04,0.04058,3.92,99.9,70.3,83.9,96.2,370.0

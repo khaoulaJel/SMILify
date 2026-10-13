@@ -1,0 +1,6 @@
+candidate,compared_with,n_scans,seeds,reference_joint_error_pct_WL,candidate_joint_error_pct_WL,shift_pct_WL,ci95_low,ci95_high,ci90_low,ci90_high,scans_better,scans_worse,verdict
+"1 point-to-surface, data weight x2, plausibility terms",default,11,0-7,24.66,26.53,-0.9,-1.93,0.3,-1.84,0.19,7,4,equivalent
+2 plausibility terms alone,default,11,0-2,25.41,25.89,-0.18,-1.31,0.89,-1.1,0.61,6,5,equivalent
+3 normalised skinning weights,default,11,0-2,27.16,29.07,0.22,-2.08,2.59,-1.77,1.93,5,6,equivalent
+3 with 1: normalised skinning weights added to candidate 1,candidate 1,11,0-7,26.53,28.79,0.8,-0.13,2.59,-0.01,1.97,4,7,equivalent
+4 area sampling in H1/H2,default,11,0-2,25.38,29.45,-1.21,-1.82,2.18,-1.68,2.04,9,2,equivalent

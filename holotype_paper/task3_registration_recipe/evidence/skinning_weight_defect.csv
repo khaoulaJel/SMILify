@@ -1,0 +1,5 @@
+corpus,model,n,mandible_length_left_over_right_median,specimens_left_longer,left_right_difference_pct_median,mandible_asymmetry_median
+81 cleaned scans,OmniAnt_25PCs_joint_limited.pkl,81,1.314,80,27.139,0.4255
+81 cleaned scans,"same model, skinning weights divided by their row sums",81,0.9792,5,2.335,0.0343
+64 AntScan workers,OmniAnt_25PCs_joint_limited.pkl,64,1.0528,42,7.8636,0.3265
+64 AntScan workers,"same model, skinning weights divided by their row sums",64,0.9657,18,4.4657,0.0921
