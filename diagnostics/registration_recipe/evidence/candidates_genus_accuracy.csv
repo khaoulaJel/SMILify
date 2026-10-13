@@ -1,0 +1,5 @@
+configuration,n_workers,n_genera,genus_accuracy_pct,times_permutation_null,only_this_configuration_correct,only_default_correct,p_mcnemar_exact
+default (refit in the comparison batch),616,82,10.88,5.03,,,
+"1 point-to-surface, data weight x2, plausibility terms",616,82,10.55,4.87,23,25,0.885
+2 plausibility terms alone,616,82,12.82,6.01,32,20,0.126
+earlier recipe (fitter_3d.optimise),616,82,8.28,3.94,36,52,0.109

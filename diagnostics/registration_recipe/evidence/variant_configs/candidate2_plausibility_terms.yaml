@@ -1,0 +1,46 @@
+# Candidate 2 (plausibility terms): diagnostics/moonshot/cfg/D1_PROD.yaml with w_limit 0.273, w_trans 0.02 and w_beta_prior 2e-6 in Stage_2 and Stage_3.
+stages:
+  Stage_2_deform_coarse:
+    scheme: all
+    nits: 1000
+    lr: 0.002
+    n_sample: 6000
+    edge_mode: shrink
+    lr_decay: false
+    loss_weights:
+      w_chamfer: 1.0
+      w_edge: 0.8
+      w_normal: 0.005
+      w_laplacian: 0.01
+      w_offset: 5.0
+      w_sym: 0.5
+      w_beta_prior: 2.0e-06
+      w_midline: 2.0
+      w_limit: 0.273
+      w_scale: 0.052
+      w_trans: 0.02
+    custom_lrs:
+      joint_rot: 0.002
+  Stage_3_deform_fine:
+    scheme: all
+    nits: 1000
+    lr: 0.0005
+    n_sample: 6000
+    edge_mode: shrink
+    lr_decay: false
+    loss_weights:
+      w_chamfer: 0.5
+      w_edge: 0.2
+      w_normal: 0.002
+      w_laplacian: 0.001
+      w_offset: 2.0
+      w_sym: 0.5
+      w_beta_prior: 2.0e-06
+      w_midline: 2.0
+      w_limit: 0.273
+      w_scale: 0.052
+      w_trans: 0.02
+    custom_lrs:
+      joint_rot: 0.002
+args:
+  results_dir: unused
