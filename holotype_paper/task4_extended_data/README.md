@@ -113,7 +113,7 @@ Evidence: `evidence/penetration_bars_per_seed.csv`, `../task3_registration_recip
 | The model can hold the expert skeleton | joints supervised: 6.2% WL with shape inside the prior (Mahalanobis² 0.36); chamfer +6% over the unsupervised fit it starts from (27.0% WL) and +11% over a control continued for the same iterations (30.0% WL) | 11 scans, seed 0 |
 | A closer surface does not place the skeleton | chamfer ×0.45 with joint error +5.0% WL (8 of 11 worse); surface distance −26% with joint error −0.3% WL | 11 scans; 64 workers |
 | Supervision does not transfer between regions | region error with all other regions supervised against unsupervised: antennae 51.9 / 54.5, distal leg 48.9 / 53.1, mandibles 36.0 / 38.9 (p ≥ 0.24); supervised directly: 28.9, 19.7, 32.8 | 11 scans, seed 0 |
-| Dense correspondence is the largest single lever | share of the gap to a fully informed fit closed by one restored quantity: dense correspondence 60–62%, part membership 35–38%, joint positions 30–31%, shape 5–17%, true pose 1.5–1.9% | synthetic, real-level articulation, 33 × 3 seeds |
+| Dense correspondence is the largest single lever | share of the gap to a fully informed fit closed by one restored quantity: dense correspondence 60–62%, part membership 35–38%, joint positions 30–31%, shape 5–17%, true pose 1.5–1.9%; true dense correspondence also brings gaster–leg crossings to the level of the true mesh without a penetration term (147 → 50; true mesh 86) | synthetic, real-level articulation, 33 × 3 seeds |
 | Correct correspondence removes most of the error; wrong-leg targets remove the benefit | joint error 2.43 → 0.89% of body length (48 of 48); with 20% wrong-leg targets 3.17 (26 better, 22 worse); with 40% 4.57 (7 / 41) | synthetic, 48 |
 | Learned correspondence fails under real articulation, not real shape | leg-identity accuracy: reference 0.908; real shapes 0.920; real poses 0.745; all real 0.568 | synthetic, 136 |
 | Real leg articulation exceeds the training range | median leg bend 18–38° on the expert scans against 8–19° in training | 11 scans |
@@ -123,7 +123,7 @@ they have fewer open edges (3.2% against 6.1%). Two scan-level posture measures 
 bend (Spearman −0.13, +0.19; n = 11), and 14 of 757 workers fall inside the cleaned range on all measures: mesh
 construction and posture are not separable in these data.
 
-Evidence: `evidence/supervised_fit_capacity.csv`, `evidence/supervision_transfer_by_region.csv`, `evidence/oracle_budget.csv`, `evidence/synthetic_correspondence_target_quality.csv`, `evidence/learned_correspondence_under_shift.csv`, `evidence/leg_articulation.csv`, `evidence/mesh_properties.csv`, `evidence/posture_measures.csv`.
+Evidence: `evidence/supervised_fit_capacity.csv`, `evidence/supervision_transfer_by_region.csv`, `evidence/oracle_budget.csv`, `evidence/synthetic_correspondence_target_quality.csv`, `evidence/learned_correspondence_under_shift.csv`, `evidence/leg_articulation.csv`, `evidence/mesh_properties.csv`, `evidence/posture_measures.csv`, `../task3_registration_recipe/evidence/penetration_cause_synthetic.csv`.
 
 ## 6. What the registrations carry
 
@@ -151,16 +151,16 @@ for the two mandible indices; *Myrmoteras* has three workers and is not in the s
 ## 8. Diagnosis (Discussion)
 
 The recipe that registers the cleaned scans yields lower-quality fits on the AntScan meshes. Gaster and leg surfaces
-intersect in 50% of 757 worker fits and in none of 81 cleaned scans. Against expert annotation of 11 specimens, median
-joint error is 12–13% of Weber's length for coxae and proximal leg joints and 43–56% for distal legs, antennae and
+intersect in 50% of 757 worker fits and in none of 81 cleaned scans. Against expert annotation (11 specimens), median
+joint error is 12–13% of Weber's length for coxae and proximal legs and 43–56% for distal legs, antennae and
 mandibles. Model capacity does not explain this: given expert joints, the model reproduces the annotated skeleton (6%
-error) with shape coefficients inside the prior. Nor does the weight of the data term: reducing the surface distance
-by a quarter left joint error unchanged, none of sixteen objective variants reduced it, nor did two established
-non-rigid registration methods. The missing quantity is anatomical correspondence. Supervising the joints of one body
-region did not reduce the error of another, and a correspondence network trained on synthetic poses lost accuracy
-under the leg articulation of real specimens but not under their shapes. On synthetic scans with realistic
-articulation, supplying true dense correspondence closed about 60% of the gap to a fully informed fit, the true pose
-less than 2%. Dense correspondence robust to real articulation is necessary and, by the same measurement, not
+error) with shape coefficients inside the prior. Nor does the data term: a quarter less surface distance left joint
+error unchanged, and neither sixteen objective variants nor two established non-rigid methods reduced it. The missing
+quantity is anatomical correspondence, which also accounts for the intersections: legs enter the gaster where the data
+term pairs them with gaster surface, and on synthetic scans the true correspondence removes the excess crossings that
+a penetration loss only displaces. A learned correspondence network fails under real leg articulation, not under real
+shapes. On synthetic scans, true dense correspondence closed about 60% of the gap to a fully informed fit; the true
+pose, under 2%. Dense correspondence robust to real articulation is necessary and, by the same measurement, not
 sufficient.
 
 ## Provenance
