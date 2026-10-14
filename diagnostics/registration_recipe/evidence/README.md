@@ -16,6 +16,7 @@ Tables behind `../README.md`. One row per variant; all fits use the code of this
 | `candidates_joint_error.csv` | Joint error of every candidate, same protocol as the variants. |
 | `candidates_genus_accuracy.csv` | Collection-lot-blind genus accuracy on 616 workers of 82 genera for the default, candidates 1 and 2 and the earlier recipe, with the exact McNemar test against the default. |
 | `skinning_weight_defect.csv` | Left against right mandible in fits with the model as it is and with normalised skinning weights. |
+| `penetration_cause_synthetic.csv` | Synthetic scans with known part identity (33 per set, seeds 0–2): gaster–legs crossings and contained leg vertices of fits with no, learned, true-part and true dense correspondence and of the ground-truth mesh; share of leg vertices paired with gaster surface. |
 | `variant_configs/` | The surface-stage configuration of each variant (a copy of `diagnostics/moonshot/cfg/D1_PROD.yaml` with the one change named in its first line). |
 
 ## Columns
